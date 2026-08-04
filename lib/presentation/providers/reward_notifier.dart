@@ -1,0 +1,149 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../core/utils/daily_selector.dart';
+import '../../domain/entities/game_session.dart';
+import '../../domain/entities/ticket_reward.dart';
+import '../../domain/repositories/game_repository.dart';
+import '../../domain/repositories/reward_repository.dart';
+import '../../domain/repositories/stage_repository.dart';
+import 'providers.dart';
+
+/// Rewards handed out since the last time the UI acknowledged them.
+class RewardFeed {
+  final List<TicketReward> pending;
+
+  const RewardFeed({this.pending = const []});
+
+  bool get hasPending => pending.isNotEmpty;
+  int get totalAmount => pending.fold(0, (sum, r) => sum + r.amount);
+}
+
+/// Evaluates the earning rules after a game and credits what is due.
+///
+/// Kept out of [PlayNotifier] on purpose: crediting needs the ticket balance and
+/// the stage progress, which the play notifier has no business knowing about.
+class RewardNotifier extends StateNotifier<RewardFeed> {
+  final RewardRepository _rewards;
+  final StageRepository _stages;
+  final GameRepository _games;
+  final Future<void> Function(int amount) _credit;
+
+  RewardNotifier({
+    required RewardRepository rewards,
+    required StageRepository stages,
+    required GameRepository games,
+    required Future<void> Function(int amount) credit,
+  })  : _rewards = rewards,
+        _stages = stages,
+        _games = games,
+        _credit = credit,
+        super(const RewardFeed());
+
+  /// Grants everything [finished] earned, skipping already-claimed rewards.
+  ///
+  /// Safe to call more than once for the same session: claims are keyed, so a
+  /// repeat evaluation credits nothing.
+  Future<void> evaluate(GameSession finished) async {
+    if (finished.status != GameStatus.won) return;
+
+    final stageNowComplete = await _isStageComplete(finished);
+    final stats = await _games.getStats(
+      mode: finished.mode,
+      streakFreezes: await _rewards.streakFreezes(),
+    );
+
+    final candidates = RewardRules.evaluate(
+      finished: finished,
+      stageNowComplete: stageNowComplete,
+      currentStreak: stats.currentStreak,
+    );
+
+    final granted = <TicketReward>[];
+    for (final reward in candidates) {
+      if (await _rewards.claim(reward)) {
+        await _credit(reward.amount);
+        granted.add(reward);
+      }
+    }
+
+    if (granted.isNotEmpty) {
+      state = RewardFeed(pending: [...state.pending, ...granted]);
+    }
+  }
+
+  Future<bool> _isStageComplete(GameSession finished) async {
+    if (!finished.isStage) return false;
+    final mode = finished.mode == GameMode.poster ? 'poster' : 'clue';
+    final stages = await _stages.getAllStages(mode: mode);
+    final stage = stages.where((s) => s.id == finished.stageId).firstOrNull;
+    return stage?.isCompleted ?? false;
+  }
+
+  /// Pays [cost] tickets to protect a missed day, keeping the streak alive.
+  ///
+  /// Returns false when the day cannot be frozen — already frozen, not actually
+  /// missed, or the player could not pay.
+  Future<bool> freezeMissedDay({
+    required String date,
+    required Future<bool> Function(int cost) charge,
+    int cost = streakFreezeCost,
+  }) async {
+    final existing = await _rewards.streakFreezes();
+    if (existing.contains(date)) return false;
+    if (!DailySelector.isDailyKey(date)) return false;
+
+    if (!await charge(cost)) return false;
+
+    final frozen = await _rewards.freezeStreakDay(date);
+    if (!frozen) return false;
+
+    return true;
+  }
+
+  /// Drops the pending list once the UI has shown it.
+  void acknowledge() => state = const RewardFeed();
+
+  /// Tickets asked for a streak freeze.
+  static const int streakFreezeCost = 3;
+}
+
+final rewardNotifierProvider =
+    StateNotifierProvider<RewardNotifier, RewardFeed>((ref) {
+  return RewardNotifier(
+    rewards: ref.read(rewardRepositoryProvider),
+    stages: ref.read(stageRepositoryProvider),
+    games: ref.read(gameRepositoryProvider),
+    credit: (amount) =>
+        ref.read(ticketNotifierProvider.notifier).addTickets(amount),
+  );
+});
+
+/// Days between the last finished daily game and today that were never played.
+///
+/// Drives the "recover your streak" offer: only the single most recent gap is
+/// offered, so the feature cannot be used to rebuild an ancient streak.
+final recoverableStreakDayProvider =
+    FutureProvider.autoDispose<String?>((ref) async {
+  final games = ref.read(gameRepositoryProvider);
+  final rewards = ref.read(rewardRepositoryProvider);
+
+  final sessions = await games.getFinishedDailySessions(mode: GameMode.clue);
+  if (sessions.isEmpty) return null;
+
+  final today = DailySelector.dateFromKey(DailySelector.todayKey())!;
+  final latest = DailySelector.dateFromKey(sessions.first.date);
+  if (latest == null) return null;
+
+  // Exactly one missing day between the last game and today.
+  final gap = today.difference(latest).inDays;
+  if (gap != 2) return null;
+
+  final missed = DailySelector.todayKey(latest.add(const Duration(days: 1)));
+  final frozen = await rewards.streakFreezes();
+  if (frozen.contains(missed)) return null;
+
+  // Only worth offering if the run it protects was actually a streak.
+  if (sessions.first.status != GameStatus.won) return null;
+
+  return missed;
+});

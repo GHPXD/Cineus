@@ -1,0 +1,171 @@
+import 'package:flutter/material.dart';
+import 'app_colors.dart';
+import 'app_fonts.dart';
+
+/// Cineus Typography System
+///
+/// Secondary and tertiary copy uses `AppColors.textSecondary`/`textTertiary`
+/// rather than the dim end of the obsidian ramp: those surface tones measured
+/// 1.3–2.1:1 against the app backgrounds, below the WCAG floor even for large
+/// text. See the notes in `AppColors`.
+/// Playfair Display → Titles, branding, poster
+/// Inter → UI, body, clue texts
+/// DM Mono → Scores, numbers, counters
+abstract final class AppTypography {
+  static TextStyle get displayLarge => const TextStyle(
+    fontFamily: AppFonts.playfair,
+    fontSize: 52,
+    fontWeight: FontWeight.w900,
+    color: AppColors.obsidian0,
+    height: 1.1,
+  );
+
+  static TextStyle get displayMedium => const TextStyle(
+    fontFamily: AppFonts.playfair,
+    fontSize: 38,
+    fontWeight: FontWeight.w800,
+    color: AppColors.obsidian0,
+    height: 1.15,
+  );
+
+  static TextStyle get displaySmall => const TextStyle(
+    fontFamily: AppFonts.playfair,
+    fontSize: 30,
+    fontWeight: FontWeight.w800,
+    color: AppColors.obsidian0,
+    height: 1.2,
+  );
+
+  static TextStyle get headlineLarge => const TextStyle(
+    fontFamily: AppFonts.playfair,
+    fontSize: 26,
+    fontWeight: FontWeight.w800,
+    color: AppColors.obsidian0,
+    height: 1.25,
+  );
+
+  static TextStyle get headlineMedium => const TextStyle(
+    fontFamily: AppFonts.playfair,
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    color: AppColors.obsidian0,
+    height: 1.3,
+  );
+
+  static TextStyle get titleLarge => const TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 20,
+    fontWeight: FontWeight.w800,
+    color: AppColors.obsidian0,
+    height: 1.3,
+  );
+
+  static TextStyle get titleMedium => const TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 17,
+    fontWeight: FontWeight.w700,
+    color: AppColors.obsidian0,
+    height: 1.4,
+  );
+
+  static TextStyle get titleSmall => const TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    color: AppColors.obsidian0,
+    height: 1.4,
+  );
+
+  static TextStyle get bodyLarge => const TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 17,
+    fontWeight: FontWeight.w400,
+    color: AppColors.obsidian100,
+    height: 1.6,
+  );
+
+  static TextStyle get bodyMedium => const TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: AppColors.obsidian100,
+    height: 1.6,
+  );
+
+  static TextStyle get bodySmall => const TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: AppColors.obsidian300,
+    height: 1.6,
+  );
+
+  static TextStyle get labelLarge => const TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: AppColors.obsidian0,
+    height: 1.4,
+    letterSpacing: 0.5,
+  );
+
+  static TextStyle get labelSmall => const TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 11,
+    fontWeight: FontWeight.w800,
+    color: AppColors.obsidian300,
+    height: 1.3,
+    letterSpacing: 1.5,
+  );
+
+  static TextStyle get overline => const TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 10,
+    fontWeight: FontWeight.w800,
+    color: AppColors.obsidian400,
+    height: 1.2,
+    letterSpacing: 2,
+  );
+
+  // ── Mono (Scores / Numbers / Countdown) ──
+  static TextStyle get scoreLarge => const TextStyle(
+    fontFamily: AppFonts.mono,
+    fontSize: 64,
+    fontWeight: FontWeight.w500,
+    color: AppColors.gold200,
+    height: 1,
+    letterSpacing: -3,
+  );
+
+  static TextStyle get scoreMedium => const TextStyle(
+    fontFamily: AppFonts.mono,
+    fontSize: 48,
+    fontWeight: FontWeight.w500,
+    color: AppColors.gold200,
+    height: 1,
+    letterSpacing: -2,
+  );
+
+  static TextStyle get scoreSmall => const TextStyle(
+    fontFamily: AppFonts.mono,
+    fontSize: 30,
+    fontWeight: FontWeight.w500,
+    color: AppColors.obsidian0,
+    height: 1,
+    letterSpacing: -1,
+  );
+
+  static TextStyle get mono => const TextStyle(
+    fontFamily: AppFonts.mono,
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: AppColors.obsidian300,
+  );
+
+  static TextStyle get monoSmall => const TextStyle(
+    fontFamily: AppFonts.mono,
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+    color: AppColors.obsidian400,
+  );
+}

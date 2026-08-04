@@ -1,0 +1,18 @@
+# Modelo das credenciais de assinatura do release.
+#
+# Copie para `android/key.properties` e preencha com os SEUS valores.
+# Esse arquivo (o .example) pode ser versionado; o key.properties real NAO —
+# ele esta no .gitignore junto com *.jks e *.keystore.
+#
+# Para gerar a chave de upload, rode voce mesmo (escolha e guarde as senhas
+# num gerenciador de senhas; se perder a chave, nao ha como atualizar o app
+# publicado na Play Store):
+#
+#   keytool -genkey -v -keystore %USERPROFILE%\cineus-upload.jks \
+#     -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+#
+# Caminho absoluto para o .jks. Mantenha o arquivo FORA do repositorio.
+storeFile=C:/Users/SEU_USUARIO/cineus-upload.jks
+storePassword=
+keyAlias=upload
+keyPassword=

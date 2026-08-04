@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cineus — UI/UX Prototype · Classic Cinema × Modern Tech</title>
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+
+    /* =====================================================
+       LAYOUT DO PROTÓTIPO
+       ===================================================== */
+    .prototype-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 56px 24px 100px;
+      gap: 64px;
+    }
+
+    .prototype-header { text-align: center; }
+
+    .prototype-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .proto-logo-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(145deg, #1A1A2E, #16213e);
+      border: 1.5px solid rgba(232,180,41,0.4);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+      box-shadow: 0 0 24px rgba(232,180,41,0.25);
+    }
+
+    .prototype-header h1 {
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 800;
+      font-style: italic;
+      background: linear-gradient(135deg, #B87C00, #E8B429 40%, #F5D06B 70%, #E8B429);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -1px;
+    }
+
+    .prototype-header p {
+      color: var(--obsidian-400);
+      font-size: 14px;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .screens-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 52px 32px;
+    }
+
+    .screen-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .screen-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--obsidian-400);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: var(--font-body);
+    }
+
+    .screen-sublabel {
+      font-size: 11px;
+      color: var(--obsidian-600);
+      text-align: center;
+      margin-top: -8px;
+      font-family: var(--font-mono);
+    }
+
+    /* Quick Nav Tabs */
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .nav-tab {
+      padding: 7px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius-full);
+      color: var(--obsidian-400);
+      font-size: 12px;
+      font-weight: 500;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 200ms;
+      text-decoration: none;
+    }
+
+    .nav-tab:hover {
+      background: rgba(232,180,41,0.1);
+      color: var(--gold-200);
+      border-color: rgba(232,180,41,0.3);
+    }
+
+    /* =====================================================
+       TELA 1 — SPLASH / BRANDING
+       ===================================================== */
+    #screen-splash .screen {
+      background: var(--gradient-hero);
+    }
+
+    .splash-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .splash-bg .radial-gold {
+      position: absolute;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, rgba(184,124,0,0.18), transparent 70%);
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .splash-bg .radial-blue {
+      position: absolute;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(0,80,204,0.14), transparent 70%);
+      bottom: 80px; right: -40px;
+    }
+
+    .splash-film-strips {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 1;
+    }
+
+    .splash-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 32px 40px;
+      gap: 0;
+    }
+
+    .cineus-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 40%, #0f2040 100%);
+      border: 2px solid rgba(232,180,41,0.5);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 46px;
+      box-shadow: var(--shadow-glow-gold), var(--shadow-xl);
+      margin-bottom: 28px;
+      animation: float 3.5s ease-in-out infinite;
+      position: relative;
+    }
+
+    .cineus-icon::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(232,180,41,0.3), transparent, rgba(90,148,255,0.15));
+      z-index: -1;
+    }
+
+    .splash-logo {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 900;
+      font-style: italic;
+      color: white;
+      letter-spacing: -1px;
+      text-align: center;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+
+    .splash-logo span {
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .splash-tagline {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--obsidian-300);
+      text-align: center;
+      line-height: 1.6;
+      max-width: 260px;
+      margin-bottom: 8px;
+    }
+
+    .splash-challenge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--obsidian-300);
+      margin-bottom: 40px;
+    }
+
+    .splash-challenge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold-300);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .splash-cta {
+      width: 100%;
+      max-width: 310px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .splash-credits {
+      position: absolute;
+      bottom: 28px;
+      left: 0; right: 0;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--obsidian-600);
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+
+    /* =====================================================
+       TELA 2 — COMO JOGAR
+       ===================================================== */
+    #screen-howto .screen {
+      background: var(--obsidian-900);
+    }
+
+    .howto-header {
+      padding: 52px 20px 24px;
+      text-align: center;
+    }
+
+    .howto-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-300);
+      font-family: var(--font-body);
+      margin-bottom: 8px;
+    }
+
+    .howto-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--obsidian-0);
+      line-height: var(--line-height-snug);
+    }
+
+    .howto-body {
+      padding: 0 20px 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .rule-card {
+      padding: 18px 16px;
+      background: var(--gradient-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-xl);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .rule-icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .ri-gold   { background: rgba(232,180,41,0.12); }
+    .ri-blue   { background: rgba(90,148,255,0.12); }
+    .ri-ruby   { background: rgba(240,64,128,0.12); }
+    .ri-green  { background: rgba(0,212,142,0.12);  }
+
+    .rule-info h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--obsidian-0);
+      margin-bottom: 5px;
+    }
+
+    .rule-info p {
+      font-size: 13px;
+      color: var(--obsidian-300);
+      line-height: var(--line-height-relaxed);
+    }
+
+    .score-example {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .score-pip {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sp-10, .sp-9, .sp-8 { background: rgba(232,180,41,0.18); color: var(--gold-200); border-color: rgba(232,180,41,0.3); }
+    .sp-7, .sp-6, .sp-5  { background: rgba(90,148,255,0.18); color: var(--blue-200); border-color: rgba(90,148,255,0.3); }
+    .sp-4, .sp-3          { background: rgba(245,157,32,0.18); color: var(--amber-300); border-color: rgba(245,157,32,0.3); }
+    .sp-2, .sp-1          { background: rgba(240,64,128,0.18); color: var(--ruby-200); border-color: rgba(240,64,128,0.3); }
+
+    .howto-footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 12px 20px 28px;
+      background: linear-gradient(180deg, transparent 0%, var(--obsidian-900) 35%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* =====================================================
+       TELA 3 — JOGO: INÍCIO (1 dica, 10 pts)
+       ===================================================== */
+    #screen-game-start .screen {
+      background: var(--obsidian-950);
+    }
+
+    .score-section {
+      padding: 10px 20px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .score-badge-full {
+      flex: 1;
+      max-width: 100%;
+      text-align: center;
+      padding: 16px 20px 12px;
+      border-radius: var(--radius-xl);
+      position: relative;
+    }
+
+    .score-main-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .score-big {
+      font-family: var(--font-mono);
+      font-size: 64px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .score-unit {
+      text-align: left;
+    }
+
+    .score-unit .pts {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .score-unit .pts-hint {
+      font-family: var(--font-body);
+      font-size: 10px;
+      color: var(--obsidian-500);
+      margin-top: 2px;
+    }
+
+    /* Gold state */
+    .score-badge-full.gold {
+      background: var(--gradient-gold-dim);
+      border: 1.5px solid rgba(232,180,41,0.28);
+      box-shadow: var(--shadow-glow-gold);
+    }
+    .score-badge-full.gold .score-big { color: var(--gold-200); }
+    .score-badge-full.gold .pts       { color: var(--gold-300); }
+
+    /* Blue state */
+    .score-badge-full.blue {
+      background: var(--gradient-blue-dim);
+      border: 1.5px solid rgba(90,148,255,0.28);
+      box-shadow: var(--shadow-glow-blue);
+    }
+    .score-badge-full.blue .score-big { color: var(--blue-200); }
+    .score-badge-full.blue .pts       { color: var(--blue-300); }
+
+    /* Ruby state */
+    .score-badge-full.ruby {
+      background: var(--gradient-ruby-dim);
+      border: 1.5px solid rgba(240,64,128,0.38);
+      box-shadow: var(--shadow-glow-ruby);
+      animation: urgent-pulse 1.8s ease-in-out infinite;
+    }
+    .score-badge-full.ruby .score-big { color: var(--ruby-200); }
+    .score-badge-full.ruby .pts       { color: var(--ruby-300); }
+
+    .clues-section {
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .game-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 10px 16px 22px;
+      background: linear-gradient(180deg, transparent 0%, var(--obsidian-950) 28%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .urgency-banner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: rgba(240,64,128,0.08);
+      border: 1px solid rgba(240,64,128,0.25);
+      border-radius: var(--radius-lg);
+    }
+
+    .urgency-banner .ub-icon { font-size: 16px; }
+
+    .urgency-banner p {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ruby-300);
+      flex: 1;
+    }
+
+    /* =====================================================
+       TELA 6 — BUSCA / AUTOCOMPLETE
+       ===================================================== */
+    #screen-search .screen {
+      background: var(--obsidian-900);
+    }
+
+    .search-header {
+      padding: 52px 20px 16px;
+    }
+
+    .search-header h2 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--obsidian-0);
+      margin-bottom: 4px;
+    }
+
+    .search-header p {
+      font-size: 13px;
+      color: var(--obsidian-400);
+    }
+
+    .search-context {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 20px 12px;
+    }
+
+    .search-context .ctx-label {
+      font-size: 11px;
+      color: var(--obsidian-500);
+      font-family: var(--font-mono);
+    }
+
+    .guesses-list {
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .guess-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+    }
+
+    .guess-item .gi-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--obsidian-500);
+      min-width: 16px;
+    }
+
+    .guess-item .gi-title {
+      font-size: 13px;
+      color: var(--obsidian-300);
+      flex: 1;
+    }
+
+    .guess-item .gi-icon {
+      font-size: 14px;
+      opacity: 0.5;
+    }
+
+    /* Keyboard hint */
+    .keyboard-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 0 24px;
+    }
+
+    .kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      padding: 0 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--obsidian-200);
+    }
+
+    .kbd-hint {
+      font-size: 11px;
+      color: var(--obsidian-500);
+    }
+
+    /* =====================================================
+       TELA 7 — VITÓRIA
+       ===================================================== */
+    #screen-victory .screen {
+      background: var(--obsidian-950);
+    }
+
+    .victory-hero {
+      padding: 52px 20px 20px;
+      text-align: center;
+      background: var(--gradient-victory);
+      position: relative;
+    }
+
+    .victory-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      background: rgba(0,212,142,0.12);
+      border: 1px solid rgba(0,212,142,0.3);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--success-300);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .victory-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--obsidian-0);
+      line-height: var(--line-height-tight);
+      margin-bottom: 8px;
+    }
+
+    .victory-score-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .victory-pts {
+      font-family: var(--font-mono);
+      font-size: 48px;
+      font-weight: 500;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .victory-pts-label {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold-300);
+      text-align: left;
+      line-height: 1.2;
+    }
+
+    .victory-subtitle {
+      font-size: 13px;
+      color: var(--obsidian-400);
+    }
+
+    .victory-poster-section {
+      padding: 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .victory-share-section {
+      padding: 16px 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .share-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--obsidian-400);
+      font-family: var(--font-body);
+      text-align: center;
+    }
+
+    .share-text-preview {
+      background: var(--gradient-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 12px 14px;
+      width: 100%;
+    }
+
+    .share-text-preview p {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--obsidian-300);
+      line-height: 1.8;
+    }
+
+    .next-challenge {
+      padding: 16px 20px 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .next-label {
+      font-size: 11px;
+      color: var(--obsidian-500);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* =====================================================
+       TELA 8 — DERROTA
+       ===================================================== */
+    #screen-defeat .screen {
+      background: var(--obsidian-950);
+    }
+
+    .defeat-hero {
+      padding: 52px 20px 16px;
+      text-align: center;
+      background: var(--gradient-defeat);
+    }
+
+    .defeat-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      background: rgba(240,64,128,0.1);
+      border: 1px solid rgba(240,64,128,0.25);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ruby-300);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .defeat-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--obsidian-300);
+      margin-bottom: 4px;
+    }
+
+    .defeat-movie-name {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--obsidian-50);
+      margin-bottom: 4px;
+    }
+
+    .defeat-year {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--gold-300);
+      letter-spacing: 1px;
+    }
+
+    .defeat-poster-section {
+      padding: 0 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .defeat-stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 12px 20px;
+    }
+
+    .defeat-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .defeat-stat .ds-val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      color: var(--obsidian-200);
+      font-weight: 500;
+    }
+
+    .defeat-stat .ds-lbl {
+      font-size: 10px;
+      color: var(--obsidian-500);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* =====================================================
+       TELA 9 — ESTATÍSTICAS
+       ===================================================== */
+    #screen-stats .screen {
+      background: var(--obsidian-950);
+    }
+
+    .stats-header {
+      padding: 52px 20px 20px;
+    }
+
+    .stats-profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .stats-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-700), var(--gold-700));
+      border: 2px solid rgba(232,180,41,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .stats-user h2 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--obsidian-0);
+      font-family: var(--font-display);
+    }
+
+    .stats-user p {
+      font-size: 12px;
+      color: var(--obsidian-400);
+      font-family: var(--font-mono);
+      margin-top: 3px;
+    }
+
+    .dist-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .recent-game {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--gradient-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+    }
+
+    .rg-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--obsidian-400);
+      min-width: 52px;
+    }
+
+    .rg-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--obsidian-100);
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .rg-score {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .rg-score.gold   { color: var(--gold-300); }
+    .rg-score.blue   { color: var(--blue-300); }
+    .rg-score.ruby   { color: var(--ruby-300); }
+    .rg-score.miss   { color: var(--obsidian-500); }
+
+    /* =====================================================
+       VIDEO COUNTDOWN BAR
+       ===================================================== */
+    .cooldown-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+    }
+
+    .cb-icon { font-size: 18px; }
+
+    .cb-info { flex: 1; }
+
+    .cb-info h4 {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--obsidian-300);
+      margin-bottom: 2px;
+    }
+
+    .cb-time {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--obsidian-50);
+      letter-spacing: 1px;
+    }
+
+    .cb-time .colon { animation: ticker 1s ease-in-out infinite; }
+
+  </style>
+</head>
+<body>
+
+<div class="prototype-wrapper">
+
+  <!-- ============================================
+       HEADER DO PROTÓTIPO
+       ============================================ -->
+  <div class="prototype-header">
+    <div class="prototype-logo">
+      <div class="proto-logo-icon">🎬</div>
+      <h1>Cineus</h1>
+    </div>
+    <p>UI/UX Prototype · Flutter/Dart · Design System v1.0 · Classic Cinema × Modern Tech</p>
+  </div>
+
+  <!-- Quick Nav -->
+  <div class="nav-tabs">
+    <a class="nav-tab" href="#screen-splash">Splash</a>
+    <a class="nav-tab" href="#screen-howto">Como Jogar</a>
+    <a class="nav-tab" href="#screen-game-start">Jogo — Início</a>
+    <a class="nav-tab" href="#screen-game-mid">Jogo — Meio</a>
+    <a class="nav-tab" href="#screen-game-tense">Jogo — Tensão</a>
+    <a class="nav-tab" href="#screen-search">Busca</a>
+    <a class="nav-tab" href="#screen-victory">Vitória</a>
+    <a class="nav-tab" href="#screen-defeat">Derrota</a>
+    <a class="nav-tab" href="#screen-stats">Estatísticas</a>
+  </div>
+
+  <div class="screens-grid">
+
+    <!-- ================================================
+         TELA 1 — SPLASH / BRANDING
+         ================================================ -->
+    <div class="screen-column" id="screen-splash">
+      <span class="screen-label">01 · Splash</span>
+      <span class="screen-sublabel">Branding</span>
+      <div class="device-frame film-grain">
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="indicators">
+              <svg viewBox="0 0 24 24"><path d="M1 6l23-3v18L1 18V6z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+              <svg viewBox="0 0 24 24" style="width:22px;height:11px;"><rect x="0" y="3" width="18" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><path d="M18 8h2a1 1 0 010 2h-2V8z" stroke="white" stroke-width="1.5"/><rect x="1.5" y="4.5" width="9" height="7" rx="1" fill="white"/></svg>
+            </div>
+          </div>
+
+          <!-- Background decoratives -->
+          <div class="splash-bg">
+            <div class="radial-gold"></div>
+            <div class="radial-blue"></div>
+          </div>
+
+          <!-- Film strip top -->
+          <div class="film-strip-bar" style="position:relative;z-index:2;">
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+          </div>
+
+          <div class="splash-content">
+            <div class="cineus-icon">🎬</div>
+
+            <div class="splash-logo">
+              Cine<span>us</span>
+            </div>
+
+            <p class="splash-tagline">
+              Adivinha o filme em até 10 dicas.<br>
+              Quanto menos usar, mais pontos.
+            </p>
+
+            <div class="splash-challenge">
+              <div class="dot"></div>
+              Challenge #148 · 1 de Abril
+            </div>
+
+            <div class="splash-cta">
+              <button class="btn-primary">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Jogar Hoje
+              </button>
+              <button class="btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Como Jogar
+              </button>
+            </div>
+          </div>
+
+          <!-- Film strip bottom -->
+          <div class="film-strip-bar" style="position:absolute;bottom:28px;left:0;right:0;z-index:2;">
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+            <div class="film-perf"></div><div class="film-perf"></div><div class="film-perf"></div>
+          </div>
+
+          <div class="splash-credits">CINEUS v1.0 · FLUTTER · DART · TMDB</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================
+         TELA 2 — COMO JOGAR
+         ================================================ -->
+    <div class="screen-column" id="screen-howto">
+      <span class="screen-label">02 · Como Jogar</span>
+      <span class="screen-sublabel">Onboarding / Regras</span>
+      <div class="device-frame">
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="indicators">
+              <svg viewBox="0 0 24 24" fill="white" style="width:14px;height:14px;"><path d="M1 6l23-3v18L1 18V6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="width:14px;height:14px;"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+            </div>
+          </div>
+
+          <div class="howto-header">
+            <p class="howto-eyebrow">Guia Rápido</p>
+            <h2 class="howto-title">Como funciona<br>o <em>Cineus</em></h2>
+          </div>
+
+          <div class="howto-body">
+
+            <!-- Regra 1 -->
+            <div class="rule-card">
+              <div class="rule-icon-wrap ri-gold">🎞️</div>
+              <div class="rule-info">
+                <h4>10 dicas progressivas</h4>
+                <p>Cada desafio tem 10 dicas, da mais abstrata e conceitual até a mais óbvia. Você escolhe quando revelar a próxima.</p>
+              </div>
+            </div>
+
+            <!-- Regra 2 -->
+            <div class="rule-card">
+              <div class="rule-icon-wrap ri-gold">🏆</div>
+              <div class="rule-info">
+                <h4>Menos dicas = mais pontos</h4>
+                <p>Cada dica revelada custa 1 ponto. Acerte na primeira e ganhe 10; na décima, apenas 1.</p>
+                <div class="score-example">
+                  <div class="score-pip sp-10">10</div>
+                  <div class="score-pip sp-9">9</div>
+                  <div class="score-pip sp-8">8</div>
+                  <div class="score-pip sp-7">7</div>
+                  <div class="score-pip sp-6">6</div>
+                  <div class="score-pip sp-5">5</div>
+                  <div class="score-pip sp-4">4</div>
+                  <div class="score-pip sp-3">3</div>
+                  <div class="score-pip sp-2">2</div>
+                  <div class="score-pip sp-1">1</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Regra 3 -->
+            <div class="rule-card">
+              <div class="rule-icon-wrap ri-blue">🌐</div>
+              <div class="rule-info">
+                <h4>Busca com autocomplete</h4>
+                <p>Digite o título do filme no campo de busca. Nossa base cobre mais de 50.000 filmes catalogados pelo TMDB.</p>
+              </div>
+            </div>
+
+            <!-- Regra 4 -->
+            <div class="rule-card">
+              <div class="rule-icon-wrap ri-green">📅</div>
+              <div class="rule-info">
+                <h4>Um desafio por dia</h4>
+                <p>Novo filme todo dia à meia-noite. Compartilhe seu resultado sem spoilers e compare com amigos.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="howto-footer">
+            <button class="btn-primary">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Entendi, vamos jogar!
+            </button>
+            <button class="btn-ghost" style="text-align:center;justify-content:center;">Ver histórico de partidas</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================
+         TELA 3 — JOGO: INÍCIO (1 dica revelada · 10pts)
+         ================================================ -->
+    <div class="screen-column" id="screen-game-start">
+      <span class="screen-label">03 · Jogo — Início</span>
+      <span class="screen-sublabel">Dica 01 revelada · 10 pts máx.</span>
+      <div class="device-frame">
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="indicators">
+              <svg viewBox="0 0 24 24" fill="white" style="width:14px;height:14px;"><path d="M1 6l23-3v18L1 18V6z"/></svg>
+            </div>
+          </div>
+
+          <!-- Game header -->
+          <div class="game-header">
+            <div>
+              <span class="game-title">Cineus</span>
+              <span class="game-day">#148</span>
+            </div>
+            <div class="header-actions">
+              <div class="icon-btn">
+                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div class="icon-btn">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Score section -->
+          <div class="score-section">
+            <div class="score-badge-full gold" style="width:100%;">
+              <div class="score-main-row">
+                <span class="score-big">10</span>
+                <div class="score-unit">
+                  <div class="pts">pontos</div>
+                  <div class="pts-hint">disponíveis</div>
+                </div>
+              </div>
+              <div style="font-size:11px;color:var(--gold-400);margin-top:4px;font-family:var(--font-body);">
+                Acerte agora e leve o máximo
+              </div>
+            </div>
+          </div>
+
+          <!-- Clues -->
+          <div class="clues-section">
+            <div class="section-header" style="margin-bottom:8px;">
+              <span class="section-title">Dicas</span>
+              <span style="font-size:11px;color:var(--obsidian-500);font-family:var(--font-mono);">1 / 10 revelada</span>
+            </div>
+
+            <!-- Clue 01 — revealed -->
+            <div class="clue-card revealed">
+              <div class="clue-header">
+                <div class="clue-number">01</div>
+                <span class="clue-category">Atmosfera</span>
+                <span style="font-size:16px;">✓</span>
+              </div>
+              <p class="clue-text">
+                "Uma narrativa de esperança inabalável dentro de uma realidade que deveria corroer toda fé no humano. O espírito resiste ao que parece impossível de suportar."
+              </p>
+            </div>
+
+            <!-- Clues 02–10 — locked -->
+            <div class="clue-card locked">
+              <div class="clue-header">
+                <div class="clue-number">02</div>
+                <span class="clue-category" style="color:var(--obsidian-500);">Estilo Visual</span>
+                <svg class="clue-lock-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              </div>
+              <p class="clue-text locked-text">• • • • • •</p>
+            </div>
+            <div class="clue-card locked">
+              <div class="clue-header">
+                <div class="clue-number">03</div>
+                <span class="clue-category" style="color:var(--obsidian-500);">Temática</span>
+                <svg class="clue-lock-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              </div>
+              <p class="clue-text locked-text">• • • • • •</p>
+            </div>
+
+            <!-- Remaining locked rows (compact) -->
+            <div class="clue-row"><span class="clue-row-num">04</span><span class="clue-row-category">Narrativa</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">05</span><span class="clue-row-category">País / Época</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">06</span><span class="clue-row-category">Trilha Sonora</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">07</span><span class="clue-row-category">Prêmios</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">08</span><span class="clue-row-category">Diretor</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">09</span><span class="clue-row-category">Elenco</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">10</span><span class="clue-row-category">Tagline Oficial</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          </div>
+
+          <!-- Bottom actions -->
+          <div class="game-bottom">
+            <button class="btn-answer">
+              🎬 Tentar Responder
+            </button>
+            <button class="btn-reveal">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              Revelar Dica 02 · −1 ponto
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================
+         TELA 4 — JOGO: MEIO (5 dicas · 6pts)
+         ================================================ -->
+    <div class="screen-column" id="screen-game-mid">
+      <span class="screen-label">04 · Jogo — Em andamento</span>
+      <span class="screen-sublabel">Dica 05 revelada · 6 pts máx.</span>
+      <div class="device-frame">
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="indicators">
+              <svg viewBox="0 0 24 24" fill="white" style="width:14px;height:14px;"><path d="M1 6l23-3v18L1 18V6z"/></svg>
+            </div>
+          </div>
+
+          <div class="game-header">
+            <div>
+              <span class="game-title">Cineus</span>
+              <span class="game-day">#148</span>
+            </div>
+            <div class="header-actions">
+              <div class="icon-btn">
+                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="score-section">
+            <div class="score-badge-full blue" style="width:100%;">
+              <div class="score-main-row">
+                <span class="score-big">6</span>
+                <div class="score-unit">
+                  <div class="pts">pontos</div>
+                  <div class="pts-hint">disponíveis</div>
+                </div>
+              </div>
+              <div style="font-size:11px;color:var(--blue-400);margin-top:4px;font-family:var(--font-body);">
+                5 dicas reveladas · ainda vale a pena
+              </div>
+            </div>
+          </div>
+
+          <div class="clues-section">
+            <div class="section-header" style="margin-bottom:8px;">
+              <span class="section-title">Dicas</span>
+              <span style="font-size:11px;color:var(--obsidian-500);font-family:var(--font-mono);">5 / 10 reveladas</span>
+            </div>
+
+            <!-- Revealed clues (compact rows) -->
+            <div class="clue-row revealed">
+              <span class="clue-row-num">01</span>
+              <span class="clue-row-category">Atmosfera</span>
+              <span class="clue-row-text">"...esperança inabalável dentro de uma realidade..."</span>
+            </div>
+            <div class="clue-row revealed">
+              <span class="clue-row-num">02</span>
+              <span class="clue-row-category">Estilo Visual</span>
+              <span class="clue-row-text">"...fotografia em tons sépia desgastados..."</span>
+            </div>
+            <div class="clue-row revealed">
+              <span class="clue-row-num">03</span>
+              <span class="clue-row-category">Temática</span>
+              <span class="clue-row-text">"...injustiça, amizade e resistência do espírito..."</span>
+            </div>
+            <div class="clue-row revealed">
+              <span class="clue-row-num">04</span>
+              <span class="clue-row-category">Narrativa</span>
+              <span class="clue-row-text">"...narrado por uma testemunha da transformação..."</span>
+            </div>
+
+            <!-- Clue 05 — most recently revealed (highlighted) -->
+            <div class="clue-card" style="background:var(--gradient-blue-dim);border:1.5px solid rgba(90,148,255,0.35);">
+              <div class="clue-header">
+                <div class="clue-number" style="background:rgba(90,148,255,0.18);border-color:rgba(90,148,255,0.35);color:var(--blue-300);">05</div>
+                <span class="clue-category" style="color:var(--blue-300);">País / Época</span>
+                <span class="badge badge-blue" style="font-size:9px;padding:2px 8px;">Novo</span>
+              </div>
+              <p class="clue-text">
+                "Estados Unidos, décadas de 1940 a 1960. Baseado em novela de um autor mais conhecido pelo terror e suspense."
+              </p>
+            </div>
+
+            <!-- Locked rows -->
+            <div class="clue-row"><span class="clue-row-num">06</span><span class="clue-row-category">Trilha Sonora</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">07</span><span class="clue-row-category">Prêmios</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">08</span><span class="clue-row-category">Diretor</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">09</span><span class="clue-row-category">Elenco</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <div class="clue-row"><span class="clue-row-num">10</span><span class="clue-row-category">Tagline Oficial</span><svg style="width:12px;height:12px;stroke:var(--obsidian-600);stroke-width:2;fill:none;margin-left:auto;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          </div>
+
+          <div class="game-bottom">
+            <button class="btn-answer">
+              🎬 Tentar Responder
+            </button>
+            <button class="btn-reveal">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              Revelar Dica 06 · −1 ponto
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================
+         TELA 5 — JOGO: TENSÃO (9 dicas · 2pts)
+         ================================================ -->
+    <div class="screen-column" id="screen-game-tense">
+      <span class="screen-label">05 · Jogo — Tensão Final</span>
+      <span class="screen-sublabel">Dica 09 revelada · 2 pts · urgência</span>
+      <div class="device-frame">
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="indicators">
+              <svg viewBox="0 0 24 24" fill="white" style="width:14px;height:14px;"><path d="M1 6l23-3v18L1 18V6z"/></svg>
+            </div>
+          </div>
+
+          <div class="game-header">
+            <div>
+              <span class="game-title">Cineus</span>
+              <span class="game-day">#148</span>
+            </div>
+            <div class="header-actions">
+              <div class="icon-btn">
+                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Score URGÊNCIA -->
+          <div class="score-section">
+            <div class="score-badge-full ruby" style="width:100%;">
+              <div class="score-main-row">
+                <span class="score-big">2</span>
+                <div class="score-unit">
+                  <div class="pts">pontos</div>
+                  <div class="pts-hint" style="color:var(--ruby-400);">⚠ última chance</div>
+                </div>
+              </div>
+              <div style="font-size:11px;color:var(--ruby-400);margin-top:4px;font-family:var(--font-body);">
+                Revelar dica 10 te deixa com apenas 1pt
+              </div>
+            </div>
+          </div>
+
+          <div class="clues-section">
+            <div class="section-header" style="margin-bottom:8px;">
+              <span class="section-title">Dicas</span>
+              <span style="font-size:11px;color:var(--obsidian-500);font-family:var(--font-mono);">9 / 10 reveladas</span>
+            </div>
+
+            <!-- All revealed as compact rows -->
+            <div class="clue-row revealed"><span class="clue-row-num">01</span><span class="clue-row-category">Atmosfera</span><span class="clue-row-text">"...esperança inabalável..."</span></div>
+            <div class="clue-row revealed"><span class="clue-row-num">02</span><span class="clue-row-category">Estilo Visual</span><span class="clue-row-text">"...fotografia sépia desgastada..."</span></div>
+            <div class="clue-row revealed"><span class="clue-row-num">03</span><span class="clue-row-category">Temática</span><span class="clue-row-text">"...injustiça e resistência..."</span></div>
+            <div class="clue-row revealed"><span class="clue-row-num">04</span><span class="clue-row-category">Narrativa</span><span class="clue-row-text">"...narrado pela testemunha..."</span></div>
+            <div class="clue-row revealed"><span class="clue-row-num">05</span><span class="clue-row-category">País / Época</span><span class="clue-row-text">"EUA, 1940–60, autor de terror..."</span></div>
+            <div class="clue-row revealed"><span class="clue-row-num">06</span><span class="clue-row-category">Trilha Sonora</span><span class="clue-row-text">"...ópera italiana nos alto-falantes..."</span></div>
+            <div class="clue-row revealed"><span class="clue-row-num">07</span><span class="clue-row-category">Prêmios</span><span class="clue-row-text">"7 indicações ao Oscar 1995..."</span></div>
+            <div class="clue-row revealed"><span class="clue-row-num">08</span><span class="clue-row-category">Diretor</span><span class="clue-row-text">"...estreia, depois dirigiu filme de boxe..."</span></div>
+
+            <!-- Clue 09 — latest revealed, urgent style -->
+            <div class="clue-card" style="background:var(--gradient-ruby-dim);border:1.5px solid rgba(240,64,128,0.35);">
+              <div class="clue-header">
+                <div class="clue-number" style="background:rgba(240,64,128,0.18);border-color:rgba(240,64,128,0.4);color:var(--ruby-300);">09</div>
+                <span class="clue-category" style="color:var(--ruby-300);">Elenco Principal</span>
+                <span class="badge badge-ruby" style="font-size:9px;padding:2px 8px;">Novo</span>
+              </div>
+              <p class="clue-text">
+                "Protagonistas interpretados por dois atores consagrados: um de 'Se7en' e 'Fight Club', outro de 'Forrest Gump' e 'Cast Away'."
+              </p>
+            </div>
+
+            <!-- Dica 10 — next/last -->
+            <div class="clue-card next">
+              <div class="clue-header">
+                <div class="clue-number" style="background:rgba(240,64,128,0.12);border-color:rgba(240,64,128,0.28);color:var(--ruby-400);">10</div>
+                <span class="clue-category" style="color:var(--ruby-400);">Tagline Oficial</span>
+                <svg class="clue-lock-icon" style="stroke:var(--ruby-600);" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              </div>
+              <p class="clue-text locked-text" style="color:var(--ruby-800);">• • • • • •</p>
+            </div>
+          </div>
+
+          <div class="game-bottom">
+            <button class="btn-answer" style="background:var(--gradient-gold);color:var(--obsidian-900);box-shadow:var(--shadow-glow-gold);">
+              🎬 Tentar Responder Agora
+            </button>
+            <button class="btn-reveal urgent">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              Revelar Última Dica · vale só 1pt
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================
+         TELA 6 — BUSCA / AUTOCOMPLETE
+         ================================================ -->
+    <div class="screen-column" id="screen-search">
+      <span class="screen-label">06 · Campo de Busca</span>
+      <span class="screen-sublabel">Autocomplete · TMDB</span>
+      <div class="device-frame">
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="indicators">
+              <svg viewBox="0 0 24 24" fill="white" style="width:14px;height:14px;"><path d="M1 6l23-3v18L1 18V6z"/></svg>
+            </div>
+          </div>
+
+          <div class="search-header">
+            <div class="page-header" style="padding:0 0 12px;">
+              <button class="back-btn">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <h2 style="font-family:var(--font-display);font-size:22px;font-weight:800;">Qual é o filme?</h2>
+            </div>
+            <p style="font-size:13px;color:var(--obsidian-400);padding:0 0 4px;">
+              Challenge #148 · você tem <strong style="color:var(--gold-300);">8 pontos</strong> disponíveis
+            </p>
+          </div>
+
+          <div style="padding:0 20px;">
+            <!-- Barra de busca -->
+            <div class="search-wrapper" style="position:relative;">
+              <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input class="input-field" type="text" placeholder="Nome do filme..." value="sonho" style="padding-left:44px;height:54px;font-size:16px;background:rgba(255,255,255,0.07);border-color:rgba(232,180,41,0.4);box-shadow:0 0 0 3px rgba(232,180,41,0.1);">
+            </div>
+
+            <!-- Autocomplete results -->
+            <div class="autocomplete-list" style="margin-top:10px;">
+              <div class="autocomplete-item" style="background:rgba(232,180,41,0.07);border-left:3px solid var(--gold-300);">
+                <div class="autocomplete-poster-thumb" style="background:linear-gradient(145deg,#1f2341,#111828);">🎬</div>
+                <div class="autocomplete-info">
+                  <div class="autocomplete-title">Um Sonho de Liberdade</div>
+                  <div class="autocomplete-meta">
+                    <span class="autocomplete-year">1994</span>
+                    <span style="width:2px;height:2px;border-radius:50%;background:var(--obsidian-500);display:inline-block;"></span>
+                    <span class="autocomplete-genre">Drama</span>
+                    <span class="badge badge-gold" style="font-size:9px;padding:1px 7px;">Popular</span>
+                  </div>
+                </div>
+                <svg style="width:16px;height:16px;stroke:var(--gold-300);stroke-width:2;fill:none;" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+              <div class="autocomplete-item">
+                <div class="autocomplete-poster-thumb">🌃</div>
+                <div class="autocomplete-info">
+                  <div class="autocomplete-title">Réquiem para um Sonho</div>
+                  <div class="autocomplete-meta">
+                    <span class="autocomplete-year">2000</span>
+                    <span style="width:2px;height:2px;border-radius:50%;background:var(--obsidian-500);display:inline-block;"></span>
+                    <span class="autocomplete-genre">Drama</span>
+                  </div>
+                </div>
+                <svg style="width:16px;height:16px;stroke:var(--obsidian-500);stroke-width:2;fill:none;" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+              <div class="autocomplete-item">
+                <div class="autocomplete-poster-thumb">🌙</div>
+                <div class="autocomplete-info">
+                  <div class="autocomplete-title">Sonhos de uma Noite de Verão</div>
+                  <div class="autocomplete-meta">
+                    <span class="autocomplete-year">1999</span>
+                    <span style="width:2px;height:2px;border-radius:50%;background:var(--obsidian-500);display:inline-block;"></span>
+                    <span class="autocomplete-genre">Comédia</span>
+                  </div>
+                </div>
+                <svg style="width:16px;height:16px;stroke:var(--obsidian-500);stroke-width:2;fill:none;" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+              <div class="autocomplete-item">
+                <div class="autocomplete-poster-thumb">🎸</div>
+                <div class="autocomplete-info">
+                  <div class="autocomplete-title">O Sonho de Cassandra</div>
+                  <div class="autocomplete-meta">
+                    <span class="autocomplete-year">2007</span>
+                    <span style="width:2px;height:2px;border-radius:50%;background:var(--obsidian-500);display:inline-block;"></span>
+                    <span class="autocomplete-genre">Thriller</span>
+                  </div>
+                </div>
+                <svg style="width:16px;height:16px;stroke:var(--obsidian-500);stroke-width:2;fill:none;" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+              <div class="autocomplete-item">
+                <div class="autocomplete-poster-thumb">🚀</div>
+                <div class="autocomplete-info">
+                  <div class="autocomplete-title">Sonho de Menino</div>
+                  <div class="autocomplete-meta">
+                    <span class="autocomplete-year">1995</span>
+                    <span style="width:2px;height:2px;border-radius:50%;background:var(--obsidian-500);display:inline-block;"></span>
+                    <span class="autocomplete-genre">Aventura</span>
+                  </div>
+                </div>
+                <svg style="width:16px;height:16px;stroke:var(--obsidian-500);stroke-width:2;fill:none;" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tentativas anteriores -->
+          <div style="padding:16px 20px 0;">
+            <div class="section-header" style="margin-bottom:8px;">
+              <span class="section-title">Tentativas</span>
+              <span style="font-size:11px;color:var(--obsidian-600);font-family:var(--font-mono);">2 / 5 máx.</span>
+            </div>
+            <div class="guesses-list">
+              <div class="guess-item">
+                <span class="gi-num">1.</span>
+                <span class="gi-title">O Iluminado (1980)</span>
+                <span class="gi-icon">❌</span>
+              </div>
+              <div class="guess-item">
+                <span class="gi-num">2.</span>
+                <span class="gi-title">À Espera de um Milagre (1999)</span>
+                <span class="gi-icon">❌</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="keyboard-hint">
+            <div class="kbd">↩</div>
+            <span class="kbd-hint">para confirmar</span>
+            <span style="margin:0 4px;color:var(--obsidian-600);">·</span>
+            <div class="kbd">Esc</div>
+            <span class="kbd-hint">cancelar</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================
+         TELA 7 — VITÓRIA
+         ================================================ -->
+    <div class="screen-column" id="screen-victory">
+      <span class="screen-label">07 · Vitória</span>
+      <span class="screen-sublabel">Acertou na dica 03 · 8 pontos</span>
+      <div class="device-frame">
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="indicators">
+              <svg viewBox="0 0 24 24" fill="white" style="width:14px;height:14px;"><path d="M1 6l23-3v18L1 18V6z"/></svg>
+            </div>
+          </div>
+
+          <div class="victory-hero">
+            <div class="victory-label">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Acertou!
+            </div>
+            <h1 class="victory-title">Muito bem,<br>cinéfilo!</h1>
+            <div class="victory-score-row">
+              <span class="victory-pts">8</span>
+              <div class="victory-pts-label">pontos<br>na dica 3</div>
+            </div>
+            <p class="victory-subtitle">Top 12% de hoje · 3 de 10 dicas</p>
+          </div>
+
+          <!-- Movie poster -->
+          <div class="victory-poster-section">
+            <div class="poster-card" style="height:300px;">
+              <div class="poster-bg"></div>
+              <div class="poster-decoration"></div>
+              <!-- Film strip bars over poster -->
+              <div class="film-strip-bar" style="position:absolute;top:0;left:0;right:0;z-index:3;opacity:0.7;">
+                <div class="film-perf" style="background:rgba(0,0,0,0.5);"></div><div class="film-perf" style="background:rgba(0,0,0,0.5);"></div>
+                <div class="film-perf" style="background:rgba(0,0,0,0.5);"></div><div class="film-perf" style="background:rgba(0,0,0,0.5);"></div>
+                <div class="film-perf" style="background:rgba(0,0,0,0.5);"></div><div class="film-perf" style="background:rgba(0,0,0,0.5);"></div>
+                <div class="film-perf" style="background:rgba(0,0,0,0.5);"></div><div class="film-perf" style="background:rgba(0,0,0,0.5);"></div>
+                <div class="film-perf" style="background:rgba(0,0,0,0.5);"></div><div class="film-perf" style="background:rgba(0,0,0,0.5);"></div>
+              </div>
+              <!-- Mock film frame content -->
+              <div style="position:absolute;top:32px;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;z-index:2;">
+                <span style="font-size:80px;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.8));">🏛️</span>
+              </div>
+              <div class="poster-overlay" style="z-index:4;">
+                <div class="poster-title" style="font-size:20px;">Um Sonho<br>de Liberdade</div>
+                <div class="poster-year">1994 · Drama</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Share section -->
+          <div class="victory-share-section">
+            <p class="share-title">Resultado para compartilhar</p>
+            <div class="share-text-preview" style="width:100%;">
+              <p>🎬 Cineus #148</p>
+              <p>Acertei na dica 3/10 · 8pts</p>
+              <p style="margin-top:4px;">
+                <span style="display:inline-block;width:24px;height:24px;background:var(--gold-300);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:24px;height:24px;background:var(--gold-300);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:24px;height:24px;background:var(--success-500);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:24px;height:24px;background:var(--obsidian-600);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:24px;height:24px;background:var(--obsidian-600);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:24px;height:24px;background:var(--obsidian-600);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:24px;height:24px;background:var(--obsidian-600);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:24px;height:24px;background:var(--obsidian-600);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:24px;height:24px;background:var(--obsidian-600);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:24px;height:24px;background:var(--obsidian-600);border-radius:4px;"></span>
+              </p>
+              <p style="margin-top:4px;color:var(--obsidian-500);">cineus.app</p>
+            </div>
+            <button class="btn-primary" style="width:100%;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              Compartilhar Resultado
+            </button>
+          </div>
+
+          <div class="next-challenge">
+            <p class="next-label">Próximo desafio em</p>
+            <div class="countdown-time">
+              14<span class="colon" style="animation:ticker 1s ease-in-out infinite;">:</span>22<span class="colon" style="animation:ticker 1s ease-in-out infinite;">:</span>08
+            </div>
+            <button class="btn-ghost">Ver dicas completas</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================
+         TELA 8 — DERROTA
+         ================================================ -->
+    <div class="screen-column" id="screen-defeat">
+      <span class="screen-label">08 · Derrota</span>
+      <span class="screen-sublabel">Não acertou · 0 pontos</span>
+      <div class="device-frame">
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="indicators">
+              <svg viewBox="0 0 24 24" fill="white" style="width:14px;height:14px;"><path d="M1 6l23-3v18L1 18V6z"/></svg>
+            </div>
+          </div>
+
+          <div class="defeat-hero">
+            <div class="defeat-label">
+              <span>🎭</span> Não foi dessa vez
+            </div>
+            <p class="defeat-title">O filme era...</p>
+            <h2 class="defeat-movie-name">Um Sonho<br>de Liberdade</h2>
+            <p class="defeat-year">Frank Darabont · 1994</p>
+          </div>
+
+          <!-- Poster -->
+          <div class="defeat-poster-section">
+            <div class="poster-card" style="height:260px;max-width:180px;">
+              <div class="poster-bg" style="background:linear-gradient(145deg,#1a1a2e,#0f2040,#1a1a2e);"></div>
+              <div class="poster-decoration"></div>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
+                <span style="font-size:68px;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.8));">🏛️</span>
+              </div>
+              <div class="poster-overlay" style="z-index:4;">
+                <div class="poster-title" style="font-size:16px;">Um Sonho<br>de Liberdade</div>
+                <div class="poster-year" style="font-size:11px;">1994 · Drama · 142min</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Derrota stats -->
+          <div class="defeat-stats-row">
+            <div class="defeat-stat">
+              <span class="ds-val" style="color:var(--ruby-300);">0</span>
+              <span class="ds-lbl">Pontos</span>
+            </div>
+            <div class="defeat-stat">
+              <span class="ds-val">10/10</span>
+              <span class="ds-lbl">Dicas</span>
+            </div>
+            <div class="defeat-stat">
+              <span class="ds-val" style="color:var(--ruby-400);">💀</span>
+              <span class="ds-lbl">Status</span>
+            </div>
+          </div>
+
+          <!-- Share -->
+          <div style="padding:0 20px;display:flex;flex-direction:column;gap:8px;">
+            <div class="share-text-preview">
+              <p style="font-family:var(--font-mono);font-size:11px;color:var(--obsidian-400);line-height:2;">
+                🎬 Cineus #148 · Derrota
+              </p>
+              <p style="margin-top:2px;">
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-800);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-800);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-800);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-800);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-800);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-800);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-800);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-800);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-800);border-radius:4px;margin-right:2px;"></span>
+                <span style="display:inline-block;width:22px;height:22px;background:var(--ruby-700);border-radius:4px;"></span>
+              </p>
+            </div>
+            <button class="btn-primary" style="gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              Compartilhar Derrota
+            </button>
+            <button class="btn-secondary" style="height:48px;font-size:13px;">Ver todas as dicas</button>
+          </div>
+
+          <div style="padding:14px 20px 100px;text-align:center;">
+            <p class="next-label">Tente novamente em</p>
+            <div class="countdown-time" style="font-size:22px;margin-top:4px;">14<span class="colon" style="animation:ticker 1s ease-in-out infinite;">:</span>22<span class="colon" style="animation:ticker 1s ease-in-out infinite;">:</span>08</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================
+         TELA 9 — ESTATÍSTICAS
+         ================================================ -->
+    <div class="screen-column" id="screen-stats">
+      <span class="screen-label">09 · Estatísticas</span>
+      <span class="screen-sublabel">Perfil · Histórico · Distribuição</span>
+      <div class="device-frame">
+        <div class="screen">
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="indicators">
+              <svg viewBox="0 0 24 24" fill="white" style="width:14px;height:14px;"><path d="M1 6l23-3v18L1 18V6z"/></svg>
+            </div>
+          </div>
+
+          <div class="content-area" style="padding-bottom:100px;">
+
+            <!-- Header -->
+            <div class="stats-header" style="padding:8px 0 0;">
+              <div class="stats-profile">
+                <div class="stats-avatar">CF</div>
+                <div class="stats-user">
+                  <h2>Cinéfilo Fiel</h2>
+                  <p>Membro desde Jan 2025 · #32.471</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Streak -->
+            <div class="streak-badge">
+              <span class="streak-icon">🔥</span>
+              <span class="streak-num">14</span>
+              <div class="streak-text">
+                <h4>Dias consecutivos</h4>
+                <p>Recorde pessoal: 32 dias</p>
+              </div>
+            </div>
+
+            <!-- Stats grid -->
+            <div class="stat-row">
+              <div class="stat-box">
+                <div class="stat-val" style="color:var(--success-400);">78%</div>
+                <div class="stat-lbl">Taxa de<br>acerto</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-val" style="color:var(--gold-300);">4,2</div>
+                <div class="stat-lbl">Dicas usadas<br>em média</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-val">148</div>
+                <div class="stat-lbl">Partidas<br>jogadas</div>
+              </div>
+            </div>
+
+            <!-- Score distribution -->
+            <div>
+              <div class="section-header" style="margin-bottom:12px;">
+                <span class="section-title">Distribuição de Pontuação</span>
+              </div>
+              <div class="dist-list">
+                <div class="dist-bar-row">
+                  <span class="dist-lbl">10</span>
+                  <div class="dist-track"><div class="dist-fill" style="width:8%"><span class="dist-count">9</span></div></div>
+                </div>
+                <div class="dist-bar-row">
+                  <span class="dist-lbl">9</span>
+                  <div class="dist-track"><div class="dist-fill" style="width:12%"><span class="dist-count">14</span></div></div>
+                </div>
+                <div class="dist-bar-row">
+                  <span class="dist-lbl">8</span>
+                  <div class="dist-track"><div class="dist-fill" style="width:22%"><span class="dist-count">26</span></div></div>
+                </div>
+                <div class="dist-bar-row">
+                  <span class="dist-lbl">7</span>
+                  <div class="dist-track"><div class="dist-fill blue" style="width:18%"><span class="dist-count">21</span></div></div>
+                </div>
+                <div class="dist-bar-row">
+                  <span class="dist-lbl">6</span>
+                  <div class="dist-track"><div class="dist-fill blue" style="width:14%"><span class="dist-count">17</span></div></div>
+                </div>
+                <div class="dist-bar-row">
+                  <span class="dist-lbl">5</span>
+                  <div class="dist-track"><div class="dist-fill blue" style="width:10%"><span class="dist-count">12</span></div></div>
+                </div>
+                <div class="dist-bar-row">
+                  <span class="dist-lbl">4</span>
+                  <div class="dist-track"><div class="dist-fill" style="width:6%;background:var(--gradient-amber-dim);background:linear-gradient(90deg,#F59D20,#FBBA47);"><span class="dist-count">7</span></div></div>
+                </div>
+                <div class="dist-bar-row">
+                  <span class="dist-lbl">3</span>
+                  <div class="dist-track"><div class="dist-fill" style="width:4%;background:linear-gradient(90deg,#F59D20,#FBBA47);"><span class="dist-count">5</span></div></div>
+                </div>
+                <div class="dist-bar-row">
+                  <span class="dist-lbl">1–2</span>
+                  <div class="dist-track"><div class="dist-fill ruby" style="width:3%;min-width:28px;"><span class="dist-count">4</span></div></div>
+                </div>
+                <div class="dist-bar-row">
+                  <span class="dist-lbl" style="color:var(--ruby-600);">✗</span>
+                  <div class="dist-track"><div class="dist-fill empty" style="width:3%;min-width:28px;"><span class="dist-count" style="color:var(--obsidian-400);">3</span></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent games -->
+            <div>
+              <div class="section-header" style="margin-bottom:10px;">
+                <span class="section-title">Partidas Recentes</span>
+                <button class="btn-ghost" style="font-size:11px;padding:4px 10px;color:var(--gold-300);">Ver tudo</button>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div class="recent-game">
+                  <span class="rg-date">31 mar</span>
+                  <span class="rg-title">Clube da Luta</span>
+                  <span class="rg-score gold">9 pts</span>
+                </div>
+                <div class="recent-game">
+                  <span class="rg-date">30 mar</span>
+                  <span class="rg-title">Interestelar</span>
+                  <span class="rg-score blue">7 pts</span>
+                </div>
+                <div class="recent-game">
+                  <span class="rg-date">29 mar</span>
+                  <span class="rg-title">Pulp Fiction</span>
+                  <span class="rg-score gold">10 pts</span>
+                </div>
+                <div class="recent-game">
+                  <span class="rg-date">28 mar</span>
+                  <span class="rg-title">O Poderoso Chefão II</span>
+                  <span class="rg-score blue">6 pts</span>
+                </div>
+                <div class="recent-game">
+                  <span class="rg-date">27 mar</span>
+                  <span class="rg-title">Metropolis (1927)</span>
+                  <span class="rg-score miss">0 pts</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next challenge -->
+            <div class="cooldown-bar">
+              <span class="cb-icon">⏱</span>
+              <div class="cb-info">
+                <h4>Próximo desafio</h4>
+                <div class="cb-time">14<span class="colon">:</span>22<span class="colon">:</span>08</div>
+              </div>
+              <span class="badge badge-gold">Hoje</span>
+            </div>
+
+          </div>
+
+          <!-- Bottom nav -->
+          <div class="bottom-nav">
+            <div class="nav-item">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>Início</span>
+            </div>
+            <div class="nav-item">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Jogar</span>
+            </div>
+            <div class="nav-item active">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>Stats</span>
+            </div>
+            <div class="nav-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+              <span>Perfil</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /screens-grid -->
+
+  <!-- Rodapé do protótipo -->
+  <div style="text-align:center;color:var(--obsidian-600);font-size:12px;line-height:2.2;max-width:640px;">
+    <div style="margin-bottom:10px;color:var(--obsidian-400);font-weight:700;font-family:var(--font-display);font-style:italic;font-size:16px;">
+      Cineus — Design System v1.0
+    </div>
+    <div style="font-family:var(--font-mono);font-size:11px;color:var(--obsidian-500);">
+      Obsidian #0A0A12 &nbsp;·&nbsp; Deep Gold #E8B429 &nbsp;·&nbsp; Electric Blue #5A94FF &nbsp;·&nbsp; Ruby #F04080<br>
+      Playfair Display (Display) &nbsp;·&nbsp; Inter (UI/Body) &nbsp;·&nbsp; DM Mono (Scores/Numbers)<br>
+      Flutter · Dart · Firebase · TMDB API · Google Fonts
+    </div>
+  </div>
+
+</div><!-- /prototype-wrapper -->
+
+</body>
+</html>
