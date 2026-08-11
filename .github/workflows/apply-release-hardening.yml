@@ -60,11 +60,10 @@ jobs:
 
           normalizer = Path('test/string_normalizer_test.dart')
           text = normalizer.read_text(encoding='utf-8')
-          old = "expect(StringNormalizer.normalize('Spider-Man: No Way Home!'), 'spiderman no way home');"
-          new = "expect(StringNormalizer.normalize('Spider-Man: No Way Home!'), 'spider man no way home');"
-          if old not in text:
-              raise SystemExit('normalizer expectation not found')
-          normalizer.write_text(text.replace(old, new), encoding='utf-8')
+          old = "'spiderman no way home'"
+          if text.count(old) != 1:
+              raise SystemExit(f'normalizer expectation count was {text.count(old)}')
+          normalizer.write_text(text.replace(old, "'spider man no way home'"), encoding='utf-8')
 
           upgrade = Path('test/content_upgrade_test.dart')
           text = upgrade.read_text(encoding='utf-8')
@@ -73,8 +72,8 @@ jobs:
             inMemoryDatabasePath,
             options: OpenDatabaseOptions(singleInstance: false),
           );"""
-          if old not in text:
-              raise SystemExit('content upgrade source database setup not found')
+          if text.count(old) != 1:
+              raise SystemExit(f'content upgrade source setup count was {text.count(old)}')
           upgrade.write_text(text.replace(old, new), encoding='utf-8')
           PY
 
