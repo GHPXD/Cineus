@@ -68,25 +68,27 @@ jobs:
           upgrade = Path('test/content_upgrade_test.dart')
           text = upgrade.read_text(encoding='utf-8')
           old = 'final source = await factory.openDatabase(inMemoryDatabasePath);'
-          target_clues = """await db.execute('''
-        CREATE TABLE IF NOT EXISTS clues (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          movie_id INTEGER NOT NULL,
-          clue_number INTEGER NOT NULL,
-          category TEXT NOT NULL,
-          text TEXT NOT NULL
-        )
-      ''');
-
-      """
+          target_clues = (
+              "await db.execute('''\n"
+              "        CREATE TABLE IF NOT EXISTS clues (\n"
+              "          id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+              "          movie_id INTEGER NOT NULL,\n"
+              "          clue_number INTEGER NOT NULL,\n"
+              "          category TEXT NOT NULL,\n"
+              "          text TEXT NOT NULL\n"
+              "        )\n"
+              "      ''');\n\n"
+              "      "
+          )
           if text.count(old) != 1:
               raise SystemExit(f'content upgrade source setup count was {text.count(old)}')
           text = text.replace(old, target_clues + old)
-          old = 'final source = await factory.openDatabase(inMemoryDatabasePath);'
-          new = """final source = await factory.openDatabase(
-            inMemoryDatabasePath,
-            options: OpenDatabaseOptions(singleInstance: false),
-          );"""
+          new = (
+              "final source = await factory.openDatabase(\n"
+              "            inMemoryDatabasePath,\n"
+              "            options: OpenDatabaseOptions(singleInstance: false),\n"
+              "          );"
+          )
           upgrade.write_text(text.replace(old, new), encoding='utf-8')
           PY
 
