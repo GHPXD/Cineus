@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/constants/app_constants.dart';
@@ -165,7 +166,7 @@ class GenericStageDetailScreen extends ConsumerWidget {
                   child: ListView.separated(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
                     itemCount: orderedIds.length,
-                    separatorBuilder: (_, __) => const SizedBox(height: 10),
+                    separatorBuilder: (_, _) => const SizedBox(height: 10),
                     itemBuilder: (context, i) {
                       final movieId = orderedIds[i];
                       return _FilmRow(
@@ -261,7 +262,7 @@ class _FilmRow extends ConsumerWidget {
 
     return slotAsync.when(
       loading: () => _skeletonRow(),
-      error: (_, __) => const SizedBox.shrink(),
+      error: (_, _) => const SizedBox.shrink(),
       data: (slot) => _buildRow(context, ref, slot),
     );
   }
@@ -304,7 +305,7 @@ class _FilmRow extends ConsumerWidget {
                 width: 40,
                 height: 56,
                 fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Container(
+                errorBuilder: (_, _, _) => Container(
                   width: 40,
                   height: 56,
                   color: AppColors.obsidian700,

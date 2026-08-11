@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 
 import '../../domain/repositories/app_meta_repository.dart';
 import '../../l10n/app_l10n.dart';

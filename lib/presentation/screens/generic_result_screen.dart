@@ -156,7 +156,9 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
 
     var shared = false;
     try {
-      final result = await Share.share(text, subject: 'Cineus');
+      final result = await SharePlus.instance.share(
+        ShareParams(text: text, subject: 'Cineus'),
+      );
       shared = result.status == ShareResultStatus.success;
     } catch (_) {
       shared = false;
@@ -196,7 +198,9 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     );
 
     try {
-      await Share.share(text, subject: 'Cineus');
+      await SharePlus.instance.share(
+        ShareParams(text: text, subject: 'Cineus'),
+      );
     } catch (_) {
       await Clipboard.setData(ClipboardData(text: text));
       if (!mounted) return;
@@ -438,7 +442,7 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     final nextMovieId = _nextMovieInStage(state);
     final posterAsync = ref.watch(dailySessionProvider(GameMode.poster));
     final showPosterButton =
-        !state.isStage && posterAsync.valueOrNull?.isFinished != true;
+        !state.isStage && posterAsync.value?.isFinished != true;
     final hasTickets = ref.watch(ticketNotifierProvider).hasTickets;
 
     return Column(

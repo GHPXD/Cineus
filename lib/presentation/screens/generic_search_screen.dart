@@ -186,7 +186,7 @@ class _GenericSearchScreenState extends ConsumerState<GenericSearchScreen> {
         padding: EdgeInsets.zero,
         shrinkWrap: true,
         itemCount: results.length,
-        separatorBuilder: (_, __) =>
+        separatorBuilder: (_, _) =>
             Divider(height: 1, color: Colors.white.withValues(alpha: 0.05)),
         itemBuilder: (context, index) {
           final movie = results[index];

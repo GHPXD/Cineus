@@ -228,7 +228,7 @@ class _SplashGate extends ConsumerWidget {
       onComplete: () {
         // Resolved by the time the splash finishes; if the read is somehow still
         // pending, fall through to home rather than block on it.
-        final seen = ref.read(onboardingSeenProvider).valueOrNull ?? true;
+        final seen = ref.read(onboardingSeenProvider).value ?? true;
         context.go(seen ? '/home' : '/how-to-play?first=1');
       },
     );

@@ -310,7 +310,7 @@ class _PosterAreaState extends State<_PosterArea>
             child: Image.asset(
               posterAsset,
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => ColoredBox(
+              errorBuilder: (_, _, _) => ColoredBox(
                 color: AppColors.obsidian700,
                 child: const Icon(
                   Icons.movie_outlined,

@@ -21,7 +21,7 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
 
   @override
   Widget build(BuildContext context) {
-    final recoverable = ref.watch(recoverableStreakDayProvider).valueOrNull;
+    final recoverable = ref.watch(recoverableStreakDayProvider).value;
     if (recoverable == null) return const SizedBox.shrink();
 
     final l10n = context.l10n;

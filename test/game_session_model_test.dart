@@ -5,17 +5,18 @@ import 'package:cineus/domain/entities/game_session.dart';
 
 void main() {
   test('GameSessionModel preserves a session through the persistence map', () {
-    final session = GameSession.daily(
-      mode: GameMode.clue,
-      date: '2025-06-15',
-      movieId: 42,
-    ).copyWith(
-      revealedClues: 3,
-      guesses: ['Wrong 1', 'Wrong 2'],
-      status: GameStatus.won,
-      score: 8,
-      extraHints: ['year'],
-    );
+    final session =
+        GameSession.daily(
+          mode: GameMode.clue,
+          date: '2025-06-15',
+          movieId: 42,
+        ).copyWith(
+          revealedClues: 3,
+          guesses: ['Wrong 1', 'Wrong 2'],
+          status: GameStatus.won,
+          score: 8,
+          extraHints: ['year'],
+        );
 
     final map = GameSessionModel.toMap(session);
     final restored = GameSessionModel.fromMap({...map, 'id': 1});

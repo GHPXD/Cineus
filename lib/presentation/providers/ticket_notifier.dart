@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 
 import '../../core/utils/daily_selector.dart';
 import '../../data/datasources/database_provider.dart';

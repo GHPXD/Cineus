@@ -109,10 +109,10 @@ class GameSession {
   int get wrongGuessCount => guesses.length;
 
   Set<ExtraHint> get purchasedHints => {
-        for (final name in extraHints)
-          if (ExtraHint.values.any((hint) => hint.name == name))
-            ExtraHint.values.firstWhere((hint) => hint.name == name),
-      };
+    for (final name in extraHints)
+      if (ExtraHint.values.any((hint) => hint.name == name))
+        ExtraHint.values.firstWhere((hint) => hint.name == name),
+  };
 
   bool hasHint(ExtraHint hint) => extraHints.contains(hint.name);
 

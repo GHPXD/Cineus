@@ -218,7 +218,7 @@ class _RuleCard extends StatelessWidget {
                   description,
                   style: AppTypography.bodySmall.copyWith(height: 1.7),
                 ),
-                if (child != null) child!,
+                ?child,
               ],
             ),
           ),

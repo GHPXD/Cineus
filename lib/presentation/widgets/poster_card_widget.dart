@@ -40,7 +40,7 @@ class PosterCard extends StatelessWidget {
           Image.asset(
             'assets/posters/${movie.id}.webp',
             fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) => Stack(
+            errorBuilder: (_, _, _) => Stack(
               fit: StackFit.expand,
               children: [
                 _gradientFallback(),

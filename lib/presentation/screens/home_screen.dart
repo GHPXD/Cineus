@@ -76,14 +76,14 @@ class HomeScreen extends ConsumerWidget {
 
     // ── Clue game state (read from DB, independent of current game mode) ─────
     final clueAsync = ref.watch(dailySessionProvider(GameMode.clue));
-    final clueSession = clueAsync.valueOrNull;
+    final clueSession = clueAsync.value;
     final isClueInProgress = clueSession != null && !clueSession.isFinished;
     final isCluesDone = clueSession != null && clueSession.isFinished;
     final cluesWon = isCluesDone && clueSession.status == GameStatus.won;
 
     // ── Poster game state ────────────────────────────────────────────────────
     final posterAsync = ref.watch(dailySessionProvider(GameMode.poster));
-    final posterSession = posterAsync.valueOrNull;
+    final posterSession = posterAsync.value;
     final isPosterDone = posterSession != null && posterSession.isFinished;
     final posterWon = isPosterDone && posterSession.status == GameStatus.won;
 

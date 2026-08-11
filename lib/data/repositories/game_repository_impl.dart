@@ -71,14 +71,14 @@ class GameRepositoryImpl implements GameRepository {
     final existing = switch (session.kind) {
       SessionKind.daily => await getDailySession(session.mode, session.date),
       SessionKind.stage => await getStageSession(
-          session.mode,
-          session.stageId,
-          session.movieId,
-        ),
+        session.mode,
+        session.stageId,
+        session.movieId,
+      ),
       SessionKind.challenge => await getChallengeSession(
-          session.mode,
-          session.movieId,
-        ),
+        session.mode,
+        session.movieId,
+      ),
     };
 
     if (existing != null) {
