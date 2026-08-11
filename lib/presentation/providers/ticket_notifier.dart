@@ -24,8 +24,7 @@ class TicketNotifier extends StateNotifier<PlayerTickets> {
 
   Future<void> _load() async {
     final db = await _db.database;
-    final rows =
-        await db.query('player_tickets', where: 'id = 1');
+    final rows = await db.query('player_tickets', where: 'id = 1');
 
     final today = DailySelector.todayKey();
 
@@ -65,33 +64,53 @@ class TicketNotifier extends StateNotifier<PlayerTickets> {
     }
   }
 
-  /// Consumes [count] tickets. Returns false — changing nothing — when the
-  /// player cannot afford it.
+  /// Debits [count] tickets and returns an exact receipt for rollback.
   ///
-  /// Spends the daily allowance first so earned tickets are the ones that carry
-  /// over to tomorrow.
-  Future<bool> consumeTicket({int count = 1}) async {
-    if (count <= 0) return true;
+  /// Daily tickets are spent first so earned tickets remain the balance that
+  /// carries across days. Returning the split matters: a failed operation must
+  /// restore the same buckets instead of turning a daily ticket into an extra.
+  Future<TicketDebit?> debitTickets({int count = 1}) async {
+    if (count <= 0) {
+      return const TicketDebit(dailyTickets: 0, extraTickets: 0);
+    }
     await _ready;
-    if (state.total < count) return false;
+    if (state.total < count) return null;
 
     final fromDaily = count <= state.dailyTickets ? count : state.dailyTickets;
     final fromExtra = count - fromDaily;
+    final debit = TicketDebit(
+      dailyTickets: fromDaily,
+      extraTickets: fromExtra,
+    );
 
     final updated = state.copyWith(
-      dailyTickets: state.dailyTickets - fromDaily,
-      extraTickets: state.extraTickets - fromExtra,
+      dailyTickets: state.dailyTickets - debit.dailyTickets,
+      extraTickets: state.extraTickets - debit.extraTickets,
     );
 
     await _persist(updated);
     state = updated;
-    return true;
+    return debit;
+  }
+
+  /// Compatibility helper for callers that only need success/failure.
+  Future<bool> consumeTicket({int count = 1}) async =>
+      await debitTickets(count: count) != null;
+
+  /// Reverses a previous [debit], restoring the exact balances it consumed.
+  Future<void> refundDebit(TicketDebit debit) async {
+    if (debit.total <= 0) return;
+    await _ready;
+
+    final updated = state.copyWith(
+      dailyTickets: state.dailyTickets + debit.dailyTickets,
+      extraTickets: state.extraTickets + debit.extraTickets,
+    );
+    await _persist(updated);
+    state = updated;
   }
 
   /// Credits earned tickets, which persist across days.
-  ///
-  /// The counterpart to [consumeTicket] that never existed: `extraTickets` was
-  /// only ever spent, so the economy had no earning path at all.
   Future<void> addTickets(int amount) async {
     if (amount <= 0) return;
     await _ready;
@@ -103,7 +122,6 @@ class TicketNotifier extends StateNotifier<PlayerTickets> {
 
   Future<void> _persist(PlayerTickets t) async {
     final db = await _db.database;
-    // INSERT OR REPLACE ensures the row exists even if _load() hasn't completed yet.
     await db.rawInsert(
       'INSERT OR REPLACE INTO player_tickets '
       '(id, daily_tickets, extra_tickets, last_reset_date) VALUES (1, ?, ?, ?)',
