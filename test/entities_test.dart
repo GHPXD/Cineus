@@ -30,12 +30,8 @@ void main() {
         movieId: 1,
       );
       expect(playing.isFinished, false);
-
-      final won = playing.copyWith(status: GameStatus.won);
-      expect(won.isFinished, true);
-
-      final lost = playing.copyWith(status: GameStatus.lost);
-      expect(lost.isFinished, true);
+      expect(playing.copyWith(status: GameStatus.won).isFinished, true);
+      expect(playing.copyWith(status: GameStatus.lost).isFinished, true);
     });
 
     test('canRevealMore is false at 10 clues', () {
@@ -45,31 +41,6 @@ void main() {
         movieId: 1,
       ).copyWith(revealedClues: 10);
       expect(session.canRevealMore, false);
-    });
-
-    test('toMap/fromMap round-trip', () {
-      final session =
-          GameSession.daily(
-            mode: GameMode.clue,
-            date: '2025-06-15',
-            movieId: 42,
-          ).copyWith(
-            revealedClues: 3,
-            guesses: ['Wrong 1', 'Wrong 2'],
-            status: GameStatus.won,
-            score: 8,
-          );
-      final map = session.toMap();
-      final restored = GameSession.fromMap({...map, 'id': 1});
-
-      expect(restored.mode, session.mode);
-      expect(restored.kind, session.kind);
-      expect(restored.date, session.date);
-      expect(restored.movieId, session.movieId);
-      expect(restored.revealedClues, session.revealedClues);
-      expect(restored.guesses, session.guesses);
-      expect(restored.status, session.status);
-      expect(restored.score, session.score);
     });
 
     test('wrongGuessCount matches guesses length', () {

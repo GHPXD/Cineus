@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'extra_hint.dart';
 import 'scoring_rules.dart';
 
@@ -18,26 +16,19 @@ enum GameMode {
 /// film a friend sent over (D10).
 enum SessionKind { daily, stage, challenge }
 
-/// A single play-through, identified by explicit columns.
+/// A single play-through, identified by explicit domain values.
 ///
-/// Identity used to be encoded into the `date` string — `2026-08-04`,
-/// `visual_2026-08-04`, `stage_1_5`, `visual_stage_1_5` — parsed by string
-/// prefix wherever it mattered. That is what let poster rows leak into the clue
-/// statistics (`date NOT LIKE 'stage_%'` matched neither `visual_` form) and
-/// what made `ORDER BY date DESC` sort `"visual_…"` above real dates. Mode,
-/// kind, date and stage now live in their own columns.
+/// Persistence belongs to the data layer. This entity deliberately knows
+/// nothing about SQLite column names, JSON encoding, or migration details.
 class GameSession {
   final int? id;
   final GameMode mode;
   final SessionKind kind;
 
-  /// `YYYY-MM-DD` for daily sessions; empty for stage sessions.
-  ///
-  /// Empty rather than null so the partial unique indexes work — SQLite treats
-  /// NULLs as distinct, which would let duplicates through.
+  /// `YYYY-MM-DD` for daily sessions; empty for stage/challenge sessions.
   final String date;
 
-  /// Stage number for stage sessions; 0 for daily sessions.
+  /// Stage number for stage sessions; 0 otherwise.
   final int stageId;
 
   final int movieId;
@@ -66,7 +57,6 @@ class GameSession {
     this.extraHints = const [],
   });
 
-  /// A fresh daily session for [date].
   factory GameSession.daily({
     required GameMode mode,
     required String date,
@@ -80,10 +70,6 @@ class GameSession {
     );
   }
 
-  /// A fresh one-off session for a film received as a challenge.
-  ///
-  /// Identified by mode + film: a friend can send the same film twice and it is
-  /// the same challenge, but the clue and poster versions are separate games.
   factory GameSession.challenge({
     required GameMode mode,
     required int movieId,
@@ -95,7 +81,6 @@ class GameSession {
     );
   }
 
-  /// A fresh stage session for one film inside [stageId].
   factory GameSession.stage({
     required GameMode mode,
     required int stageId,
@@ -115,25 +100,19 @@ class GameSession {
   bool get isStage => kind == SessionKind.stage;
   bool get isChallenge => kind == SessionKind.challenge;
 
-  /// Score the player would take by guessing right now.
   int get potentialScore =>
       status == GameStatus.playing ? rules.scoreAt(revealedClues) : score;
 
   bool get isFinished => status != GameStatus.playing;
-
   bool get canRevealMore => rules.canRevealMore(revealedClues);
-
-  /// True when a wrong guess now ends the game.
   bool get isOnLastStep => rules.isLastStep(revealedClues);
-
   int get wrongGuessCount => guesses.length;
 
-  /// Hints already paid for, ignoring any name no longer in the enum.
   Set<ExtraHint> get purchasedHints => {
-    for (final name in extraHints)
-      if (ExtraHint.values.any((h) => h.name == name))
-        ExtraHint.values.firstWhere((h) => h.name == name),
-  };
+        for (final name in extraHints)
+          if (ExtraHint.values.any((hint) => hint.name == name))
+            ExtraHint.values.firstWhere((hint) => hint.name == name),
+      };
 
   bool hasHint(ExtraHint hint) => extraHints.contains(hint.name);
 
@@ -164,35 +143,4 @@ class GameSession {
       extraHints: extraHints ?? this.extraHints,
     );
   }
-
-  Map<String, dynamic> toMap() => {
-    if (id != null) 'id': id,
-    'mode': mode.name,
-    'kind': kind.name,
-    'date': date,
-    'stage_id': stageId,
-    'movie_id': movieId,
-    'revealed_clues': revealedClues,
-    'guesses': jsonEncode(guesses),
-    'status': status.name,
-    'score': score,
-    'extra_hints': jsonEncode(extraHints),
-  };
-
-  factory GameSession.fromMap(Map<String, dynamic> map) => GameSession(
-    id: map['id'] as int?,
-    mode: GameMode.values.byName(map['mode'] as String),
-    kind: SessionKind.values.byName(map['kind'] as String),
-    date: map['date'] as String? ?? '',
-    stageId: map['stage_id'] as int? ?? 0,
-    movieId: map['movie_id'] as int,
-    revealedClues: map['revealed_clues'] as int,
-    guesses: (jsonDecode(map['guesses'] as String) as List).cast<String>(),
-    status: GameStatus.values.byName(map['status'] as String),
-    score: map['score'] as int,
-    // Column added later; installs that predate it read as null.
-    extraHints: map['extra_hints'] == null
-        ? const []
-        : (jsonDecode(map['extra_hints'] as String) as List).cast<String>(),
-  );
 }

@@ -2,6 +2,7 @@ import '../../core/utils/daily_selector.dart';
 import '../../domain/entities/game_session.dart';
 import '../../domain/repositories/game_repository.dart';
 import '../datasources/database_provider.dart';
+import '../models/game_session_model.dart';
 
 class GameRepositoryImpl implements GameRepository {
   final DatabaseProvider _db;
@@ -18,7 +19,7 @@ class GameRepositoryImpl implements GameRepository {
       limit: 1,
     );
     if (maps.isEmpty) return null;
-    return GameSession.fromMap(maps.first);
+    return GameSessionModel.fromMap(maps.first);
   }
 
   @override
@@ -35,7 +36,7 @@ class GameRepositoryImpl implements GameRepository {
       limit: 1,
     );
     if (maps.isEmpty) return null;
-    return GameSession.fromMap(maps.first);
+    return GameSessionModel.fromMap(maps.first);
   }
 
   @override
@@ -48,7 +49,7 @@ class GameRepositoryImpl implements GameRepository {
       limit: 1,
     );
     if (maps.isEmpty) return null;
-    return GameSession.fromMap(maps.first);
+    return GameSessionModel.fromMap(maps.first);
   }
 
   @override
@@ -58,7 +59,7 @@ class GameRepositoryImpl implements GameRepository {
     if (session.id != null) {
       await db.update(
         'game_sessions',
-        session.toMap(),
+        GameSessionModel.toMap(session),
         where: 'id = ?',
         whereArgs: [session.id],
       );
@@ -70,28 +71,31 @@ class GameRepositoryImpl implements GameRepository {
     final existing = switch (session.kind) {
       SessionKind.daily => await getDailySession(session.mode, session.date),
       SessionKind.stage => await getStageSession(
-        session.mode,
-        session.stageId,
-        session.movieId,
-      ),
+          session.mode,
+          session.stageId,
+          session.movieId,
+        ),
       SessionKind.challenge => await getChallengeSession(
-        session.mode,
-        session.movieId,
-      ),
+          session.mode,
+          session.movieId,
+        ),
     };
 
     if (existing != null) {
       final updated = session.copyWith(id: existing.id);
       await db.update(
         'game_sessions',
-        updated.toMap(),
+        GameSessionModel.toMap(updated),
         where: 'id = ?',
         whereArgs: [existing.id],
       );
       return updated;
     }
 
-    final id = await db.insert('game_sessions', session.toMap());
+    final id = await db.insert(
+      'game_sessions',
+      GameSessionModel.toMap(session),
+    );
     return session.copyWith(id: id);
   }
 
@@ -114,16 +118,13 @@ class GameRepositoryImpl implements GameRepository {
     GameMode mode = GameMode.clue,
   }) async {
     final db = await _db.database;
-    // With identity in real columns, this is a plain predicate — no key-prefix
-    // guessing, and `ORDER BY date DESC` is genuinely chronological because only
-    // ISO dates live in that column now.
     final maps = await db.query(
       'game_sessions',
       where: "kind = 'daily' AND mode = ? AND status != 'playing'",
       whereArgs: [mode.name],
       orderBy: 'date DESC',
     );
-    return maps.map(GameSession.fromMap).toList();
+    return maps.map(GameSessionModel.fromMap).toList();
   }
 
   @override
@@ -138,10 +139,6 @@ class GameRepositoryImpl implements GameRepository {
     );
   }
 
-  /// Pure aggregation over finished daily sessions, ordered most-recent-first.
-  ///
-  /// Public and clock-injected so the whole calculation is unit-testable without
-  /// a database.
   static GameStats computeStats(
     List<GameSession> descending, {
     required DateTime todayUtc,
@@ -173,15 +170,6 @@ class GameRepositoryImpl implements GameRepository {
     );
   }
 
-  /// Consecutive daily wins ending today (or yesterday, so the streak survives
-  /// until the player misses a full day).
-  ///
-  /// A streak must be consecutive in *calendar days*: winning Aug 1 and Aug 5
-  /// is two separate streaks of 1, not a streak of 2.
-  ///
-  /// Days in [freezes] are days the player paid tickets to protect. They bridge
-  /// a gap without counting as a win, so the streak survives a missed day
-  /// without the statistics claiming a game that was never played.
   static int _currentStreak(
     List<GameSession> descending,
     DateTime today,
@@ -192,9 +180,6 @@ class GameRepositoryImpl implements GameRepository {
     final latest = DailySelector.dateFromKey(descending.first.date);
     if (latest == null) return 0;
 
-    // Anything older than yesterday means the streak is broken — unless every
-    // day the player skipped was frozen. Today itself is not "missed": it can
-    // still be played.
     if (today.difference(latest).inDays > 1 &&
         !_allFrozen(
           latest.add(const Duration(days: 1)),
@@ -211,9 +196,6 @@ class GameRepositoryImpl implements GameRepository {
       final day = DailySelector.dateFromKey(s.date);
       if (day == null) break;
 
-      // Landing earlier than expected means the days in between were skipped;
-      // the streak only survives if each of them was frozen. `expected` is
-      // itself one of the missed days, hence the inclusive upper bound.
       if (expected != null &&
           day != expected &&
           !_allFrozen(day.add(const Duration(days: 1)), expected, freezes)) {
@@ -225,7 +207,6 @@ class GameRepositoryImpl implements GameRepository {
     return streak;
   }
 
-  /// Longest run of consecutive daily wins ever recorded.
   static int _maxStreak(List<GameSession> descending, Set<String> freezes) {
     var best = 0;
     var run = 0;
@@ -250,10 +231,6 @@ class GameRepositoryImpl implements GameRepository {
     return best;
   }
 
-  /// True when every day from [first] to [last] inclusive is frozen.
-  ///
-  /// An empty range (`first` after `last`) is vacuously true — there was nothing
-  /// to bridge.
   static bool _allFrozen(DateTime first, DateTime last, Set<String> freezes) {
     if (last.isBefore(first)) return true;
     if (freezes.isEmpty) return false;
