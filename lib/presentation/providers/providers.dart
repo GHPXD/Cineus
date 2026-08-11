@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
@@ -26,8 +28,25 @@ final databaseProvider = Provider<DatabaseProvider>((_) {
 });
 
 /// Repository providers
+final appMetaRepositoryProvider = Provider<AppMetaRepository>((ref) {
+  return AppMetaRepositoryImpl(ref.read(databaseProvider));
+});
+
+const _catalogLocales = {'pt', 'en', 'es'};
+
+Future<String> _catalogLocale(Ref ref) async {
+  final stored = await ref.read(appMetaRepositoryProvider).read('locale');
+  if (stored != null && _catalogLocales.contains(stored)) return stored;
+
+  final device = PlatformDispatcher.instance.locale.languageCode;
+  return _catalogLocales.contains(device) ? device : 'pt';
+}
+
 final movieRepositoryProvider = Provider<MovieRepository>((ref) {
-  return MovieRepositoryImpl(ref.read(databaseProvider));
+  return MovieRepositoryImpl(
+    ref.read(databaseProvider),
+    localeLoader: () => _catalogLocale(ref),
+  );
 });
 
 final gameRepositoryProvider = Provider<GameRepository>((ref) {
@@ -40,10 +59,6 @@ final stageRepositoryProvider = Provider<StageRepository>((ref) {
 
 final rewardRepositoryProvider = Provider<RewardRepository>((ref) {
   return RewardRepositoryImpl(ref.read(databaseProvider));
-});
-
-final appMetaRepositoryProvider = Provider<AppMetaRepository>((ref) {
-  return AppMetaRepositoryImpl(ref.read(databaseProvider));
 });
 
 /// Whether the how-to-play screen has already been shown (D3).

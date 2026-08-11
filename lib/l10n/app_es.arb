@@ -225,7 +225,7 @@
 
   "languageTitle": "Idioma",
   "languageSystem": "Predeterminado del sistema",
-  "contentLanguageNote": "Las pistas y los títulos provienen del catálogo en portugués.",
+  "contentLanguageNote": "Las películas y pistas usan las traducciones disponibles; el contenido no traducido aparece en portugués.",
 
   "tickets": "{current}/{max}"
 }

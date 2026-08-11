@@ -1326,7 +1326,7 @@ abstract class AppL10n {
   /// No description provided for @contentLanguageNote.
   ///
   /// In pt, this message translates to:
-  /// **'As dicas e os títulos dos filmes vêm do catálogo em português.'**
+  /// **'Filmes e dicas usam a tradução disponível; conteúdo ainda não traduzido aparece em português.'**
   String get contentLanguageNote;
 
   /// No description provided for @tickets.

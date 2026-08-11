@@ -42,6 +42,42 @@ class DatabaseSeeder {
     await db.execute(
       'CREATE INDEX IF NOT EXISTS idx_clues_movie ON clues(movie_id)',
     );
+    await ensureLocalizationTables(db);
+  }
+
+  /// Optional translated catalogue content. Portuguese stays in the base tables
+  /// and is therefore always the fallback when a translation is incomplete.
+  Future<void> ensureLocalizationTables(DatabaseExecutor db) async {
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS movie_localizations (
+        movie_id  INTEGER NOT NULL,
+        locale    TEXT    NOT NULL,
+        title     TEXT    NOT NULL,
+        genres    TEXT,
+        overview  TEXT,
+        tagline   TEXT,
+        PRIMARY KEY (movie_id, locale),
+        FOREIGN KEY (movie_id) REFERENCES movies(id) ON DELETE CASCADE
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS clue_localizations (
+        clue_id   INTEGER NOT NULL,
+        locale    TEXT    NOT NULL,
+        category  TEXT    NOT NULL,
+        text      TEXT    NOT NULL,
+        PRIMARY KEY (clue_id, locale),
+        FOREIGN KEY (clue_id) REFERENCES clues(id) ON DELETE CASCADE
+      )
+    ''');
+    await db.execute(
+      'CREATE INDEX IF NOT EXISTS idx_movie_localizations_locale '
+      'ON movie_localizations(locale, movie_id)',
+    );
+    await db.execute(
+      'CREATE INDEX IF NOT EXISTS idx_clue_localizations_locale '
+      'ON clue_localizations(locale, clue_id)',
+    );
   }
 
   /// Creates `game_sessions`, migrating the legacy single-key layout first.
@@ -279,6 +315,11 @@ class DatabaseSeeder {
 
     final movies = (data['movies'] as List).cast<Map<String, dynamic>>();
     final clues = (data['clues'] as List).cast<Map<String, dynamic>>();
+    final movieLocalizations =
+        (data['movie_localizations'] as List? ?? const [])
+            .cast<Map<String, dynamic>>();
+    final clueLocalizations = (data['clue_localizations'] as List? ?? const [])
+        .cast<Map<String, dynamic>>();
 
     const movieCols = {
       'id',
@@ -294,8 +335,18 @@ class DatabaseSeeder {
       'runtime',
     };
     const clueCols = {'id', 'movie_id', 'clue_number', 'category', 'text'};
+    const movieLocalizationCols = {
+      'movie_id',
+      'locale',
+      'title',
+      'genres',
+      'overview',
+      'tagline',
+    };
+    const clueLocalizationCols = {'clue_id', 'locale', 'category', 'text'};
 
     const chunkSize = 100;
+    await ensureLocalizationTables(db);
 
     // Movies before clues: `replace` deletes the conflicting movie row first,
     // which cascades to its clues when foreign keys are enforced. The clue pass
@@ -330,12 +381,55 @@ class DatabaseSeeder {
       }
       await batch.commit(noResult: true);
     }
+
+    for (var i = 0; i < movieLocalizations.length; i += chunkSize) {
+      final batch = db.batch();
+      for (final row in movieLocalizations.sublist(
+        i,
+        (i + chunkSize).clamp(0, movieLocalizations.length),
+      )) {
+        batch.insert('movie_localizations', {
+          for (final entry in row.entries)
+            if (movieLocalizationCols.contains(entry.key))
+              entry.key: entry.value,
+        }, conflictAlgorithm: conflict);
+      }
+      await batch.commit(noResult: true);
+    }
+
+    for (var i = 0; i < clueLocalizations.length; i += chunkSize) {
+      final batch = db.batch();
+      for (final row in clueLocalizations.sublist(
+        i,
+        (i + chunkSize).clamp(0, clueLocalizations.length),
+      )) {
+        batch.insert('clue_localizations', {
+          for (final entry in row.entries)
+            if (clueLocalizationCols.contains(entry.key))
+              entry.key: entry.value,
+        }, conflictAlgorithm: conflict);
+      }
+      await batch.commit(noResult: true);
+    }
   }
 
   /// Copies catalogue rows from another SQLite database into [db].
   ///
   /// Mobile uses the bundled `cineus_v1.db` as the source for content upgrades,
   /// so the 1.2 MB JSON seed can remain web-only instead of inflating the APK.
+
+  Future<List<Map<String, Object?>>> _optionalRows(
+    Database source,
+    String table,
+  ) async {
+    final exists = await source.rawQuery(
+      "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ? LIMIT 1",
+      [table],
+    );
+    if (exists.isEmpty) return const [];
+    return source.query(table);
+  }
+
   Future<void> seedFromDatabase(
     DatabaseExecutor db,
     Database source, {
@@ -343,6 +437,11 @@ class DatabaseSeeder {
   }) async {
     final movies = await source.query('movies');
     final clues = await source.query('clues');
+    final movieLocalizations = await _optionalRows(
+      source,
+      'movie_localizations',
+    );
+    final clueLocalizations = await _optionalRows(source, 'clue_localizations');
 
     const movieCols = {
       'id',
@@ -358,7 +457,18 @@ class DatabaseSeeder {
       'runtime',
     };
     const clueCols = {'id', 'movie_id', 'clue_number', 'category', 'text'};
+    const movieLocalizationCols = {
+      'movie_id',
+      'locale',
+      'title',
+      'genres',
+      'overview',
+      'tagline',
+    };
+    const clueLocalizationCols = {'clue_id', 'locale', 'category', 'text'};
     const chunkSize = 100;
+
+    await ensureLocalizationTables(db);
 
     for (var i = 0; i < movies.length; i += chunkSize) {
       final batch = db.batch();
@@ -383,6 +493,36 @@ class DatabaseSeeder {
         batch.insert('clues', {
           for (final e in c.entries)
             if (clueCols.contains(e.key)) e.key: e.value,
+        }, conflictAlgorithm: conflict);
+      }
+      await batch.commit(noResult: true);
+    }
+
+    for (var i = 0; i < movieLocalizations.length; i += chunkSize) {
+      final batch = db.batch();
+      for (final row in movieLocalizations.sublist(
+        i,
+        (i + chunkSize).clamp(0, movieLocalizations.length),
+      )) {
+        batch.insert('movie_localizations', {
+          for (final entry in row.entries)
+            if (movieLocalizationCols.contains(entry.key))
+              entry.key: entry.value,
+        }, conflictAlgorithm: conflict);
+      }
+      await batch.commit(noResult: true);
+    }
+
+    for (var i = 0; i < clueLocalizations.length; i += chunkSize) {
+      final batch = db.batch();
+      for (final row in clueLocalizations.sublist(
+        i,
+        (i + chunkSize).clamp(0, clueLocalizations.length),
+      )) {
+        batch.insert('clue_localizations', {
+          for (final entry in row.entries)
+            if (clueLocalizationCols.contains(entry.key))
+              entry.key: entry.value,
         }, conflictAlgorithm: conflict);
       }
       await batch.commit(noResult: true);

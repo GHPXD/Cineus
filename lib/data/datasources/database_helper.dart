@@ -80,6 +80,7 @@ class DatabaseHelper implements DatabaseProvider {
     await _seeder.ensureStagesAndTickets(db);
     await _seeder.ensureRewardTables(db);
     await _seeder.ensureExtraHintsColumn(db);
+    await _seeder.ensureLocalizationTables(db);
 
     if (isFirstLaunch) {
       // The asset DB we just copied *is* the current catalogue, so record that
@@ -137,6 +138,7 @@ class DatabaseHelper implements DatabaseProvider {
     await _seeder.ensureStagesAndTickets(db);
     await _seeder.ensureRewardTables(db);
     await _seeder.ensureExtraHintsColumn(db);
+    await _seeder.ensureLocalizationTables(db);
     await _seeder.ensureAppMetaTable(db);
   }
 }

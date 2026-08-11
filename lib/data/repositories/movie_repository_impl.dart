@@ -4,24 +4,42 @@ import '../../domain/repositories/movie_repository.dart';
 import '../datasources/database_provider.dart';
 import '../models/movie_model.dart';
 
+typedef CatalogLocaleLoader = Future<String> Function();
+
 class MovieRepositoryImpl implements MovieRepository {
   final DatabaseProvider _db;
+  final CatalogLocaleLoader _localeLoader;
 
-  MovieRepositoryImpl(this._db);
+  MovieRepositoryImpl(this._db, {CatalogLocaleLoader? localeLoader})
+    : _localeLoader = localeLoader ?? (() async => 'pt');
 
-  /// Normalized titles held in memory so each keystroke ranks without a query.
-  ///
-  /// No invalidation hook is needed: the catalogue only changes during
-  /// `DatabaseHelper` initialisation, which `main()` awaits before the first
-  /// widget builds, so this cache is always populated from post-upgrade data.
-  ///
-  /// Only ids and titles are kept (roughly 60 KB for 500 films); the full rows
-  /// are fetched for the handful of results actually shown.
-  List<SearchCandidate>? _searchIndex;
+  static const _supportedLocales = {'pt', 'en', 'es'};
+  final Map<String, List<SearchCandidate>> _searchIndexes = {};
+
+  Future<String> _locale() async {
+    final raw = (await _localeLoader()).trim().toLowerCase();
+    final language = raw.split(RegExp('[-_]')).first;
+    return _supportedLocales.contains(language) ? language : 'pt';
+  }
+
+  Map<String, dynamic> _overlayMovie(
+    Map<String, dynamic> base,
+    Map<String, dynamic>? localized,
+  ) {
+    if (localized == null) return base;
+    return {
+      ...base,
+      'title': localized['title'] ?? base['title'],
+      'genres': localized['genres'] ?? base['genres'],
+      'overview': localized['overview'] ?? base['overview'],
+      'tagline': localized['tagline'] ?? base['tagline'],
+    };
+  }
 
   @override
   Future<Movie?> getMovieById(int id) async {
     final db = await _db.database;
+    final locale = await _locale();
     final movieMaps = await db.query(
       'movies',
       where: 'id = ?',
@@ -36,8 +54,45 @@ class MovieRepositoryImpl implements MovieRepository {
       orderBy: 'clue_number ASC',
     );
 
-    final clues = clueMaps.map(ClueModel.fromMap).toList();
-    return MovieModel.fromMap(movieMaps.first, clues);
+    Map<String, dynamic>? movieLocalization;
+    final clueLocalizations = <int, Map<String, dynamic>>{};
+    if (locale != 'pt') {
+      final movieRows = await db.query(
+        'movie_localizations',
+        where: 'movie_id = ? AND locale = ?',
+        whereArgs: [id, locale],
+        limit: 1,
+      );
+      if (movieRows.isNotEmpty) movieLocalization = movieRows.first;
+
+      final clueIds = [for (final row in clueMaps) row['id'] as int];
+      if (clueIds.isNotEmpty) {
+        final placeholders = List.filled(clueIds.length, '?').join(',');
+        final rows = await db.query(
+          'clue_localizations',
+          where: 'locale = ? AND clue_id IN ($placeholders)',
+          whereArgs: [locale, ...clueIds],
+        );
+        for (final row in rows) {
+          clueLocalizations[row['clue_id'] as int] = row;
+        }
+      }
+    }
+
+    final clues = clueMaps.map((base) {
+      final localized = clueLocalizations[base['id'] as int];
+      if (localized == null) return ClueModel.fromMap(base);
+      return ClueModel.fromMap({
+        ...base,
+        'category': localized['category'] ?? base['category'],
+        'text': localized['text'] ?? base['text'],
+      });
+    }).toList();
+
+    return MovieModel.fromMap(
+      _overlayMovie(movieMaps.first, movieLocalization),
+      clues,
+    );
   }
 
   @override
@@ -47,36 +102,47 @@ class MovieRepositoryImpl implements MovieRepository {
     return result.first['count'] as int;
   }
 
-  Future<List<SearchCandidate>> _loadSearchIndex() async {
-    final cached = _searchIndex;
+  Future<List<SearchCandidate>> _loadSearchIndex(String locale) async {
+    final cached = _searchIndexes[locale];
     if (cached != null) return cached;
 
     final db = await _db.database;
-    final rows = await db.query(
-      'movies',
-      columns: ['id', 'title', 'original_title'],
-    );
+    final rows = locale == 'pt'
+        ? await db.query('movies', columns: ['id', 'title', 'original_title'])
+        : await db.rawQuery(
+            '''
+            SELECT m.id,
+                   COALESCE(ml.title, m.title) AS title,
+                   m.original_title
+              FROM movies m
+              LEFT JOIN movie_localizations ml
+                ON ml.movie_id = m.id AND ml.locale = ?
+          ''',
+            [locale],
+          );
 
     final index = rows
         .map(
-          (r) => SearchCandidate.fromTitles(
-            r['id'] as int,
-            r['title'] as String? ?? '',
-            r['original_title'] as String?,
+          (row) => SearchCandidate.fromTitles(
+            row['id'] as int,
+            row['title'] as String? ?? '',
+            row['original_title'] as String?,
           ),
         )
         .toList(growable: false);
 
-    _searchIndex = index;
+    _searchIndexes[locale] = index;
     return index;
   }
 
   @override
   Future<List<Movie>> searchMovies(String query, {int limit = 10}) async {
-    // Ranked in Dart rather than SQL: `LIKE` is accent-sensitive (172 of the
-    // 500 titles carry an accent) and cannot express relevance or tolerate a
-    // typo. See [MovieSearch].
-    final ids = MovieSearch.rank(query, await _loadSearchIndex(), limit: limit);
+    final locale = await _locale();
+    final ids = MovieSearch.rank(
+      query,
+      await _loadSearchIndex(locale),
+      limit: limit,
+    );
     return getMoviesByIds(ids);
   }
 
@@ -84,6 +150,7 @@ class MovieRepositoryImpl implements MovieRepository {
   Future<List<Movie>> getMoviesByIds(List<int> ids) async {
     if (ids.isEmpty) return const [];
     final db = await _db.database;
+    final locale = await _locale();
     final placeholders = List.filled(ids.length, '?').join(',');
     final maps = await db.query(
       'movies',
@@ -91,7 +158,24 @@ class MovieRepositoryImpl implements MovieRepository {
       whereArgs: ids,
     );
 
-    final byId = {for (final m in maps) m['id'] as int: MovieModel.fromMap(m)};
+    final localizations = <int, Map<String, dynamic>>{};
+    if (locale != 'pt') {
+      final rows = await db.query(
+        'movie_localizations',
+        where: 'locale = ? AND movie_id IN ($placeholders)',
+        whereArgs: [locale, ...ids],
+      );
+      for (final row in rows) {
+        localizations[row['movie_id'] as int] = row;
+      }
+    }
+
+    final byId = {
+      for (final map in maps)
+        map['id'] as int: MovieModel.fromMap(
+          _overlayMovie(map, localizations[map['id'] as int]),
+        ),
+    };
     return [
       for (final id in ids)
         if (byId[id] != null) byId[id]!,

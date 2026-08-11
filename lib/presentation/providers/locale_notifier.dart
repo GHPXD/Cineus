@@ -12,10 +12,9 @@ import 'providers.dart';
 /// will want. An explicit choice is persisted in `app_meta` so it survives
 /// restarts.
 ///
-/// Scope note: this localises the interface only. Clues, clue categories and
-/// film titles come from the bundled catalogue, which is Portuguese (plus the
-/// original — usually English — title). Translating 500 films and 5.000 clues is
-/// content work, not a code change.
+/// The catalogue follows the same locale when translated rows are available.
+/// Missing movie/clue translations fall back to the Portuguese base catalogue,
+/// so partial content packs are safe to ship.
 class LocaleNotifier extends StateNotifier<Locale?> {
   final AppMetaRepository _meta;
 

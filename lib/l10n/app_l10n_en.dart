@@ -745,7 +745,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get contentLanguageNote =>
-      'Clues and film titles come from the Portuguese catalogue.';
+      'Movies and clues use available translations; untranslated content falls back to Portuguese.';
 
   @override
   String tickets(int current, int max) {

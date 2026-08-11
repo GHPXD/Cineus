@@ -225,7 +225,7 @@
 
   "languageTitle": "Language",
   "languageSystem": "System default",
-  "contentLanguageNote": "Clues and film titles come from the Portuguese catalogue.",
+  "contentLanguageNote": "Movies and clues use available translations; untranslated content falls back to Portuguese.",
 
   "tickets": "{current}/{max}"
 }

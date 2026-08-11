@@ -303,7 +303,7 @@
 
   "languageTitle": "Idioma",
   "languageSystem": "Padrão do sistema",
-  "contentLanguageNote": "As dicas e os títulos dos filmes vêm do catálogo em português.",
+  "contentLanguageNote": "Filmes e dicas usam a tradução disponível; conteúdo ainda não traduzido aparece em português.",
 
   "tickets": "{current}/{max}",
   "@tickets": {
