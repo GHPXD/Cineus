@@ -20,17 +20,29 @@ class DatabaseHelper implements DatabaseProvider {
   Completer<Database>? _initCompleter;
 
   @override
-  Future<Database> get database async {
-    if (_initCompleter != null) return _initCompleter!.future;
-    _initCompleter = Completer<Database>();
+  Future<Database> get database {
+    final inFlight = _initCompleter;
+    if (inFlight != null) return inFlight.future;
+
+    // Keep a local reference. On failure `_initCompleter` is cleared to allow a
+    // retry, so dereferencing the field after the catch would turn the original
+    // database error into a null-assertion error.
+    final completer = Completer<Database>();
+    _initCompleter = completer;
+    _initializeDatabase(completer);
+    return completer.future;
+  }
+
+  Future<void> _initializeDatabase(Completer<Database> completer) async {
     try {
       final db = await _initDatabase();
-      _initCompleter!.complete(db);
-    } catch (e, st) {
-      _initCompleter!.completeError(e, st);
-      _initCompleter = null; // Allow retry on error
+      completer.complete(db);
+    } catch (error, stackTrace) {
+      completer.completeError(error, stackTrace);
+      if (identical(_initCompleter, completer)) {
+        _initCompleter = null; // Allow retry on the next access.
+      }
     }
-    return _initCompleter!.future;
   }
 
   Future<Database> _initDatabase() async {
@@ -107,4 +119,3 @@ class DatabaseHelper implements DatabaseProvider {
     await _seeder.ensureAppMetaTable(db);
   }
 }
-
