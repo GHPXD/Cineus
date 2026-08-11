@@ -33,6 +33,7 @@ jobs:
           path = Path('tool/apply_release_hardening.py')
           text = path.read_text(encoding='utf-8')
           text = text.replace("r'''", 'r"""')
+          text = text.replace("\n'''\n", '\n"""\n')
           text = text.replace("\n''',\n", '\n""",\n')
           path.write_text(text, encoding='utf-8')
           PY
