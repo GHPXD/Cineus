@@ -52,17 +52,22 @@ jobs:
               source = path.read_text(encoding='utf-8')
               if not any(symbol in source for symbol in legacy_symbols):
                   continue
-              if "package:flutter_riverpod/legacy.dart" in source:
-                  continue
-              marker = "import 'package:flutter_riverpod/flutter_riverpod.dart';"
-              if marker not in source:
-                  raise SystemExit(f'legacy Riverpod symbol without standard import: {path}')
-              source = source.replace(
-                  marker,
-                  marker + "\nimport 'package:flutter_riverpod/legacy.dart';",
-                  1,
-              )
+              if "package:flutter_riverpod/legacy.dart" not in source:
+                  marker = "import 'package:flutter_riverpod/flutter_riverpod.dart';"
+                  if marker not in source:
+                      raise SystemExit(f'legacy Riverpod symbol without standard import: {path}')
+                  source = source.replace(
+                      marker,
+                      marker + "\nimport 'package:flutter_riverpod/legacy.dart';",
+                      1,
+                  )
               path.write_text(source, encoding='utf-8')
+
+          # Riverpod 3 renamed AsyncValue.valueOrNull to value.
+          for path in Path('lib').rglob('*.dart'):
+              source = path.read_text(encoding='utf-8')
+              if '.valueOrNull' in source:
+                  path.write_text(source.replace('.valueOrNull', '.value'), encoding='utf-8')
 
           # share_plus 13 uses the instance API + ShareParams.
           share = Path('lib/presentation/screens/generic_result_screen.dart')
@@ -88,6 +93,9 @@ jobs:
         run: |
           flutter pub get
           flutter gen-l10n
+
+      - name: Apply safe Dart fixes
+        run: dart fix --apply
 
       - name: Format
         run: dart format lib test
