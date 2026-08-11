@@ -45,12 +45,18 @@ jobs:
           python tool/apply_release_hardening.py
           python - <<'PY'
           from pathlib import Path
-          path = Path('lib/presentation/screens/generic_stages_screen.dart')
-          text = path.read_text(encoding='utf-8')
+
+          stages = Path('lib/presentation/screens/generic_stages_screen.dart')
+          text = stages.read_text(encoding='utf-8')
           old = r"l10n.errorWithMessage('\$e')"
           if old not in text:
               raise SystemExit('escaped stages error placeholder not found')
-          path.write_text(text.replace(old, 'l10n.genericLoadError'), encoding='utf-8')
+          stages.write_text(text.replace(old, 'l10n.genericLoadError'), encoding='utf-8')
+
+          rollback = Path('test/reward_rollback_test.dart')
+          text = rollback.read_text(encoding='utf-8')
+          text = text.replace("import 'package:cineus/domain/entities/ticket_reward.dart';\n", '')
+          rollback.write_text(text, encoding='utf-8')
           PY
 
       - name: Resolve dependencies and generate localization
