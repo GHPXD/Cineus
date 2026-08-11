@@ -35,12 +35,23 @@ jobs:
           text = text.replace("r'''", 'r"""')
           text = text.replace("\n'''\n", '\n"""\n')
           text = text.replace("\n''',\n", '\n""",\n')
+          text = text.replace('    "lib/presentation/screens/generic_stages_screen.dart",\n', '')
           path.write_text(text, encoding='utf-8')
           PY
           python -m py_compile tool/apply_release_hardening.py
 
       - name: Apply release-hardening patches
-        run: python tool/apply_release_hardening.py
+        run: |
+          python tool/apply_release_hardening.py
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('lib/presentation/screens/generic_stages_screen.dart')
+          text = path.read_text(encoding='utf-8')
+          old = r"l10n.errorWithMessage('\$e')"
+          if old not in text:
+              raise SystemExit('escaped stages error placeholder not found')
+          path.write_text(text.replace(old, 'l10n.genericLoadError'), encoding='utf-8')
+          PY
 
       - name: Resolve dependencies and generate localization
         run: |
