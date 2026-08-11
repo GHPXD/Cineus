@@ -87,6 +87,54 @@ jobs:
           if 'Share.share(' in source:
               raise SystemExit('legacy Share.share call remains')
           share.write_text(source, encoding='utf-8')
+
+          # flutter_local_notifications 22.x requires Java 17 + core library
+          # desugaring. Align the Android toolchain with Flutter's own warnings.
+          app_gradle = Path('android/app/build.gradle.kts')
+          source = app_gradle.read_text(encoding='utf-8')
+          source = source.replace(
+              'compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_11\n        targetCompatibility = JavaVersion.VERSION_11\n    }',
+              'compileOptions {\n'
+              '        isCoreLibraryDesugaringEnabled = true\n'
+              '        sourceCompatibility = JavaVersion.VERSION_17\n'
+              '        targetCompatibility = JavaVersion.VERSION_17\n'
+              '    }',
+          )
+          source = source.replace(
+              'kotlinOptions {\n        jvmTarget = JavaVersion.VERSION_11.toString()\n    }',
+              'kotlinOptions {\n        jvmTarget = JavaVersion.VERSION_17.toString()\n    }',
+          )
+          source = source.replace(
+              'defaultConfig {\n        applicationId = "dev.cineus.cineus"',
+              'defaultConfig {\n        multiDexEnabled = true\n        applicationId = "dev.cineus.cineus"',
+          )
+          source = source.replace(
+              '\nflutter {\n    source = "../.."\n}\n',
+              '\ndependencies {\n'
+              '    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")\n'
+              '}\n\n'
+              'flutter {\n    source = "../.."\n}\n',
+          )
+          if 'isCoreLibraryDesugaringEnabled = true' not in source:
+              raise SystemExit('failed to enable core library desugaring')
+          app_gradle.write_text(source, encoding='utf-8')
+
+          settings = Path('android/settings.gradle.kts')
+          source = settings.read_text(encoding='utf-8')
+          source = source.replace(
+              'id("com.android.application") version "8.7.3" apply false',
+              'id("com.android.application") version "8.11.1" apply false',
+          )
+          source = source.replace(
+              'id("org.jetbrains.kotlin.android") version "2.1.0" apply false',
+              'id("org.jetbrains.kotlin.android") version "2.2.20" apply false',
+          )
+          settings.write_text(source, encoding='utf-8')
+
+          wrapper = Path('android/gradle/wrapper/gradle-wrapper.properties')
+          source = wrapper.read_text(encoding='utf-8')
+          source = source.replace('gradle-8.12-all.zip', 'gradle-8.14-all.zip')
+          wrapper.write_text(source, encoding='utf-8')
           PY
 
       - name: Resolve and generate
