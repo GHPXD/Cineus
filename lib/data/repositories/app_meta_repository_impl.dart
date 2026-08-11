@@ -6,8 +6,10 @@ class AppMetaRepositoryImpl implements AppMetaRepository {
   final DatabaseProvider _db;
   final DatabaseSeeder _seeder;
 
-  AppMetaRepositoryImpl(this._db, {DatabaseSeeder seeder = const DatabaseSeeder()})
-      : _seeder = seeder;
+  AppMetaRepositoryImpl(
+    this._db, {
+    DatabaseSeeder seeder = const DatabaseSeeder(),
+  }) : _seeder = seeder;
 
   static const _onboardingKey = 'onboarding_seen';
 

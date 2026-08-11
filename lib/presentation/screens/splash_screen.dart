@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_constants.dart';
@@ -22,6 +24,7 @@ class _SplashScreenState extends State<SplashScreen>
   late final AnimationController _ctrl;
   late final Animation<double> _fade;
   late final Animation<double> _scale;
+  Timer? _completionTimer;
 
   @override
   void initState() {
@@ -36,11 +39,14 @@ class _SplashScreenState extends State<SplashScreen>
       end: 1.0,
     ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOutBack));
     _ctrl.forward();
-    Future.delayed(AppConstants.splashDuration, widget.onComplete);
+    _completionTimer = Timer(AppConstants.splashDuration, () {
+      if (mounted) widget.onComplete();
+    });
   }
 
   @override
   void dispose() {
+    _completionTimer?.cancel();
     _ctrl.dispose();
     super.dispose();
   }

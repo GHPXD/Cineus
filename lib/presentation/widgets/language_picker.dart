@@ -45,9 +45,8 @@ class LanguagePicker extends ConsumerWidget {
                       ? l10n.languageSystem
                       : LocaleNotifier.nameOf(option),
                   isSelected: option?.languageCode == selected?.languageCode,
-                  onTap: () => ref
-                      .read(localeNotifierProvider.notifier)
-                      .select(option),
+                  onTap: () =>
+                      ref.read(localeNotifierProvider.notifier).select(option),
                 ),
             ],
           ),
@@ -97,8 +96,7 @@ class _LanguageRow extends StatelessWidget {
                     color: isSelected
                         ? AppColors.obsidian0
                         : AppColors.obsidian200,
-                    fontWeight:
-                        isSelected ? FontWeight.w700 : FontWeight.w400,
+                    fontWeight: isSelected ? FontWeight.w700 : FontWeight.w400,
                   ),
                 ),
               ),

@@ -12,10 +12,7 @@ class StageDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GenericStageDetailScreen(
       stageId: stageId,
-      config: const StageDetailConfig(
-        mode: GameMode.clue,
-        playRoute: '/game',
-      ),
+      config: const StageDetailConfig(mode: GameMode.clue, playRoute: '/game'),
     );
   }
 }

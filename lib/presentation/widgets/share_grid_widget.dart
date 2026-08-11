@@ -8,11 +8,7 @@ class ShareGrid extends StatelessWidget {
   final int revealedClues;
   final bool won;
 
-  const ShareGrid({
-    super.key,
-    required this.revealedClues,
-    required this.won,
-  });
+  const ShareGrid({super.key, required this.revealedClues, required this.won});
 
   @override
   Widget build(BuildContext context) {

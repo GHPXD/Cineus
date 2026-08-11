@@ -68,7 +68,10 @@ class GenericStagesScreen extends ConsumerWidget {
                   child: CircularProgressIndicator(color: AppColors.gold300),
                 ),
                 error: (e, _) => Center(
-                  child: Text(l10n.errorWithMessage('\$e'), style: AppTypography.bodyMedium),
+                  child: Text(
+                    l10n.genericLoadError,
+                    style: AppTypography.bodyMedium,
+                  ),
                 ),
                 data: (stages) => _buildGrid(context, stages),
               ),
@@ -148,9 +151,12 @@ class _StageCard extends StatelessWidget {
       label: locked
           ? l10n.stageSemanticsLocked(stage.name)
           : completed
-              ? l10n.stageSemanticsComplete(stage.name)
-              : l10n.stageSemanticsProgress(
-                  stage.name, stage.completedCount, stage.totalMovies),
+          ? l10n.stageSemanticsComplete(stage.name)
+          : l10n.stageSemanticsProgress(
+              stage.name,
+              stage.completedCount,
+              stage.totalMovies,
+            ),
       child: GestureDetector(
         onTap: onTap,
         child: Container(

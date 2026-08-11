@@ -39,8 +39,9 @@ class LocaleNotifier extends StateNotifier<Locale?> {
     await _meta.write(_key, locale?.languageCode ?? '');
   }
 
-  static bool isSupported(Locale locale) => AppL10n.supportedLocales
-      .any((l) => l.languageCode == locale.languageCode);
+  static bool isSupported(Locale locale) => AppL10n.supportedLocales.any(
+    (l) => l.languageCode == locale.languageCode,
+  );
 
   /// Languages offered in the picker, in display order.
   static const options = <Locale?>[
@@ -52,14 +53,15 @@ class LocaleNotifier extends StateNotifier<Locale?> {
 
   /// Endonym for [locale] — a language is always listed in its own language.
   static String nameOf(Locale locale) => switch (locale.languageCode) {
-        'pt' => 'Português',
-        'en' => 'English',
-        'es' => 'Español',
-        _ => locale.languageCode,
-      };
+    'pt' => 'Português',
+    'en' => 'English',
+    'es' => 'Español',
+    _ => locale.languageCode,
+  };
 }
 
-final localeNotifierProvider =
-    StateNotifierProvider<LocaleNotifier, Locale?>((ref) {
+final localeNotifierProvider = StateNotifierProvider<LocaleNotifier, Locale?>((
+  ref,
+) {
   return LocaleNotifier(ref.read(appMetaRepositoryProvider));
 });

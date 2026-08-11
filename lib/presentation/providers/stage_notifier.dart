@@ -8,7 +8,7 @@ class StageNotifier extends StateNotifier<AsyncValue<List<Stage>>> {
   final String mode;
 
   StageNotifier(this._repo, {this.mode = 'clue'})
-      : super(const AsyncValue.loading()) {
+    : super(const AsyncValue.loading()) {
     load();
   }
 
@@ -20,11 +20,5 @@ class StageNotifier extends StateNotifier<AsyncValue<List<Stage>>> {
     } catch (e, st) {
       state = AsyncValue.error(e, st);
     }
-  }
-
-  /// Called when a stage film is won, to refresh the stage list.
-  Future<void> markMovieCompleted(int stageId, int movieId) async {
-    await _repo.markMovieCompleted(stageId, movieId, mode: mode);
-    await load();
   }
 }

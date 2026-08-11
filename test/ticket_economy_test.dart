@@ -17,12 +17,18 @@ import 'support/test_database.dart';
 
 void main() {
   GameSession wonDaily(String date, {GameMode mode = GameMode.clue}) =>
-      GameSession.daily(mode: mode, date: date, movieId: 1)
-          .copyWith(status: GameStatus.won, score: 9);
+      GameSession.daily(
+        mode: mode,
+        date: date,
+        movieId: 1,
+      ).copyWith(status: GameStatus.won, score: 9);
 
   GameSession wonStage(int stageId, {GameMode mode = GameMode.clue}) =>
-      GameSession.stage(mode: mode, stageId: stageId, movieId: 1)
-          .copyWith(status: GameStatus.won, score: 8);
+      GameSession.stage(
+        mode: mode,
+        stageId: stageId,
+        movieId: 1,
+      ).copyWith(status: GameStatus.won, score: 8);
 
   group('RewardRules — o que rende ticket', () {
     test('vitória diária rende o bônus do dia', () {
@@ -56,8 +62,11 @@ void main() {
           stageNowComplete: false,
           currentStreak: streak,
         );
-        expect(r.any((x) => x.key == 'streak_$streak'), isTrue,
-            reason: 'streak $streak');
+        expect(
+          r.any((x) => x.key == 'streak_$streak'),
+          isTrue,
+          reason: 'streak $streak',
+        );
       }
       for (final streak in [1, 6, 8, 13]) {
         final r = RewardRules.evaluate(
@@ -65,8 +74,11 @@ void main() {
           stageNowComplete: false,
           currentStreak: streak,
         );
-        expect(r.any((x) => x.key.startsWith('streak_')), isFalse,
-            reason: 'streak $streak não é marco');
+        expect(
+          r.any((x) => x.key.startsWith('streak_')),
+          isFalse,
+          reason: 'streak $streak não é marco',
+        );
       }
     });
 
@@ -143,11 +155,13 @@ void main() {
     test('acumula recompensas distintas', () async {
       await repo.claim(reward);
       await repo.claim(
-          const TicketReward(
-              key: 'streak_7',
-              amount: 5,
-              kind: RewardKind.streakMilestone,
-              value: 7));
+        const TicketReward(
+          key: 'streak_7',
+          amount: 5,
+          kind: RewardKind.streakMilestone,
+          value: 7,
+        ),
+      );
       expect(await repo.totalEarned(), 15);
       expect(await repo.claimedKeys(), {'stage_clue_1', 'streak_7'});
     });
@@ -162,15 +176,18 @@ void main() {
   group('Streak freeze muda o cálculo da sequência', () {
     final today = DateTime.utc(2026, 8, 10);
 
-    GameSession won(String date) =>
-        GameSession.daily(mode: GameMode.clue, date: date, movieId: 1)
-            .copyWith(status: GameStatus.won, score: 8);
+    GameSession won(String date) => GameSession.daily(
+      mode: GameMode.clue,
+      date: date,
+      movieId: 1,
+    ).copyWith(status: GameStatus.won, score: 8);
 
     test('sem congelar, o buraco quebra a sequência', () {
-      final s = GameRepositoryImpl.computeStats(
-        [won('2026-08-10'), won('2026-08-08'), won('2026-08-07')],
-        todayUtc: today,
-      );
+      final s = GameRepositoryImpl.computeStats([
+        won('2026-08-10'),
+        won('2026-08-08'),
+        won('2026-08-07'),
+      ], todayUtc: today);
       expect(s.currentStreak, 1);
     });
 
@@ -195,16 +212,19 @@ void main() {
     test('buraco de dois dias exige os dois congelados', () {
       final sessions = [won('2026-08-10'), won('2026-08-07')];
       expect(
-        GameRepositoryImpl.computeStats(sessions,
-                todayUtc: today, streakFreezes: {'2026-08-09'})
-            .currentStreak,
+        GameRepositoryImpl.computeStats(
+          sessions,
+          todayUtc: today,
+          streakFreezes: {'2026-08-09'},
+        ).currentStreak,
         1,
       );
       expect(
-        GameRepositoryImpl.computeStats(sessions,
-                todayUtc: today,
-                streakFreezes: {'2026-08-08', '2026-08-09'})
-            .currentStreak,
+        GameRepositoryImpl.computeStats(
+          sessions,
+          todayUtc: today,
+          streakFreezes: {'2026-08-08', '2026-08-09'},
+        ).currentStreak,
         2,
       );
     });
@@ -240,7 +260,10 @@ void main() {
 
     test('a sessão registra as dicas compradas por nome', () {
       var s = GameSession.daily(
-          mode: GameMode.clue, date: '2026-08-10', movieId: 1);
+        mode: GameMode.clue,
+        date: '2026-08-10',
+        movieId: 1,
+      );
       expect(s.purchasedHints, isEmpty);
       expect(s.hasHint(ExtraHint.director), isFalse);
 
@@ -264,11 +287,13 @@ void main() {
       addTearDown(db.close);
       final repo = GameRepositoryImpl(TestDatabaseProvider(db));
 
-      await repo.saveSession(GameSession.daily(
-        mode: GameMode.clue,
-        date: '2026-08-10',
-        movieId: 1,
-      ).copyWith(extraHints: [ExtraHint.year.name, ExtraHint.runtime.name]));
+      await repo.saveSession(
+        GameSession.daily(
+          mode: GameMode.clue,
+          date: '2026-08-10',
+          movieId: 1,
+        ).copyWith(extraHints: [ExtraHint.year.name, ExtraHint.runtime.name]),
+      );
 
       final loaded = (await repo.getDailySession(GameMode.clue, '2026-08-10'))!;
       expect(loaded.purchasedHints, {ExtraHint.year, ExtraHint.runtime});

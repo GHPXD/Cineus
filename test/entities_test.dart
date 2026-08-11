@@ -24,8 +24,11 @@ void main() {
     });
 
     test('isFinished is true for won/lost, false for playing', () {
-      final playing =
-          GameSession.daily(mode: GameMode.clue, date: '2025-01-01', movieId: 1);
+      final playing = GameSession.daily(
+        mode: GameMode.clue,
+        date: '2025-01-01',
+        movieId: 1,
+      );
       expect(playing.isFinished, false);
 
       final won = playing.copyWith(status: GameStatus.won);
@@ -45,16 +48,17 @@ void main() {
     });
 
     test('toMap/fromMap round-trip', () {
-      final session = GameSession.daily(
-        mode: GameMode.clue,
-        date: '2025-06-15',
-        movieId: 42,
-      ).copyWith(
-        revealedClues: 3,
-        guesses: ['Wrong 1', 'Wrong 2'],
-        status: GameStatus.won,
-        score: 8,
-      );
+      final session =
+          GameSession.daily(
+            mode: GameMode.clue,
+            date: '2025-06-15',
+            movieId: 42,
+          ).copyWith(
+            revealedClues: 3,
+            guesses: ['Wrong 1', 'Wrong 2'],
+            status: GameStatus.won,
+            score: 8,
+          );
       final map = session.toMap();
       final restored = GameSession.fromMap({...map, 'id': 1});
 
@@ -104,17 +108,19 @@ void main() {
 
     test('equality is based on id', () {
       final movie1 = Movie(
-          id: 1,
-          title: 'A',
-          year: 2020,
-          director: 'D',
-          genres: []);
+        id: 1,
+        title: 'A',
+        year: 2020,
+        director: 'D',
+        genres: [],
+      );
       final movie2 = Movie(
-          id: 1,
-          title: 'B',
-          year: 2021,
-          director: 'E',
-          genres: []);
+        id: 1,
+        title: 'B',
+        year: 2021,
+        director: 'E',
+        genres: [],
+      );
       expect(movie1, equals(movie2));
     });
   });
@@ -122,15 +128,30 @@ void main() {
   group('Clue', () {
     test('equality is based on id and clueNumber', () {
       final clue1 = Clue(
-          id: 1, movieId: 1, clueNumber: 1, category: 'A', text: 'x');
+        id: 1,
+        movieId: 1,
+        clueNumber: 1,
+        category: 'A',
+        text: 'x',
+      );
       final clue2 = Clue(
-          id: 1, movieId: 1, clueNumber: 1, category: 'B', text: 'y');
+        id: 1,
+        movieId: 1,
+        clueNumber: 1,
+        category: 'B',
+        text: 'y',
+      );
       expect(clue1, equals(clue2));
     });
 
     test('copyWith creates modified copy', () {
       final clue = Clue(
-          id: 1, movieId: 1, clueNumber: 1, category: 'A', text: 'x');
+        id: 1,
+        movieId: 1,
+        clueNumber: 1,
+        category: 'A',
+        text: 'x',
+      );
       final modified = clue.copyWith(text: 'new text');
       expect(modified.text, 'new text');
       expect(modified.category, 'A');
@@ -186,12 +207,7 @@ void main() {
     });
 
     test('zero totalMovies gives zero progress', () {
-      final stage = Stage(
-        id: 1,
-        orderIndex: 1,
-        name: 'Test',
-        movieIds: [],
-      );
+      final stage = Stage(id: 1, orderIndex: 1, name: 'Test', movieIds: []);
       expect(stage.progress, 0.0);
     });
   });

@@ -24,10 +24,10 @@ void main() {
   ];
 
   String errorText(PlayLoadError error) => switch (error) {
-        PlayLoadError.noMovies => 'Nenhum filme na base',
-        PlayLoadError.movieNotFound => 'Filme não encontrado',
-        PlayLoadError.loadFailed => 'Falha controlada',
-      };
+    PlayLoadError.noMovies => 'Nenhum filme na base',
+    PlayLoadError.movieNotFound => 'Filme não encontrado',
+    PlayLoadError.loadFailed => 'Falha controlada',
+  };
 
   PlayNotifier notifierFor(GameMode mode) {
     final provider = TestDatabaseProvider(db);
@@ -84,7 +84,7 @@ void main() {
       await n.loadDaily();
       expect(n.state.currentScore, 5);
       expect(n.state.blurSigma, visualBlurSigmas.first);
-      expect(n.state.posterAsset, 'assets/posters/${n.state.movie!.id}.jpg');
+      expect(n.state.posterAsset, 'assets/posters/${n.state.movie!.id}.webp');
     });
 
     test('recarregar reaproveita a sessão em vez de duplicar', () async {
@@ -125,8 +125,10 @@ void main() {
       expect(n.state.currentScore, 9);
       await n.revealNext();
       expect(n.state.currentScore, 8);
-      final stored =
-          (await db.query('game_sessions', where: "kind = 'daily'")).single;
+      final stored = (await db.query(
+        'game_sessions',
+        where: "kind = 'daily'",
+      )).single;
       expect(stored['revealed_clues'], 3);
     });
 
@@ -180,10 +182,16 @@ void main() {
           await n.loadStageFilm(answer, 1, [answer]);
           final guess = answer == 2 ? 'Vingadores' : 'Rocky';
           final outcome = await n.submitGuess(guess);
-          expect(outcome, isNot(GuessOutcome.correct),
-              reason: 'modo $mode, resposta $answer');
-          expect(n.state.session!.status, GameStatus.playing,
-              reason: 'modo $mode, resposta $answer');
+          expect(
+            outcome,
+            isNot(GuessOutcome.correct),
+            reason: 'modo $mode, resposta $answer',
+          );
+          expect(
+            n.state.session!.status,
+            GameStatus.playing,
+            reason: 'modo $mode, resposta $answer',
+          );
         }
       }
     });
@@ -231,16 +239,18 @@ void main() {
       expect(await n.submitGuess('Titanic'), GuessOutcome.invalid);
     });
 
-    test('guessCount sobe a cada tentativa, mesmo repetindo o desfecho',
-        () async {
-      final n = notifierFor(GameMode.clue);
-      await n.loadStageFilm(5, 1, [5]);
-      await n.submitGuess('Rocky');
-      final first = n.state.guessCount;
-      await n.submitGuess('Rocky');
-      expect(n.state.lastGuessOutcome, GuessOutcome.franchise);
-      expect(n.state.guessCount, first + 1);
-    });
+    test(
+      'guessCount sobe a cada tentativa, mesmo repetindo o desfecho',
+      () async {
+        final n = notifierFor(GameMode.clue);
+        await n.loadStageFilm(5, 1, [5]);
+        await n.submitGuess('Rocky');
+        final first = n.state.guessCount;
+        await n.submitGuess('Rocky');
+        expect(n.state.lastGuessOutcome, GuessOutcome.franchise);
+        expect(n.state.guessCount, first + 1);
+      },
+    );
   });
 
   group('progresso de estágio', () {

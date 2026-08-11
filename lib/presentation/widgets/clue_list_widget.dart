@@ -27,15 +27,17 @@ class ClueList extends StatelessWidget {
         final isNext = clueNumber == revealedCount + 1;
 
         // Find the matching clue data
-        final clue = allClues.where((c) => c.clueNumber == clueNumber).firstOrNull;
+        final clue = allClues
+            .where((c) => c.clueNumber == clueNumber)
+            .firstOrNull;
         final category =
             clue?.category ?? AppL10n.of(context).clueFallback(clueNumber);
 
         final cardState = isRevealed
             ? ClueCardState.revealed
             : isNext
-                ? ClueCardState.next
-                : ClueCardState.locked;
+            ? ClueCardState.next
+            : ClueCardState.locked;
 
         final card = ClueCard(
           clue: clue,
@@ -56,10 +58,7 @@ class ClueList extends StatelessWidget {
           );
         }
 
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 6),
-          child: card,
-        );
+        return Padding(padding: const EdgeInsets.only(bottom: 6), child: card);
       }),
     );
   }
@@ -105,10 +104,7 @@ class _RevealAnimationState extends State<_RevealAnimation>
   Widget build(BuildContext context) {
     return FadeTransition(
       opacity: _fadeAnim,
-      child: SlideTransition(
-        position: _slideAnim,
-        child: widget.child,
-      ),
+      child: SlideTransition(position: _slideAnim, child: widget.child),
     );
   }
 }

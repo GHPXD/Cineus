@@ -303,6 +303,12 @@ abstract class AppL10n {
   /// **'Nenhum filme na base'**
   String get noMoviesInDatabase;
 
+  /// No description provided for @genericLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível carregar. Tente novamente.'**
+  String get genericLoadError;
+
   /// No description provided for @dailyChallengeLabel.
   ///
   /// In pt, this message translates to:

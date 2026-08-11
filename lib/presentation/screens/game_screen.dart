@@ -77,28 +77,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
       // Franchise hint banner
       if (next.lastGuessOutcome == GuessOutcome.franchise &&
           next.guessCount != prev?.guessCount) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Row(
-              children: [
-                const Text('🎯', style: TextStyle(fontSize: 18)),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    context.l10n.franchiseHint,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ],
-            ),
-            backgroundColor: const Color(0xFF8B6914),
-            duration: const Duration(seconds: 4),
-            behavior: SnackBarBehavior.floating,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        );
+        showFranchiseHint(context);
       }
     });
 
@@ -228,7 +207,8 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                   ),
                 if (isStage)
                   TextSpan(
-                    text: '  ${context.l10n.stageNumber('${gameState.stageId}')}',
+                    text:
+                        '  ${context.l10n.stageNumber('${gameState.stageId}')}',
                     style: AppTypography.monoSmall.copyWith(
                       color: AppColors.textTertiary,
                     ),

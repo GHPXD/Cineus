@@ -41,6 +41,7 @@
   "errorWithMessage": "Error: {message}",
   "movieNotFound": "Película no encontrada",
   "noMoviesInDatabase": "No hay películas en la base",
+  "genericLoadError": "No se pudo cargar. Inténtalo de nuevo.",
 
   "dailyChallengeLabel": "DESAFÍO DIARIO",
   "modeClues": "Pistas",

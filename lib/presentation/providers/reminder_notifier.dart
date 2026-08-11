@@ -52,10 +52,10 @@ class ReminderNotifier extends StateNotifier<ReminderState> {
     required NotificationService service,
     required AppMetaRepository meta,
     required Future<AppL10n> Function() l10n,
-  })  : _service = service,
-        _meta = meta,
-        _l10n = l10n,
-        super(const ReminderState()) {
+  }) : _service = service,
+       _meta = meta,
+       _l10n = l10n,
+       super(const ReminderState()) {
     _restore();
   }
 
@@ -124,19 +124,22 @@ final notificationServiceProvider = Provider<NotificationService>((_) {
 
 final reminderNotifierProvider =
     StateNotifierProvider<ReminderNotifier, ReminderState>((ref) {
-  return ReminderNotifier(
-    service: ref.read(notificationServiceProvider),
-    meta: ref.read(appMetaRepositoryProvider),
-    l10n: () async {
-      // The notification is written outside the widget tree, so the delegate is
-      // loaded directly for whichever locale is in effect.
-      final locale = ref.read(localeNotifierProvider) ??
-          PlatformDispatcher.instance.locale;
-      final supported = AppL10n.supportedLocales
-              .any((l) => l.languageCode == locale.languageCode)
-          ? Locale(locale.languageCode)
-          : const Locale('pt');
-      return AppL10n.delegate.load(supported);
-    },
-  );
-});
+      return ReminderNotifier(
+        service: ref.read(notificationServiceProvider),
+        meta: ref.read(appMetaRepositoryProvider),
+        l10n: () async {
+          // The notification is written outside the widget tree, so the delegate is
+          // loaded directly for whichever locale is in effect.
+          final locale =
+              ref.read(localeNotifierProvider) ??
+              PlatformDispatcher.instance.locale;
+          final supported =
+              AppL10n.supportedLocales.any(
+                (l) => l.languageCode == locale.languageCode,
+              )
+              ? Locale(locale.languageCode)
+              : const Locale('pt');
+          return AppL10n.delegate.load(supported);
+        },
+      );
+    });

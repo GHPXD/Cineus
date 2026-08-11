@@ -56,27 +56,25 @@ final onboardingSeenProvider = FutureProvider<bool>((ref) async {
 /// Ticket provider
 final ticketNotifierProvider =
     StateNotifierProvider<TicketNotifier, PlayerTickets>((ref) {
-  return TicketNotifier(ref.read(databaseProvider));
-});
+      return TicketNotifier(ref.read(databaseProvider));
+    });
 
 /// Stage list provider (clue mode)
 final stageNotifierProvider =
     StateNotifierProvider<StageNotifier, AsyncValue<List<Stage>>>((ref) {
-  return StageNotifier(ref.read(stageRepositoryProvider), mode: 'clue');
-});
+      return StageNotifier(ref.read(stageRepositoryProvider), mode: 'clue');
+    });
 
 /// Stage list provider (poster mode — separate progress tracking)
 final posterStageNotifierProvider =
     StateNotifierProvider<StageNotifier, AsyncValue<List<Stage>>>((ref) {
-  return StageNotifier(ref.read(stageRepositoryProvider), mode: 'poster');
-});
+      return StageNotifier(ref.read(stageRepositoryProvider), mode: 'poster');
+    });
 
 /// Today's daily session per mode, read straight from the database so the home
 /// screen does not depend on whichever game is currently loaded in a notifier.
-final dailySessionProvider =
-    FutureProvider.autoDispose.family<GameSession?, GameMode>(
-  (ref, mode) async {
-    final gameRepo = ref.read(gameRepositoryProvider);
-    return gameRepo.getDailySession(mode, DailySelector.todayKey());
-  },
-);
+final dailySessionProvider = FutureProvider.autoDispose
+    .family<GameSession?, GameMode>((ref, mode) async {
+      final gameRepo = ref.read(gameRepositoryProvider);
+      return gameRepo.getDailySession(mode, DailySelector.todayKey());
+    });

@@ -44,10 +44,11 @@ void main() {
   final declared = _declaredFonts();
 
   test('pubspec declara exatamente as três famílias do design system', () {
-    expect(
-      declared.keys.toSet(),
-      {AppFonts.playfair, AppFonts.inter, AppFonts.mono},
-    );
+    expect(declared.keys.toSet(), {
+      AppFonts.playfair,
+      AppFonts.inter,
+      AppFonts.mono,
+    });
   });
 
   test('todo asset declarado existe e é um TTF válido', () {
@@ -80,44 +81,46 @@ void main() {
     expect(onDisk, equals(referenced));
   });
 
-  group('AppTypography usa as famílias bundladas, nunca a fonte do sistema',
-      () {
-    final expectations = <String, List<TextStyle>>{
-      AppFonts.playfair: [
-        AppTypography.displayLarge,
-        AppTypography.displayMedium,
-        AppTypography.displaySmall,
-        AppTypography.headlineLarge,
-        AppTypography.headlineMedium,
-      ],
-      AppFonts.inter: [
-        AppTypography.titleLarge,
-        AppTypography.titleMedium,
-        AppTypography.titleSmall,
-        AppTypography.bodyLarge,
-        AppTypography.bodyMedium,
-        AppTypography.bodySmall,
-        AppTypography.labelLarge,
-        AppTypography.labelSmall,
-        AppTypography.overline,
-      ],
-      AppFonts.mono: [
-        AppTypography.scoreLarge,
-        AppTypography.scoreMedium,
-        AppTypography.scoreSmall,
-        AppTypography.mono,
-        AppTypography.monoSmall,
-      ],
-    };
+  group(
+    'AppTypography usa as famílias bundladas, nunca a fonte do sistema',
+    () {
+      final expectations = <String, List<TextStyle>>{
+        AppFonts.playfair: [
+          AppTypography.displayLarge,
+          AppTypography.displayMedium,
+          AppTypography.displaySmall,
+          AppTypography.headlineLarge,
+          AppTypography.headlineMedium,
+        ],
+        AppFonts.inter: [
+          AppTypography.titleLarge,
+          AppTypography.titleMedium,
+          AppTypography.titleSmall,
+          AppTypography.bodyLarge,
+          AppTypography.bodyMedium,
+          AppTypography.bodySmall,
+          AppTypography.labelLarge,
+          AppTypography.labelSmall,
+          AppTypography.overline,
+        ],
+        AppFonts.mono: [
+          AppTypography.scoreLarge,
+          AppTypography.scoreMedium,
+          AppTypography.scoreSmall,
+          AppTypography.mono,
+          AppTypography.monoSmall,
+        ],
+      };
 
-    for (final entry in expectations.entries) {
-      test('${entry.key}: ${entry.value.length} estilos', () {
-        for (final style in entry.value) {
-          expect(style.fontFamily, entry.key);
-        }
-      });
-    }
-  });
+      for (final entry in expectations.entries) {
+        test('${entry.key}: ${entry.value.length} estilos', () {
+          for (final style in entry.value) {
+            expect(style.fontFamily, entry.key);
+          }
+        });
+      }
+    },
+  );
 
   test('todo peso usado pelos estilos está declarado no pubspec', () {
     // Extrai os pesos declarados por família a partir dos nomes de arquivo.

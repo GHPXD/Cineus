@@ -9,13 +9,11 @@ import '../../l10n/app_l10n.dart';
 class ScoreBadge extends StatelessWidget {
   final int score;
   final int revealedClues;
-  final bool compact;
 
   const ScoreBadge({
     super.key,
     required this.score,
     required this.revealedClues,
-    this.compact = false,
   });
 
   @override
@@ -27,10 +25,7 @@ class ScoreBadge extends StatelessWidget {
     final isUrgent = score <= 2;
     final badge = Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: compact ? 10 : 16,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
         gradient: gradient,
         borderRadius: BorderRadius.circular(20),
@@ -52,8 +47,7 @@ class ScoreBadge extends StatelessWidget {
             children: [
               Text(
                 '$score',
-                style: (compact ? AppTypography.scoreMedium : AppTypography.scoreLarge)
-                    .copyWith(color: color),
+                style: AppTypography.scoreLarge.copyWith(color: color),
               ),
               const SizedBox(width: 10),
               Column(
@@ -74,16 +68,14 @@ class ScoreBadge extends StatelessWidget {
               ),
             ],
           ),
-          if (!compact) ...[
-            const SizedBox(height: 4),
-            Text(
-              _hintText(AppL10n.of(context), score, revealedClues),
-              style: AppTypography.bodySmall.copyWith(
-                color: color.withValues(alpha: 0.7),
-                fontSize: 11,
-              ),
+          const SizedBox(height: 4),
+          Text(
+            _hintText(AppL10n.of(context), score, revealedClues),
+            style: AppTypography.bodySmall.copyWith(
+              color: color.withValues(alpha: 0.7),
+              fontSize: 11,
             ),
-          ],
+          ),
         ],
       ),
     );
@@ -124,9 +116,10 @@ class _PulsingWrapperState extends State<_PulsingWrapper>
       vsync: this,
       duration: const Duration(milliseconds: 1800),
     )..repeat(reverse: true);
-    _anim = Tween<double>(begin: 0.6, end: 1.0).animate(
-      CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut),
-    );
+    _anim = Tween<double>(
+      begin: 0.6,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut));
   }
 
   @override

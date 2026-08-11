@@ -19,35 +19,33 @@ class VisualSearchScreen extends ConsumerWidget {
     return GenericSearchScreen(
       onBack: onBack,
       onSubmitGuess: (movie) async {
-        await ref
-            .read(posterGameProvider.notifier)
-            .submitGuess(movie.title);
+        await ref.read(posterGameProvider.notifier).submitGuess(movie.title);
       },
       contextWidget: Text.rich(
-        TextSpan(children: [
-          TextSpan(text: context.l10n.blurLabel),
-          TextSpan(
-            text: gameState.blurLabel,
-            style: AppTypography.bodySmall.copyWith(
-              color: AppColors.gold300,
-              fontWeight: FontWeight.w700,
+        TextSpan(
+          children: [
+            TextSpan(text: context.l10n.blurLabel),
+            TextSpan(
+              text: gameState.blurLabel,
+              style: AppTypography.bodySmall.copyWith(
+                color: AppColors.gold300,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-          const TextSpan(text: ' · '),
-          TextSpan(
-            text: '${gameState.currentScore} pts',
-            style: AppTypography.bodySmall.copyWith(
-              color: AppColors.scoreColor(gameState.currentScore),
-              fontWeight: FontWeight.w700,
+            const TextSpan(text: ' · '),
+            TextSpan(
+              text: '${gameState.currentScore} pts',
+              style: AppTypography.bodySmall.copyWith(
+                color: AppColors.scoreColor(gameState.currentScore),
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-          TextSpan(text: context.l10n.searchAvailableSuffix),
-        ]),
+            TextSpan(text: context.l10n.searchAvailableSuffix),
+          ],
+        ),
         style: AppTypography.bodySmall,
       ),
       guesses: gameState.session?.guesses ?? const [],
     );
   }
 }
-
-

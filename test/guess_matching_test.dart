@@ -41,59 +41,69 @@ void main() {
     }
   });
 
-  group('isFranchiseMatch aceitaria todos eles — por isso saiu do critério', () {
-    for (final pair in leaks) {
-      test('"${pair[0]}" casaria com "${pair[1]}"', () {
-        expect(StringNormalizer.isFranchiseMatch(pair[0], [pair[1]]), isTrue);
-      });
-    }
-  });
+  group(
+    'isFranchiseMatch aceitaria todos eles — por isso saiu do critério',
+    () {
+      for (final pair in leaks) {
+        test('"${pair[0]}" casaria com "${pair[1]}"', () {
+          expect(StringNormalizer.isFranchiseMatch(pair[0], [pair[1]]), isTrue);
+        });
+      }
+    },
+  );
 
   group('acertos legítimos continuam valendo', () {
     test('título exato', () {
       expect(
-        StringNormalizer.isExactMatch('Avengers: Endgame', ['Avengers: Endgame']),
+        StringNormalizer.isExactMatch('Avengers: Endgame', [
+          'Avengers: Endgame',
+        ]),
         isTrue,
       );
     });
 
     test('título original é aceito', () {
       expect(
-        StringNormalizer.isExactMatch(
-            'The Godfather', ['O Poderoso Chefão', 'The Godfather']),
+        StringNormalizer.isExactMatch('The Godfather', [
+          'O Poderoso Chefão',
+          'The Godfather',
+        ]),
         isTrue,
       );
     });
 
     test('sem acento e sem caixa correta', () {
       expect(
-        StringNormalizer.isExactMatch(
-            'o poderoso chefao', ['O Poderoso Chefão']),
+        StringNormalizer.isExactMatch('o poderoso chefao', [
+          'O Poderoso Chefão',
+        ]),
         isTrue,
       );
     });
 
     test('pontuação é ignorada quando o palpite tem a mesma pontuação', () {
       expect(
-        StringNormalizer.isExactMatch(
-            'spider-man: no way home', ['Spider-Man: No Way Home']),
+        StringNormalizer.isExactMatch('spider-man: no way home', [
+          'Spider-Man: No Way Home',
+        ]),
         isTrue,
       );
     });
 
-    test('hífen é removido sem virar espaço — trocar por espaço NÃO casa', () {
-      // `normalize` apaga o hífen ("Spider-Man" -> "spiderman") em vez de
-      // substituí-lo por espaço, então a variante com espaço não bate.
-      // Hoje é inofensivo: o palpite sempre vem do autocomplete, ou seja é
-      // sempre o título exato do banco. Passaria a importar se algum dia o
-      // jogador puder digitar o palpite livremente.
-      expect(StringNormalizer.normalize('Spider-Man'), 'spiderman');
+    test('hífen vira separador e a variante com espaço casa', () {
+      expect(StringNormalizer.normalize('Spider-Man'), 'spider man');
       expect(StringNormalizer.normalize('Spider Man'), 'spider man');
       expect(
-        StringNormalizer.isExactMatch(
-            'Spider Man No Way Home', ['Spider-Man: No Way Home']),
-        isFalse,
+        StringNormalizer.isExactMatch('Spider Man No Way Home', [
+          'Spider-Man: No Way Home',
+        ]),
+        isTrue,
       );
+    });
+
+    test('diacríticos europeus são normalizados', () {
+      expect(StringNormalizer.normalize('München, España'), 'munchen espana');
+      expect(StringNormalizer.normalize('Häxan'), 'haxan');
     });
   });
 
@@ -131,12 +141,15 @@ void main() {
   group('a dica de franquia (isSameFranchise) segue funcionando', () {
     test('sequência errada da mesma franquia é sinalizada', () {
       expect(
-        StringNormalizer.isSameFranchise(
-            'De Volta para o Futuro', ['De Volta para o Futuro II']),
+        StringNormalizer.isSameFranchise('De Volta para o Futuro', [
+          'De Volta para o Futuro II',
+        ]),
         isTrue,
       );
       expect(
-        StringNormalizer.isSameFranchise('Homem de Ferro', ['Homem de Ferro 3']),
+        StringNormalizer.isSameFranchise('Homem de Ferro', [
+          'Homem de Ferro 3',
+        ]),
         isTrue,
       );
     });

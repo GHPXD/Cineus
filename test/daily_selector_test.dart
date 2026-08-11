@@ -28,10 +28,12 @@ void main() {
       });
 
       test('rolls over at UTC midnight, not local midnight', () {
-        final day15 =
-            DailySelector.challengeNumber(DateTime.utc(2025, 3, 15, 23, 59));
-        final day16 =
-            DailySelector.challengeNumber(DateTime.utc(2025, 3, 16, 0, 0));
+        final day15 = DailySelector.challengeNumber(
+          DateTime.utc(2025, 3, 15, 23, 59),
+        );
+        final day16 = DailySelector.challengeNumber(
+          DateTime.utc(2025, 3, 16, 0, 0),
+        );
         expect(day16, day15 + 1);
       });
 
@@ -50,8 +52,7 @@ void main() {
       test('returns value between 1 and totalMovies', () {
         const total = 500;
         for (var day = 1; day <= 365; day++) {
-          final date =
-              DateTime(2025, 1, 1).add(Duration(days: day - 1));
+          final date = DateTime(2025, 1, 1).add(Duration(days: day - 1));
           final id = DailySelector.movieIdForDate(total, date);
           expect(id, greaterThanOrEqualTo(1));
           expect(id, lessThanOrEqualTo(total));
@@ -68,8 +69,7 @@ void main() {
       test('different dates produce different IDs (mostly)', () {
         final ids = <int>{};
         for (var day = 1; day <= 100; day++) {
-          final date =
-              DateTime(2025, 1, 1).add(Duration(days: day - 1));
+          final date = DateTime(2025, 1, 1).add(Duration(days: day - 1));
           ids.add(DailySelector.movieIdForDate(500, date));
         }
         // With 500 movies and 100 days, expect reasonable spread
@@ -81,8 +81,7 @@ void main() {
       test('returns value between 1 and totalMovies', () {
         const total = 500;
         for (var day = 1; day <= 50; day++) {
-          final date =
-              DateTime(2025, 1, 1).add(Duration(days: day - 1));
+          final date = DateTime(2025, 1, 1).add(Duration(days: day - 1));
           final id = DailySelector.posterMovieIdForDate(total, date);
           expect(id, greaterThanOrEqualTo(1));
           expect(id, lessThanOrEqualTo(total));
@@ -92,12 +91,14 @@ void main() {
       test('differs from clue movie ID for same date', () {
         const total = 500;
         for (var day = 1; day <= 365; day++) {
-          final date =
-              DateTime(2025, 1, 1).add(Duration(days: day - 1));
+          final date = DateTime(2025, 1, 1).add(Duration(days: day - 1));
           final clueId = DailySelector.movieIdForDate(total, date);
           final posterId = DailySelector.posterMovieIdForDate(total, date);
-          expect(posterId, isNot(clueId),
-              reason: 'Day $day: clue=$clueId poster=$posterId');
+          expect(
+            posterId,
+            isNot(clueId),
+            reason: 'Day $day: clue=$clueId poster=$posterId',
+          );
         }
       });
     });
@@ -123,8 +124,10 @@ void main() {
     group('isDailyKey / dateFromKey', () {
       test('accepts plain daily keys', () {
         expect(DailySelector.isDailyKey('2025-08-04'), isTrue);
-        expect(DailySelector.dateFromKey('2025-08-04'),
-            DateTime.utc(2025, 8, 4));
+        expect(
+          DailySelector.dateFromKey('2025-08-04'),
+          DateTime.utc(2025, 8, 4),
+        );
       });
 
       test('rejects every prefixed mode key', () {
@@ -159,13 +162,18 @@ void main() {
         // rolled over, so the countdown must be ~23h30, not ~2h30.
         final now = DateTime.utc(2026, 8, 5, 0, 30);
         expect(DailySelector.todayKey(now), '2026-08-05');
-        expect(DailySelector.timeUntilNextChallenge(now).inMinutes, 23 * 60 + 30);
+        expect(
+          DailySelector.timeUntilNextChallenge(now).inMinutes,
+          23 * 60 + 30,
+        );
       });
 
       test('is zero-length exactly at the rollover instant', () {
         final midnight = DateTime.utc(2026, 8, 5);
-        expect(DailySelector.timeUntilNextChallenge(midnight),
-            const Duration(hours: 24));
+        expect(
+          DailySelector.timeUntilNextChallenge(midnight),
+          const Duration(hours: 24),
+        );
       });
     });
   });

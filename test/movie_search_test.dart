@@ -59,8 +59,10 @@ void main() {
     test('insensível a pontuação: "spider man" alcança "spiderman"', () {
       // normalize("Spider-Man") == "spiderman" (o hífen é removido, não virou
       // espaço), então a camada compacta é o que salva essa busca.
-      expect(MovieSearch.score('spider man', 'spiderman no way home'),
-          greaterThan(0));
+      expect(
+        MovieSearch.score('spider man', 'spiderman no way home'),
+        greaterThan(0),
+      );
     });
 
     test('tolera erro de digitação a partir de 4 caracteres', () {
@@ -116,8 +118,10 @@ void main() {
 
     test('respeita o limite', () {
       expect(MovieSearch.rank('star', catalogo, limit: 2).length, 2);
-      expect(MovieSearch.rank('star', catalogo, limit: 100).length,
-          lessThanOrEqualTo(catalogo.length));
+      expect(
+        MovieSearch.rank('star', catalogo, limit: 100).length,
+        lessThanOrEqualTo(catalogo.length),
+      );
     });
 
     test('acentos são irrelevantes nos dois sentidos', () {
@@ -141,10 +145,7 @@ void main() {
     });
 
     test('empate desempata pelo título mais curto', () {
-      final items = [
-        c(1, 'Alien Covenant Extended Edition'),
-        c(2, 'Alien'),
-      ];
+      final items = [c(1, 'Alien Covenant Extended Edition'), c(2, 'Alien')];
       // ambos começam com "alien" -> mesma camada; o mais curto ganha
       expect(MovieSearch.rank('alien', items).first, 2);
     });

@@ -36,7 +36,11 @@ abstract final class ChallengeCode {
   /// Throws [ArgumentError] for an id outside the representable range.
   static String encode(int movieId) {
     if (movieId <= 0 || movieId > _idMask) {
-      throw ArgumentError.value(movieId, 'movieId', 'fora da faixa codificável');
+      throw ArgumentError.value(
+        movieId,
+        'movieId',
+        'fora da faixa codificável',
+      );
     }
 
     final scrambled = (movieId * _mix) & _idMask;

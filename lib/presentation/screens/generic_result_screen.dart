@@ -145,8 +145,13 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     final grid = ShareGrid(revealedClues: steps, won: config.won);
     final l10n = context.l10n;
     final text = config.won
-        ? l10n.shareWin('$challengeNumber', steps, ScoringRules.clue.totalSteps,
-            score, grid.toEmojiGrid())
+        ? l10n.shareWin(
+            '$challengeNumber',
+            steps,
+            ScoringRules.clue.totalSteps,
+            score,
+            grid.toEmojiGrid(),
+          )
         : l10n.shareLose('$challengeNumber', grid.toEmojiGrid());
 
     var shared = false;

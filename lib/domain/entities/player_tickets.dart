@@ -2,10 +2,7 @@ class TicketDebit {
   final int dailyTickets;
   final int extraTickets;
 
-  const TicketDebit({
-    required this.dailyTickets,
-    required this.extraTickets,
-  });
+  const TicketDebit({required this.dailyTickets, required this.extraTickets});
 
   int get total => dailyTickets + extraTickets;
 }

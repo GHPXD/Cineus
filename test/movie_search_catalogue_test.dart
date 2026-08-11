@@ -29,26 +29,29 @@ void main() {
       options: OpenDatabaseOptions(readOnly: true),
     );
     db = database;
-    final rows = await database
-        .query('movies', columns: ['id', 'title', 'original_title']);
+    final rows = await database.query(
+      'movies',
+      columns: ['id', 'title', 'original_title'],
+    );
     catalogue = rows
-        .map((r) => SearchCandidate.fromTitles(
-              r['id'] as int,
-              r['title'] as String,
-              r['original_title'] as String?,
-            ))
+        .map(
+          (r) => SearchCandidate.fromTitles(
+            r['id'] as int,
+            r['title'] as String,
+            r['original_title'] as String?,
+          ),
+        )
         .toList();
-    titleById = {
-      for (final r in rows) r['id'] as int: r['title'] as String,
-    };
+    titleById = {for (final r in rows) r['id'] as int: r['title'] as String};
   });
 
   tearDownAll(() async => db?.close());
 
-  List<String> search(String query, {int limit = 8}) =>
-      MovieSearch.rank(query, catalogue, limit: limit)
-          .map((id) => titleById[id]!)
-          .toList();
+  List<String> search(String query, {int limit = 8}) => MovieSearch.rank(
+    query,
+    catalogue,
+    limit: limit,
+  ).map((id) => titleById[id]!).toList();
 
   test('o catálogo carregou', () {
     expect(catalogue.length, 500);
@@ -102,12 +105,7 @@ void main() {
     });
 
     test('título exato sempre aparece em primeiro', () {
-      for (final titulo in [
-        'Titanic',
-        'Interestelar',
-        'Coringa',
-        'Parasita',
-      ]) {
+      for (final titulo in ['Titanic', 'Interestelar', 'Coringa', 'Parasita']) {
         final r = search(titulo);
         expect(r.first, titulo, reason: 'busca por "$titulo" deu: $r');
       }
@@ -163,9 +161,13 @@ void main() {
       ]) {
         final r = search(titulo, limit: 20);
         final iguais = r.where((t) => t == titulo).length;
-        expect(iguais, 2,
-            reason: '"$titulo" deveria aparecer 2x (remake + original), '
-                'veio $iguais em: $r');
+        expect(
+          iguais,
+          2,
+          reason:
+              '"$titulo" deveria aparecer 2x (remake + original), '
+              'veio $iguais em: $r',
+        );
       }
     });
   });

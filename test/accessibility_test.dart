@@ -32,7 +32,9 @@ import 'package:cineus/presentation/widgets/tap_target.dart';
 /// sRGB channel to linear light, per the WCAG definition.
 double _channel(int c) {
   final v = c / 255;
-  return v <= 0.04045 ? v / 12.92 : math.pow((v + 0.055) / 1.055, 2.4) as double;
+  return v <= 0.04045
+      ? v / 12.92
+      : math.pow((v + 0.055) / 1.055, 2.4) as double;
 }
 
 double _luminance(Color c) {
@@ -68,12 +70,12 @@ Widget scaled(Widget child, double scale) {
 }
 
 Clue clueAt(int n) => Clue(
-      id: n,
-      movieId: 1,
-      clueNumber: n,
-      category: 'Conceito',
-      text: 'Uma dica razoavelmente longa para testar quebra de linha, número $n.',
-    );
+  id: n,
+  movieId: 1,
+  clueNumber: n,
+  category: 'Conceito',
+  text: 'Uma dica razoavelmente longa para testar quebra de linha, número $n.',
+);
 
 void main() {
   group('contraste dos tons de texto (WCAG AA)', () {
@@ -127,10 +129,14 @@ void main() {
 
     test('os tons dim do obsidian NÃO devem ser usados como texto', () {
       // Documenta por que textSecondary/Tertiary existem: estes reprovam.
-      expect(contrast(AppColors.obsidian400, AppColors.obsidian950),
-          lessThan(3.0));
-      expect(contrast(AppColors.obsidian500, AppColors.obsidian950),
-          lessThan(3.0));
+      expect(
+        contrast(AppColors.obsidian400, AppColors.obsidian950),
+        lessThan(3.0),
+      );
+      expect(
+        contrast(AppColors.obsidian500, AppColors.obsidian950),
+        lessThan(3.0),
+      );
     });
   });
 
@@ -140,47 +146,51 @@ void main() {
 
     for (final scale in scales) {
       testWidgets('ScoreBadge em ${scale}x', (tester) async {
-        await tester.pumpWidget(scaled(
-          const ScoreBadge(score: 7, revealedClues: 4),
-          scale,
-        ));
+        await tester.pumpWidget(
+          scaled(const ScoreBadge(score: 7, revealedClues: 4), scale),
+        );
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
       });
 
-      testWidgets('ScoreBadge urgente (com pulso) em ${scale}x', (tester) async {
-        await tester.pumpWidget(scaled(
-          const ScoreBadge(score: 1, revealedClues: 10),
-          scale,
-        ));
+      testWidgets('ScoreBadge urgente (com pulso) em ${scale}x', (
+        tester,
+      ) async {
+        await tester.pumpWidget(
+          scaled(const ScoreBadge(score: 1, revealedClues: 10), scale),
+        );
         await tester.pump(const Duration(milliseconds: 100));
         expect(tester.takeException(), isNull);
       });
 
       testWidgets('ClueCard nos três estados em ${scale}x', (tester) async {
         for (final state in ClueCardState.values) {
-          await tester.pumpWidget(scaled(
-            ClueCard(
-              clue: clueAt(3),
-              clueNumber: 3,
-              category: 'Revelação',
-              cardState: state,
+          await tester.pumpWidget(
+            scaled(
+              ClueCard(
+                clue: clueAt(3),
+                clueNumber: 3,
+                category: 'Revelação',
+                cardState: state,
+              ),
+              scale,
             ),
-            scale,
-          ));
+          );
           await tester.pumpAndSettle();
           expect(tester.takeException(), isNull, reason: '$state em ${scale}x');
         }
       });
 
       testWidgets('ClueList completa em ${scale}x', (tester) async {
-        await tester.pumpWidget(scaled(
-          ClueList(
-            allClues: [for (var i = 1; i <= 10; i++) clueAt(i)],
-            revealedCount: 6,
+        await tester.pumpWidget(
+          scaled(
+            ClueList(
+              allClues: [for (var i = 1; i <= 10; i++) clueAt(i)],
+              revealedCount: 6,
+            ),
+            scale,
           ),
-          scale,
-        ));
+        );
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
       });
@@ -192,10 +202,9 @@ void main() {
       });
 
       testWidgets('ShareGrid em ${scale}x', (tester) async {
-        await tester.pumpWidget(scaled(
-          const ShareGrid(revealedClues: 4, won: true),
-          scale,
-        ));
+        await tester.pumpWidget(
+          scaled(const ShareGrid(revealedClues: 4, won: true), scale),
+        );
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
       });
@@ -204,16 +213,18 @@ void main() {
 
   group('TapTarget', () {
     testWidgets('cresce para 48x48 mesmo com filho pequeno', (tester) async {
-      await tester.pumpWidget(scaled(
-        Center(
-          child: TapTarget(
-            label: 'Voltar',
-            onTap: () {},
-            child: const SizedBox(width: 20, height: 20),
+      await tester.pumpWidget(
+        scaled(
+          Center(
+            child: TapTarget(
+              label: 'Voltar',
+              onTap: () {},
+              child: const SizedBox(width: 20, height: 20),
+            ),
           ),
+          1.0,
         ),
-        1.0,
-      ));
+      );
 
       final size = tester.getSize(find.byType(TapTarget));
       expect(size.width, greaterThanOrEqualTo(TapTarget.minSize));
@@ -223,19 +234,23 @@ void main() {
     testWidgets('é anunciado como botão com rótulo', (tester) async {
       final handle = tester.ensureSemantics();
 
-      await tester.pumpWidget(scaled(
-        Center(
-          child: TapTarget(
-            label: 'Ver estatísticas',
-            onTap: () {},
-            child: const Icon(Icons.bar_chart_rounded),
+      await tester.pumpWidget(
+        scaled(
+          Center(
+            child: TapTarget(
+              label: 'Ver estatísticas',
+              onTap: () {},
+              child: const Icon(Icons.bar_chart_rounded),
+            ),
           ),
+          1.0,
         ),
-        1.0,
-      ));
+      );
 
       // Só o que importa para o leitor de tela: rótulo, papel e ação.
-      final data = tester.getSemantics(find.byType(TapTarget)).getSemanticsData();
+      final data = tester
+          .getSemantics(find.byType(TapTarget))
+          .getSemanticsData();
       expect(data.label, 'Ver estatísticas');
       expect(data.hasAction(SemanticsAction.tap), isTrue);
 
@@ -245,18 +260,22 @@ void main() {
     testWidgets('desabilitado quando onTap é nulo', (tester) async {
       final handle = tester.ensureSemantics();
 
-      await tester.pumpWidget(scaled(
-        const Center(
-          child: TapTarget(
-            label: 'Sem tickets',
-            onTap: null,
-            child: Icon(Icons.block),
+      await tester.pumpWidget(
+        scaled(
+          const Center(
+            child: TapTarget(
+              label: 'Sem tickets',
+              onTap: null,
+              child: Icon(Icons.block),
+            ),
           ),
+          1.0,
         ),
-        1.0,
-      ));
+      );
 
-      final data = tester.getSemantics(find.byType(TapTarget)).getSemanticsData();
+      final data = tester
+          .getSemantics(find.byType(TapTarget))
+          .getSemanticsData();
       expect(data.label, 'Sem tickets');
       // Sem onTap não há ação de toque, e o nó é anunciado como desabilitado.
       expect(data.hasAction(SemanticsAction.tap), isFalse);
@@ -286,10 +305,9 @@ void main() {
 
     testWidgets('ShareGrid não expõe nós', (tester) async {
       final handle = tester.ensureSemantics();
-      await tester.pumpWidget(scaled(
-        const ShareGrid(revealedClues: 3, won: true),
-        1.0,
-      ));
+      await tester.pumpWidget(
+        scaled(const ShareGrid(revealedClues: 3, won: true), 1.0),
+      );
 
       expect(
         find.descendant(

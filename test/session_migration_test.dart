@@ -120,8 +120,10 @@ void main() {
       expect(dailyClue.score, 9);
       expect(dailyClue.revealedClues, 2);
 
-      final dailyPoster =
-          await repo.getDailySession(GameMode.poster, '2026-08-04');
+      final dailyPoster = await repo.getDailySession(
+        GameMode.poster,
+        '2026-08-04',
+      );
       expect(dailyPoster!.movieId, 22);
       expect(dailyPoster.score, 4);
 
@@ -195,8 +197,10 @@ void main() {
       await seeder.ensureGameSessionsTable(db);
       await seeder.ensureGameSessionsTable(db);
 
-      expect(await db.query('game_sessions', orderBy: 'id'),
-          equals(depoisDaPrimeira));
+      expect(
+        await db.query('game_sessions', orderBy: 'id'),
+        equals(depoisDaPrimeira),
+      );
     });
 
     test('não deixa a tabela temporária para trás', () async {
@@ -216,7 +220,10 @@ void main() {
       await seeder.ensureGameSessionsTable(fresh);
 
       final cols = await fresh.rawQuery('PRAGMA table_info(game_sessions)');
-      expect(cols.map((c) => c['name']), containsAll(['mode', 'kind', 'stage_id']));
+      expect(
+        cols.map((c) => c['name']),
+        containsAll(['mode', 'kind', 'stage_id']),
+      );
     });
 
     test('a coluna date passa a conter apenas datas ISO', () async {
@@ -225,9 +232,10 @@ void main() {
 
       await seeder.ensureGameSessionsTable(db);
 
-      final dates = (await db.query('game_sessions', columns: ['date']))
-          .map((r) => r['date'] as String)
-          .toList();
+      final dates = (await db.query(
+        'game_sessions',
+        columns: ['date'],
+      )).map((r) => r['date'] as String).toList();
       // estágio guarda string vazia; diária guarda a data
       expect(dates.toSet(), {'2026-08-04', ''});
     });

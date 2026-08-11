@@ -50,12 +50,7 @@ abstract final class Achievements {
         current: stats.totalWins,
         target: 1,
       ),
-      _counter(
-        id: 'perfect',
-        emoji: '💎',
-        current: perfect,
-        target: 1,
-      ),
+      _counter(id: 'perfect', emoji: '💎', current: perfect, target: 1),
       _counter(
         id: 'streak_7',
         emoji: '🔥',

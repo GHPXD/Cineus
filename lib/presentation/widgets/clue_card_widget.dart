@@ -71,8 +71,10 @@ class ClueCard extends StatelessWidget {
               const Spacer(),
               if (isLatest)
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 2,
+                  ),
                   decoration: BoxDecoration(
                     color: AppColors.blue300.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(999),
@@ -165,9 +167,7 @@ class ClueCard extends StatelessWidget {
           const SizedBox(width: 10),
           Text(
             category.toUpperCase(),
-            style: AppTypography.overline.copyWith(
-              color: AppColors.blue300,
-            ),
+            style: AppTypography.overline.copyWith(color: AppColors.blue300),
           ),
           const Spacer(),
           Text(

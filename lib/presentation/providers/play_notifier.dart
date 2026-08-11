@@ -18,19 +18,9 @@ import 'providers.dart';
 const visualBlurSigmas = [22.0, 14.0, 8.0, 3.0, 0.0];
 const visualBlurLabels = ['90%', '70%', '45%', '15%', '0%'];
 
-enum GuessOutcome {
-  correct,
-  wrong,
-  lost,
-  invalid,
-  franchise,
-}
+enum GuessOutcome { correct, wrong, lost, invalid, franchise }
 
-enum PlayLoadError {
-  noMovies,
-  movieNotFound,
-  loadFailed,
-}
+enum PlayLoadError { noMovies, movieNotFound, loadFailed }
 
 class PlayState {
   final GameMode mode;
@@ -74,7 +64,7 @@ class PlayState {
       visualBlurLabels[step.clamp(1, visualBlurLabels.length) - 1];
 
   String? get posterAsset =>
-      movie != null ? 'assets/posters/${movie!.id}.jpg' : null;
+      movie != null ? 'assets/posters/${movie!.id}.webp' : null;
 
   Set<ExtraHint> get purchasedHints => session?.purchasedHints ?? const {};
   List<ExtraHint> get availableHints =>
@@ -117,15 +107,9 @@ class PlayNotifier extends StateNotifier<PlayState> {
     this._movieRepo,
     this._gameRepo,
     this._stageRepo, {
-    String Function(PlayLoadError error)? errorText,
-  })  : _errorText = errorText ?? _fallbackErrorText,
-        super(PlayState(mode: mode));
-
-  static String _fallbackErrorText(PlayLoadError error) => switch (error) {
-        PlayLoadError.noMovies => 'No movies available',
-        PlayLoadError.movieNotFound => 'Movie not found',
-        PlayLoadError.loadFailed => 'Could not load the game',
-      };
+    required String Function(PlayLoadError error) errorText,
+  }) : _errorText = errorText,
+       super(PlayState(mode: mode));
 
   String get _stageProgressMode => mode == GameMode.clue ? 'clue' : 'poster';
 
@@ -302,10 +286,9 @@ class PlayNotifier extends StateNotifier<PlayState> {
     }
 
     if (StringNormalizer.isExactMatch(guess, movie.acceptedTitles)) {
-      final won = await _gameRepo.saveSession(session.copyWith(
-        status: GameStatus.won,
-        score: session.potentialScore,
-      ));
+      final won = await _gameRepo.saveSession(
+        session.copyWith(status: GameStatus.won, score: session.potentialScore),
+      );
       state = state.copyWith(
         session: won,
         lastGuessOutcome: GuessOutcome.correct,
@@ -325,11 +308,13 @@ class PlayNotifier extends StateNotifier<PlayState> {
     final newGuesses = [...session.guesses, guess];
 
     if (session.isOnLastStep) {
-      final lost = await _gameRepo.saveSession(session.copyWith(
-        guesses: newGuesses,
-        status: GameStatus.lost,
-        score: 0,
-      ));
+      final lost = await _gameRepo.saveSession(
+        session.copyWith(
+          guesses: newGuesses,
+          status: GameStatus.lost,
+          score: 0,
+        ),
+      );
       state = state.copyWith(
         session: lost,
         lastGuessOutcome: GuessOutcome.lost,
@@ -338,14 +323,18 @@ class PlayNotifier extends StateNotifier<PlayState> {
       return GuessOutcome.lost;
     }
 
-    final isFranchise =
-        StringNormalizer.isSameFranchise(guess, movie.acceptedTitles);
+    final isFranchise = StringNormalizer.isSameFranchise(
+      guess,
+      movie.acceptedTitles,
+    );
     final outcome = isFranchise ? GuessOutcome.franchise : GuessOutcome.wrong;
 
-    final saved = await _gameRepo.saveSession(session.copyWith(
-      guesses: newGuesses,
-      revealedClues: session.revealedClues + 1,
-    ));
+    final saved = await _gameRepo.saveSession(
+      session.copyWith(
+        guesses: newGuesses,
+        revealedClues: session.revealedClues + 1,
+      ),
+    );
     state = state.copyWith(
       session: saved,
       lastGuessOutcome: outcome,
@@ -358,28 +347,25 @@ class PlayNotifier extends StateNotifier<PlayState> {
 String _localizedPlayError(Ref ref, PlayLoadError error) {
   final override = ref.read(localeNotifierProvider);
   final device = PlatformDispatcher.instance.locale;
-  final locale = override ??
+  final locale =
+      override ??
       (LocaleNotifier.isSupported(device) ? device : const Locale('pt'));
   final l10n = lookupAppL10n(locale);
 
   return switch (error) {
     PlayLoadError.noMovies => l10n.noMoviesInDatabase,
     PlayLoadError.movieNotFound => l10n.movieNotFound,
-    PlayLoadError.loadFailed => switch (locale.languageCode) {
-        'en' => 'Could not load the game. Try again.',
-        'es' => 'No se pudo cargar el juego. Inténtalo de nuevo.',
-        _ => 'Não foi possível carregar o jogo. Tente novamente.',
-      },
+    PlayLoadError.loadFailed => l10n.genericLoadError,
   };
 }
 
 PlayNotifier _build(Ref ref, GameMode mode) => PlayNotifier(
-      mode,
-      ref.read(movieRepositoryProvider),
-      ref.read(gameRepositoryProvider),
-      ref.read(stageRepositoryProvider),
-      errorText: (error) => _localizedPlayError(ref, error),
-    );
+  mode,
+  ref.read(movieRepositoryProvider),
+  ref.read(gameRepositoryProvider),
+  ref.read(stageRepositoryProvider),
+  errorText: (error) => _localizedPlayError(ref, error),
+);
 
 final clueGameProvider = StateNotifierProvider<PlayNotifier, PlayState>(
   (ref) => _build(ref, GameMode.clue),

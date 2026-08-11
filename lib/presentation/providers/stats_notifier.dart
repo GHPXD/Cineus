@@ -64,8 +64,9 @@ class StatsNotifier extends StateNotifier<StatsState> {
       mode: GameMode.clue,
       streakFreezes: await _rewardRepo.streakFreezes(),
     );
-    final sessions =
-        await _gameRepo.getFinishedDailySessions(mode: GameMode.clue);
+    final sessions = await _gameRepo.getFinishedDailySessions(
+      mode: GameMode.clue,
+    );
 
     // One batched read instead of a query per session — the breakdowns need
     // every game, not just the 20 most recent.
@@ -79,12 +80,13 @@ class StatsNotifier extends StateNotifier<StatsState> {
         SessionWithMovie(s, moviesById[s.movieId]),
     ];
 
-    final stagesCompleted = (await _stageRepo.getAllStages(mode: 'clue'))
-            .where((s) => s.isCompleted)
-            .length +
-        (await _stageRepo.getAllStages(mode: 'poster'))
-            .where((s) => s.isCompleted)
-            .length;
+    final stagesCompleted =
+        (await _stageRepo.getAllStages(
+          mode: 'clue',
+        )).where((s) => s.isCompleted).length +
+        (await _stageRepo.getAllStages(
+          mode: 'poster',
+        )).where((s) => s.isCompleted).length;
 
     state = StatsState(
       stats: stats,
@@ -100,8 +102,9 @@ class StatsNotifier extends StateNotifier<StatsState> {
   }
 }
 
-final statsNotifierProvider =
-    StateNotifierProvider<StatsNotifier, StatsState>((ref) {
+final statsNotifierProvider = StateNotifierProvider<StatsNotifier, StatsState>((
+  ref,
+) {
   return StatsNotifier(
     ref.read(gameRepositoryProvider),
     ref.read(movieRepositoryProvider),

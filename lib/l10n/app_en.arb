@@ -41,6 +41,7 @@
   "errorWithMessage": "Error: {message}",
   "movieNotFound": "Film not found",
   "noMoviesInDatabase": "No films in the database",
+  "genericLoadError": "Could not load. Try again.",
 
   "dailyChallengeLabel": "DAILY CHALLENGE",
   "modeClues": "Clues",

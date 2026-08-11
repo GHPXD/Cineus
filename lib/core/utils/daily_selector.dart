@@ -59,8 +59,11 @@ abstract final class DailySelector {
   /// countdown disagree with the actual rollover by the timezone offset.
   static Duration timeUntilNextChallenge([DateTime? now]) {
     final utcNow = (now ?? DateTime.now()).toUtc();
-    final nextUtcMidnight = DateTime.utc(utcNow.year, utcNow.month, utcNow.day)
-        .add(const Duration(days: 1));
+    final nextUtcMidnight = DateTime.utc(
+      utcNow.year,
+      utcNow.month,
+      utcNow.day,
+    ).add(const Duration(days: 1));
     return nextUtcMidnight.difference(utcNow);
   }
 

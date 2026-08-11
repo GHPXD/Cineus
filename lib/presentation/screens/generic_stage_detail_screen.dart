@@ -29,10 +29,7 @@ class StageDetailConfig {
   final GameMode mode;
   final String playRoute;
 
-  const StageDetailConfig({
-    required this.mode,
-    required this.playRoute,
-  });
+  const StageDetailConfig({required this.mode, required this.playRoute});
 
   bool get isPoster => mode == GameMode.poster;
 
@@ -40,7 +37,8 @@ class StageDetailConfig {
   String itemLabel(AppL10n l10n) => isPoster ? l10n.itemPoster : l10n.itemFilm;
 
   /// "films done" / "posters done" — the progress line in the header.
-  String doneLabel(AppL10n l10n) => isPoster ? l10n.postersDone : l10n.filmsDone;
+  String doneLabel(AppL10n l10n) =>
+      isPoster ? l10n.postersDone : l10n.filmsDone;
 
   StateNotifierProvider<PlayNotifier, PlayState> get gameProvider =>
       isPoster ? posterGameProvider : clueGameProvider;
@@ -50,25 +48,26 @@ class StageDetailConfig {
 // Per-film slot provider (auto-disposes; refreshes when any game ends)
 // ---------------------------------------------------------------------------
 
-final _slotProvider = FutureProvider.autoDispose.family<_SlotData, _SlotArgs>(
-  (ref, args) async {
-    // Re-fetch whenever a game session status changes (win or lose)
-    ref.watch(clueGameProvider.select((s) => s.session?.status));
-    ref.watch(posterGameProvider.select((s) => s.session?.status));
+final _slotProvider = FutureProvider.autoDispose.family<_SlotData, _SlotArgs>((
+  ref,
+  args,
+) async {
+  // Re-fetch whenever a game session status changes (win or lose)
+  ref.watch(clueGameProvider.select((s) => s.session?.status));
+  ref.watch(posterGameProvider.select((s) => s.session?.status));
 
-    final movieRepo = ref.watch(movieRepositoryProvider);
-    final gameRepo = ref.watch(gameRepositoryProvider);
+  final movieRepo = ref.watch(movieRepositoryProvider);
+  final gameRepo = ref.watch(gameRepositoryProvider);
 
-    final movie = await movieRepo.getMovieById(args.movieId);
-    final session = await gameRepo.getStageSession(
-      args.mode,
-      args.stageId,
-      args.movieId,
-    );
+  final movie = await movieRepo.getMovieById(args.movieId);
+  final session = await gameRepo.getStageSession(
+    args.mode,
+    args.stageId,
+    args.movieId,
+  );
 
-    return _SlotData(movie: movie, session: session);
-  },
-);
+  return _SlotData(movie: movie, session: session);
+});
 
 class _SlotArgs {
   final GameMode mode;
@@ -128,8 +127,10 @@ class GenericStageDetailScreen extends ConsumerWidget {
       error: (e, _) => Scaffold(
         backgroundColor: AppColors.obsidian950,
         body: Center(
-          child: Text(context.l10n.errorWithMessage('$e'),
-              style: AppTypography.bodyMedium),
+          child: Text(
+            context.l10n.genericLoadError,
+            style: AppTypography.bodyMedium,
+          ),
         ),
       ),
       data: (stages) {
@@ -143,16 +144,23 @@ class GenericStageDetailScreen extends ConsumerWidget {
         final seedConstant = config.isPoster
             ? AppConstants.posterStageSeed
             : AppConstants.cluesStageSeed;
-        final orderedIds =
-            DailySelector.shuffleStage(stage.movieIds, stageId, seedConstant);
+        final orderedIds = DailySelector.shuffleStage(
+          stage.movieIds,
+          stageId,
+          seedConstant,
+        );
 
         return Scaffold(
           backgroundColor: AppColors.obsidian950,
           body: SafeArea(
             child: Column(
               children: [
-                _buildHeader(context, stage.name, stage.completedCount,
-                    stage.totalMovies),
+                _buildHeader(
+                  context,
+                  stage.name,
+                  stage.completedCount,
+                  stage.totalMovies,
+                ),
                 Expanded(
                   child: ListView.separated(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
@@ -178,8 +186,7 @@ class GenericStageDetailScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildHeader(
-      BuildContext context, String name, int done, int total) {
+  Widget _buildHeader(BuildContext context, String name, int done, int total) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
       child: Row(
@@ -195,8 +202,11 @@ class GenericStageDetailScreen extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: AppColors.obsidian600),
               ),
-              child: const Icon(Icons.arrow_back_ios_rounded,
-                  size: 16, color: AppColors.obsidian100),
+              child: const Icon(
+                Icons.arrow_back_ios_rounded,
+                size: 16,
+                color: AppColors.obsidian100,
+              ),
             ),
           ),
           const SizedBox(width: 12),
@@ -211,8 +221,9 @@ class GenericStageDetailScreen extends ConsumerWidget {
                     total,
                     config.doneLabel(context.l10n),
                   ),
-                  style: AppTypography.bodySmall
-                      .copyWith(color: AppColors.textSecondary),
+                  style: AppTypography.bodySmall.copyWith(
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             ),
@@ -245,8 +256,7 @@ class _FilmRow extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final slotAsync = ref.watch(
-      _slotProvider(
-          _SlotArgs(config.mode, stageId, movieId)),
+      _slotProvider(_SlotArgs(config.mode, stageId, movieId)),
     );
 
     return slotAsync.when(
@@ -290,7 +300,7 @@ class _FilmRow extends ConsumerWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
-                'assets/posters/$movieId.jpg',
+                'assets/posters/$movieId.webp',
                 width: 40,
                 height: 56,
                 fit: BoxFit.cover,
@@ -299,8 +309,11 @@ class _FilmRow extends ConsumerWidget {
                   height: 56,
                   color: AppColors.obsidian700,
                   alignment: Alignment.center,
-                  child: const Icon(Icons.movie_rounded,
-                      color: AppColors.textTertiary, size: 18),
+                  child: const Icon(
+                    Icons.movie_rounded,
+                    color: AppColors.textTertiary,
+                    size: 18,
+                  ),
                 ),
               ),
             )
@@ -331,29 +344,34 @@ class _FilmRow extends ConsumerWidget {
                 Text(
                   isKnown
                       ? (slot.movie?.title ??
-                          '${config.itemLabel(context.l10n)} $filmNumber')
+                            '${config.itemLabel(context.l10n)} $filmNumber')
                       : '${config.itemLabel(context.l10n)} $filmNumber',
                   style: AppTypography.labelLarge.copyWith(
                     color: isWon
                         ? AppColors.obsidian0
                         : isLost
-                            ? AppColors.obsidian200
-                            : AppColors.obsidian300,
+                        ? AppColors.obsidian200
+                        : AppColors.obsidian300,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  _statusLabel(context.l10n, isWon, isLost, isInProgress,
-                      slot.session?.score),
+                  _statusLabel(
+                    context.l10n,
+                    isWon,
+                    isLost,
+                    isInProgress,
+                    slot.session?.score,
+                  ),
                   style: AppTypography.bodySmall.copyWith(
                     fontSize: 11,
                     color: isWon
                         ? AppColors.success400
                         : isLost
-                            ? AppColors.ruby300
-                            : AppColors.obsidian400,
+                        ? AppColors.ruby300
+                        : AppColors.obsidian400,
                   ),
                 ),
               ],
@@ -363,8 +381,11 @@ class _FilmRow extends ConsumerWidget {
 
           // Action button
           if (isWon)
-            const Icon(Icons.check_circle_rounded,
-                color: AppColors.success400, size: 22)
+            const Icon(
+              Icons.check_circle_rounded,
+              color: AppColors.success400,
+              size: 22,
+            )
           else if (isLost)
             _retryButton(context, ref, hasTickets)
           else if (isInProgress)
@@ -391,8 +412,7 @@ class _FilmRow extends ConsumerWidget {
     return l10n.slotNotStarted;
   }
 
-  Widget _playButton(
-      BuildContext context, WidgetRef ref, bool hasTickets) {
+  Widget _playButton(BuildContext context, WidgetRef ref, bool hasTickets) {
     return _SlotActionButton(
       label: hasTickets ? context.l10n.actionPlay : context.l10n.noTicketsShort,
       color: hasTickets ? AppColors.gold300 : AppColors.obsidian400,
@@ -427,10 +447,11 @@ class _FilmRow extends ConsumerWidget {
     );
   }
 
-  Widget _retryButton(
-      BuildContext context, WidgetRef ref, bool hasTickets) {
+  Widget _retryButton(BuildContext context, WidgetRef ref, bool hasTickets) {
     return _SlotActionButton(
-      label: hasTickets ? context.l10n.actionRetry : context.l10n.noTicketsShort,
+      label: hasTickets
+          ? context.l10n.actionRetry
+          : context.l10n.noTicketsShort,
       color: hasTickets ? AppColors.ruby300 : AppColors.obsidian400,
       onTap: hasTickets
           ? () async {
@@ -484,8 +505,7 @@ class _SlotActionButton extends StatelessWidget {
         ),
         child: Text(
           label,
-          style:
-              AppTypography.labelSmall.copyWith(color: color, fontSize: 12),
+          style: AppTypography.labelSmall.copyWith(color: color, fontSize: 12),
         ),
       ),
     );

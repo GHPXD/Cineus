@@ -84,7 +84,8 @@ void main() {
           for (final replacement in alphabet.split('')) {
             if (body[pos] == replacement) continue;
             total++;
-            final typo = 'CIN-'
+            final typo =
+                'CIN-'
                 '${body.substring(0, pos)}$replacement${body.substring(pos + 1)}';
             final decoded = ChallengeCode.decode(typo);
             if (decoded == null) {
@@ -97,8 +98,11 @@ void main() {
       }
 
       // Com 5 bits de checksum, ~31/32 dos erros de um caractere são pegos.
-      expect(caught / total, greaterThan(0.9),
-          reason: 'só $caught de $total erros pegos');
+      expect(
+        caught / total,
+        greaterThan(0.9),
+        reason: 'só $caught de $total erros pegos',
+      );
       // O resto colide, mas o ponto é que erro silencioso é raro.
       expect(wrongFilm / total, lessThan(0.05));
     });
@@ -111,7 +115,8 @@ void main() {
         for (var i = 0; i < body.length - 1; i++) {
           if (body[i] == body[i + 1]) continue;
           total++;
-          final swapped = body.substring(0, i) +
+          final swapped =
+              body.substring(0, i) +
               body[i + 1] +
               body[i] +
               body.substring(i + 2);
@@ -135,7 +140,9 @@ void main() {
     });
 
     test('todos os 500 códigos são distintos', () {
-      final codes = {for (var id = 1; id <= 500; id++) ChallengeCode.encode(id)};
+      final codes = {
+        for (var id = 1; id <= 500; id++) ChallengeCode.encode(id),
+      };
       expect(codes.length, 500);
     });
   });
@@ -151,7 +158,9 @@ void main() {
     test('aceita o código na query também', () {
       final code = ChallengeCode.encode(123);
       expect(
-        ChallengeCode.movieIdFromLink(Uri.parse('cineus://challenge?code=$code')),
+        ChallengeCode.movieIdFromLink(
+          Uri.parse('cineus://challenge?code=$code'),
+        ),
         123,
       );
     });
@@ -163,8 +172,11 @@ void main() {
         'cineus://outracoisa',
         'cineus://challenge',
       ]) {
-        expect(ChallengeCode.movieIdFromLink(Uri.parse(link)), isNull,
-            reason: link);
+        expect(
+          ChallengeCode.movieIdFromLink(Uri.parse(link)),
+          isNull,
+          reason: link,
+        );
       }
     });
   });
@@ -172,8 +184,10 @@ void main() {
   test('isValid é coerente com decode', () {
     final good = ChallengeCode.encode(7);
     expect(ChallengeCode.isValid(good), isTrue);
-    expect(ChallengeCode.isValid('CIN-ZZZZ'),
-        ChallengeCode.decode('CIN-ZZZZ') != null);
+    expect(
+      ChallengeCode.isValid('CIN-ZZZZ'),
+      ChallengeCode.decode('CIN-ZZZZ') != null,
+    );
     expect(ChallengeCode.isValid('nada'), isFalse);
   });
 }

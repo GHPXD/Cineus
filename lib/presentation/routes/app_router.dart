@@ -26,10 +26,7 @@ abstract final class AppRouter {
     initialLocation: '/',
     routes: [
       // Splash — outside shell
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const _SplashGate(),
-      ),
+      GoRoute(path: '/', builder: (context, state) => const _SplashGate()),
 
       // ── Main shell with bottom nav ────────────────────────────────────────
       ShellRoute(
@@ -46,8 +43,7 @@ abstract final class AppRouter {
           GoRoute(
             path: '/stages/:id',
             builder: (context, state) {
-              final id =
-                  int.tryParse(state.pathParameters['id'] ?? '1') ?? 1;
+              final id = int.tryParse(state.pathParameters['id'] ?? '1') ?? 1;
               return StageDetailScreen(stageId: id);
             },
           ),
@@ -58,8 +54,7 @@ abstract final class AppRouter {
           GoRoute(
             path: '/visual/stage/:id',
             builder: (context, state) {
-              final id =
-                  int.tryParse(state.pathParameters['id'] ?? '1') ?? 1;
+              final id = int.tryParse(state.pathParameters['id'] ?? '1') ?? 1;
               return PosterStageDetailScreen(stageId: id);
             },
           ),
@@ -83,13 +78,16 @@ abstract final class AppRouter {
           child: VisualSearchScreen(onBack: () => context.pop()),
           transitionsBuilder: (context, animation, _, child) {
             return SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(0, 1),
-                end: Offset.zero,
-              ).animate(CurvedAnimation(
-                parent: animation,
-                curve: Curves.easeOutCubic,
-              )),
+              position:
+                  Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: Curves.easeOutCubic,
+                    ),
+                  ),
               child: child,
             );
           },
@@ -130,13 +128,13 @@ abstract final class AppRouter {
             return FadeTransition(opacity: animation, child: child);
           },
           child: GameScreen(
-          onNavigateToSearch: () => context.push('/search'),
-          onNavigateToVictory: () => context.go('/victory'),
-          onNavigateToDefeat: () => context.go('/defeat'),
-          onNavigateToStats: () => context.push('/stats'),
-          onNavigateToHowToPlay: () => context.push('/how-to-play'),
-          onNavigateBack: () => context.go('/home'),
-        ),
+            onNavigateToSearch: () => context.push('/search'),
+            onNavigateToVictory: () => context.go('/victory'),
+            onNavigateToDefeat: () => context.go('/defeat'),
+            onNavigateToStats: () => context.push('/stats'),
+            onNavigateToHowToPlay: () => context.push('/how-to-play'),
+            onNavigateBack: () => context.go('/home'),
+          ),
         ),
       ),
       GoRoute(
@@ -145,13 +143,16 @@ abstract final class AppRouter {
           child: SearchScreen(onBack: () => context.pop()),
           transitionsBuilder: (context, animation, _, child) {
             return SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(0, 1),
-                end: Offset.zero,
-              ).animate(CurvedAnimation(
-                parent: animation,
-                curve: Curves.easeOutCubic,
-              )),
+              position:
+                  Tween<Offset>(
+                    begin: const Offset(0, 1),
+                    end: Offset.zero,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: Curves.easeOutCubic,
+                    ),
+                  ),
               child: child,
             );
           },
@@ -199,9 +200,7 @@ abstract final class AppRouter {
       ),
       GoRoute(
         path: '/stats',
-        builder: (context, state) => StatsScreen(
-          onBack: () => context.pop(),
-        ),
+        builder: (context, state) => StatsScreen(onBack: () => context.pop()),
       ),
       GoRoute(
         path: '/how-to-play',
@@ -211,8 +210,7 @@ abstract final class AppRouter {
           final isOnboarding = state.uri.queryParameters['first'] == '1';
           return HowToPlayScreen(
             isOnboarding: isOnboarding,
-            onDismiss: () =>
-                isOnboarding ? context.go('/home') : context.pop(),
+            onDismiss: () => isOnboarding ? context.go('/home') : context.pop(),
           );
         },
       ),

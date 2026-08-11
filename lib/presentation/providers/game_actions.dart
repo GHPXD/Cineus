@@ -1,13 +1,39 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/entities/extra_hint.dart';
 import '../../domain/entities/game_session.dart';
+import '../l10n_mappers.dart';
 import 'play_notifier.dart';
 import 'providers.dart';
 import 'reward_notifier.dart';
 import 'stats_notifier.dart';
 
 /// Shared side effects that every entry point into a game must perform.
+
+/// Shows the same franchise-near-miss feedback in every game mode.
+void showFranchiseHint(BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Row(
+        children: [
+          const Text('🎯', style: TextStyle(fontSize: 18)),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              context.l10n.franchiseHint,
+              style: const TextStyle(fontWeight: FontWeight.w600),
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: const Color(0xFF8B6914),
+      duration: const Duration(seconds: 4),
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    ),
+  );
+}
 
 /// Charges one ticket and then runs [start].
 ///
@@ -42,9 +68,11 @@ void refreshAfterGameFinished(
 }) {
   if (stageId != null) {
     ref
-        .read(mode == GameMode.poster
-            ? posterStageNotifierProvider.notifier
-            : stageNotifierProvider.notifier)
+        .read(
+          mode == GameMode.poster
+              ? posterStageNotifierProvider.notifier
+              : stageNotifierProvider.notifier,
+        )
         .load();
   }
 
@@ -80,8 +108,10 @@ Future<bool> buyHintWithTicket(
 
   try {
     await ref
-        .read((mode == GameMode.poster ? posterGameProvider : clueGameProvider)
-            .notifier)
+        .read(
+          (mode == GameMode.poster ? posterGameProvider : clueGameProvider)
+              .notifier,
+        )
         .grantHint(hint);
     return true;
   } catch (_) {

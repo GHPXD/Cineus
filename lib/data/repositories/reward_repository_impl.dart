@@ -11,22 +11,18 @@ class RewardRepositoryImpl implements RewardRepository {
   final DateTime Function() _now;
 
   RewardRepositoryImpl(this._db, {DateTime Function()? now})
-      : _now = now ?? DateTime.now;
+    : _now = now ?? DateTime.now;
 
   @override
   Future<bool> claim(TicketReward reward) async {
     final db = await _db.database;
     // `key` is the PRIMARY KEY, so `ignore` makes a repeat claim a no-op and
     // tells us so via the returned rowid.
-    final rowId = await db.insert(
-      'ticket_rewards',
-      {
-        'key': reward.key,
-        'amount': reward.amount,
-        'awarded_at': _now().toUtc().toIso8601String(),
-      },
-      conflictAlgorithm: ConflictAlgorithm.ignore,
-    );
+    final rowId = await db.insert('ticket_rewards', {
+      'key': reward.key,
+      'amount': reward.amount,
+      'awarded_at': _now().toUtc().toIso8601String(),
+    }, conflictAlgorithm: ConflictAlgorithm.ignore);
     return rowId != 0;
   }
 
@@ -40,8 +36,9 @@ class RewardRepositoryImpl implements RewardRepository {
   @override
   Future<int> totalEarned() async {
     final db = await _db.database;
-    final result =
-        await db.rawQuery('SELECT COALESCE(SUM(amount), 0) AS total FROM ticket_rewards');
+    final result = await db.rawQuery(
+      'SELECT COALESCE(SUM(amount), 0) AS total FROM ticket_rewards',
+    );
     return (result.first['total'] as int?) ?? 0;
   }
 
@@ -55,11 +52,10 @@ class RewardRepositoryImpl implements RewardRepository {
   @override
   Future<bool> freezeStreakDay(String date) async {
     final db = await _db.database;
-    final rowId = await db.insert(
-      'streak_freezes',
-      {'date': date, 'created_at': _now().toUtc().toIso8601String()},
-      conflictAlgorithm: ConflictAlgorithm.ignore,
-    );
+    final rowId = await db.insert('streak_freezes', {
+      'date': date,
+      'created_at': _now().toUtc().toIso8601String(),
+    }, conflictAlgorithm: ConflictAlgorithm.ignore);
     return rowId != 0;
   }
 }

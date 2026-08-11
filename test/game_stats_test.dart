@@ -5,7 +5,12 @@ import 'package:cineus/data/repositories/game_repository_impl.dart';
 import 'package:cineus/domain/entities/game_session.dart';
 
 /// Builds a finished session for a daily key.
-GameSession daily(String date, {required bool won, int score = 0, int clues = 1}) {
+GameSession daily(
+  String date, {
+  required bool won,
+  int score = 0,
+  int clues = 1,
+}) {
   return GameSession.daily(
     mode: GameMode.clue,
     date: date,
@@ -88,16 +93,18 @@ void main() {
       expect(s.currentStreak, 1);
     });
 
-    test('quebra num dia não jogado (o bug antigo somava por cima do buraco)',
-        () {
-      final s = GameRepositoryImpl.computeStats([
-        daily('2026-08-10', won: true, score: 8),
-        // 09 e 08 não foram jogados
-        daily('2026-08-07', won: true, score: 7),
-        daily('2026-08-06', won: true, score: 6),
-      ], todayUtc: today);
-      expect(s.currentStreak, 1);
-    });
+    test(
+      'quebra num dia não jogado (o bug antigo somava por cima do buraco)',
+      () {
+        final s = GameRepositoryImpl.computeStats([
+          daily('2026-08-10', won: true, score: 8),
+          // 09 e 08 não foram jogados
+          daily('2026-08-07', won: true, score: 7),
+          daily('2026-08-06', won: true, score: 6),
+        ], todayUtc: today);
+        expect(s.currentStreak, 1);
+      },
+    );
 
     test('sobrevive quando a última partida foi ontem', () {
       final s = GameRepositoryImpl.computeStats([

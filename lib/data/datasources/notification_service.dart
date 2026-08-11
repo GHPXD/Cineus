@@ -35,7 +35,7 @@ class NotificationServiceImpl implements NotificationService {
   final FlutterLocalNotificationsPlugin _plugin;
 
   NotificationServiceImpl({FlutterLocalNotificationsPlugin? plugin})
-      : _plugin = plugin ?? FlutterLocalNotificationsPlugin();
+    : _plugin = plugin ?? FlutterLocalNotificationsPlugin();
 
   static const int _dailyReminderId = 1001;
   static const String _channelId = 'cineus_daily';
@@ -86,16 +86,24 @@ class NotificationServiceImpl implements NotificationService {
     if (kIsWeb) return false;
     await init();
 
-    final android = _plugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
+    final android = _plugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >();
     if (android != null) {
       return await android.requestNotificationsPermission() ?? false;
     }
 
-    final darwin = _plugin.resolvePlatformSpecificImplementation<
-        IOSFlutterLocalNotificationsPlugin>();
+    final darwin = _plugin
+        .resolvePlatformSpecificImplementation<
+          IOSFlutterLocalNotificationsPlugin
+        >();
     if (darwin != null) {
-      return await darwin.requestPermissions(alert: true, badge: true, sound: true) ??
+      return await darwin.requestPermissions(
+            alert: true,
+            badge: true,
+            sound: true,
+          ) ??
           false;
     }
 
@@ -107,8 +115,10 @@ class NotificationServiceImpl implements NotificationService {
     if (kIsWeb) return false;
     await init();
 
-    final android = _plugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
+    final android = _plugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >();
     if (android != null) {
       return await android.areNotificationsEnabled() ?? false;
     }

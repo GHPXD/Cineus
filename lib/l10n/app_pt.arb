@@ -56,6 +56,7 @@
   "@errorWithMessage": { "placeholders": { "message": {} } },
   "movieNotFound": "Filme não encontrado",
   "noMoviesInDatabase": "Nenhum filme na base",
+  "genericLoadError": "Não foi possível carregar. Tente novamente.",
 
   "dailyChallengeLabel": "DESAFIO DIÁRIO",
   "modeClues": "Dicas",

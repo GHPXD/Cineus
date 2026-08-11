@@ -13,8 +13,7 @@ class StreakRecoveryCard extends ConsumerStatefulWidget {
   const StreakRecoveryCard({super.key});
 
   @override
-  ConsumerState<StreakRecoveryCard> createState() =>
-      _StreakRecoveryCardState();
+  ConsumerState<StreakRecoveryCard> createState() => _StreakRecoveryCardState();
 }
 
 class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
@@ -47,15 +46,20 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
                 const Text('🔥', style: TextStyle(fontSize: 22)),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: Text(l10n.streakAtRisk, style: AppTypography.titleSmall),
+                  child: Text(
+                    l10n.streakAtRisk,
+                    style: AppTypography.titleSmall,
+                  ),
                 ),
               ],
             ),
             const SizedBox(height: 6),
             Text(
               l10n.streakRecoverBody(_formatDay(recoverable), cost),
-              style: AppTypography.bodySmall
-                  .copyWith(color: AppColors.obsidian200, fontSize: 12),
+              style: AppTypography.bodySmall.copyWith(
+                color: AppColors.obsidian200,
+                fontSize: 12,
+              ),
             ),
             const SizedBox(height: 14),
             SizedBox(
@@ -77,8 +81,8 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
                   _working
                       ? l10n.protecting
                       : canAfford
-                          ? l10n.protectStreak(cost)
-                          : l10n.needTickets(cost),
+                      ? l10n.protectStreak(cost)
+                      : l10n.needTickets(cost),
                   style: AppTypography.labelLarge.copyWith(
                     color: AppColors.obsidian900,
                     fontWeight: FontWeight.w800,
@@ -97,7 +101,9 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
     HapticFeedback.mediumImpact();
 
     final tickets = ref.read(ticketNotifierProvider.notifier);
-    final ok = await ref.read(rewardNotifierProvider.notifier).freezeMissedDay(
+    final ok = await ref
+        .read(rewardNotifierProvider.notifier)
+        .freezeMissedDay(
           date: date,
           charge: (cost) => tickets.debitTickets(count: cost),
           refund: tickets.refundDebit,

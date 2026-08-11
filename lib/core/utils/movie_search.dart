@@ -65,15 +65,19 @@ abstract final class MovieSearch {
       if (titleScore <= 0 && originalScore <= 0) continue;
 
       final useTitle = titleScore >= originalScore;
-      scored.add(_Scored(
-        c.id,
-        useTitle ? titleScore : originalScore,
-        useTitle ? c.titleNorm : c.originalNorm,
-      ));
+      scored.add(
+        _Scored(
+          c.id,
+          useTitle ? titleScore : originalScore,
+          useTitle ? c.titleNorm : c.originalNorm,
+        ),
+      );
     }
 
-    scored.sort((a, b) =>
-        compareCandidates(a.score, a.matchedTitle, b.score, b.matchedTitle));
+    scored.sort(
+      (a, b) =>
+          compareCandidates(a.score, a.matchedTitle, b.score, b.matchedTitle),
+    );
 
     return [for (final s in scored.take(limit)) s.id];
   }
@@ -108,7 +112,11 @@ abstract final class MovieSearch {
 
     // Typo tolerance: against the whole title, then against each word, so
     // "guardioes" still reaches "guardioes da galaxia" with a slip.
-    final whole = levenshtein(normalizedQuery, normalizedTitle, maxEditDistance);
+    final whole = levenshtein(
+      normalizedQuery,
+      normalizedTitle,
+      maxEditDistance,
+    );
     if (whole <= maxEditDistance) return 500 - whole * 50;
 
     var best = maxEditDistance + 1;

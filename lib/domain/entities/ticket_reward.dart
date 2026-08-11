@@ -65,30 +65,36 @@ abstract final class RewardRules {
     final modeName = finished.mode.name;
 
     if (finished.isDaily) {
-      rewards.add(TicketReward(
-        key: 'daily_win_${modeName}_${finished.date}',
-        amount: dailyWin,
-        kind: RewardKind.dailyWin,
-      ));
+      rewards.add(
+        TicketReward(
+          key: 'daily_win_${modeName}_${finished.date}',
+          amount: dailyWin,
+          kind: RewardKind.dailyWin,
+        ),
+      );
 
       if (currentStreak > 0 && currentStreak % streakMilestoneEvery == 0) {
-        rewards.add(TicketReward(
-          // Keyed by the milestone, not the date, so hitting 7 once pays once.
-          key: 'streak_$currentStreak',
-          amount: streakMilestone,
-          kind: RewardKind.streakMilestone,
-          value: currentStreak,
-        ));
+        rewards.add(
+          TicketReward(
+            // Keyed by the milestone, not the date, so hitting 7 once pays once.
+            key: 'streak_$currentStreak',
+            amount: streakMilestone,
+            kind: RewardKind.streakMilestone,
+            value: currentStreak,
+          ),
+        );
       }
     }
 
     if (finished.isStage && stageNowComplete) {
-      rewards.add(TicketReward(
-        key: 'stage_${modeName}_${finished.stageId}',
-        amount: stageCompletion,
-        kind: RewardKind.stageComplete,
-        value: finished.stageId,
-      ));
+      rewards.add(
+        TicketReward(
+          key: 'stage_${modeName}_${finished.stageId}',
+          amount: stageCompletion,
+          kind: RewardKind.stageComplete,
+          value: finished.stageId,
+        ),
+      );
     }
 
     return rewards;

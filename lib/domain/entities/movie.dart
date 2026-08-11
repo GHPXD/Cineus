@@ -29,9 +29,9 @@ class Movie {
 
   /// Accepted titles for guess matching (case-insensitive, accent-insensitive).
   List<String> get acceptedTitles => [
-        title,
-        if (originalTitle != null) originalTitle!,
-      ];
+    title,
+    if (originalTitle != null) originalTitle!,
+  ];
 
   Movie copyWith({
     int? id,

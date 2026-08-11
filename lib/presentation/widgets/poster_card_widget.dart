@@ -38,7 +38,7 @@ class PosterCard extends StatelessWidget {
         children: [
           // Poster from bundled local assets
           Image.asset(
-            'assets/posters/${movie.id}.jpg',
+            'assets/posters/${movie.id}.webp',
             fit: BoxFit.cover,
             errorBuilder: (_, __, ___) => Stack(
               fit: StackFit.expand,

@@ -1,5 +1,4 @@
 abstract final class AppConstants {
-  static const String appName = 'Cineus';
   static const String dbName = 'cineus.db';
 
   /// Schema version. Bumping this runs `DatabaseHelper._onUpgrade`, which
@@ -34,9 +33,6 @@ abstract final class AppConstants {
   /// Number of films per stage group.
   static const int stageSize = 10;
 
-  /// Free daily tickets each player receives at midnight.
-  static const int dailyTickets = 20;
-
   /// Visual game total reveal levels.
   static const int visualLevels = 5;
 
@@ -46,16 +42,8 @@ abstract final class AppConstants {
   /// Splash screen display duration.
   static const Duration splashDuration = Duration(milliseconds: 2500);
 
-  /// Default animation durations.
-  static const Duration animationFast = Duration(milliseconds: 200);
-  static const Duration animationMedium = Duration(milliseconds: 600);
-  static const Duration animationSlow = Duration(milliseconds: 800);
-
   /// Search debounce duration.
   static const Duration searchDebounce = Duration(milliseconds: 300);
-
-  /// Max characters for guess input.
-  static const int maxGuessInputLength = 200;
 
   /// Hash constants for deterministic daily selection.
   static const int dailyHashConstant = 2654435761;
@@ -66,20 +54,6 @@ abstract final class AppConstants {
 
   /// Shuffle seed multiplier for poster stage lists (different from clues).
   static const int posterStageSeed = 987654321;
-
-  /// Ordered clue categories (from most abstract to most obvious).
-  static const List<String> clueCategories = [
-    'Atmosfera',
-    'Estilo Visual',
-    'Temática',
-    'Narrativa',
-    'País / Época',
-    'Trilha Sonora',
-    'Prêmios',
-    'Diretor',
-    'Elenco',
-    'Tagline Oficial',
-  ];
 
   /// Clue category emojis for visual representation.
   /// Maps both the original fixed categories and the dynamic Gemini categories.

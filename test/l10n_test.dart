@@ -55,14 +55,20 @@ void main() {
     for (final locale in ['en', 'es']) {
       test('$locale não tem chave faltando', () {
         final missing = template.difference(messageKeys(arbs[locale]!));
-        expect(missing, isEmpty,
-            reason: 'faltam em $locale: ${missing.toList()..sort()}');
+        expect(
+          missing,
+          isEmpty,
+          reason: 'faltam em $locale: ${missing.toList()..sort()}',
+        );
       });
 
       test('$locale não tem chave sobrando', () {
         final extra = messageKeys(arbs[locale]!).difference(template);
-        expect(extra, isEmpty,
-            reason: 'sobrando em $locale: ${extra.toList()..sort()}');
+        expect(
+          extra,
+          isEmpty,
+          reason: 'sobrando em $locale: ${extra.toList()..sort()}',
+        );
       });
     }
   });
@@ -86,8 +92,11 @@ void main() {
       final en = arbs['en']!;
       final keys = messageKeys(pt);
       final identical = keys.where((k) => pt[k] == en[k]).length;
-      expect(identical / keys.length, lessThan(0.25),
-          reason: '$identical de ${keys.length} mensagens idênticas ao pt');
+      expect(
+        identical / keys.length,
+        lessThan(0.25),
+        reason: '$identical de ${keys.length} mensagens idênticas ao pt',
+      );
     });
   });
 

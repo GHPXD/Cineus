@@ -11,38 +11,38 @@ import '../l10n/app_l10n.dart';
 /// lives here — one place to look when a string reads wrong in some language.
 extension DomainL10n on AppL10n {
   String achievementTitle(String id) => switch (id) {
-        'first_win' => achFirstWin,
-        'perfect' => achPerfect,
-        'streak_7' => achStreak7,
-        'streak_30' => achStreak30,
-        'games_50' => achGames50,
-        'stages_5' => achStages5,
-        'tickets_100' => achTickets100,
-        _ => id,
-      };
+    'first_win' => achFirstWin,
+    'perfect' => achPerfect,
+    'streak_7' => achStreak7,
+    'streak_30' => achStreak30,
+    'games_50' => achGames50,
+    'stages_5' => achStages5,
+    'tickets_100' => achTickets100,
+    _ => id,
+  };
 
   String achievementDescription(String id) => switch (id) {
-        'first_win' => achFirstWinDesc,
-        'perfect' => achPerfectDesc,
-        'streak_7' => achStreak7Desc,
-        'streak_30' => achStreak30Desc,
-        'games_50' => achGames50Desc,
-        'stages_5' => achStages5Desc,
-        'tickets_100' => achTickets100Desc,
-        _ => '',
-      };
+    'first_win' => achFirstWinDesc,
+    'perfect' => achPerfectDesc,
+    'streak_7' => achStreak7Desc,
+    'streak_30' => achStreak30Desc,
+    'games_50' => achGames50Desc,
+    'stages_5' => achStages5Desc,
+    'tickets_100' => achTickets100Desc,
+    _ => '',
+  };
 
   String hintLabel(ExtraHint hint) => switch (hint) {
-        ExtraHint.director => hintDirector,
-        ExtraHint.year => hintYear,
-        ExtraHint.runtime => hintRuntime,
-      };
+    ExtraHint.director => hintDirector,
+    ExtraHint.year => hintYear,
+    ExtraHint.runtime => hintRuntime,
+  };
 
   String rewardReason(TicketReward reward) => switch (reward.kind) {
-        RewardKind.dailyWin => rewardDailyWin,
-        RewardKind.streakMilestone => rewardStreak(reward.value ?? 0),
-        RewardKind.stageComplete => rewardStageComplete(reward.value ?? 0),
-      };
+    RewardKind.dailyWin => rewardDailyWin,
+    RewardKind.streakMilestone => rewardStreak(reward.value ?? 0),
+    RewardKind.stageComplete => rewardStageComplete(reward.value ?? 0),
+  };
 
   String modeName(GameMode mode) =>
       mode == GameMode.clue ? modeClues : modePoster;

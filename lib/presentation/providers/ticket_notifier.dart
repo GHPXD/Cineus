@@ -15,10 +15,12 @@ class TicketNotifier extends StateNotifier<PlayerTickets> {
   late final Future<void> _ready;
 
   TicketNotifier(this._db)
-      : super(PlayerTickets(
+    : super(
+        PlayerTickets(
           dailyTickets: PlayerTickets.maxDailyTickets,
           lastResetDate: DailySelector.todayKey(),
-        )) {
+        ),
+      ) {
     _ready = _load();
   }
 
@@ -78,10 +80,7 @@ class TicketNotifier extends StateNotifier<PlayerTickets> {
 
     final fromDaily = count <= state.dailyTickets ? count : state.dailyTickets;
     final fromExtra = count - fromDaily;
-    final debit = TicketDebit(
-      dailyTickets: fromDaily,
-      extraTickets: fromExtra,
-    );
+    final debit = TicketDebit(dailyTickets: fromDaily, extraTickets: fromExtra);
 
     final updated = state.copyWith(
       dailyTickets: state.dailyTickets - debit.dailyTickets,

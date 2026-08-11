@@ -62,28 +62,7 @@ class _VisualScreenState extends ConsumerState<VisualScreen> {
       // Franchise hint
       if (next.lastGuessOutcome == GuessOutcome.franchise &&
           next.guessCount != prev?.guessCount) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Row(
-              children: [
-                const Text('🎯', style: TextStyle(fontSize: 18)),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    context.l10n.franchiseHint,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ],
-            ),
-            backgroundColor: const Color(0xFF8B6914),
-            duration: const Duration(seconds: 4),
-            behavior: SnackBarBehavior.floating,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        );
+        showFranchiseHint(context);
       }
     });
 
@@ -405,11 +384,10 @@ class _LevelPips extends StatelessWidget {
               ? (state.session?.status == GameStatus.won
                     ? context.l10n.gotItAtLevel(state.step)
                     : context.l10n.betterLuckTomorrow)
-              : context.l10n.blurAndPoints(
-                  state.blurLabel,
-                  state.currentScore,
-                ),
-          style: AppTypography.bodySmall.copyWith(color: AppColors.textSecondary),
+              : context.l10n.blurAndPoints(state.blurLabel, state.currentScore),
+          style: AppTypography.bodySmall.copyWith(
+            color: AppColors.textSecondary,
+          ),
         ),
       ],
     );
@@ -675,8 +653,10 @@ class VisualVictoryScreen extends ConsumerWidget {
               children: [
                 const Text('🎬🏆', style: TextStyle(fontSize: 56)),
                 const SizedBox(height: 20),
-                Text(context.l10n.youRecognized,
-                    style: AppTypography.titleLarge),
+                Text(
+                  context.l10n.youRecognized,
+                  style: AppTypography.titleLarge,
+                ),
                 const SizedBox(height: 8),
                 Text(
                   state.movie?.title ?? '',
@@ -744,8 +724,10 @@ class VisualDefeatScreen extends ConsumerWidget {
               children: [
                 const Text('💀🎬', style: TextStyle(fontSize: 56)),
                 const SizedBox(height: 20),
-                Text(context.l10n.didntRecognize,
-                    style: AppTypography.titleLarge),
+                Text(
+                  context.l10n.didntRecognize,
+                  style: AppTypography.titleLarge,
+                ),
                 const SizedBox(height: 8),
                 Text(
                   context.l10n.itWas(state.movie?.title ?? '?'),

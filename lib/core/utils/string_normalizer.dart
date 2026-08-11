@@ -11,12 +11,14 @@ abstract final class StringNormalizer {
     return s
         .trim()
         .toLowerCase()
-        .replaceAll(RegExp(r'[áàâã]'), 'a')
-        .replaceAll(RegExp(r'[éèê]'), 'e')
-        .replaceAll(RegExp(r'[íìî]'), 'i')
-        .replaceAll(RegExp(r'[óòôõ]'), 'o')
-        .replaceAll(RegExp(r'[úùû]'), 'u')
+        .replaceAll(RegExp(r'[áàâãä]'), 'a')
+        .replaceAll(RegExp(r'[éèêë]'), 'e')
+        .replaceAll(RegExp(r'[íìîï]'), 'i')
+        .replaceAll(RegExp(r'[óòôõö]'), 'o')
+        .replaceAll(RegExp(r'[úùûü]'), 'u')
         .replaceAll('ç', 'c')
+        .replaceAll('ñ', 'n')
+        .replaceAll(RegExp(r'[-‐‑‒–—]'), ' ')
         .replaceAll(RegExp(r'[^a-z0-9\s]'), '')
         .replaceAll(RegExp(r'\s+'), ' ')
         .trim();
@@ -71,12 +73,16 @@ abstract final class StringNormalizer {
   static String _stripSequence(String normalized) {
     return normalized
         .replaceAll(
-            RegExp(r'\s+(?:xiii|xii|xiv|xv|xi|viii|vii|vi|iv|iii|ii)\s*$'), '')
+          RegExp(r'\s+(?:xiii|xii|xiv|xv|xi|viii|vii|vi|iv|iii|ii)\s*$'),
+          '',
+        )
         .replaceAll(RegExp(r'\s+\d{1,2}\s*$'), '')
         .replaceAll(
-            RegExp(
-                r'\s+-?\s*(?:parte?|part)\s+(?:\d+|um|dois|tres|one|two|three|four|five)\s*$'),
-            '')
+          RegExp(
+            r'\s+-?\s*(?:parte?|part)\s+(?:\d+|um|dois|tres|one|two|three|four|five)\s*$',
+          ),
+          '',
+        )
         .trim();
   }
 

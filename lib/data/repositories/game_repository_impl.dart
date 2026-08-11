@@ -69,10 +69,15 @@ class GameRepositoryImpl implements GameRepository {
     // second row for the same challenge.
     final existing = switch (session.kind) {
       SessionKind.daily => await getDailySession(session.mode, session.date),
-      SessionKind.stage =>
-        await getStageSession(session.mode, session.stageId, session.movieId),
-      SessionKind.challenge =>
-        await getChallengeSession(session.mode, session.movieId),
+      SessionKind.stage => await getStageSession(
+        session.mode,
+        session.stageId,
+        session.movieId,
+      ),
+      SessionKind.challenge => await getChallengeSession(
+        session.mode,
+        session.movieId,
+      ),
     };
 
     if (existing != null) {
@@ -253,9 +258,11 @@ class GameRepositoryImpl implements GameRepository {
     if (last.isBefore(first)) return true;
     if (freezes.isEmpty) return false;
 
-    for (var day = first;
-        !day.isAfter(last);
-        day = day.add(const Duration(days: 1))) {
+    for (
+      var day = first;
+      !day.isAfter(last);
+      day = day.add(const Duration(days: 1))
+    ) {
       if (!freezes.contains(DailySelector.todayKey(day))) return false;
     }
     return true;

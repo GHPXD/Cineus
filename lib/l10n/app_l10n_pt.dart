@@ -131,6 +131,9 @@ class AppL10nPt extends AppL10n {
   String get noMoviesInDatabase => 'Nenhum filme na base';
 
   @override
+  String get genericLoadError => 'Não foi possível carregar. Tente novamente.';
+
+  @override
   String get dailyChallengeLabel => 'DESAFIO DIÁRIO';
 
   @override

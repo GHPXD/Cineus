@@ -84,6 +84,61 @@ void main() {
     });
   });
 
+  group('refresh a partir do SQLite empacotado', () {
+    test('atualiza catálogo sem depender do seed JSON mobile', () async {
+      await seeder.ensureStagesAndTickets(db);
+      await seeder.ensureAppMetaTable(db);
+
+      await db.execute('''
+        CREATE TABLE IF NOT EXISTS clues (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          movie_id INTEGER NOT NULL,
+          clue_number INTEGER NOT NULL,
+          category TEXT NOT NULL,
+          text TEXT NOT NULL
+        )
+      ''');
+
+      final source = await factory.openDatabase(
+        inMemoryDatabasePath,
+        options: OpenDatabaseOptions(singleInstance: false),
+      );
+      addTearDown(source.close);
+      await source.execute(_bundledMoviesSchema);
+      await source.execute('''
+        CREATE TABLE clues (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          movie_id INTEGER NOT NULL,
+          clue_number INTEGER NOT NULL,
+          category TEXT NOT NULL,
+          text TEXT NOT NULL
+        )
+      ''');
+      await source.insert('movies', {
+        'id': 42,
+        'tmdb_id': 90042,
+        'title': 'Catálogo Novo',
+      });
+      await source.insert('clues', {
+        'movie_id': 42,
+        'clue_number': 1,
+        'category': 'Conceito',
+        'text': 'Nova dica',
+      });
+
+      expect(
+        await seeder.refreshContentFromDatabaseIfStale(db, source),
+        isTrue,
+      );
+      expect(
+        (await db.query('movies', where: 'id = 42')).single['title'],
+        'Catálogo Novo',
+      );
+      expect((await db.query('clues', where: 'movie_id = 42')).length, 1);
+      expect(await seeder.readContentVersion(db), AppConstants.contentVersion);
+    });
+  });
+
   group('syncStages — aditivo, nunca destrutivo', () {
     test('cria estágios em blocos de stageSize', () async {
       await addMovies(1, 25);
@@ -91,8 +146,10 @@ void main() {
 
       final stages = await db.query('stages', orderBy: 'id ASC');
       expect(stages.length, 3); // 10 + 10 + 5
-      expect(jsonDecode(stages[0]['film_ids'] as String),
-          List.generate(10, (i) => i + 1));
+      expect(
+        jsonDecode(stages[0]['film_ids'] as String),
+        List.generate(10, (i) => i + 1),
+      );
       expect(jsonDecode(stages[2]['film_ids'] as String), [21, 22, 23, 24, 25]);
     });
 
@@ -111,9 +168,11 @@ void main() {
     test('catálogo maior apenas acrescenta estágios novos', () async {
       await addMovies(1, 20);
       await seeder.ensureStagesAndTickets(db);
-      final stage1Before = (await db.query('stages',
-              where: 'id = 1', columns: ['film_ids']))
-          .first['film_ids'];
+      final stage1Before = (await db.query(
+        'stages',
+        where: 'id = 1',
+        columns: ['film_ids'],
+      )).first['film_ids'];
 
       await addMovies(21, 40);
       await seeder.syncStages(db);
@@ -122,16 +181,28 @@ void main() {
       expect(stages.length, 4);
       // estágios existentes intactos
       expect(stages[0]['film_ids'], stage1Before);
-      expect(jsonDecode(stages[3]['film_ids'] as String),
-          [31, 32, 33, 34, 35, 36, 37, 38, 39, 40]);
+      expect(jsonDecode(stages[3]['film_ids'] as String), [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+      ]);
     });
 
     test('estágio parcial no fim é estendido, não reembaralhado', () async {
       await addMovies(1, 15); // estágio 2 fica com 5 filmes
       await seeder.ensureStagesAndTickets(db);
       expect(
-        jsonDecode((await db.query('stages', where: 'id = 2')).first['film_ids']
-            as String),
+        jsonDecode(
+          (await db.query('stages', where: 'id = 2')).first['film_ids']
+              as String,
+        ),
         [11, 12, 13, 14, 15],
       );
 
@@ -139,8 +210,10 @@ void main() {
       await seeder.syncStages(db);
 
       expect(
-        jsonDecode((await db.query('stages', where: 'id = 2')).first['film_ids']
-            as String),
+        jsonDecode(
+          (await db.query('stages', where: 'id = 2')).first['film_ids']
+              as String,
+        ),
         [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
         reason: 'o bloco cresceu de forma puramente aditiva',
       );
@@ -182,26 +255,26 @@ void main() {
       await seeder.syncStages(db);
       await seeder.ensureStagesAndTickets(db);
 
-      expect(
-        await db.query('stage_progress'),
-        [
-          {
-            'id': 1,
-            'stage_id': 1,
-            'movie_id': 3,
-            'mode': 'clue',
-            'status': 'completed'
-          }
-        ],
-      );
+      expect(await db.query('stage_progress'), [
+        {
+          'id': 1,
+          'stage_id': 1,
+          'movie_id': 3,
+          'mode': 'clue',
+          'status': 'completed',
+        },
+      ]);
       final session = (await db.query('game_sessions')).single;
       expect(session['score'], 9);
       expect(session['status'], 'won');
 
       final tickets = (await db.query('player_tickets')).single;
       expect(tickets['daily_tickets'], 7);
-      expect(tickets['extra_tickets'], 2,
-          reason: 'ensureStagesAndTickets não pode resetar tickets');
+      expect(
+        tickets['extra_tickets'],
+        2,
+        reason: 'ensureStagesAndTickets não pode resetar tickets',
+      );
     });
   });
 

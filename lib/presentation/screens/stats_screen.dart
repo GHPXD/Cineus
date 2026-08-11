@@ -26,9 +26,7 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(
-      () => ref.read(statsNotifierProvider.notifier).load(),
-    );
+    Future.microtask(() => ref.read(statsNotifierProvider.notifier).load());
   }
 
   @override
@@ -154,9 +152,7 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
       decoration: BoxDecoration(
         gradient: AppColors.goldDimGradient,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: AppColors.gold300.withValues(alpha: 0.2),
-        ),
+        border: Border.all(color: AppColors.gold300.withValues(alpha: 0.2)),
       ),
       child: Row(
         children: [
@@ -165,10 +161,7 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                l10n.currentStreakTitle,
-                style: AppTypography.titleSmall,
-              ),
+              Text(l10n.currentStreakTitle, style: AppTypography.titleSmall),
               Text(
                 l10n.dayCount(stats.currentStreak),
                 style: AppTypography.mono.copyWith(color: AppColors.gold300),
@@ -179,10 +172,7 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(
-                l10n.bestLabel,
-                style: AppTypography.bodySmall,
-              ),
+              Text(l10n.bestLabel, style: AppTypography.bodySmall),
               Text(
                 '${stats.maxStreak}',
                 style: AppTypography.scoreSmall.copyWith(
@@ -261,33 +251,37 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
                   ),
                   const SizedBox(width: 8),
                   Expanded(
-                    child: LayoutBuilder(builder: (context, constraints) {
-                      return Align(
-                        alignment: Alignment.centerLeft,
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 600),
-                          curve: Curves.easeOutCubic,
-                          width: ((constraints.maxWidth * fraction)
-                                  .clamp(count > 0 ? 20.0 : 0.0, constraints.maxWidth)),
-                          height: 20,
-                          decoration: BoxDecoration(
-                            color: color.withValues(alpha: 0.6),
-                            borderRadius: BorderRadius.circular(4),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Align(
+                          alignment: Alignment.centerLeft,
+                          child: AnimatedContainer(
+                            duration: const Duration(milliseconds: 600),
+                            curve: Curves.easeOutCubic,
+                            width: ((constraints.maxWidth * fraction).clamp(
+                              count > 0 ? 20.0 : 0.0,
+                              constraints.maxWidth,
+                            )),
+                            height: 20,
+                            decoration: BoxDecoration(
+                              color: color.withValues(alpha: 0.6),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            alignment: Alignment.centerRight,
+                            padding: const EdgeInsets.only(right: 6),
+                            child: count > 0
+                                ? Text(
+                                    '$count',
+                                    style: AppTypography.monoSmall.copyWith(
+                                      color: Colors.white,
+                                      fontSize: 10,
+                                    ),
+                                  )
+                                : null,
                           ),
-                          alignment: Alignment.centerRight,
-                          padding: const EdgeInsets.only(right: 6),
-                          child: count > 0
-                              ? Text(
-                                  '$count',
-                                  style: AppTypography.monoSmall.copyWith(
-                                    color: Colors.white,
-                                    fontSize: 10,
-                                  ),
-                                )
-                              : null,
-                        ),
-                      );
-                    }),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -316,8 +310,7 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
             const Spacer(),
             Text(
               '${state.unlockedAchievements} / ${state.achievements.length}',
-              style: AppTypography.monoSmall
-                  .copyWith(color: AppColors.gold300),
+              style: AppTypography.monoSmall.copyWith(color: AppColors.gold300),
             ),
           ],
         ),
@@ -353,8 +346,9 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
             decoration: BoxDecoration(
               gradient: AppColors.blueDimGradient,
               borderRadius: BorderRadius.circular(14),
-              border:
-                  Border.all(color: AppColors.blue300.withValues(alpha: 0.2)),
+              border: Border.all(
+                color: AppColors.blue300.withValues(alpha: 0.2),
+              ),
             ),
             child: Text(
               l10n.profileSummary(
@@ -363,18 +357,17 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
                 worst.label,
                 (worst.winRate * 100).round(),
               ),
-              style: AppTypography.bodySmall
-                  .copyWith(color: AppColors.obsidian100, fontSize: 12),
+              style: AppTypography.bodySmall.copyWith(
+                color: AppColors.obsidian100,
+                fontSize: 12,
+              ),
             ),
           ),
           const SizedBox(height: 12),
         ],
 
         if (insights.byGenre.isNotEmpty)
-          _BucketTable(
-            title: l10n.byGenre,
-            buckets: insights.byGenre.take(6),
-          ),
+          _BucketTable(title: l10n.byGenre, buckets: insights.byGenre.take(6)),
         if (insights.byDecade.isNotEmpty) ...[
           const SizedBox(height: 12),
           _BucketTable(title: l10n.byDecade, buckets: insights.byDecade),
@@ -412,9 +405,7 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: 0.03),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                color: Colors.white.withValues(alpha: 0.06),
-              ),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
             ),
             child: Row(
               children: [
@@ -446,10 +437,7 @@ class _StatsScreenState extends ConsumerState<StatsScreen> {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      Text(
-                        session.date,
-                        style: AppTypography.monoSmall,
-                      ),
+                      Text(session.date, style: AppTypography.monoSmall),
                     ],
                   ),
                 ),
@@ -493,9 +481,7 @@ class _StatTile extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white.withValues(alpha: 0.03),
           borderRadius: BorderRadius.circular(14),
-          border: Border.all(
-            color: Colors.white.withValues(alpha: 0.06),
-          ),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
         ),
         child: Column(
           children: [
@@ -539,7 +525,8 @@ class _AchievementRow extends StatelessWidget {
     final color = unlocked ? AppColors.gold300 : AppColors.obsidian400;
 
     return Semantics(
-      label: '${l10n.achievementTitle(achievement.id)}. '
+      label:
+          '${l10n.achievementTitle(achievement.id)}. '
           '${unlocked ? l10n.achievementUnlocked : l10n.achievementInProgress(achievement.progressLabel)}. '
           '${l10n.achievementDescription(achievement.id)}',
       child: Container(
@@ -582,13 +569,18 @@ class _AchievementRow extends StatelessWidget {
                         ),
                       ),
                       if (unlocked)
-                        const Icon(Icons.check_circle_rounded,
-                            color: AppColors.gold300, size: 16)
+                        const Icon(
+                          Icons.check_circle_rounded,
+                          color: AppColors.gold300,
+                          size: 16,
+                        )
                       else if (achievement.progressLabel.isNotEmpty)
                         Text(
                           achievement.progressLabel,
-                          style: AppTypography.monoSmall
-                              .copyWith(color: color, fontSize: 10),
+                          style: AppTypography.monoSmall.copyWith(
+                            color: color,
+                            fontSize: 10,
+                          ),
                         ),
                     ],
                   ),
@@ -608,8 +600,9 @@ class _AchievementRow extends StatelessWidget {
                         value: achievement.progress,
                         minHeight: 3,
                         backgroundColor: Colors.white.withValues(alpha: 0.08),
-                        valueColor:
-                            const AlwaysStoppedAnimation(AppColors.gold300),
+                        valueColor: const AlwaysStoppedAnimation(
+                          AppColors.gold300,
+                        ),
                       ),
                     ),
                   ],
@@ -644,15 +637,18 @@ class _BucketTable extends StatelessWidget {
         children: [
           Text(
             title,
-            style: AppTypography.labelSmall
-                .copyWith(color: AppColors.textSecondary, fontSize: 10),
+            style: AppTypography.labelSmall.copyWith(
+              color: AppColors.textSecondary,
+              fontSize: 10,
+            ),
           ),
           const SizedBox(height: 8),
           ...buckets.map((b) {
             final pct = (b.winRate * 100).round();
             return Semantics(
-              label: AppL10n.of(context)
-                  .bucketSemantics(b.label, pct, b.played),
+              label: AppL10n.of(
+                context,
+              ).bucketSemantics(b.label, pct, b.played),
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Row(

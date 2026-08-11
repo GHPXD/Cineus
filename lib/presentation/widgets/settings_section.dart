@@ -56,7 +56,7 @@ class _ReminderToggle extends ConsumerWidget {
             onChanged: state.busy
                 ? null
                 : (value) =>
-                    ref.read(reminderNotifierProvider.notifier).toggle(value),
+                      ref.read(reminderNotifierProvider.notifier).toggle(value),
             activeThumbColor: AppColors.gold300,
             title: Text(
               l10n.reminderSettingTitle,
@@ -72,8 +72,10 @@ class _ReminderToggle extends ConsumerWidget {
           const SizedBox(height: 6),
           Text(
             l10n.reminderDenied,
-            style: AppTypography.bodySmall
-                .copyWith(color: AppColors.ruby300, fontSize: 11),
+            style: AppTypography.bodySmall.copyWith(
+              color: AppColors.ruby300,
+              fontSize: 11,
+            ),
           ),
         ],
       ],

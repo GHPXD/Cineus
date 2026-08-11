@@ -23,8 +23,7 @@ class RewardToast extends ConsumerWidget {
       if (!next.hasPending) return;
 
       final l10n = AppL10n.of(context);
-      final reasons =
-          next.pending.map(l10n.rewardReason).join(' · ');
+      final reasons = next.pending.map(l10n.rewardReason).join(' · ');
       final total = next.totalAmount;
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -60,7 +59,9 @@ class RewardToast extends ConsumerWidget {
           backgroundColor: AppColors.gold300,
           duration: const Duration(seconds: 4),
           behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
         ),
       );
 

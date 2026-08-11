@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -11,9 +11,14 @@ import 'database_provider.dart';
 import 'database_seeder.dart';
 
 class DatabaseHelper implements DatabaseProvider {
-  DatabaseHelper._();
+  DatabaseHelper._() : _initializer = null;
+
+  @visibleForTesting
+  DatabaseHelper.forTesting(this._initializer);
+
   static final DatabaseHelper instance = DatabaseHelper._();
 
+  final Future<Database> Function()? _initializer;
   final _seeder = const DatabaseSeeder();
 
   /// Completer guard to prevent concurrent initialization.
@@ -35,7 +40,7 @@ class DatabaseHelper implements DatabaseProvider {
 
   Future<void> _initializeDatabase(Completer<Database> completer) async {
     try {
-      final db = await _initDatabase();
+      final db = await (_initializer?.call() ?? _initDatabase());
       completer.complete(db);
     } catch (error, stackTrace) {
       completer.completeError(error, stackTrace);
@@ -63,10 +68,7 @@ class DatabaseHelper implements DatabaseProvider {
 
     if (isFirstLaunch) {
       final data = await rootBundle.load('assets/cineus_v1.db');
-      await File(dbPath).writeAsBytes(
-        data.buffer.asUint8List(),
-        flush: true,
-      );
+      await File(dbPath).writeAsBytes(data.buffer.asUint8List(), flush: true);
     }
 
     final db = await openDatabase(
@@ -88,10 +90,29 @@ class DatabaseHelper implements DatabaseProvider {
       // Existing install: pick up a newer catalogue shipped with the app update.
       // The asset file is only copied on first launch, so this import is the
       // only path by which new movies reach an existing player.
-      await _seeder.refreshContentIfStale(db);
+      await _refreshMobileContentIfStale(db);
     }
 
     return db;
+  }
+
+  Future<void> _refreshMobileContentIfStale(Database db) async {
+    await _seeder.ensureAppMetaTable(db);
+    final installed = await _seeder.readContentVersion(db);
+    if (installed >= AppConstants.contentVersion) return;
+
+    final tempPath = join(await getDatabasesPath(), 'cineus_content_source.db');
+    Database? source;
+    try {
+      await deleteDatabase(tempPath);
+      final data = await rootBundle.load('assets/cineus_v1.db');
+      await File(tempPath).writeAsBytes(data.buffer.asUint8List(), flush: true);
+      source = await openDatabase(tempPath, readOnly: true);
+      await _seeder.refreshContentFromDatabaseIfStale(db, source);
+    } finally {
+      await source?.close();
+      await deleteDatabase(tempPath);
+    }
   }
 
   Future<void> _onCreateWebAndSeed(Database db, int version) async {

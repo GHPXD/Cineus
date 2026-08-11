@@ -83,8 +83,7 @@ class HowToPlayScreen extends ConsumerWidget {
                     emoji: '🎞️',
                     bgColor: AppColors.gold300.withValues(alpha: 0.12),
                     title: l10n.rule1Title,
-                    description:
-                        l10n.rule1Desc,
+                    description: l10n.rule1Desc,
                   ),
                   const SizedBox(height: 12),
 
@@ -92,8 +91,7 @@ class HowToPlayScreen extends ConsumerWidget {
                     emoji: '🏆',
                     bgColor: AppColors.gold300.withValues(alpha: 0.12),
                     title: l10n.rule2Title,
-                    description:
-                        l10n.rule2Desc,
+                    description: l10n.rule2Desc,
                     child: _buildScorePips(),
                   ),
                   const SizedBox(height: 12),
@@ -102,8 +100,7 @@ class HowToPlayScreen extends ConsumerWidget {
                     emoji: '🌐',
                     bgColor: AppColors.blue300.withValues(alpha: 0.12),
                     title: l10n.rule3Title,
-                    description:
-                        l10n.rule3Desc,
+                    description: l10n.rule3Desc,
                   ),
                   const SizedBox(height: 12),
 
@@ -111,8 +108,7 @@ class HowToPlayScreen extends ConsumerWidget {
                     emoji: '📅',
                     bgColor: AppColors.success400.withValues(alpha: 0.12),
                     title: l10n.rule4Title,
-                    description:
-                        l10n.rule4Desc,
+                    description: l10n.rule4Desc,
                   ),
                 ],
               ),

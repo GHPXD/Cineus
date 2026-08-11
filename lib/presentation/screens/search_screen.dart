@@ -20,30 +20,31 @@ class SearchScreen extends ConsumerWidget {
     return GenericSearchScreen(
       onBack: onBack,
       onSubmitGuess: (movie) async {
-        await ref
-            .read(clueGameProvider.notifier)
-            .submitGuess(movie.title);
+        await ref.read(clueGameProvider.notifier).submitGuess(movie.title);
       },
       contextWidget: session != null
           ? Text.rich(
-              TextSpan(children: [
-                TextSpan(
-                  text: context.l10n
-                      .searchChallenge('${gameState.challengeNumber}'),
-                  style: AppTypography.bodySmall,
-                ),
-                TextSpan(
-                  text: context.l10n.searchPoints(session.potentialScore),
-                  style: AppTypography.bodySmall.copyWith(
-                    color: AppColors.scoreColor(session.potentialScore),
-                    fontWeight: FontWeight.w700,
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: context.l10n.searchChallenge(
+                      '${gameState.challengeNumber}',
+                    ),
+                    style: AppTypography.bodySmall,
                   ),
-                ),
-                TextSpan(
-                  text: context.l10n.searchAvailableSuffix,
-                  style: AppTypography.bodySmall,
-                ),
-              ]),
+                  TextSpan(
+                    text: context.l10n.searchPoints(session.potentialScore),
+                    style: AppTypography.bodySmall.copyWith(
+                      color: AppColors.scoreColor(session.potentialScore),
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  TextSpan(
+                    text: context.l10n.searchAvailableSuffix,
+                    style: AppTypography.bodySmall,
+                  ),
+                ],
+              ),
             )
           : null,
       guesses: session?.guesses ?? const [],

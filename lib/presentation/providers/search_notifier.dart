@@ -58,5 +58,5 @@ class SearchNotifier extends StateNotifier<SearchState> {
 
 final searchNotifierProvider =
     StateNotifierProvider<SearchNotifier, SearchState>((ref) {
-  return SearchNotifier(ref.read(movieRepositoryProvider));
-});
+      return SearchNotifier(ref.read(movieRepositoryProvider));
+    });

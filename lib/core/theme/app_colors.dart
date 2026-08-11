@@ -13,8 +13,8 @@ abstract final class AppColors {
   static const obsidian300 = Color(0xFF64647A);
   static const obsidian200 = Color(0xFF9898B0);
   static const obsidian100 = Color(0xFFC8C8DC);
-  static const obsidian50  = Color(0xFFEAEAF2);
-  static const obsidian0   = Color(0xFFFFFFFF);
+  static const obsidian50 = Color(0xFFEAEAF2);
+  static const obsidian0 = Color(0xFFFFFFFF);
 
   // ── Text tones (contrast-verified) ──
   //
@@ -49,7 +49,7 @@ abstract final class AppColors {
   static const gold300 = Color(0xFFE8B429);
   static const gold200 = Color(0xFFF5D06B);
   static const gold100 = Color(0xFFFAE8A8);
-  static const gold50  = Color(0xFFFDF6DC);
+  static const gold50 = Color(0xFFFDF6DC);
 
   // ── Electric Blue (Info & Clues) ──
   static const blue900 = Color(0xFF000820);
@@ -84,23 +84,6 @@ abstract final class AppColors {
   static const amber300 = Color(0xFFFBBA47);
 
   // ── Gradients ──
-  static const goldGradient = LinearGradient(
-    colors: [gold500, gold300, gold200],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
-
-  static const blueGradient = LinearGradient(
-    colors: [blue500, blue300],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
-
-  static const rubyGradient = LinearGradient(
-    colors: [ruby600, ruby300],
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-  );
 
   static const heroGradient = LinearGradient(
     colors: [obsidian950, Color(0xFF0D0B18), Color(0xFF080910), obsidian950],
@@ -126,12 +109,6 @@ abstract final class AppColors {
     end: Alignment.bottomRight,
   );
 
-  static const rubyDimGradient = LinearGradient(
-    colors: [Color(0x478C004A), Color(0x14F04080)],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  );
-
   static const amberDimGradient = LinearGradient(
     colors: [Color(0x38F59D20), Color(0x14FBBA47)],
     begin: Alignment.topLeft,
@@ -151,16 +128,11 @@ abstract final class AppColors {
     if (score >= 8) return goldDimGradient;
     if (score >= 5) return blueDimGradient;
     if (score >= 3) return amberDimGradient;
-    return rubyDimGradient;
-  }
-
-  static LinearGradient scoreGradient(int score) {
-    if (score >= 8) return goldGradient;
-    if (score >= 5) return blueGradient;
-    if (score >= 3) {
-      return const LinearGradient(colors: [amber400, amber300]);
-    }
-    return rubyGradient;
+    return const LinearGradient(
+      colors: [Color(0x478C004A), Color(0x14F04080)],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    );
   }
 
   static Color scoreBorderColor(int score) {

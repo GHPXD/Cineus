@@ -9,10 +9,9 @@ enum ExtraHint {
 
   int get ticketCost => 1;
 
-
   String get emoji => switch (this) {
-        ExtraHint.director => '🎬',
-        ExtraHint.year => '📅',
-        ExtraHint.runtime => '⏱️',
-      };
+    ExtraHint.director => '🎬',
+    ExtraHint.year => '📅',
+    ExtraHint.runtime => '⏱️',
+  };
 }

@@ -37,8 +37,9 @@ void main() {
     await tester.pumpAndSettle();
   });
 
-  testWidgets('SplashScreen calls onComplete after splashDuration',
-      (tester) async {
+  testWidgets('SplashScreen calls onComplete after splashDuration', (
+    tester,
+  ) async {
     var completed = false;
     await tester.pumpWidget(
       localized(SplashScreen(onComplete: () => completed = true)),
@@ -52,8 +53,9 @@ void main() {
     await tester.pumpAndSettle();
   });
 
-  testWidgets('SplashScreen renders in every supported language',
-      (tester) async {
+  testWidgets('SplashScreen renders in every supported language', (
+    tester,
+  ) async {
     const expected = {
       'pt': 'Adivinha o filme',
       'en': 'Guess the film',
@@ -62,10 +64,7 @@ void main() {
 
     for (final entry in expected.entries) {
       await tester.pumpWidget(
-        localized(
-          SplashScreen(onComplete: () {}),
-          locale: Locale(entry.key),
-        ),
+        localized(SplashScreen(onComplete: () {}), locale: Locale(entry.key)),
       );
       expect(
         find.textContaining(entry.value),

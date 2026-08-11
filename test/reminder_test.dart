@@ -70,18 +70,24 @@ class InMemoryMeta implements AppMetaRepository {
 void main() {
   group('DailyReminderTime', () {
     test('agenda para as 9h do mesmo dia quando ainda é de manhã', () {
-      final next = DailyReminderTime.nextOccurrence(DateTime(2026, 8, 10, 7, 30));
+      final next = DailyReminderTime.nextOccurrence(
+        DateTime(2026, 8, 10, 7, 30),
+      );
       expect(next, DateTime(2026, 8, 10, 9, 0));
     });
 
     test('pula para amanhã quando as 9h já passaram', () {
-      final next = DailyReminderTime.nextOccurrence(DateTime(2026, 8, 10, 9, 1));
+      final next = DailyReminderTime.nextOccurrence(
+        DateTime(2026, 8, 10, 9, 1),
+      );
       expect(next, DateTime(2026, 8, 11, 9, 0));
     });
 
     test('exatamente às 9h agenda para o dia seguinte, não para agora', () {
       // Evita disparar imediatamente no instante do agendamento.
-      final next = DailyReminderTime.nextOccurrence(DateTime(2026, 8, 10, 9, 0));
+      final next = DailyReminderTime.nextOccurrence(
+        DateTime(2026, 8, 10, 9, 0),
+      );
       expect(next, DateTime(2026, 8, 11, 9, 0));
     });
 
@@ -127,8 +133,11 @@ void main() {
     test('começa desligado e NÃO pede permissão na inicialização', () async {
       final notifier = await build();
       expect(notifier.state.enabled, isFalse);
-      expect(service.permissionPrompts, 0,
-          reason: 'pedir permissão sem o jogador pedir converte mal');
+      expect(
+        service.permissionPrompts,
+        0,
+        reason: 'pedir permissão sem o jogador pedir converte mal',
+      );
       expect(service.scheduleCalls, 0);
     });
 
@@ -177,10 +186,16 @@ void main() {
       final notifier = await build();
 
       expect(notifier.state.enabled, isTrue);
-      expect(service.scheduleCalls, 1,
-          reason: 'o SO descarta agendamentos ao reiniciar');
-      expect(service.permissionPrompts, 0,
-          reason: 'permissão já concedida: não reperguntar');
+      expect(
+        service.scheduleCalls,
+        1,
+        reason: 'o SO descarta agendamentos ao reiniciar',
+      );
+      expect(
+        service.permissionPrompts,
+        0,
+        reason: 'permissão já concedida: não reperguntar',
+      );
     });
 
     test('permissão revogada nas configurações desliga o switch', () async {

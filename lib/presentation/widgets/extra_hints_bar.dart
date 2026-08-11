@@ -72,11 +72,7 @@ class ExtraHintsBar extends ConsumerWidget {
     );
   }
 
-  Future<void> _buy(
-    BuildContext context,
-    WidgetRef ref,
-    ExtraHint hint,
-  ) async {
+  Future<void> _buy(BuildContext context, WidgetRef ref, ExtraHint hint) async {
     HapticFeedback.selectionClick();
     final bought = await buyHintWithTicket(ref, state.mode, hint);
     if (bought || !context.mounted) return;
@@ -97,9 +93,10 @@ class ExtraHintsBar extends ConsumerWidget {
       ExtraHint.director =>
         movie.director.isEmpty ? l10n.unknownDirector : movie.director,
       ExtraHint.year => '${movie.year}',
-      ExtraHint.runtime => movie.runtime == null || movie.runtime == 0
-          ? '—'
-          : l10n.runtimeMinutes(movie.runtime!),
+      ExtraHint.runtime =>
+        movie.runtime == null || movie.runtime == 0
+            ? '—'
+            : l10n.runtimeMinutes(movie.runtime!),
     };
   }
 }

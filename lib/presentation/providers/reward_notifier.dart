@@ -29,11 +29,11 @@ class RewardNotifier extends StateNotifier<RewardFeed> {
     required StageRepository stages,
     required GameRepository games,
     required Future<void> Function(int amount) credit,
-  })  : _rewards = rewards,
-        _stages = stages,
-        _games = games,
-        _credit = credit,
-        super(const RewardFeed());
+  }) : _rewards = rewards,
+       _stages = stages,
+       _games = games,
+       _credit = credit,
+       super(const RewardFeed());
 
   Future<void> evaluate(GameSession finished) async {
     if (finished.status != GameStatus.won) return;
@@ -104,17 +104,18 @@ class RewardNotifier extends StateNotifier<RewardFeed> {
 
 final rewardNotifierProvider =
     StateNotifierProvider<RewardNotifier, RewardFeed>((ref) {
-  return RewardNotifier(
-    rewards: ref.read(rewardRepositoryProvider),
-    stages: ref.read(stageRepositoryProvider),
-    games: ref.read(gameRepositoryProvider),
-    credit: (amount) =>
-        ref.read(ticketNotifierProvider.notifier).addTickets(amount),
-  );
-});
+      return RewardNotifier(
+        rewards: ref.read(rewardRepositoryProvider),
+        stages: ref.read(stageRepositoryProvider),
+        games: ref.read(gameRepositoryProvider),
+        credit: (amount) =>
+            ref.read(ticketNotifierProvider.notifier).addTickets(amount),
+      );
+    });
 
-final recoverableStreakDayProvider =
-    FutureProvider.autoDispose<String?>((ref) async {
+final recoverableStreakDayProvider = FutureProvider.autoDispose<String?>((
+  ref,
+) async {
   final games = ref.read(gameRepositoryProvider);
   final rewards = ref.read(rewardRepositoryProvider);
 

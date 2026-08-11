@@ -8,11 +8,7 @@ abstract class GameRepository {
   Future<GameSession?> getDailySession(GameMode mode, String date);
 
   /// The stage session for one film, if it exists.
-  Future<GameSession?> getStageSession(
-    GameMode mode,
-    int stageId,
-    int movieId,
-  );
+  Future<GameSession?> getStageSession(GameMode mode, int stageId, int movieId);
 
   /// The one-off challenge session for a film, if it exists.
   Future<GameSession?> getChallengeSession(GameMode mode, int movieId);

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show NetworkAssetBundle;
 import 'package:sqflite/sqflite.dart';
 
 import '../../core/constants/app_constants.dart';
@@ -200,7 +200,9 @@ class DatabaseSeeder {
 
     // Add mode column to existing installations that lack it.
     try {
-      await db.execute("ALTER TABLE stage_progress ADD COLUMN mode TEXT NOT NULL DEFAULT 'clue'");
+      await db.execute(
+        "ALTER TABLE stage_progress ADD COLUMN mode TEXT NOT NULL DEFAULT 'clue'",
+      );
     } catch (_) {
       // Column already exists — safe to ignore.
     }
@@ -244,22 +246,25 @@ class DatabaseSeeder {
 
   Future<String?> readMeta(Database db, String key) async {
     await ensureAppMetaTable(db);
-    final rows =
-        await db.query('app_meta', where: 'key = ?', whereArgs: [key], limit: 1);
+    final rows = await db.query(
+      'app_meta',
+      where: 'key = ?',
+      whereArgs: [key],
+      limit: 1,
+    );
     if (rows.isEmpty) return null;
     return rows.first['value'] as String;
   }
 
   Future<void> writeMeta(Database db, String key, String value) async {
     await ensureAppMetaTable(db);
-    await db.insert(
-      'app_meta',
-      {'key': key, 'value': value},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    await db.insert('app_meta', {
+      'key': key,
+      'value': value,
+    }, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  /// Reads `assets/cineus_v1_seed.json` and batch-inserts all rows.
+  /// Reads the web-only seed JSON and batch-inserts all rows.
   ///
   /// [conflict] is `ignore` for first-time seeding and `replace` when refreshing
   /// an existing install to a newer catalogue.
@@ -267,15 +272,26 @@ class DatabaseSeeder {
     DatabaseExecutor db, {
     ConflictAlgorithm conflict = ConflictAlgorithm.ignore,
   }) async {
-    final jsonStr = await rootBundle.loadString('assets/cineus_v1_seed.json');
+    final jsonStr = await NetworkAssetBundle(
+      Uri.base,
+    ).loadString('cineus_v1_seed.json');
     final data = jsonDecode(jsonStr) as Map<String, dynamic>;
 
     final movies = (data['movies'] as List).cast<Map<String, dynamic>>();
     final clues = (data['clues'] as List).cast<Map<String, dynamic>>();
 
     const movieCols = {
-      'id', 'tmdb_id', 'title', 'original_title', 'year', 'director',
-      'genres', 'poster_path', 'overview', 'tagline', 'runtime',
+      'id',
+      'tmdb_id',
+      'title',
+      'original_title',
+      'year',
+      'director',
+      'genres',
+      'poster_path',
+      'overview',
+      'tagline',
+      'runtime',
     };
     const clueCols = {'id', 'movie_id', 'clue_number', 'category', 'text'};
 
@@ -287,8 +303,10 @@ class DatabaseSeeder {
     // never leave movies without clues.
     for (var i = 0; i < movies.length; i += chunkSize) {
       final batch = db.batch();
-      for (final m
-          in movies.sublist(i, (i + chunkSize).clamp(0, movies.length))) {
+      for (final m in movies.sublist(
+        i,
+        (i + chunkSize).clamp(0, movies.length),
+      )) {
         final row = {
           for (final e in m.entries)
             if (movieCols.contains(e.key)) e.key: e.value,
@@ -300,13 +318,72 @@ class DatabaseSeeder {
 
     for (var i = 0; i < clues.length; i += chunkSize) {
       final batch = db.batch();
-      for (final c
-          in clues.sublist(i, (i + chunkSize).clamp(0, clues.length))) {
+      for (final c in clues.sublist(
+        i,
+        (i + chunkSize).clamp(0, clues.length),
+      )) {
         final row = {
           for (final e in c.entries)
             if (clueCols.contains(e.key)) e.key: e.value,
         };
         batch.insert('clues', row, conflictAlgorithm: conflict);
+      }
+      await batch.commit(noResult: true);
+    }
+  }
+
+  /// Copies catalogue rows from another SQLite database into [db].
+  ///
+  /// Mobile uses the bundled `cineus_v1.db` as the source for content upgrades,
+  /// so the 1.2 MB JSON seed can remain web-only instead of inflating the APK.
+  Future<void> seedFromDatabase(
+    DatabaseExecutor db,
+    Database source, {
+    ConflictAlgorithm conflict = ConflictAlgorithm.replace,
+  }) async {
+    final movies = await source.query('movies');
+    final clues = await source.query('clues');
+
+    const movieCols = {
+      'id',
+      'tmdb_id',
+      'title',
+      'original_title',
+      'year',
+      'director',
+      'genres',
+      'poster_path',
+      'overview',
+      'tagline',
+      'runtime',
+    };
+    const clueCols = {'id', 'movie_id', 'clue_number', 'category', 'text'};
+    const chunkSize = 100;
+
+    for (var i = 0; i < movies.length; i += chunkSize) {
+      final batch = db.batch();
+      for (final m in movies.sublist(
+        i,
+        (i + chunkSize).clamp(0, movies.length),
+      )) {
+        batch.insert('movies', {
+          for (final e in m.entries)
+            if (movieCols.contains(e.key)) e.key: e.value,
+        }, conflictAlgorithm: conflict);
+      }
+      await batch.commit(noResult: true);
+    }
+
+    for (var i = 0; i < clues.length; i += chunkSize) {
+      final batch = db.batch();
+      for (final c in clues.sublist(
+        i,
+        (i + chunkSize).clamp(0, clues.length),
+      )) {
+        batch.insert('clues', {
+          for (final e in c.entries)
+            if (clueCols.contains(e.key)) e.key: e.value,
+        }, conflictAlgorithm: conflict);
       }
       await batch.commit(noResult: true);
     }
@@ -352,6 +429,24 @@ class DatabaseSeeder {
     return true;
   }
 
+  /// Mobile counterpart to [refreshContentIfStale], using the bundled SQLite
+  /// catalogue as source instead of the web JSON seed.
+  Future<bool> refreshContentFromDatabaseIfStale(
+    Database db,
+    Database source,
+  ) async {
+    await ensureAppMetaTable(db);
+    final installed = await readContentVersion(db);
+    if (installed >= AppConstants.contentVersion) return false;
+
+    await db.transaction((txn) async {
+      await seedFromDatabase(txn, source);
+    });
+    await syncStages(db);
+    await writeContentVersion(db, AppConstants.contentVersion);
+    return true;
+  }
+
   /// Groups all movie IDs into buckets of [AppConstants.stageSize], adding only
   /// what is missing.
   ///
@@ -364,12 +459,11 @@ class DatabaseSeeder {
     final rows = await db.query('movies', columns: ['id'], orderBy: 'id ASC');
     final ids = rows.map((r) => r['id'] as int).toList();
 
-    final storedRows =
-        await db.query('stages', columns: ['id', 'film_ids']);
+    final storedRows = await db.query('stages', columns: ['id', 'film_ids']);
     final stored = <int, List<int>>{
       for (final r in storedRows)
-        r['id'] as int:
-            (jsonDecode(r['film_ids'] as String) as List).cast<int>(),
+        r['id'] as int: (jsonDecode(r['film_ids'] as String) as List)
+            .cast<int>(),
     };
 
     const stageSize = AppConstants.stageSize;
@@ -381,18 +475,13 @@ class DatabaseSeeder {
       final current = stored[stageNum];
 
       if (current == null) {
-        batch.insert(
-          'stages',
-          {
-            'id': stageNum,
-            'order_index': stageNum,
-            'name': 'Estágio $stageNum',
-            'film_ids': jsonEncode(chunk),
-          },
-          conflictAlgorithm: ConflictAlgorithm.ignore,
-        );
-      } else if (current.length < chunk.length &&
-          _isPrefix(current, chunk)) {
+        batch.insert('stages', {
+          'id': stageNum,
+          'order_index': stageNum,
+          'name': 'Estágio $stageNum',
+          'film_ids': jsonEncode(chunk),
+        }, conflictAlgorithm: ConflictAlgorithm.ignore);
+      } else if (current.length < chunk.length && _isPrefix(current, chunk)) {
         batch.update(
           'stages',
           {'film_ids': jsonEncode(chunk)},

@@ -7,8 +7,11 @@ import 'package:cineus/domain/entities/movie.dart';
 import 'package:cineus/domain/entities/play_insights.dart';
 
 GameSession session(int movieId, {required bool won, int score = 0}) =>
-    GameSession.daily(mode: GameMode.clue, date: '2026-08-10', movieId: movieId)
-        .copyWith(status: won ? GameStatus.won : GameStatus.lost, score: score);
+    GameSession.daily(
+      mode: GameMode.clue,
+      date: '2026-08-10',
+      movieId: movieId,
+    ).copyWith(status: won ? GameStatus.won : GameStatus.lost, score: score);
 
 Movie movie(int id, {required List<String> genres, required int year}) =>
     Movie(id: id, title: 'F$id', year: year, director: 'D', genres: genres);
@@ -18,10 +21,18 @@ void main() {
     test('conta um jogo em cada gênero do filme', () {
       final insights = PlayInsights.from(
         [session(1, won: true, score: 8)],
-        {1: movie(1, genres: ['Ação', 'Ficção'], year: 2000)},
+        {
+          1: movie(1, genres: ['Ação', 'Ficção'], year: 2000),
+        },
       );
-      expect(insights.byGenre.map((b) => b.label), containsAll(['Ação', 'Ficção']));
-      expect(insights.byGenre.every((b) => b.played == 1 && b.won == 1), isTrue);
+      expect(
+        insights.byGenre.map((b) => b.label),
+        containsAll(['Ação', 'Ficção']),
+      );
+      expect(
+        insights.byGenre.every((b) => b.played == 1 && b.won == 1),
+        isTrue,
+      );
     });
 
     test('taxa de acerto e média de pontos por gênero', () {
@@ -64,7 +75,9 @@ void main() {
     test('gênero vazio ou só espaço é ignorado', () {
       final insights = PlayInsights.from(
         [session(1, won: true, score: 5)],
-        {1: movie(1, genres: ['', '  ', 'Ação'], year: 2000)},
+        {
+          1: movie(1, genres: ['', '  ', 'Ação'], year: 2000),
+        },
       );
       expect(insights.byGenre.map((b) => b.label), ['Ação']);
     });
@@ -90,7 +103,9 @@ void main() {
     test('ano ausente não cria década', () {
       final insights = PlayInsights.from(
         [session(1, won: true, score: 5)],
-        {1: movie(1, genres: ['Ação'], year: 0)},
+        {
+          1: movie(1, genres: ['Ação'], year: 0),
+        },
       );
       expect(insights.byDecade, isEmpty);
       expect(insights.byGenre, isNotEmpty);
@@ -116,7 +131,9 @@ void main() {
     test('exige um mínimo de jogos para opinar', () {
       final insights = PlayInsights.from(
         [session(1, won: true, score: 8)],
-        {1: movie(1, genres: ['Ação'], year: 2000)},
+        {
+          1: movie(1, genres: ['Ação'], year: 2000),
+        },
       );
       expect(insights.bestGenre(), isNull);
       expect(insights.bestGenre(minPlayed: 1), isNotNull);
@@ -128,12 +145,11 @@ void main() {
       GameStats stats = const GameStats(),
       int stages = 0,
       int tickets = 0,
-    }) =>
-        Achievements.evaluate(
-          stats: stats,
-          stagesCompleted: stages,
-          ticketsEarned: tickets,
-        );
+    }) => Achievements.evaluate(
+      stats: stats,
+      stagesCompleted: stages,
+      ticketsEarned: tickets,
+    );
 
     test('nada desbloqueado num histórico vazio', () {
       final all = evaluate();
@@ -142,8 +158,9 @@ void main() {
     });
 
     test('primeira vitória desbloqueia com uma vitória', () {
-      final a = evaluate(stats: const GameStats(totalWins: 1))
-          .firstWhere((x) => x.id == 'first_win');
+      final a = evaluate(
+        stats: const GameStats(totalWins: 1),
+      ).firstWhere((x) => x.id == 'first_win');
       expect(a.isUnlocked, isTrue);
     });
 
@@ -163,13 +180,16 @@ void main() {
       final a = evaluate(stats: const GameStats(maxStreak: 7));
       expect(a.firstWhere((x) => x.id == 'streak_7').isUnlocked, isTrue);
       expect(a.firstWhere((x) => x.id == 'streak_30').isUnlocked, isFalse);
-      expect(a.firstWhere((x) => x.id == 'streak_30').progress,
-          closeTo(7 / 30, 1e-9));
+      expect(
+        a.firstWhere((x) => x.id == 'streak_30').progress,
+        closeTo(7 / 30, 1e-9),
+      );
     });
 
     test('progresso é limitado a 1 e o rótulo não passa da meta', () {
-      final a = evaluate(stats: const GameStats(maxStreak: 100))
-          .firstWhere((x) => x.id == 'streak_30');
+      final a = evaluate(
+        stats: const GameStats(maxStreak: 100),
+      ).firstWhere((x) => x.id == 'streak_30');
       expect(a.progress, 1);
       expect(a.progressLabel, '30 / 30');
     });
