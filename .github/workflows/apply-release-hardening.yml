@@ -26,6 +26,18 @@ jobs:
       - name: Install image tooling
         run: python -m pip install --quiet pillow
 
+      - name: Repair generator quoting
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('tool/apply_release_hardening.py')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace("r'''", 'r"""')
+          text = text.replace("\n''',\n", '\n""",\n')
+          path.write_text(text, encoding='utf-8')
+          PY
+          python -m py_compile tool/apply_release_hardening.py
+
       - name: Apply release-hardening patches
         run: python tool/apply_release_hardening.py
 
