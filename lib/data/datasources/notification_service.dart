@@ -5,29 +5,14 @@ import 'package:timezone/timezone.dart' as tz;
 
 import '../../core/utils/daily_reminder_time.dart';
 
-/// Schedules the daily reminder (D4).
-///
-/// Behind an interface so the notifier that drives it can be unit-tested: the
-/// plugin needs a platform channel, which no widget test provides.
 abstract class NotificationService {
-  /// Prepares the plugin. Safe to call more than once.
   Future<void> init();
-
-  /// Asks the OS for permission, returning whether it was granted.
-  ///
-  /// Android 13+ and iOS both require this at runtime. Only ever called from a
-  /// player action, never on startup.
   Future<bool> requestPermission();
-
-  /// Whether permission is currently granted, without prompting.
   Future<bool> hasPermission();
-
-  /// Schedules (or reschedules) the daily reminder.
   Future<void> scheduleDailyReminder({
     required String title,
     required String body,
   });
-
   Future<void> cancelDailyReminder();
 }
 
@@ -39,7 +24,6 @@ class NotificationServiceImpl implements NotificationService {
 
   static const int _dailyReminderId = 1001;
   static const String _channelId = 'cineus_daily';
-
   bool _initialised = false;
 
   @override
@@ -53,8 +37,6 @@ class NotificationServiceImpl implements NotificationService {
       settings: const InitializationSettings(
         android: AndroidInitializationSettings('@mipmap/ic_launcher'),
         iOS: DarwinInitializationSettings(
-          // Deferred: the prompt belongs to the moment the player flips the
-          // switch, not to app startup.
           requestAlertPermission: false,
           requestBadgePermission: false,
           requestSoundPermission: false,
@@ -65,14 +47,16 @@ class NotificationServiceImpl implements NotificationService {
     _initialised = true;
   }
 
-  /// Best-effort local zone name. Falls back to UTC, which only shifts the
-  /// reminder — it never breaks scheduling.
+  /// Best-effort fallback until a native IANA-zone source is bundled.
+  ///
+  /// `timezone` requires an IANA location. Fixed Etc/GMT locations correctly
+  /// preserve the current wall-clock offset, but they cannot predict a future
+  /// DST transition. The remaining IANA-zone follow-up is tracked in the Phase
+  /// 6 hardening plan instead of silently pretending this is fully DST-aware.
   Future<String> _resolveTimeZone() async {
     try {
       final offset = DateTime.now().timeZoneOffset;
-      // `timezone` needs a location name; derive a fixed-offset Etc/GMT zone,
-      // which is exact for the purpose of firing at a local wall-clock hour.
-      final hours = -offset.inHours; // Etc/GMT signs are inverted
+      final hours = -offset.inHours;
       if (offset.inMinutes % 60 != 0) return 'UTC';
       if (hours == 0) return 'UTC';
       return hours > 0 ? 'Etc/GMT+$hours' : 'Etc/GMT-${-hours}';
@@ -95,7 +79,11 @@ class NotificationServiceImpl implements NotificationService {
     final darwin = _plugin.resolvePlatformSpecificImplementation<
         IOSFlutterLocalNotificationsPlugin>();
     if (darwin != null) {
-      return await darwin.requestPermissions(alert: true, badge: true, sound: true) ??
+      return await darwin.requestPermissions(
+            alert: true,
+            badge: true,
+            sound: true,
+          ) ??
           false;
     }
 
@@ -112,7 +100,15 @@ class NotificationServiceImpl implements NotificationService {
     if (android != null) {
       return await android.areNotificationsEnabled() ?? false;
     }
-    return true;
+
+    final ios = _plugin.resolvePlatformSpecificImplementation<
+        IOSFlutterLocalNotificationsPlugin>();
+    if (ios != null) {
+      final permissions = await ios.checkPermissions();
+      return permissions?.isEnabled ?? false;
+    }
+
+    return false;
   }
 
   @override
@@ -152,9 +148,6 @@ class NotificationServiceImpl implements NotificationService {
         ),
         iOS: DarwinNotificationDetails(),
       ),
-      // Inexact on purpose: an exact alarm would need SCHEDULE_EXACT_ALARM,
-      // which Android 14 gates behind a special-access screen. A reminder does
-      // not need to-the-second delivery.
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       matchDateTimeComponents: DateTimeComponents.time,
     );
