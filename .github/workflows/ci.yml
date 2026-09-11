@@ -25,6 +25,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Validate catalogue artifacts
+        run: python3 scripts/validate_catalog.py
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
