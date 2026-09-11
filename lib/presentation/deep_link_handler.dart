@@ -7,19 +7,41 @@ import 'package:flutter/material.dart';
 import '../core/utils/challenge_code.dart';
 import 'routes/app_router.dart';
 
+/// Small seam around app_links so lifecycle/error behaviour can be tested
+/// without a platform channel.
+abstract class DeepLinkSource {
+  Future<Uri?> getInitialLink();
+  Stream<Uri> get uriLinkStream;
+}
+
+class AppLinksDeepLinkSource implements DeepLinkSource {
+  final AppLinks _links;
+
+  AppLinksDeepLinkSource({AppLinks? links}) : _links = links ?? AppLinks();
+
+  @override
+  Future<Uri?> getInitialLink() => _links.getInitialLink();
+
+  @override
+  Stream<Uri> get uriLinkStream => _links.uriLinkStream;
+}
+
 /// Routes incoming `cineus://` links (D10).
 ///
-/// Wrapped around the app so it lives as long as the router does. Handles both
-/// the cold-start link and links that arrive while the app is already running.
-///
-/// A custom scheme rather than an https universal link: the latter needs a domain
-/// we control and a hosted association file. `cineus.app` is only a string in the
-/// share text for now — so a friend without the app installed sees a code they can
-/// paste, which is exactly what the settings screen accepts.
+/// Handles both the cold-start link and links received while the app is alive.
+/// Platform/plugin failures are deliberately contained: a bad deep-link bridge
+/// must never prevent Cineus from opening normally.
 class DeepLinkHandler extends StatefulWidget {
   final Widget child;
+  final DeepLinkSource? source;
+  final void Function(int movieId)? onChallenge;
 
-  const DeepLinkHandler({super.key, required this.child});
+  const DeepLinkHandler({
+    super.key,
+    required this.child,
+    this.source,
+    this.onChallenge,
+  });
 
   @override
   State<DeepLinkHandler> createState() => _DeepLinkHandlerState();
@@ -27,38 +49,56 @@ class DeepLinkHandler extends StatefulWidget {
 
 class _DeepLinkHandlerState extends State<DeepLinkHandler> {
   StreamSubscription<Uri>? _subscription;
+  late final DeepLinkSource _source;
+  bool _disposed = false;
 
   @override
   void initState() {
     super.initState();
-    // app_links has no web implementation worth wiring here; on the web the
-    // challenge code is pasted instead.
-    if (!kIsWeb) _listen();
+    _source = widget.source ?? AppLinksDeepLinkSource();
+    if (!kIsWeb) unawaited(_listen());
   }
 
   Future<void> _listen() async {
-    final links = AppLinks();
+    // Subscribe first so a warm link cannot be missed while the platform is
+    // resolving the cold-start URI.
+    try {
+      _subscription = _source.uriLinkStream.listen(
+        _navigate,
+        onError: (_) {
+          // A malformed/platform link event is non-fatal by design.
+        },
+      );
+    } catch (_) {
+      // Some platform implementations can fail while creating the stream.
+      // Cold-start handling below can still succeed independently.
+    }
 
-    // Cold start: the link that launched the app.
-    final initial = await links.getInitialLink();
-    if (initial != null) _navigate(initial);
-
-    _subscription = links.uriLinkStream.listen(
-      _navigate,
-      // A malformed link is not worth crashing over.
-      onError: (_) {},
-    );
+    try {
+      final initial = await _source.getInitialLink();
+      if (!_disposed && initial != null) _navigate(initial);
+    } catch (_) {
+      // Do not let app_links/plugin failures break application startup.
+    }
   }
 
   void _navigate(Uri uri) {
+    if (_disposed) return;
     final movieId = ChallengeCode.movieIdFromLink(uri);
     if (movieId == null) return;
+
+    final callback = widget.onChallenge;
+    if (callback != null) {
+      callback(movieId);
+      return;
+    }
     AppRouter.router.go('/challenge/$movieId');
   }
 
   @override
   void dispose() {
-    _subscription?.cancel();
+    _disposed = true;
+    unawaited(_subscription?.cancel());
     super.dispose();
   }
 
