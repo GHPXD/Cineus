@@ -128,7 +128,7 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] respeitar Reduce Motion no score pulsante, splash e revelação do Poster
 - [x] cobrir componentes críticos até 200% de text scaling em testes
 - [x] garantir rótulos semânticos acionáveis na navegação principal
-- [ ] executar passe manual final com VoiceOver e TalkBack em aparelhos reais
+- [ ] executar passe manual final com VoiceOver e TalkBack em aparelhos reais antes da submissão
 
 ### 6G — Responsive
 
@@ -137,9 +137,9 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] limites de largura para Home, busca, Stats, Settings e Poster
 - [x] NavigationRail em telas expandidas
 - [x] política de orientação adaptativa: phone portrait, tablet livre
-- [ ] concluir inspeção visual manual em landscape/tablet/iPad/Web
+- [ ] concluir inspeção visual manual em landscape/tablet/iPad/Web antes da submissão
 
-### 6H — Fechamento antes do merge
+### 6H — Fechamento técnico antes do merge
 
 - [x] reduzir splash artificial de 2,5s para uma transição curta de 700ms
 - [x] não decidir onboarding antes de o estado persistido realmente carregar
@@ -154,13 +154,15 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 
 ### QA manual obrigatório antes da submissão às lojas
 
+Os itens abaixo não bloqueiam o merge técnico da Fase 6, mas devem ser executados antes de enviar as builds finais às lojas:
+
 - VoiceOver no iOS e TalkBack no Android nos fluxos Home → jogo → busca → resultado
 - fonte do sistema em tamanho máximo nas telas Home, Estágios, jogo, resultado, Stats e Settings
 - iPhone pequeno, Android compacto, iPad/tablet em portrait e landscape
 - Web em janela compacta e desktop expandido
 - lembrete diário em um dispositivo com timezone/DST diferente, verificando 9h local
 
-### Gate de aceitação
+### Gate de aceitação do merge
 
 A Fase 6 só pode sair de draft quando o HEAD passar por:
 
