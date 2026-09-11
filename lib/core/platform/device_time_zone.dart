@@ -9,6 +9,8 @@ class MethodChannelDeviceTimeZoneProvider implements DeviceTimeZoneProvider {
   static const channelName = 'dev.cineus/device';
   static const _channel = MethodChannel(channelName);
 
+  const MethodChannelDeviceTimeZoneProvider();
+
   @override
   Future<String?> currentIdentifier() async {
     try {
