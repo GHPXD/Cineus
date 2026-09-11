@@ -7,7 +7,6 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_fonts.dart';
 import '../../core/theme/app_typography.dart';
 import '../../l10n/app_l10n.dart';
-import '../l10n_mappers.dart';
 import '../widgets/film_strip_widget.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -72,6 +71,8 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppL10n.of(context);
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(gradient: AppColors.heroGradient),
@@ -193,7 +194,7 @@ class _SplashScreenState extends State<SplashScreen>
                       ),
                       const SizedBox(height: 12),
                       Text(
-                        AppL10n.of(context).appTagline,
+                        l10n.appTagline,
                         textAlign: TextAlign.center,
                         style: AppTypography.bodySmall.copyWith(
                           color: AppColors.textSecondary,
@@ -212,11 +213,11 @@ class _SplashScreenState extends State<SplashScreen>
               child: FadeTransition(
                 opacity: _fade,
                 child: Text(
-                  context.l10n.splashCredits,
+                  l10n.appTitle.toUpperCase(),
                   textAlign: TextAlign.center,
                   style: AppTypography.monoSmall.copyWith(
                     color: AppColors.textTertiary,
-                    letterSpacing: 1,
+                    letterSpacing: 1.8,
                   ),
                 ),
               ),
