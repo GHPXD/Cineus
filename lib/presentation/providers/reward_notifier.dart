@@ -55,10 +55,18 @@ class RewardNotifier extends StateNotifier<RewardFeed> {
 
     final granted = <TicketReward>[];
     for (final reward in candidates) {
-      if (await _rewards.claim(reward)) {
+      if (!await _rewards.claim(reward)) continue;
+
+      try {
         await _credit(reward.amount);
-        granted.add(reward);
+      } catch (_) {
+        // Claim + balance live behind separate repositories, so compensate the
+        // first write if the second fails. Otherwise a transient DB failure
+        // would permanently mark an unpaid reward as collected.
+        await _rewards.revoke(reward.key);
+        rethrow;
       }
+      granted.add(reward);
     }
 
     if (granted.isNotEmpty) {
