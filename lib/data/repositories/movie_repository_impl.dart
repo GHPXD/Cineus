@@ -9,12 +9,14 @@ class MovieRepositoryImpl implements MovieRepository {
 
   MovieRepositoryImpl(this._db);
 
-  /// Normalized titles held in memory so each keystroke ranks without a query.
+  /// Normalized active titles held in memory so each keystroke ranks without a query.
   List<SearchCandidate>? _searchIndex;
 
   @override
   Future<Movie?> getMovieById(int id) async {
     final db = await _db.database;
+    // Historical sessions and frozen stages must still resolve a soft-retired
+    // movie, so direct ID lookup intentionally does not filter by is_active.
     final movieMaps = await db.query('movies', where: 'id = ?', whereArgs: [id]);
     if (movieMaps.isEmpty) return null;
 
@@ -32,14 +34,21 @@ class MovieRepositoryImpl implements MovieRepository {
   @override
   Future<int> getMovieCount() async {
     final db = await _db.database;
-    final result = await db.rawQuery('SELECT COUNT(*) as count FROM movies');
+    final result = await db.rawQuery(
+      'SELECT COUNT(*) as count FROM movies WHERE is_active = 1',
+    );
     return result.first['count'] as int;
   }
 
   @override
   Future<List<int>> getMovieIds() async {
     final db = await _db.database;
-    final rows = await db.query('movies', columns: ['id'], orderBy: 'id ASC');
+    final rows = await db.query(
+      'movies',
+      columns: ['id'],
+      where: 'is_active = 1',
+      orderBy: 'id ASC',
+    );
     return rows.map((row) => row['id'] as int).toList(growable: false);
   }
 
@@ -51,6 +60,7 @@ class MovieRepositoryImpl implements MovieRepository {
     final rows = await db.query(
       'movies',
       columns: ['id', 'title', 'original_title'],
+      where: 'is_active = 1',
     );
 
     final index = rows

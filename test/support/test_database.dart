@@ -4,11 +4,6 @@ import 'package:cineus/data/datasources/database_provider.dart';
 import 'package:cineus/data/datasources/database_seeder.dart';
 
 /// Hands a ready in-memory SQLite to the repositories under test.
-///
-/// This is the seam introduced by making the repositories depend on
-/// [DatabaseProvider] instead of the concrete `DatabaseHelper` singleton, which
-/// needed `getDatabasesPath()` and `rootBundle` and so could never run in a
-/// unit test.
 class TestDatabaseProvider implements DatabaseProvider {
   final Database db;
 
@@ -18,10 +13,11 @@ class TestDatabaseProvider implements DatabaseProvider {
   Future<Database> get database async => db;
 }
 
-/// Opens an in-memory database with the production schema applied.
+/// Opens an in-memory database with production SQLite safety settings applied.
 Future<Database> openTestDatabase({bool withMovies = false}) async {
   sqfliteFfiInit();
   final db = await databaseFactoryFfi.openDatabase(inMemoryDatabasePath);
+  await db.execute('PRAGMA foreign_keys = ON');
 
   const seeder = DatabaseSeeder();
   if (withMovies) await seeder.createMoviesSchema(db);
