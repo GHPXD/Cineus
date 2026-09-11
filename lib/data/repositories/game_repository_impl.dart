@@ -171,8 +171,11 @@ class GameRepositoryImpl implements GameRepository {
         ? wins.map((s) => s.revealedClues).reduce((a, b) => a + b) / wins.length
         : 0.0;
 
+    // The chart renders score buckets 1..max only. Losses are already represented
+    // by totalGames/totalWins/winRate and must not create a hidden score=0 bucket
+    // that changes the visual scale of every visible bar.
     final distMap = <int, int>{};
-    for (final s in descending) {
+    for (final s in wins) {
       distMap[s.score] = (distMap[s.score] ?? 0) + 1;
     }
 
