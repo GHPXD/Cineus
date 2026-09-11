@@ -2,8 +2,7 @@ import java.util.Properties
 
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    // The Flutter Gradle Plugin must be applied after the Android/Kotlin tooling.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
@@ -20,22 +19,26 @@ val hasReleaseKeystore = keystoreProperties.getProperty("storeFile") != null
 
 android {
     namespace = "dev.cineus.cineus"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = "27.0.12077973"
+
+    // Flutter 3.47.2 is CI-tested against Android API 36. Keep these explicit so
+    // store compliance does not silently regress if a local Flutter SDK differs.
+    compileSdk = 36
+    ndkVersion = "28.2.13676358"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        // flutter_local_notifications uses Java APIs that require desugaring on
+        // Android versions below their native availability.
+        isCoreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     defaultConfig {
         applicationId = "dev.cineus.cineus"
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        // Flutter 3.47 supports Android 24+ and Google Play requires target 36
+        // for new apps/updates as of the 2026 release window.
+        minSdk = 24
+        targetSdk = 36
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
@@ -54,10 +57,8 @@ android {
     buildTypes {
         release {
             // Signs with the real upload key when android/key.properties exists.
-            // Falls back to the debug key so `flutter run --release` keeps working
-            // on a fresh clone — but such a build CANNOT be published: Play
-            // rejects debug-signed uploads, and installing one over a
-            // properly-signed release fails with a signature mismatch.
+            // Falls back to the debug key so CI and `flutter run --release` can
+            // validate a clean clone. Publishing credentials remain local/secret.
             signingConfig = if (hasReleaseKeystore) {
                 signingConfigs.getByName("release")
             } else {
@@ -69,6 +70,16 @@ android {
             }
         }
     }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 }
 
 flutter {

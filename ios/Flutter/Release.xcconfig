@@ -1,1 +1,5 @@
 #include "Generated.xcconfig"
+
+// Flutter 3.47.2 supports iOS 15+; keep the app target aligned with the
+// framework and with the Xcode 26/iOS 26 release toolchain used in CI.
+IPHONEOS_DEPLOYMENT_TARGET=15.0
