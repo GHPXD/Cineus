@@ -92,8 +92,9 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 
 - [x] separar Configurações de Estatísticas
 - [x] mover entrada de desafio por código para uma superfície própria acessível pela Home
-- [x] adicionar navegação lateral adaptativa em telas grandes
-- [ ] avaliar migração final para `StatefulShellRoute` com pilhas independentes por tab
+- [x] migrar para `StatefulShellRoute.indexedStack` com pilhas independentes por tab
+- [x] re-selecionar uma tab ativa volta à raiz daquela seção
+- [x] adicionar NavigationRail adaptativa em telas grandes
 
 ### 6C — Experiência de jogo
 
@@ -101,13 +102,15 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] alinhar cabeçalhos com contexto Daily/Estágio/Desafio
 - [x] remover empilhamento duplicado de resultado no Poster
 - [x] preservar proporção 2:3 do poster ao revelar a resposta
+- [x] liberar rotação em tablets e manter portrait apenas em telas de telefone
 
 ### 6D — Resultados
 
-- [x] compartilhamento contextual para Daily/Estágio/Desafio
+- [x] compartilhamento contextual para Daily/Estágio/Desafio em Dicas
 - [x] próxima ação de resultado depende da origem da partida
 - [x] countdown exibido somente em resultado Daily
-- [ ] aproximar ainda mais a composição visual do resultado Poster do resultado Dicas
+- [x] resultado Poster com hierarquia equivalente: badge, score/nível, poster revelado e CTA contextual
+- [x] resultado Poster de Estágio preserva avanço para o próximo filme com cobrança de ticket
 
 ### 6E — Async UX
 
@@ -122,8 +125,10 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] mover `bodySmall`, `labelSmall`, `mono` e `monoSmall` para cores semânticas com contraste verificado
 - [x] garantir mínimo de 48dp nos temas globais de botão
 - [x] usar `TapTarget` nos CTAs pequenos de estágio e dicas extras
-- [x] respeitar Reduce Motion no score pulsante e revelação do Poster
-- [ ] concluir auditoria de text scaling extremo e VoiceOver/TalkBack
+- [x] respeitar Reduce Motion no score pulsante, splash e revelação do Poster
+- [x] cobrir componentes críticos até 200% de text scaling em testes
+- [x] garantir rótulos semânticos acionáveis na navegação principal
+- [ ] executar passe manual final com VoiceOver e TalkBack em aparelhos reais
 
 ### 6G — Responsive
 
@@ -131,16 +136,29 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] Stats em 2/4 colunas conforme largura
 - [x] limites de largura para Home, busca, Stats, Settings e Poster
 - [x] NavigationRail em telas expandidas
-- [ ] concluir QA visual em landscape/tablet/iPad/Web
+- [x] política de orientação adaptativa: phone portrait, tablet livre
+- [ ] concluir inspeção visual manual em landscape/tablet/iPad/Web
 
-### 6H — Próximos itens antes do merge
+### 6H — Fechamento antes do merge
 
-- [ ] reduzir splash artificial em launches recorrentes
-- [ ] completar educação contextual de tickets/estágios/poster
-- [ ] corrigir timezone/permissão iOS do lembrete
-- [ ] validar i18n gerada e remover strings residuais não localizadas
-- [ ] adicionar testes de regressão de navegação/estado e layouts críticos
-- [ ] passar por catálogo + compliance + analyzer + testes + Web + Android API 36 + iOS 26
+- [x] reduzir splash artificial de 2,5s para uma transição curta de 700ms
+- [x] não decidir onboarding antes de o estado persistido realmente carregar
+- [x] remover versão fixa do splash para não ficar obsoleta entre releases
+- [x] resolver timezone do lembrete por identificador IANA nativo no Android/iOS
+- [x] verificar permissão real de notificações também no iOS
+- [x] localizar metadados do canal de lembrete no Android
+- [x] validar paridade PT/EN/ES e impedir strings em português fora da camada de localização
+- [x] adicionar regressões de navegação, timezone, orientação, text scaling e Semantics
+- [ ] completar educação contextual adicional de tickets/estágios/poster (não bloqueia funcionamento)
+- [ ] passar no HEAD final por catálogo + compliance + analyzer + testes + Web + Android API 36 + iOS 26
+
+### QA manual obrigatório antes da submissão às lojas
+
+- VoiceOver no iOS e TalkBack no Android nos fluxos Home → jogo → busca → resultado
+- fonte do sistema em tamanho máximo nas telas Home, Estágios, jogo, resultado, Stats e Settings
+- iPhone pequeno, Android compacto, iPad/tablet em portrait e landscape
+- Web em janela compacta e desktop expandido
+- lembrete diário em um dispositivo com timezone/DST diferente, verificando 9h local
 
 ### Gate de aceitação
 
