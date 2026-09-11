@@ -13,6 +13,8 @@ abstract class NotificationService {
   Future<void> scheduleDailyReminder({
     required String title,
     required String body,
+    required String channelName,
+    required String channelDescription,
   });
   Future<void> cancelDailyReminder();
 }
@@ -103,6 +105,8 @@ class NotificationServiceImpl implements NotificationService {
   Future<void> scheduleDailyReminder({
     required String title,
     required String body,
+    required String channelName,
+    required String channelDescription,
   }) async {
     if (kIsWeb) return;
     await init();
@@ -126,15 +130,15 @@ class NotificationServiceImpl implements NotificationService {
       title: title,
       body: body,
       scheduledDate: scheduled,
-      notificationDetails: const NotificationDetails(
+      notificationDetails: NotificationDetails(
         android: AndroidNotificationDetails(
           _channelId,
-          'Desafio diário',
-          channelDescription: 'Aviso de que o desafio do dia está disponível',
+          channelName,
+          channelDescription: channelDescription,
           importance: Importance.defaultImportance,
           priority: Priority.defaultPriority,
         ),
-        iOS: DarwinNotificationDetails(),
+        iOS: const DarwinNotificationDetails(),
       ),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       matchDateTimeComponents: DateTimeComponents.time,
