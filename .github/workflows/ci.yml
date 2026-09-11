@@ -44,6 +44,13 @@ jobs:
       - name: Resolve dependencies
         run: flutter pub get
 
+      - name: Verify dependency lock is current
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff -- pubspec.lock analysis_options.yaml
+          git diff --exit-code -- pubspec.lock analysis_options.yaml
+
       - name: Static analysis
         run: flutter analyze --fatal-infos
 
