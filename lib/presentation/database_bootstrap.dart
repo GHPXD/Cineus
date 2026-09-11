@@ -56,10 +56,10 @@ class _DatabaseBootstrapState extends State<DatabaseBootstrap> {
     }
   }
 
-  Future<void> _repair() async {
-    final strings = _BootstrapStrings.of(context);
+  Future<void> _repair(BuildContext dialogContext) async {
+    final strings = _BootstrapStrings.of(dialogContext);
     final confirmed = await showDialog<bool>(
-      context: context,
+      context: dialogContext,
       builder: (context) => AlertDialog(
         title: Text(strings.repairTitle),
         content: Text(strings.repairWarning),
@@ -102,8 +102,8 @@ class _DatabaseBootstrapState extends State<DatabaseBootstrap> {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark,
       home: Builder(
-        builder: (context) {
-          final strings = _BootstrapStrings.of(context);
+        builder: (bootstrapContext) {
+          final strings = _BootstrapStrings.of(bootstrapContext);
           return Scaffold(
             body: SafeArea(
               child: Center(
@@ -116,7 +116,7 @@ class _DatabaseBootstrapState extends State<DatabaseBootstrap> {
                         : _ErrorState(
                             strings: strings,
                             onRetry: _initialize,
-                            onRepair: _repair,
+                            onRepair: () => _repair(bootstrapContext),
                           ),
                   ),
                 ),
@@ -247,8 +247,7 @@ class _BootstrapStrings {
   });
 
   static _BootstrapStrings of(BuildContext context) {
-    final language = Localizations.maybeLocaleOf(context)?.languageCode ??
-        View.of(context).platformDispatcher.locale.languageCode;
+    final language = View.of(context).platformDispatcher.locale.languageCode;
     return switch (language) {
       'pt' => _pt,
       'es' => _es,
