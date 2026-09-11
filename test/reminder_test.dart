@@ -14,7 +14,6 @@ import 'package:cineus/domain/repositories/app_meta_repository.dart';
 import 'package:cineus/l10n/app_l10n.dart';
 import 'package:cineus/presentation/providers/reminder_notifier.dart';
 
-/// Records what was asked of the OS, and answers however the test wants.
 class FakeNotificationService implements NotificationService {
   bool permissionGranted = true;
   bool permissionCurrentlyHeld = true;
@@ -24,6 +23,8 @@ class FakeNotificationService implements NotificationService {
   int permissionPrompts = 0;
   String? lastTitle;
   String? lastBody;
+  String? lastChannelName;
+  String? lastChannelDescription;
 
   @override
   Future<void> init() async {}
@@ -41,10 +42,14 @@ class FakeNotificationService implements NotificationService {
   Future<void> scheduleDailyReminder({
     required String title,
     required String body,
+    required String channelName,
+    required String channelDescription,
   }) async {
     scheduleCalls++;
     lastTitle = title;
     lastBody = body;
+    lastChannelName = channelName;
+    lastChannelDescription = channelDescription;
   }
 
   @override
@@ -80,7 +85,6 @@ void main() {
     });
 
     test('exatamente às 9h agenda para o dia seguinte, não para agora', () {
-      // Evita disparar imediatamente no instante do agendamento.
       final next = DailyReminderTime.nextOccurrence(DateTime(2026, 8, 10, 9, 0));
       expect(next, DateTime(2026, 8, 11, 9, 0));
     });
@@ -114,7 +118,6 @@ void main() {
         meta: meta,
         l10n: () => AppL10n.delegate.load(const Locale('pt')),
       );
-      // Deixa o _restore() do construtor terminar.
       await Future<void>.delayed(Duration.zero);
       return notifier;
     }
@@ -142,13 +145,15 @@ void main() {
       expect(meta.store['daily_reminder_enabled'], 'true');
     });
 
-    test('a notificação sai no idioma escolhido', () async {
+    test('notificação e canal saem no idioma escolhido', () async {
       final notifier = await build();
       await notifier.toggle(true);
 
       final pt = await AppL10n.delegate.load(const Locale('pt'));
       expect(service.lastTitle, pt.reminderTitle);
       expect(service.lastBody, pt.reminderBody);
+      expect(service.lastChannelName, pt.reminderSettingTitle);
+      expect(service.lastChannelDescription, pt.reminderSettingSubtitle);
     });
 
     test('permissão negada deixa desligado e sinaliza o motivo', () async {
