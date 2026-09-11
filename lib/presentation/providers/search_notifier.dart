@@ -11,12 +11,17 @@ class SearchState {
   final String query;
   final List<Movie> results;
   final bool isSearching;
+  final bool hasError;
 
   const SearchState({
     this.query = '',
     this.results = const [],
     this.isSearching = false,
+    this.hasError = false,
   });
+
+  bool get isQueryValid => query.trim().length >= 2;
+  bool get isEmptyResult => isQueryValid && !isSearching && !hasError && results.isEmpty;
 }
 
 class SearchNotifier extends StateNotifier<SearchState> {
@@ -40,17 +45,20 @@ class SearchNotifier extends StateNotifier<SearchState> {
     _debounce = Timer(AppConstants.searchDebounce, () async {
       try {
         final results = await _movieRepo.searchMovies(query.trim(), limit: 8);
-        // Query equality is not enough: A -> B -> A can let the first A finish
-        // last and overwrite the newer A. Generation identifies the request.
         if (mounted && generation == _generation) {
           state = SearchState(query: query, results: results);
         }
       } catch (_) {
         if (mounted && generation == _generation) {
-          state = SearchState(query: query);
+          state = SearchState(query: query, hasError: true);
         }
       }
     });
+  }
+
+  void retry() {
+    final query = state.query;
+    if (query.trim().length >= 2) search(query);
   }
 
   void clear() {
@@ -68,6 +76,6 @@ class SearchNotifier extends StateNotifier<SearchState> {
 }
 
 final searchNotifierProvider =
-    StateNotifierProvider<SearchNotifier, SearchState>((ref) {
+    StateNotifierProvider.autoDispose<SearchNotifier, SearchState>((ref) {
   return SearchNotifier(ref.read(movieRepositoryProvider));
 });
