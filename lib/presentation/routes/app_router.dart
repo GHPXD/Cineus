@@ -34,37 +34,60 @@ abstract final class AppRouter {
         path: '/',
         builder: (context, state) => const _SplashGate(),
       ),
-      ShellRoute(
-        builder: (context, state, child) => MainScaffold(child: child),
-        routes: [
-          GoRoute(
-            path: '/home',
-            builder: (context, state) => const HomeScreen(),
+
+      // Each primary destination owns an independent Navigator. Switching tabs
+      // therefore preserves the user's place (for example Films -> Stage 8),
+      // while tapping the already-selected tab returns that branch to its root.
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) => MainScaffold(
+          navigationShell: navigationShell,
+        ),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/home',
+                builder: (context, state) => const HomeScreen(),
+              ),
+            ],
           ),
-          GoRoute(
-            path: '/stages',
-            builder: (context, state) => const StagesScreen(),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/stages',
+                builder: (context, state) => const StagesScreen(),
+                routes: [
+                  GoRoute(
+                    path: ':id',
+                    builder: (context, state) {
+                      final id = int.tryParse(state.pathParameters['id'] ?? '');
+                      return StageDetailScreen(stageId: id ?? -1);
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
-          GoRoute(
-            path: '/stages/:id',
-            builder: (context, state) {
-              final id = int.tryParse(state.pathParameters['id'] ?? '');
-              return StageDetailScreen(stageId: id ?? -1);
-            },
-          ),
-          GoRoute(
-            path: '/visual',
-            builder: (context, state) => const PosterStagesScreen(),
-          ),
-          GoRoute(
-            path: '/visual/stage/:id',
-            builder: (context, state) {
-              final id = int.tryParse(state.pathParameters['id'] ?? '');
-              return PosterStageDetailScreen(stageId: id ?? -1);
-            },
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/visual',
+                builder: (context, state) => const PosterStagesScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'stage/:id',
+                    builder: (context, state) {
+                      final id = int.tryParse(state.pathParameters['id'] ?? '');
+                      return PosterStageDetailScreen(stageId: id ?? -1);
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
+
       GoRoute(
         path: '/visual/play',
         pageBuilder: (context, state) => CustomTransitionPage(
@@ -237,15 +260,36 @@ abstract final class AppRouter {
       };
 }
 
-class _SplashGate extends ConsumerWidget {
+class _SplashGate extends ConsumerStatefulWidget {
   const _SplashGate();
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_SplashGate> createState() => _SplashGateState();
+}
+
+class _SplashGateState extends ConsumerState<_SplashGate> {
+  bool _minimumElapsed = false;
+  bool _navigated = false;
+
+  void _tryNavigate(AsyncValue<bool> onboarding) {
+    if (!_minimumElapsed || _navigated || !onboarding.hasValue) return;
+    _navigated = true;
+    final seen = onboarding.requireValue;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      context.go(seen ? '/home' : '/how-to-play?first=1');
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final onboarding = ref.watch(onboardingSeenProvider);
+    _tryNavigate(onboarding);
+
     return SplashScreen(
       onComplete: () {
-        final seen = ref.read(onboardingSeenProvider).valueOrNull ?? true;
-        context.go(seen ? '/home' : '/how-to-play?first=1');
+        if (_minimumElapsed) return;
+        setState(() => _minimumElapsed = true);
       },
     );
   }
