@@ -56,31 +56,48 @@ Objetivo: eliminar falhas de lifecycle/plataforma que poderiam navegar ou derrub
 
 Merge: PR #5.
 
-## Fase 4 — UX e consistência 🚧
+## Fase 4 — UX e consistência ✅
 
-Objetivo: remover estados enganosos, duplicações e becos-sem-saída ainda visíveis ao jogador, preservando a integridade conquistada nas fases anteriores.
+Objetivo do bloco entregue: corrigir uma inconsistência visível das Estatísticas antes de entrar no hardening de release.
+
+- distribuição de pontos representa somente vitórias
+- derrotas não criam mais um bucket invisível `score=0` que reduz visualmente todas as barras 1–10
+- testes cobrem histórico misto e histórico somente de derrotas
+
+Merge: PR #6.
+
+Os demais itens de polish/UX identificados na auditoria permanecem no backlog para o passe final de QA, depois da conformidade de release.
+
+## Fase 5 — Compliance e prontidão para lojas 🚧
+
+Objetivo: impedir que uma build tecnicamente saudável seja enviada às lojas sem os artefatos legais, atribuições e proteções de publicação necessários.
 
 Primeiro bloco:
 
-- [x] distribuição de pontos passa a representar somente vitórias; derrotas deixam de criar uma faixa invisível `score=0` que distorcia a escala do gráfico
-- [x] teste de regressão cobre histórico com vitórias + derrotas e histórico somente de derrotas
-- [ ] eliminar o segundo `load()` concorrente ao abrir Estatísticas
-- [ ] adicionar estado de erro/retry à tela de Estatísticas
-- [ ] padronizar erros de carregamento de partida como estados tipados/localizados com retry
-- [ ] representar corretamente Poster diário em andamento na Home
-- [ ] rejeitar/redirect de rota de estágio inválida em vez de exibir Stage 1 com id inexistente
-- [ ] limpar/isolar estado de busca entre Dicas e Poster e mostrar loading/erro/sem resultados
-- [ ] localizar datas do histórico e nomes de estágios
-- [ ] remover feedback duplicado de franquia entre Dicas e Poster
-- [ ] revisar timers/listeners restantes e o timezone do lembrete
+- [x] adicionar Política de Privacidade e Termos de Uso versionados em PT/EN/ES
+- [x] tornar Privacidade/Termos acessíveis dentro do aplicativo
+- [x] criar seção `Sobre e créditos` acessível nas configurações
+- [x] incluir o aviso obrigatório do TMDB na seção de créditos
+- [x] documentar obrigações pendentes do TMDB, incluindo logo oficial e licença comercial quando aplicável
+- [x] impedir release Android silenciosamente assinado com chave debug
+- [x] permitir chave debug no CI somente por bypass explícito e não publicável
+- [x] adicionar gate automatizado de compliance ao CI
+- [ ] adicionar ao app um logo oficial/aprovado do TMDB
+- [ ] publicar Privacy/Terms em URL pública estável e cadastrar nas lojas
+- [ ] revisar metadados Web/Android/iOS de release
+- [ ] remover versão hardcoded exibida ao usuário
+- [ ] validar assinatura/distribuição real Android e iOS
+
+Detalhes: `docs/RELEASE_COMPLIANCE.md`.
 
 ### Gate de aceitação
 
-A Fase 4 só pode ser mesclada quando o HEAD do PR passar por:
+A Fase 5 só pode ser mesclada quando o HEAD do PR passar por:
 
 1. validação do catálogo;
-2. `flutter analyze --fatal-infos`;
-3. suíte Flutter completa;
-4. Web release build;
-5. Android API 36 release AAB;
-6. iOS/Xcode 26 release build sem assinatura.
+2. validação de release compliance;
+3. `flutter analyze --fatal-infos`;
+4. suíte Flutter completa;
+5. Web release build;
+6. Android API 36 release AAB;
+7. iOS/Xcode 26 release build sem assinatura.

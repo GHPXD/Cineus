@@ -28,6 +28,9 @@ jobs:
       - name: Validate catalogue artifacts
         run: python3 scripts/validate_catalog.py
 
+      - name: Validate release compliance
+        run: python3 scripts/validate_release_compliance.py
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -86,6 +89,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     needs: quality
+    env:
+      # Explicit validation-only exception. Local/publishing release builds fail
+      # closed unless a real android/key.properties is present.
+      CINEUS_ALLOW_DEBUG_SIGNED_RELEASE: 'true'
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -116,6 +123,8 @@ jobs:
           grep -Fq 'gradle-9.3.1-all.zip' android/gradle/wrapper/gradle-wrapper.properties
           grep -Fq 'version "9.1.0"' android/settings.gradle.kts
           grep -Fq 'version "2.4.0"' android/settings.gradle.kts
+          grep -Fq 'CINEUS_ALLOW_DEBUG_SIGNED_RELEASE' android/app/build.gradle.kts
+          grep -Fq 'throw GradleException' android/app/build.gradle.kts
 
       - name: Resolve dependencies
         run: flutter pub get

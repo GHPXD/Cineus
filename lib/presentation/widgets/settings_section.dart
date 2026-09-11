@@ -6,12 +6,13 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
 import '../../core/utils/challenge_code.dart';
+import '../../l10n/release_legal_l10n.dart';
 import '../l10n_mappers.dart';
 import '../providers/reminder_notifier.dart';
 import 'language_picker.dart';
 
 /// Settings block at the bottom of the statistics screen: language, the daily
-/// reminder (D4) and opening a challenge code (D10).
+/// reminder (D4), challenge codes and release/legal information.
 class SettingsSection extends ConsumerWidget {
   const SettingsSection({super.key});
 
@@ -25,6 +26,8 @@ class SettingsSection extends ConsumerWidget {
         _ChallengeOpener(),
         SizedBox(height: 20),
         LanguagePicker(),
+        SizedBox(height: 20),
+        _LegalLinks(),
       ],
     );
   }
@@ -51,8 +54,6 @@ class _ReminderToggle extends ConsumerWidget {
           child: SwitchListTile.adaptive(
             contentPadding: EdgeInsets.zero,
             value: state.enabled,
-            // Flipping this is what triggers the OS permission prompt — the app
-            // never asks unprompted.
             onChanged: state.busy
                 ? null
                 : (value) =>
@@ -131,7 +132,6 @@ class _ChallengeOpenerState extends ConsumerState<_ChallengeOpener> {
                 controller: _controller,
                 textCapitalization: TextCapitalization.characters,
                 inputFormatters: [
-                  // The code alphabet plus the separator; anything else is noise.
                   FilteringTextInputFormatter.allow(RegExp(r'[0-9A-Za-z\-]')),
                   LengthLimitingTextInputFormatter(12),
                 ],
@@ -163,6 +163,83 @@ class _ChallengeOpenerState extends ConsumerState<_ChallengeOpener> {
           ],
         ),
       ],
+    );
+  }
+}
+
+class _LegalLinks extends StatelessWidget {
+  const _LegalLinks();
+
+  @override
+  Widget build(BuildContext context) {
+    final copy = ReleaseLegalL10n.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          copy.settingsSection.toUpperCase(),
+          style: AppTypography.labelSmall.copyWith(
+            color: AppColors.textSecondary,
+            letterSpacing: 1.5,
+          ),
+        ),
+        const SizedBox(height: 10),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white.withValues(alpha: 0.03),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+          ),
+          child: Column(
+            children: [
+              _SettingsLink(
+                icon: Icons.info_outline_rounded,
+                label: copy.aboutLabel,
+                onTap: () => context.push('/about'),
+              ),
+              const Divider(height: 1),
+              _SettingsLink(
+                icon: Icons.privacy_tip_outlined,
+                label: copy.privacyLabel,
+                onTap: () => context.push('/privacy'),
+              ),
+              const Divider(height: 1),
+              _SettingsLink(
+                icon: Icons.gavel_outlined,
+                label: copy.termsLabel,
+                onTap: () => context.push('/terms'),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _SettingsLink extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  const _SettingsLink({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      dense: true,
+      leading: Icon(icon, color: AppColors.gold300, size: 20),
+      title: Text(label, style: AppTypography.titleSmall.copyWith(fontSize: 13)),
+      trailing: const Icon(
+        Icons.chevron_right_rounded,
+        color: AppColors.textTertiary,
+      ),
+      onTap: onTap,
     );
   }
 }
