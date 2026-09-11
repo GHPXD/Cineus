@@ -14,6 +14,7 @@ import '../screens/home_screen.dart';
 import '../screens/how_to_play_screen.dart';
 import '../screens/legal_screen.dart';
 import '../screens/main_scaffold.dart';
+import '../screens/poster_result_screen.dart';
 import '../screens/poster_stage_detail_screen.dart';
 import '../screens/poster_stages_screen.dart';
 import '../screens/search_screen.dart';
@@ -34,10 +35,6 @@ abstract final class AppRouter {
         path: '/',
         builder: (context, state) => const _SplashGate(),
       ),
-
-      // Each primary destination owns an independent Navigator. Switching tabs
-      // therefore preserves the user's place (for example Films -> Stage 8),
-      // while tapping the already-selected tab returns that branch to its root.
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) => MainScaffold(
           navigationShell: navigationShell,
@@ -87,7 +84,6 @@ abstract final class AppRouter {
           ),
         ],
       ),
-
       GoRoute(
         path: '/visual/play',
         pageBuilder: (context, state) => CustomTransitionPage(
@@ -118,7 +114,7 @@ abstract final class AppRouter {
       GoRoute(
         path: '/visual/victory',
         pageBuilder: (context, state) => CustomTransitionPage(
-          child: const VisualVictoryScreen(),
+          child: const PosterResultScreen(won: true),
           transitionDuration: const Duration(milliseconds: 400),
           transitionsBuilder: (context, animation, _, child) => ScaleTransition(
             scale: Tween<double>(begin: 0.85, end: 1.0).animate(
@@ -131,7 +127,7 @@ abstract final class AppRouter {
       GoRoute(
         path: '/visual/defeat',
         pageBuilder: (context, state) => CustomTransitionPage(
-          child: const VisualDefeatScreen(),
+          child: const PosterResultScreen(won: false),
           transitionDuration: const Duration(milliseconds: 400),
           transitionsBuilder: (context, animation, _, child) =>
               FadeTransition(opacity: animation, child: child),
