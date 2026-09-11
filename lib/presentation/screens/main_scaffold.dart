@@ -23,8 +23,6 @@ class MainScaffold extends StatelessWidget {
     void navigate(int index) {
       navigationShell.goBranch(
         index,
-        // Re-selecting the active destination behaves like a conventional tab:
-        // return to that branch's root. Switching branches restores its stack.
         initialLocation: index == navigationShell.currentIndex,
       );
     }
@@ -93,6 +91,9 @@ class _SideNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scaledLabel = MediaQuery.textScalerOf(context).scale(11);
+    final extraWidth = (scaledLabel - 11).clamp(0.0, 24.0);
+
     return Container(
       color: AppColors.obsidian900,
       child: NavigationRail(
@@ -101,7 +102,7 @@ class _SideNav extends StatelessWidget {
         onDestinationSelected: onTap,
         labelType: NavigationRailLabelType.all,
         groupAlignment: -0.35,
-        minWidth: 84,
+        minWidth: 84 + extraWidth,
         selectedIconTheme: const IconThemeData(
           color: AppColors.obsidian900,
           size: 23,
@@ -148,6 +149,9 @@ class _BottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scaledLabel = MediaQuery.textScalerOf(context).scale(11);
+    final extraHeight = ((scaledLabel - 11) * 1.4).clamp(0.0, 24.0);
+
     return Container(
       decoration: const BoxDecoration(
         color: AppColors.obsidian900,
@@ -158,7 +162,7 @@ class _BottomNav extends StatelessWidget {
       child: SafeArea(
         top: false,
         child: SizedBox(
-          height: 64,
+          height: 64 + extraHeight,
           child: Row(
             children: List.generate(tabs.length, (i) {
               final tab = tabs[i];
@@ -185,6 +189,9 @@ class _BottomNav extends StatelessWidget {
                         const SizedBox(height: 3),
                         Text(
                           tab.label(context),
+                          maxLines: 1,
+                          overflow: TextOverflow.fade,
+                          softWrap: false,
                           style: AppTypography.labelSmall.copyWith(
                             fontSize: 11,
                             letterSpacing: 0.2,
