@@ -17,6 +17,12 @@ val keystoreProperties = Properties().apply {
 }
 val hasReleaseKeystore = keystoreProperties.getProperty("storeFile") != null
 
+// CI still needs to compile a release AAB from a clean clone, but a developer
+// must never accidentally publish a release signed with the debug key. The
+// bypass is therefore opt-in and set only by our GitHub Actions validation job.
+val allowDebugSignedRelease =
+    System.getenv("CINEUS_ALLOW_DEBUG_SIGNED_RELEASE")?.equals("true", ignoreCase = true) == true
+
 android {
     namespace = "dev.cineus.cineus"
 
@@ -56,17 +62,20 @@ android {
 
     buildTypes {
         release {
-            // Signs with the real upload key when android/key.properties exists.
-            // Falls back to the debug key so CI and `flutter run --release` can
-            // validate a clean clone. Publishing credentials remain local/secret.
-            signingConfig = if (hasReleaseKeystore) {
-                signingConfigs.getByName("release")
-            } else {
-                logger.warn(
-                    "AVISO: build de release assinado com a chave de DEBUG. " +
-                        "Crie android/key.properties para publicar."
+            signingConfig = when {
+                hasReleaseKeystore -> signingConfigs.getByName("release")
+                allowDebugSignedRelease -> {
+                    logger.warn(
+                        "CI ONLY: release validation build is using the DEBUG key. " +
+                            "This artifact must never be published."
+                    )
+                    signingConfigs.getByName("debug")
+                }
+                else -> throw GradleException(
+                    "Release signing credentials are missing. Create android/key.properties " +
+                        "from android/key.properties.example. Debug-signed release artifacts " +
+                        "are blocked outside the explicit CI validation path."
                 )
-                signingConfigs.getByName("debug")
             }
         }
     }

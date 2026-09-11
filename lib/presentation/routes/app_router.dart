@@ -4,22 +4,24 @@ import 'package:go_router/go_router.dart';
 
 import '../providers/providers.dart';
 
+import '../screens/about_screen.dart';
+import '../screens/challenge_loader.dart';
 import '../screens/defeat_screen.dart';
 import '../screens/game_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/how_to_play_screen.dart';
+import '../screens/legal_screen.dart';
 import '../screens/main_scaffold.dart';
 import '../screens/poster_stage_detail_screen.dart';
 import '../screens/poster_stages_screen.dart';
 import '../screens/search_screen.dart';
-import '../screens/visual_screen.dart';
-import '../screens/visual_search_screen.dart';
 import '../screens/splash_screen.dart';
 import '../screens/stage_detail_screen.dart';
 import '../screens/stages_screen.dart';
-import '../screens/challenge_loader.dart';
 import '../screens/stats_screen.dart';
 import '../screens/victory_screen.dart';
+import '../screens/visual_screen.dart';
+import '../screens/visual_search_screen.dart';
 
 abstract final class AppRouter {
   static final router = GoRouter(
@@ -130,13 +132,13 @@ abstract final class AppRouter {
             return FadeTransition(opacity: animation, child: child);
           },
           child: GameScreen(
-          onNavigateToSearch: () => context.push('/search'),
-          onNavigateToVictory: () => context.go('/victory'),
-          onNavigateToDefeat: () => context.go('/defeat'),
-          onNavigateToStats: () => context.push('/stats'),
-          onNavigateToHowToPlay: () => context.push('/how-to-play'),
-          onNavigateBack: () => context.go('/home'),
-        ),
+            onNavigateToSearch: () => context.push('/search'),
+            onNavigateToVictory: () => context.go('/victory'),
+            onNavigateToDefeat: () => context.go('/defeat'),
+            onNavigateToStats: () => context.push('/stats'),
+            onNavigateToHowToPlay: () => context.push('/how-to-play'),
+            onNavigateBack: () => context.go('/home'),
+          ),
         ),
       ),
       GoRoute(
@@ -201,6 +203,22 @@ abstract final class AppRouter {
         path: '/stats',
         builder: (context, state) => StatsScreen(
           onBack: () => context.pop(),
+        ),
+      ),
+      GoRoute(
+        path: '/about',
+        builder: (context, state) => const AboutScreen(),
+      ),
+      GoRoute(
+        path: '/privacy',
+        builder: (context, state) => const LegalScreen(
+          document: LegalDocument.privacy,
+        ),
+      ),
+      GoRoute(
+        path: '/terms',
+        builder: (context, state) => const LegalScreen(
+          document: LegalDocument.terms,
         ),
       ),
       GoRoute(

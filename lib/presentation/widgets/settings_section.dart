@@ -11,7 +11,7 @@ import '../providers/reminder_notifier.dart';
 import 'language_picker.dart';
 
 /// Settings block at the bottom of the statistics screen: language, the daily
-/// reminder (D4) and opening a challenge code (D10).
+/// reminder (D4), challenge codes and release/legal information.
 class SettingsSection extends ConsumerWidget {
   const SettingsSection({super.key});
 
@@ -25,6 +25,8 @@ class SettingsSection extends ConsumerWidget {
         _ChallengeOpener(),
         SizedBox(height: 20),
         LanguagePicker(),
+        SizedBox(height: 20),
+        _LegalLinks(),
       ],
     );
   }
@@ -164,5 +166,119 @@ class _ChallengeOpenerState extends ConsumerState<_ChallengeOpener> {
         ),
       ],
     );
+  }
+}
+
+class _LegalLinks extends StatelessWidget {
+  const _LegalLinks();
+
+  @override
+  Widget build(BuildContext context) {
+    final copy = _SettingsLegalCopy.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          copy.section.toUpperCase(),
+          style: AppTypography.labelSmall.copyWith(
+            color: AppColors.textSecondary,
+            letterSpacing: 1.5,
+          ),
+        ),
+        const SizedBox(height: 10),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white.withValues(alpha: 0.03),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+          ),
+          child: Column(
+            children: [
+              _SettingsLink(
+                icon: Icons.info_outline_rounded,
+                label: copy.about,
+                onTap: () => context.push('/about'),
+              ),
+              const Divider(height: 1),
+              _SettingsLink(
+                icon: Icons.privacy_tip_outlined,
+                label: copy.privacy,
+                onTap: () => context.push('/privacy'),
+              ),
+              const Divider(height: 1),
+              _SettingsLink(
+                icon: Icons.gavel_outlined,
+                label: copy.terms,
+                onTap: () => context.push('/terms'),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _SettingsLink extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  const _SettingsLink({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      dense: true,
+      leading: Icon(icon, color: AppColors.gold300, size: 20),
+      title: Text(label, style: AppTypography.titleSmall.copyWith(fontSize: 13)),
+      trailing: const Icon(
+        Icons.chevron_right_rounded,
+        color: AppColors.textTertiary,
+      ),
+      onTap: onTap,
+    );
+  }
+}
+
+class _SettingsLegalCopy {
+  final String section;
+  final String about;
+  final String privacy;
+  final String terms;
+
+  const _SettingsLegalCopy({
+    required this.section,
+    required this.about,
+    required this.privacy,
+    required this.terms,
+  });
+
+  static _SettingsLegalCopy of(BuildContext context) {
+    return switch (Localizations.localeOf(context).languageCode) {
+      'pt' => const _SettingsLegalCopy(
+          section: 'Informações',
+          about: 'Sobre e créditos',
+          privacy: 'Política de Privacidade',
+          terms: 'Termos de Uso',
+        ),
+      'es' => const _SettingsLegalCopy(
+          section: 'Información',
+          about: 'Acerca de y créditos',
+          privacy: 'Política de Privacidad',
+          terms: 'Términos de Uso',
+        ),
+      _ => const _SettingsLegalCopy(
+          section: 'Information',
+          about: 'About & credits',
+          privacy: 'Privacy Policy',
+          terms: 'Terms of Use',
+        ),
+    };
   }
 }
