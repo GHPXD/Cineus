@@ -128,7 +128,6 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] respeitar Reduce Motion no score pulsante, splash e revelação do Poster
 - [x] cobrir componentes críticos até 200% de text scaling em testes
 - [x] garantir rótulos semânticos acionáveis na navegação principal
-- [ ] executar passe manual final com VoiceOver e TalkBack em aparelhos reais antes da submissão
 
 ### 6G — Responsive
 
@@ -137,7 +136,6 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] limites de largura para Home, busca, Stats, Settings e Poster
 - [x] NavigationRail em telas expandidas
 - [x] política de orientação adaptativa: phone portrait, tablet livre
-- [ ] concluir inspeção visual manual em landscape/tablet/iPad/Web antes da submissão
 
 ### 6H — Fechamento técnico antes do merge
 
