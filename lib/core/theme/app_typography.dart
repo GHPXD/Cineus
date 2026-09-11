@@ -4,13 +4,12 @@ import 'app_fonts.dart';
 
 /// Cineus Typography System
 ///
-/// Secondary and tertiary copy uses `AppColors.textSecondary`/`textTertiary`
-/// rather than the dim end of the obsidian ramp: those surface tones measured
-/// 1.3–2.1:1 against the app backgrounds, below the WCAG floor even for large
-/// text. See the notes in `AppColors`.
-/// Playfair Display → Titles, branding, poster
-/// Inter → UI, body, clue texts
-/// DM Mono → Scores, numbers, counters
+/// Playfair Display → titles/branding
+/// Inter → UI/body copy
+/// DM Mono → scores/numbers/counters
+///
+/// Text tokens deliberately use the contrast-verified semantic text palette.
+/// Surface colors from the obsidian ramp remain for borders/decorations only.
 abstract final class AppTypography {
   static TextStyle get displayLarge => const TextStyle(
     fontFamily: AppFonts.playfair,
@@ -96,7 +95,7 @@ abstract final class AppTypography {
     fontFamily: AppFonts.inter,
     fontSize: 13,
     fontWeight: FontWeight.w400,
-    color: AppColors.obsidian300,
+    color: AppColors.textSecondary,
     height: 1.6,
   );
 
@@ -113,7 +112,7 @@ abstract final class AppTypography {
     fontFamily: AppFonts.inter,
     fontSize: 11,
     fontWeight: FontWeight.w800,
-    color: AppColors.obsidian300,
+    color: AppColors.textSecondary,
     height: 1.3,
     letterSpacing: 1.5,
   );
@@ -122,12 +121,11 @@ abstract final class AppTypography {
     fontFamily: AppFonts.inter,
     fontSize: 10,
     fontWeight: FontWeight.w800,
-    color: AppColors.obsidian400,
+    color: AppColors.textTertiary,
     height: 1.2,
     letterSpacing: 2,
   );
 
-  // ── Mono (Scores / Numbers / Countdown) ──
   static TextStyle get scoreLarge => const TextStyle(
     fontFamily: AppFonts.mono,
     fontSize: 64,
@@ -159,13 +157,13 @@ abstract final class AppTypography {
     fontFamily: AppFonts.mono,
     fontSize: 13,
     fontWeight: FontWeight.w400,
-    color: AppColors.obsidian300,
+    color: AppColors.textSecondary,
   );
 
   static TextStyle get monoSmall => const TextStyle(
     fontFamily: AppFonts.mono,
     fontSize: 11,
     fontWeight: FontWeight.w400,
-    color: AppColors.obsidian400,
+    color: AppColors.textTertiary,
   );
 }
