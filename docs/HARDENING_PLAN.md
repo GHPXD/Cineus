@@ -149,7 +149,7 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] localizar metadados do canal de lembrete no Android
 - [x] validar paridade PT/EN/ES e impedir strings em português fora da camada de localização
 - [x] adicionar regressões de navegação, timezone, orientação, text scaling e Semantics
-- [ ] completar educação contextual adicional de tickets/estágios/poster (não bloqueia funcionamento)
+- [ ] educação contextual adicional de tickets/estágios/poster — polish não bloqueante; pode evoluir após QA com usuários
 - [ ] passar no HEAD final por catálogo + compliance + analyzer + testes + Web + Android API 36 + iOS 26
 
 ### QA manual obrigatório antes da submissão às lojas
