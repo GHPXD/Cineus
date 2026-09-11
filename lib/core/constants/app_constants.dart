@@ -219,5 +219,49 @@ abstract final class AppConstants {
     'Motivação': '🔥',
     'Desafio': '🏆',
     'Dificuldade': '😤',
+    'Conquista': '🥇',
+    'Rivalidade': '🤺',
+    'Rotina': '🔁',
+    'Status': '📊',
+    'Queda': '📉',
+    'Falha': '❌',
+    'Inimigo': '😠',
+    'Inimigos': '😠',
+    'Resposta': '💡',
+    'Condição': '📋',
+    'Consequência': '➡️',
+    'Acordo': '🤝',
+    'Negócios': '💼',
+    'Disfarce': '🎭',
+    'Fenômeno': '🌟',
+    'Humanidade': '🌏',
+    'Jogo': '🎲',
+    'Realidade': '🪞',
+    'Seres': '👽',
+    'Teoria': '🧪',
+    'Veículo': '🚗',
+    'Ícone': '🌟',
+    'Óbvia': '💬',
+    'Escala': '📏',
+    'Estado': '🏳️',
+    'Fator': '🔢',
+    'Mantra': '🧘',
+    'Método': '📐',
+    'Regra': '📏',
+    'Desenvolvimento': '📈',
+    'Susto': '😱',
+    'Companhia': '🏢',
+    'Desejo': '✨',
+    'Progresso': '📈',
+    'Punição': '⚖️',
+    'Manifestação': '✨',
   };
+
+  /// Fallback emoji for unmapped categories.
+  static const String defaultCategoryEmoji = '🎬';
+
+  /// Returns emoji for a category, with fallback.
+  static String emojiForCategory(String category) {
+    return clueCategoryEmojis[category] ?? defaultCategoryEmoji;
+  }
 }
