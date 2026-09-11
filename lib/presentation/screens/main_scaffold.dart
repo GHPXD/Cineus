@@ -6,35 +6,28 @@ import '../../core/theme/app_typography.dart';
 import '../l10n_mappers.dart';
 
 class MainScaffold extends StatelessWidget {
-  final Widget child;
+  final StatefulNavigationShell navigationShell;
 
-  const MainScaffold({super.key, required this.child});
+  const MainScaffold({super.key, required this.navigationShell});
 
   static const _tabs = [
-    _Tab(labelKey: _TabLabel.home, icon: Icons.home_rounded, path: '/home'),
-    _Tab(
-      labelKey: _TabLabel.films,
-      icon: Icons.movie_filter_rounded,
-      path: '/stages',
-    ),
-    _Tab(
-      labelKey: _TabLabel.posters,
-      icon: Icons.blur_on_rounded,
-      path: '/visual',
-    ),
+    _Tab(labelKey: _TabLabel.home, icon: Icons.home_rounded),
+    _Tab(labelKey: _TabLabel.films, icon: Icons.movie_filter_rounded),
+    _Tab(labelKey: _TabLabel.posters, icon: Icons.blur_on_rounded),
   ];
-
-  int _selectedIndex(BuildContext context) {
-    final location = GoRouterState.of(context).uri.path;
-    if (location.startsWith('/stages')) return 1;
-    if (location.startsWith('/visual')) return 2;
-    return 0;
-  }
 
   @override
   Widget build(BuildContext context) {
-    final selected = _selectedIndex(context);
-    void navigate(int index) => context.go(_tabs[index].path);
+    final selected = navigationShell.currentIndex;
+
+    void navigate(int index) {
+      navigationShell.goBranch(
+        index,
+        // Re-selecting the active destination behaves like a conventional tab:
+        // return to that branch's root. Switching branches restores its stack.
+        initialLocation: index == navigationShell.currentIndex,
+      );
+    }
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -51,7 +44,7 @@ class MainScaffold extends StatelessWidget {
                     onTap: navigate,
                   ),
                   const VerticalDivider(width: 1, thickness: 0.5),
-                  Expanded(child: child),
+                  Expanded(child: navigationShell),
                 ],
               ),
             ),
@@ -60,7 +53,7 @@ class MainScaffold extends StatelessWidget {
 
         return Scaffold(
           backgroundColor: AppColors.obsidian950,
-          body: child,
+          body: navigationShell,
           bottomNavigationBar: _BottomNav(
             selectedIndex: selected,
             tabs: _tabs,
@@ -77,9 +70,8 @@ enum _TabLabel { home, films, posters }
 class _Tab {
   final _TabLabel labelKey;
   final IconData icon;
-  final String path;
 
-  const _Tab({required this.labelKey, required this.icon, required this.path});
+  const _Tab({required this.labelKey, required this.icon});
 
   String label(BuildContext context) => switch (labelKey) {
         _TabLabel.home => context.l10n.navHome,
