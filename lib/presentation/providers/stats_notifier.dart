@@ -14,17 +14,15 @@ class StatsState {
   final GameStats stats;
   final List<SessionWithMovie> recentGames;
   final bool isLoading;
-
-  /// Genre and decade breakdowns (D8).
+  final bool hasError;
   final PlayInsights insights;
-
-  /// Derived badges (D5).
   final List<Achievement> achievements;
 
   const StatsState({
     this.stats = const GameStats(),
     this.recentGames = const [],
     this.isLoading = true,
+    this.hasError = false,
     this.insights = const PlayInsights(),
     this.achievements = const [],
   });
@@ -45,6 +43,7 @@ class StatsNotifier extends StateNotifier<StatsState> {
   final MovieRepository _movieRepo;
   final RewardRepository _rewardRepo;
   final StageRepository _stageRepo;
+  int _generation = 0;
 
   StatsNotifier(
     this._gameRepo,
@@ -56,47 +55,66 @@ class StatsNotifier extends StateNotifier<StatsState> {
   }
 
   Future<void> load() async {
-    state = const StatsState(isLoading: true);
-
-    // Clue mode only: poster games run on a 1–5 scale and would distort the
-    // distribution, the average and the streak.
-    final stats = await _gameRepo.getStats(
-      mode: GameMode.clue,
-      streakFreezes: await _rewardRepo.streakFreezes(),
-    );
-    final sessions =
-        await _gameRepo.getFinishedDailySessions(mode: GameMode.clue);
-
-    // One batched read instead of a query per session — the breakdowns need
-    // every game, not just the 20 most recent.
-    final movies = await _movieRepo.getMoviesByIds(
-      sessions.map((s) => s.movieId).toSet().toList(),
-    );
-    final moviesById = {for (final m in movies) m.id: m};
-
-    final recent = [
-      for (final s in sessions.take(20))
-        SessionWithMovie(s, moviesById[s.movieId]),
-    ];
-
-    final stagesCompleted = (await _stageRepo.getAllStages(mode: 'clue'))
-            .where((s) => s.isCompleted)
-            .length +
-        (await _stageRepo.getAllStages(mode: 'poster'))
-            .where((s) => s.isCompleted)
-            .length;
-
+    final generation = ++_generation;
     state = StatsState(
-      stats: stats,
-      recentGames: recent,
-      isLoading: false,
-      insights: PlayInsights.from(sessions, moviesById),
-      achievements: Achievements.evaluate(
-        stats: stats,
-        stagesCompleted: stagesCompleted,
-        ticketsEarned: await _rewardRepo.totalEarned(),
-      ),
+      stats: state.stats,
+      recentGames: state.recentGames,
+      insights: state.insights,
+      achievements: state.achievements,
+      isLoading: true,
     );
+
+    try {
+      final freezes = await _rewardRepo.streakFreezes();
+      final stats = await _gameRepo.getStats(
+        mode: GameMode.clue,
+        streakFreezes: freezes,
+      );
+      final sessions =
+          await _gameRepo.getFinishedDailySessions(mode: GameMode.clue);
+
+      final movies = await _movieRepo.getMoviesByIds(
+        sessions.map((s) => s.movieId).toSet().toList(),
+      );
+      final moviesById = {for (final m in movies) m.id: m};
+
+      final recent = [
+        for (final s in sessions.take(20))
+          SessionWithMovie(s, moviesById[s.movieId]),
+      ];
+
+      final stagesCompleted = (await _stageRepo.getAllStages(mode: 'clue'))
+              .where((s) => s.isCompleted)
+              .length +
+          (await _stageRepo.getAllStages(mode: 'poster'))
+              .where((s) => s.isCompleted)
+              .length;
+
+      final ticketsEarned = await _rewardRepo.totalEarned();
+      if (!mounted || generation != _generation) return;
+
+      state = StatsState(
+        stats: stats,
+        recentGames: recent,
+        isLoading: false,
+        insights: PlayInsights.from(sessions, moviesById),
+        achievements: Achievements.evaluate(
+          stats: stats,
+          stagesCompleted: stagesCompleted,
+          ticketsEarned: ticketsEarned,
+        ),
+      );
+    } catch (_) {
+      if (!mounted || generation != _generation) return;
+      state = StatsState(
+        stats: state.stats,
+        recentGames: state.recentGames,
+        insights: state.insights,
+        achievements: state.achievements,
+        isLoading: false,
+        hasError: true,
+      );
+    }
   }
 }
 
