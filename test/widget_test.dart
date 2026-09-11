@@ -1,12 +1,8 @@
-// Smoke test for the splash screen.
+// Smoke tests for the splash screen.
 //
-// The previous version pumped the whole `CineusApp`, which boots the router,
-// opens the real SQLite database and starts the home screen's periodic
-// countdown timer. It failed with "A Timer is still pending even after the
-// widget tree was disposed" and could never have passed. Covering the app shell
-// properly needs injectable repositories (the notifiers currently reach the
-// concrete `DatabaseHelper` singleton), so this keeps to what can be tested
-// honestly today: the splash screen in isolation.
+// The splash is deliberately tested in isolation so this file does not boot the
+// router or the concrete database singleton. Phase 3 also verifies its delayed
+// navigation is lifecycle-safe when the widget is removed early.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -16,7 +12,6 @@ import 'package:cineus/l10n/app_l10n.dart';
 import 'package:cineus/presentation/screens/splash_screen.dart';
 
 void main() {
-  /// Wraps a screen with the localisation delegates it now needs.
   Widget localized(Widget child, {Locale locale = const Locale('pt')}) {
     return MaterialApp(
       locale: locale,
@@ -32,7 +27,6 @@ void main() {
     expect(find.byType(SplashScreen), findsOneWidget);
     expect(find.textContaining('Adivinha o filme'), findsOneWidget);
 
-    // Let the entry animation and the splash delay run out so no timer leaks.
     await tester.pump(AppConstants.splashDuration);
     await tester.pumpAndSettle();
   });
@@ -50,6 +44,24 @@ void main() {
     expect(completed, isTrue);
 
     await tester.pumpAndSettle();
+  });
+
+  testWidgets('SplashScreen cancela onComplete quando é desmontada cedo',
+      (tester) async {
+    var completed = false;
+    await tester.pumpWidget(
+      localized(SplashScreen(onComplete: () => completed = true)),
+    );
+
+    await tester.pump(const Duration(milliseconds: 250));
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(AppConstants.splashDuration);
+
+    expect(
+      completed,
+      isFalse,
+      reason: 'um splash já descartado não pode navegar depois',
+    );
   });
 
   testWidgets('SplashScreen renders in every supported language',
