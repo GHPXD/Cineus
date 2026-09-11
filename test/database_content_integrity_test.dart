@@ -58,7 +58,10 @@ void main() {
   tearDown(() async => db.close());
 
   test('schema canônico adiciona is_active a um asset mobile antigo', () async {
-    final legacy = await databaseFactoryFfi.openDatabase(inMemoryDatabasePath);
+    final legacy = await databaseFactoryFfi.openDatabase(
+      inMemoryDatabasePath,
+      options: OpenDatabaseOptions(singleInstance: false),
+    );
     addTearDown(legacy.close);
     await legacy.execute('''
       CREATE TABLE movies (
