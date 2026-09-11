@@ -53,7 +53,7 @@ void main() {
       expect(s.scoreDistribution, isEmpty);
     });
 
-    test('winRate e médias contam apenas o que foi passado', () {
+    test('winRate e médias contam todas as partidas, distribuição só vitórias', () {
       final s = GameRepositoryImpl.computeStats([
         daily('2026-08-10', won: true, score: 9, clues: 2),
         daily('2026-08-09', won: false, clues: 10),
@@ -65,7 +65,22 @@ void main() {
       expect(s.winRate, closeTo(2 / 3, 1e-9));
       // média só das vitórias: (2 + 4) / 2
       expect(s.averageCluesUsed, closeTo(3.0, 1e-9));
-      expect(s.scoreDistribution, {9: 1, 0: 1, 7: 1});
+      expect(
+        s.scoreDistribution,
+        {9: 1, 7: 1},
+        reason: 'derrotas já aparecem no win rate e não são uma faixa de pontos',
+      );
+    });
+
+    test('só derrotas deixam distribuição vazia sem apagar total de jogos', () {
+      final s = GameRepositoryImpl.computeStats([
+        daily('2026-08-10', won: false, clues: 10),
+        daily('2026-08-09', won: false, clues: 10),
+      ], todayUtc: today);
+
+      expect(s.totalGames, 2);
+      expect(s.totalWins, 0);
+      expect(s.scoreDistribution, isEmpty);
     });
   });
 
