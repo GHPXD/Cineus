@@ -42,25 +42,41 @@ Objetivo: tornar inicialização, migração e atualização do catálogo recupe
 
 Merge: PR #4.
 
-## Fase 3 — Resiliência de runtime 🚧
+## Fase 3 — Resiliência de runtime ✅
 
-Objetivo: eliminar falhas que só aparecem durante lifecycle/plataforma e garantir que integrações auxiliares nunca derrubem ou naveguem o app de forma inesperada.
+Objetivo: eliminar falhas de lifecycle/plataforma que poderiam navegar ou derrubar o app fora do fluxo normal.
+
+- navegação atrasada do splash agora pertence a um `Timer` cancelável
+- o callback do splash não executa depois do `dispose`
+- `app_links` ficou atrás de um seam testável, sem depender de platform channel nos testes
+- falha ao resolver o deep link de cold start é não fatal
+- resolução tardia de cold-start link após `dispose` é ignorada
+- assinatura de links é cancelada ao desmontar
+- eventos inválidos ou erros do stream não derrubam a aplicação
+
+Merge: PR #5.
+
+## Fase 4 — UX e consistência 🚧
+
+Objetivo: remover estados enganosos, duplicações e becos-sem-saída ainda visíveis ao jogador, preservando a integridade conquistada nas fases anteriores.
 
 Primeiro bloco:
 
-- [x] cancelar a navegação atrasada do splash quando o widget é desmontado
-- [x] conter falhas do `app_links` no cold start
-- [x] ignorar resolução tardia de deep link após `dispose`
-- [x] cancelar a assinatura de links ao desmontar
-- [x] criar seam testável para deep links sem platform channel
-- [ ] padronizar erros de carregamento como estados tipados/localizados, com ação de retry
+- [x] distribuição de pontos passa a representar somente vitórias; derrotas deixam de criar uma faixa invisível `score=0` que distorcia a escala do gráfico
+- [x] teste de regressão cobre histórico com vitórias + derrotas e histórico somente de derrotas
+- [ ] eliminar o segundo `load()` concorrente ao abrir Estatísticas
+- [ ] adicionar estado de erro/retry à tela de Estatísticas
+- [ ] padronizar erros de carregamento de partida como estados tipados/localizados com retry
+- [ ] representar corretamente Poster diário em andamento na Home
+- [ ] rejeitar/redirect de rota de estágio inválida em vez de exibir Stage 1 com id inexistente
+- [ ] limpar/isolar estado de busca entre Dicas e Poster e mostrar loading/erro/sem resultados
+- [ ] localizar datas do histórico e nomes de estágios
 - [ ] remover feedback duplicado de franquia entre Dicas e Poster
-- [ ] revisar lifecycle de timers/listeners restantes
-- [ ] corrigir resolução de timezone do lembrete para uma zona IANA real em vez de offset fixo
+- [ ] revisar timers/listeners restantes e o timezone do lembrete
 
 ### Gate de aceitação
 
-A Fase 3 só pode ser mesclada quando o HEAD do PR passar novamente por:
+A Fase 4 só pode ser mesclada quando o HEAD do PR passar por:
 
 1. validação do catálogo;
 2. `flutter analyze --fatal-infos`;
