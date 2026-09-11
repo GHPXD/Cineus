@@ -44,7 +44,9 @@ abstract final class AppTheme {
           color: AppColors.obsidian800,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            side: BorderSide(color: AppColors.obsidian0.withValues(alpha: 0.07)),
+            side: BorderSide(
+              color: AppColors.obsidian0.withValues(alpha: 0.07),
+            ),
           ),
           elevation: 0,
         ),
@@ -53,6 +55,7 @@ abstract final class AppTheme {
             backgroundColor: AppColors.gold300,
             foregroundColor: AppColors.obsidian900,
             elevation: 0,
+            minimumSize: const Size(48, 48),
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(999),
@@ -66,12 +69,21 @@ abstract final class AppTheme {
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
             foregroundColor: AppColors.obsidian100,
+            minimumSize: const Size(48, 48),
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(999),
             ),
-            side: BorderSide(color: AppColors.obsidian0.withValues(alpha: 0.15)),
+            side: BorderSide(
+              color: AppColors.obsidian0.withValues(alpha: 0.15),
+            ),
             textStyle: AppTypography.labelLarge,
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            minimumSize: const Size(48, 48),
+            foregroundColor: AppColors.gold300,
           ),
         ),
         inputDecorationTheme: InputDecorationTheme(
@@ -79,18 +91,28 @@ abstract final class AppTheme {
           fillColor: AppColors.obsidian0.withValues(alpha: 0.05),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: AppColors.obsidian0.withValues(alpha: 0.1)),
+            borderSide: BorderSide(
+              color: AppColors.obsidian0.withValues(alpha: 0.1),
+            ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: AppColors.obsidian0.withValues(alpha: 0.1)),
+            borderSide: BorderSide(
+              color: AppColors.obsidian0.withValues(alpha: 0.1),
+            ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: AppColors.gold300.withValues(alpha: 0.5), width: 1.5),
+            borderSide: BorderSide(
+              color: AppColors.gold300.withValues(alpha: 0.5),
+              width: 1.5,
+            ),
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          hintStyle: AppTypography.bodyMedium.copyWith(color: AppColors.obsidian400),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          hintStyle: AppTypography.bodyMedium.copyWith(
+            color: AppColors.textTertiary,
+          ),
         ),
         dividerTheme: DividerThemeData(
           color: AppColors.obsidian0.withValues(alpha: 0.07),
@@ -99,7 +121,7 @@ abstract final class AppTheme {
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: AppColors.obsidian950,
           selectedItemColor: AppColors.gold300,
-          unselectedItemColor: AppColors.obsidian500,
+          unselectedItemColor: AppColors.textTertiary,
           type: BottomNavigationBarType.fixed,
           elevation: 0,
         ),
