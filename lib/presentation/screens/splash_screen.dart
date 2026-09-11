@@ -1,12 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_fonts.dart';
 import '../../core/theme/app_typography.dart';
-import '../widgets/film_strip_widget.dart';
 import '../../l10n/app_l10n.dart';
 import '../l10n_mappers.dart';
+import '../widgets/film_strip_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   final VoidCallback onComplete;
@@ -22,6 +24,7 @@ class _SplashScreenState extends State<SplashScreen>
   late final AnimationController _ctrl;
   late final Animation<double> _fade;
   late final Animation<double> _scale;
+  Timer? _completionTimer;
 
   @override
   void initState() {
@@ -36,11 +39,14 @@ class _SplashScreenState extends State<SplashScreen>
       end: 1.0,
     ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOutBack));
     _ctrl.forward();
-    Future.delayed(AppConstants.splashDuration, widget.onComplete);
+    _completionTimer = Timer(AppConstants.splashDuration, () {
+      if (mounted) widget.onComplete();
+    });
   }
 
   @override
   void dispose() {
+    _completionTimer?.cancel();
     _ctrl.dispose();
     super.dispose();
   }
@@ -160,16 +166,15 @@ class _SplashScreenState extends State<SplashScreen>
                                 fontWeight: FontWeight.w900,
                                 fontStyle: FontStyle.italic,
                                 foreground: Paint()
-                                  ..shader =
-                                      const LinearGradient(
-                                        colors: [
-                                          AppColors.gold500,
-                                          AppColors.gold300,
-                                          AppColors.gold200,
-                                        ],
-                                      ).createShader(
-                                        const Rect.fromLTWH(0, 0, 80, 50),
-                                      ),
+                                  ..shader = const LinearGradient(
+                                    colors: [
+                                      AppColors.gold500,
+                                      AppColors.gold300,
+                                      AppColors.gold200,
+                                    ],
+                                  ).createShader(
+                                    const Rect.fromLTWH(0, 0, 80, 50),
+                                  ),
                               ),
                             ),
                           ],
