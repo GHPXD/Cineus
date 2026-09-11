@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/utils/daily_selector.dart';
@@ -6,28 +8,28 @@ import '../../domain/entities/player_tickets.dart';
 
 class TicketNotifier extends StateNotifier<PlayerTickets> {
   final DatabaseProvider _db;
+  final DateTime Function() _now;
 
   /// Completes once the stored balance has been read.
-  ///
-  /// Every mutation awaits this. Without it, tapping "Jogar" before the initial
-  /// read finished debited the optimistic default (20) and the load then
-  /// overwrote the result, silently refunding the ticket.
   late final Future<void> _ready;
 
-  TicketNotifier(this._db)
-      : super(PlayerTickets(
+  /// Serializes every balance mutation. Two rapid taps must never spend the
+  /// same snapshot and accidentally turn two paid actions into one debit.
+  Future<void> _mutationTail = Future<void>.value();
+
+  TicketNotifier(this._db, {DateTime Function()? now})
+      : _now = now ?? DateTime.now,
+        super(PlayerTickets(
           dailyTickets: PlayerTickets.maxDailyTickets,
-          lastResetDate: DailySelector.todayKey(),
+          lastResetDate: DailySelector.todayKey((now ?? DateTime.now)()),
         )) {
     _ready = _load();
   }
 
   Future<void> _load() async {
     final db = await _db.database;
-    final rows =
-        await db.query('player_tickets', where: 'id = 1');
-
-    final today = DailySelector.todayKey();
+    final rows = await db.query('player_tickets', where: 'id = 1');
+    final today = DailySelector.todayKey(_now());
 
     if (rows.isEmpty) {
       final fresh = PlayerTickets(
@@ -46,68 +48,143 @@ class TicketNotifier extends StateNotifier<PlayerTickets> {
 
     final row = rows.first;
     final lastReset = row['last_reset_date'] as String;
+    final stored = PlayerTickets(
+      dailyTickets: row['daily_tickets'] as int,
+      extraTickets: row['extra_tickets'] as int,
+      lastResetDate: lastReset,
+    );
 
     if (lastReset != today) {
-      // New day — reset daily tickets, keep extras
       final updated = PlayerTickets(
         dailyTickets: PlayerTickets.maxDailyTickets,
-        extraTickets: row['extra_tickets'] as int,
+        extraTickets: stored.extraTickets,
         lastResetDate: today,
       );
       await _persist(updated);
       state = updated;
     } else {
-      state = PlayerTickets(
-        dailyTickets: row['daily_tickets'] as int,
-        extraTickets: row['extra_tickets'] as int,
-        lastResetDate: lastReset,
-      );
+      state = stored;
     }
   }
 
-  /// Consumes [count] tickets. Returns false — changing nothing — when the
-  /// player cannot afford it.
-  ///
-  /// Spends the daily allowance first so earned tickets are the ones that carry
-  /// over to tomorrow.
-  Future<bool> consumeTicket({int count = 1}) async {
-    if (count <= 0) return true;
-    await _ready;
-    if (state.total < count) return false;
+  Future<T> _serialize<T>(Future<T> Function() mutation) {
+    final completer = Completer<T>();
+    _mutationTail = _mutationTail.then((_) async {
+      try {
+        completer.complete(await mutation());
+      } catch (error, stackTrace) {
+        completer.completeError(error, stackTrace);
+      }
+    });
+    return completer.future;
+  }
 
-    final fromDaily = count <= state.dailyTickets ? count : state.dailyTickets;
-    final fromExtra = count - fromDaily;
+  /// Handles midnight while the app remains open. Previously the daily balance
+  /// only reset when the notifier was constructed, so a long-lived session could
+  /// keep yesterday's depleted allowance indefinitely.
+  Future<void> _resetIfDayChanged() async {
+    final today = DailySelector.todayKey(_now());
+    if (state.lastResetDate == today) return;
 
-    final updated = state.copyWith(
-      dailyTickets: state.dailyTickets - fromDaily,
-      extraTickets: state.extraTickets - fromExtra,
+    final updated = PlayerTickets(
+      dailyTickets: PlayerTickets.maxDailyTickets,
+      extraTickets: state.extraTickets,
+      lastResetDate: today,
     );
-
     await _persist(updated);
     state = updated;
-    return true;
+  }
+
+  /// Debits [count] tickets and returns the exact daily/earned split that was
+  /// consumed. The receipt lets a caller roll back a failed paid action without
+  /// inventing or losing tickets.
+  Future<TicketDebit?> debitTickets({int count = 1}) {
+    if (count <= 0) {
+      return Future<TicketDebit?>.value(
+        TicketDebit(daily: 0, extra: 0, date: state.lastResetDate),
+      );
+    }
+
+    return _serialize(() async {
+      await _ready;
+      await _resetIfDayChanged();
+      if (state.total < count) return null;
+
+      final fromDaily = count <= state.dailyTickets ? count : state.dailyTickets;
+      final fromExtra = count - fromDaily;
+      final debit = TicketDebit(
+        daily: fromDaily,
+        extra: fromExtra,
+        date: state.lastResetDate,
+      );
+
+      final updated = state.copyWith(
+        dailyTickets: state.dailyTickets - fromDaily,
+        extraTickets: state.extraTickets - fromExtra,
+      );
+      await _persist(updated);
+      state = updated;
+      return debit;
+    });
+  }
+
+  /// Compatibility helper for call sites that only need a yes/no answer.
+  Future<bool> consumeTicket({int count = 1}) async =>
+      await debitTickets(count: count) != null;
+
+  /// Reverses a previously successful [debit].
+  ///
+  /// On the same UTC day the original buckets are restored. If midnight passed
+  /// after the charge, the old daily allowance has expired; the refund becomes
+  /// earned/extra tickets so the player still gets back exactly what was paid.
+  Future<void> refundDebit(TicketDebit debit) {
+    if (debit.total <= 0) return Future<void>.value();
+
+    return _serialize(() async {
+      await _ready;
+      await _resetIfDayChanged();
+
+      late final PlayerTickets updated;
+      if (debit.date == state.lastResetDate) {
+        final dailyRoom = PlayerTickets.maxDailyTickets - state.dailyTickets;
+        final restoreDaily = debit.daily <= dailyRoom ? debit.daily : dailyRoom;
+        final overflow = debit.daily - restoreDaily;
+        updated = state.copyWith(
+          dailyTickets: state.dailyTickets + restoreDaily,
+          extraTickets: state.extraTickets + debit.extra + overflow,
+        );
+      } else {
+        updated = state.copyWith(extraTickets: state.extraTickets + debit.total);
+      }
+
+      await _persist(updated);
+      state = updated;
+    });
   }
 
   /// Credits earned tickets, which persist across days.
-  ///
-  /// The counterpart to [consumeTicket] that never existed: `extraTickets` was
-  /// only ever spent, so the economy had no earning path at all.
-  Future<void> addTickets(int amount) async {
-    if (amount <= 0) return;
-    await _ready;
+  Future<void> addTickets(int amount) {
+    if (amount <= 0) return Future<void>.value();
 
-    final updated = state.copyWith(extraTickets: state.extraTickets + amount);
-    await _persist(updated);
-    state = updated;
+    return _serialize(() async {
+      await _ready;
+      await _resetIfDayChanged();
+      final updated = state.copyWith(extraTickets: state.extraTickets + amount);
+      await _persist(updated);
+      state = updated;
+    });
   }
 
-  Future<void> _persist(PlayerTickets t) async {
+  Future<void> _persist(PlayerTickets tickets) async {
     final db = await _db.database;
-    // INSERT OR REPLACE ensures the row exists even if _load() hasn't completed yet.
     await db.rawInsert(
       'INSERT OR REPLACE INTO player_tickets '
       '(id, daily_tickets, extra_tickets, last_reset_date) VALUES (1, ?, ?, ?)',
-      [t.dailyTickets, t.extraTickets, t.lastResetDate],
+      [
+        tickets.dailyTickets,
+        tickets.extraTickets,
+        tickets.lastResetDate,
+      ],
     );
   }
 }

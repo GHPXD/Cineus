@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/utils/daily_selector.dart';
 import '../../domain/entities/game_session.dart';
+import '../../domain/entities/player_tickets.dart';
 import '../../domain/entities/ticket_reward.dart';
 import '../../domain/repositories/game_repository.dart';
 import '../../domain/repositories/reward_repository.dart';
@@ -19,9 +20,6 @@ class RewardFeed {
 }
 
 /// Evaluates the earning rules after a game and credits what is due.
-///
-/// Kept out of [PlayNotifier] on purpose: crediting needs the ticket balance and
-/// the stage progress, which the play notifier has no business knowing about.
 class RewardNotifier extends StateNotifier<RewardFeed> {
   final RewardRepository _rewards;
   final StageRepository _stages;
@@ -40,9 +38,6 @@ class RewardNotifier extends StateNotifier<RewardFeed> {
         super(const RewardFeed());
 
   /// Grants everything [finished] earned, skipping already-claimed rewards.
-  ///
-  /// Safe to call more than once for the same session: claims are keyed, so a
-  /// repeat evaluation credits nothing.
   Future<void> evaluate(GameSession finished) async {
     if (finished.status != GameStatus.won) return;
 
@@ -79,31 +74,37 @@ class RewardNotifier extends StateNotifier<RewardFeed> {
     return stage?.isCompleted ?? false;
   }
 
-  /// Pays [cost] tickets to protect a missed day, keeping the streak alive.
+  /// Pays [cost] tickets to protect a missed day.
   ///
-  /// Returns false when the day cannot be frozen — already frozen, not actually
-  /// missed, or the player could not pay.
+  /// The caller supplies debit/refund functions from [TicketNotifier]. If the
+  /// database refuses or fails to record the freeze after payment, the exact
+  /// charge is rolled back instead of silently losing the player's tickets.
   Future<bool> freezeMissedDay({
     required String date,
-    required Future<bool> Function(int cost) charge,
+    required Future<TicketDebit?> Function(int cost) charge,
+    required Future<void> Function(TicketDebit debit) refund,
     int cost = streakFreezeCost,
   }) async {
     final existing = await _rewards.streakFreezes();
     if (existing.contains(date)) return false;
     if (!DailySelector.isDailyKey(date)) return false;
 
-    if (!await charge(cost)) return false;
+    final debit = await charge(cost);
+    if (debit == null) return false;
 
-    final frozen = await _rewards.freezeStreakDay(date);
-    if (!frozen) return false;
-
-    return true;
+    try {
+      final frozen = await _rewards.freezeStreakDay(date);
+      if (frozen) return true;
+      await refund(debit);
+      return false;
+    } catch (_) {
+      await refund(debit);
+      rethrow;
+    }
   }
 
-  /// Drops the pending list once the UI has shown it.
   void acknowledge() => state = const RewardFeed();
 
-  /// Tickets asked for a streak freeze.
   static const int streakFreezeCost = 3;
 }
 
@@ -119,9 +120,6 @@ final rewardNotifierProvider =
 });
 
 /// Days between the last finished daily game and today that were never played.
-///
-/// Drives the "recover your streak" offer: only the single most recent gap is
-/// offered, so the feature cannot be used to rebuild an ancient streak.
 final recoverableStreakDayProvider =
     FutureProvider.autoDispose<String?>((ref) async {
   final games = ref.read(gameRepositoryProvider);
@@ -134,7 +132,6 @@ final recoverableStreakDayProvider =
   final latest = DailySelector.dateFromKey(sessions.first.date);
   if (latest == null) return null;
 
-  // Exactly one missing day between the last game and today.
   final gap = today.difference(latest).inDays;
   if (gap != 2) return null;
 
@@ -142,7 +139,6 @@ final recoverableStreakDayProvider =
   final frozen = await rewards.streakFreezes();
   if (frozen.contains(missed)) return null;
 
-  // Only worth offering if the run it protects was actually a streak.
   if (sessions.first.status != GameStatus.won) return null;
 
   return missed;
