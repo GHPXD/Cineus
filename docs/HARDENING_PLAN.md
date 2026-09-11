@@ -46,53 +46,105 @@ Merge: PR #4.
 
 Objetivo: eliminar falhas de lifecycle/plataforma que poderiam navegar ou derrubar o app fora do fluxo normal.
 
-- navegação atrasada do splash agora pertence a um `Timer` cancelável
-- o callback do splash não executa depois do `dispose`
-- `app_links` ficou atrás de um seam testável, sem depender de platform channel nos testes
-- falha ao resolver o deep link de cold start é não fatal
-- resolução tardia de cold-start link após `dispose` é ignorada
+- navegação atrasada do splash pertence a um `Timer` cancelável
+- callback do splash não executa depois do `dispose`
+- `app_links` atrás de um seam testável
+- falha no deep link de cold start é não fatal
+- resolução tardia após `dispose` é ignorada
 - assinatura de links é cancelada ao desmontar
-- eventos inválidos ou erros do stream não derrubam a aplicação
 
 Merge: PR #5.
 
 ## Fase 4 — UX e consistência ✅
 
-Objetivo do bloco entregue: corrigir uma inconsistência visível das Estatísticas antes de entrar no hardening de release.
-
 - distribuição de pontos representa somente vitórias
-- derrotas não criam mais um bucket invisível `score=0` que reduz visualmente todas as barras 1–10
-- testes cobrem histórico misto e histórico somente de derrotas
+- derrotas não criam bucket invisível `score=0`
+- testes cobrem histórico misto e somente derrotas
 
 Merge: PR #6.
 
-Os demais itens de polish/UX identificados na auditoria permanecem no backlog para o passe final de QA, depois da conformidade de release.
+## Fase 5 — Compliance e prontidão para lojas ✅
 
-## Fase 5 — Compliance e prontidão para lojas 🚧
+- Política de Privacidade e Termos versionados em PT/EN/ES
+- Privacidade/Termos/Sobre acessíveis dentro do app
+- atribuição TMDB documentada e presente no produto
+- release Android falha sem assinatura configurada, exceto bypass explícito de CI
+- gate automatizado de compliance
 
-Objetivo: impedir que uma build tecnicamente saudável seja enviada às lojas sem os artefatos legais, atribuições e proteções de publicação necessários.
+Pendências externas de publicação continuam em `docs/RELEASE_COMPLIANCE.md` (logo/licença TMDB, URLs públicas e signing de distribuição real).
 
-Primeiro bloco:
+Merge: PR #7.
 
-- [x] adicionar Política de Privacidade e Termos de Uso versionados em PT/EN/ES
-- [x] tornar Privacidade/Termos acessíveis dentro do aplicativo
-- [x] criar seção `Sobre e créditos` acessível nas configurações
-- [x] incluir o aviso obrigatório do TMDB na seção de créditos
-- [x] documentar obrigações pendentes do TMDB, incluindo logo oficial e licença comercial quando aplicável
-- [x] impedir release Android silenciosamente assinado com chave debug
-- [x] permitir chave debug no CI somente por bypass explícito e não publicável
-- [x] adicionar gate automatizado de compliance ao CI
-- [ ] adicionar ao app um logo oficial/aprovado do TMDB
-- [ ] publicar Privacy/Terms em URL pública estável e cadastrar nas lojas
-- [ ] revisar metadados Web/Android/iOS de release
-- [ ] remover versão hardcoded exibida ao usuário
-- [ ] validar assinatura/distribuição real Android e iOS
+## Fase 6 — UX/UI, navegação e product polish 🚧
 
-Detalhes: `docs/RELEASE_COMPLIANCE.md`.
+Objetivo: transformar os fluxos já robustos em uma experiência coerente de produto, com contexto preservado, estados recuperáveis, design system consistente e layout adaptativo.
+
+### 6A — Flow correctness
+
+- [x] tornar Daily/Estágio/Desafio contexto explícito da rota e sessão
+- [x] impedir estado antigo de Estágio/Desafio de vazar para o Daily
+- [x] impedir o `Cineus #0` em busca/resultado/compartilhamento
+- [x] validar retorno de `loadStageFilm` antes de navegar em Continuar
+- [x] tratar rota de estágio inexistente sem fallback silencioso para Estágio 1
+- [x] preservar retorno de jogo para o estágio de origem
+
+### 6B — Navegação e arquitetura de informação
+
+- [x] separar Configurações de Estatísticas
+- [x] mover entrada de desafio por código para uma superfície própria acessível pela Home
+- [x] adicionar navegação lateral adaptativa em telas grandes
+- [ ] avaliar migração final para `StatefulShellRoute` com pilhas independentes por tab
+
+### 6C — Experiência de jogo
+
+- [x] tornar Dicas e Poster Daily independentes na Home
+- [x] alinhar cabeçalhos com contexto Daily/Estágio/Desafio
+- [x] remover empilhamento duplicado de resultado no Poster
+- [x] preservar proporção 2:3 do poster ao revelar a resposta
+
+### 6D — Resultados
+
+- [x] compartilhamento contextual para Daily/Estágio/Desafio
+- [x] próxima ação de resultado depende da origem da partida
+- [x] countdown exibido somente em resultado Daily
+- [ ] aproximar ainda mais a composição visual do resultado Poster do resultado Dicas
+
+### 6E — Async UX
+
+- [x] erros de partida tipados e localizados
+- [x] retry real para Daily
+- [x] Estatísticas com erro/retry e sem load duplicado
+- [x] Busca com estados vazio/loading/sem resultados/erro e provider `autoDispose`
+- [x] slots de estágio com erro visível + retry
+
+### 6F — Design system e acessibilidade
+
+- [x] mover `bodySmall`, `labelSmall`, `mono` e `monoSmall` para cores semânticas com contraste verificado
+- [x] garantir mínimo de 48dp nos temas globais de botão
+- [x] usar `TapTarget` nos CTAs pequenos de estágio e dicas extras
+- [x] respeitar Reduce Motion no score pulsante e revelação do Poster
+- [ ] concluir auditoria de text scaling extremo e VoiceOver/TalkBack
+
+### 6G — Responsive
+
+- [x] grid de estágios por largura, não duas colunas fixas
+- [x] Stats em 2/4 colunas conforme largura
+- [x] limites de largura para Home, busca, Stats, Settings e Poster
+- [x] NavigationRail em telas expandidas
+- [ ] concluir QA visual em landscape/tablet/iPad/Web
+
+### 6H — Próximos itens antes do merge
+
+- [ ] reduzir splash artificial em launches recorrentes
+- [ ] completar educação contextual de tickets/estágios/poster
+- [ ] corrigir timezone/permissão iOS do lembrete
+- [ ] validar i18n gerada e remover strings residuais não localizadas
+- [ ] adicionar testes de regressão de navegação/estado e layouts críticos
+- [ ] passar por catálogo + compliance + analyzer + testes + Web + Android API 36 + iOS 26
 
 ### Gate de aceitação
 
-A Fase 5 só pode ser mesclada quando o HEAD do PR passar por:
+A Fase 6 só pode sair de draft quando o HEAD passar por:
 
 1. validação do catálogo;
 2. validação de release compliance;
