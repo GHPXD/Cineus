@@ -24,12 +24,20 @@ enum GuessOutcome {
   franchise,
 }
 
+/// UI-neutral reason why a play surface could not be loaded.
+///
+/// The provider used to leak Portuguese strings into the presentation layer,
+/// which made English/Spanish error states impossible to localise and made
+/// retry behaviour depend on parsing display text. Keep the domain reason typed
+/// and let each screen decide how to present/recover from it.
+enum PlayLoadError { noMovies, movieNotFound, loadFailed }
+
 class PlayState {
   final GameMode mode;
   final Movie? movie;
   final GameSession? session;
   final bool isLoading;
-  final String? error;
+  final PlayLoadError? error;
   final int challengeNumber;
   final List<int> stageMovieIds;
   final GuessOutcome? lastGuessOutcome;
@@ -48,7 +56,11 @@ class PlayState {
   });
 
   ScoringRules get rules => ScoringRules.forMode(mode);
+  bool get isDaily => session?.isDaily ?? false;
   bool get isStage => session?.isStage ?? false;
+  bool get isChallenge => session?.isChallenge ?? false;
+  bool get isCurrentDaily =>
+      isDaily && session?.date == DailySelector.todayKey();
   int? get stageId => session?.isStage == true ? session!.stageId : null;
   int get step => session?.revealedClues ?? 1;
   int get currentScore => session?.potentialScore ?? rules.maxScore;
@@ -77,7 +89,7 @@ class PlayState {
     Movie? movie,
     GameSession? session,
     bool? isLoading,
-    String? error,
+    PlayLoadError? error,
     bool clearError = false,
     int? challengeNumber,
     List<int>? stageMovieIds,
@@ -168,7 +180,7 @@ class PlayNotifier extends StateNotifier<PlayState> {
           PlayState(
             mode: mode,
             isLoading: false,
-            error: 'Nenhum filme na base',
+            error: PlayLoadError.noMovies,
             challengeNumber: challenge,
           ),
         );
@@ -184,7 +196,7 @@ class PlayNotifier extends StateNotifier<PlayState> {
           PlayState(
             mode: mode,
             isLoading: false,
-            error: 'Filme não encontrado',
+            error: PlayLoadError.movieNotFound,
             challengeNumber: challenge,
           ),
         );
@@ -210,7 +222,7 @@ class PlayNotifier extends StateNotifier<PlayState> {
         PlayState(
           mode: mode,
           isLoading: false,
-          error: 'Não foi possível carregar a partida',
+          error: PlayLoadError.loadFailed,
         ),
       );
       return false;
@@ -232,7 +244,7 @@ class PlayNotifier extends StateNotifier<PlayState> {
           PlayState(
             mode: mode,
             isLoading: false,
-            error: 'Filme não encontrado',
+            error: PlayLoadError.movieNotFound,
           ),
         );
         return false;
@@ -269,7 +281,7 @@ class PlayNotifier extends StateNotifier<PlayState> {
         PlayState(
           mode: mode,
           isLoading: false,
-          error: 'Não foi possível carregar a partida',
+          error: PlayLoadError.loadFailed,
         ),
       );
       return false;
@@ -287,7 +299,7 @@ class PlayNotifier extends StateNotifier<PlayState> {
           PlayState(
             mode: mode,
             isLoading: false,
-            error: 'Filme não encontrado',
+            error: PlayLoadError.movieNotFound,
           ),
         );
         return false;
@@ -312,7 +324,7 @@ class PlayNotifier extends StateNotifier<PlayState> {
         PlayState(
           mode: mode,
           isLoading: false,
-          error: 'Não foi possível carregar a partida',
+          error: PlayLoadError.loadFailed,
         ),
       );
       return false;
