@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
 import '../../core/utils/challenge_code.dart';
+import '../../l10n/release_legal_l10n.dart';
 import '../l10n_mappers.dart';
 import '../providers/reminder_notifier.dart';
 import 'language_picker.dart';
@@ -53,8 +54,6 @@ class _ReminderToggle extends ConsumerWidget {
           child: SwitchListTile.adaptive(
             contentPadding: EdgeInsets.zero,
             value: state.enabled,
-            // Flipping this is what triggers the OS permission prompt — the app
-            // never asks unprompted.
             onChanged: state.busy
                 ? null
                 : (value) =>
@@ -133,7 +132,6 @@ class _ChallengeOpenerState extends ConsumerState<_ChallengeOpener> {
                 controller: _controller,
                 textCapitalization: TextCapitalization.characters,
                 inputFormatters: [
-                  // The code alphabet plus the separator; anything else is noise.
                   FilteringTextInputFormatter.allow(RegExp(r'[0-9A-Za-z\-]')),
                   LengthLimitingTextInputFormatter(12),
                 ],
@@ -174,13 +172,13 @@ class _LegalLinks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final copy = _SettingsLegalCopy.of(context);
+    final copy = ReleaseLegalL10n.of(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          copy.section.toUpperCase(),
+          copy.settingsSection.toUpperCase(),
           style: AppTypography.labelSmall.copyWith(
             color: AppColors.textSecondary,
             letterSpacing: 1.5,
@@ -197,19 +195,19 @@ class _LegalLinks extends StatelessWidget {
             children: [
               _SettingsLink(
                 icon: Icons.info_outline_rounded,
-                label: copy.about,
+                label: copy.aboutLabel,
                 onTap: () => context.push('/about'),
               ),
               const Divider(height: 1),
               _SettingsLink(
                 icon: Icons.privacy_tip_outlined,
-                label: copy.privacy,
+                label: copy.privacyLabel,
                 onTap: () => context.push('/privacy'),
               ),
               const Divider(height: 1),
               _SettingsLink(
                 icon: Icons.gavel_outlined,
-                label: copy.terms,
+                label: copy.termsLabel,
                 onTap: () => context.push('/terms'),
               ),
             ],
@@ -243,42 +241,5 @@ class _SettingsLink extends StatelessWidget {
       ),
       onTap: onTap,
     );
-  }
-}
-
-class _SettingsLegalCopy {
-  final String section;
-  final String about;
-  final String privacy;
-  final String terms;
-
-  const _SettingsLegalCopy({
-    required this.section,
-    required this.about,
-    required this.privacy,
-    required this.terms,
-  });
-
-  static _SettingsLegalCopy of(BuildContext context) {
-    return switch (Localizations.localeOf(context).languageCode) {
-      'pt' => const _SettingsLegalCopy(
-          section: 'Informações',
-          about: 'Sobre e créditos',
-          privacy: 'Política de Privacidade',
-          terms: 'Termos de Uso',
-        ),
-      'es' => const _SettingsLegalCopy(
-          section: 'Información',
-          about: 'Acerca de y créditos',
-          privacy: 'Política de Privacidad',
-          terms: 'Términos de Uso',
-        ),
-      _ => const _SettingsLegalCopy(
-          section: 'Information',
-          about: 'About & credits',
-          privacy: 'Privacy Policy',
-          terms: 'Terms of Use',
-        ),
-    };
   }
 }

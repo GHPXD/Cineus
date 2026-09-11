@@ -3,27 +3,22 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
+import '../../l10n/release_legal_l10n.dart';
 
 /// Player-facing credits and third-party attribution.
-///
-/// TMDB requires attribution to live in an About/Credits-style section. Keep
-/// the legal notice below verbatim even when the surrounding UI is localized.
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
-  static const tmdbNotice =
-      'This product uses the TMDB API but is not endorsed or certified by TMDB.';
-
   @override
   Widget build(BuildContext context) {
-    final copy = _AboutCopy.of(context);
+    final copy = ReleaseLegalL10n.of(context);
 
     return Scaffold(
       backgroundColor: AppColors.obsidian950,
       body: SafeArea(
         child: Column(
           children: [
-            _Header(title: copy.title),
+            _Header(title: copy.aboutTitle),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
@@ -82,7 +77,7 @@ class AboutScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 8),
                               const SelectableText(
-                                tmdbNotice,
+                                ReleaseLegalL10n.tmdbNotice,
                                 style: TextStyle(
                                   color: AppColors.textSecondary,
                                   height: 1.45,
@@ -101,13 +96,13 @@ class AboutScreen extends StatelessWidget {
                       children: [
                         _LegalTile(
                           icon: Icons.privacy_tip_outlined,
-                          label: copy.privacy,
+                          label: copy.privacyLabel,
                           onTap: () => context.push('/privacy'),
                         ),
                         const Divider(height: 1),
                         _LegalTile(
                           icon: Icons.gavel_outlined,
-                          label: copy.terms,
+                          label: copy.termsLabel,
                           onTap: () => context.push('/terms'),
                         ),
                       ],
@@ -211,74 +206,4 @@ class _LegalTile extends StatelessWidget {
       onTap: onTap,
     );
   }
-}
-
-class _AboutCopy {
-  final String title;
-  final String appSummary;
-  final String dataCreditsTitle;
-  final String tmdbExplanation;
-  final String legalTitle;
-  final String privacy;
-  final String terms;
-  final String contact;
-
-  const _AboutCopy({
-    required this.title,
-    required this.appSummary,
-    required this.dataCreditsTitle,
-    required this.tmdbExplanation,
-    required this.legalTitle,
-    required this.privacy,
-    required this.terms,
-    required this.contact,
-  });
-
-  static _AboutCopy of(BuildContext context) {
-    final language = Localizations.localeOf(context).languageCode;
-    return switch (language) {
-      'pt' => _pt,
-      'es' => _es,
-      _ => _en,
-    };
-  }
-
-  static const _pt = _AboutCopy(
-    title: 'Sobre e créditos',
-    appSummary:
-        'Jogo de adivinhação de filmes, offline-first, com modos Dicas e Poster.',
-    dataCreditsTitle: 'Dados e créditos',
-    tmdbExplanation:
-        'Parte dos metadados e imagens de filmes usados para preparar o catálogo do Cineus tem origem no The Movie Database (TMDB).',
-    legalTitle: 'Legal',
-    privacy: 'Política de Privacidade',
-    terms: 'Termos de Uso',
-    contact: 'Suporte e contato: github.com/GHPXD/Cineus/issues',
-  );
-
-  static const _en = _AboutCopy(
-    title: 'About & credits',
-    appSummary:
-        'An offline-first movie guessing game with Clues and Poster modes.',
-    dataCreditsTitle: 'Data & credits',
-    tmdbExplanation:
-        'Some movie metadata and images used to prepare the Cineus catalogue originate from The Movie Database (TMDB).',
-    legalTitle: 'Legal',
-    privacy: 'Privacy Policy',
-    terms: 'Terms of Use',
-    contact: 'Support and contact: github.com/GHPXD/Cineus/issues',
-  );
-
-  static const _es = _AboutCopy(
-    title: 'Acerca de y créditos',
-    appSummary:
-        'Juego de adivinanzas de películas, offline-first, con modos Pistas y Póster.',
-    dataCreditsTitle: 'Datos y créditos',
-    tmdbExplanation:
-        'Parte de los metadatos e imágenes utilizados para preparar el catálogo de Cineus provienen de The Movie Database (TMDB).',
-    legalTitle: 'Legal',
-    privacy: 'Política de Privacidad',
-    terms: 'Términos de Uso',
-    contact: 'Soporte y contacto: github.com/GHPXD/Cineus/issues',
-  );
 }
