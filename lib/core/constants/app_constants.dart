@@ -43,8 +43,9 @@ abstract final class AppConstants {
   /// Max visual game score (guessing at blur level 1).
   static const int maxVisualScore = 5;
 
-  /// Splash screen display duration.
-  static const Duration splashDuration = Duration(milliseconds: 2500);
+  /// A short branded handoff, not an artificial loading screen. Database
+  /// bootstrap already owns real startup work and exposes its own progress UI.
+  static const Duration splashDuration = Duration(milliseconds: 700);
 
   /// Default animation durations.
   static const Duration animationFast = Duration(milliseconds: 200);
@@ -218,49 +219,5 @@ abstract final class AppConstants {
     'Motivação': '🔥',
     'Desafio': '🏆',
     'Dificuldade': '😤',
-    'Conquista': '🥇',
-    'Rivalidade': '🤺',
-    'Rotina': '🔁',
-    'Status': '📊',
-    'Queda': '📉',
-    'Falha': '❌',
-    'Inimigo': '😠',
-    'Inimigos': '😠',
-    'Resposta': '💡',
-    'Condição': '📋',
-    'Consequência': '➡️',
-    'Acordo': '🤝',
-    'Negócios': '💼',
-    'Disfarce': '🎭',
-    'Fenômeno': '🌟',
-    'Humanidade': '🌏',
-    'Jogo': '🎲',
-    'Realidade': '🪞',
-    'Seres': '👽',
-    'Teoria': '🧪',
-    'Veículo': '🚗',
-    'Ícone': '🌟',
-    'Óbvia': '💬',
-    'Escala': '📏',
-    'Estado': '🏳️',
-    'Fator': '🔢',
-    'Mantra': '🧘',
-    'Método': '📐',
-    'Regra': '📏',
-    'Desenvolvimento': '📈',
-    'Susto': '😱',
-    'Companhia': '🏢',
-    'Desejo': '✨',
-    'Progresso': '📈',
-    'Punição': '⚖️',
-    'Manifestação': '✨',
   };
-
-  /// Fallback emoji for unmapped categories.
-  static const String defaultCategoryEmoji = '🎬';
-
-  /// Returns emoji for a category, with fallback.
-  static String emojiForCategory(String category) {
-    return clueCategoryEmojis[category] ?? defaultCategoryEmoji;
-  }
 }
