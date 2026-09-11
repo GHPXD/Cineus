@@ -145,13 +145,20 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     final grid = ShareGrid(revealedClues: steps, won: config.won);
     final l10n = context.l10n;
     final text = config.won
-        ? l10n.shareWin('$challengeNumber', steps, ScoringRules.clue.totalSteps,
-            score, grid.toEmojiGrid())
+        ? l10n.shareWin(
+            '$challengeNumber',
+            steps,
+            ScoringRules.clue.totalSteps,
+            score,
+            grid.toEmojiGrid(),
+          )
         : l10n.shareLose('$challengeNumber', grid.toEmojiGrid());
 
     var shared = false;
     try {
-      final result = await Share.share(text, subject: 'Cineus');
+      final result = await SharePlus.instance.share(
+        ShareParams(text: text, subject: 'Cineus'),
+      );
       shared = result.status == ShareResultStatus.success;
     } catch (_) {
       shared = false;
@@ -191,7 +198,9 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     );
 
     try {
-      await Share.share(text, subject: 'Cineus');
+      await SharePlus.instance.share(
+        ShareParams(text: text, subject: 'Cineus'),
+      );
     } catch (_) {
       await Clipboard.setData(ClipboardData(text: text));
       if (!mounted) return;
