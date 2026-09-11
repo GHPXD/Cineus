@@ -6,6 +6,7 @@ import '../../domain/entities/game_session.dart';
 import '../providers/providers.dart';
 
 import '../screens/about_screen.dart';
+import '../screens/challenge_entry_screen.dart';
 import '../screens/challenge_loader.dart';
 import '../screens/defeat_screen.dart';
 import '../screens/game_screen.dart';
@@ -33,7 +34,6 @@ abstract final class AppRouter {
         path: '/',
         builder: (context, state) => const _SplashGate(),
       ),
-
       ShellRoute(
         builder: (context, state, child) => MainScaffold(child: child),
         routes: [
@@ -65,7 +65,6 @@ abstract final class AppRouter {
           ),
         ],
       ),
-
       GoRoute(
         path: '/visual/play',
         pageBuilder: (context, state) => CustomTransitionPage(
@@ -73,27 +72,24 @@ abstract final class AppRouter {
             expectedKind: _sessionKind(state.uri.queryParameters['source']),
           ),
           transitionDuration: const Duration(milliseconds: 300),
-          transitionsBuilder: (context, animation, _, child) {
-            return FadeTransition(opacity: animation, child: child);
-          },
+          transitionsBuilder: (context, animation, _, child) =>
+              FadeTransition(opacity: animation, child: child),
         ),
       ),
       GoRoute(
         path: '/visual/search',
         pageBuilder: (context, state) => CustomTransitionPage(
           child: VisualSearchScreen(onBack: () => context.pop()),
-          transitionsBuilder: (context, animation, _, child) {
-            return SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(0, 1),
-                end: Offset.zero,
-              ).animate(CurvedAnimation(
-                parent: animation,
-                curve: Curves.easeOutCubic,
-              )),
-              child: child,
-            );
-          },
+          transitionsBuilder: (context, animation, _, child) => SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(0, 1),
+              end: Offset.zero,
+            ).animate(CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeOutCubic,
+            )),
+            child: child,
+          ),
         ),
       ),
       GoRoute(
@@ -101,14 +97,12 @@ abstract final class AppRouter {
         pageBuilder: (context, state) => CustomTransitionPage(
           child: const VisualVictoryScreen(),
           transitionDuration: const Duration(milliseconds: 400),
-          transitionsBuilder: (context, animation, _, child) {
-            return ScaleTransition(
-              scale: Tween<double>(begin: 0.85, end: 1.0).animate(
-                CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
-              ),
-              child: FadeTransition(opacity: animation, child: child),
-            );
-          },
+          transitionsBuilder: (context, animation, _, child) => ScaleTransition(
+            scale: Tween<double>(begin: 0.85, end: 1.0).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
+            ),
+            child: FadeTransition(opacity: animation, child: child),
+          ),
         ),
       ),
       GoRoute(
@@ -116,19 +110,16 @@ abstract final class AppRouter {
         pageBuilder: (context, state) => CustomTransitionPage(
           child: const VisualDefeatScreen(),
           transitionDuration: const Duration(milliseconds: 400),
-          transitionsBuilder: (context, animation, _, child) {
-            return FadeTransition(opacity: animation, child: child);
-          },
+          transitionsBuilder: (context, animation, _, child) =>
+              FadeTransition(opacity: animation, child: child),
         ),
       ),
-
       GoRoute(
         path: '/game',
         pageBuilder: (context, state) => CustomTransitionPage(
           transitionDuration: const Duration(milliseconds: 300),
-          transitionsBuilder: (context, animation, _, child) {
-            return FadeTransition(opacity: animation, child: child);
-          },
+          transitionsBuilder: (context, animation, _, child) =>
+              FadeTransition(opacity: animation, child: child),
           child: GameScreen(
             expectedKind: _sessionKind(state.uri.queryParameters['source']),
             onNavigateToSearch: () => context.push('/search'),
@@ -150,32 +141,28 @@ abstract final class AppRouter {
         path: '/search',
         pageBuilder: (context, state) => CustomTransitionPage(
           child: SearchScreen(onBack: () => context.pop()),
-          transitionsBuilder: (context, animation, _, child) {
-            return SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(0, 1),
-                end: Offset.zero,
-              ).animate(CurvedAnimation(
-                parent: animation,
-                curve: Curves.easeOutCubic,
-              )),
-              child: child,
-            );
-          },
+          transitionsBuilder: (context, animation, _, child) => SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(0, 1),
+              end: Offset.zero,
+            ).animate(CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeOutCubic,
+            )),
+            child: child,
+          ),
         ),
       ),
       GoRoute(
         path: '/victory',
         pageBuilder: (context, state) => CustomTransitionPage(
           transitionDuration: const Duration(milliseconds: 400),
-          transitionsBuilder: (context, animation, _, child) {
-            return ScaleTransition(
-              scale: Tween<double>(begin: 0.85, end: 1.0).animate(
-                CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
-              ),
-              child: FadeTransition(opacity: animation, child: child),
-            );
-          },
+          transitionsBuilder: (context, animation, _, child) => ScaleTransition(
+            scale: Tween<double>(begin: 0.85, end: 1.0).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
+            ),
+            child: FadeTransition(opacity: animation, child: child),
+          ),
           child: VictoryScreen(
             onNavigateToStats: () => context.push('/stats'),
             onNavigateHome: () => context.go('/home'),
@@ -186,14 +173,17 @@ abstract final class AppRouter {
         path: '/defeat',
         pageBuilder: (context, state) => CustomTransitionPage(
           transitionDuration: const Duration(milliseconds: 400),
-          transitionsBuilder: (context, animation, _, child) {
-            return FadeTransition(opacity: animation, child: child);
-          },
+          transitionsBuilder: (context, animation, _, child) =>
+              FadeTransition(opacity: animation, child: child),
           child: DefeatScreen(
             onNavigateToStats: () => context.push('/stats'),
             onNavigateHome: () => context.go('/home'),
           ),
         ),
+      ),
+      GoRoute(
+        path: '/challenge-entry',
+        builder: (context, state) => const ChallengeEntryScreen(),
       ),
       GoRoute(
         path: '/challenge/:movieId',
@@ -204,9 +194,7 @@ abstract final class AppRouter {
       ),
       GoRoute(
         path: '/stats',
-        builder: (context, state) => StatsScreen(
-          onBack: () => context.pop(),
-        ),
+        builder: (context, state) => StatsScreen(onBack: () => context.pop()),
       ),
       GoRoute(
         path: '/settings',
