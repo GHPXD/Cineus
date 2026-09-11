@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
-import '../../domain/entities/game_session.dart';
 import '../l10n_mappers.dart';
 import '../providers/game_actions.dart';
 import '../providers/play_notifier.dart';
