@@ -3,6 +3,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest_all.dart' as tz_data;
 import 'package:timezone/timezone.dart' as tz;
 
+import '../../core/platform/device_time_zone.dart';
 import '../../core/utils/daily_reminder_time.dart';
 
 abstract class NotificationService {
@@ -18,9 +19,14 @@ abstract class NotificationService {
 
 class NotificationServiceImpl implements NotificationService {
   final FlutterLocalNotificationsPlugin _plugin;
+  final DeviceTimeZoneResolver _timeZoneResolver;
 
-  NotificationServiceImpl({FlutterLocalNotificationsPlugin? plugin})
-      : _plugin = plugin ?? FlutterLocalNotificationsPlugin();
+  NotificationServiceImpl({
+    FlutterLocalNotificationsPlugin? plugin,
+    DeviceTimeZoneResolver? timeZoneResolver,
+  })  : _plugin = plugin ?? FlutterLocalNotificationsPlugin(),
+        _timeZoneResolver = timeZoneResolver ??
+            const DeviceTimeZoneResolver(MethodChannelDeviceTimeZoneProvider());
 
   static const int _dailyReminderId = 1001;
   static const String _channelId = 'cineus_daily';
@@ -31,7 +37,7 @@ class NotificationServiceImpl implements NotificationService {
     if (_initialised || kIsWeb) return;
 
     tz_data.initializeTimeZones();
-    tz.setLocalLocation(tz.getLocation(await _resolveTimeZone()));
+    tz.setLocalLocation(await _timeZoneResolver.resolve());
 
     await _plugin.initialize(
       settings: const InitializationSettings(
@@ -45,24 +51,6 @@ class NotificationServiceImpl implements NotificationService {
     );
 
     _initialised = true;
-  }
-
-  /// Best-effort fallback until a native IANA-zone source is bundled.
-  ///
-  /// `timezone` requires an IANA location. Fixed Etc/GMT locations correctly
-  /// preserve the current wall-clock offset, but they cannot predict a future
-  /// DST transition. The remaining IANA-zone follow-up is tracked in the Phase
-  /// 6 hardening plan instead of silently pretending this is fully DST-aware.
-  Future<String> _resolveTimeZone() async {
-    try {
-      final offset = DateTime.now().timeZoneOffset;
-      final hours = -offset.inHours;
-      if (offset.inMinutes % 60 != 0) return 'UTC';
-      if (hours == 0) return 'UTC';
-      return hours > 0 ? 'Etc/GMT+$hours' : 'Etc/GMT-${-hours}';
-    } catch (_) {
-      return 'UTC';
-    }
   }
 
   @override
