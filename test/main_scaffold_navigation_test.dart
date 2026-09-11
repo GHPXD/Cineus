@@ -123,7 +123,6 @@ void main() {
   testWidgets('destinos principais expõem rótulos semânticos acionáveis',
       (tester) async {
     final semantics = tester.ensureSemantics();
-    addTearDown(semantics.dispose);
 
     final router = _router(initialLocation: '/home');
     addTearDown(router.dispose);
@@ -138,5 +137,7 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Filmes'));
     await tester.pumpAndSettle();
     expect(find.text('OPEN_STAGE'), findsOneWidget);
+
+    semantics.dispose();
   });
 }
