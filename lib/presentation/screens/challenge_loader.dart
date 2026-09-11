@@ -8,12 +8,7 @@ import '../l10n_mappers.dart';
 import '../providers/play_notifier.dart';
 
 /// Entry point for a challenge a friend sent (D10).
-///
-/// Loads the film into the clue notifier and hands over to the game screen. Kept
-/// as its own route so both a pasted code and a `cineus://` deep link land in the
-/// same place.
 class ChallengeLoader extends ConsumerStatefulWidget {
-  /// Null when the route parameter could not be parsed.
   final int? movieId;
 
   const ChallengeLoader({super.key, required this.movieId});
@@ -32,10 +27,8 @@ class _ChallengeLoaderState extends ConsumerState<ChallengeLoader> {
     Future.microtask(() async {
       await ref.read(clueGameProvider.notifier).loadChallenge(id);
       if (!mounted) return;
-      // The film may not exist in this build's catalogue — the notifier reports
-      // that as an error and we stay here to say so.
       if (ref.read(clueGameProvider).error != null) return;
-      context.go('/game');
+      context.go('/game?source=challenge');
     });
   }
 

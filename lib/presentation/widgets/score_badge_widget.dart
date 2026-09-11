@@ -5,7 +5,7 @@ import '../../core/theme/app_typography.dart';
 import '../../l10n/app_l10n.dart';
 
 /// Displays the current score with color tier transitions.
-/// Gold (10-8) → Blue (7-5) → Amber (4-3) → Ruby (2-1, pulsing).
+/// Gold (10-8) → Blue (7-5) → Amber (4-3) → Ruby (2-1).
 class ScoreBadge extends StatelessWidget {
   final int score;
   final int revealedClues;
@@ -52,7 +52,9 @@ class ScoreBadge extends StatelessWidget {
             children: [
               Text(
                 '$score',
-                style: (compact ? AppTypography.scoreMedium : AppTypography.scoreLarge)
+                style: (compact
+                        ? AppTypography.scoreMedium
+                        : AppTypography.scoreLarge)
                     .copyWith(color: color),
               ),
               const SizedBox(width: 10),
@@ -78,9 +80,10 @@ class ScoreBadge extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               _hintText(AppL10n.of(context), score, revealedClues),
+              textAlign: TextAlign.center,
               style: AppTypography.bodySmall.copyWith(
-                color: color.withValues(alpha: 0.7),
-                fontSize: 11,
+                color: color,
+                fontSize: 12,
               ),
             ),
           ],
@@ -88,9 +91,7 @@ class ScoreBadge extends StatelessWidget {
       ),
     );
 
-    if (isUrgent) {
-      return _PulsingWrapper(child: badge);
-    }
+    if (isUrgent) return _PulsingWrapper(child: badge);
     return badge;
   }
 
@@ -105,7 +106,6 @@ class ScoreBadge extends StatelessWidget {
 
 class _PulsingWrapper extends StatefulWidget {
   final Widget child;
-
   const _PulsingWrapper({required this.child});
 
   @override
@@ -137,6 +137,8 @@ class _PulsingWrapperState extends State<_PulsingWrapper>
 
   @override
   Widget build(BuildContext context) {
+    if (MediaQuery.disableAnimationsOf(context)) return widget.child;
+
     return AnimatedBuilder(
       animation: _anim,
       builder: (_, child) => Container(

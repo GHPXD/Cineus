@@ -5,17 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
 import '../../domain/entities/extra_hint.dart';
-import '../../l10n/app_l10n.dart';
 import '../../domain/entities/movie.dart';
+import '../../l10n/app_l10n.dart';
+import '../l10n_mappers.dart';
 import '../providers/game_actions.dart';
 import '../providers/play_notifier.dart';
-import '../l10n_mappers.dart';
 import '../providers/providers.dart';
+import 'tap_target.dart';
 
-/// Buy-a-hint row (D12).
-///
-/// A hint costs a ticket instead of a reveal step, so the score is untouched —
-/// it is the one way to get information without paying points.
 class ExtraHintsBar extends ConsumerWidget {
   final PlayState state;
 
@@ -32,7 +29,10 @@ class ExtraHintsBar extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 8,
+          runSpacing: 4,
           children: [
             Text(
               context.l10n.extraHintsHeader,
@@ -41,12 +41,11 @@ class ExtraHintsBar extends ConsumerWidget {
                 letterSpacing: 1.5,
               ),
             ),
-            const SizedBox(width: 8),
             Text(
               context.l10n.extraHintsNoPointCost,
               style: AppTypography.bodySmall.copyWith(
-                color: AppColors.textQuaternary,
-                fontSize: 10,
+                color: AppColors.textTertiary,
+                fontSize: 12,
               ),
             ),
           ],
@@ -107,8 +106,6 @@ class ExtraHintsBar extends ConsumerWidget {
 class _HintChip extends StatelessWidget {
   final ExtraHint hint;
   final String label;
-
-  /// Non-null once bought — the chip then shows the answer instead of the price.
   final String? revealedValue;
   final bool enabled;
   final VoidCallback onBuy;
@@ -126,51 +123,56 @@ class _HintChip extends StatelessWidget {
     final bought = revealedValue != null;
     final color = bought ? AppColors.blue300 : AppColors.gold300;
     final canBuy = !bought && enabled;
+    final semanticLabel = bought
+        ? '$label: $revealedValue'
+        : AppL10n.of(context).buyHintSemantics(label, hint.ticketCost);
 
-    return Semantics(
-      button: canBuy,
-      enabled: canBuy,
-      label: bought
-          ? '$label: $revealedValue'
-          : AppL10n.of(context).buyHintSemantics(label, hint.ticketCost),
-      child: GestureDetector(
-        onTap: canBuy ? onBuy : null,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          decoration: BoxDecoration(
-            color: color.withValues(alpha: bought ? 0.14 : 0.08),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: color.withValues(alpha: enabled || bought ? 0.45 : 0.18),
-            ),
+    return TapTarget(
+      label: semanticLabel,
+      onTap: canBuy ? onBuy : null,
+      child: Container(
+        constraints: const BoxConstraints(minHeight: 42),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: bought ? 0.14 : 0.08),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: color.withValues(alpha: enabled || bought ? 0.45 : 0.18),
           ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(hint.emoji, style: const TextStyle(fontSize: 13)),
-              const SizedBox(width: 6),
-              Text(
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(hint.emoji, style: const TextStyle(fontSize: 14)),
+            const SizedBox(width: 6),
+            Flexible(
+              child: Text(
                 bought ? '$label: $revealedValue' : label,
+                overflow: TextOverflow.ellipsis,
                 style: AppTypography.bodySmall.copyWith(
-                  color: bought ? AppColors.obsidian0 : color,
-                  fontWeight: bought ? FontWeight.w700 : FontWeight.w400,
+                  color: bought
+                      ? AppColors.obsidian0
+                      : enabled
+                          ? color
+                          : AppColors.textTertiary,
+                  fontWeight: bought ? FontWeight.w700 : FontWeight.w500,
                   fontSize: 12,
                 ),
               ),
-              if (!bought) ...[
-                const SizedBox(width: 6),
-                Text(
-                  enabled
-                      ? AppL10n.of(context).oneTicket
-                      : AppL10n.of(context).noTicketsLower,
-                  style: AppTypography.monoSmall.copyWith(
-                    color: enabled ? color : AppColors.obsidian500,
-                    fontSize: 10,
-                  ),
+            ),
+            if (!bought) ...[
+              const SizedBox(width: 6),
+              Text(
+                enabled
+                    ? AppL10n.of(context).oneTicket
+                    : AppL10n.of(context).noTicketsLower,
+                style: AppTypography.monoSmall.copyWith(
+                  color: enabled ? color : AppColors.textTertiary,
+                  fontSize: 10,
                 ),
-              ],
+              ),
             ],
-          ),
+          ],
         ),
       ),
     );

@@ -8,15 +8,6 @@ import '../../domain/entities/movie.dart';
 import '../l10n_mappers.dart';
 import '../providers/search_notifier.dart';
 
-/// Generic search screen used by both clue and poster game modes.
-/// The [onSubmitGuess] callback handles game-mode-specific submission.
-/// The [contextWidget] provides context info (challenge # or blur level).
-/// The [guesses] list shows wrong guesses if provided.
-///
-/// Note: there is deliberately no "max guesses" counter. Neither mode caps the
-/// number of guesses — a wrong guess burns the next clue/reveal level, and the
-/// game is lost by running out of those. A previous `x / 5 máx.` label showed a
-/// limit that nothing enforced.
 class GenericSearchScreen extends ConsumerStatefulWidget {
   final VoidCallback onBack;
   final Future<void> Function(Movie movie) onSubmitGuess;
@@ -39,7 +30,6 @@ class GenericSearchScreen extends ConsumerStatefulWidget {
 class _GenericSearchScreenState extends ConsumerState<GenericSearchScreen> {
   final _controller = TextEditingController();
   final _focusNode = FocusNode();
-
   static const _maxInputLength = 200;
 
   @override
@@ -69,105 +59,152 @@ class _GenericSearchScreenState extends ConsumerState<GenericSearchScreen> {
     return Scaffold(
       backgroundColor: AppColors.obsidian900,
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Header
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12, 8, 20, 0),
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: widget.onBack,
-                    icon: const Icon(Icons.arrow_back_ios_rounded, size: 18),
-                    color: Colors.white,
-                  ),
-                  Expanded(
-                    child: Text(
-                      context.l10n.whichMovie,
-                      style: AppTypography.headlineMedium,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // Context info (score / blur level)
-            if (widget.contextWidget != null)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
-                child: widget.contextWidget,
-              ),
-
-            // Search field
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: TextField(
-                controller: _controller,
-                focusNode: _focusNode,
-                maxLength: _maxInputLength,
-                maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                style: AppTypography.bodyLarge.copyWith(color: Colors.white),
-                decoration: InputDecoration(
-                  hintText: context.l10n.movieNameHint,
-                  counterText: '',
-                  prefixIcon: Icon(
-                    Icons.search_rounded,
-                    color: _controller.text.isNotEmpty
-                        ? AppColors.gold300
-                        : AppColors.obsidian400,
-                  ),
-                  suffixIcon: _controller.text.isNotEmpty
-                      ? IconButton(
-                          onPressed: () {
-                            _controller.clear();
-                            ref.read(searchNotifierProvider.notifier).clear();
-                            setState(() {});
-                          },
-                          icon: const Icon(Icons.close_rounded, size: 18),
-                          color: AppColors.textTertiary,
-                        )
-                      : null,
-                  filled: true,
-                  fillColor: Colors.white.withValues(alpha: 0.07),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    borderSide: BorderSide(
-                      color: AppColors.gold300.withValues(alpha: 0.4),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(14),
-                    borderSide: BorderSide(
-                      color: AppColors.gold300.withValues(alpha: 0.5),
-                      width: 1.5,
-                    ),
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 8, 20, 0),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        onPressed: widget.onBack,
+                        icon: const Icon(Icons.arrow_back_ios_rounded, size: 18),
+                        color: Colors.white,
+                      ),
+                      Expanded(
+                        child: Text(
+                          context.l10n.whichMovie,
+                          style: AppTypography.headlineMedium,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                onChanged: (query) {
-                  ref.read(searchNotifierProvider.notifier).search(query);
-                  setState(() {});
-                },
-              ),
+                if (widget.contextWidget != null)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
+                    child: widget.contextWidget,
+                  ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextField(
+                    controller: _controller,
+                    focusNode: _focusNode,
+                    maxLength: _maxInputLength,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    textInputAction: TextInputAction.search,
+                    style: AppTypography.bodyLarge.copyWith(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: context.l10n.movieNameHint,
+                      counterText: '',
+                      prefixIcon: Icon(
+                        Icons.search_rounded,
+                        color: _controller.text.isNotEmpty
+                            ? AppColors.gold300
+                            : AppColors.textTertiary,
+                      ),
+                      suffixIcon: _controller.text.isNotEmpty
+                          ? IconButton(
+                              tooltip: MaterialLocalizations.of(context)
+                                  .deleteButtonTooltip,
+                              onPressed: () {
+                                _controller.clear();
+                                ref.read(searchNotifierProvider.notifier).clear();
+                                setState(() {});
+                              },
+                              icon: const Icon(Icons.close_rounded, size: 18),
+                              color: AppColors.textTertiary,
+                            )
+                          : null,
+                    ),
+                    onChanged: (query) {
+                      ref.read(searchNotifierProvider.notifier).search(query);
+                      setState(() {});
+                    },
+                  ),
+                ),
+                Expanded(child: _buildBody(searchState)),
+              ],
             ),
-
-            // Results or guess history
-            Expanded(
-              child: searchState.results.isNotEmpty
-                  ? _buildResults(searchState.results)
-                  : _buildGuessHistory(),
-            ),
-          ],
+          ),
         ),
       ),
     );
   }
 
+  Widget _buildBody(SearchState state) {
+    if (!state.isQueryValid) {
+      return ListView(
+        padding: const EdgeInsets.fromLTRB(20, 18, 20, 20),
+        children: [
+          Row(
+            children: [
+              const Icon(
+                Icons.search_rounded,
+                size: 18,
+                color: AppColors.textTertiary,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  context.l10n.searchTypeHint,
+                  style: AppTypography.bodySmall.copyWith(
+                    color: AppColors.textSecondary,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          if (widget.guesses.isNotEmpty) ...[
+            const SizedBox(height: 20),
+            _buildGuessHistory(),
+          ],
+        ],
+      );
+    }
+
+    if (state.isSearching) {
+      return Center(
+        child: Semantics(
+          liveRegion: true,
+          label: context.l10n.whichMovie,
+          child: const SizedBox(
+            width: 28,
+            height: 28,
+            child: CircularProgressIndicator(
+              strokeWidth: 2.5,
+              color: AppColors.gold300,
+            ),
+          ),
+        ),
+      );
+    }
+
+    if (state.hasError) {
+      return _SearchMessage(
+        icon: Icons.wifi_off_rounded,
+        message: context.l10n.searchFailed,
+        action: TextButton.icon(
+          onPressed: () => ref.read(searchNotifierProvider.notifier).retry(),
+          icon: const Icon(Icons.refresh_rounded),
+          label: Text(context.l10n.retryAction),
+        ),
+      );
+    }
+
+    if (state.results.isNotEmpty) return _buildResults(state.results);
+
+    return _SearchMessage(
+      icon: Icons.movie_filter_outlined,
+      message: context.l10n.searchNoResults,
+    );
+  }
+
   Widget _buildResults(List<Movie> results) {
-    // The catalogue holds 5 pairs of films sharing a title (remake + original:
-    // O Rei Leão, A Bela e a Fera, Aladdin, Batman, Os Suspeitos). When both
-    // land in the same result list, the year moves next to the title so the two
-    // rows are not visually identical.
     final titleCounts = <String, int>{};
     for (final m in results) {
       final key = m.title.toLowerCase();
@@ -175,7 +212,7 @@ class _GenericSearchScreenState extends ConsumerState<GenericSearchScreen> {
     }
 
     return Container(
-      margin: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+      margin: const EdgeInsets.fromLTRB(20, 10, 20, 16),
       decoration: BoxDecoration(
         color: AppColors.obsidian800,
         borderRadius: BorderRadius.circular(20),
@@ -184,7 +221,6 @@ class _GenericSearchScreenState extends ConsumerState<GenericSearchScreen> {
       clipBehavior: Clip.antiAlias,
       child: ListView.separated(
         padding: EdgeInsets.zero,
-        shrinkWrap: true,
         itemCount: results.length,
         separatorBuilder: (_, __) =>
             Divider(height: 1, color: Colors.white.withValues(alpha: 0.05)),
@@ -204,64 +240,95 @@ class _GenericSearchScreenState extends ConsumerState<GenericSearchScreen> {
     final guesses = widget.guesses;
     if (guesses.isEmpty) return const SizedBox.shrink();
 
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Text(
-                context.l10n.attemptsHeader,
-                style: AppTypography.labelSmall.copyWith(
-                  color: AppColors.textSecondary,
-                  letterSpacing: 1.5,
-                ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Text(
+              context.l10n.attemptsHeader,
+              style: AppTypography.labelSmall.copyWith(
+                color: AppColors.textSecondary,
+                letterSpacing: 1.5,
               ),
-              const Spacer(),
-              Text(
-                context.l10n.errorCount(guesses.length),
-                style: AppTypography.monoSmall.copyWith(
-                  color: AppColors.obsidian600,
-                ),
+            ),
+            const Spacer(),
+            Text(
+              context.l10n.errorCount(guesses.length),
+              style: AppTypography.monoSmall.copyWith(
+                color: AppColors.textTertiary,
               ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          ...guesses.asMap().entries.map(
-            (e) => Padding(
-              padding: const EdgeInsets.only(bottom: 6),
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 10,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.03),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: Colors.white.withValues(alpha: 0.06),
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    Text('${e.key + 1}.', style: AppTypography.monoSmall),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        e.value,
-                        style: AppTypography.bodySmall.copyWith(
-                          color: AppColors.textSecondary,
-                        ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        ...guesses.asMap().entries.map(
+          (e) => Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.03),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+              ),
+              child: Row(
+                children: [
+                  Text('${e.key + 1}.', style: AppTypography.monoSmall),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      e.value,
+                      style: AppTypography.bodySmall.copyWith(
+                        color: AppColors.textSecondary,
                       ),
                     ),
-                    const Text('❌', style: TextStyle(fontSize: 14)),
-                  ],
-                ),
+                  ),
+                  const Text('❌', style: TextStyle(fontSize: 14)),
+                ],
               ),
             ),
           ),
-        ],
+        ),
+      ],
+    );
+  }
+}
+
+class _SearchMessage extends StatelessWidget {
+  final IconData icon;
+  final String message;
+  final Widget? action;
+
+  const _SearchMessage({
+    required this.icon,
+    required this.message,
+    this.action,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 36),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 40, color: AppColors.textTertiary),
+            const SizedBox(height: 12),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: AppTypography.bodyMedium.copyWith(
+                color: AppColors.textSecondary,
+              ),
+            ),
+            if (action != null) ...[
+              const SizedBox(height: 12),
+              action!,
+            ],
+          ],
+        ),
       ),
     );
   }
@@ -270,9 +337,6 @@ class _GenericSearchScreenState extends ConsumerState<GenericSearchScreen> {
 class _AutocompleteItem extends StatelessWidget {
   final Movie movie;
   final VoidCallback onTap;
-
-  /// True when another result in the same list carries the identical title, so
-  /// the year has to be shown inline to tell them apart.
   final bool isAmbiguous;
 
   const _AutocompleteItem({
@@ -286,7 +350,6 @@ class _AutocompleteItem extends StatelessWidget {
     return Semantics(
       button: true,
       label: context.l10n.semGuessThisMovie(movie.title),
-      // Declared here too: `excludeSemantics` drops the InkWell's tap action.
       onTap: onTap,
       excludeSemantics: true,
       child: InkWell(
@@ -295,15 +358,21 @@ class _AutocompleteItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Row(
             children: [
-              Container(
-                width: 36,
-                height: 54,
-                decoration: BoxDecoration(
-                  gradient: AppColors.cardGradient,
-                  borderRadius: BorderRadius.circular(6),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(7),
+                child: Image.asset(
+                  'assets/posters/${movie.id}.jpg',
+                  width: 38,
+                  height: 57,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => Container(
+                    width: 38,
+                    height: 57,
+                    color: AppColors.obsidian700,
+                    alignment: Alignment.center,
+                    child: const Text('🎬', style: TextStyle(fontSize: 16)),
+                  ),
                 ),
-                alignment: Alignment.center,
-                child: const Text('🎬', style: TextStyle(fontSize: 16)),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -316,9 +385,8 @@ class _AutocompleteItem extends StatelessWidget {
                           : movie.title,
                       style: AppTypography.bodyLarge.copyWith(
                         color: Colors.white,
-                        fontWeight: isAmbiguous
-                            ? FontWeight.w700
-                            : FontWeight.w400,
+                        fontWeight:
+                            isAmbiguous ? FontWeight.w700 : FontWeight.w400,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -336,6 +404,7 @@ class _AutocompleteItem extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(width: 8),
               Text(
                 '${movie.year}',
                 style: AppTypography.monoSmall.copyWith(

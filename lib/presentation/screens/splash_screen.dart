@@ -7,13 +7,17 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_fonts.dart';
 import '../../core/theme/app_typography.dart';
 import '../../l10n/app_l10n.dart';
-import '../l10n_mappers.dart';
 import '../widgets/film_strip_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   final VoidCallback onComplete;
+  final Duration minimumDuration;
 
-  const SplashScreen({super.key, required this.onComplete});
+  const SplashScreen({
+    super.key,
+    required this.onComplete,
+    this.minimumDuration = AppConstants.splashDuration,
+  });
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -25,23 +29,37 @@ class _SplashScreenState extends State<SplashScreen>
   late final Animation<double> _fade;
   late final Animation<double> _scale;
   Timer? _completionTimer;
+  bool _motionConfigured = false;
 
   @override
   void initState() {
     super.initState();
     _ctrl = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 600),
     );
     _fade = CurvedAnimation(parent: _ctrl, curve: Curves.easeOut);
     _scale = Tween<double>(
-      begin: 0.8,
+      begin: 0.9,
       end: 1.0,
-    ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOutBack));
-    _ctrl.forward();
-    _completionTimer = Timer(AppConstants.splashDuration, () {
+    ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOutCubic));
+
+    _completionTimer = Timer(widget.minimumDuration, () {
       if (mounted) widget.onComplete();
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_motionConfigured) return;
+    _motionConfigured = true;
+
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _ctrl.value = 1;
+    } else {
+      _ctrl.forward();
+    }
   }
 
   @override
@@ -53,12 +71,13 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppL10n.of(context);
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(gradient: AppColors.heroGradient),
         child: Stack(
           children: [
-            // Background radial accents
             Positioned(
               top: -100,
               left: MediaQuery.of(context).size.width / 2 - 180,
@@ -93,8 +112,6 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
               ),
             ),
-
-            // Film strips
             const Positioned(
               top: 0,
               left: 0,
@@ -102,8 +119,6 @@ class _SplashScreenState extends State<SplashScreen>
               child: SafeArea(child: FilmStrip()),
             ),
             const Positioned(bottom: 32, left: 0, right: 0, child: FilmStrip()),
-
-            // Center content
             Center(
               child: FadeTransition(
                 opacity: _fade,
@@ -112,7 +127,6 @@ class _SplashScreenState extends State<SplashScreen>
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // App icon
                       Container(
                         width: 100,
                         height: 100,
@@ -143,8 +157,6 @@ class _SplashScreenState extends State<SplashScreen>
                         child: const Text('🎬', style: TextStyle(fontSize: 46)),
                       ),
                       const SizedBox(height: 28),
-
-                      // Logo
                       Text.rich(
                         TextSpan(
                           children: [
@@ -181,9 +193,8 @@ class _SplashScreenState extends State<SplashScreen>
                         ),
                       ),
                       const SizedBox(height: 12),
-
                       Text(
-                        AppL10n.of(context).appTagline,
+                        l10n.appTagline,
                         textAlign: TextAlign.center,
                         style: AppTypography.bodySmall.copyWith(
                           color: AppColors.textSecondary,
@@ -195,8 +206,6 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
               ),
             ),
-
-            // Bottom credits
             Positioned(
               bottom: 48,
               left: 0,
@@ -204,11 +213,11 @@ class _SplashScreenState extends State<SplashScreen>
               child: FadeTransition(
                 opacity: _fade,
                 child: Text(
-                  context.l10n.splashCredits,
+                  l10n.appTitle.toUpperCase(),
                   textAlign: TextAlign.center,
                   style: AppTypography.monoSmall.copyWith(
-                    color: AppColors.obsidian600,
-                    letterSpacing: 1,
+                    color: AppColors.textTertiary,
+                    letterSpacing: 1.8,
                   ),
                 ),
               ),

@@ -43,8 +43,9 @@ abstract final class AppConstants {
   /// Max visual game score (guessing at blur level 1).
   static const int maxVisualScore = 5;
 
-  /// Splash screen display duration.
-  static const Duration splashDuration = Duration(milliseconds: 2500);
+  /// A short branded handoff, not an artificial loading screen. Database
+  /// bootstrap already owns real startup work and exposes its own progress UI.
+  static const Duration splashDuration = Duration(milliseconds: 700);
 
   /// Default animation durations.
   static const Duration animationFast = Duration(milliseconds: 200);

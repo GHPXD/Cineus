@@ -5,29 +5,32 @@ import '../../core/theme/app_fonts.dart';
 import '../../core/theme/app_typography.dart';
 import '../../domain/entities/movie.dart';
 
-/// A stylized movie poster card with gradient overlay.
+/// A stylized movie-poster card.
+///
+/// Posters are authored close to a 2:3 portrait ratio. Result screens used to
+/// force them into a full-width fixed-height landscape box, cropping much of the
+/// artwork exactly when the answer is revealed. The default now preserves the
+/// poster ratio; [height] remains only for backwards-compatible callers.
 class PosterCard extends StatelessWidget {
   final Movie movie;
-  final double height;
+  final double? height;
 
-  const PosterCard({super.key, required this.movie, this.height = 300});
+  const PosterCard({super.key, required this.movie, this.height});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: double.infinity,
+    final poster = Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           const BoxShadow(
-            color: Color(0xD9000000),
-            blurRadius: 60,
-            offset: Offset(0, 20),
+            color: Color(0xB8000000),
+            blurRadius: 40,
+            offset: Offset(0, 16),
           ),
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.6),
-            blurRadius: 20,
+            color: Colors.black.withValues(alpha: 0.45),
+            blurRadius: 16,
             offset: const Offset(0, 4),
           ),
         ],
@@ -36,7 +39,6 @@ class PosterCard extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          // Poster from bundled local assets
           Image.asset(
             'assets/posters/${movie.id}.jpg',
             fit: BoxFit.cover,
@@ -58,26 +60,12 @@ class PosterCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned.fill(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      gradient: RadialGradient(
-                        center: const Alignment(0.5, 0.5),
-                        radius: 1.0,
-                        colors: [
-                          AppColors.gold300.withValues(alpha: 0.1),
-                          Colors.transparent,
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
                 Center(
                   child: Text(
                     _movieIcon(),
-                    style: TextStyle(
-                      fontSize: height * 0.25,
-                      shadows: const [
+                    style: const TextStyle(
+                      fontSize: 64,
+                      shadows: [
                         Shadow(blurRadius: 40, color: Color(0xCC000000)),
                       ],
                     ),
@@ -86,14 +74,12 @@ class PosterCard extends StatelessWidget {
               ],
             ),
           ),
-
-          // Bottom fade + info
           Positioned(
             left: 0,
             right: 0,
             bottom: 0,
             child: Container(
-              padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
+              padding: const EdgeInsets.fromLTRB(16, 72, 16, 16),
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -107,7 +93,9 @@ class PosterCard extends StatelessWidget {
                 children: [
                   Text(
                     movie.title,
-                    style: TextStyle(
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
                       fontFamily: AppFonts.playfair,
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
@@ -118,9 +106,11 @@ class PosterCard extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     '${movie.year} · ${movie.genres.join(", ")}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: AppTypography.mono.copyWith(
                       color: AppColors.gold300,
-                      letterSpacing: 1,
+                      letterSpacing: 0.6,
                     ),
                   ),
                 ],
@@ -130,6 +120,9 @@ class PosterCard extends StatelessWidget {
         ],
       ),
     );
+
+    if (height != null) return SizedBox(height: height, child: poster);
+    return AspectRatio(aspectRatio: 2 / 3, child: poster);
   }
 
   Widget _gradientFallback() {
@@ -137,10 +130,10 @@ class PosterCard extends StatelessWidget {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color(0xFF1a1a2e),
-            Color(0xFF16213e),
-            Color(0xFF0f3460),
-            Color(0xFF1a1a2e),
+            Color(0xFF1A1A2E),
+            Color(0xFF16213E),
+            Color(0xFF0F3460),
+            Color(0xFF1A1A2E),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -157,12 +150,8 @@ class PosterCard extends StatelessWidget {
     if (genres.contains('comédia') || genres.contains('comedy')) return '😂';
     if (genres.contains('romance')) return '❤️';
     if (genres.contains('terror') || genres.contains('horror')) return '👻';
-    if (genres.contains('animação') || genres.contains('animation')) {
-      return '🧸';
-    }
-    if (genres.contains('aventura') || genres.contains('adventure')) {
-      return '🗺️';
-    }
+    if (genres.contains('animação') || genres.contains('animation')) return '🧸';
+    if (genres.contains('aventura') || genres.contains('adventure')) return '🗺️';
     if (genres.contains('guerra') || genres.contains('war')) return '⚔️';
     if (genres.contains('documentário') || genres.contains('documentary')) {
       return '📹';
@@ -170,9 +159,7 @@ class PosterCard extends StatelessWidget {
     if (genres.contains('música') || genres.contains('music')) return '🎵';
     if (genres.contains('fantasia') || genres.contains('fantasy')) return '🧙';
     if (genres.contains('mistério') || genres.contains('mystery')) return '🕵️';
-    if (genres.contains('família') || genres.contains('family')) {
-      return '👨‍👩‍👧‍👦';
-    }
+    if (genres.contains('família') || genres.contains('family')) return '👨‍👩‍👧‍👦';
     if (genres.contains('drama')) return '🎭';
     return '🎬';
   }

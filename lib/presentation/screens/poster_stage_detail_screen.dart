@@ -14,7 +14,7 @@ class PosterStageDetailScreen extends StatelessWidget {
       stageId: stageId,
       config: const StageDetailConfig(
         mode: GameMode.poster,
-        playRoute: '/visual/play',
+        playRoute: '/visual/play?source=stage',
       ),
     );
   }

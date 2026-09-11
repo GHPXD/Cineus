@@ -3,43 +3,35 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest_all.dart' as tz_data;
 import 'package:timezone/timezone.dart' as tz;
 
+import '../../core/platform/device_time_zone.dart';
 import '../../core/utils/daily_reminder_time.dart';
 
-/// Schedules the daily reminder (D4).
-///
-/// Behind an interface so the notifier that drives it can be unit-tested: the
-/// plugin needs a platform channel, which no widget test provides.
 abstract class NotificationService {
-  /// Prepares the plugin. Safe to call more than once.
   Future<void> init();
-
-  /// Asks the OS for permission, returning whether it was granted.
-  ///
-  /// Android 13+ and iOS both require this at runtime. Only ever called from a
-  /// player action, never on startup.
   Future<bool> requestPermission();
-
-  /// Whether permission is currently granted, without prompting.
   Future<bool> hasPermission();
-
-  /// Schedules (or reschedules) the daily reminder.
   Future<void> scheduleDailyReminder({
     required String title,
     required String body,
+    required String channelName,
+    required String channelDescription,
   });
-
   Future<void> cancelDailyReminder();
 }
 
 class NotificationServiceImpl implements NotificationService {
   final FlutterLocalNotificationsPlugin _plugin;
+  final DeviceTimeZoneResolver _timeZoneResolver;
 
-  NotificationServiceImpl({FlutterLocalNotificationsPlugin? plugin})
-      : _plugin = plugin ?? FlutterLocalNotificationsPlugin();
+  NotificationServiceImpl({
+    FlutterLocalNotificationsPlugin? plugin,
+    DeviceTimeZoneResolver? timeZoneResolver,
+  })  : _plugin = plugin ?? FlutterLocalNotificationsPlugin(),
+        _timeZoneResolver = timeZoneResolver ??
+            const DeviceTimeZoneResolver(MethodChannelDeviceTimeZoneProvider());
 
   static const int _dailyReminderId = 1001;
   static const String _channelId = 'cineus_daily';
-
   bool _initialised = false;
 
   @override
@@ -47,14 +39,12 @@ class NotificationServiceImpl implements NotificationService {
     if (_initialised || kIsWeb) return;
 
     tz_data.initializeTimeZones();
-    tz.setLocalLocation(tz.getLocation(await _resolveTimeZone()));
+    tz.setLocalLocation(await _timeZoneResolver.resolve());
 
     await _plugin.initialize(
       settings: const InitializationSettings(
         android: AndroidInitializationSettings('@mipmap/ic_launcher'),
         iOS: DarwinInitializationSettings(
-          // Deferred: the prompt belongs to the moment the player flips the
-          // switch, not to app startup.
           requestAlertPermission: false,
           requestBadgePermission: false,
           requestSoundPermission: false,
@@ -63,22 +53,6 @@ class NotificationServiceImpl implements NotificationService {
     );
 
     _initialised = true;
-  }
-
-  /// Best-effort local zone name. Falls back to UTC, which only shifts the
-  /// reminder — it never breaks scheduling.
-  Future<String> _resolveTimeZone() async {
-    try {
-      final offset = DateTime.now().timeZoneOffset;
-      // `timezone` needs a location name; derive a fixed-offset Etc/GMT zone,
-      // which is exact for the purpose of firing at a local wall-clock hour.
-      final hours = -offset.inHours; // Etc/GMT signs are inverted
-      if (offset.inMinutes % 60 != 0) return 'UTC';
-      if (hours == 0) return 'UTC';
-      return hours > 0 ? 'Etc/GMT+$hours' : 'Etc/GMT-${-hours}';
-    } catch (_) {
-      return 'UTC';
-    }
   }
 
   @override
@@ -95,7 +69,11 @@ class NotificationServiceImpl implements NotificationService {
     final darwin = _plugin.resolvePlatformSpecificImplementation<
         IOSFlutterLocalNotificationsPlugin>();
     if (darwin != null) {
-      return await darwin.requestPermissions(alert: true, badge: true, sound: true) ??
+      return await darwin.requestPermissions(
+            alert: true,
+            badge: true,
+            sound: true,
+          ) ??
           false;
     }
 
@@ -112,13 +90,23 @@ class NotificationServiceImpl implements NotificationService {
     if (android != null) {
       return await android.areNotificationsEnabled() ?? false;
     }
-    return true;
+
+    final ios = _plugin.resolvePlatformSpecificImplementation<
+        IOSFlutterLocalNotificationsPlugin>();
+    if (ios != null) {
+      final permissions = await ios.checkPermissions();
+      return permissions?.isEnabled ?? false;
+    }
+
+    return false;
   }
 
   @override
   Future<void> scheduleDailyReminder({
     required String title,
     required String body,
+    required String channelName,
+    required String channelDescription,
   }) async {
     if (kIsWeb) return;
     await init();
@@ -142,19 +130,16 @@ class NotificationServiceImpl implements NotificationService {
       title: title,
       body: body,
       scheduledDate: scheduled,
-      notificationDetails: const NotificationDetails(
+      notificationDetails: NotificationDetails(
         android: AndroidNotificationDetails(
           _channelId,
-          'Desafio diário',
-          channelDescription: 'Aviso de que o desafio do dia está disponível',
+          channelName,
+          channelDescription: channelDescription,
           importance: Importance.defaultImportance,
           priority: Priority.defaultPriority,
         ),
-        iOS: DarwinNotificationDetails(),
+        iOS: const DarwinNotificationDetails(),
       ),
-      // Inexact on purpose: an exact alarm would need SCHEDULE_EXACT_ALARM,
-      // which Android 14 gates behind a special-access screen. A reminder does
-      // not need to-the-second delivery.
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       matchDateTimeComponents: DateTimeComponents.time,
     );

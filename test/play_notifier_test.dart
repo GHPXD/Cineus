@@ -22,10 +22,10 @@ void main() {
   /// Films chosen so the matching edge cases are all reachable.
   const films = [
     (1, 'Vingadores', 'The Avengers'),
-    (2, 'Vingadores: Ultimato', 'Avengers: Endgame'), // sequência com subtítulo
-    (3, 'Coração Valente', 'Braveheart'), // acentos
+    (2, 'Vingadores: Ultimato', 'Avengers: Endgame'),
+    (3, 'Coração Valente', 'Braveheart'),
     (4, 'Rocky', 'Rocky'),
-    (5, 'Rocky II', 'Rocky II'), // sequência numerada
+    (5, 'Rocky II', 'Rocky II'),
   ];
 
   PlayNotifier notifierFor(GameMode mode) {
@@ -74,6 +74,10 @@ void main() {
       expect(n.state.movie!.clues.length, 10);
       expect(n.state.session!.kind, SessionKind.daily);
       expect(n.state.session!.mode, GameMode.clue);
+      expect(n.state.isDaily, isTrue);
+      expect(n.state.isCurrentDaily, isTrue);
+      expect(n.state.isStage, isFalse);
+      expect(n.state.isChallenge, isFalse);
       expect(n.state.step, 1);
       expect(n.state.currentScore, 10);
     });
@@ -110,12 +114,12 @@ void main() {
       expect(poster.state.session!.mode, GameMode.poster);
     });
 
-    test('base vazia devolve erro em vez de estourar', () async {
+    test('base vazia devolve erro tipado em vez de estourar', () async {
       await db.delete('movies');
       final n = notifierFor(GameMode.clue);
       await n.loadDaily();
 
-      expect(n.state.error, 'Nenhum filme na base');
+      expect(n.state.error, PlayLoadError.noMovies);
       expect(n.state.isLoading, isFalse);
     });
   });
@@ -164,7 +168,7 @@ void main() {
 
     test('acerto exato ganha com o placar do passo atual', () async {
       final n = await loadedStage(GameMode.clue);
-      await n.revealNext(); // passo 2 -> vale 9
+      await n.revealNext();
 
       expect(await n.submitGuess('Vingadores'), GuessOutcome.correct);
       expect(n.state.session!.status, GameStatus.won);
@@ -183,8 +187,6 @@ void main() {
     });
 
     test('prefixo de franquia NÃO ganha em nenhum dos dois modos', () async {
-      // Era exatamente aqui que os dois notifiers divergiam: o de poster aceitava
-      // `isFranchiseMatch` e dava pontuação máxima pelo filme errado.
       for (final mode in GameMode.values) {
         for (final answer in [2, 5]) {
           final n = notifierFor(mode);
@@ -202,15 +204,10 @@ void main() {
     });
 
     test('a dica de franquia só cobre sequências numeradas', () async {
-      // `isSameFranchise` compara os títulos depois de remover indicador de
-      // sequência no fim (II, 2, "Parte 1"). "Rocky" -> "Rocky II" casa.
       final numerada = notifierFor(GameMode.clue);
       await numerada.loadStageFilm(5, 1, [5]);
       expect(await numerada.submitGuess('Rocky'), GuessOutcome.franchise);
 
-      // Já uma sequência com subtítulo não é reconhecida — "Vingadores" e
-      // "Vingadores: Ultimato" não reduzem à mesma base. Limitação conhecida da
-      // dica; não afeta o critério de acerto, que é sempre título exato.
       final subtitulada = notifierFor(GameMode.clue);
       await subtitulada.loadStageFilm(2, 1, [2]);
       expect(await subtitulada.submitGuess('Vingadores'), GuessOutcome.wrong);
@@ -254,10 +251,8 @@ void main() {
 
     test('guessCount sobe a cada tentativa, mesmo repetindo o desfecho',
         () async {
-      // Era o que impedia o banner de franquia de reaparecer: a tela comparava
-      // só o valor do desfecho, que ficava igual.
       final n = notifierFor(GameMode.clue);
-      await n.loadStageFilm(5, 1, [5]); // resposta: "Rocky II"
+      await n.loadStageFilm(5, 1, [5]);
 
       await n.submitGuess('Rocky');
       final first = n.state.guessCount;
@@ -265,6 +260,23 @@ void main() {
 
       expect(n.state.lastGuessOutcome, GuessOutcome.franchise);
       expect(n.state.guessCount, first + 1);
+    });
+  });
+
+  group('contexto da sessão', () {
+    test('estágio e desafio nunca são tratados como daily', () async {
+      final stage = notifierFor(GameMode.clue);
+      await stage.loadStageFilm(1, 3, [1, 2]);
+      expect(stage.state.isStage, isTrue);
+      expect(stage.state.isDaily, isFalse);
+      expect(stage.state.stageId, 3);
+
+      final challenge = notifierFor(GameMode.clue);
+      await challenge.loadChallenge(2);
+      expect(challenge.state.isChallenge, isTrue);
+      expect(challenge.state.isDaily, isFalse);
+      expect(challenge.state.challengeNumber, 0,
+          reason: '0 é sentinel interno e nunca deve ser exibido pela UI');
     });
   });
 
@@ -279,7 +291,6 @@ void main() {
       expect(rows.single['mode'], 'clue');
       expect(rows.single['movie_id'], 1);
 
-      // O mesmo filme no modo poster continua pendente.
       final poster = notifierFor(GameMode.poster);
       await poster.loadStageFilm(1, 1, [1]);
       expect(poster.state.session!.status, GameStatus.playing);
@@ -309,16 +320,14 @@ void main() {
       expect(n.state.session!.status, GameStatus.playing);
     });
 
-    test('filme inexistente devolve erro', () async {
+    test('filme inexistente devolve erro tipado', () async {
       final n = notifierFor(GameMode.clue);
       await n.loadStageFilm(999, 1, [999]);
-      expect(n.state.error, 'Filme não encontrado');
+      expect(n.state.error, PlayLoadError.movieNotFound);
     });
   });
 }
 
-/// Small helper so the test can create the stage tables without pulling in the
-/// asset-dependent parts of the seeder.
 class DatabaseSeederForTest {
   const DatabaseSeederForTest();
 

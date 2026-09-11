@@ -6,10 +6,9 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_fonts.dart';
 import '../../core/theme/app_typography.dart';
 import '../../domain/entities/stage.dart';
-import '../providers/providers.dart';
 import '../../l10n/app_l10n.dart';
+import '../providers/providers.dart';
 
-/// Configuration that differentiates Clues stages from Poster stages.
 class StagesConfig {
   final String playingEmoji;
   final bool isPoster;
@@ -22,7 +21,6 @@ class StagesConfig {
   });
 
   String title(AppL10n l10n) => isPoster ? l10n.navPosters : l10n.navFilms;
-
   String subtitle(AppL10n l10n) =>
       isPoster ? l10n.stagesSubtitlePosters : l10n.stagesSubtitleClues;
 
@@ -41,7 +39,6 @@ class StagesConfig {
   static String _postersRoute(int id) => '/visual/stage/$id';
 }
 
-/// Generic stages grid screen. Used for both Clue stages and Poster stages.
 class GenericStagesScreen extends ConsumerWidget {
   final StagesConfig config;
 
@@ -52,7 +49,6 @@ class GenericStagesScreen extends ConsumerWidget {
     final stagesAsync = config.isPoster
         ? ref.watch(posterStageNotifierProvider)
         : ref.watch(stageNotifierProvider);
-
     final l10n = AppL10n.of(context);
 
     return Scaffold(
@@ -67,8 +63,41 @@ class GenericStagesScreen extends ConsumerWidget {
                 loading: () => const Center(
                   child: CircularProgressIndicator(color: AppColors.gold300),
                 ),
-                error: (e, _) => Center(
-                  child: Text(l10n.errorWithMessage('\$e'), style: AppTypography.bodyMedium),
+                error: (_, __) => Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 440),
+                    child: Padding(
+                      padding: const EdgeInsets.all(28),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            Icons.movie_filter_outlined,
+                            size: 48,
+                            color: AppColors.ruby300,
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            l10n.gameLoadFailed,
+                            textAlign: TextAlign.center,
+                            style: AppTypography.titleMedium,
+                          ),
+                          const SizedBox(height: 20),
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              if (config.isPoster) {
+                                ref.invalidate(posterStageNotifierProvider);
+                              } else {
+                                ref.invalidate(stageNotifierProvider);
+                              }
+                            },
+                            icon: const Icon(Icons.refresh_rounded),
+                            label: Text(l10n.retryAction),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
                 data: (stages) => _buildGrid(context, stages),
               ),
@@ -81,40 +110,53 @@ class GenericStagesScreen extends ConsumerWidget {
 
   Widget _buildHeader(BuildContext context) {
     final l10n = AppL10n.of(context);
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(config.title(l10n), style: AppTypography.displaySmall),
-          const SizedBox(height: 4),
-          Text(
-            config.subtitle(l10n),
-            style: AppTypography.bodySmall.copyWith(
-              color: AppColors.textSecondary,
-            ),
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 1120),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(config.title(l10n), style: AppTypography.displaySmall),
+              const SizedBox(height: 4),
+              Text(
+                config.subtitle(l10n),
+                style: AppTypography.bodySmall.copyWith(
+                  color: AppColors.textSecondary,
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
 
   Widget _buildGrid(BuildContext context, List<Stage> stages) {
-    return GridView.builder(
-      padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-        childAspectRatio: 1.1,
-      ),
-      itemCount: stages.length,
-      itemBuilder: (context, i) => _StageCard(
-        stage: stages[i],
-        emoji: config.playingEmoji,
-        onTap: stages[i].isLocked
-            ? null
-            : () => context.push(config.routeBuilder(stages[i].id)),
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 1120),
+        child: GridView.builder(
+          padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 250,
+            mainAxisExtent: 190,
+            mainAxisSpacing: 12,
+            crossAxisSpacing: 12,
+          ),
+          itemCount: stages.length,
+          itemBuilder: (context, i) {
+            final stage = stages[i];
+            return _StageCard(
+              stage: stage,
+              emoji: config.playingEmoji,
+              onTap: stage.isLocked
+                  ? null
+                  : () => context.push(config.routeBuilder(stage.id)),
+            );
+          },
+        ),
       ),
     );
   }
@@ -132,27 +174,31 @@ class _StageCard extends StatelessWidget {
     final l10n = AppL10n.of(context);
     final locked = stage.isLocked;
     final completed = stage.isCompleted;
+    final name = l10n.stageNumber('${stage.id}');
 
-    Color borderColor;
-    if (completed) {
-      borderColor = AppColors.success400.withValues(alpha: 0.5);
-    } else if (!locked) {
-      borderColor = AppColors.gold300.withValues(alpha: 0.4);
-    } else {
-      borderColor = AppColors.obsidian600;
-    }
+    final borderColor = completed
+        ? AppColors.success400.withValues(alpha: 0.5)
+        : !locked
+            ? AppColors.gold300.withValues(alpha: 0.4)
+            : AppColors.obsidian600;
 
     return Semantics(
       button: !locked,
       enabled: !locked,
+      onTap: onTap,
       label: locked
-          ? l10n.stageSemanticsLocked(stage.name)
+          ? l10n.stageSemanticsLocked(name)
           : completed
-              ? l10n.stageSemanticsComplete(stage.name)
+              ? l10n.stageSemanticsComplete(name)
               : l10n.stageSemanticsProgress(
-                  stage.name, stage.completedCount, stage.totalMovies),
-      child: GestureDetector(
+                  name,
+                  stage.completedCount,
+                  stage.totalMovies,
+                ),
+      excludeSemantics: true,
+      child: InkWell(
         onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
@@ -162,30 +208,27 @@ class _StageCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             child: Stack(
               children: [
-                // Stage cover art (unique per stage, handles locked state)
                 Positioned.fill(
                   child: _StageCoverArt(stageId: stage.id, locked: locked),
                 ),
-                // Bottom gradient for text readability
                 Positioned(
                   bottom: 0,
                   left: 0,
                   right: 0,
                   child: Container(
-                    height: 68,
+                    height: 78,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.transparent,
-                          Colors.black.withValues(alpha: locked ? 0.5 : 0.82),
+                          Colors.black.withValues(alpha: locked ? 0.58 : 0.88),
                         ],
                       ),
                     ),
                   ),
                 ),
-                // Card content
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
@@ -194,11 +237,7 @@ class _StageCard extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            locked
-                                ? '🔒'
-                                : completed
-                                ? '✅'
-                                : emoji,
+                            locked ? '🔒' : completed ? '✅' : emoji,
                             style: const TextStyle(fontSize: 20),
                           ),
                           const Spacer(),
@@ -206,23 +245,21 @@ class _StageCard extends StatelessWidget {
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 8,
-                                vertical: 2,
+                                vertical: 3,
                               ),
                               decoration: BoxDecoration(
                                 color: completed
-                                    ? AppColors.success400.withValues(
-                                        alpha: 0.25,
-                                      )
-                                    : Colors.black.withValues(alpha: 0.4),
+                                    ? AppColors.success400.withValues(alpha: 0.25)
+                                    : Colors.black.withValues(alpha: 0.45),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
                                 '${stage.completedCount}/${stage.totalMovies}',
                                 style: AppTypography.monoSmall.copyWith(
-                                  fontSize: 10,
                                   color: completed
                                       ? AppColors.success400
                                       : AppColors.gold300,
+                                  fontWeight: FontWeight.w700,
                                 ),
                               ),
                             ),
@@ -230,10 +267,10 @@ class _StageCard extends StatelessWidget {
                       ),
                       const Spacer(),
                       Text(
-                        stage.name,
+                        name,
                         style: AppTypography.labelLarge.copyWith(
                           color: locked
-                              ? AppColors.obsidian400
+                              ? AppColors.textTertiary
                               : AppColors.obsidian0,
                         ),
                         maxLines: 1,
@@ -241,28 +278,23 @@ class _StageCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        locked
-                            ? l10n.locked
-                            : l10n.filmsCount(stage.totalMovies),
+                        locked ? l10n.locked : l10n.filmsCount(stage.totalMovies),
                         style: AppTypography.bodySmall.copyWith(
-                          fontSize: 11,
+                          fontSize: 12,
                           color: locked
-                              ? AppColors.obsidian500
-                              : AppColors.obsidian300,
+                              ? AppColors.textQuaternary
+                              : AppColors.textSecondary,
                         ),
                       ),
-                      if (!locked &&
-                          !completed &&
-                          stage.completedCount > 0) ...[
+                      if (!locked && !completed && stage.completedCount > 0) ...[
                         const SizedBox(height: 8),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(4),
                           child: LinearProgressIndicator(
                             value: stage.progress,
-                            minHeight: 3,
-                            backgroundColor: Colors.white.withValues(
-                              alpha: 0.15,
-                            ),
+                            minHeight: 4,
+                            backgroundColor:
+                                Colors.white.withValues(alpha: 0.15),
                             valueColor: const AlwaysStoppedAnimation(
                               AppColors.gold300,
                             ),
@@ -281,45 +313,23 @@ class _StageCard extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Cinema-themed stage cover art. Each stageId gets a unique color palette.
-// Renders: gradient background, film-hole edges, Roman numeral in center.
-// ─────────────────────────────────────────────────────────────────────────────
-
 class _StageCoverArt extends StatelessWidget {
   final int stageId;
   final bool locked;
 
   const _StageCoverArt({required this.stageId, required this.locked});
 
-  // 10 distinct dark / cinematic palettes [gradientTop, gradientBottom, accent]
   static const _palettes = <List<Color>>[
-    [Color(0xFF08162C), Color(0xFF1A3A6A), Color(0xFFC8922A)], // navy + gold
-    [
-      Color(0xFF120822),
-      Color(0xFF2E1258),
-      Color(0xFFA880D0),
-    ], // purple + lavender
-    [Color(0xFF061808), Color(0xFF0C3018), Color(0xFF48BB60)], // forest + mint
-    [
-      Color(0xFF1C0606),
-      Color(0xFF4A0C0C),
-      Color(0xFFE04848),
-    ], // crimson + flame
-    [Color(0xFF060C18), Color(0xFF0C2244), Color(0xFF40B8D8)], // steel + cyan
-    [
-      Color(0xFF181008),
-      Color(0xFF3C2A08),
-      Color(0xFFD89030),
-    ], // amber + warm gold
-    [
-      Color(0xFF060618),
-      Color(0xFF141450),
-      Color(0xFF7878E0),
-    ], // indigo + periwinkle
-    [Color(0xFF160806), Color(0xFF3A1404), Color(0xFFD86030)], // rust + orange
-    [Color(0xFF041414), Color(0xFF082E2E), Color(0xFF28C0B0)], // teal + aqua
-    [Color(0xFF0E0618), Color(0xFF261042), Color(0xFFCC60A8)], // violet + rose
+    [Color(0xFF08162C), Color(0xFF1A3A6A), Color(0xFFC8922A)],
+    [Color(0xFF120822), Color(0xFF2E1258), Color(0xFFA880D0)],
+    [Color(0xFF061808), Color(0xFF0C3018), Color(0xFF48BB60)],
+    [Color(0xFF1C0606), Color(0xFF4A0C0C), Color(0xFFE04848)],
+    [Color(0xFF060C18), Color(0xFF0C2244), Color(0xFF40B8D8)],
+    [Color(0xFF181008), Color(0xFF3C2A08), Color(0xFFD89030)],
+    [Color(0xFF060618), Color(0xFF141450), Color(0xFF7878E0)],
+    [Color(0xFF160806), Color(0xFF3A1404), Color(0xFFD86030)],
+    [Color(0xFF041414), Color(0xFF082E2E), Color(0xFF28C0B0)],
+    [Color(0xFF0E0618), Color(0xFF261042), Color(0xFFCC60A8)],
   ];
 
   static String _roman(int n) {
@@ -346,10 +356,10 @@ class _StageCoverArt extends StatelessWidget {
     final fontSize = roman.length <= 2
         ? 42.0
         : roman.length <= 4
-        ? 34.0
-        : roman.length <= 6
-        ? 26.0
-        : 21.0;
+            ? 34.0
+            : roman.length <= 6
+                ? 26.0
+                : 21.0;
 
     return Container(
       decoration: BoxDecoration(
@@ -361,21 +371,18 @@ class _StageCoverArt extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          // Film perforation holes — top edge
           Positioned(
             top: 0,
             left: 0,
             right: 0,
             child: _FilmEdge(color: accent.withValues(alpha: 0.35)),
           ),
-          // Film perforation holes — bottom edge
           Positioned(
             bottom: 0,
             left: 0,
             right: 0,
             child: _FilmEdge(color: accent.withValues(alpha: 0.35)),
           ),
-          // Center: stage label + Roman numeral
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -384,9 +391,9 @@ class _StageCoverArt extends StatelessWidget {
                   AppL10n.of(context).stageWord,
                   style: TextStyle(
                     fontFamily: AppFonts.mono,
-                    fontSize: 8,
+                    fontSize: 9,
                     fontWeight: FontWeight.w600,
-                    color: accent.withValues(alpha: 0.65),
+                    color: accent.withValues(alpha: 0.75),
                     letterSpacing: 2.5,
                   ),
                 ),
@@ -398,7 +405,7 @@ class _StageCoverArt extends StatelessWidget {
                     fontSize: fontSize,
                     fontWeight: FontWeight.w900,
                     color: accent,
-                    height: 1.0,
+                    height: 1,
                   ),
                 ),
               ],
@@ -410,7 +417,6 @@ class _StageCoverArt extends StatelessWidget {
   }
 }
 
-/// Film strip perforation holes drawn as a row of small circles.
 class _FilmEdge extends StatelessWidget {
   final Color color;
   const _FilmEdge({required this.color});

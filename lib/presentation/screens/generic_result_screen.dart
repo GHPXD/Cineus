@@ -14,42 +14,21 @@ import '../providers/game_actions.dart';
 import '../providers/play_notifier.dart';
 import '../providers/providers.dart';
 import '../widgets/countdown_timer_widget.dart';
-import '../widgets/reward_toast.dart';
 import '../widgets/film_strip_widget.dart';
 import '../widgets/poster_card_widget.dart';
+import '../widgets/reward_toast.dart';
 import '../widgets/share_grid_widget.dart';
 
-/// Which headline the result screen shows.
 enum ResultBadge { win, lose }
 
-/// What differs between the victory and defeat screens.
-///
-/// The two were separate 320-line files that shared the entry animation, the
-/// poster card, the share block, the countdown and the whole navigation footer —
-/// including the "next film" button, which had to be fixed twice when it turned
-/// out to be handing out free stage plays.
 class ResultConfig {
   final bool won;
-
-  /// Which pill headline to show at the top.
   final ResultBadge badgeKey;
-
-  /// Drives the pill, the score colour and the share button.
   final Color accent;
-
-  /// Whether to show the "the film was" label above the poster.
   final bool showRevealLabel;
-
-  final double posterHeight;
-
-  /// Victory shows the big score; defeat shows the film's tagline instead.
   final bool showScore;
   final bool showTagline;
-
-  /// Victory uses a filled share button, defeat an outlined one.
   final bool filledShareButton;
-
-  /// Colours for the stage "next film" button.
   final Color nextFilmColor;
   final Color nextFilmForeground;
 
@@ -57,7 +36,6 @@ class ResultConfig {
     required this.won,
     required this.badgeKey,
     required this.accent,
-    required this.posterHeight,
     this.showRevealLabel = false,
     this.showScore = false,
     this.showTagline = false,
@@ -70,7 +48,6 @@ class ResultConfig {
     won: true,
     badgeKey: ResultBadge.win,
     accent: AppColors.success400,
-    posterHeight: 260,
     showScore: true,
     filledShareButton: true,
     nextFilmColor: AppColors.gold300,
@@ -82,14 +59,12 @@ class ResultConfig {
     badgeKey: ResultBadge.lose,
     accent: AppColors.ruby300,
     showRevealLabel: true,
-    posterHeight: 280,
     showTagline: true,
     nextFilmColor: AppColors.obsidian600,
     nextFilmForeground: Colors.white,
   );
 }
 
-/// Result screen for the clue game, in both outcomes.
 class GenericResultScreen extends ConsumerStatefulWidget {
   final ResultConfig config;
   final VoidCallback onNavigateToStats;
@@ -120,14 +95,21 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     super.initState();
     _ctrl = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 650),
     );
     _fade = CurvedAnimation(parent: _ctrl, curve: Curves.easeOut);
-    _slide = Tween<double>(
-      begin: 30,
-      end: 0,
-    ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOutCubic));
+    _slide = Tween<double>(begin: 22, end: 0).animate(
+      CurvedAnimation(parent: _ctrl, curve: Curves.easeOutCubic),
+    );
     _ctrl.forward();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _ctrl.value = 1;
+    }
   }
 
   @override
@@ -136,23 +118,39 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     super.dispose();
   }
 
-  /// Opens the platform share sheet, falling back to the clipboard.
-  ///
-  /// `share_plus` was a declared dependency with zero imports — the button only
-  /// ever copied text. The fallback matters: the native sheet is unavailable on
-  /// desktop and on browsers without the Web Share API.
-  Future<void> _share(int challengeNumber, int score, int steps) async {
+  Future<void> _shareResult(
+    PlayState state,
+    GameSession session,
+    int steps,
+  ) async {
     final grid = ShareGrid(revealedClues: steps, won: config.won);
+    final gridText = grid.toEmojiGrid();
+    final total = ScoringRules.clue.totalSteps;
     final l10n = context.l10n;
-    final text = config.won
-        ? l10n.shareWin(
-            '$challengeNumber',
-            steps,
-            ScoringRules.clue.totalSteps,
-            score,
-            grid.toEmojiGrid(),
-          )
-        : l10n.shareLose('$challengeNumber', grid.toEmojiGrid());
+
+    final text = switch (session.kind) {
+      SessionKind.daily => config.won
+          ? l10n.shareWin(
+              '${state.challengeNumber}',
+              steps,
+              total,
+              session.score,
+              gridText,
+            )
+          : l10n.shareLose('${state.challengeNumber}', gridText),
+      SessionKind.stage => config.won
+          ? l10n.shareStageWin(
+              session.stageId,
+              steps,
+              total,
+              session.score,
+              gridText,
+            )
+          : l10n.shareStageLose(session.stageId, gridText),
+      SessionKind.challenge => config.won
+          ? l10n.shareFriendWin(steps, total, session.score, gridText)
+          : l10n.shareFriendLose(gridText),
+    };
 
     var shared = false;
     try {
@@ -165,7 +163,6 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     }
 
     if (!mounted) return;
-
     if (!shared) {
       await Clipboard.setData(ClipboardData(text: text));
       if (!mounted) return;
@@ -177,8 +174,9 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
           shared ? context.l10n.resultShared : context.l10n.resultCopied,
           style: AppTypography.bodySmall.copyWith(color: Colors.white),
         ),
-        backgroundColor: (config.won ? AppColors.success500 : AppColors.ruby300)
-            .withValues(alpha: 0.9),
+        backgroundColor:
+            (config.won ? AppColors.success500 : AppColors.ruby300)
+                .withValues(alpha: 0.92),
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         duration: const Duration(seconds: 2),
@@ -186,17 +184,11 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     );
   }
 
-  /// Shares the film just played as a challenge (D10).
-  ///
-  /// Only offered after the game is over — sharing a film mid-play would leak the
-  /// answer to the sender's own session.
   Future<void> _shareChallenge(int movieId) async {
-    final l10n = context.l10n;
-    final text = l10n.challengeShareText(
+    final text = context.l10n.challengeShareText(
       ChallengeCode.encode(movieId),
       ChallengeCode.linkFor(movieId).toString(),
     );
-
     try {
       await SharePlus.instance.share(
         ShareParams(text: text, subject: 'Cineus'),
@@ -208,9 +200,6 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
         SnackBar(
           content: Text(context.l10n.resultCopied),
           behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
         ),
       );
     }
@@ -231,104 +220,119 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
       );
     }
 
-    // On a loss the whole board is spent, so the grid shows every step used.
-    final gridSteps = config.won
-        ? session.revealedClues
-        : state.rules.totalSteps;
+    final gridSteps =
+        config.won ? session.revealedClues : state.rules.totalSteps;
 
     return RewardToast(
       child: Scaffold(
         backgroundColor: AppColors.obsidian950,
-        body: AnimatedBuilder(
-          animation: _ctrl,
-          builder: (context, child) => Opacity(
-            opacity: _fade.value,
-            child: Transform.translate(
-              offset: Offset(0, _slide.value),
-              child: child,
-            ),
-          ),
-          child: SafeArea(
-            child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-              children: [
-                const FilmStrip(),
-                const SizedBox(height: 20),
-                _buildBadge(),
-                const SizedBox(height: 20),
-
-                if (config.showScore) ...[
-                  _buildScore(context, session.score),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: Text(
-                      context.l10n.gotItOnClue(session.revealedClues),
-                      style: AppTypography.bodyMedium.copyWith(
-                        color: AppColors.obsidian200,
+        body: SafeArea(
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 620),
+              child: AnimatedBuilder(
+                animation: _ctrl,
+                builder: (context, child) => Opacity(
+                  opacity: _fade.value,
+                  child: Transform.translate(
+                    offset: Offset(0, _slide.value),
+                    child: child,
+                  ),
+                ),
+                child: ListView(
+                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 36),
+                  children: [
+                    const FilmStrip(),
+                    const SizedBox(height: 20),
+                    _contextPill(state, session),
+                    const SizedBox(height: 12),
+                    _buildBadge(),
+                    const SizedBox(height: 20),
+                    if (config.showScore) ...[
+                      _buildScore(session.score),
+                      const SizedBox(height: 8),
+                      Text(
+                        context.l10n.gotItOnClue(session.revealedClues),
+                        textAlign: TextAlign.center,
+                        style: AppTypography.bodyMedium.copyWith(
+                          color: AppColors.textSecondary,
+                        ),
+                      ),
+                      const SizedBox(height: 22),
+                    ],
+                    if (config.showRevealLabel) ...[
+                      Text(
+                        context.l10n.theMovieWas,
+                        textAlign: TextAlign.center,
+                        style: AppTypography.overline.copyWith(
+                          color: AppColors.textTertiary,
+                          letterSpacing: 3,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+                    Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 270),
+                        child: PosterCard(movie: movie),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 24),
-                ],
-
-                if (config.showRevealLabel) ...[
-                  Center(
-                    child: Text(
-                      context.l10n.theMovieWas,
-                      style: AppTypography.overline.copyWith(
-                        color: AppColors.textTertiary,
-                        letterSpacing: 3,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                ],
-
-                PosterCard(movie: movie, height: config.posterHeight),
-
-                if (config.showTagline &&
-                    movie.tagline != null &&
-                    movie.tagline!.isNotEmpty) ...[
-                  const SizedBox(height: 12),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: Text(
-                        '"${movie.tagline}"',
+                    if (config.showTagline &&
+                        movie.tagline != null &&
+                        movie.tagline!.isNotEmpty) ...[
+                      const SizedBox(height: 12),
+                      Text(
+                        '“${movie.tagline}”',
                         textAlign: TextAlign.center,
                         style: AppTypography.bodySmall.copyWith(
                           fontStyle: FontStyle.italic,
-                          color: AppColors.obsidian200,
+                          color: AppColors.textSecondary,
                         ),
                       ),
+                    ],
+                    const SizedBox(height: 24),
+                    _buildShareBlock(state, session, gridSteps),
+                    if (session.isDaily) ...[
+                      const SizedBox(height: 24),
+                      const CountdownTimer(),
+                    ],
+                    const SizedBox(height: 20),
+                    _buildNavigation(state),
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 48,
+                      child: OutlinedButton.icon(
+                        onPressed: () => _shareChallenge(movie.id),
+                        icon: const Icon(
+                          Icons.emoji_events_outlined,
+                          size: 18,
+                        ),
+                        label: Text(context.l10n.challengeShareButton),
+                      ),
                     ),
-                  ),
-                ],
-                const SizedBox(height: 24),
-
-                _buildShareBlock(state.challengeNumber, session, gridSteps),
-                const SizedBox(height: 24),
-
-                const CountdownTimer(),
-                const SizedBox(height: 20),
-
-                _buildNavigation(state),
-                const SizedBox(height: 12),
-
-                // Send this film to a friend (D10)
-                SizedBox(
-                  width: double.infinity,
-                  height: 48,
-                  child: OutlinedButton.icon(
-                    onPressed: () => _shareChallenge(movie.id),
-                    icon: const Icon(Icons.emoji_events_outlined, size: 18),
-                    label: Text(context.l10n.challengeShareButton),
-                  ),
+                  ],
                 ),
-                const SizedBox(height: 32),
-              ],
+              ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _contextPill(PlayState state, GameSession session) {
+    final label = switch (session.kind) {
+      SessionKind.daily => '${context.l10n.dailyChallengeLabel} #${state.challengeNumber}',
+      SessionKind.stage => context.l10n.stageNumber('${session.stageId}'),
+      SessionKind.challenge => context.l10n.challengeBadge,
+    };
+    return Center(
+      child: Text(
+        label,
+        style: AppTypography.monoSmall.copyWith(
+          color: AppColors.textTertiary,
+          letterSpacing: 1,
         ),
       ),
     );
@@ -356,42 +360,33 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
     );
   }
 
-  Widget _buildScore(BuildContext context, int score) {
+  Widget _buildScore(int score) {
     final scoreColor = AppColors.scoreColor(score);
-    return Center(
-      child: Column(
-        children: [
-          ShaderMask(
-            shaderCallback: (bounds) => LinearGradient(
-              colors: [scoreColor, scoreColor.withValues(alpha: 0.7)],
-            ).createShader(bounds),
-            child: Text(
-              '$score',
-              style: AppTypography.scoreLarge.copyWith(
-                color: Colors.white,
-                fontSize: 80,
-              ),
-            ),
+    return Column(
+      children: [
+        Text(
+          '$score',
+          style: AppTypography.scoreLarge.copyWith(
+            color: scoreColor,
+            fontSize: 76,
           ),
-          Text(
-            context.l10n.scorePoints,
-            style: AppTypography.overline.copyWith(
-              color: scoreColor.withValues(alpha: 0.7),
-              letterSpacing: 4,
-            ),
+        ),
+        Text(
+          context.l10n.scorePoints,
+          style: AppTypography.overline.copyWith(
+            color: scoreColor,
+            letterSpacing: 4,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _buildShareBlock(
-    int challengeNumber,
+    PlayState state,
     GameSession session,
     int gridSteps,
   ) {
-    Future<void> onShare() => _share(challengeNumber, session.score, gridSteps);
-
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -415,20 +410,12 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
             width: double.infinity,
             child: config.filledShareButton
                 ? ElevatedButton.icon(
-                    onPressed: onShare,
+                    onPressed: () => _shareResult(state, session, gridSteps),
                     icon: const Icon(Icons.share_rounded, size: 18),
                     label: Text(context.l10n.share),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.gold300,
-                      foregroundColor: AppColors.obsidian900,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(999),
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                    ),
                   )
                 : OutlinedButton.icon(
-                    onPressed: onShare,
+                    onPressed: () => _shareResult(state, session, gridSteps),
                     icon: const Icon(Icons.share_rounded, size: 18),
                     label: Text(context.l10n.share),
                   ),
@@ -439,108 +426,127 @@ class _GenericResultScreenState extends ConsumerState<GenericResultScreen>
   }
 
   Widget _buildNavigation(PlayState state) {
+    final session = state.session!;
     final nextMovieId = _nextMovieInStage(state);
-    final posterAsync = ref.watch(dailySessionProvider(GameMode.poster));
-    final showPosterButton =
-        !state.isStage && posterAsync.valueOrNull?.isFinished != true;
     final hasTickets = ref.watch(ticketNotifierProvider).hasTickets;
+    final poster = ref.watch(dailySessionProvider(GameMode.poster)).valueOrNull;
+
+    if (session.isStage) {
+      return Column(
+        children: [
+          if (nextMovieId != null) ...[
+            SizedBox(
+              width: double.infinity,
+              height: 52,
+              child: ElevatedButton.icon(
+                onPressed: hasTickets
+                    ? () async {
+                        final started = await startFilmWithTicket(
+                          ref,
+                          () => ref
+                              .read(clueGameProvider.notifier)
+                              .loadStageFilm(
+                                nextMovieId,
+                                state.stageId!,
+                                state.stageMovieIds,
+                              ),
+                        );
+                        if (!started || !mounted) return;
+                        context.go('/game?source=stage');
+                      }
+                    : null,
+                icon: const Icon(Icons.arrow_forward_rounded, size: 18),
+                label: Text(
+                  hasTickets
+                      ? context.l10n.nextFilmCost
+                      : context.l10n.noTicketsForNext,
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: config.nextFilmColor,
+                  foregroundColor: config.nextFilmForeground,
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+          ],
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: () => context.go('/stages/${state.stageId}'),
+              icon: const Icon(Icons.grid_view_rounded, size: 18),
+              label: Text(context.l10n.backToStages),
+            ),
+          ),
+        ],
+      );
+    }
+
+    if (session.isDaily) {
+      final posterFinished = poster?.isFinished == true;
+      return Column(
+        children: [
+          if (!posterFinished) ...[
+            SizedBox(
+              width: double.infinity,
+              height: 52,
+              child: ElevatedButton.icon(
+                onPressed: () => context.push('/visual/play?source=daily'),
+                icon: const Icon(Icons.image_search_rounded, size: 18),
+                label: Text(context.l10n.playPosterArrow),
+              ),
+            ),
+            const SizedBox(height: 10),
+          ],
+          _secondaryNavigation(),
+        ],
+      );
+    }
 
     return Column(
       children: [
-        if (showPosterButton) ...[
-          SizedBox(
-            width: double.infinity,
-            height: 52,
-            child: ElevatedButton.icon(
-              onPressed: () => context.push('/visual/play'),
-              icon: const Icon(
-                Icons.image_search_rounded,
-                size: 18,
-                color: AppColors.obsidian900,
-              ),
-              label: Text(context.l10n.playPosterArrow),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.gold300,
-                foregroundColor: AppColors.obsidian900,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(999),
-                ),
-                padding: const EdgeInsets.symmetric(vertical: 14),
-              ),
-            ),
+        SizedBox(
+          width: double.infinity,
+          child: OutlinedButton.icon(
+            onPressed: widget.onNavigateHome,
+            icon: const Icon(Icons.home_rounded, size: 18),
+            label: Text(context.l10n.backHome),
           ),
-          const SizedBox(height: 12),
-        ],
-        if (nextMovieId != null) ...[
-          SizedBox(
-            width: double.infinity,
-            height: 52,
-            child: ElevatedButton.icon(
-              // Starting the next film costs a ticket, same as launching it from
-              // the stage list.
-              onPressed: hasTickets
-                  ? () async {
-                      final started = await startFilmWithTicket(
-                        ref,
-                        () => ref
-                            .read(clueGameProvider.notifier)
-                            .loadStageFilm(
-                              nextMovieId,
-                              state.stageId!,
-                              state.stageMovieIds,
-                            ),
-                      );
-                      // `mounted` on the State: `context` here is State.context.
-                      if (!started || !mounted) return;
-                      context.go('/game');
-                    }
-                  : null,
-              icon: Icon(
-                Icons.arrow_forward_rounded,
-                size: 18,
-                color: config.nextFilmForeground,
-              ),
-              label: Text(
-                hasTickets
-                    ? context.l10n.nextFilmCost
-                    : context.l10n.noTicketsForNext,
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: config.nextFilmColor,
-                foregroundColor: config.nextFilmForeground,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(999),
-                ),
-                padding: const EdgeInsets.symmetric(vertical: 14),
-              ),
-            ),
+        ),
+        const SizedBox(height: 10),
+        SizedBox(
+          width: double.infinity,
+          child: OutlinedButton.icon(
+            onPressed: widget.onNavigateToStats,
+            icon: const Icon(Icons.bar_chart_rounded, size: 18),
+            label: Text(context.l10n.statsTitle),
           ),
-          const SizedBox(height: 12),
-        ],
-        Row(
-          children: [
-            Expanded(
-              child: OutlinedButton.icon(
-                onPressed: widget.onNavigateToStats,
-                icon: const Icon(Icons.bar_chart_rounded, size: 18),
-                label: Text(context.l10n.statsTitle),
-              ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: OutlinedButton.icon(
-                onPressed: widget.onNavigateHome,
-                icon: const Icon(Icons.home_rounded, size: 18),
-                label: Text(context.l10n.navHome),
-              ),
-            ),
-          ],
         ),
       ],
     );
   }
 
-  /// Next film after the current one in the stage order, if any.
+  Widget _secondaryNavigation() {
+    return Row(
+      children: [
+        Expanded(
+          child: OutlinedButton.icon(
+            onPressed: widget.onNavigateToStats,
+            icon: const Icon(Icons.bar_chart_rounded, size: 18),
+            label: Text(context.l10n.statsTitle),
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: OutlinedButton.icon(
+            onPressed: widget.onNavigateHome,
+            icon: const Icon(Icons.home_rounded, size: 18),
+            label: Text(context.l10n.navHome),
+          ),
+        ),
+      ],
+    );
+  }
+
   static int? _nextMovieInStage(PlayState state) {
     if (!state.isStage || state.movie == null || state.stageMovieIds.isEmpty) {
       return null;

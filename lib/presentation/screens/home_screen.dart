@@ -10,11 +10,12 @@ import '../../core/theme/app_typography.dart';
 import '../../core/utils/daily_selector.dart';
 import '../../domain/entities/game_session.dart';
 import '../../domain/entities/player_tickets.dart';
-import '../providers/providers.dart';
 import '../l10n_mappers.dart';
+import '../providers/providers.dart';
 import '../providers/stats_notifier.dart';
 import '../widgets/reward_toast.dart';
 import '../widgets/streak_recovery_card.dart';
+import '../widgets/tap_target.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -27,15 +28,20 @@ class HomeScreen extends ConsumerWidget {
       child: Scaffold(
         backgroundColor: AppColors.obsidian950,
         body: SafeArea(
-          child: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(child: _buildHeader(context, tickets)),
-              SliverToBoxAdapter(child: _buildDailyCard(context, ref)),
-              const SliverToBoxAdapter(child: StreakRecoveryCard()),
-              SliverToBoxAdapter(child: _buildStatsRow(context, ref)),
-              SliverToBoxAdapter(child: _buildQuickActions(context)),
-              const SliverToBoxAdapter(child: SizedBox(height: 24)),
-            ],
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 760),
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(child: _buildHeader(context, tickets)),
+                  SliverToBoxAdapter(child: _buildDailyCard(context, ref)),
+                  const SliverToBoxAdapter(child: StreakRecoveryCard()),
+                  SliverToBoxAdapter(child: _buildStatsRow(context, ref)),
+                  SliverToBoxAdapter(child: _buildQuickActions(context)),
+                  const SliverToBoxAdapter(child: SizedBox(height: 28)),
+                ],
+              ),
+            ),
           ),
         ),
       ),
@@ -44,27 +50,41 @@ class HomeScreen extends ConsumerWidget {
 
   Widget _buildHeader(BuildContext context, PlayerTickets tickets) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+      padding: const EdgeInsets.fromLTRB(20, 16, 12, 0),
       child: Row(
         children: [
-          Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text: 'Cineus',
-                  style: TextStyle(
-                    fontFamily: AppFonts.playfair,
-                    fontSize: 28,
-                    fontWeight: FontWeight.w700,
-                    fontStyle: FontStyle.italic,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+          Text(
+            'Cineus',
+            style: TextStyle(
+              fontFamily: AppFonts.playfair,
+              fontSize: 28,
+              fontWeight: FontWeight.w700,
+              fontStyle: FontStyle.italic,
+              color: Colors.white,
             ),
           ),
           const Spacer(),
           _TicketBadge(tickets: tickets),
+          const SizedBox(width: 4),
+          TapTarget(
+            label: context.l10n.settingsTitle,
+            onTap: () => context.push('/settings'),
+            child: Container(
+              width: 36,
+              height: 36,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: AppColors.obsidian800,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.obsidian700),
+              ),
+              child: const Icon(
+                Icons.settings_outlined,
+                size: 19,
+                color: AppColors.textSecondary,
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -73,44 +93,15 @@ class HomeScreen extends ConsumerWidget {
   Widget _buildDailyCard(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     final challengeNum = DailySelector.challengeNumber();
-
-    // ── Clue game state (read from DB, independent of current game mode) ─────
     final clueAsync = ref.watch(dailySessionProvider(GameMode.clue));
-    final clueSession = clueAsync.valueOrNull;
-    final isClueInProgress = clueSession != null && !clueSession.isFinished;
-    final isCluesDone = clueSession != null && clueSession.isFinished;
-    final cluesWon = isCluesDone && clueSession.status == GameStatus.won;
-
-    // ── Poster game state ────────────────────────────────────────────────────
     final posterAsync = ref.watch(dailySessionProvider(GameMode.poster));
+    final clueSession = clueAsync.valueOrNull;
     final posterSession = posterAsync.valueOrNull;
-    final isPosterDone = posterSession != null && posterSession.isFinished;
-    final posterWon = isPosterDone && posterSession.status == GameStatus.won;
-
-    // ── Button state ─────────────────────────────────────────────────────────
-    final bothDone = isCluesDone && isPosterDone;
-    String? buttonLabel;
-    VoidCallback? buttonAction;
-    IconData? buttonIcon;
-
-    if (!bothDone) {
-      if (isCluesDone) {
-        buttonLabel = l10n.playPoster;
-        buttonIcon = Icons.image_search_rounded;
-        buttonAction = () => context.push('/visual/play');
-      } else if (isClueInProgress) {
-        buttonLabel = l10n.continueClues;
-        buttonIcon = Icons.play_circle_outline_rounded;
-        buttonAction = () => context.push('/game');
-      } else {
-        buttonLabel = l10n.playChallenge;
-        buttonIcon = Icons.play_circle_outline_rounded;
-        buttonAction = () => context.push('/game');
-      }
-    }
+    final bothDone = clueSession?.isFinished == true &&
+        posterSession?.isFinished == true;
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 24, 20, 0),
+      padding: const EdgeInsets.fromLTRB(20, 22, 20, 0),
       child: Container(
         decoration: BoxDecoration(
           gradient: const LinearGradient(
@@ -118,20 +109,19 @@ class HomeScreen extends ConsumerWidget {
             end: Alignment.bottomRight,
             colors: [AppColors.obsidian700, AppColors.obsidian800],
           ),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(22),
           border: Border.all(color: AppColors.obsidian600),
         ),
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ── Header ───────────────────────────────────────────────────────
             Row(
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 10,
-                    vertical: 4,
+                    vertical: 5,
                   ),
                   decoration: BoxDecoration(
                     color: AppColors.gold300.withValues(alpha: 0.15),
@@ -145,7 +135,6 @@ class HomeScreen extends ConsumerWidget {
                     style: AppTypography.labelSmall.copyWith(
                       color: AppColors.gold300,
                       letterSpacing: 1.2,
-                      fontSize: 10,
                     ),
                   ),
                 ),
@@ -159,84 +148,48 @@ class HomeScreen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: 16),
-
-            // ── Status rows ───────────────────────────────────────────────────
-            _DailyStatusRow(
+            _DailyModeTile(
               icon: '🎬',
               label: l10n.modeClues,
-              isDone: isCluesDone,
-              isInProgress: isClueInProgress,
-              isWon: cluesWon,
-              score: clueSession?.score,
+              session: clueSession,
+              isLoading: clueAsync.isLoading,
+              onTap: () => context.push('/game?source=daily'),
+              playLabel: l10n.playChallenge,
+              continueLabel: l10n.continueClues,
             ),
-            const SizedBox(height: 8),
-            _DailyStatusRow(
+            const SizedBox(height: 10),
+            _DailyModeTile(
               icon: '🖼️',
               label: l10n.modePoster,
-              isDone: isPosterDone,
-              isInProgress: false,
-              isWon: posterWon,
-              score: posterSession?.score,
+              session: posterSession,
+              isLoading: posterAsync.isLoading,
+              onTap: () => context.push('/visual/play?source=daily'),
+              playLabel: l10n.playPoster,
+              continueLabel: l10n.continuePoster,
             ),
-            const SizedBox(height: 16),
-
-            // ── Action button / completed badge ───────────────────────────────
-            if (bothDone)
+            if (bothDone) ...[
+              const SizedBox(height: 12),
               Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 12),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 decoration: BoxDecoration(
-                  color: AppColors.success400.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(14),
+                  color: AppColors.success400.withValues(alpha: 0.08),
+                  borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: AppColors.success400.withValues(alpha: 0.3),
+                    color: AppColors.success400.withValues(alpha: 0.25),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('🎉', style: TextStyle(fontSize: 16)),
-                    const SizedBox(width: 8),
-                    Text(
-                      l10n.dailyDone,
-                      style: AppTypography.labelLarge.copyWith(
-                        color: AppColors.success400,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            else
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton.icon(
-                  onPressed: buttonAction,
-                  icon: Icon(
-                    buttonIcon,
-                    size: 18,
-                    color: AppColors.obsidian900,
-                  ),
-                  label: Text(
-                    buttonLabel ?? '',
-                    style: AppTypography.labelLarge.copyWith(
-                      color: AppColors.obsidian900,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.gold300,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(999),
-                    ),
-                    elevation: 0,
+                child: Text(
+                  '🎉  ${l10n.dailyDone}',
+                  textAlign: TextAlign.center,
+                  style: AppTypography.labelLarge.copyWith(
+                    color: AppColors.success400,
+                    fontSize: 13,
                   ),
                 ),
               ),
+            ],
             const SizedBox(height: 14),
-
-            // ── Countdown ─────────────────────────────────────────────────────
             const _LiveCountdown(),
           ],
         ),
@@ -246,22 +199,44 @@ class HomeScreen extends ConsumerWidget {
 
   Widget _buildStatsRow(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
-    final statsState = ref.watch(statsNotifierProvider);
+    final state = ref.watch(statsNotifierProvider);
+    final stats = state.stats;
 
-    if (statsState.isLoading) return const SizedBox(height: 80);
-    final stats = statsState.stats;
+    if (state.isLoading && stats.totalGames == 0) {
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+        child: Row(
+          children: List.generate(
+            3,
+            (i) => Expanded(
+              child: Container(
+                height: 72,
+                margin: EdgeInsets.only(left: i == 0 ? 0 : 10),
+                decoration: BoxDecoration(
+                  color: AppColors.obsidian800,
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: AppColors.obsidian700),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
       child: Row(
         children: [
           _StatCard(value: '${stats.totalGames}', label: l10n.statPlayed),
-          const SizedBox(width: 12),
+          const SizedBox(width: 10),
           _StatCard(
-            value: '${(stats.winRate * 100).round()}%',
+            value: stats.totalGames == 0
+                ? '—'
+                : '${(stats.winRate * 100).round()}%',
             label: l10n.statWins,
           ),
-          const SizedBox(width: 12),
+          const SizedBox(width: 10),
           _StatCard(value: '${stats.currentStreak}🔥', label: l10n.statStreak),
         ],
       ),
@@ -272,25 +247,140 @@ class HomeScreen extends ConsumerWidget {
     final l10n = context.l10n;
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-      child: Row(
-        children: [
-          Expanded(
-            child: _ActionTile(
-              icon: Icons.movie_filter_rounded,
-              title: l10n.quickActionStages,
-              subtitle: l10n.quickActionStagesSub,
-              onTap: () => context.go('/stages'),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final actions = [
+            _ActionTile(
+              icon: Icons.emoji_events_outlined,
+              title: l10n.challengeOpenTitle,
+              subtitle: l10n.quickActionChallengeSub,
+              onTap: () => context.push('/challenge-entry'),
             ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: _ActionTile(
+            _ActionTile(
               icon: Icons.bar_chart_rounded,
               title: l10n.statsTitle,
               subtitle: l10n.quickActionStatsSub,
               onTap: () => context.push('/stats'),
             ),
+          ];
+          if (constraints.maxWidth < 390) {
+            return Column(
+              children: [
+                actions[0],
+                const SizedBox(height: 10),
+                actions[1],
+              ],
+            );
+          }
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(child: actions[0]),
+              const SizedBox(width: 12),
+              Expanded(child: actions[1]),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _DailyModeTile extends StatelessWidget {
+  final String icon;
+  final String label;
+  final GameSession? session;
+  final bool isLoading;
+  final VoidCallback onTap;
+  final String playLabel;
+  final String continueLabel;
+
+  const _DailyModeTile({
+    required this.icon,
+    required this.label,
+    required this.session,
+    required this.isLoading,
+    required this.onTap,
+    required this.playLabel,
+    required this.continueLabel,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    final done = session?.isFinished == true;
+    final inProgress = session != null && !session!.isFinished;
+    final won = session?.status == GameStatus.won;
+
+    final status = done
+        ? won
+            ? l10n.scoreWithCheck(session?.score ?? 0)
+            : l10n.notThisTimeSkull
+        : inProgress
+            ? l10n.inProgressEllipsis
+            : l10n.notPlayedToday;
+    final statusColor = done
+        ? won
+            ? AppColors.success400
+            : AppColors.ruby300
+        : inProgress
+            ? AppColors.gold300
+            : AppColors.textTertiary;
+
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: Colors.black.withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.07)),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 42,
+            height: 42,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: AppColors.obsidian700,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Text(icon, style: const TextStyle(fontSize: 20)),
           ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(label, style: AppTypography.labelLarge),
+                const SizedBox(height: 2),
+                Text(
+                  isLoading && session == null ? '…' : status,
+                  style: AppTypography.bodySmall.copyWith(
+                    color: statusColor,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          if (!done)
+            SizedBox(
+              height: 42,
+              child: ElevatedButton(
+                onPressed: isLoading ? null : onTap,
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  textStyle: AppTypography.labelSmall.copyWith(fontSize: 12),
+                ),
+                child: Text(inProgress ? continueLabel : playLabel),
+              ),
+            )
+          else
+            const Icon(
+              Icons.check_circle_rounded,
+              color: AppColors.success400,
+              size: 24,
+            ),
         ],
       ),
     );
@@ -304,32 +394,38 @@ class _TicketBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isEmpty = !tickets.hasTickets;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      decoration: BoxDecoration(
-        color: isEmpty
-            ? AppColors.ruby900.withValues(alpha: 0.5)
-            : AppColors.gold900.withValues(alpha: 0.6),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
+    return Semantics(
+      label: context.l10n.semTicketBalance(tickets.total),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 6),
+        decoration: BoxDecoration(
           color: isEmpty
-              ? AppColors.ruby300.withValues(alpha: 0.4)
-              : AppColors.gold300.withValues(alpha: 0.4),
-        ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text('🎫', style: const TextStyle(fontSize: 14)),
-          const SizedBox(width: 5),
-          Text(
-            context.l10n.tickets(tickets.total, PlayerTickets.maxDailyTickets),
-            style: AppTypography.monoSmall.copyWith(
-              color: isEmpty ? AppColors.ruby300 : AppColors.gold300,
-              fontWeight: FontWeight.w700,
-            ),
+              ? AppColors.ruby900.withValues(alpha: 0.5)
+              : AppColors.gold900.withValues(alpha: 0.6),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: isEmpty
+                ? AppColors.ruby300.withValues(alpha: 0.4)
+                : AppColors.gold300.withValues(alpha: 0.4),
           ),
-        ],
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('🎫', style: TextStyle(fontSize: 14)),
+            const SizedBox(width: 5),
+            Text(
+              context.l10n.tickets(
+                tickets.total,
+                PlayerTickets.maxDailyTickets,
+              ),
+              style: AppTypography.monoSmall.copyWith(
+                color: isEmpty ? AppColors.ruby300 : AppColors.gold300,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -344,7 +440,7 @@ class _StatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 14),
+        padding: const EdgeInsets.symmetric(vertical: 13),
         decoration: BoxDecoration(
           color: AppColors.obsidian800,
           borderRadius: BorderRadius.circular(14),
@@ -356,6 +452,7 @@ class _StatCard extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               label,
+              textAlign: TextAlign.center,
               style: AppTypography.labelSmall.copyWith(
                 color: AppColors.textSecondary,
                 fontSize: 10,
@@ -373,6 +470,7 @@ class _ActionTile extends StatelessWidget {
   final String title;
   final String subtitle;
   final VoidCallback onTap;
+
   const _ActionTile({
     required this.icon,
     required this.title,
@@ -385,14 +483,14 @@ class _ActionTile extends StatelessWidget {
     return Semantics(
       button: true,
       label: '$title. $subtitle',
-      // Declared here too: `excludeSemantics` drops the GestureDetector's own
-      // tap action, leaving a button a screen reader cannot activate.
       onTap: onTap,
       excludeSemantics: true,
-      child: GestureDetector(
+      child: InkWell(
         onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: const EdgeInsets.all(16),
+          constraints: const BoxConstraints(minHeight: 76),
+          padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
             color: AppColors.obsidian800,
             borderRadius: BorderRadius.circular(16),
@@ -405,19 +503,20 @@ class _ActionTile extends StatelessWidget {
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(title, style: AppTypography.labelLarge),
                     Text(
                       subtitle,
                       style: AppTypography.bodySmall.copyWith(
                         color: AppColors.textSecondary,
-                        fontSize: 11,
+                        fontSize: 12,
                       ),
                     ),
                   ],
                 ),
               ),
-              Icon(
+              const Icon(
                 Icons.chevron_right_rounded,
                 color: AppColors.textTertiary,
                 size: 18,
@@ -430,68 +529,6 @@ class _ActionTile extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Daily mode row (used inside the daily card for each game type)
-// ─────────────────────────────────────────────────────────────────────────────
-
-class _DailyStatusRow extends StatelessWidget {
-  final String icon;
-  final String label;
-  final bool isDone;
-  final bool isInProgress;
-  final bool isWon;
-  final int? score;
-
-  const _DailyStatusRow({
-    required this.icon,
-    required this.label,
-    required this.isDone,
-    required this.isInProgress,
-    required this.isWon,
-    this.score,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = context.l10n;
-    String statusText;
-    Color statusColor;
-
-    if (isDone) {
-      statusText = isWon
-          ? l10n.scoreWithCheck(score ?? 0)
-          : l10n.notThisTimeSkull;
-      statusColor = isWon ? AppColors.success400 : AppColors.ruby300;
-    } else if (isInProgress) {
-      statusText = l10n.inProgressEllipsis;
-      statusColor = AppColors.gold300;
-    } else {
-      statusText = l10n.notPlayedToday;
-      statusColor = AppColors.obsidian400;
-    }
-
-    return Row(
-      children: [
-        Text(icon, style: const TextStyle(fontSize: 20)),
-        const SizedBox(width: 10),
-        Text(label, style: AppTypography.labelLarge),
-        const Spacer(),
-        Text(
-          statusText,
-          style: AppTypography.bodySmall.copyWith(
-            fontSize: 11,
-            color: statusColor,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Live countdown to next daily challenge
-// ─────────────────────────────────────────────────────────────────────────────
-
 class _LiveCountdown extends StatefulWidget {
   const _LiveCountdown();
 
@@ -500,15 +537,15 @@ class _LiveCountdown extends StatefulWidget {
 }
 
 class _LiveCountdownState extends State<_LiveCountdown> {
-  late Timer _timer;
+  late final Timer _timer;
   Duration _remaining = DailySelector.timeUntilNextChallenge();
 
   @override
   void initState() {
     super.initState();
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-      final r = DailySelector.timeUntilNextChallenge();
-      if (mounted) setState(() => _remaining = r);
+      final remaining = DailySelector.timeUntilNextChallenge();
+      if (mounted) setState(() => _remaining = remaining);
     });
   }
 
@@ -526,16 +563,22 @@ class _LiveCountdownState extends State<_LiveCountdown> {
 
     return Row(
       children: [
-        Icon(Icons.timer_outlined, size: 14, color: AppColors.textSecondary),
-        const SizedBox(width: 4),
-        Text(
-          context.l10n.nextChallengeCountdown(
-            '$h',
-            m.toString().padLeft(2, '0'),
-            s.toString().padLeft(2, '0'),
-          ),
-          style: AppTypography.bodySmall.copyWith(
-            color: AppColors.textSecondary,
+        const Icon(
+          Icons.timer_outlined,
+          size: 15,
+          color: AppColors.textSecondary,
+        ),
+        const SizedBox(width: 5),
+        Expanded(
+          child: Text(
+            context.l10n.nextChallengeCountdown(
+              '$h',
+              m.toString().padLeft(2, '0'),
+              s.toString().padLeft(2, '0'),
+            ),
+            style: AppTypography.bodySmall.copyWith(
+              color: AppColors.textSecondary,
+            ),
           ),
         ),
       ],
