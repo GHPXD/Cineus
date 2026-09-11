@@ -8,27 +8,37 @@ abstract final class DailySelector {
     return today.difference(AppConstants.challengeEpoch).inDays + 1;
   }
 
-  /// Returns the movie ID for a given date deterministically.
-  /// All users get the same movie for the same date.
-  static int movieIdForDate(int totalMovies, [DateTime? date]) {
+  /// Deterministic zero-based catalogue position for the clue challenge.
+  static int movieIndexForDate(int totalMovies, [DateTime? date]) {
+    if (totalMovies <= 0) {
+      throw ArgumentError.value(totalMovies, 'totalMovies', 'must be positive');
+    }
     final day = challengeNumber(date);
     final hash = (day * AppConstants.dailyHashConstant) & 0xFFFFFFFF;
-    return (hash % totalMovies) + 1;
+    return hash % totalMovies;
   }
 
-  /// Returns the poster-mode movie ID for a given date.
-  /// Uses a different hash constant than [movieIdForDate] so the two daily
-  /// challenges always feature different movies.
-  static int posterMovieIdForDate(int totalMovies, [DateTime? date]) {
+  /// Deterministic zero-based catalogue position for the poster challenge.
+  static int posterMovieIndexForDate(int totalMovies, [DateTime? date]) {
+    if (totalMovies <= 0) {
+      throw ArgumentError.value(totalMovies, 'totalMovies', 'must be positive');
+    }
     final day = challengeNumber(date);
     final hash = (day * AppConstants.posterHashConstant) & 0xFFFFFFFF;
-    var id = (hash % totalMovies) + 1;
-    // Guarantee it differs from the clue-game movie for the same day.
-    if (id == movieIdForDate(totalMovies, date)) {
-      id = (id % totalMovies) + 1;
+    var index = hash % totalMovies;
+    if (totalMovies > 1 && index == movieIndexForDate(totalMovies, date)) {
+      index = (index + 1) % totalMovies;
     }
-    return id;
+    return index;
   }
+
+  /// Compatibility helper for callers/tests using a contiguous 1-based catalog.
+  static int movieIdForDate(int totalMovies, [DateTime? date]) =>
+      movieIndexForDate(totalMovies, date) + 1;
+
+  /// Compatibility helper for callers/tests using a contiguous 1-based catalog.
+  static int posterMovieIdForDate(int totalMovies, [DateTime? date]) =>
+      posterMovieIndexForDate(totalMovies, date) + 1;
 
   /// Returns today's date string in YYYY-MM-DD format (UTC day).
   static String todayKey([DateTime? date]) {
@@ -37,7 +47,6 @@ abstract final class DailySelector {
   }
 
   /// Parses a `YYYY-MM-DD` key produced by [todayKey] back into a UTC date.
-  /// Returns null when [key] is not a plain daily key (e.g. `stage_1_5`).
   static DateTime? dateFromKey(String key) {
     if (!isDailyKey(key)) return null;
     return DateTime.utc(
@@ -47,16 +56,11 @@ abstract final class DailySelector {
     );
   }
 
-  /// True when [key] is a plain daily-challenge key (`YYYY-MM-DD`) rather than
-  /// one of the prefixed keys used by the other game modes.
   static bool isDailyKey(String key) => _dailyKeyPattern.hasMatch(key);
 
   static final RegExp _dailyKeyPattern = RegExp(r'^\d{4}-\d{2}-\d{2}$');
 
-  /// Returns time remaining until the next challenge, i.e. until midnight UTC.
-  ///
-  /// Must stay in UTC to match [todayKey]: using local midnight made the
-  /// countdown disagree with the actual rollover by the timezone offset.
+  /// Returns time remaining until midnight UTC.
   static Duration timeUntilNextChallenge([DateTime? now]) {
     final utcNow = (now ?? DateTime.now()).toUtc();
     final nextUtcMidnight = DateTime.utc(utcNow.year, utcNow.month, utcNow.day)
@@ -64,10 +68,8 @@ abstract final class DailySelector {
     return nextUtcMidnight.difference(utcNow);
   }
 
-  /// Returns a deterministic shuffle of [ids] seeded by [stageId] and [seedConstant].
-  /// Uses a simple LCG so the order is stable and reproducible across launches,
-  /// but differs between clue stages (use [AppConstants.cluesStageSeed]) and
-  /// poster stages (use [AppConstants.posterStageSeed]).
+  /// Returns a deterministic shuffle of [ids] seeded by [stageId] and
+  /// [seedConstant].
   static List<int> shuffleStage(List<int> ids, int stageId, int seedConstant) {
     final list = List<int>.from(ids);
     var seed = ((stageId * seedConstant) ^ 0xDEADBEEF) & 0x7FFFFFFF;

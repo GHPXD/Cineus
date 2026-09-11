@@ -1,3 +1,17 @@
+class TicketDebit {
+  final int daily;
+  final int extra;
+  final String date;
+
+  const TicketDebit({
+    required this.daily,
+    required this.extra,
+    required this.date,
+  });
+
+  int get total => daily + extra;
+}
+
 class PlayerTickets {
   final int dailyTickets;
   final int extraTickets;

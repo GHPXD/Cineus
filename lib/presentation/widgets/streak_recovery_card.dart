@@ -4,16 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
-import '../providers/game_actions.dart';
 import '../l10n_mappers.dart';
+import '../providers/game_actions.dart';
 import '../providers/providers.dart';
 import '../providers/reward_notifier.dart';
 
 /// Offers to spend tickets to protect a single missed day (D7).
-///
-/// Renders nothing unless there is exactly one recoverable gap, so it cannot be
-/// used to rebuild an old streak. Freezing does not fabricate a win — the games
-/// played and won counts stay untouched.
 class StreakRecoveryCard extends ConsumerStatefulWidget {
   const StreakRecoveryCard({super.key});
 
@@ -104,11 +100,11 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
     setState(() => _working = true);
     HapticFeedback.mediumImpact();
 
+    final tickets = ref.read(ticketNotifierProvider.notifier);
     final ok = await ref.read(rewardNotifierProvider.notifier).freezeMissedDay(
           date: date,
-          charge: (cost) => ref
-              .read(ticketNotifierProvider.notifier)
-              .consumeTicket(count: cost),
+          charge: (cost) => tickets.debitTickets(count: cost),
+          refund: tickets.refundDebit,
         );
 
     if (!mounted) return;
@@ -129,7 +125,6 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
     }
   }
 
-  /// `2026-08-09` → `09/08`.
   static String _formatDay(String isoDate) {
     final parts = isoDate.split('-');
     if (parts.length != 3) return isoDate;

@@ -10,13 +10,6 @@ class MovieRepositoryImpl implements MovieRepository {
   MovieRepositoryImpl(this._db);
 
   /// Normalized titles held in memory so each keystroke ranks without a query.
-  ///
-  /// No invalidation hook is needed: the catalogue only changes during
-  /// `DatabaseHelper` initialisation, which `main()` awaits before the first
-  /// widget builds, so this cache is always populated from post-upgrade data.
-  ///
-  /// Only ids and titles are kept (roughly 60 KB for 500 films); the full rows
-  /// are fetched for the handful of results actually shown.
   List<SearchCandidate>? _searchIndex;
 
   @override
@@ -43,6 +36,13 @@ class MovieRepositoryImpl implements MovieRepository {
     return result.first['count'] as int;
   }
 
+  @override
+  Future<List<int>> getMovieIds() async {
+    final db = await _db.database;
+    final rows = await db.query('movies', columns: ['id'], orderBy: 'id ASC');
+    return rows.map((row) => row['id'] as int).toList(growable: false);
+  }
+
   Future<List<SearchCandidate>> _loadSearchIndex() async {
     final cached = _searchIndex;
     if (cached != null) return cached;
@@ -67,9 +67,6 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<List<Movie>> searchMovies(String query, {int limit = 10}) async {
-    // Ranked in Dart rather than SQL: `LIKE` is accent-sensitive (172 of the
-    // 500 titles carry an accent) and cannot express relevance or tolerate a
-    // typo. See [MovieSearch].
     final ids = MovieSearch.rank(
       query,
       await _loadSearchIndex(),
@@ -95,5 +92,4 @@ class MovieRepositoryImpl implements MovieRepository {
         if (byId[id] != null) byId[id]!,
     ];
   }
-
 }

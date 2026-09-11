@@ -31,6 +31,12 @@ class RewardRepositoryImpl implements RewardRepository {
   }
 
   @override
+  Future<void> revoke(String key) async {
+    final db = await _db.database;
+    await db.delete('ticket_rewards', where: 'key = ?', whereArgs: [key]);
+  }
+
+  @override
   Future<Set<String>> claimedKeys() async {
     final db = await _db.database;
     final rows = await db.query('ticket_rewards', columns: ['key']);
@@ -40,8 +46,9 @@ class RewardRepositoryImpl implements RewardRepository {
   @override
   Future<int> totalEarned() async {
     final db = await _db.database;
-    final result =
-        await db.rawQuery('SELECT COALESCE(SUM(amount), 0) AS total FROM ticket_rewards');
+    final result = await db.rawQuery(
+      'SELECT COALESCE(SUM(amount), 0) AS total FROM ticket_rewards',
+    );
     return (result.first['total'] as int?) ?? 0;
   }
 

@@ -1,3 +1,5 @@
+import 'package:sqflite/sqflite.dart';
+
 import '../../core/utils/daily_selector.dart';
 import '../../domain/entities/game_session.dart';
 import '../../domain/repositories/game_repository.dart';
@@ -51,43 +53,67 @@ class GameRepositoryImpl implements GameRepository {
     return GameSession.fromMap(maps.first);
   }
 
+  Future<GameSession?> _byIdentity(GameSession session) => switch (session.kind) {
+        SessionKind.daily => getDailySession(session.mode, session.date),
+        SessionKind.stage =>
+          getStageSession(session.mode, session.stageId, session.movieId),
+        SessionKind.challenge => getChallengeSession(session.mode, session.movieId),
+      };
+
   @override
   Future<GameSession> saveSession(GameSession session) async {
     final db = await _db.database;
 
     if (session.id != null) {
-      await db.update(
+      // A stale notifier must never turn a terminal result back into `playing`
+      // (or replace one terminal outcome with another). Only a playing row may
+      // transition. If another writer already finished it, return that truth.
+      final changed = await db.update(
         'game_sessions',
         session.toMap(),
-        where: 'id = ?',
+        where: "id = ? AND status = 'playing'",
         whereArgs: [session.id],
       );
-      return session;
+      if (changed == 1) return session;
+
+      final rows = await db.query(
+        'game_sessions',
+        where: 'id = ?',
+        whereArgs: [session.id],
+        limit: 1,
+      );
+      if (rows.isNotEmpty) return GameSession.fromMap(rows.first);
+      throw StateError('Session ${session.id} no longer exists');
     }
 
-    // Upsert by identity, so a caller that lost track of the id cannot create a
-    // second row for the same challenge.
-    final existing = switch (session.kind) {
-      SessionKind.daily => await getDailySession(session.mode, session.date),
-      SessionKind.stage =>
-        await getStageSession(session.mode, session.stageId, session.movieId),
-      SessionKind.challenge =>
-        await getChallengeSession(session.mode, session.movieId),
-    };
-
+    // Fast path for normal callers that lost the row id.
+    final existing = await _byIdentity(session);
     if (existing != null) {
+      if (existing.isFinished) return existing;
       final updated = session.copyWith(id: existing.id);
-      await db.update(
+      final changed = await db.update(
         'game_sessions',
         updated.toMap(),
-        where: 'id = ?',
+        where: "id = ? AND status = 'playing'",
         whereArgs: [existing.id],
       );
-      return updated;
+      if (changed == 1) return updated;
+      return (await _byIdentity(session)) ?? updated;
     }
 
-    final id = await db.insert('game_sessions', session.toMap());
-    return session.copyWith(id: id);
+    // Two simultaneous creators can both observe "no row". Let the unique
+    // identity indexes arbitrate with INSERT OR IGNORE, then read back the one
+    // canonical row. This turns a constraint crash into an idempotent create.
+    await db.insert(
+      'game_sessions',
+      session.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.ignore,
+    );
+    final stored = await _byIdentity(session);
+    if (stored == null) {
+      throw StateError('Failed to create ${session.kind.name} session');
+    }
+    return stored;
   }
 
   @override
@@ -109,9 +135,6 @@ class GameRepositoryImpl implements GameRepository {
     GameMode mode = GameMode.clue,
   }) async {
     final db = await _db.database;
-    // With identity in real columns, this is a plain predicate — no key-prefix
-    // guessing, and `ORDER BY date DESC` is genuinely chronological because only
-    // ISO dates live in that column now.
     final maps = await db.query(
       'game_sessions',
       where: "kind = 'daily' AND mode = ? AND status != 'playing'",
@@ -133,10 +156,6 @@ class GameRepositoryImpl implements GameRepository {
     );
   }
 
-  /// Pure aggregation over finished daily sessions, ordered most-recent-first.
-  ///
-  /// Public and clock-injected so the whole calculation is unit-testable without
-  /// a database.
   static GameStats computeStats(
     List<GameSession> descending, {
     required DateTime todayUtc,
@@ -168,15 +187,6 @@ class GameRepositoryImpl implements GameRepository {
     );
   }
 
-  /// Consecutive daily wins ending today (or yesterday, so the streak survives
-  /// until the player misses a full day).
-  ///
-  /// A streak must be consecutive in *calendar days*: winning Aug 1 and Aug 5
-  /// is two separate streaks of 1, not a streak of 2.
-  ///
-  /// Days in [freezes] are days the player paid tickets to protect. They bridge
-  /// a gap without counting as a win, so the streak survives a missed day
-  /// without the statistics claiming a game that was never played.
   static int _currentStreak(
     List<GameSession> descending,
     DateTime today,
@@ -187,9 +197,6 @@ class GameRepositoryImpl implements GameRepository {
     final latest = DailySelector.dateFromKey(descending.first.date);
     if (latest == null) return 0;
 
-    // Anything older than yesterday means the streak is broken — unless every
-    // day the player skipped was frozen. Today itself is not "missed": it can
-    // still be played.
     if (today.difference(latest).inDays > 1 &&
         !_allFrozen(
           latest.add(const Duration(days: 1)),
@@ -206,9 +213,6 @@ class GameRepositoryImpl implements GameRepository {
       final day = DailySelector.dateFromKey(s.date);
       if (day == null) break;
 
-      // Landing earlier than expected means the days in between were skipped;
-      // the streak only survives if each of them was frozen. `expected` is
-      // itself one of the missed days, hence the inclusive upper bound.
       if (expected != null &&
           day != expected &&
           !_allFrozen(day.add(const Duration(days: 1)), expected, freezes)) {
@@ -220,7 +224,6 @@ class GameRepositoryImpl implements GameRepository {
     return streak;
   }
 
-  /// Longest run of consecutive daily wins ever recorded.
   static int _maxStreak(List<GameSession> descending, Set<String> freezes) {
     var best = 0;
     var run = 0;
@@ -245,10 +248,6 @@ class GameRepositoryImpl implements GameRepository {
     return best;
   }
 
-  /// True when every day from [first] to [last] inclusive is frozen.
-  ///
-  /// An empty range (`first` after `last`) is vacuously true — there was nothing
-  /// to bridge.
   static bool _allFrozen(DateTime first, DateTime last, Set<String> freezes) {
     if (last.isBefore(first)) return true;
     if (freezes.isEmpty) return false;
