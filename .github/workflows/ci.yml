@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - chore/phase-0-release-toolchain
   pull_request:
     branches:
       - main
