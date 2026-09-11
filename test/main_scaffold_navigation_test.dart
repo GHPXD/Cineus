@@ -119,4 +119,24 @@ void main() {
     expect(find.text('Posters'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('destinos principais expõem rótulos semânticos acionáveis',
+      (tester) async {
+    final semantics = tester.ensureSemantics();
+    addTearDown(semantics.dispose);
+
+    final router = _router(initialLocation: '/home');
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(_app(router));
+    await tester.pumpAndSettle();
+
+    expect(find.bySemanticsLabel('Início'), findsOneWidget);
+    expect(find.bySemanticsLabel('Filmes'), findsOneWidget);
+    expect(find.bySemanticsLabel('Posters'), findsOneWidget);
+
+    await tester.tap(find.bySemanticsLabel('Filmes'));
+    await tester.pumpAndSettle();
+    expect(find.text('OPEN_STAGE'), findsOneWidget);
+  });
 }
