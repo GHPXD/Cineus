@@ -14,7 +14,7 @@ class StageDetailScreen extends StatelessWidget {
       stageId: stageId,
       config: const StageDetailConfig(
         mode: GameMode.clue,
-        playRoute: '/game',
+        playRoute: '/game?source=stage',
       ),
     );
   }
