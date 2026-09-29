@@ -337,6 +337,8 @@ O core do Cineus permanece gratuito. A arquitetura comercial é desacoplada do g
 
 Configuração e requisitos externos: `docs/MONETIZATION.md`.
 
+As páginas de Privacy, Terms e Support também são copiadas para `web/`, portanto entram no build Web e podem ser publicadas no mesmo domínio do PWA. O CI impede que as cópias públicas fiquem diferentes das fontes em `docs/`.
+
 ---
 
 ## 📜 Licença
