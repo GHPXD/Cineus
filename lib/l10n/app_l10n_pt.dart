@@ -98,8 +98,6 @@ class AppL10nPt extends AppL10n {
   String get appTagline =>
       'Adivinha o filme em até 10 dicas.\nQuanto menos usar, mais pontos.';
 
-  @override
-  String get splashCredits => 'CINEUS v1.0 · FLUTTER · DART · TMDB';
 
   @override
   String get navHome => 'Início';
@@ -744,6 +742,35 @@ class AppL10nPt extends AppL10n {
   @override
   String get contentLanguageNote =>
       'As dicas e os títulos dos filmes vêm do catálogo em português.';
+
+  @override
+  String get rewardedTitle => 'Ganhar tickets';
+
+  @override
+  String rewardedBody(int amount, int remaining) =>
+      'Assista a um anúncio opcional e ganhe $amount tickets. Restam $remaining recompensas hoje.';
+
+  @override
+  String rewardedAction(int amount) => 'Assistir e ganhar +$amount 🎫';
+
+  @override
+  String get rewardedDone => 'Tickets adicionados! 🎫';
+
+  @override
+  String get passTitle => 'Cineus Pass';
+
+  @override
+  String get passBody =>
+      'Todo o gameplay continua gratuito. O Pass remove anúncios não opcionais e pode incluir benefícios de conveniência.';
+
+  @override
+  String get passActive => 'Pass ativo · sem anúncios não opcionais';
+
+  @override
+  String passGet(String price) => 'Obter Pass $price';
+
+  @override
+  String get passRestore => 'Restaurar compra';
 
   @override
   String tickets(int current, int max) {
