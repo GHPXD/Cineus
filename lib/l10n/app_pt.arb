@@ -166,6 +166,8 @@
   "nextChallengeIn": "PRÓXIMO DESAFIO EM",
 
   "stagesSubtitleClues": "Complete os estágios para desbloquear mais filmes.",
+  "stagesEducationClues": "Nos estágios, iniciar ou refazer um filme custa 1 🎫. Continuar uma partida em andamento não cobra novamente.",
+  "stagesEducationPosters": "No Poster, cada revelação reduz o desfoque e também a pontuação. Nos estágios, iniciar ou refazer custa 1 🎫.",
   "stagesSubtitlePosters": "Adivinhe os filmes pelo poster desfocado.",
   "stageWord": "ESTÁGIO",
   "locked": "Bloqueado",
