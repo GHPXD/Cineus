@@ -126,6 +126,8 @@
   "nextChallengeIn": "NEXT CHALLENGE IN",
 
   "stagesSubtitleClues": "Complete the stages to unlock more films.",
+  "stagesEducationClues": "In stages, starting or retrying a film costs 1 🎫. Continuing a game already in progress does not charge again.",
+  "stagesEducationPosters": "In Poster mode, each reveal reduces both blur and score. In stages, starting or retrying costs 1 🎫.",
   "stagesSubtitlePosters": "Guess the films from the blurred poster.",
   "stageWord": "STAGE",
   "locked": "Locked",
