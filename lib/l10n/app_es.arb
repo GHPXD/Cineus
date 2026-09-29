@@ -193,6 +193,7 @@
   "statRate": "TASA",
   "statAverage": "MEDIA",
   "statAverageSub": "pistas",
+  "statAveragePosterSub": "niveles",
   "currentStreakTitle": "Racha actual",
   "dayCount": "{count, plural, =1{1 día} other{{count} días}}",
   "bestLabel": "Mejor",
