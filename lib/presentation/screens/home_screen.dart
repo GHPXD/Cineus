@@ -333,35 +333,40 @@ class _RewardedTicketsCard extends ConsumerWidget {
             color: AppColors.blue300.withValues(alpha: 0.25),
           ),
         ),
-        child: Row(
-          children: [
-            const Icon(
-              Icons.play_circle_outline_rounded,
-              color: AppColors.blue300,
-              size: 28,
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(l10n.rewardedTitle, style: AppTypography.titleSmall),
-                  const SizedBox(height: 2),
-                  Text(
-                    l10n.rewardedBody(
-                      MonetizationPolicy.rewardedTicketAmount,
-                      state.rewardedRemaining,
-                    ),
-                    style: AppTypography.bodySmall.copyWith(
-                      color: AppColors.textSecondary,
-                      fontSize: 12,
-                    ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final info = Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Icon(
+                  Icons.play_circle_outline_rounded,
+                  color: AppColors.blue300,
+                  size: 28,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(l10n.rewardedTitle, style: AppTypography.titleSmall),
+                      const SizedBox(height: 2),
+                      Text(
+                        l10n.rewardedBody(
+                          MonetizationPolicy.rewardedTicketAmount,
+                          state.rewardedRemaining,
+                        ),
+                        style: AppTypography.bodySmall.copyWith(
+                          color: AppColors.textSecondary,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 10),
-            FilledButton(
+                ),
+              ],
+            );
+
+            final action = FilledButton(
               onPressed: state.canWatchRewarded
                   ? () async {
                       final rewarded = await ref
@@ -384,8 +389,27 @@ class _RewardedTicketsCard extends ConsumerWidget {
                         MonetizationPolicy.rewardedTicketAmount,
                       ),
                     ),
-            ),
-          ],
+            );
+
+            if (constraints.maxWidth < 440) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  info,
+                  const SizedBox(height: 12),
+                  action,
+                ],
+              );
+            }
+
+            return Row(
+              children: [
+                Expanded(child: info),
+                const SizedBox(width: 12),
+                action,
+              ],
+            );
+          },
         ),
       ),
     );
