@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/utils/daily_selector.dart';
@@ -72,6 +74,7 @@ class MonetizationNotifier extends StateNotifier<MonetizationState> {
   final AppMetaRepository _meta;
   final Future<void> Function(int amount) _creditTickets;
   final ProductTelemetry _telemetry;
+  Timer? _dailyResetTimer;
 
   MonetizationNotifier({
     required MonetizationService service,
@@ -113,10 +116,20 @@ class MonetizationNotifier extends StateNotifier<MonetizationState> {
         passDisplayPrice: pass.displayPrice,
         rewardedUsedToday: used,
       );
+      _scheduleDailyReset();
     } catch (_) {
       if (!mounted) return;
       state = state.copyWith(isLoading: false, hasError: true);
     }
+  }
+
+  void _scheduleDailyReset() {
+    _dailyResetTimer?.cancel();
+    final untilReset =
+        DailySelector.timeUntilNextChallenge() + const Duration(seconds: 1);
+    _dailyResetTimer = Timer(untilReset, () {
+      if (mounted) unawaited(load());
+    });
   }
 
   Future<bool> watchRewardedForTickets() async {
@@ -181,6 +194,12 @@ class MonetizationNotifier extends StateNotifier<MonetizationState> {
     } catch (_) {
       if (mounted) state = state.copyWith(busy: false, hasError: true);
     }
+  }
+
+  @override
+  void dispose() {
+    _dailyResetTimer?.cancel();
+    super.dispose();
   }
 
   Future<void> _refreshPass() async {
