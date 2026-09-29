@@ -30,7 +30,8 @@ class MonetizationState {
 
   int get rewardedRemaining =>
       (MonetizationPolicy.rewardedDailyLimit - rewardedUsedToday)
-          .clamp(0, MonetizationPolicy.rewardedDailyLimit);
+          .clamp(0, MonetizationPolicy.rewardedDailyLimit)
+          .toInt();
 
   bool get canWatchRewarded =>
       rewardedAvailable && !busy && rewardedRemaining > 0;
