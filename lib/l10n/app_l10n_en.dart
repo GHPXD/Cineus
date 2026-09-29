@@ -582,6 +582,9 @@ class AppL10nEn extends AppL10n {
   String get statAverageSub => 'clues';
 
   @override
+  String get statAveragePosterSub => 'levels';
+
+  @override
   String get currentStreakTitle => 'Current Streak';
 
   @override
