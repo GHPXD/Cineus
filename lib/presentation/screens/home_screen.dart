@@ -322,6 +322,63 @@ class _RewardedTicketsCard extends ConsumerWidget {
     }
 
     final l10n = context.l10n;
+
+    Widget action() => FilledButton(
+          onPressed: state.canWatchRewarded
+              ? () async {
+                  final rewarded = await ref
+                      .read(monetizationNotifierProvider.notifier)
+                      .watchRewardedForTickets();
+                  if (!rewarded || !context.mounted) return;
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(l10n.rewardedDone)),
+                  );
+                }
+              : null,
+          child: state.busy
+              ? const SizedBox(
+                  width: 18,
+                  height: 18,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : Text(
+                  l10n.rewardedAction(
+                    MonetizationPolicy.rewardedTicketAmount,
+                  ),
+                ),
+        );
+
+    Widget copy() => Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Icon(
+              Icons.play_circle_outline_rounded,
+              color: AppColors.blue300,
+              size: 28,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(l10n.rewardedTitle, style: AppTypography.titleSmall),
+                  const SizedBox(height: 2),
+                  Text(
+                    l10n.rewardedBody(
+                      MonetizationPolicy.rewardedTicketAmount,
+                      state.rewardedRemaining,
+                    ),
+                    style: AppTypography.bodySmall.copyWith(
+                      color: AppColors.textSecondary,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        );
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 14, 20, 0),
       child: Container(
@@ -335,78 +392,22 @@ class _RewardedTicketsCard extends ConsumerWidget {
         ),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final info = Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Icon(
-                  Icons.play_circle_outline_rounded,
-                  color: AppColors.blue300,
-                  size: 28,
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(l10n.rewardedTitle, style: AppTypography.titleSmall),
-                      const SizedBox(height: 2),
-                      Text(
-                        l10n.rewardedBody(
-                          MonetizationPolicy.rewardedTicketAmount,
-                          state.rewardedRemaining,
-                        ),
-                        style: AppTypography.bodySmall.copyWith(
-                          color: AppColors.textSecondary,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            );
-
-            final action = FilledButton(
-              onPressed: state.canWatchRewarded
-                  ? () async {
-                      final rewarded = await ref
-                          .read(monetizationNotifierProvider.notifier)
-                          .watchRewardedForTickets();
-                      if (!rewarded || !context.mounted) return;
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(l10n.rewardedDone)),
-                      );
-                    }
-                  : null,
-              child: state.busy
-                  ? const SizedBox(
-                      width: 18,
-                      height: 18,
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    )
-                  : Text(
-                      l10n.rewardedAction(
-                        MonetizationPolicy.rewardedTicketAmount,
-                      ),
-                    ),
-            );
-
-            if (constraints.maxWidth < 440) {
+            if (constraints.maxWidth < 430) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  info,
+                  copy(),
                   const SizedBox(height: 12),
-                  action,
+                  action(),
                 ],
               );
             }
 
             return Row(
               children: [
-                Expanded(child: info),
+                Expanded(child: copy()),
                 const SizedBox(width: 12),
-                action,
+                action(),
               ],
             );
           },
