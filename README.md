@@ -5,8 +5,7 @@
 Jogo mobile e web (Android / iOS / Web) estilo Wordle: o jogador adivinha um filme
 a partir de dicas progressivas. Um desafio por dia, **o mesmo filme para todos**.
 
-**Estado:** 89 arquivos Dart · ~15.600 linhas · 281 casos de teste · 3 idiomas
-(pt / en / es) · catálogo offline de 500 filmes × 10 dicas.
+**Estado:** app Flutter offline-first com CI multiplataforma, catálogo local de 500 filmes × 10 dicas e cobertura automatizada de regras críticas. PT-BR é o idioma de produção enquanto o conteúdo do catálogo não estiver traduzido; EN/ES permanecem source-ready para desenvolvimento.
 
 Para o que já foi feito e o que falta, ver **[docs/ROADMAP.md](docs/ROADMAP.md)**.
 
@@ -185,9 +184,7 @@ Ao mexer nos ARB: `flutter gen-l10n` (ou apenas rode o app — `generate: true`)
 
 ### 1. Chave de assinatura (uma vez)
 
-O `build.gradle.kts` procura `android/key.properties`. **Sem esse arquivo o build
-usa a chave de debug** — funciona local, mas a Play Store rejeita e instalar por
-cima de um release real falha por divergência de assinatura. O Gradle avisa.
+O `build.gradle.kts` procura `android/key.properties`. Sem esse arquivo, um build release publicável **falha fechado**. Apenas o CI pode optar explicitamente por uma build de validação assinada com debug através de `CINEUS_ALLOW_DEBUG_SIGNED_RELEASE=true`; esse artefato nunca deve ser publicado.
 
 ```bash
 keytool -genkey -v -keystore %USERPROFILE%\cineus-upload.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
@@ -224,19 +221,17 @@ entre exportações, e é isso que mantém o `stage_progress` válido.
 
 ## 🌍 Idiomas
 
-204 chaves em `lib/l10n/app_{pt,en,es}.arb`, com plurais ICU e placeholders
-tipados. Português é o template.
+Os ARBs PT/EN/ES continuam mantidos e testados, mas o catálogo jogável ainda é
+português. Por isso, builds de produção expõem PT-BR por padrão em vez de
+prometer uma tradução incompleta do gameplay.
 
-- Padrão: segue o aparelho. Override persistido em `app_meta`.
-- Seletor no fim da tela de Estatísticas, cada idioma **no próprio idioma**.
-- O texto de compartilhamento também é localizado.
-- Entidades de domínio carregam **id/enum**, nunca texto — a tradução vive em
-  `presentation/l10n_mappers.dart`.
+Para QA de interface EN/ES:
 
-> **Limitação:** o catálogo é conteúdo em português. As 5.000 dicas, as 162
-> categorias e os títulos vêm do banco e **continuam em português em qualquer
-> idioma**. Não existem títulos em espanhol na base — apenas PT-BR + original
-> (inglês). Isso é dito ao jogador na própria tela de idioma.
+```bash
+flutter run --dart-define=CINEUS_ENABLE_INTERFACE_ONLY_LOCALES=true
+```
+
+Quando as 5.000 dicas/categorias forem traduzidas, esse gate pode ser removido.
 
 ---
 
@@ -279,13 +274,10 @@ O jogador manda um filme já jogado como desafio avulso.
   confundir com 1 e 0), id embaralhado por multiplicação modular + 5 bits de
   checksum. **97% dos erros de um caractere são rejeitados** em vez de abrirem o
   filme errado em silêncio.
-- Deep link `cineus://challenge/CIN-XXXX`, registrado no `AndroidManifest` e no
-  `Info.plist`. Quem não tem o app cola o código em Estatísticas.
+- Deep link `cineus://challenge/CIN-XXXX`, registrado no Android/iOS. Quando uma origem HTTPS verificada existir, `CINEUS_PUBLIC_BASE_URL` troca o compartilhamento para link público mantendo fallback seguro.
 - Jogar um desafio **não custa ticket** — o amigo escolheu o filme.
 
-> Scheme customizado, não link universal `https`: este último exige domínio próprio
-> e arquivo de associação hospedado. `cineus.app` hoje é só uma string no texto de
-> compartilhamento.
+> App/Universal Links HTTPS exigem domínio, fingerprint Android e Apple Team ID reais. Ver `docs/PUBLIC_LINKS.md`.
 
 ---
 
@@ -331,6 +323,20 @@ Coisas que parecem arbitrárias e não são:
 | Congelar sequência **não inventa vitória** | `totalGames` e `totalWins` ficam intactos |
 | Busca ranqueada **em Dart** | `LIKE` é accent-sensitive (172 dos 500 títulos têm acento) e não expressa relevância |
 | Conquistas **derivadas** | Corrigir o cálculo de sequência corrige os badges retroativamente |
+
+---
+
+## 💰 Monetização
+
+O core do Cineus permanece gratuito. A arquitetura comercial é desacoplada do gameplay:
+
+- rewarded ads são opt-in e concedem tickets somente após callback confirmado;
+- baseline: +2 tickets, máximo 3 recompensas por dia;
+- Cineus Pass é conveniência/remoção de anúncios não opcionais, nunca acesso a modos ou catálogo;
+- sem IDs/produtos reais, `DisabledMonetizationService` mantém todas as superfícies comerciais ocultas;
+- telemetria também é no-op por padrão.
+
+Configuração e requisitos externos: `docs/MONETIZATION.md`.
 
 ---
 
