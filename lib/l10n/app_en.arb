@@ -243,6 +243,15 @@
   "languageTitle": "Language",
   "languageSystem": "System default",
   "contentLanguageNote": "Clues and film titles come from the Portuguese catalogue.",
+  "rewardedTitle": "Earn tickets",
+  "rewardedBody": "Watch an optional ad and earn {amount} tickets. {remaining} rewards left today.",
+  "rewardedAction": "Watch and earn +{amount} 🎫",
+  "rewardedDone": "Tickets added! 🎫",
+  "passTitle": "Cineus Pass",
+  "passBody": "All gameplay stays free. Pass removes non-optional ads and may include convenience benefits.",
+  "passActive": "Pass active · no non-optional ads",
+  "passGet": "Get Pass {price}",
+  "passRestore": "Restore purchase",
 
   "tickets": "{current}/{max}"
 }
