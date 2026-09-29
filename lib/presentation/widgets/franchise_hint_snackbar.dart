@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_l10n.dart';
 import '../l10n_mappers.dart';
 import '../../core/theme/app_colors.dart';
 
