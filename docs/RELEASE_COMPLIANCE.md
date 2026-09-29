@@ -8,7 +8,8 @@ Esta checklist cobre os itens de conformidade que precisam estar resolvidos ante
 - [x] Termos de Uso versionados em `docs/terms.html`
 - [x] Política/termos também acessíveis dentro do app
 - [x] O texto descreve o modelo offline-first atual: sem conta e sem backend próprio de sincronização
-- [ ] Publicar `docs/` em uma URL pública estável e usar essa URL nos campos das lojas
+- [x] Incluir cópias sincronizadas de Privacy/Terms/Support no build Web (`web/`)
+- [ ] Hospedar o build Web em uma URL pública estável e usar essas URLs nos campos das lojas
 
 ## TMDB
 
