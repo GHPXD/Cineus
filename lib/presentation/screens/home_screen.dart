@@ -15,6 +15,7 @@ import '../l10n_mappers.dart';
 import '../providers/monetization_notifier.dart';
 import '../providers/providers.dart';
 import '../providers/stats_notifier.dart';
+import '../providers/telemetry_provider.dart';
 import '../widgets/reward_toast.dart';
 import '../widgets/streak_recovery_card.dart';
 import '../widgets/tap_target.dart';
@@ -156,7 +157,15 @@ class HomeScreen extends ConsumerWidget {
               label: l10n.modeClues,
               session: clueSession,
               isLoading: clueAsync.isLoading,
-              onTap: () => context.push('/game?source=daily'),
+              onTap: () {
+                unawaited(
+                  ref.read(productTelemetryProvider).track(
+                    'daily_opened',
+                    properties: {'mode': GameMode.clue.name},
+                  ),
+                );
+                context.push('/game?source=daily');
+              },
               playLabel: l10n.playChallenge,
               continueLabel: l10n.continueClues,
             ),
@@ -166,7 +175,15 @@ class HomeScreen extends ConsumerWidget {
               label: l10n.modePoster,
               session: posterSession,
               isLoading: posterAsync.isLoading,
-              onTap: () => context.push('/visual/play?source=daily'),
+              onTap: () {
+                unawaited(
+                  ref.read(productTelemetryProvider).track(
+                    'daily_opened',
+                    properties: {'mode': GameMode.poster.name},
+                  ),
+                );
+                context.push('/visual/play?source=daily');
+              },
               playLabel: l10n.playPoster,
               continueLabel: l10n.continuePoster,
             ),
