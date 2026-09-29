@@ -150,7 +150,14 @@ abstract final class AppRouter {
         path: '/visual/defeat',
         pageBuilder: (context, state) => CustomTransitionPage(
           child: const PosterResultScreen(won: false),
-          transitionDuration: const Duration(milliseconds: 400),
+          transitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 400),
+          ),
+          reverseTransitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 400),
+          ),
           transitionsBuilder: (context, animation, _, child) =>
               FadeTransition(opacity: animation, child: child),
         ),
@@ -158,7 +165,14 @@ abstract final class AppRouter {
       GoRoute(
         path: '/game',
         pageBuilder: (context, state) => CustomTransitionPage(
-          transitionDuration: const Duration(milliseconds: 300),
+          transitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 300),
+          ),
+          reverseTransitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 300),
+          ),
           transitionsBuilder: (context, animation, _, child) =>
               FadeTransition(opacity: animation, child: child),
           child: GameScreen(
@@ -205,7 +219,14 @@ abstract final class AppRouter {
       GoRoute(
         path: '/victory',
         pageBuilder: (context, state) => CustomTransitionPage(
-          transitionDuration: const Duration(milliseconds: 400),
+          transitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 400),
+          ),
+          reverseTransitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 400),
+          ),
           transitionsBuilder: (context, animation, _, child) => ScaleTransition(
             scale: Tween<double>(begin: 0.85, end: 1.0).animate(
               CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
@@ -221,7 +242,14 @@ abstract final class AppRouter {
       GoRoute(
         path: '/defeat',
         pageBuilder: (context, state) => CustomTransitionPage(
-          transitionDuration: const Duration(milliseconds: 400),
+          transitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 400),
+          ),
+          reverseTransitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 400),
+          ),
           transitionsBuilder: (context, animation, _, child) =>
               FadeTransition(opacity: animation, child: child),
           child: DefeatScreen(
@@ -278,7 +306,6 @@ abstract final class AppRouter {
       ),
     ],
   );
-
 
   static Duration _motionDuration(
     BuildContext context,
