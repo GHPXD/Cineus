@@ -349,6 +349,14 @@ class AppL10nEn extends AppL10n {
   String get stagesSubtitleClues => 'Complete the stages to unlock more films.';
 
   @override
+  String get stagesEducationClues =>
+      'In stages, starting or retrying a film costs 1 🎫. Continuing a game already in progress does not charge again.';
+
+  @override
+  String get stagesEducationPosters =>
+      'In Poster mode, each reveal reduces both blur and score. In stages, starting or retrying costs 1 🎫.';
+
+  @override
   String get stagesSubtitlePosters =>
       'Guess the films from the blurred poster.';
 
