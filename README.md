@@ -162,7 +162,6 @@ NULLs como distintos e os índices deixariam duplicatas passar.
 Tipografia (Playfair Display, Inter, DM Mono) é **asset bundlado**, não download —
 ver "Build de release".
 
-> **Declarados sem uso:** `path_provider` e `cupertino_icons`. Podem sair.
 
 ---
 
