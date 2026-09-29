@@ -126,6 +126,8 @@
   "nextChallengeIn": "PRÓXIMO DESAFÍO EN",
 
   "stagesSubtitleClues": "Completa las etapas para desbloquear más películas.",
+  "stagesEducationClues": "En las etapas, iniciar o repetir una película cuesta 1 🎫. Continuar una partida en curso no vuelve a cobrar.",
+  "stagesEducationPosters": "En Poster, cada revelado reduce el desenfoque y también la puntuación. En las etapas, iniciar o repetir cuesta 1 🎫.",
   "stagesSubtitlePosters": "Adivina las películas por el póster desenfocado.",
   "stageWord": "ETAPA",
   "locked": "Bloqueada",
