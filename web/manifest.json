@@ -6,7 +6,6 @@
     "background_color": "#05050A",
     "theme_color": "#E8B429",
     "description": "Adivinhe o filme do dia em até 10 dicas. Quanto menos dicas usar, mais pontos você faz.",
-    "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
         {
