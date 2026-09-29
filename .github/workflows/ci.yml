@@ -24,6 +24,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Validate catalogue content version
+        env:
+          CINEUS_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before || '' }}
+        run: python3 scripts/validate_content_version.py --base-ref "$CINEUS_BASE_SHA"
 
       - name: Validate catalogue artifacts
         run: python3 scripts/validate_catalog.py
