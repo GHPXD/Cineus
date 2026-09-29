@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/utils/challenge_code.dart';
 import '../../domain/entities/game_session.dart';
 import '../providers/providers.dart';
 
@@ -263,9 +264,10 @@ abstract final class AppRouter {
         builder: (context, state) => const ChallengeEntryScreen(),
       ),
       GoRoute(
-        path: '/challenge/:movieId',
+        path: '/challenge/:challenge',
         builder: (context, state) {
-          final id = int.tryParse(state.pathParameters['movieId'] ?? '');
+          final value = state.pathParameters['challenge'] ?? '';
+          final id = int.tryParse(value) ?? ChallengeCode.decode(value);
           return ChallengeLoader(movieId: id);
         },
       ),
