@@ -154,15 +154,6 @@ abstract final class AppColors {
     return rubyDimGradient;
   }
 
-  static LinearGradient scoreGradient(int score) {
-    if (score >= 8) return goldGradient;
-    if (score >= 5) return blueGradient;
-    if (score >= 3) {
-      return const LinearGradient(colors: [amber400, amber300]);
-    }
-    return rubyGradient;
-  }
-
   static Color scoreBorderColor(int score) {
     if (score >= 8) return gold300.withValues(alpha: 0.35);
     if (score >= 5) return blue300.withValues(alpha: 0.35);
