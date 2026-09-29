@@ -350,6 +350,14 @@ class AppL10nEs extends AppL10n {
       'Completa las etapas para desbloquear más películas.';
 
   @override
+  String get stagesEducationClues =>
+      'En las etapas, iniciar o repetir una película cuesta 1 🎫. Continuar una partida en curso no vuelve a cobrar.';
+
+  @override
+  String get stagesEducationPosters =>
+      'En Poster, cada revelado reduce el desenfoque y también la puntuación. En las etapas, iniciar o repetir cuesta 1 🎫.';
+
+  @override
   String get stagesSubtitlePosters =>
       'Adivina las películas por el póster desenfocado.';
 
