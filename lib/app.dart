@@ -23,10 +23,12 @@ class CineusApp extends ConsumerWidget {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.dark,
 
-        // `locale: null` follows the device; an explicit value overrides it.
+        // `locale: null` follows the device within the production-supported
+        // locale set. EN/ES remain source-ready but are hidden until their
+        // gameplay catalogue is translated.
         locale: locale,
         localizationsDelegates: AppL10n.localizationsDelegates,
-        supportedLocales: AppL10n.supportedLocales,
+        supportedLocales: LocaleNotifier.supportedLocales,
 
         routerConfig: AppRouter.router,
       ),
