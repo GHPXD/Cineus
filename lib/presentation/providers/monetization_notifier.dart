@@ -5,7 +5,9 @@ import '../../data/services/disabled_monetization_service.dart';
 import '../../domain/entities/monetization.dart';
 import '../../domain/repositories/app_meta_repository.dart';
 import '../../domain/services/monetization_service.dart';
+import '../../domain/services/product_telemetry.dart';
 import 'providers.dart';
+import 'telemetry_provider.dart';
 
 class MonetizationState {
   final bool isLoading;
@@ -69,14 +71,17 @@ class MonetizationNotifier extends StateNotifier<MonetizationState> {
   final MonetizationService _service;
   final AppMetaRepository _meta;
   final Future<void> Function(int amount) _creditTickets;
+  final ProductTelemetry _telemetry;
 
   MonetizationNotifier({
     required MonetizationService service,
     required AppMetaRepository meta,
     required Future<void> Function(int amount) creditTickets,
+    required ProductTelemetry telemetry,
   })  : _service = service,
         _meta = meta,
         _creditTickets = creditTickets,
+        _telemetry = telemetry,
         super(const MonetizationState()) {
     load();
   }
@@ -125,6 +130,13 @@ class MonetizationNotifier extends StateNotifier<MonetizationState> {
       }
 
       await _creditTickets(MonetizationPolicy.rewardedTicketAmount);
+      await _telemetry.track(
+        'rewarded_completed',
+        properties: {
+          'reward': 'tickets',
+          'amount': MonetizationPolicy.rewardedTicketAmount,
+        },
+      );
       final next = state.rewardedUsedToday + 1;
       await _meta.write(_rewardedDateKey, DailySelector.todayKey());
       await _meta.write(_rewardedCountKey, '$next');
@@ -148,8 +160,12 @@ class MonetizationNotifier extends StateNotifier<MonetizationState> {
     if (!state.storeAvailable || state.busy) return;
     state = state.copyWith(busy: true, hasError: false);
     try {
+      await _telemetry.track('pass_purchase_started');
       await _service.purchasePass();
       await _refreshPass();
+      if (state.passActive) {
+        await _telemetry.track('pass_entitlement_active');
+      }
     } catch (_) {
       if (mounted) state = state.copyWith(busy: false, hasError: true);
     }
@@ -159,6 +175,7 @@ class MonetizationNotifier extends StateNotifier<MonetizationState> {
     if (!state.storeAvailable || state.busy) return;
     state = state.copyWith(busy: true, hasError: false);
     try {
+      await _telemetry.track('pass_restore_started');
       await _service.restorePass();
       await _refreshPass();
     } catch (_) {
@@ -190,5 +207,6 @@ final monetizationNotifierProvider =
     meta: ref.read(appMetaRepositoryProvider),
     creditTickets: (amount) =>
         ref.read(ticketNotifierProvider.notifier).addTickets(amount),
+    telemetry: ref.read(productTelemetryProvider),
   );
 });
