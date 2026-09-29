@@ -171,3 +171,56 @@ A Fase 6 só pode sair de draft quando o HEAD passar por:
 5. Web release build;
 6. Android API 36 release AAB;
 7. iOS/Xcode 26 release build sem assinatura.
+
+
+## Fase 7 — Commercial readiness e observabilidade 🚧
+
+Objetivo: preparar monetização e crescimento sem transformar gameplay em paywall
+nem introduzir SDKs/credenciais fictícias.
+
+### Produto e economia
+
+- [x] declarar em código que o core gameplay permanece gratuito
+- [x] rewarded ads sempre opt-in
+- [x] baseline de rewarded: +2 tickets, máximo 3 recompensas/dia
+- [x] crédito somente depois da confirmação de recompensa do SDK
+- [x] abstração de Cineus Pass com compra, restauração e preço localizado
+- [x] Pass suprime anúncios não opcionais; rewarded permanece voluntário
+- [x] integração comercial falha fechada enquanto não houver configuração real
+
+### Dados e métricas
+
+- [x] seam de telemetria desacoplado de fornecedor
+- [x] eventos de abertura Daily, conclusão, hint, rewarded e Pass
+- [x] implementação padrão não coleta/transmite dados
+
+### Produto/UX
+
+- [x] Estatísticas separadas entre Dicas (1–10) e Poster (1–5)
+- [x] Home soma Dicas + Poster em jogos, vitórias e taxa
+- [x] PWA não força portrait em tablets
+- [x] reveal de dicas respeita Reduce Motion
+- [x] normalização cobre diacríticos latinos e hífen/espaço
+- [x] feedback de franquia centralizado e sem cor hardcoded duplicada
+- [x] produção não anuncia EN/ES enquanto as 5.000 dicas não estiverem traduzidas
+
+### Compartilhamento
+
+- [x] suporte a HTTPS challenge links condicionado a origem verificada
+- [x] fallback seguro para `cineus://`
+- [x] rejeição de links HTTPS de origem não configurada
+- [ ] publicar assetlinks/AASA após existirem domínio, certificado e Apple Team ID reais
+
+### Externo à base de código
+
+Continuam deliberadamente fora do repositório até existirem dados reais:
+
+- ad-unit IDs e product IDs;
+- adapter dos SDKs de Ads/IAP e consentimento correspondente;
+- upload key Android e signing Apple de distribuição;
+- domínio público + associação App/Universal Links;
+- logo oficial aprovado/licença comercial TMDB;
+- comprovação de direitos/licença de distribuição dos pôsteres;
+- QA em dispositivos reais e submissão às lojas.
+
+Ver `MONETIZATION.md`, `PUBLIC_LINKS.md` e `RELEASE_COMPLIANCE.md`.
