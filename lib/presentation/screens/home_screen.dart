@@ -9,8 +9,10 @@ import '../../core/theme/app_fonts.dart';
 import '../../core/theme/app_typography.dart';
 import '../../core/utils/daily_selector.dart';
 import '../../domain/entities/game_session.dart';
+import '../../domain/entities/monetization.dart';
 import '../../domain/entities/player_tickets.dart';
 import '../l10n_mappers.dart';
+import '../providers/monetization_notifier.dart';
 import '../providers/providers.dart';
 import '../providers/stats_notifier.dart';
 import '../widgets/reward_toast.dart';
@@ -36,6 +38,7 @@ class HomeScreen extends ConsumerWidget {
                   SliverToBoxAdapter(child: _buildHeader(context, tickets)),
                   SliverToBoxAdapter(child: _buildDailyCard(context, ref)),
                   const SliverToBoxAdapter(child: StreakRecoveryCard()),
+                  const SliverToBoxAdapter(child: _RewardedTicketsCard()),
                   SliverToBoxAdapter(child: _buildStatsRow(context, ref)),
                   SliverToBoxAdapter(child: _buildQuickActions(context)),
                   const SliverToBoxAdapter(child: SizedBox(height: 28)),
@@ -281,6 +284,87 @@ class HomeScreen extends ConsumerWidget {
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+class _RewardedTicketsCard extends ConsumerWidget {
+  const _RewardedTicketsCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(monetizationNotifierProvider);
+    if (!state.rewardedAvailable || state.rewardedRemaining <= 0) {
+      return const SizedBox.shrink();
+    }
+
+    final l10n = context.l10n;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 14, 20, 0),
+      child: Container(
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          gradient: AppColors.blueDimGradient,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: AppColors.blue300.withValues(alpha: 0.25),
+          ),
+        ),
+        child: Row(
+          children: [
+            const Icon(
+              Icons.play_circle_outline_rounded,
+              color: AppColors.blue300,
+              size: 28,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(l10n.rewardedTitle, style: AppTypography.titleSmall),
+                  const SizedBox(height: 2),
+                  Text(
+                    l10n.rewardedBody(
+                      MonetizationPolicy.rewardedTicketAmount,
+                      state.rewardedRemaining,
+                    ),
+                    style: AppTypography.bodySmall.copyWith(
+                      color: AppColors.textSecondary,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 10),
+            FilledButton(
+              onPressed: state.canWatchRewarded
+                  ? () async {
+                      final rewarded = await ref
+                          .read(monetizationNotifierProvider.notifier)
+                          .watchRewardedForTickets();
+                      if (!rewarded || !context.mounted) return;
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(l10n.rewardedDone)),
+                      );
+                    }
+                  : null,
+              child: state.busy
+                  ? const SizedBox(
+                      width: 18,
+                      height: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : Text(
+                      l10n.rewardedAction(
+                        MonetizationPolicy.rewardedTicketAmount,
+                      ),
+                    ),
+            ),
+          ],
+        ),
       ),
     );
   }
