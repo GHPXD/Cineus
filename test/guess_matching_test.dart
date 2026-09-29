@@ -81,18 +81,13 @@ void main() {
       );
     });
 
-    test('hífen é removido sem virar espaço — trocar por espaço NÃO casa', () {
-      // `normalize` apaga o hífen ("Spider-Man" -> "spiderman") em vez de
-      // substituí-lo por espaço, então a variante com espaço não bate.
-      // Hoje é inofensivo: o palpite sempre vem do autocomplete, ou seja é
-      // sempre o título exato do banco. Passaria a importar se algum dia o
-      // jogador puder digitar o palpite livremente.
-      expect(StringNormalizer.normalize('Spider-Man'), 'spiderman');
+    test('hífen e espaço são equivalentes para o mesmo título', () {
+      expect(StringNormalizer.normalize('Spider-Man'), 'spider man');
       expect(StringNormalizer.normalize('Spider Man'), 'spider man');
       expect(
         StringNormalizer.isExactMatch(
             'Spider Man No Way Home', ['Spider-Man: No Way Home']),
-        isFalse,
+        isTrue,
       );
     });
   });
