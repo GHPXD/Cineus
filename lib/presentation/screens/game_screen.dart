@@ -10,6 +10,7 @@ import '../l10n_mappers.dart';
 import '../providers/game_actions.dart';
 import '../providers/play_notifier.dart';
 import '../providers/providers.dart';
+import '../widgets/franchise_hint_snackbar.dart';
 import '../widgets/clue_list_widget.dart';
 import '../widgets/extra_hints_bar.dart';
 import '../widgets/score_badge_widget.dart';
@@ -79,28 +80,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
       }
       if (next.lastGuessOutcome == GuessOutcome.franchise &&
           next.guessCount != prev?.guessCount) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Row(
-              children: [
-                const Text('🎯', style: TextStyle(fontSize: 18)),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    context.l10n.franchiseHint,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ],
-            ),
-            backgroundColor: const Color(0xFF8B6914),
-            duration: const Duration(seconds: 4),
-            behavior: SnackBarBehavior.floating,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        );
+        showFranchiseHintSnackBar(context);
       }
     });
 
