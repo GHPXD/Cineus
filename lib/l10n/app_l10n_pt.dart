@@ -583,6 +583,9 @@ class AppL10nPt extends AppL10n {
   String get statAverageSub => 'dicas';
 
   @override
+  String get statAveragePosterSub => 'níveis';
+
+  @override
   String get currentStreakTitle => 'Sequência Atual';
 
   @override
