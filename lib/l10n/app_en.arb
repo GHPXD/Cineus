@@ -33,7 +33,6 @@
   "challengeFilmNotFound": "That challenge points at a film this version of the app does not have.",
 
   "appTagline": "Guess the film in up to 10 clues.\nThe fewer you use, the more points.",
-  "splashCredits": "CINEUS v1.0 · FLUTTER · DART · TMDB",
 
   "navHome": "Home",
   "navFilms": "Films",
