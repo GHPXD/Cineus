@@ -261,6 +261,7 @@
   "statRate": "TAXA",
   "statAverage": "MÉDIA",
   "statAverageSub": "dicas",
+  "statAveragePosterSub": "níveis",
   "currentStreakTitle": "Sequência Atual",
   "dayCount": "{count, plural, =1{1 dia} other{{count} dias}}",
   "@dayCount": { "placeholders": { "count": { "type": "int" } } },
