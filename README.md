@@ -286,7 +286,7 @@ O jogador manda um filme já jogado como desafio avulso.
 flutter test
 ```
 
-281 casos em 21 arquivos. Os que mais valem entender:
+A suíte cobre regras de negócio, persistência, navegação, acessibilidade, localização e monetização. Os arquivos que mais valem entender:
 
 | Arquivo | Protege |
 |---------|---------|
@@ -342,5 +342,3 @@ Configuração e requisitos externos: `docs/MONETIZATION.md`.
 ## 📜 Licença
 
 Projeto privado — uso pessoal / portfólio.
-#   C i n e u s  
- 
