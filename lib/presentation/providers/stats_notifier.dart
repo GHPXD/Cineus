@@ -85,14 +85,23 @@ class StatsNotifier extends StateNotifier<StatsState> {
           SessionWithMovie(s, moviesById[s.movieId]),
       ];
 
-      final stagesCompleted = (await _stageRepo.getAllStages(mode: 'clue'))
-              .where((s) => s.isCompleted)
-              .length +
-          (await _stageRepo.getAllStages(mode: 'poster'))
-              .where((s) => s.isCompleted)
-              .length;
+      var achievements = const <Achievement>[];
+      if (mode == GameMode.clue) {
+        final stagesCompleted =
+            (await _stageRepo.getAllStages(mode: 'clue'))
+                    .where((s) => s.isCompleted)
+                    .length +
+                (await _stageRepo.getAllStages(mode: 'poster'))
+                    .where((s) => s.isCompleted)
+                    .length;
+        final ticketsEarned = await _rewardRepo.totalEarned();
+        achievements = Achievements.evaluate(
+          stats: stats,
+          stagesCompleted: stagesCompleted,
+          ticketsEarned: ticketsEarned,
+        );
+      }
 
-      final ticketsEarned = await _rewardRepo.totalEarned();
       if (!mounted || generation != _generation) return;
 
       state = StatsState(
@@ -100,11 +109,7 @@ class StatsNotifier extends StateNotifier<StatsState> {
         recentGames: recent,
         isLoading: false,
         insights: PlayInsights.from(sessions, moviesById),
-        achievements: Achievements.evaluate(
-          stats: stats,
-          stagesCompleted: stagesCompleted,
-          ticketsEarned: ticketsEarned,
-        ),
+        achievements: achievements,
       );
     } catch (_) {
       if (!mounted || generation != _generation) return;
