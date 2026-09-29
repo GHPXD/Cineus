@@ -193,6 +193,7 @@
   "statRate": "RATE",
   "statAverage": "AVERAGE",
   "statAverageSub": "clues",
+  "statAveragePosterSub": "levels",
   "currentStreakTitle": "Current Streak",
   "dayCount": "{count, plural, =1{1 day} other{{count} days}}",
   "bestLabel": "Best",
