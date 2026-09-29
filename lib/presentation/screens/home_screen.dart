@@ -202,10 +202,15 @@ class HomeScreen extends ConsumerWidget {
 
   Widget _buildStatsRow(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
-    final state = ref.watch(statsNotifierProvider);
-    final stats = state.stats;
+    final clueState = ref.watch(statsNotifierProvider);
+    final posterState = ref.watch(posterStatsNotifierProvider);
+    final totalGames =
+        clueState.stats.totalGames + posterState.stats.totalGames;
+    final totalWins =
+        clueState.stats.totalWins + posterState.stats.totalWins;
+    final combinedRate = totalGames == 0 ? null : totalWins / totalGames;
 
-    if (state.isLoading && stats.totalGames == 0) {
+    if ((clueState.isLoading || posterState.isLoading) && totalGames == 0) {
       return Padding(
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
         child: Row(
@@ -231,16 +236,16 @@ class HomeScreen extends ConsumerWidget {
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
       child: Row(
         children: [
-          _StatCard(value: '${stats.totalGames}', label: l10n.statPlayed),
+          _StatCard(value: '$totalGames', label: l10n.statPlayed),
+          const SizedBox(width: 10),
+          _StatCard(value: '$totalWins', label: l10n.statWins),
           const SizedBox(width: 10),
           _StatCard(
-            value: stats.totalGames == 0
+            value: combinedRate == null
                 ? '—'
-                : '${(stats.winRate * 100).round()}%',
-            label: l10n.statWins,
+                : '${(combinedRate * 100).round()}%',
+            label: l10n.statRate,
           ),
-          const SizedBox(width: 10),
-          _StatCard(value: '${stats.currentStreak}🔥', label: l10n.statStreak),
         ],
       ),
     );
