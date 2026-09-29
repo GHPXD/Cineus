@@ -111,7 +111,7 @@ final reminderNotifierProvider =
     l10n: () async {
       final locale = ref.read(localeNotifierProvider) ??
           PlatformDispatcher.instance.locale;
-      final supported = AppL10n.supportedLocales
+      final supported = LocaleNotifier.supportedLocales
               .any((l) => l.languageCode == locale.languageCode)
           ? Locale(locale.languageCode)
           : const Locale('pt');
