@@ -43,14 +43,16 @@ class StatsNotifier extends StateNotifier<StatsState> {
   final MovieRepository _movieRepo;
   final RewardRepository _rewardRepo;
   final StageRepository _stageRepo;
+  final GameMode mode;
   int _generation = 0;
 
   StatsNotifier(
     this._gameRepo,
     this._movieRepo,
     this._rewardRepo,
-    this._stageRepo,
-  ) : super(const StatsState()) {
+    this._stageRepo, {
+    required this.mode,
+  }) : super(const StatsState()) {
     load();
   }
 
@@ -67,11 +69,11 @@ class StatsNotifier extends StateNotifier<StatsState> {
     try {
       final freezes = await _rewardRepo.streakFreezes();
       final stats = await _gameRepo.getStats(
-        mode: GameMode.clue,
+        mode: mode,
         streakFreezes: freezes,
       );
       final sessions =
-          await _gameRepo.getFinishedDailySessions(mode: GameMode.clue);
+          await _gameRepo.getFinishedDailySessions(mode: mode);
 
       final movies = await _movieRepo.getMoviesByIds(
         sessions.map((s) => s.movieId).toSet().toList(),
@@ -118,12 +120,24 @@ class StatsNotifier extends StateNotifier<StatsState> {
   }
 }
 
+StatsNotifier _buildStats(Ref ref, GameMode mode) => StatsNotifier(
+      ref.read(gameRepositoryProvider),
+      ref.read(movieRepositoryProvider),
+      ref.read(rewardRepositoryProvider),
+      ref.read(stageRepositoryProvider),
+      mode: mode,
+    );
+
+/// Clue stats remain the default provider because Home historically shows the
+/// clue daily streak and achievement summary.
 final statsNotifierProvider =
-    StateNotifierProvider<StatsNotifier, StatsState>((ref) {
-  return StatsNotifier(
-    ref.read(gameRepositoryProvider),
-    ref.read(movieRepositoryProvider),
-    ref.read(rewardRepositoryProvider),
-    ref.read(stageRepositoryProvider),
-  );
-});
+    StateNotifierProvider<StatsNotifier, StatsState>(
+  (ref) => _buildStats(ref, GameMode.clue),
+);
+
+/// Poster daily history is tracked independently so its 1–5 score scale never
+/// pollutes the 1–10 clue distribution.
+final posterStatsNotifierProvider =
+    StateNotifierProvider<StatsNotifier, StatsState>(
+  (ref) => _buildStats(ref, GameMode.poster),
+);
