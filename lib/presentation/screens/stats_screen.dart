@@ -225,7 +225,9 @@ class StatsScreen extends ConsumerWidget {
         value: stats.totalWins > 0
             ? stats.averageCluesUsed.toStringAsFixed(1)
             : '—',
-        subtitle: mode == GameMode.clue ? l10n.statAverageSub : null,
+        subtitle: mode == GameMode.clue
+            ? l10n.statAverageSub
+            : l10n.statAveragePosterSub,
         color: AppColors.amber300,
       ),
     ];
