@@ -670,6 +670,10 @@ abstract class AppL10n {
   /// **'Complete os estágios para desbloquear mais filmes.'**
   String get stagesSubtitleClues;
 
+  String get stagesEducationClues;
+
+  String get stagesEducationPosters;
+
   /// No description provided for @stagesSubtitlePosters.
   ///
   /// In pt, this message translates to:
