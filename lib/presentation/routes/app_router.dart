@@ -90,7 +90,14 @@ abstract final class AppRouter {
           child: VisualScreen(
             expectedKind: _sessionKind(state.uri.queryParameters['source']),
           ),
-          transitionDuration: const Duration(milliseconds: 300),
+          transitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 300),
+          ),
+          reverseTransitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 300),
+          ),
           transitionsBuilder: (context, animation, _, child) =>
               FadeTransition(opacity: animation, child: child),
         ),
@@ -99,6 +106,14 @@ abstract final class AppRouter {
         path: '/visual/search',
         pageBuilder: (context, state) => CustomTransitionPage(
           child: VisualSearchScreen(onBack: () => context.pop()),
+          transitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 300),
+          ),
+          reverseTransitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 300),
+          ),
           transitionsBuilder: (context, animation, _, child) => SlideTransition(
             position: Tween<Offset>(
               begin: const Offset(0, 1),
@@ -115,7 +130,14 @@ abstract final class AppRouter {
         path: '/visual/victory',
         pageBuilder: (context, state) => CustomTransitionPage(
           child: const PosterResultScreen(won: true),
-          transitionDuration: const Duration(milliseconds: 400),
+          transitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 400),
+          ),
+          reverseTransitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 400),
+          ),
           transitionsBuilder: (context, animation, _, child) => ScaleTransition(
             scale: Tween<double>(begin: 0.85, end: 1.0).animate(
               CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
@@ -160,6 +182,14 @@ abstract final class AppRouter {
         path: '/search',
         pageBuilder: (context, state) => CustomTransitionPage(
           child: SearchScreen(onBack: () => context.pop()),
+          transitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 300),
+          ),
+          reverseTransitionDuration: _motionDuration(
+            context,
+            const Duration(milliseconds: 300),
+          ),
           transitionsBuilder: (context, animation, _, child) => SlideTransition(
             position: Tween<Offset>(
               begin: const Offset(0, 1),
@@ -248,6 +278,13 @@ abstract final class AppRouter {
       ),
     ],
   );
+
+
+  static Duration _motionDuration(
+    BuildContext context,
+    Duration normal,
+  ) =>
+      MediaQuery.disableAnimationsOf(context) ? Duration.zero : normal;
 
   static SessionKind _sessionKind(String? source) => switch (source) {
         'stage' => SessionKind.stage,
