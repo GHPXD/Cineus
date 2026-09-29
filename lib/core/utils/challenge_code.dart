@@ -31,6 +31,26 @@ abstract final class ChallengeCode {
   static const int _mix = 0x2A5B;
   static const int _mixInverse = 0x75D3;
 
+  /// Optional verified public origin used for shareable HTTPS challenge links.
+  ///
+  /// Keep empty until the domain is actually configured with Android App Links
+  /// and iOS Universal Links. Example release flag:
+  /// --dart-define=CINEUS_PUBLIC_BASE_URL=https://cineus.app
+  static const String _publicBaseUrl = String.fromEnvironment(
+    'CINEUS_PUBLIC_BASE_URL',
+    defaultValue: '',
+  );
+
+  static Uri? get configuredPublicBase {
+    final raw = _publicBaseUrl.trim();
+    if (raw.isEmpty) return null;
+    final parsed = Uri.tryParse(raw);
+    if (parsed == null || parsed.scheme != 'https' || parsed.host.isEmpty) {
+      return null;
+    }
+    return parsed;
+  }
+
   /// Encodes [movieId] into `CIN-XXXX`.
   ///
   /// Throws [ArgumentError] for an id outside the representable range.
@@ -78,17 +98,53 @@ abstract final class ChallengeCode {
   /// True when [raw] decodes to a film id.
   static bool isValid(String raw) => decode(raw) != null;
 
-  /// Deep link the code travels in, e.g. `cineus://challenge/CIN-4F2A`.
+  /// Link the code travels in.
   ///
-  /// A custom scheme rather than an https link: a universal link needs a domain
-  /// we control, and `cineus.app` is only a string in the share text today.
-  static Uri linkFor(int movieId) =>
-      Uri.parse('cineus://challenge/${encode(movieId)}');
+  /// Before a verified public origin exists, this safely falls back to the
+  /// custom scheme. Once `CINEUS_PUBLIC_BASE_URL` is configured, shares become
+  /// HTTPS links that can open the app through App/Universal Links or fall back
+  /// to a web landing page.
+  static Uri linkFor(int movieId, {Uri? publicBase}) {
+    final code = encode(movieId);
+    final base = publicBase ?? configuredPublicBase;
+    if (base == null) return Uri.parse('cineus://challenge/$code');
 
-  /// Extracts a code from an incoming deep link, or null when it is not one.
-  static int? movieIdFromLink(Uri uri) {
-    if (uri.scheme != 'cineus') return null;
-    // Accepts cineus://challenge/CODE and cineus://challenge?code=CODE
+    return base.replace(
+      path: '${base.path.replaceFirst(RegExp(r'/+
+
+  /// Five-bit checksum. Weighted so transposing two characters changes it.
+  static int _checksum(int value) {
+    var sum = 0;
+    var weight = 1;
+    var remaining = value;
+    while (remaining > 0) {
+      sum += (remaining & 0x1F) * weight;
+      remaining >>= 5;
+      weight++;
+    }
+    return sum & 0x1F;
+  }
+}
+), '')}/challenge/$code',
+      query: null,
+      fragment: null,
+    );
+  }
+
+  /// Extracts a code from an incoming challenge link, or null when invalid.
+  ///
+  /// HTTPS is accepted only for the configured/explicit public origin; arbitrary
+  /// websites cannot masquerade as Cineus challenge links.
+  static int? movieIdFromLink(Uri uri, {Uri? publicBase}) {
+    final customScheme = uri.scheme == 'cineus' && uri.host == 'challenge';
+    final base = publicBase ?? configuredPublicBase;
+    final verifiedHttps = base != null &&
+        uri.scheme == 'https' &&
+        uri.host.toLowerCase() == base.host.toLowerCase() &&
+        uri.port == base.port;
+
+    if (!customScheme && !verifiedHttps) return null;
+
     final fromPath = uri.pathSegments.isNotEmpty ? uri.pathSegments.last : null;
     final fromQuery = uri.queryParameters['code'];
     for (final candidate in [fromQuery, fromPath]) {
