@@ -33,7 +33,6 @@
   "challengeFilmNotFound": "Ese desafío apunta a una película que esta versión de la app no tiene.",
 
   "appTagline": "Adivina la película en hasta 10 pistas.\nCuantas menos uses, más puntos.",
-  "splashCredits": "CINEUS v1.0 · FLUTTER · DART · TMDB",
 
   "navHome": "Inicio",
   "navFilms": "Películas",
