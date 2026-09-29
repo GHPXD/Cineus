@@ -50,7 +50,10 @@ void refreshAfterGameFinished(
       : ref.read(rewardNotifierProvider.notifier).evaluate(finished);
 
   credit.whenComplete(() {
+    // Rewards can alter cross-mode achievements/ticket totals, so refresh both
+    // views even though the finished session belongs to only one mode.
     ref.invalidate(statsNotifierProvider);
+    ref.invalidate(posterStatsNotifierProvider);
     ref.invalidate(dailySessionProvider);
     ref.invalidate(recoverableStreakDayProvider);
   });
@@ -59,6 +62,7 @@ void refreshAfterGameFinished(
 /// Rebuilds the streak-dependent providers after a freeze is bought.
 void refreshStreakData(WidgetRef ref) {
   ref.invalidate(statsNotifierProvider);
+  ref.invalidate(posterStatsNotifierProvider);
   ref.invalidate(recoverableStreakDayProvider);
 }
 
