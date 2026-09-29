@@ -243,6 +243,15 @@
   "languageTitle": "Idioma",
   "languageSystem": "Predeterminado del sistema",
   "contentLanguageNote": "Las pistas y los títulos provienen del catálogo en portugués.",
+  "rewardedTitle": "Ganar tickets",
+  "rewardedBody": "Mira un anuncio opcional y gana {amount} tickets. Quedan {remaining} recompensas hoy.",
+  "rewardedAction": "Ver y ganar +{amount} 🎫",
+  "rewardedDone": "¡Tickets añadidos! 🎫",
+  "passTitle": "Cineus Pass",
+  "passBody": "Todo el juego sigue siendo gratuito. El Pass elimina anuncios no opcionales y puede incluir ventajas de comodidad.",
+  "passActive": "Pass activo · sin anuncios no opcionales",
+  "passGet": "Obtener Pass {price}",
+  "passRestore": "Restaurar compra",
 
   "tickets": "{current}/{max}"
 }
