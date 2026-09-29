@@ -125,7 +125,7 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] mover `bodySmall`, `labelSmall`, `mono` e `monoSmall` para cores semânticas com contraste verificado
 - [x] garantir mínimo de 48dp nos temas globais de botão
 - [x] usar `TapTarget` nos CTAs pequenos de estágio e dicas extras
-- [x] respeitar Reduce Motion no score pulsante, splash e revelação do Poster
+- [x] respeitar Reduce Motion no score pulsante, splash, revelações e transições de rota
 - [x] cobrir componentes críticos até 200% de text scaling em testes
 - [x] garantir rótulos semânticos acionáveis na navegação principal
 
@@ -147,7 +147,7 @@ Objetivo: transformar os fluxos já robustos em uma experiência coerente de pro
 - [x] localizar metadados do canal de lembrete no Android
 - [x] validar paridade PT/EN/ES e impedir strings em português fora da camada de localização
 - [x] adicionar regressões de navegação, timezone, orientação, text scaling e Semantics
-- [ ] educação contextual adicional de tickets/estágios/poster — polish não bloqueante; pode evoluir após QA com usuários
+- [x] educação contextual de tickets/estágios/Poster sem bloquear o fluxo
 - [ ] passar no HEAD final por catálogo + compliance + analyzer + testes + Web + Android API 36 + iOS 26
 
 ### QA manual obrigatório antes da submissão às lojas
