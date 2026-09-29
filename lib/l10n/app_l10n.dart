@@ -1042,6 +1042,8 @@ abstract class AppL10n {
   /// **'dicas'**
   String get statAverageSub;
 
+  String get statAveragePosterSub;
+
   /// No description provided for @currentStreakTitle.
   ///
   /// In pt, this message translates to:
