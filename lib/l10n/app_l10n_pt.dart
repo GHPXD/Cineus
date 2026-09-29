@@ -350,6 +350,14 @@ class AppL10nPt extends AppL10n {
       'Complete os estágios para desbloquear mais filmes.';
 
   @override
+  String get stagesEducationClues =>
+      'Nos estágios, iniciar ou refazer um filme custa 1 🎫. Continuar uma partida em andamento não cobra novamente.';
+
+  @override
+  String get stagesEducationPosters =>
+      'No Poster, cada revelação reduz o desfoque e também a pontuação. Nos estágios, iniciar ou refazer custa 1 🎫.';
+
+  @override
   String get stagesSubtitlePosters =>
       'Adivinhe os filmes pelo poster desfocado.';
 
