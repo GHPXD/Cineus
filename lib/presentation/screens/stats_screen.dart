@@ -13,6 +13,8 @@ import '../providers/stats_notifier.dart';
 import '../widgets/film_strip_widget.dart';
 import '../widgets/tap_target.dart';
 
+final _statsModeProvider = StateProvider<GameMode>((_) => GameMode.clue);
+
 class StatsScreen extends ConsumerWidget {
   final VoidCallback onBack;
 
@@ -21,7 +23,11 @@ class StatsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
-    final state = ref.watch(statsNotifierProvider);
+    final mode = ref.watch(_statsModeProvider);
+    final provider = mode == GameMode.poster
+        ? posterStatsNotifierProvider
+        : statsNotifierProvider;
+    final state = ref.watch(provider);
 
     if (state.isLoading && state.recentGames.isEmpty && state.stats.totalGames == 0) {
       return Scaffold(
@@ -64,7 +70,7 @@ class StatsScreen extends ConsumerWidget {
                       width: double.infinity,
                       child: ElevatedButton.icon(
                         onPressed: () =>
-                            ref.read(statsNotifierProvider.notifier).load(),
+                            ref.read(provider.notifier).load(),
                         icon: const Icon(Icons.refresh_rounded),
                         label: Text(l10n.retryAction),
                       ),
@@ -134,16 +140,25 @@ class StatsScreen extends ConsumerWidget {
                     children: [
                       const FilmStrip(),
                       const SizedBox(height: 16),
-                      _buildStatsGrid(context, l10n, stats),
+                      _buildModeSelector(context, ref, mode),
+                      const SizedBox(height: 16),
+                      _buildStatsGrid(context, l10n, stats, mode),
                       const SizedBox(height: 20),
                       _buildStreakBadge(l10n, stats),
                       const SizedBox(height: 20),
-                      _buildScoreDistribution(context, l10n, stats),
-                      const SizedBox(height: 20),
-                      _buildAchievements(l10n, state),
+                      _buildScoreDistribution(context, l10n, stats, mode),
+                      if (mode == GameMode.clue) ...[
+                        const SizedBox(height: 20),
+                        _buildAchievements(l10n, state),
+                      ],
                       const SizedBox(height: 20),
                       _buildInsights(l10n, state.insights),
-                      _buildRecentGames(context, l10n, state.recentGames),
+                      _buildRecentGames(
+                        context,
+                        l10n,
+                        state.recentGames,
+                        mode,
+                      ),
                     ],
                   ),
                 ),
@@ -155,10 +170,37 @@ class StatsScreen extends ConsumerWidget {
     );
   }
 
+  Widget _buildModeSelector(
+    BuildContext context,
+    WidgetRef ref,
+    GameMode mode,
+  ) {
+    return SegmentedButton<GameMode>(
+      segments: [
+        ButtonSegment(
+          value: GameMode.clue,
+          icon: const Icon(Icons.lightbulb_outline_rounded),
+          label: Text(context.l10n.modeClues),
+        ),
+        ButtonSegment(
+          value: GameMode.poster,
+          icon: const Icon(Icons.image_outlined),
+          label: Text(context.l10n.modePoster),
+        ),
+      ],
+      selected: {mode},
+      showSelectedIcon: false,
+      onSelectionChanged: (selection) {
+        ref.read(_statsModeProvider.notifier).state = selection.first;
+      },
+    );
+  }
+
   Widget _buildStatsGrid(
     BuildContext context,
     AppL10n l10n,
     GameStats stats,
+    GameMode mode,
   ) {
     final items = [
       _StatTile(
@@ -183,7 +225,7 @@ class StatsScreen extends ConsumerWidget {
         value: stats.totalWins > 0
             ? stats.averageCluesUsed.toStringAsFixed(1)
             : '—',
-        subtitle: l10n.statAverageSub,
+        subtitle: mode == GameMode.clue ? l10n.statAverageSub : null,
         color: AppColors.amber300,
       ),
     ];
@@ -257,6 +299,7 @@ class StatsScreen extends ConsumerWidget {
     BuildContext context,
     AppL10n l10n,
     GameStats stats,
+    GameMode mode,
   ) {
     if (stats.scoreDistribution.isEmpty) {
       return _Panel(
@@ -289,8 +332,9 @@ class StatsScreen extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 12),
-          ...List.generate(10, (i) {
-            final score = 10 - i;
+          ...List.generate(mode == GameMode.clue ? 10 : 5, (i) {
+            final maxScore = mode == GameMode.clue ? 10 : 5;
+            final score = maxScore - i;
             final count = stats.scoreDistribution[score] ?? 0;
             final fraction = maxCount > 0 ? count / maxCount : 0.0;
             final color = AppColors.scoreColor(score);
@@ -439,6 +483,7 @@ class StatsScreen extends ConsumerWidget {
     BuildContext context,
     AppL10n l10n,
     List<SessionWithMovie> games,
+    GameMode mode,
   ) {
     if (games.isEmpty) return const SizedBox.shrink();
 
@@ -512,7 +557,9 @@ class StatsScreen extends ConsumerWidget {
                 ),
                 Text(
                   isWin
-                      ? l10n.cluesUsedCount(session.revealedClues)
+                      ? (mode == GameMode.clue
+                          ? l10n.cluesUsedCount(session.revealedClues)
+                          : l10n.pointsPlain(session.score))
                       : l10n.defeatShort,
                   style: AppTypography.bodySmall.copyWith(
                     color: color,
