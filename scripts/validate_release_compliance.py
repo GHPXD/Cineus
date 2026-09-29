@@ -10,6 +10,9 @@ REQUIRED_FILES = [
     ROOT / "docs" / "privacy.html",
     ROOT / "docs" / "terms.html",
     ROOT / "docs" / "support.html",
+    ROOT / "web" / "privacy.html",
+    ROOT / "web" / "terms.html",
+    ROOT / "web" / "support.html",
     ROOT / "docs" / "MONETIZATION.md",
     ROOT / "docs" / "POSTER_ASSETS.md",
     ROOT / "lib" / "l10n" / "release_legal_l10n.dart",
@@ -43,6 +46,10 @@ settings = (ROOT / "lib/presentation/widgets/settings_section.dart").read_text(
 gradle = (ROOT / "android/app/build.gradle.kts").read_text(encoding="utf-8")
 privacy = (ROOT / "docs/privacy.html").read_text(encoding="utf-8")
 terms = (ROOT / "docs/terms.html").read_text(encoding="utf-8")
+support = (ROOT / "docs/support.html").read_text(encoding="utf-8")
+web_privacy = (ROOT / "web/privacy.html").read_text(encoding="utf-8")
+web_terms = (ROOT / "web/terms.html").read_text(encoding="utf-8")
+web_support = (ROOT / "web/support.html").read_text(encoding="utf-8")
 monetization = (ROOT / "lib/domain/entities/monetization.dart").read_text(
     encoding="utf-8"
 )
@@ -69,5 +76,7 @@ require("11 de setembro de 2026" in privacy and "September 11, 2026" in privacy,
         "privacy policy effective date/locales missing")
 require("11 de setembro de 2026" in terms and "September 11, 2026" in terms,
         "terms effective date/locales missing")
+require(privacy == web_privacy and terms == web_terms and support == web_support,
+        "web/legal copies must stay byte-for-byte synchronized with docs")
 
 print("✓ Release compliance, free-first monetization and signing guards present")
