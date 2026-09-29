@@ -3,21 +3,67 @@
 /// Handles accent removal, case folding, special character stripping,
 /// and optional article removal for franchise matching.
 abstract final class StringNormalizer {
-  static const _articles = {'o', 'a', 'os', 'as', 'the', 'an', 'um', 'uma'};
+  static const _articles = {
+    'o',
+    'a',
+    'os',
+    'as',
+    'the',
+    'an',
+    'um',
+    'uma',
+    'el',
+    'la',
+    'los',
+    'las',
+    'un',
+    'una',
+  };
 
-  /// Normalizes a string for comparison: lowercase, accent-stripped,
-  /// non-alphanumeric removed, whitespace collapsed.
+  /// Common Latin characters seen in international film titles.
+  ///
+  /// Keeping this table local avoids adding a runtime dependency only for
+  /// diacritic folding while covering Portuguese, Spanish, French, German,
+  /// Nordic and Central-European titles substantially better than the old
+  /// PT-only replacement chain.
+  static const _fold = <String, String>{
+    'à': 'a', 'á': 'a', 'â': 'a', 'ã': 'a', 'ä': 'a', 'å': 'a', 'ā': 'a',
+    'ă': 'a', 'ą': 'a', 'æ': 'ae',
+    'ç': 'c', 'ć': 'c', 'č': 'c',
+    'ď': 'd', 'đ': 'd',
+    'è': 'e', 'é': 'e', 'ê': 'e', 'ë': 'e', 'ē': 'e', 'ĕ': 'e', 'ė': 'e',
+    'ę': 'e', 'ě': 'e',
+    'ğ': 'g',
+    'ì': 'i', 'í': 'i', 'î': 'i', 'ï': 'i', 'ī': 'i', 'į': 'i',
+    'ł': 'l',
+    'ñ': 'n', 'ń': 'n', 'ň': 'n',
+    'ò': 'o', 'ó': 'o', 'ô': 'o', 'õ': 'o', 'ö': 'o', 'ø': 'o', 'ō': 'o',
+    'œ': 'oe',
+    'ř': 'r',
+    'ś': 's', 'š': 's', 'ş': 's', 'ß': 'ss',
+    'ť': 't',
+    'ù': 'u', 'ú': 'u', 'û': 'u', 'ü': 'u', 'ū': 'u', 'ů': 'u', 'ű': 'u',
+    'ý': 'y', 'ÿ': 'y',
+    'ź': 'z', 'ż': 'z', 'ž': 'z',
+  };
+
+  /// Normalizes a string for comparison: lowercase, accent-folded,
+  /// punctuation converted to spacing, and whitespace collapsed.
+  ///
+  /// Converting punctuation to spaces instead of deleting it keeps
+  /// "Spider-Man" equivalent to "Spider Man".
   static String normalize(String s) {
-    return s
-        .trim()
-        .toLowerCase()
-        .replaceAll(RegExp(r'[áàâã]'), 'a')
-        .replaceAll(RegExp(r'[éèê]'), 'e')
-        .replaceAll(RegExp(r'[íìî]'), 'i')
-        .replaceAll(RegExp(r'[óòôõ]'), 'o')
-        .replaceAll(RegExp(r'[úùû]'), 'u')
-        .replaceAll('ç', 'c')
-        .replaceAll(RegExp(r'[^a-z0-9\s]'), '')
+    final lower = s.trim().toLowerCase();
+    final buffer = StringBuffer();
+
+    for (final rune in lower.runes) {
+      final char = String.fromCharCode(rune);
+      buffer.write(_fold[char] ?? char);
+    }
+
+    return buffer
+        .toString()
+        .replaceAll(RegExp(r'[^a-z0-9\s]'), ' ')
         .replaceAll(RegExp(r'\s+'), ' ')
         .trim();
   }
@@ -34,26 +80,12 @@ abstract final class StringNormalizer {
 
   /// Returns true if [guess] matches any of [acceptedTitles] exactly
   /// (after normalization).
-  ///
-  /// This is the ONLY acceptance criterion in both game modes. Franchise
-  /// proximity is a hint ([isSameFranchise]), never a win — [isFranchiseMatch]
-  /// accepts any prefix and would award full marks for the wrong film in 205
-  /// title combinations of the bundled catalogue.
-  ///
-  /// Deliberate consequence: the catalogue holds 5 pairs of films sharing a
-  /// title (remake + original — O Rei Leão, A Bela e a Fera, Aladdin, Batman,
-  /// Os Suspeitos), so naming one accepts the other. That is the fair call: the
-  /// player produced the right name, and the clues do not reliably pin down
-  /// which release is meant. The autocomplete shows the year inline when two
-  /// results collide, so the choice is at least visible. Requiring the exact
-  /// movie id instead would make those 10 films unguessable by name.
   static bool isExactMatch(String guess, List<String> acceptedTitles) {
     final normalizedGuess = normalize(guess);
     return acceptedTitles.any((t) => normalize(t) == normalizedGuess);
   }
 
   /// Returns true if [guess] is a franchise prefix match for any accepted title.
-  /// E.g. "Harry Potter" matches "Harry Potter e a Pedra Filosofal".
   static bool isFranchiseMatch(String guess, List<String> acceptedTitles) {
     final normGuess = normalizeStrippingArticles(guess);
     if (normGuess.length < 4) return false;
@@ -66,22 +98,24 @@ abstract final class StringNormalizer {
   }
 
   /// Strips trailing sequence indicators (numbers / roman numerals / part phrases)
-  /// so that "De Volta para o Futuro II" and "De Volta para o Futuro" both reduce
-  /// to the same base, enabling the franchise-but-wrong-entry hint.
+  /// so that entries from the same numbered franchise reduce to the same base.
   static String _stripSequence(String normalized) {
     return normalized
         .replaceAll(
-            RegExp(r'\s+(?:xiii|xii|xiv|xv|xi|viii|vii|vi|iv|iii|ii)\s*$'), '')
+          RegExp(r'\s+(?:xiii|xii|xiv|xv|xi|viii|vii|vi|iv|iii|ii)\s*$'),
+          '',
+        )
         .replaceAll(RegExp(r'\s+\d{1,2}\s*$'), '')
         .replaceAll(
-            RegExp(
-                r'\s+-?\s*(?:parte?|part)\s+(?:\d+|um|dois|tres|one|two|three|four|five)\s*$'),
-            '')
+          RegExp(
+            r'\s*(?:parte?|part)\s+(?:\d+|um|dois|tres|one|two|three|four|five)\s*$',
+          ),
+          '',
+        )
         .trim();
   }
 
   /// Returns true when [guess] is wrong overall but refers to the same franchise.
-  /// E.g. user typed "De Volta para o Futuro" but correct is "De Volta para o Futuro II".
   static bool isSameFranchise(String guess, List<String> acceptedTitles) {
     final normGuess = _stripSequence(normalize(guess));
     if (normGuess.length < 4) return false;
