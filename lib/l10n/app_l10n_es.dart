@@ -583,6 +583,9 @@ class AppL10nEs extends AppL10n {
   String get statAverageSub => 'pistas';
 
   @override
+  String get statAveragePosterSub => 'niveles';
+
+  @override
   String get currentStreakTitle => 'Racha actual';
 
   @override
