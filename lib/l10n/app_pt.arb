@@ -51,7 +51,6 @@
   },
 
   "appTagline": "Adivinha o filme em até 10 dicas.\nQuanto menos usar, mais pontos.",
-  "splashCredits": "CINEUS v1.0 · FLUTTER · DART · TMDB",
 
   "navHome": "Início",
   "navFilms": "Filmes",
