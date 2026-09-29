@@ -243,11 +243,6 @@ abstract class AppL10n {
   /// **'Adivinha o filme em até 10 dicas.\nQuanto menos usar, mais pontos.'**
   String get appTagline;
 
-  /// No description provided for @splashCredits.
-  ///
-  /// In pt, this message translates to:
-  /// **'CINEUS v1.0 · FLUTTER · DART · TMDB'**
-  String get splashCredits;
 
   /// No description provided for @navHome.
   ///
@@ -1322,6 +1317,19 @@ abstract class AppL10n {
   /// In pt, this message translates to:
   /// **'As dicas e os títulos dos filmes vêm do catálogo em português.'**
   String get contentLanguageNote;
+
+  /// Optional rewarded-ad entry point.
+  String get rewardedTitle;
+  String rewardedBody(int amount, int remaining);
+  String rewardedAction(int amount);
+  String get rewardedDone;
+
+  /// Cineus Pass convenience entitlement.
+  String get passTitle;
+  String get passBody;
+  String get passActive;
+  String passGet(String price);
+  String get passRestore;
 
   /// No description provided for @tickets.
   ///
