@@ -8,6 +8,7 @@ import '../../core/theme/app_typography.dart';
 import '../../core/utils/challenge_code.dart';
 import '../../l10n/release_legal_l10n.dart';
 import '../l10n_mappers.dart';
+import '../providers/monetization_notifier.dart';
 import '../providers/reminder_notifier.dart';
 import 'language_picker.dart';
 
@@ -20,6 +21,8 @@ class SettingsSection extends ConsumerWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        _PassCard(),
+        SizedBox(height: 20),
         _ReminderToggle(),
         SizedBox(height: 20),
         LanguagePicker(),
@@ -204,6 +207,108 @@ class _ReminderToggle extends ConsumerWidget {
           ),
         ],
       ],
+    );
+  }
+}
+
+class _PassCard extends ConsumerWidget {
+  const _PassCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(monetizationNotifierProvider);
+    if (state.isLoading || (!state.storeAvailable && !state.passActive)) {
+      return const SizedBox.shrink();
+    }
+
+    final l10n = context.l10n;
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        gradient: state.passActive
+            ? AppColors.goldDimGradient
+            : AppColors.blueDimGradient,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: (state.passActive ? AppColors.gold300 : AppColors.blue300)
+              .withValues(alpha: 0.3),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                state.passActive
+                    ? Icons.workspace_premium_rounded
+                    : Icons.local_movies_outlined,
+                color:
+                    state.passActive ? AppColors.gold300 : AppColors.blue300,
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  l10n.passTitle,
+                  style: AppTypography.titleMedium,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            state.passActive ? l10n.passActive : l10n.passBody,
+            style: AppTypography.bodySmall.copyWith(
+              color: AppColors.textSecondary,
+            ),
+          ),
+          if (!state.passActive && state.storeAvailable) ...[
+            const SizedBox(height: 14),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final buy = FilledButton(
+                  onPressed: state.busy
+                      ? null
+                      : () => ref
+                          .read(monetizationNotifierProvider.notifier)
+                          .purchasePass(),
+                  child: state.busy
+                      ? const SizedBox(
+                          width: 18,
+                          height: 18,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : Text(
+                          l10n.passGet(state.passDisplayPrice ?? ''),
+                        ),
+                );
+                final restore = TextButton(
+                  onPressed: state.busy
+                      ? null
+                      : () => ref
+                          .read(monetizationNotifierProvider.notifier)
+                          .restorePass(),
+                  child: Text(l10n.passRestore),
+                );
+
+                if (constraints.maxWidth < 360) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [buy, restore],
+                  );
+                }
+                return Row(
+                  children: [
+                    Expanded(child: buy),
+                    const SizedBox(width: 8),
+                    restore,
+                  ],
+                );
+              },
+            ),
+          ],
+        ],
+      ),
     );
   }
 }
