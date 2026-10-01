@@ -15,9 +15,18 @@ void main() {
         expect(StringNormalizer.normalize('ação'), 'acao');
       });
 
-      test('removes special characters', () {
-        expect(StringNormalizer.normalize('Spider-Man: No Way Home'),
-            'spiderman no way home');
+      test('normalizes punctuation to word boundaries', () {
+        expect(
+          StringNormalizer.normalize('Spider-Man: No Way Home'),
+          'spider man no way home',
+        );
+      });
+
+      test('folds common international latin diacritics', () {
+        expect(StringNormalizer.normalize('Amélie'), 'amelie');
+        expect(StringNormalizer.normalize('Björk'), 'bjork');
+        expect(StringNormalizer.normalize('El Niño'), 'el nino');
+        expect(StringNormalizer.normalize('München'), 'munchen');
       });
 
       test('collapses whitespace', () {
@@ -45,11 +54,15 @@ void main() {
             'vingadores');
       });
 
-      test('strips English articles', () {
+      test('strips English and Spanish articles', () {
         expect(StringNormalizer.normalizeStrippingArticles('The Godfather'),
             'godfather');
         expect(StringNormalizer.normalizeStrippingArticles('An Officer'),
             'officer');
+        expect(StringNormalizer.normalizeStrippingArticles('El Laberinto'),
+            'laberinto');
+        expect(StringNormalizer.normalizeStrippingArticles('La La Land'),
+            'la land');
       });
 
       test('does not strip non-articles', () {

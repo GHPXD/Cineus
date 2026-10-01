@@ -71,14 +71,4 @@ class StageRepositoryImpl implements StageRepository {
     );
   }
 
-  @override
-  Future<bool> isMovieCompleted(int stageId, int movieId, {String mode = 'clue'}) async {
-    final db = await _db.database;
-    final rows = await db.query(
-      'stage_progress',
-      where: 'stage_id = ? AND movie_id = ? AND status = ? AND mode = ?',
-      whereArgs: [stageId, movieId, 'completed', mode],
-    );
-    return rows.isNotEmpty;
-  }
 }

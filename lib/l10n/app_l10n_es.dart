@@ -98,8 +98,6 @@ class AppL10nEs extends AppL10n {
   String get appTagline =>
       'Adivina la película en hasta 10 pistas.\nCuantas menos uses, más puntos.';
 
-  @override
-  String get splashCredits => 'CINEUS v1.0 · FLUTTER · DART · TMDB';
 
   @override
   String get navHome => 'Inicio';
@@ -352,6 +350,14 @@ class AppL10nEs extends AppL10n {
       'Completa las etapas para desbloquear más películas.';
 
   @override
+  String get stagesEducationClues =>
+      'En las etapas, iniciar o repetir una película cuesta 1 🎫. Continuar una partida en curso no vuelve a cobrar.';
+
+  @override
+  String get stagesEducationPosters =>
+      'En Poster, cada revelado reduce el desenfoque y también la puntuación. En las etapas, iniciar o repetir cuesta 1 🎫.';
+
+  @override
   String get stagesSubtitlePosters =>
       'Adivina las películas por el póster desenfocado.';
 
@@ -585,6 +591,9 @@ class AppL10nEs extends AppL10n {
   String get statAverageSub => 'pistas';
 
   @override
+  String get statAveragePosterSub => 'niveles';
+
+  @override
   String get currentStreakTitle => 'Racha actual';
 
   @override
@@ -744,6 +753,35 @@ class AppL10nEs extends AppL10n {
   @override
   String get contentLanguageNote =>
       'Las pistas y los títulos provienen del catálogo en portugués.';
+
+  @override
+  String get rewardedTitle => 'Ganar tickets';
+
+  @override
+  String rewardedBody(int amount, int remaining) =>
+      'Mira un anuncio opcional y gana $amount tickets. Quedan $remaining recompensas hoy.';
+
+  @override
+  String rewardedAction(int amount) => 'Ver y ganar +$amount 🎫';
+
+  @override
+  String get rewardedDone => '¡Tickets añadidos! 🎫';
+
+  @override
+  String get passTitle => 'Cineus Pass';
+
+  @override
+  String get passBody =>
+      'Todo el juego sigue siendo gratuito. El Pass elimina anuncios no opcionales y puede incluir ventajas de comodidad.';
+
+  @override
+  String get passActive => 'Pass activo · sin anuncios no opcionales';
+
+  @override
+  String passGet(String price) => 'Obtener Pass $price';
+
+  @override
+  String get passRestore => 'Restaurar compra';
 
   @override
   String tickets(int current, int max) {

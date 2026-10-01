@@ -265,7 +265,7 @@ class _BootstrapStrings {
     repairHint: 'O reparo é o último recurso e pode recriar os dados locais.',
     repairTitle: 'Reparar dados locais?',
     repairWarning:
-        'O Cineus fará um backup do banco atual quando possível e reconstruirá uma cópia limpa. O progresso local pode precisar ser recuperado do backup.',
+        'O Cineus guardará uma cópia técnica do banco atual quando possível e reconstruirá uma base limpa. Esta versão não restaura esse backup automaticamente; use o reparo apenas como último recurso, pois o progresso local pode ser perdido.',
     cancel: 'Cancelar',
   );
 
@@ -279,7 +279,7 @@ class _BootstrapStrings {
     repairHint: 'Repair is a last resort and may recreate local data.',
     repairTitle: 'Repair local data?',
     repairWarning:
-        'Cineus will back up the current database when possible and rebuild a clean copy. Local progress may need to be recovered from that backup.',
+        'Cineus will keep a technical copy of the current database when possible and rebuild a clean database. This version does not restore that backup automatically; use repair only as a last resort because local progress may be lost.',
     cancel: 'Cancel',
   );
 
@@ -294,7 +294,7 @@ class _BootstrapStrings {
         'La reparación es el último recurso y puede recrear los datos locales.',
     repairTitle: '¿Reparar los datos locales?',
     repairWarning:
-        'Cineus hará una copia de seguridad de la base actual cuando sea posible y reconstruirá una copia limpia. Puede ser necesario recuperar el progreso local desde esa copia.',
+        'Cineus guardará una copia técnica de la base actual cuando sea posible y reconstruirá una base limpia. Esta versión no restaura esa copia automáticamente; usa la reparación solo como último recurso porque el progreso local puede perderse.',
     cancel: 'Cancelar',
   );
 }

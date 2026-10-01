@@ -156,6 +156,27 @@ void main() {
       );
     });
 
+    test('gera e lê HTTPS apenas para a origem pública verificada', () {
+      final base = Uri.parse('https://cineus.app');
+      final uri = ChallengeCode.linkFor(77, publicBase: base);
+      expect(uri.toString(), startsWith('https://cineus.app/challenge/CIN-'));
+      expect(
+        ChallengeCode.movieIdFromLink(uri, publicBase: base),
+        77,
+      );
+    });
+
+    test('rejeita HTTPS de outra origem', () {
+      final code = ChallengeCode.encode(77);
+      expect(
+        ChallengeCode.movieIdFromLink(
+          Uri.parse('https://evil.example/challenge/$code'),
+          publicBase: Uri.parse('https://cineus.app'),
+        ),
+        isNull,
+      );
+    });
+
     test('ignora links de outro scheme ou sem código válido', () {
       for (final link in [
         'https://cineus.app/challenge/CIN-AAAA',

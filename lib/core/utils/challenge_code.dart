@@ -1,39 +1,49 @@
-/// Short shareable code identifying one film (D10).
+/// Short shareable code identifying one film.
 ///
 /// Format: `CIN-XXXX`, where the four characters carry the film id plus a
 /// checksum in a Crockford-style base-32 alphabet.
 ///
-/// Two properties matter:
-///
-///  * **Typo-safe.** A mistyped character almost always fails the checksum
-///    instead of silently opening a different film — which would be worse than
-///    an error, because the friend would play the wrong movie and never know.
-///  * **Not sequential.** The id is mixed before encoding, so `CIN-…` codes for
-///    films 1 and 2 look unrelated. This is obfuscation, not security: anyone who
-///    wants to enumerate the catalogue can, and nothing here needs protecting.
+/// Codes are typo-resistant and intentionally non-sequential. This is
+/// obfuscation, not security.
 abstract final class ChallengeCode {
   static const String prefix = 'CIN';
 
-  /// Crockford base-32: no I, L, O or U, so 1/I, 0/O and similar cannot be
-  /// confused when read aloud or retyped.
+  /// Crockford base-32: no I, L, O or U, reducing transcription ambiguity.
   static const String _alphabet = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
 
-  /// Bits reserved for the film id. 15 bits covers 32.767 films — the catalogue
-  /// has 500, leaving room to grow without changing the format.
+  /// 15 bits covers ids 1..32767.
   static const int _idBits = 15;
   static const int _idMask = (1 << _idBits) - 1;
 
-  /// Odd multiplier, so it is invertible modulo 2^15 and spreads adjacent ids.
-  ///
-  /// [_mixInverse] is the modular inverse: `_mix * _mixInverse ≡ 1 (mod 2^15)`.
-  /// The round-trip test covers every representable id, so a wrong constant here
-  /// fails loudly rather than corrupting codes in the field.
+  /// Invertible multiplier modulo 2^15.
   static const int _mix = 0x2A5B;
   static const int _mixInverse = 0x75D3;
 
-  /// Encodes [movieId] into `CIN-XXXX`.
+  /// Optional verified public origin for shareable HTTPS links.
   ///
-  /// Throws [ArgumentError] for an id outside the representable range.
+  /// Keep this unset until the domain is configured for Android App Links and
+  /// iOS Universal Links.
+  static const String _publicBaseUrl = String.fromEnvironment(
+    'CINEUS_PUBLIC_BASE_URL',
+    defaultValue: '',
+  );
+
+  static Uri? get configuredPublicBase {
+    return _validatedPublicBase(Uri.tryParse(_publicBaseUrl.trim()));
+  }
+
+  static Uri? _validatedPublicBase(Uri? uri) {
+    if (uri == null ||
+        uri.scheme.toLowerCase() != 'https' ||
+        uri.host.isEmpty ||
+        uri.hasQuery ||
+        uri.hasFragment) {
+      return null;
+    }
+    return uri;
+  }
+
+  /// Encodes [movieId] into `CIN-XXXX`.
   static String encode(int movieId) {
     if (movieId <= 0 || movieId > _idMask) {
       throw ArgumentError.value(movieId, 'movieId', 'fora da faixa codificável');
@@ -42,7 +52,6 @@ abstract final class ChallengeCode {
     final scrambled = (movieId * _mix) & _idMask;
     final payload = (scrambled << 5) | _checksum(scrambled);
 
-    // 20 bits → exactly four base-32 characters.
     final chars = <String>[];
     for (var shift = 15; shift >= 0; shift -= 5) {
       chars.add(_alphabet[(payload >> shift) & 0x1F]);
@@ -50,10 +59,7 @@ abstract final class ChallengeCode {
     return '$prefix-${chars.join()}';
   }
 
-  /// Decodes a code back to a film id, or null when it is not a valid code.
-  ///
-  /// Tolerant about presentation — case, surrounding whitespace and a missing or
-  /// differently-spaced separator all decode — but strict about the checksum.
+  /// Decodes a code back to a film id, or null when invalid.
   static int? decode(String raw) {
     final cleaned = raw.trim().toUpperCase().replaceAll(RegExp(r'[\s\-_]'), '');
     if (!cleaned.startsWith(prefix)) return null;
@@ -75,22 +81,57 @@ abstract final class ChallengeCode {
     return movieId == 0 ? null : movieId;
   }
 
-  /// True when [raw] decodes to a film id.
   static bool isValid(String raw) => decode(raw) != null;
 
-  /// Deep link the code travels in, e.g. `cineus://challenge/CIN-4F2A`.
-  ///
-  /// A custom scheme rather than an https link: a universal link needs a domain
-  /// we control, and `cineus.app` is only a string in the share text today.
-  static Uri linkFor(int movieId) =>
-      Uri.parse('cineus://challenge/${encode(movieId)}');
+  /// Generates an HTTPS challenge URL when a verified base is configured;
+  /// otherwise preserves the existing custom-scheme behavior.
+  static Uri linkFor(int movieId, {Uri? publicBase}) {
+    final code = encode(movieId);
+    final base = _validatedPublicBase(publicBase) ?? configuredPublicBase;
 
-  /// Extracts a code from an incoming deep link, or null when it is not one.
-  static int? movieIdFromLink(Uri uri) {
-    if (uri.scheme != 'cineus') return null;
-    // Accepts cineus://challenge/CODE and cineus://challenge?code=CODE
-    final fromPath = uri.pathSegments.isNotEmpty ? uri.pathSegments.last : null;
+    if (base == null) {
+      return Uri.parse('cineus://challenge/$code');
+    }
+
+    final prefixPath = base.pathSegments.where((s) => s.isNotEmpty).toList();
+    return base.replace(
+      pathSegments: [...prefixPath, 'challenge', code],
+      query: null,
+      fragment: null,
+    );
+  }
+
+  /// Extracts a film id from a Cineus custom-scheme or verified HTTPS link.
+  ///
+  /// HTTPS is accepted only for the configured/explicit origin.
+  static int? movieIdFromLink(Uri uri, {Uri? publicBase}) {
+    final customScheme =
+        uri.scheme.toLowerCase() == 'cineus' && uri.host == 'challenge';
+
+    final base = _validatedPublicBase(publicBase) ?? configuredPublicBase;
+    final verifiedHttps = base != null &&
+        uri.scheme.toLowerCase() == 'https' &&
+        uri.host.toLowerCase() == base.host.toLowerCase() &&
+        uri.port == base.port;
+
+    if (!customScheme && !verifiedHttps) return null;
+
     final fromQuery = uri.queryParameters['code'];
+    String? fromPath;
+
+    if (uri.pathSegments.isNotEmpty) {
+      final last = uri.pathSegments.last;
+      if (customScheme) {
+        fromPath = last;
+      } else {
+        final segments = uri.pathSegments;
+        if (segments.length >= 2 &&
+            segments[segments.length - 2] == 'challenge') {
+          fromPath = last;
+        }
+      }
+    }
+
     for (final candidate in [fromQuery, fromPath]) {
       if (candidate == null || candidate.isEmpty) continue;
       final id = decode(candidate);

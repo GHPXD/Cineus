@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/entities/extra_hint.dart';
@@ -6,6 +8,7 @@ import 'play_notifier.dart';
 import 'providers.dart';
 import 'reward_notifier.dart';
 import 'stats_notifier.dart';
+import 'telemetry_provider.dart';
 
 /// Shared side effects that every entry point into a game must perform.
 
@@ -45,12 +48,30 @@ void refreshAfterGameFinished(
         .load();
   }
 
+  if (finished != null) {
+    unawaited(
+      ref.read(productTelemetryProvider).track(
+        'game_completed',
+        properties: {
+          'mode': finished.mode.name,
+          'kind': finished.kind.name,
+          'outcome': finished.status.name,
+          'score': finished.score,
+          'revealed_steps': finished.revealedClues,
+        },
+      ),
+    );
+  }
+
   final credit = finished == null
       ? Future<void>.value()
       : ref.read(rewardNotifierProvider.notifier).evaluate(finished);
 
   credit.whenComplete(() {
+    // Rewards can alter cross-mode achievements/ticket totals, so refresh both
+    // views even though the finished session belongs to only one mode.
     ref.invalidate(statsNotifierProvider);
+    ref.invalidate(posterStatsNotifierProvider);
     ref.invalidate(dailySessionProvider);
     ref.invalidate(recoverableStreakDayProvider);
   });
@@ -59,6 +80,7 @@ void refreshAfterGameFinished(
 /// Rebuilds the streak-dependent providers after a freeze is bought.
 void refreshStreakData(WidgetRef ref) {
   ref.invalidate(statsNotifierProvider);
+  ref.invalidate(posterStatsNotifierProvider);
   ref.invalidate(recoverableStreakDayProvider);
 }
 
@@ -78,7 +100,19 @@ Future<bool> buyHintWithTicket(
         .read((mode == GameMode.poster ? posterGameProvider : clueGameProvider)
             .notifier)
         .grantHint(hint);
-    if (granted) return true;
+    if (granted) {
+      unawaited(
+        ref.read(productTelemetryProvider).track(
+          'extra_hint_bought',
+          properties: {
+            'mode': mode.name,
+            'hint': hint.name,
+            'ticket_cost': hint.ticketCost,
+          },
+        ),
+      );
+      return true;
+    }
     await tickets.refundDebit(debit);
     return false;
   } catch (_) {

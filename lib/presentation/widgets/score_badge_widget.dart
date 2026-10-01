@@ -9,13 +9,10 @@ import '../../l10n/app_l10n.dart';
 class ScoreBadge extends StatelessWidget {
   final int score;
   final int revealedClues;
-  final bool compact;
-
   const ScoreBadge({
     super.key,
     required this.score,
     required this.revealedClues,
-    this.compact = false,
   });
 
   @override
@@ -27,9 +24,9 @@ class ScoreBadge extends StatelessWidget {
     final isUrgent = score <= 2;
     final badge = Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 20,
-        vertical: compact ? 10 : 16,
+        vertical: 16,
       ),
       decoration: BoxDecoration(
         gradient: gradient,
@@ -52,10 +49,7 @@ class ScoreBadge extends StatelessWidget {
             children: [
               Text(
                 '$score',
-                style: (compact
-                        ? AppTypography.scoreMedium
-                        : AppTypography.scoreLarge)
-                    .copyWith(color: color),
+                style: AppTypography.scoreLarge.copyWith(color: color),
               ),
               const SizedBox(width: 10),
               Column(
@@ -76,17 +70,15 @@ class ScoreBadge extends StatelessWidget {
               ),
             ],
           ),
-          if (!compact) ...[
-            const SizedBox(height: 4),
-            Text(
-              _hintText(AppL10n.of(context), score, revealedClues),
-              textAlign: TextAlign.center,
-              style: AppTypography.bodySmall.copyWith(
-                color: color,
-                fontSize: 12,
-              ),
+          const SizedBox(height: 4),
+          Text(
+            _hintText(AppL10n.of(context), score, revealedClues),
+            textAlign: TextAlign.center,
+            style: AppTypography.bodySmall.copyWith(
+              color: color,
+              fontSize: 12,
             ),
-          ],
+          ),
         ],
       ),
     );

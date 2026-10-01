@@ -22,9 +22,4 @@ class StageNotifier extends StateNotifier<AsyncValue<List<Stage>>> {
     }
   }
 
-  /// Called when a stage film is won, to refresh the stage list.
-  Future<void> markMovieCompleted(int stageId, int movieId) async {
-    await _repo.markMovieCompleted(stageId, movieId, mode: mode);
-    await load();
-  }
 }

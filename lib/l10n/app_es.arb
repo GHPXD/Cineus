@@ -33,7 +33,6 @@
   "challengeFilmNotFound": "Ese desafío apunta a una película que esta versión de la app no tiene.",
 
   "appTagline": "Adivina la película en hasta 10 pistas.\nCuantas menos uses, más puntos.",
-  "splashCredits": "CINEUS v1.0 · FLUTTER · DART · TMDB",
 
   "navHome": "Inicio",
   "navFilms": "Películas",
@@ -127,6 +126,8 @@
   "nextChallengeIn": "PRÓXIMO DESAFÍO EN",
 
   "stagesSubtitleClues": "Completa las etapas para desbloquear más películas.",
+  "stagesEducationClues": "En las etapas, iniciar o repetir una película cuesta 1 🎫. Continuar una partida en curso no vuelve a cobrar.",
+  "stagesEducationPosters": "En Poster, cada revelado reduce el desenfoque y también la puntuación. En las etapas, iniciar o repetir cuesta 1 🎫.",
   "stagesSubtitlePosters": "Adivina las películas por el póster desenfocado.",
   "stageWord": "ETAPA",
   "locked": "Bloqueada",
@@ -194,6 +195,7 @@
   "statRate": "TASA",
   "statAverage": "MEDIA",
   "statAverageSub": "pistas",
+  "statAveragePosterSub": "niveles",
   "currentStreakTitle": "Racha actual",
   "dayCount": "{count, plural, =1{1 día} other{{count} días}}",
   "bestLabel": "Mejor",
@@ -243,6 +245,15 @@
   "languageTitle": "Idioma",
   "languageSystem": "Predeterminado del sistema",
   "contentLanguageNote": "Las pistas y los títulos provienen del catálogo en portugués.",
+  "rewardedTitle": "Ganar tickets",
+  "rewardedBody": "Mira un anuncio opcional y gana {amount} tickets. Quedan {remaining} recompensas hoy.",
+  "rewardedAction": "Ver y ganar +{amount} 🎫",
+  "rewardedDone": "¡Tickets añadidos! 🎫",
+  "passTitle": "Cineus Pass",
+  "passBody": "Todo el juego sigue siendo gratuito. El Pass elimina anuncios no opcionales y puede incluir ventajas de comodidad.",
+  "passActive": "Pass activo · sin anuncios no opcionales",
+  "passGet": "Obtener Pass {price}",
+  "passRestore": "Restaurar compra",
 
   "tickets": "{current}/{max}"
 }

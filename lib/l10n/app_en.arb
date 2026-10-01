@@ -33,7 +33,6 @@
   "challengeFilmNotFound": "That challenge points at a film this version of the app does not have.",
 
   "appTagline": "Guess the film in up to 10 clues.\nThe fewer you use, the more points.",
-  "splashCredits": "CINEUS v1.0 · FLUTTER · DART · TMDB",
 
   "navHome": "Home",
   "navFilms": "Films",
@@ -127,6 +126,8 @@
   "nextChallengeIn": "NEXT CHALLENGE IN",
 
   "stagesSubtitleClues": "Complete the stages to unlock more films.",
+  "stagesEducationClues": "In stages, starting or retrying a film costs 1 🎫. Continuing a game already in progress does not charge again.",
+  "stagesEducationPosters": "In Poster mode, each reveal reduces both blur and score. In stages, starting or retrying costs 1 🎫.",
   "stagesSubtitlePosters": "Guess the films from the blurred poster.",
   "stageWord": "STAGE",
   "locked": "Locked",
@@ -194,6 +195,7 @@
   "statRate": "RATE",
   "statAverage": "AVERAGE",
   "statAverageSub": "clues",
+  "statAveragePosterSub": "levels",
   "currentStreakTitle": "Current Streak",
   "dayCount": "{count, plural, =1{1 day} other{{count} days}}",
   "bestLabel": "Best",
@@ -243,6 +245,15 @@
   "languageTitle": "Language",
   "languageSystem": "System default",
   "contentLanguageNote": "Clues and film titles come from the Portuguese catalogue.",
+  "rewardedTitle": "Earn tickets",
+  "rewardedBody": "Watch an optional ad and earn {amount} tickets. {remaining} rewards left today.",
+  "rewardedAction": "Watch and earn +{amount} 🎫",
+  "rewardedDone": "Tickets added! 🎫",
+  "passTitle": "Cineus Pass",
+  "passBody": "All gameplay stays free. Pass removes non-optional ads and may include convenience benefits.",
+  "passActive": "Pass active · no non-optional ads",
+  "passGet": "Get Pass {price}",
+  "passRestore": "Restore purchase",
 
   "tickets": "{current}/{max}"
 }

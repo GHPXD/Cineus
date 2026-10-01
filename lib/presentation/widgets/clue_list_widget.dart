@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_constants.dart';
 import '../../domain/entities/clue.dart';
-import 'clue_card_widget.dart';
 import '../../l10n/app_l10n.dart';
+import 'clue_card_widget.dart';
 
 /// Animated list of clue cards with fade-in transitions for newly revealed clues.
 class ClueList extends StatelessWidget {
@@ -18,6 +18,8 @@ class ClueList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final reduceMotion = MediaQuery.disableAnimationsOf(context);
+
     return Column(
       children: List.generate(AppConstants.totalClues, (index) {
         final clueNumber = index + 1;
@@ -26,7 +28,6 @@ class ClueList extends StatelessWidget {
         final isLatest = clueNumber == revealedCount && revealedCount > 1;
         final isNext = clueNumber == revealedCount + 1;
 
-        // Find the matching clue data
         final clue = allClues.where((c) => c.clueNumber == clueNumber).firstOrNull;
         final category =
             clue?.category ?? AppL10n.of(context).clueFallback(clueNumber);
@@ -37,29 +38,25 @@ class ClueList extends StatelessWidget {
                 ? ClueCardState.next
                 : ClueCardState.locked;
 
-        final card = ClueCard(
-          clue: clue,
-          clueNumber: clueNumber,
-          category: category,
-          cardState: cardState,
-          isLatest: isLatest,
+        final card = Padding(
+          padding: const EdgeInsets.only(bottom: 6),
+          child: ClueCard(
+            clue: clue,
+            clueNumber: clueNumber,
+            category: category,
+            cardState: cardState,
+            isLatest: isLatest,
+          ),
         );
 
-        // Animate latest revealed clue
-        if (isLatest) {
+        if (isLatest && !reduceMotion) {
           return _RevealAnimation(
             key: ValueKey('clue-reveal-$clueNumber'),
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 6),
-              child: card,
-            ),
+            child: card,
           );
         }
 
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 6),
-          child: card,
-        );
+        return card;
       }),
     );
   }

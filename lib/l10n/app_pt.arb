@@ -51,7 +51,6 @@
   },
 
   "appTagline": "Adivinha o filme em até 10 dicas.\nQuanto menos usar, mais pontos.",
-  "splashCredits": "CINEUS v1.0 · FLUTTER · DART · TMDB",
 
   "navHome": "Início",
   "navFilms": "Filmes",
@@ -167,6 +166,8 @@
   "nextChallengeIn": "PRÓXIMO DESAFIO EM",
 
   "stagesSubtitleClues": "Complete os estágios para desbloquear mais filmes.",
+  "stagesEducationClues": "Nos estágios, iniciar ou refazer um filme custa 1 🎫. Continuar uma partida em andamento não cobra novamente.",
+  "stagesEducationPosters": "No Poster, cada revelação reduz o desfoque e também a pontuação. Nos estágios, iniciar ou refazer custa 1 🎫.",
   "stagesSubtitlePosters": "Adivinhe os filmes pelo poster desfocado.",
   "stageWord": "ESTÁGIO",
   "locked": "Bloqueado",
@@ -262,6 +263,7 @@
   "statRate": "TAXA",
   "statAverage": "MÉDIA",
   "statAverageSub": "dicas",
+  "statAveragePosterSub": "níveis",
   "currentStreakTitle": "Sequência Atual",
   "dayCount": "{count, plural, =1{1 dia} other{{count} dias}}",
   "@dayCount": { "placeholders": { "count": { "type": "int" } } },
@@ -326,6 +328,19 @@
   "languageTitle": "Idioma",
   "languageSystem": "Padrão do sistema",
   "contentLanguageNote": "As dicas e os títulos dos filmes vêm do catálogo em português.",
+
+  "rewardedTitle": "Ganhar tickets",
+  "rewardedBody": "Assista a um anúncio opcional e ganhe {amount} tickets. Restam {remaining} recompensas hoje.",
+  "@rewardedBody": { "placeholders": { "amount": { "type": "int" }, "remaining": { "type": "int" } } },
+  "rewardedAction": "Assistir e ganhar +{amount} 🎫",
+  "@rewardedAction": { "placeholders": { "amount": { "type": "int" } } },
+  "rewardedDone": "Tickets adicionados! 🎫",
+  "passTitle": "Cineus Pass",
+  "passBody": "Todo o gameplay continua gratuito. O Pass remove anúncios não opcionais e pode incluir benefícios de conveniência.",
+  "passActive": "Pass ativo · sem anúncios não opcionais",
+  "passGet": "Obter Pass {price}",
+  "@passGet": { "placeholders": { "price": { "type": "String" } } },
+  "passRestore": "Restaurar compra",
 
   "tickets": "{current}/{max}",
   "@tickets": {

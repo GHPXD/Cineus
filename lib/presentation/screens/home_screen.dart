@@ -9,10 +9,13 @@ import '../../core/theme/app_fonts.dart';
 import '../../core/theme/app_typography.dart';
 import '../../core/utils/daily_selector.dart';
 import '../../domain/entities/game_session.dart';
+import '../../domain/entities/monetization.dart';
 import '../../domain/entities/player_tickets.dart';
 import '../l10n_mappers.dart';
+import '../providers/monetization_notifier.dart';
 import '../providers/providers.dart';
 import '../providers/stats_notifier.dart';
+import '../providers/telemetry_provider.dart';
 import '../widgets/reward_toast.dart';
 import '../widgets/streak_recovery_card.dart';
 import '../widgets/tap_target.dart';
@@ -36,6 +39,7 @@ class HomeScreen extends ConsumerWidget {
                   SliverToBoxAdapter(child: _buildHeader(context, tickets)),
                   SliverToBoxAdapter(child: _buildDailyCard(context, ref)),
                   const SliverToBoxAdapter(child: StreakRecoveryCard()),
+                  const SliverToBoxAdapter(child: _RewardedTicketsCard()),
                   SliverToBoxAdapter(child: _buildStatsRow(context, ref)),
                   SliverToBoxAdapter(child: _buildQuickActions(context)),
                   const SliverToBoxAdapter(child: SizedBox(height: 28)),
@@ -153,7 +157,15 @@ class HomeScreen extends ConsumerWidget {
               label: l10n.modeClues,
               session: clueSession,
               isLoading: clueAsync.isLoading,
-              onTap: () => context.push('/game?source=daily'),
+              onTap: () {
+                unawaited(
+                  ref.read(productTelemetryProvider).track(
+                    'daily_opened',
+                    properties: {'mode': GameMode.clue.name},
+                  ),
+                );
+                context.push('/game?source=daily');
+              },
               playLabel: l10n.playChallenge,
               continueLabel: l10n.continueClues,
             ),
@@ -163,7 +175,15 @@ class HomeScreen extends ConsumerWidget {
               label: l10n.modePoster,
               session: posterSession,
               isLoading: posterAsync.isLoading,
-              onTap: () => context.push('/visual/play?source=daily'),
+              onTap: () {
+                unawaited(
+                  ref.read(productTelemetryProvider).track(
+                    'daily_opened',
+                    properties: {'mode': GameMode.poster.name},
+                  ),
+                );
+                context.push('/visual/play?source=daily');
+              },
               playLabel: l10n.playPoster,
               continueLabel: l10n.continuePoster,
             ),
@@ -199,10 +219,15 @@ class HomeScreen extends ConsumerWidget {
 
   Widget _buildStatsRow(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
-    final state = ref.watch(statsNotifierProvider);
-    final stats = state.stats;
+    final clueState = ref.watch(statsNotifierProvider);
+    final posterState = ref.watch(posterStatsNotifierProvider);
+    final totalGames =
+        clueState.stats.totalGames + posterState.stats.totalGames;
+    final totalWins =
+        clueState.stats.totalWins + posterState.stats.totalWins;
+    final combinedRate = totalGames == 0 ? null : totalWins / totalGames;
 
-    if (state.isLoading && stats.totalGames == 0) {
+    if ((clueState.isLoading || posterState.isLoading) && totalGames == 0) {
       return Padding(
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
         child: Row(
@@ -228,16 +253,16 @@ class HomeScreen extends ConsumerWidget {
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
       child: Row(
         children: [
-          _StatCard(value: '${stats.totalGames}', label: l10n.statPlayed),
+          _StatCard(value: '$totalGames', label: l10n.statPlayed),
+          const SizedBox(width: 10),
+          _StatCard(value: '$totalWins', label: l10n.statWins),
           const SizedBox(width: 10),
           _StatCard(
-            value: stats.totalGames == 0
+            value: combinedRate == null
                 ? '—'
-                : '${(stats.winRate * 100).round()}%',
-            label: l10n.statWins,
+                : '${(combinedRate * 100).round()}%',
+            label: l10n.statRate,
           ),
-          const SizedBox(width: 10),
-          _StatCard(value: '${stats.currentStreak}🔥', label: l10n.statStreak),
         ],
       ),
     );
@@ -281,6 +306,112 @@ class HomeScreen extends ConsumerWidget {
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+class _RewardedTicketsCard extends ConsumerWidget {
+  const _RewardedTicketsCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(monetizationNotifierProvider);
+    if (!state.rewardedAvailable || state.rewardedRemaining <= 0) {
+      return const SizedBox.shrink();
+    }
+
+    final l10n = context.l10n;
+
+    Widget action() => FilledButton(
+          onPressed: state.canWatchRewarded
+              ? () async {
+                  final rewarded = await ref
+                      .read(monetizationNotifierProvider.notifier)
+                      .watchRewardedForTickets();
+                  if (!rewarded || !context.mounted) return;
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(l10n.rewardedDone)),
+                  );
+                }
+              : null,
+          child: state.busy
+              ? const SizedBox(
+                  width: 18,
+                  height: 18,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : Text(
+                  l10n.rewardedAction(
+                    MonetizationPolicy.rewardedTicketAmount,
+                  ),
+                ),
+        );
+
+    Widget copy() => Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Icon(
+              Icons.play_circle_outline_rounded,
+              color: AppColors.blue300,
+              size: 28,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(l10n.rewardedTitle, style: AppTypography.titleSmall),
+                  const SizedBox(height: 2),
+                  Text(
+                    l10n.rewardedBody(
+                      MonetizationPolicy.rewardedTicketAmount,
+                      state.rewardedRemaining,
+                    ),
+                    style: AppTypography.bodySmall.copyWith(
+                      color: AppColors.textSecondary,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        );
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 14, 20, 0),
+      child: Container(
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          gradient: AppColors.blueDimGradient,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: AppColors.blue300.withValues(alpha: 0.25),
+          ),
+        ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            if (constraints.maxWidth < 430) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  copy(),
+                  const SizedBox(height: 12),
+                  action(),
+                ],
+              );
+            }
+
+            return Row(
+              children: [
+                Expanded(child: copy()),
+                const SizedBox(width: 12),
+                action(),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
