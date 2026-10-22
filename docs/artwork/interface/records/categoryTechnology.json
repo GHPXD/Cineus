@@ -1,0 +1,27 @@
+{
+  "id": "categoryTechnology",
+  "kind": "icon",
+  "subject": "a cinematic processor chip with a large inner square and four generous pins on each side",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a cinematic processor chip with a large inner square and four generous pins on each side.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-d770d0af-b063-4007-822d-b54132562890.png",
+  "source": "assets/generated/sources/categoryTechnology.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryTechnology.svg",
+  "source_sha256": "5b6b8801b51ab3eb7f37a5911f5b72a6ce02b8c8fe8409466e70e8597fe314ca",
+  "svg_sha256": "cfe35f89692598cfe017748595fedb957c2b6fc1ef25efd0292c9ca1bd02a22f",
+  "paths": 44,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryTechnology_ink.svg",
+  "ink_sha256": "c040bfe9d5637308bee390157942a36ccfc33023d72f2f983f7868b238d2d565"
+}

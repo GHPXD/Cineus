@@ -1,0 +1,27 @@
+{
+  "id": "error",
+  "kind": "icon",
+  "subject": "a compact rounded cinema error seal with an unmistakable broad diagonal cross, ruby and ivory",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a compact rounded cinema error seal with an unmistakable broad diagonal cross, gold and ivory.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-d89b51d2-4160-439a-8f56-b16e45c2f32d.png",
+  "source": "assets/generated/sources/error.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/error.svg",
+  "source_sha256": "4999ba4bd4e4021e8edab4a8eedb46c93007741d87706f0135789d5b0dcf16b7",
+  "svg_sha256": "d97e8e23141f7b447e9300ff99cad7615e302dd15c1f0ee5c1f2e932ee091474",
+  "paths": 16,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/error_ink.svg",
+  "ink_sha256": "d6576b077479e551626f3c79f158782ce87d9bae85e6ed7192bc3974efea1edd"
+}

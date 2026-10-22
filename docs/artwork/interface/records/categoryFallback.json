@@ -1,0 +1,27 @@
+{
+  "id": "categoryFallback",
+  "kind": "icon",
+  "subject": "a cinema film reel with four broad holes and one short curved film tail",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a cinema film reel with four broad holes and one short curved film tail.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-461069b5-f4c8-461c-8f2c-a511c8262519.png",
+  "source": "assets/generated/sources/categoryFallback.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryFallback.svg",
+  "source_sha256": "8a4cffabf9b25aac961dd9036ec436376dcfdd97fa8ab348a94c2b3b57aaa2ca",
+  "svg_sha256": "17c1ec21396876733d955bf3702dd0517ca3b20d48c879d2509e8e0600810bc9",
+  "paths": 22,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryFallback_ink.svg",
+  "ink_sha256": "166b3b18597c97c76203cbd8152a57d16ecf7d259690a18886f97e6028eae0bd"
+}

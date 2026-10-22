@@ -1,0 +1,27 @@
+{
+  "id": "categoryPhilosophy",
+  "kind": "icon",
+  "subject": "a classical thoughtful open book with two simple bold abstract pages, no writing",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a classical thoughtful open book with two simple bold abstract pages, no writing.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-37081646-dc6a-490f-96b3-d056ecd2596d.png",
+  "source": "assets/generated/sources/categoryPhilosophy.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryPhilosophy.svg",
+  "source_sha256": "31e597b5935dcb8828fcdbabb4ccf8b1f16a18d31bd67ffc20dfac193e3b9e71",
+  "svg_sha256": "7ae16831f732b5fcfa22b85ebfa1153b61595f020e9dbfc6454f31224bf39549",
+  "paths": 7,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryPhilosophy_ink.svg",
+  "ink_sha256": "84536f63a72fbd1581b96452d088e6606fa75e533175aacd5ba62ebea4965c86"
+}

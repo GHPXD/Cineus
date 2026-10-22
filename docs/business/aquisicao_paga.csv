@@ -1,0 +1,3 @@
+﻿plan,media_budget_brl,media_spend,creative_cost,acquisition_cost,expected_installs,lifetime_initial_receipts,lifetime_future_pass_receipts,lifetime_ads_only_receipts,initial_lifetime_balance_before_exclusions,blended_media_cpi,acquisition_cost_per_install,initial_lifetime_receipts_to_media,initial_lifetime_receipts_to_acquisition
+Android primeiro,100,100.0,0.0,100.0,50.0,10.6726,16.003800000000002,3.6337499999999996,-89.3274,2.0,2.0,0.10672599999999999,0.10672599999999999
+Comparacao 70/30,100,100.0,0.0,100.0,42.5,9.07171,13.603230000000002,3.0886874999999994,-90.92829,2.3529411764705883,2.3529411764705883,0.0907171,0.0907171

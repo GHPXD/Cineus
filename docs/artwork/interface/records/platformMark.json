@@ -1,0 +1,28 @@
+{
+  "id": "platformMark",
+  "kind": "platform",
+  "subject": "flat native silhouette derived from existing GPT Image Cineus mark",
+  "prompt": "Edit target: the existing Cineus brand mark in the reference file. Produce an isolated simplified flat version of EXACTLY this C-shaped cinema-film ribbon monogram for the Android themed launcher and notification icon. Preserve the C silhouette, open right side, central triangular play opening and six rectangular film perforations. Retain the same gold-front and blue-reverse identity, but remove all shading, glossy depth, textures and ALL background. Two flat solid colours, gold #EFC026 and blue #5790FF only, with genuinely transparent negative spaces, clean strong continuous contours. No ivory highlights, added details, text, letters outside the existing monogram, framing, shadow, watermark or new logo idea. Centre the unchanged monogram shape in a square canvas with generous transparent padding. This is a brand-preserving flat derivative of the provided image, suitable for later automatic vector tracing.",
+  "generator": "built-in image_gen / GPT Image, edit of existing GPT-generated brand",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-10cb2539-e195-44a9-bc89-ff2f600371fc.png",
+  "source": "assets/generated/sources/platformMark.png",
+  "reference": "assets/brand/cineus_mark.png",
+  "style": "brand-preserving gold/blue native derivative",
+  "svg": "assets/generated/icons/platformMark.svg",
+  "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+  "svg_sha256": "60783228abc8e6b0702aedcab32fd08e7f59e56ee80ac4ac60f2d4e8db55a5db",
+  "paths": 2,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/platformMark_ink.svg",
+  "ink_sha256": "b53d58172c3f6334c5417c04dd37e55450b017a2dfa62c2695ce0139ca506c9f"
+}

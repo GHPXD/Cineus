@@ -1,0 +1,27 @@
+{
+  "id": "learning_tickets",
+  "kind": "illustration",
+  "subject": "a lovely small arrangement of two cinema admission tickets beside a compact director clapperboard and a simple stopwatch, teaching optional extra clues",
+  "prompt": "Use case: illustration-story. Generate ONE original premium editorial cinema illustration from scratch for the Cineus mobile game. Bold confident illustrated shapes and memorable composition, warm gold #EFC026, periwinkle blue #5790FF, ivory #F4F3E8, optional deep blue for overlap, at most four flat colours. Sophisticated graphic 2D illustration with depth only from overlapping solid shapes. Crisp broad silhouettes, clean boundaries, generous negative space, few details. No gradients, texture, distressed marks, shadows, glossy 3D, sparkle, lettering, numerals, emoji or stock clipart. Genuinely transparent background, landscape canvas approximately 2.3:1, whole artwork comfortably framed, 10% breathing space. No movie spoilers, portraits, copyrighted film characters or real movie scenes. Subject: a lovely small arrangement of two cinema admission tickets beside a compact director clapperboard and a simple stopwatch, teaching optional extra clues.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-ab004adf-3b4b-4fdf-85f1-18a6bb84b91e.png",
+  "source": "assets/generated/sources/learning_tickets.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/illustrations/learning_tickets.svg",
+  "source_sha256": "67f0ce940677e0ab8cd8ce46ec0de9660c0de1f68493a411d8d3a869a4b9a25f",
+  "svg_sha256": "3c730c2d3c8870076f1c632464088ff43c66e8deece070db19a293398f7cdfad",
+  "paths": 30,
+  "source_size": [
+    1881,
+    836
+  ],
+  "trace_size": [
+    896,
+    398
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": null,
+  "ink_sha256": null
+}

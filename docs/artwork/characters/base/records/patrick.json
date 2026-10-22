@@ -1,0 +1,59 @@
+{
+  "id": "patrick",
+  "kind": "character",
+  "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+  "prompt": null,
+  "external_source": "https://upload.wikimedia.org/wikipedia/commons/2/28/Patrick_Star_character.png",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Patrick_Star_character.png",
+  "external_file": "docs/artwork/characters/base/external/patrick.png",
+  "external_sha256": "28ff2e284f91d3fafc4c63d25bf3526f94ffe9da978efb6925e070ce31032686",
+  "source": "assets/colors/sources/patrick.png",
+  "palette_mode": "existing",
+  "status": "converted",
+  "rights": "Origin retained; no claim that character rights or store distribution have been licensed.",
+  "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+  "source_sha256": "f993fcb13ff1d161992da45ceaeb18607f575c0508d56d9492c34bf2374175ac",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    699,
+    900
+  ],
+  "trace_size": [
+    496,
+    640
+  ],
+  "region_pixels": [
+    23019,
+    99805,
+    6787,
+    6286,
+    5230
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/patrick_base.svg",
+      "sha256": "13312cad464466021b89cf2a6762695c2e6d514ae352d3aac41e7e2c31cc7440"
+    },
+    {
+      "file": "assets/colors/art/patrick_p0.svg",
+      "sha256": "7d35f65f4eb747dd059c9378bdb9aa58fc0250c98426cd6567e1a590ce63bddc"
+    },
+    {
+      "file": "assets/colors/art/patrick_p1.svg",
+      "sha256": "bb61ec153071eb69445d8923d4aea47fe6fe9725f6ad48d0d1a4998ac67c7acd"
+    },
+    {
+      "file": "assets/colors/art/patrick_p2.svg",
+      "sha256": "57b771758c3b2793d227e5a84ea8f8f3737ebb7f7535d67167bba6860f1cd678"
+    },
+    {
+      "file": "assets/colors/art/patrick_p3.svg",
+      "sha256": "3805099a0828d60658f227895b125fb30dc3b1d5a3e46695286a038df23f9e90"
+    },
+    {
+      "file": "assets/colors/art/patrick_p4.svg",
+      "sha256": "ecd5e395d3835a04bf25d5fe98a1cbdba50620351ffa6a5c424275f9d9fe2833"
+    }
+  ]
+}

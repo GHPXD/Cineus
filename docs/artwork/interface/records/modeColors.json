@@ -1,0 +1,27 @@
+{
+  "id": "modeColors",
+  "kind": "icon",
+  "subject": "artist palette and brush for character-colour memory",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game, its new character-colour memory mode. Subject: a distinctive compact artist's palette with three large paint wells and a short broad brush, subtly shaped like a film reel. Boutique-cinema editorial identity, sophisticated bold 2D illustration readable at 20 pixels, memorable clear silhouette, very few generous interior details, large negative spaces. Flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue #2D54AA only for an overlap, maximum four solid colours. No colour wheel rainbow, text, letters, numerals, watermark, extra objects, gradients, shadows, texture, glossy 3D, emoji or thin generic outline. One centred icon on a square canvas, 10 percent clear padding. Genuinely transparent background, clean vector-tracing-friendly filled regions. This belongs with the app's existing illustrated gold, blue and ivory icon family.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-92bb6d60-f5b9-4400-a6e0-2465435b24ad.png",
+  "source": "assets/generated/sources/modeColors.png",
+  "style": "illustrated gold blue ivory",
+  "status": "converted",
+  "svg": "assets/generated/icons/modeColors.svg",
+  "source_sha256": "430a130e3c8cc1a9bb6e13378d04af1361d7e06dfdaff72fc5d8683668a55657",
+  "svg_sha256": "97b4a5491a7d6e6e43a6bf8d22bd07d0e9957f4c7146feaaf59585df5ee8e87d",
+  "paths": 10,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "ink_svg": "assets/generated/icons/modeColors_ink.svg",
+  "ink_sha256": "b0ae74453870affba741fdbc369cb623a794061db10b8728c0d0305bec3a5dff"
+}

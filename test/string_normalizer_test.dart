@@ -30,8 +30,7 @@ void main() {
       });
 
       test('collapses whitespace', () {
-        expect(
-            StringNormalizer.normalize('  hello   world  '), 'hello world');
+        expect(StringNormalizer.normalize('  hello   world  '), 'hello world');
       });
 
       test('handles empty string', () {
@@ -39,67 +38,81 @@ void main() {
       });
 
       test('preserves numbers', () {
-        expect(StringNormalizer.normalize('2001: Uma Odisseia'),
-            '2001 uma odisseia');
+        expect(
+          StringNormalizer.normalize('2001: Uma Odisseia'),
+          '2001 uma odisseia',
+        );
       });
     });
 
     group('normalizeStrippingArticles', () {
       test('strips Portuguese articles', () {
-        expect(StringNormalizer.normalizeStrippingArticles('O Poderoso Chefão'),
-            'poderoso chefao');
-        expect(StringNormalizer.normalizeStrippingArticles('A Origem'),
-            'origem');
-        expect(StringNormalizer.normalizeStrippingArticles('Os Vingadores'),
-            'vingadores');
+        expect(
+          StringNormalizer.normalizeStrippingArticles('O Poderoso Chefão'),
+          'poderoso chefao',
+        );
+        expect(
+          StringNormalizer.normalizeStrippingArticles('A Origem'),
+          'origem',
+        );
+        expect(
+          StringNormalizer.normalizeStrippingArticles('Os Vingadores'),
+          'vingadores',
+        );
       });
 
       test('strips English and Spanish articles', () {
-        expect(StringNormalizer.normalizeStrippingArticles('The Godfather'),
-            'godfather');
-        expect(StringNormalizer.normalizeStrippingArticles('An Officer'),
-            'officer');
-        expect(StringNormalizer.normalizeStrippingArticles('El Laberinto'),
-            'laberinto');
-        expect(StringNormalizer.normalizeStrippingArticles('La La Land'),
-            'la land');
+        expect(
+          StringNormalizer.normalizeStrippingArticles('The Godfather'),
+          'godfather',
+        );
+        expect(
+          StringNormalizer.normalizeStrippingArticles('An Officer'),
+          'officer',
+        );
+        expect(
+          StringNormalizer.normalizeStrippingArticles('El Laberinto'),
+          'laberinto',
+        );
+        expect(
+          StringNormalizer.normalizeStrippingArticles('La La Land'),
+          'la land',
+        );
       });
 
       test('does not strip non-articles', () {
         expect(
-            StringNormalizer.normalizeStrippingArticles('Inception'), 'inception');
+          StringNormalizer.normalizeStrippingArticles('Inception'),
+          'inception',
+        );
       });
     });
 
     group('isExactMatch', () {
       test('matches exact title case-insensitively', () {
         expect(
-          StringNormalizer.isExactMatch(
-              'inception', ['Inception', 'A Origem']),
+          StringNormalizer.isExactMatch('inception', ['Inception', 'A Origem']),
           true,
         );
       });
 
       test('matches Portuguese title with accents', () {
         expect(
-          StringNormalizer.isExactMatch(
-              'A Origem', ['Inception', 'A Origem']),
+          StringNormalizer.isExactMatch('A Origem', ['Inception', 'A Origem']),
           true,
         );
       });
 
       test('matches accent-insensitively', () {
         expect(
-          StringNormalizer.isExactMatch(
-              'a origem', ['Inception', 'A Origem']),
+          StringNormalizer.isExactMatch('a origem', ['Inception', 'A Origem']),
           true,
         );
       });
 
       test('does not match partial titles', () {
         expect(
-          StringNormalizer.isExactMatch(
-              'Incep', ['Inception', 'A Origem']),
+          StringNormalizer.isExactMatch('Incep', ['Inception', 'A Origem']),
           false,
         );
       });
@@ -108,9 +121,9 @@ void main() {
     group('isFranchiseMatch', () {
       test('matches franchise prefix', () {
         expect(
-          StringNormalizer.isFranchiseMatch(
-              'Harry Potter',
-              ['Harry Potter e a Pedra Filosofal']),
+          StringNormalizer.isFranchiseMatch('Harry Potter', [
+            'Harry Potter e a Pedra Filosofal',
+          ]),
           true,
         );
       });
@@ -124,16 +137,14 @@ void main() {
 
       test('requires word boundary', () {
         expect(
-          StringNormalizer.isFranchiseMatch(
-              'Harry Potte', ['Harry Potter']),
+          StringNormalizer.isFranchiseMatch('Harry Potte', ['Harry Potter']),
           false,
         );
       });
 
       test('handles full title as franchise match', () {
         expect(
-          StringNormalizer.isFranchiseMatch(
-              'Harry Potter', ['Harry Potter']),
+          StringNormalizer.isFranchiseMatch('Harry Potter', ['Harry Potter']),
           true,
         );
       });

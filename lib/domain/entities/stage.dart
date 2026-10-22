@@ -20,8 +20,7 @@ class Stage {
   int get totalMovies => movieIds.length;
   bool get isLocked => status == StageStatus.locked;
   bool get isCompleted => status == StageStatus.completed;
-  double get progress =>
-      totalMovies == 0 ? 0 : completedCount / totalMovies;
+  double get progress => totalMovies == 0 ? 0 : completedCount / totalMovies;
 
   Stage copyWith({StageStatus? status, int? completedCount}) {
     return Stage(

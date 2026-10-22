@@ -1,0 +1,39 @@
+{
+  "id": "homer_simpson",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/homer_simpson.png",
+  "source_sha256": "c62413c269da3a3ddb5b1cdfa49a54e2d1ffa0fd6f6a2993a1d197793a5a409a",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+  "conversion_version": 6,
+  "source_size": [
+    190,
+    390
+  ],
+  "trace_size": [
+    459,
+    960
+  ],
+  "region_pixels": [
+    60656
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/homer_simpson_base.svg",
+      "sha256": "f65d21930484bd164407e9aff0847963b33df4d6592c830eeba1f6f2c57832f9"
+    },
+    {
+      "file": "assets/colors/art/homer_simpson_p0.svg",
+      "sha256": "5d115e3f260aa93fbbd1dc71fbd7a57a0082117ccff2b39c8c52a60cfceb95f4"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: a single full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: Homer Simpson standing, round adult father with bald head and two hairs, white short-sleeve shirt, blue trousers, brown shoes. Recognisable faithful character Homer Simpson; one character only, full body visible, neutral standing pose, no complex action, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon, bold dark outlines, simple solid fills, no gradients, no shading, no ground shadow, no scenery. Technical segmentation requirement: fill ONLY the all yellow skin with perfectly solid magenta #FF00FF, preserving their dark outlines and any buttons or trim. This magenta is a temporary mask marker, automatically replaced with #FED90F in the app. All other parts retain the original normal character colours; no other magenta or purple areas. Actual transparent background. No text, letters, watermark, logo or colour chart. No objects beyond the character's usual outfit.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID f5a0f3aa-0cb5-44fd-be55-15de460b12ab.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+  "source_page": "https://en.wikipedia.org/wiki/Homer_Simpson",
+  "external_file": "docs/artwork/characters/expanded/references/homer_simpson-fallback.png",
+  "external_sha256": "8f5cf6e8415a7f15af07e6e0f5429b736dd49e9ade559795fd7e91930734b4a0"
+}

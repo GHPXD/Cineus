@@ -1,0 +1,34 @@
+{
+  "id": "knuckles",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/knuckles.png",
+  "source_sha256": "c93bec688a0dee6b45fa18b2b54cf84df01bfcfd1fb6e756dadd6e75f7041e5a",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1145,
+    1374
+  ],
+  "trace_size": [
+    484,
+    640
+  ],
+  "region_pixels": [
+    59882
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/knuckles_base.svg",
+      "sha256": "372c59f97795cd094090cffb4288b368521018f7f918a53b419a729ecc86d514"
+    },
+    {
+      "file": "assets/colors/art/knuckles_p0.svg",
+      "sha256": "148ab6be82954890558a697778efcb7f22c3f1f3fad385ce6b7b1089a168eced"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-1dd329e0-2e04-44bb-8f94-b38be31dd143.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Knuckles, red cartoon echidna with dreadlock-like head spines, tan muzzle, white crescent chest mark, large white gloves with two knuckle spikes, red yellow and green shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the red fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

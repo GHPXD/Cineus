@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-19",
+  "movies": 500,
+  "clues": 5000,
+  "color_characters": 50,
+  "color_questions": 110,
+  "color_stages": 11,
+  "color_origins": {
+    "generated": 26,
+    "reference": 24
+  },
+  "assets_declared_before_compression": [
+    {
+      "path": "assets/cineus_v1.db",
+      "files": 1,
+      "bytes": 1368064
+    },
+    {
+      "path": "assets/cineus_v1_seed.json",
+      "files": 1,
+      "bytes": 1217734
+    },
+    {
+      "path": "assets/posters/",
+      "files": 500,
+      "bytes": 40550708
+    },
+    {
+      "path": "assets/brand/",
+      "files": 1,
+      "bytes": 1255677
+    },
+    {
+      "path": "assets/credits/tmdb_official.png",
+      "files": 1,
+      "bytes": 16420
+    },
+    {
+      "path": "assets/credits/colors_sources.json",
+      "files": 1,
+      "bytes": 28828
+    },
+    {
+      "path": "assets/licenses/",
+      "files": 2,
+      "bytes": 8773
+    },
+    {
+      "path": "assets/colors/training_v1.json",
+      "files": 1,
+      "bytes": 162668
+    },
+    {
+      "path": "assets/colors/stages_v1.json",
+      "files": 1,
+      "bytes": 3838
+    },
+    {
+      "path": "assets/colors/art/",
+      "files": 160,
+      "bytes": 21352258
+    },
+    {
+      "path": "assets/generated/icons/",
+      "files": 218,
+      "bytes": 2934461
+    },
+    {
+      "path": "assets/generated/illustrations/",
+      "files": 5,
+      "bytes": 185661
+    },
+    {
+      "path": "assets/home/",
+      "files": 3,
+      "bytes": 5893247
+    },
+    {
+      "path": "assets/films/",
+      "files": 4,
+      "bytes": 7695519
+    },
+    {
+      "path": "assets/poster_stages/",
+      "files": 4,
+      "bytes": 7119465
+    },
+    {
+      "path": "assets/color_hub/",
+      "files": 1,
+      "bytes": 1963842
+    },
+    {
+      "path": "assets/match_cards/",
+      "files": 2,
+      "bytes": 3830425
+    },
+    {
+      "path": "assets/collection/",
+      "files": 29,
+      "bytes": 10154636
+    },
+    {
+      "path": "assets/commerce/",
+      "files": 1,
+      "bytes": 7179
+    }
+  ],
+  "daily_repetition": [
+    {
+      "days_ending": "2026-10-19",
+      "window": 30,
+      "clue_unique": 30,
+      "poster_unique": 29,
+      "poster_repeat_positions": 1
+    },
+    {
+      "days_ending": "2026-10-19",
+      "window": 90,
+      "clue_unique": 90,
+      "poster_unique": 47,
+      "poster_repeat_positions": 43
+    },
+    {
+      "days_ending": "2026-10-19",
+      "window": 365,
+      "clue_unique": 333,
+      "poster_unique": 131,
+      "poster_repeat_positions": 234
+    }
+  ]
+}

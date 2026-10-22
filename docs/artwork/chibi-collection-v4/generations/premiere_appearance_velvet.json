@@ -1,0 +1,8 @@
+{
+  "id": "premiere_appearance_velvet",
+  "kind": "appearance",
+  "width": 640,
+  "height": 800,
+  "prompt": "Use case: stylized-concept. ONE production collectible CARD BACKGROUND for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Stylized movie-premiere VELVET stage backdrop: navy velvet curtains rendered as simple bold comic folds at extreme sides, subdued dark-gold stage light at lower corners, dark empty navy center. FUNCTIONAL BACKDROP SPEC: portrait aspect ratio 640:800, fully opaque edge-to-edge rectangular background, no border frame, no transparency. Keep the inner 75 percent of width and 80 percent of height very DARK NAVY, low contrast, with no objects or bright spots, so white game-result text and a character placed later remain readable. Put all theme decoration near the outside corners and edges. No characters, people, faces, animals, text, logos, labels, numbers or watermark. One backdrop only.",
+  "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-50a21686-19bb-4469-8682-c73dfa30ae0b.png"
+}

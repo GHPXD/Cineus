@@ -1,0 +1,134 @@
+[
+  {
+    "id": "projectionist",
+    "name": "Íris, a Última Técnica",
+    "inspiration": "Ellen Ripley / Alien",
+    "legacy_item": "avatar_owl_v1",
+    "asset": "assets/collection/cinema_projectionist.png",
+    "sha256": "8751de94e1cfdf4ecff5e09467a88057462837db2f43d2712c86c16c578d3f64",
+    "source": "docs/artwork/cinema-homages-v3/sources/projectionist.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original satirical homage to the fearless spaceship engineer archetype popularized by Ellen Ripley in Alien. A Black Brazilian woman with a high sculpted braided bun and a self-assured amused expression, teal industrial utility suit with rolled copper sleeves, mustard harness, holding a little cinema projector inside a huge ridiculous padded industrial repair clamp. Joke: she repairs the cinema after the alien ate the film. Recognizable competent tough space survivor energy. No actor likeness, no alien creature, no copied uniform or franchise logo.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "detective",
+    "name": "Dante Rebobina",
+    "inspiration": "Neo / Matrix",
+    "legacy_item": "avatar_fox_v1",
+    "asset": "assets/collection/cinema_detective.png",
+    "sha256": "7b3e909a617cb3e33b027b7483d71059145c824a2f1395991f46035adb31c20e",
+    "source": "docs/artwork/cinema-homages-v3/sources/detective.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original comedic homage to the reality-bending hacker hero archetype of Neo from The Matrix. A stocky East Asian man with a copper quiff, asymmetric short midnight-blue coat with exaggerated square collar, round AMBER tinted spectacles, white editing glove held palm-forward stopping a shower of curling strips of golden movie film in mid-air instead of bullets. Humorous cinematic editing powers. Green reflected code-like light WITHOUT actual text. Clearly different face, body shape, palette, glasses and costume from the famous black trenchcoat hero; no actor likeness.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "robot",
+    "name": "Otto Corte-Final",
+    "inspiration": "Terminator",
+    "legacy_item": "premiere_avatar_cat_v1",
+    "asset": "assets/collection/cinema_robot.png",
+    "sha256": "1d8102d9e521f62595cd1adbf41d845e12f6938a3316a5ef86edabf81449a7b0",
+    "source": "docs/artwork/cinema-homages-v3/sources/robot.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original satirical homage to the unstoppable cyborg action archetype of The Terminator. A massive friendly industrial editing ROBOT, entirely nonhuman with an angular HEXAGONAL ivory head, one red camera lens eye and one tiny amber aperture eye, brass jaw mechanism, cobalt asymmetrical heavy armor. One huge hand gives a thumbs up, the other holds an absurd tiny movie clapperboard WITHOUT lettering. Joke: it terminates bad takes. No human half-face, no chrome human skull, no leather jacket, no celebrity likeness, no franchise icon.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "knight",
+    "name": "Vera Penumbra",
+    "inspiration": "Batman",
+    "legacy_item": "premiere_avatar_hare_v1",
+    "asset": "assets/collection/cinema_knight.png",
+    "sha256": "e2dd965651139b8162d4f71491e09067b6372ec7f76f78403274d4424ae9ee72",
+    "source": "docs/artwork/cinema-homages-v3/sources/knight.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original satirical homage to the brooding masked rooftop vigilante archetype of Batman. An athletic adult woman with dark brown skin, elegant midnight-PURPLE upper-face mask with FLAT angular edges and NO ears or horns, broad GOLD shoulder collar, asymmetrical short cape attached to one shoulder, tiny overequipped utility belt visible at waist. She holds a cinema spotlight which projects a little plain FILM REEL emblem, not any animal. Wry eyebrow raised. No bat ears, bat silhouette, chest logo, famous armor or recognizable actor likeness.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "cartographer",
+    "name": "Nara Estelar",
+    "inspiration": "Princess Leia / Star Wars",
+    "legacy_item": "night_avatar_raccoon_v1",
+    "asset": "assets/collection/cinema_cartographer.png",
+    "sha256": "1c15203d284c6245dbec409e7abcae1b7f5c52bb9ef4ae011ef6d10b57fb2c33",
+    "source": "docs/artwork/cinema-homages-v3/sources/cartographer.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original satirical homage to the resolute space-rebellion princess archetype associated with Princess Leia in Star Wars. An adult woman with deep copper skin, narrow angular face, silver hair in a braided CROWN across the top of her head, NOT side buns. Ivory futuristic short half-cape over indigo technical tunic, brass asymmetric shoulder plates. Holding an old holographic film reel like a secret transmission; amused commanding expression. A tiny gold star-shaped communicator. No iconic hairstyle, white dress, known space emblem, weapon or celebrity likeness.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "creature",
+    "name": "Glifo Caça-Cenas",
+    "inspiration": "Ghostbusters",
+    "legacy_item": "mission_avatar_penguin_v1",
+    "asset": "assets/collection/cinema_creature.png",
+    "sha256": "85ad9914177f3f1140fb3b66112eb41b3b16d2eaf0869c6a22ffcdb36c624798",
+    "source": "docs/artwork/cinema-homages-v3/sources/creature.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original funny homage to the paranormal exterminator crew archetype of Ghostbusters. A plump adult woman with warm brown skin, silver streak in curly hair, oversized safety goggles and a navy technician jumpsuit with GOLD straps. A comically overbuilt portable CINEMA PROJECTOR backpack with brass reel coils and a thick TEAL suction hose captures a translucent, abstract ghost made out of tangled movie-film ribbon. Proud satisfied smile. No red no-ghost emblem, beige franchise uniform, copied proton pack, familiar ghost or real actor likeness.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "pilot",
+    "name": "Maya Corte-Bruto",
+    "inspiration": "Rambo",
+    "legacy_item": "mission_avatar_capybara_v1",
+    "asset": "assets/collection/cinema_pilot.png",
+    "sha256": "f7c11906c33fc2c8bca6cb11cbe03bb2321357311d746e80655dd7c3a1346785",
+    "source": "docs/artwork/cinema-homages-v3/sources/pilot.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original affectionate satirical homage to the lone jungle action commando archetype of Rambo. A muscular adult Brazilian woman with short silver hair, square face with laugh lines, a TEAL headband made of cinema film strip with visible square sprocket holes. Sleeveless burnt-orange utility vest, navy undershirt, brass film canisters strapped diagonally like action-movie ammunition. She grips a movie boom microphone like an oversized heroic prop. Confident dry grin, no injuries or violence. No real actor likeness, copied red bandana, combat knife or firearm.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "archaeologist",
+    "name": "Bento Rolo-Perdido",
+    "inspiration": "Indiana Jones",
+    "legacy_item": "mission_avatar_axolotl_v1",
+    "asset": "assets/collection/cinema_archaeologist.png",
+    "sha256": "4fd621329158dc7de440d068aeee2393f8fa26ea588c0e0f5ca57f231e5adece",
+    "source": "docs/artwork/cinema-homages-v3/sources/archaeologist.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original humorous homage to the treasure-hunting archaeologist adventure archetype of Indiana Jones. A stocky older Black man with a round face, gray square beard, a wide asymmetrical SAND sun hat with a blue upturned brim, rust-red field vest over an ivory rolled-sleeve shirt and teal neckerchief. One hand carefully holds a glowing ancient GOLDEN MOVIE REEL as a priceless artifact; behind his shoulder a comical tiny rolling film canister boulder. No fedora shape, no leather jacket, no whip, no idol, no actor likeness; fresh silhouette and palette.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "courier",
+    "name": "Raul Duplo-Corte",
+    "inspiration": "James Bond",
+    "legacy_item": "city_avatar_panda_v1",
+    "asset": "assets/collection/cinema_courier.png",
+    "sha256": "c46145ec5b70f91e73d6ef0a8e750ac632562f21e4f5d50c220fa73a21de2a38",
+    "source": "docs/artwork/cinema-homages-v3/sources/courier.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original elegant comedic homage to the suave secret-agent archetype of James Bond. A silver-haired Afro-Latino adult man with a broad expressive face and a mischievous smile, IVORY dinner jacket with navy lapels, cobalt shirt and copper bow tie. He holds a fancy spy magnifying device cleverly made from a movie camera lens, while a gold ticket peeks from the breast pocket. Raised cuff opens as a tiny cinema projector. No gun, gun-barrel motif, numbers, famous face or copied costume; satirical cinematic secret-agent charm.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "archivist",
+    "name": "Cora Maré-de-Cena",
+    "inspiration": "Jack Sparrow / Pirates of the Caribbean",
+    "legacy_item": "night_avatar_otter_v1",
+    "asset": "assets/collection/cinema_archivist.png",
+    "sha256": "a43dd056b7d5dc92031fb47dfc1cf8367e097055a061854dd656a673a1d04096",
+    "source": "docs/artwork/cinema-homages-v3/sources/archivist.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original humorous homage to the eccentric seafaring pirate trickster archetype of Jack Sparrow. An older broad-shouldered woman with brown skin, a mass of short WHITE curls, an exaggerated asymmetrical NAVY sailor cap (NOT tricorne), copper and indigo sea coat, pale gold scarf, a brass film reel swinging like a compass, and a small telescope built from an old cinema lens. A sly theatrical smile and tilted pose. No dreadlocks, red bandana, known pirate jewelry, eye makeup, famous hat or actor likeness.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "editor",
+    "name": "Enzo Replay",
+    "inspiration": "Marty McFly / Back to the Future",
+    "legacy_item": "mission_avatar_firefly_v1",
+    "asset": "assets/collection/cinema_editor.png",
+    "sha256": "212497d256c3eda77643064591715da53121e2561ef9165a8acfb0f8192500b2",
+    "source": "docs/artwork/cinema-homages-v3/sources/editor.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original playful homage to the time-travelling everyday-hero archetype of Marty McFly from Back to the Future. An adult curly copper-haired man with a broad nose, MUSTARD padded short vest over a TEAL high-collar shirt, navy gloves and a chunky brass analog editing wristwatch. He balances a tiny floating FILM REEL under his palm like a miniature time machine, with looping film strips describing a temporal spiral. Amazed amused expression. No red puffer, skateboard, car, branded shoes, franchise symbols, numbers or actor likeness.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  },
+  {
+    "id": "director",
+    "name": "Sol Última-Tomada",
+    "inspiration": "The Bride / Kill Bill",
+    "legacy_item": "city_avatar_hummingbird_v1",
+    "asset": "assets/collection/cinema_director.png",
+    "sha256": "0e7cd0fb55de3bac454da09b017143cd1f2a354f4319f16f15d2d6acec55fb18",
+    "source": "docs/artwork/cinema-homages-v3/sources/director.png",
+    "prompt": "Use case: stylized-concept. Production unlockable avatar for Cineus, a cinema/geek game for teens16+ and adults. Premium cohesive illustrated comic-adventure collectible art, expressive exaggerated proportions, strong dark ink contours, tactile cel shading, polished readable face, restrained NAVY GOLD IVORY palette with the specific accent colors. Satire and cinematic backstage humor, NOT photorealistic or a recreation of a film still. Head, shoulders, torso and hands in a centered square BUST portrait; character fills 82% of canvas with at least 8% transparent padding; all headwear/props/hands fully inside frame. TRUE transparent alpha background, no scenery or frame. No lettering, text, logos, watermark, animals or animal mascots. Broad genre homage with a clearly new silhouette, face, costume and visual joke; no real actor likeness. An original stylized satirical homage to the relentless martial-arts revenge-movie heroine archetype of The Bride in Kill Bill. A tall adult dark-skinned woman with cropped WHITE hair and an amused focused gaze, a RUST-RED asymmetric stunt jacket with teal cuffs over navy trousers, ivory taped hands. She holds a long studio BOOM MICROPHONE diagonally like a sword in a deliberately overdramatic harmless movie pose. A brass cinema ticket clipped to her sleeve. No yellow tracksuit, katana, blood, actor resemblance or copied film costume.",
+    "legal_status": "Creative homage; not licensed or legally cleared by generation"
+  }
+]

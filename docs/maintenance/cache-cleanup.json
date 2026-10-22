@@ -1,0 +1,26 @@
+[
+  {
+    "path": "build",
+    "files": 11654,
+    "bytes": 6659251597.0,
+    "removed": true
+  },
+  {
+    "path": ".dart_tool",
+    "files": 513,
+    "bytes": 1111556990.0,
+    "removed": true
+  },
+  {
+    "path": "android\\.gradle",
+    "files": 16,
+    "bytes": 32347800.0,
+    "removed": true
+  },
+  {
+    "path": "android\\.kotlin",
+    "files": 0,
+    "bytes": null,
+    "removed": true
+  }
+]

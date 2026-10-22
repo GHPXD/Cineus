@@ -1,0 +1,54 @@
+{
+  "id": "cartman",
+  "kind": "character",
+  "generator": "built-in image_gen / GPT Image",
+  "prompt": "Use case: illustration-story. Asset type: isolated recolourable character sprite for the Cineus mobile colour-memory game. Create from scratch ONE recognisable full-body character, polished bold flat 2D cartoon illustration, thick clean charcoal outlines, very few generous filled shapes, no gradients, lighting, shading or textures. Entire figure centred in a square with 8% transparent margin, feet and appendages fully visible, genuinely transparent background. No text, letters, logos, watermarks, scenery, props except canonical character accessories, or secondary figures. Important technical palette: the five indicated regions MUST use their assigned uniform flat marker colours, exactly, even when noncanonical. These are segmentation markers for later automatic raster-to-SVG conversion, not the final colours shown to players. Never use these five marker colours anywhere outside their assigned regions. All other details use flat white, black or subdued neutral colours. Make each region clean, solid, separately identifiable; preserve the character's recognisable proportions, eyes, face, outline and clothing seams. The UI will recolour each region after tracing; do not render a UI or swatches.\nSubject and segmentation: Eric Cartman from South Park, round squat full-body standing, winter cap with pompom and band, button-front jacket, brown trousers, black shoes, bare hands, rounded face. Five regions: jacket MAGENTA #FF00FF; cap main dome CYAN #00FFFF; cap band AND pompom LIME #00FF00; face and bare hands ORANGE #FFA500; trousers PURPLE #8000FF. White eyes, black pupils, black buttons and shoes.",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-ac4342b2-f6ec-4e11-8c74-3965b32ac543.png",
+  "source": "assets/colors/sources/cartman.png",
+  "status": "converted",
+  "palette_mode": "markers",
+  "source_sha256": "b54360bc69abdc6690c75494bc6a870dc519bec550f379e5131957071e73fdf1",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    640,
+    640
+  ],
+  "region_pixels": [
+    65874,
+    17972,
+    18992,
+    55606,
+    15960
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/cartman_base.svg",
+      "sha256": "10269d696d3e8b895eabd24778afd26287ed6004c1572721fc8ec71dbc841782"
+    },
+    {
+      "file": "assets/colors/art/cartman_p0.svg",
+      "sha256": "24d18f01630432dc0f611c7d2da1e96d5f9db3ace12e6fd73d2852fa7e39351f"
+    },
+    {
+      "file": "assets/colors/art/cartman_p1.svg",
+      "sha256": "817e67490f3a7735311c514dc17ea8ca8ff7994d0907f735ea4d8b607d84278c"
+    },
+    {
+      "file": "assets/colors/art/cartman_p2.svg",
+      "sha256": "371e434d4cd4890e3d394496bab31ca933ca5535805fe9ebf330752beb707034"
+    },
+    {
+      "file": "assets/colors/art/cartman_p3.svg",
+      "sha256": "c9154caa6c45a7e253598d323cb38d82cbff7001897a3183344ceb778ecbc827"
+    },
+    {
+      "file": "assets/colors/art/cartman_p4.svg",
+      "sha256": "de43ba4be7465b471dc1cbd98ca1a86ce45b3c6bf91ec961cdd6320b5525adae"
+    }
+  ]
+}

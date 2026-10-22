@@ -11,9 +11,8 @@ GoRouter _router({String initialLocation = '/stages'}) {
     initialLocation: initialLocation,
     routes: [
       StatefulShellRoute.indexedStack(
-        builder: (context, state, navigationShell) => MainScaffold(
-          navigationShell: navigationShell,
-        ),
+        builder: (context, state, navigationShell) =>
+            MainScaffold(navigationShell: navigationShell),
         branches: [
           StatefulShellBranch(
             routes: [
@@ -52,6 +51,21 @@ GoRouter _router({String initialLocation = '/stages'}) {
               ),
             ],
           ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/colors',
+                builder: (_, __) => const Center(child: Text('COLORS_ROOT')),
+                routes: [
+                  GoRoute(
+                    path: 'history',
+                    builder: (_, __) =>
+                        const Center(child: Text('COLORS_HISTORY')),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ],
       ),
     ],
@@ -69,9 +83,9 @@ Widget _app(GoRouter router, {double textScale = 1}) {
     ],
     supportedLocales: AppL10n.supportedLocales,
     builder: (context, child) => MediaQuery(
-      data: MediaQuery.of(context).copyWith(
-        textScaler: TextScaler.linear(textScale),
-      ),
+      data: MediaQuery.of(
+        context,
+      ).copyWith(textScaler: TextScaler.linear(textScale)),
       child: child!,
     ),
     routerConfig: router,
@@ -79,8 +93,52 @@ Widget _app(GoRouter router, {double textScale = 1}) {
 }
 
 void main() {
-  testWidgets('tabs preservam a própria pilha e re-seleção volta à raiz',
-      (tester) async {
+  testWidgets(
+    'Cores preserva histórico ao trocar de aba e re-seleção volta ao hub',
+    (tester) async {
+      final router = _router(initialLocation: '/colors/history');
+      addTearDown(router.dispose);
+      await tester.pumpWidget(_app(router));
+      await tester.pumpAndSettle();
+      expect(find.text('COLORS_HISTORY'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('nav-home')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const ValueKey('nav-colors')));
+      await tester.pumpAndSettle();
+      expect(find.text('COLORS_HISTORY'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('nav-colors')));
+      await tester.pumpAndSettle();
+      expect(find.text('COLORS_ROOT'), findsOneWidget);
+    },
+  );
+
+  for (final size in [
+    const Size(320, 640),
+    const Size(1024, 768),
+    const Size(1024, 320),
+  ]) {
+    testWidgets('quatro destinos acessíveis em $size com fonte 200%', (
+      tester,
+    ) async {
+      tester.view.physicalSize = size;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final router = _router(initialLocation: '/colors');
+      addTearDown(router.dispose);
+      await tester.pumpWidget(_app(router, textScale: 2));
+      await tester.pumpAndSettle();
+      for (final label in ['Início', 'Filmes', 'Posters', 'Cores']) {
+        expect(find.text(label), findsOneWidget);
+      }
+      expect(find.text('COLORS_ROOT'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+  }
+
+  testWidgets('tabs preservam a própria pilha e re-seleção volta à raiz', (
+    tester,
+  ) async {
     final router = _router();
     addTearDown(router.dispose);
 
@@ -97,17 +155,24 @@ void main() {
 
     await tester.tap(find.text('Filmes'));
     await tester.pumpAndSettle();
-    expect(find.text('STAGE_7'), findsOneWidget,
-        reason: 'trocar de tab deve restaurar a pilha anterior');
+    expect(
+      find.text('STAGE_7'),
+      findsOneWidget,
+      reason: 'trocar de tab deve restaurar a pilha anterior',
+    );
 
     await tester.tap(find.text('Filmes'));
     await tester.pumpAndSettle();
-    expect(find.text('OPEN_STAGE'), findsOneWidget,
-        reason: 're-selecionar a tab ativa deve voltar à raiz');
+    expect(
+      find.text('OPEN_STAGE'),
+      findsOneWidget,
+      reason: 're-selecionar a tab ativa deve voltar à raiz',
+    );
   });
 
-  testWidgets('bottom navigation não estoura com texto em 200%',
-      (tester) async {
+  testWidgets('bottom navigation não estoura com texto em 200%', (
+    tester,
+  ) async {
     final router = _router(initialLocation: '/home');
     addTearDown(router.dispose);
 
@@ -117,11 +182,13 @@ void main() {
     expect(find.text('Início'), findsOneWidget);
     expect(find.text('Filmes'), findsOneWidget);
     expect(find.text('Posters'), findsOneWidget);
+    expect(find.text('Cores'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('destinos principais expõem rótulos semânticos acionáveis',
-      (tester) async {
+  testWidgets('destinos principais expõem rótulos semânticos acionáveis', (
+    tester,
+  ) async {
     final semantics = tester.ensureSemantics();
     try {
       final router = _router(initialLocation: '/home');
@@ -133,6 +200,7 @@ void main() {
       expect(find.bySemanticsLabel('Início'), findsOneWidget);
       expect(find.bySemanticsLabel('Filmes'), findsOneWidget);
       expect(find.bySemanticsLabel('Posters'), findsOneWidget);
+      expect(find.bySemanticsLabel('Cores'), findsOneWidget);
 
       await tester.tap(find.bySemanticsLabel('Filmes'));
       await tester.pumpAndSettle();

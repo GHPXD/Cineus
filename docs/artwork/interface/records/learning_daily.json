@@ -1,0 +1,27 @@
+{
+  "id": "learning_daily",
+  "kind": "illustration",
+  "subject": "a small cinema calendar beside a film reel and a controlled curved orbit, suggesting a fresh daily film challenge, no dates or writing",
+  "prompt": "Use case: illustration-story. Generate ONE original premium editorial cinema illustration from scratch for the Cineus mobile game. Bold confident illustrated shapes and memorable composition, warm gold #EFC026, periwinkle blue #5790FF, ivory #F4F3E8, optional deep blue for overlap, at most four flat colours. Sophisticated graphic 2D illustration with depth only from overlapping solid shapes. Crisp broad silhouettes, clean boundaries, generous negative space, few details. No gradients, texture, distressed marks, shadows, glossy 3D, sparkle, lettering, numerals, emoji or stock clipart. Genuinely transparent background, landscape canvas approximately 2.3:1, whole artwork comfortably framed, 10% breathing space. No movie spoilers, portraits, copyrighted film characters or real movie scenes. Subject: a small cinema calendar beside a film reel and a controlled curved orbit, suggesting a fresh daily film challenge, no dates or writing.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-5b74d327-32e3-4d5c-aee1-61bc7d0eaed8.png",
+  "source": "assets/generated/sources/learning_daily.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/illustrations/learning_daily.svg",
+  "source_sha256": "05399a82d7035ea33c488d048e7e8761204614cd832379e115202c9d36eaf160",
+  "svg_sha256": "44e66cc2aa4361c80c53d8790c42c9748cc3ecf026ad7ca064c6daee76b75026",
+  "paths": 58,
+  "source_size": [
+    1900,
+    828
+  ],
+  "trace_size": [
+    896,
+    390
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": null,
+  "ink_sha256": null
+}

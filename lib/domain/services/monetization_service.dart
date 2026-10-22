@@ -19,3 +19,19 @@ abstract class MonetizationService {
 
   Future<void> restorePass();
 }
+
+/// Marker for adapters whose boolean confirms a server receipt already credited
+/// atomically. Callers must never credit a second time from the SDK callback.
+abstract interface class ServerCreditedRewards {
+  bool get creditsRewards;
+  int get confirmedUsedToday;
+}
+
+/// Persists the server attempt before the ad opens. A delayed signed receipt can
+/// then recover the same help after a process restart without showing a new ad.
+abstract interface class TrackedRewardedAds {
+  Future<bool> showRewardedTracked(
+    Future<void> Function(String attempt) started,
+  );
+  bool get rewardPending;
+}

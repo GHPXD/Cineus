@@ -1,0 +1,82 @@
+[
+  {
+    "character": "spongebob",
+    "page": "https://toontone.app/pt/characters/spongebob-body/",
+    "image": "https://toontone.app/assets/Characters/spongebob.webp",
+    "file": "docs/artwork/characters/references/spongebob.webp",
+    "sha256": "d39bcb3cdf724459a5c07585b64ee3e04e5068a711ac9d2a4dc01cbe524dcf58",
+    "checked_on": "2026-10-13"
+  },
+  {
+    "character": "pikachu",
+    "page": "https://toontone.app/pt/characters/pikachu-skin/",
+    "image": "https://toontone.app/assets/Characters/pikachu.webp",
+    "file": "docs/artwork/characters/references/pikachu.webp",
+    "sha256": "73fbb3e2e6aa4c477a996feac5127dfe720dc3fdae31b3094ee70a5a647a0de0",
+    "checked_on": "2026-10-13"
+  },
+  {
+    "character": "stitch",
+    "page": "https://toontone.app/pt/characters/stitch-body_fur/",
+    "image": "https://toontone.app/assets/Characters/stitch.webp",
+    "file": "docs/artwork/characters/references/stitch.webp",
+    "sha256": "ffbd9f03a5382e2da6afac202c79d14112032220b76d65343ae2c5f789368c98",
+    "checked_on": "2026-10-13"
+  },
+  {
+    "character": "goku",
+    "page": "https://toontone.app/pt/characters/goku-turtle_hermit_gi/",
+    "image": "https://toontone.app/assets/Characters/goku.webp",
+    "file": "docs/artwork/characters/references/goku.webp",
+    "sha256": "92982ec910da65036bd78a24186a098d70cbe5f6e8a95a2bbca587750e8bd80a",
+    "checked_on": "2026-10-13"
+  },
+  {
+    "character": "cartman",
+    "page": "https://toontone.app/pt/characters/eric_cartman-jacket/",
+    "image": "https://toontone.app/assets/Characters/eric_cartman.webp",
+    "file": "docs/artwork/characters/references/cartman.webp",
+    "sha256": "6d6a3681437e7024226fd40de4528bf1994a0eda76845845183f1a51cfce8f20",
+    "checked_on": "2026-10-13"
+  },
+  {
+    "character": "patrick",
+    "page": "https://toontone.app/pt/characters/patrick_star-shorts/",
+    "image": "https://toontone.app/assets/Characters/patrick_star.webp",
+    "file": "docs/artwork/characters/references/patrick.webp",
+    "sha256": "18b4554d45dcc8841614f5471bdafe05d60979417e37908fe6845d66e10347de",
+    "checked_on": "2026-10-13"
+  },
+  {
+    "character": "finn",
+    "page": "https://toontone.app/pt/characters/finn_human-backpack/",
+    "image": "https://toontone.app/assets/Characters/finn_human.webp",
+    "file": "docs/artwork/characters/references/finn.webp",
+    "sha256": "2d0918a8384512c7a67e5cd974b9833166631e2826199d8b72f101f0640d023c",
+    "checked_on": "2026-10-13"
+  },
+  {
+    "character": "bugs",
+    "page": "https://toontone.app/pt/characters/bugs_bunny-skin/",
+    "image": "https://toontone.app/assets/Characters/bugs_bunny.webp",
+    "file": "docs/artwork/characters/references/bugs.webp",
+    "sha256": "0921053249731273d4d2572eb6f53ce876e32ea3e406a007d7250aa7a5bb4203",
+    "checked_on": "2026-10-13"
+  },
+  {
+    "character": "aang",
+    "page": "https://toontone.app/pt/characters/aang-air_nomad_tattoos/",
+    "image": "https://toontone.app/assets/Characters/aang.webp",
+    "file": "docs/artwork/characters/references/aang.webp",
+    "sha256": "231acf028a32e4b69a5b8720f098f07f76089764469226623a263dc1786c85ab",
+    "checked_on": "2026-10-13"
+  },
+  {
+    "character": "pink_panther",
+    "page": "https://toontone.app/pt/characters/pink_panther-skin/",
+    "image": "https://toontone.app/assets/Characters/pink_panther.webp",
+    "file": "docs/artwork/characters/references/pink_panther.webp",
+    "sha256": "4755b64b80d5b1b5bf1982f142cdfbcf74cf4dfd43d29ee8f0effba40ec04421",
+    "checked_on": "2026-10-13"
+  }
+]

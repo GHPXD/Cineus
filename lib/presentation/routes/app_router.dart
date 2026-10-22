@@ -5,13 +5,21 @@ import 'package:go_router/go_router.dart';
 import '../../core/utils/challenge_code.dart';
 import '../../domain/entities/game_session.dart';
 import '../providers/providers.dart';
+import '../screens/cinema_showcase_screen.dart';
 
 import '../screens/about_screen.dart';
+import '../screens/font_licenses_screen.dart';
 import '../screens/challenge_entry_screen.dart';
 import '../screens/challenge_loader.dart';
 import '../screens/defeat_screen.dart';
 import '../screens/game_screen.dart';
 import '../screens/home_screen.dart';
+import '../screens/color_session_screen.dart';
+import '../screens/color_hub_screen.dart';
+import '../screens/color_stages_screen.dart';
+import '../screens/color_credits_screen.dart';
+import '../screens/color_tutorial_screen.dart';
+import '../../data/repositories/color_repository.dart';
 import '../screens/how_to_play_screen.dart';
 import '../screens/legal_screen.dart';
 import '../screens/main_scaffold.dart';
@@ -20,6 +28,14 @@ import '../screens/poster_stage_detail_screen.dart';
 import '../screens/poster_stages_screen.dart';
 import '../screens/search_screen.dart';
 import '../screens/settings_screen.dart';
+import '../screens/player_collection_screen.dart';
+import '../screens/journey_screen.dart';
+import '../screens/seasons_screen.dart';
+import '../screens/support_screen.dart';
+import '../screens/archive_screen.dart';
+import '../screens/mastery_screen.dart';
+import '../screens/player_data_screen.dart';
+import '../screens/friends_screen.dart';
 import '../screens/splash_screen.dart';
 import '../screens/stage_detail_screen.dart';
 import '../screens/stages_screen.dart';
@@ -29,16 +45,25 @@ import '../screens/visual_screen.dart';
 import '../screens/visual_search_screen.dart';
 
 abstract final class AppRouter {
-  static final router = GoRouter(
-    initialLocation: '/',
+  static final router = create();
+
+  static GoRouter create({String initialLocation = '/'}) => GoRouter(
+    initialLocation: initialLocation,
     routes: [
       GoRoute(
-        path: '/',
-        builder: (context, state) => const _SplashGate(),
+        path: '/data',
+        builder: (context, state) => const PlayerDataScreen(),
       ),
+      GoRoute(
+        path: '/friends',
+        builder: (context, state) =>
+            FriendsScreen(initialCode: state.uri.queryParameters['code']),
+      ),
+      GoRoute(path: '/', builder: (context, state) => const _SplashGate()),
       StatefulShellRoute.indexedStack(
-        builder: (context, state, navigationShell) => MainScaffold(
-          navigationShell: navigationShell,
+        pageBuilder: (context, state, navigationShell) => NoTransitionPage(
+          key: state.pageKey,
+          child: MainScaffold(navigationShell: navigationShell),
         ),
         branches: [
           StatefulShellBranch(
@@ -83,7 +108,40 @@ abstract final class AppRouter {
               ),
             ],
           ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/colors',
+                builder: (context, state) => const ColorStagesScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'stage/:id',
+                    builder: (context, state) => ColorStagesScreen(
+                      stageId:
+                          int.tryParse(state.pathParameters['id'] ?? '') ?? -1,
+                    ),
+                  ),
+                  GoRoute(
+                    path: 'history',
+                    builder: (context, state) => const ColorHubScreen(),
+                  ),
+                  GoRoute(
+                    path: 'stats',
+                    redirect: (context, state) => '/stats?mode=colors',
+                  ),
+                  GoRoute(
+                    path: 'credits',
+                    builder: (context, state) => const ColorCreditsScreen(),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ],
+      ),
+      GoRoute(
+        path: '/colors/guide',
+        builder: (context, state) => const ColorGuideScreen(),
       ),
       GoRoute(
         path: '/visual/play',
@@ -106,7 +164,10 @@ abstract final class AppRouter {
       GoRoute(
         path: '/visual/search',
         pageBuilder: (context, state) => CustomTransitionPage(
-          child: VisualSearchScreen(onBack: () => context.pop()),
+          child: VisualSearchScreen(
+            onBack: () =>
+                context.canPop() ? context.pop() : context.go('/visual/play'),
+          ),
           transitionDuration: _motionDuration(
             context,
             const Duration(milliseconds: 300),
@@ -116,13 +177,13 @@ abstract final class AppRouter {
             const Duration(milliseconds: 300),
           ),
           transitionsBuilder: (context, animation, _, child) => SlideTransition(
-            position: Tween<Offset>(
-              begin: const Offset(0, 1),
-              end: Offset.zero,
-            ).animate(CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeOutCubic,
-            )),
+            position: Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
+                .animate(
+                  CurvedAnimation(
+                    parent: animation,
+                    curve: Curves.easeOutCubic,
+                  ),
+                ),
             child: child,
           ),
         ),
@@ -196,7 +257,10 @@ abstract final class AppRouter {
       GoRoute(
         path: '/search',
         pageBuilder: (context, state) => CustomTransitionPage(
-          child: SearchScreen(onBack: () => context.pop()),
+          child: SearchScreen(
+            onBack: () =>
+                context.canPop() ? context.pop() : context.go('/game'),
+          ),
           transitionDuration: _motionDuration(
             context,
             const Duration(milliseconds: 300),
@@ -206,13 +270,13 @@ abstract final class AppRouter {
             const Duration(milliseconds: 300),
           ),
           transitionsBuilder: (context, animation, _, child) => SlideTransition(
-            position: Tween<Offset>(
-              begin: const Offset(0, 1),
-              end: Offset.zero,
-            ).animate(CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeOutCubic,
-            )),
+            position: Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
+                .animate(
+                  CurvedAnimation(
+                    parent: animation,
+                    curve: Curves.easeOutCubic,
+                  ),
+                ),
             child: child,
           ),
         ),
@@ -267,59 +331,126 @@ abstract final class AppRouter {
         path: '/challenge/:challenge',
         builder: (context, state) {
           final value = state.pathParameters['challenge'] ?? '';
-          final id = int.tryParse(value) ?? ChallengeCode.decode(value);
-          return ChallengeLoader(movieId: id);
+          final legacyId = int.tryParse(value);
+          final target = legacyId != null && legacyId > 0 && legacyId <= 32767
+              ? ChallengeTarget(legacyId)
+              : ChallengeCode.decodeTarget(value);
+          return ChallengeLoader(
+            key: ValueKey('challenge_${target?.mode.name}_${target?.movieId}'),
+            movieId: target?.movieId,
+            mode: target?.mode ?? GameMode.clue,
+          );
         },
       ),
       GoRoute(
         path: '/stats',
-        builder: (context, state) => StatsScreen(onBack: () => context.pop()),
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: StatsScreen(
+            initialMode: state.uri.queryParameters['mode'] == 'poster'
+                ? GameMode.poster
+                : state.uri.queryParameters['mode'] == 'clue'
+                ? GameMode.clue
+                : null,
+            onBack: () =>
+                context.canPop() ? context.pop() : context.go('/home'),
+            initialColors: state.uri.queryParameters['mode'] == 'colors',
+          ),
+        ),
       ),
       GoRoute(
         path: '/settings',
         builder: (context, state) => const SettingsScreen(),
       ),
       GoRoute(
-        path: '/about',
-        builder: (context, state) => const AboutScreen(),
+        path: '/collection',
+        builder: (context, state) => const PlayerCollectionScreen(),
+      ),
+      GoRoute(
+        path: '/journey',
+        builder: (context, state) => const JourneyScreen(),
+      ),
+      GoRoute(path: '/archive', builder: (_, __) => const ArchiveScreen()),
+      GoRoute(path: '/mastery', builder: (_, __) => const MasteryScreen()),
+      GoRoute(
+        path: '/seasons',
+        builder: (context, state) => const SeasonsScreen(),
+      ),
+      GoRoute(path: '/about', builder: (context, state) => const AboutScreen()),
+      GoRoute(
+        path: '/colors/train',
+        builder: (context, state) => const ColorSessionScreen(),
+      ),
+      GoRoute(
+        path: '/colors/daily',
+        builder: (context, state) =>
+            const ColorSessionScreen(kind: ColorSessionKind.daily),
+      ),
+      GoRoute(
+        path: '/colors/session/:id',
+        builder: (context, state) =>
+            ColorSessionScreen(sessionId: state.pathParameters['id']),
+      ),
+      GoRoute(
+        path: '/font-licenses',
+        builder: (context, state) => const FontLicensesScreen(),
+      ),
+      GoRoute(
+        path: '/support',
+        builder: (context, state) => const SupportScreen(),
+      ),
+      GoRoute(
+        path: '/audience',
+        // Keep older links functional without restoring the retired screen.
+        redirect: (context, state) => state.uri.queryParameters['first'] == '1'
+            ? '/how-to-play?first=1'
+            : '/home',
+      ),
+      GoRoute(
+        path: '/showcase/:id',
+        builder: (context, state) =>
+            CinemaShowcaseScreen(id: state.pathParameters['id']!),
       ),
       GoRoute(
         path: '/privacy',
-        builder: (context, state) => const LegalScreen(
-          document: LegalDocument.privacy,
-        ),
+        builder: (context, state) =>
+            const LegalScreen(document: LegalDocument.privacy),
       ),
       GoRoute(
         path: '/terms',
-        builder: (context, state) => const LegalScreen(
-          document: LegalDocument.terms,
-        ),
+        builder: (context, state) =>
+            const LegalScreen(document: LegalDocument.terms),
+      ),
+      GoRoute(
+        path: '/how-to-play/colors',
+        builder: (context, state) => const ColorGuideScreen(),
       ),
       GoRoute(
         path: '/how-to-play',
         builder: (context, state) {
           final isOnboarding = state.uri.queryParameters['first'] == '1';
           return HowToPlayScreen(
+            key: ValueKey('guide-$isOnboarding'),
             isOnboarding: isOnboarding,
-            onDismiss: () =>
-                isOnboarding ? context.go('/home') : context.pop(),
+            onDismiss: () => !isOnboarding && context.canPop()
+                ? context.pop()
+                : context.go('/home'),
           );
         },
       ),
     ],
   );
 
-  static Duration _motionDuration(
-    BuildContext context,
-    Duration normal,
-  ) =>
+  static Duration _motionDuration(BuildContext context, Duration normal) =>
       MediaQuery.disableAnimationsOf(context) ? Duration.zero : normal;
 
   static SessionKind _sessionKind(String? source) => switch (source) {
-        'stage' => SessionKind.stage,
-        'challenge' => SessionKind.challenge,
-        _ => SessionKind.daily,
-      };
+    'stage' => SessionKind.stage,
+    'challenge' => SessionKind.challenge,
+    'archive' => SessionKind.archive,
+    'training' => SessionKind.training,
+    _ => SessionKind.daily,
+  };
 }
 
 class _SplashGate extends ConsumerStatefulWidget {
@@ -334,7 +465,9 @@ class _SplashGateState extends ConsumerState<_SplashGate> {
   bool _navigated = false;
 
   void _tryNavigate(AsyncValue<bool> onboarding) {
-    if (!_minimumElapsed || _navigated || !onboarding.hasValue) return;
+    if (!_minimumElapsed || _navigated || !onboarding.hasValue) {
+      return;
+    }
     _navigated = true;
     final seen = onboarding.requireValue;
     WidgetsBinding.instance.addPostFrameCallback((_) {

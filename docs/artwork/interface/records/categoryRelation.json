@@ -1,0 +1,27 @@
+{
+  "id": "categoryRelation",
+  "kind": "icon",
+  "subject": "two linked broad rounded chain loops, suggesting character relationships",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: two linked broad rounded chain loops, suggesting character relationships.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-78c468ab-bd1f-4247-a829-ff721933677f.png",
+  "source": "assets/generated/sources/categoryRelation.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryRelation.svg",
+  "source_sha256": "9b4cb9c5073de69402cbd655ee38fb55172c016a90e16b3774b531c3e5c8d2b5",
+  "svg_sha256": "2f8d68a2930a1f139e289417cbb53fe574ecf6c8906146d0c47e0eba162c96b2",
+  "paths": 3,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryRelation_ink.svg",
+  "ink_sha256": "ff03c9aad8bab1f04e9985ad8a2e019c8ac98aaac0e3de8575d56f0304d59269"
+}

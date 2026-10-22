@@ -163,7 +163,9 @@ class DatabaseHelper implements DatabaseProvider {
     }
     final header = String.fromCharCodes(bytes.take(_sqliteHeader.length));
     if (header != _sqliteHeader) {
-      throw const FormatException('Bundled database has an invalid SQLite header');
+      throw const FormatException(
+        'Bundled database has an invalid SQLite header',
+      );
     }
   }
 

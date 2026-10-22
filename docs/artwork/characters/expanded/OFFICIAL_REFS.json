@@ -1,0 +1,92 @@
+[
+  {
+    "id": "mario",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/0f10f738d1f9aa8292fa7d93c35f2a07/02be2/mario.png",
+    "file": "docs/artwork/characters/expanded/references/mario-official.png"
+  },
+  {
+    "id": "luigi",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/73f9272aebf9a014261584b35597878f/d9801/luigi.png",
+    "file": "docs/artwork/characters/expanded/references/luigi-official.png"
+  },
+  {
+    "id": "peach",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/43a96c1d5b681d338864aac15cd391b9/f3703/peach.png",
+    "file": "docs/artwork/characters/expanded/references/peach-official.png"
+  },
+  {
+    "id": "yoshi",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/850b7938ec9df2a77921738a12857e88/c4ba3/yoshi.png",
+    "file": "docs/artwork/characters/expanded/references/yoshi-official.png"
+  },
+  {
+    "id": "bowser",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/7204f288e3e823a8203c445fb6cc0d7e/b1656/bowser.png",
+    "file": "docs/artwork/characters/expanded/references/bowser-official.png"
+  },
+  {
+    "id": "toad",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/e3ebf11b069067da929b608250baa44e/55d59/toad.png",
+    "file": "docs/artwork/characters/expanded/references/toad-official.png"
+  },
+  {
+    "id": "donkey_kong",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/b444206395480738954c3cbbd86716cc/c2c43/donkey-kong.png",
+    "file": "docs/artwork/characters/expanded/references/donkey_kong-official.png"
+  },
+  {
+    "id": "wario",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/2e8e71c5b38a5aedd5eef91c3d54bf13/747d9/wario.png",
+    "file": "docs/artwork/characters/expanded/references/wario-official.png"
+  },
+  {
+    "id": "waluigi",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/54c0617c992012b38e212c154f4e3944/3eddd/waluigi.png",
+    "file": "docs/artwork/characters/expanded/references/waluigi-official.png"
+  },
+  {
+    "id": "daisy",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/b625bdf51061d55b220d82eb9b61442c/9b369/daisy.png",
+    "file": "docs/artwork/characters/expanded/references/daisy-official.png"
+  },
+  {
+    "id": "rosalina",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "image": "https://mario.nintendo.com/static/9413cb5d146400e7368855759d084c69/d1a6b/rosalina.png",
+    "file": "docs/artwork/characters/expanded/references/rosalina-official.png"
+  },
+  {
+    "id": "sonic",
+    "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+    "image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara01-img.png",
+    "file": "docs/artwork/characters/expanded/references/sonic-official.png"
+  },
+  {
+    "id": "tails",
+    "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+    "image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara02-img.png",
+    "file": "docs/artwork/characters/expanded/references/tails-official.png"
+  },
+  {
+    "id": "amy",
+    "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+    "image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara03-img.png",
+    "file": "docs/artwork/characters/expanded/references/amy-official.png"
+  },
+  {
+    "id": "knuckles",
+    "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+    "image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara04-img.png",
+    "file": "docs/artwork/characters/expanded/references/knuckles-official.png"
+  }
+]

@@ -17,7 +17,11 @@ class MovieRepositoryImpl implements MovieRepository {
     final db = await _db.database;
     // Historical sessions and frozen stages must still resolve a soft-retired
     // movie, so direct ID lookup intentionally does not filter by is_active.
-    final movieMaps = await db.query('movies', where: 'id = ?', whereArgs: [id]);
+    final movieMaps = await db.query(
+      'movies',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
     if (movieMaps.isEmpty) return null;
 
     final clueMaps = await db.query(
@@ -64,11 +68,13 @@ class MovieRepositoryImpl implements MovieRepository {
     );
 
     final index = rows
-        .map((r) => SearchCandidate.fromTitles(
-              r['id'] as int,
-              r['title'] as String? ?? '',
-              r['original_title'] as String?,
-            ))
+        .map(
+          (r) => SearchCandidate.fromTitles(
+            r['id'] as int,
+            r['title'] as String? ?? '',
+            r['original_title'] as String?,
+          ),
+        )
         .toList(growable: false);
 
     _searchIndex = index;
@@ -77,11 +83,7 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<List<Movie>> searchMovies(String query, {int limit = 10}) async {
-    final ids = MovieSearch.rank(
-      query,
-      await _loadSearchIndex(),
-      limit: limit,
-    );
+    final ids = MovieSearch.rank(query, await _loadSearchIndex(), limit: limit);
     return getMoviesByIds(ids);
   }
 

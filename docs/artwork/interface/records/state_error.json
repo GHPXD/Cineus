@@ -1,0 +1,27 @@
+{
+  "id": "state_error",
+  "kind": "illustration",
+  "subject": "a cinema film reel with one loose ribbon and a small ruby warning marker, calm recoverable interruption rather than alarm",
+  "prompt": "Use case: illustration-story. Generate ONE original premium editorial cinema illustration from scratch for the Cineus mobile game. Bold confident illustrated shapes and memorable composition, warm gold #EFC026, periwinkle blue #5790FF, ivory #F4F3E8, optional deep blue for overlap, at most four flat colours. Sophisticated graphic 2D illustration with depth only from overlapping solid shapes. Crisp broad silhouettes, clean boundaries, generous negative space, few details. No gradients, texture, distressed marks, shadows, glossy 3D, sparkle, lettering, numerals, emoji or stock clipart. Genuinely transparent background, landscape canvas approximately 2.3:1, whole artwork comfortably framed, 10% breathing space. No movie spoilers, portraits, copyrighted film characters or real movie scenes. Subject: a cinema film reel with one loose ribbon and a small gold warning marker, calm recoverable interruption rather than alarm.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-545c6c01-ec12-4be9-9a3a-0c0660b702f3.png",
+  "source": "assets/generated/sources/state_error.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/illustrations/state_error.svg",
+  "source_sha256": "66c9da24312fb37e26cffd4de31bb1702585b37b7cafd94887772382ee252ca8",
+  "svg_sha256": "c144f8b066dd035ed0f6aed0322d548ae8ae71fd4e4320c40e3322f4f09a33cc",
+  "paths": 46,
+  "source_size": [
+    1902,
+    827
+  ],
+  "trace_size": [
+    896,
+    390
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": null,
+  "ink_sha256": null
+}

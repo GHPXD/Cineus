@@ -1,0 +1,15 @@
+[
+  {
+    "id": "training",
+    "prompt": "Use case: stylized-concept. Asset type: cinematic landscape background for the Cores training card in the Cineus mobile app. One landscape 3:2 image in midnight navy, amber gold and ivory. RIGHT half shows an elegant dark-blue and gold vintage film reel on a dark studio table, with a looping filmstrip in the foreground whose five frames are solid deep red, teal blue, amber gold, light ivory and midnight navy. The objects occupy the middle vertical half so the image can be cropped to a very wide horizontal card. Soft golden studio spotlight from top right, restrained haze and gold reflections, strong shapes, polished photographic cinematic atmosphere. LEFT 55 percent fades to pure midnight navy-black empty space for live title, two lines of copy and an outlined button. Background illustration only: no text, letters, numerals, logo, watermark, UI, outer panel border, badges or buttons.",
+    "kind": "cinematic background",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-584fea9d-0565-4294-9f04-d81163e5fc85.png",
+    "file": "assets/color_hub/training.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1536,
+      1024
+    ],
+    "sha256": "b2ac3ec5076713b453e3fae3554c72f32b8aabbf9d4b6ba7c9b564d299eb407f"
+  }
+]

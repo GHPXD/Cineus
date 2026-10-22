@@ -1,0 +1,56 @@
+{
+  "id": "pikachu",
+  "kind": "character",
+  "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+  "external_source": "https://www.tv-tokyo.co.jp/anime/pocketmonster2023/images/chara/chara23.png",
+  "source_page": "https://www.tv-tokyo.co.jp/anime/pocketmonster2023/chara/",
+  "source": "assets/colors/sources/pikachu.png",
+  "palette_mode": "existing",
+  "status": "converted",
+  "rights": "Original broadcaster artwork. Origin retained; no claim that character rights or store distribution have been licensed.",
+  "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+  "source_sha256": "4a1b8deb757ba9ef9bc9f9e2225216168b842506f51703eef2d4af114727a6dc",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    1150,
+    251
+  ],
+  "trace_size": [
+    640,
+    620
+  ],
+  "region_pixels": [
+    118857,
+    2395,
+    4966,
+    2909,
+    19510
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/pikachu_base.svg",
+      "sha256": "5d782440d0792481f82a86ae23e1cd46d42e76ed2c1e20a2863241aa785b43c8"
+    },
+    {
+      "file": "assets/colors/art/pikachu_p0.svg",
+      "sha256": "9e75a3b4e3eb9c375ad3219d7fe761e76bcac1cc481fab63d4c719d19fe41934"
+    },
+    {
+      "file": "assets/colors/art/pikachu_p1.svg",
+      "sha256": "238a9c1a0a67d7d95d50c7d521228c5c407a940a3a73d790b9e561a765711e03"
+    },
+    {
+      "file": "assets/colors/art/pikachu_p2.svg",
+      "sha256": "ed430095c11c930ac38ce5a1ed30de8c539650317ffbea5368e22c06f2f455f7"
+    },
+    {
+      "file": "assets/colors/art/pikachu_p3.svg",
+      "sha256": "a887b52c57951f4f366b6db2f9b21d244196ad203a6cdde6bbf7d3192abf8a1c"
+    },
+    {
+      "file": "assets/colors/art/pikachu_p4.svg",
+      "sha256": "df56411a39eb43ca8f4ab4f911ef0b8718c517efb8834df5e90b4264304615cd"
+    }
+  ]
+}

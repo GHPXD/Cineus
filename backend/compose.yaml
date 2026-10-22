@@ -1,0 +1,28 @@
+# Review provider settings, resource limits, TLS and cost before public deployment.
+services:
+  api:
+    build: .
+    ports: ["127.0.0.1:8000:8000"]
+    volumes:
+      - ./var:/data
+      - ./.secrets:/run/secrets:ro
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    mem_limit: 256m
+    cpus: 0.75
+  worker:
+    build: .
+    command: ["python","-m","cineus_commerce","--config","/run/secrets/commerce.json","worker"]
+    volumes:
+      - ./var:/data
+      - ./.secrets:/run/secrets:ro
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+    mem_limit: 256m
+    cpus: 0.5

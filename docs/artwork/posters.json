@@ -1,0 +1,83 @@
+[
+  {
+    "id": "showcase",
+    "prompt": "Use case: stylized-concept. Asset type: cinematic landscape background for the Posters browser in Cineus. One landscape 3:2 image, premium midnight navy-black, luminous amber gold and restrained blue, with mist and reflections. LEFT 45 percent empty dark navy space for live UI text. RIGHT half shows three tilted portrait decorative cinema art cards on a glossy dark floor. Crisp outer cards; intentionally blurry artwork inside. Central dominant card has thin glowing gold rim and indistinct dark wide-brim hat resting above a dark overcoat on a coat stand, against golden amber fog. Behind left: a blue underwater shark silhouette, softly blurred. Behind right: a tiny dark astronaut helmet silhouette against red cosmic fog, softly blurred. Elegant poster-like graphic shapes, warm golden floor reflections, centered vertically. These are fictional atmospheric illustrations. No writing, logos, numbers, watermarks, buttons, badges, progress bars or outer UI panel.",
+    "kind": "cinematic background",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-5fae21bb-ee33-4e46-b95c-4d36d535888f.png",
+    "file": "assets/poster_stages/showcase.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1536,
+      1024
+    ],
+    "sha256": "6c9f50f8393ac27344049ab150fa21207be1a52287c7f91119b754ebf51a5bef"
+  },
+  {
+    "id": "amber",
+    "prompt": "Use case: stylized-concept. Asset type: portrait decorative cinema thumbnail for Cineus stage browser. Portrait 2:3. An indistinct, very soft out-of-focus black wide-brim hat above a dark overcoat on a coat stand, centered head-and-shoulders-like composition against a huge warm golden amber light halo in a smoky studio. Midnight navy-black shadows, amber haze, photographic bokeh and film grain. Strong simple hat and coat silhouette visible in a tiny square crop. Intentionally blurry atmospheric mystery artwork. No person, face, writing, logo, watermark, border, card frame, UI, badges or buttons.",
+    "kind": "cinematic background",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-61e6c079-38a9-4ca7-8cb0-8fbfea4976c2.png",
+    "file": "assets/poster_stages/amber.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1024,
+      1536
+    ],
+    "sha256": "70f09ec7e894656fbfe21df81193202fde568e5f5357596953c046a4dc972707"
+  },
+  {
+    "id": "blue",
+    "prompt": "Use case: stylized-concept. Asset type: portrait thumbnail for the second stage of a cinematic mobile poster guessing game. One portrait 2:3 image. A deliberately blurred mysterious shark seen from the front swimming upward through deep blue-teal ocean, its silhouette centered vertically, pale blue light shaft behind its head, dark midnight navy edges, subtle suspended dust and cinematic grain. Strong triangular snout and fin silhouette, softly out of focus rather than clear teeth. Readable as a tiny square decorative thumbnail. Match a luxurious midnight navy, ivory and gold cinema interface. Generic sea adventure artwork, not any real film poster. NO text, letters, logos, watermark, frame, card, button, icon, badge or UI. Keep intentionally soft focus.",
+    "kind": "cinematic background",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-0ba5a3bb-172d-4daf-9691-d4902a2677e2.png",
+    "file": "assets/poster_stages/blue.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1024,
+      1536
+    ],
+    "sha256": "d34d29d7bcb474b89d1432956cd35a5b7ef45024896cace3297922c7527b8a18"
+  },
+  {
+    "id": "red",
+    "prompt": "Use case: stylized-concept. Asset type: portrait decorative cinema thumbnail for Cineus stage browser. Portrait 2:3. An indistinct dark science-fiction astronaut helmet and upper spacesuit silhouette, centered in intense dark red cosmic fog with a softly glowing ivory visor reflection. Very soft out-of-focus mysterious photographic bokeh, deep midnight navy shadows, cinematic grain. Strong clean rounded helmet silhouette readable as a tiny square thumbnail. Original atmospheric space adventure art. No face, writing, logos, watermark, frame, UI, badges or buttons.",
+    "kind": "cinematic background",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-7f38781b-baab-4d13-a816-f4aa2d14ea8f.png",
+    "file": "assets/poster_stages/red.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1024,
+      1536
+    ],
+    "sha256": "70f4042cdebd1befbba8033867061ded3a17c06d370508b0a27c66e0a5569d12"
+  },
+  {
+    "id": "stagesGrid",
+    "prompt": "Use case: logo-brand. Asset type: one transparent-background icon for the all-stages heading of Cineus mobile cinema game. Create a bold elegant 2 by 2 grid of FOUR small rounded solid tiles, closely and evenly spaced, front view. Three tiles in luminous warm amber gold and one tile in light ivory, restrained dark-blue edge accents. Strong clean illustrated shapes with subtle polished highlight, designed to read at 20 pixels, matching illustrated gold/navy/ivory icons. Centered isolated symbol, generous transparent margins. Actual transparent background. No text, letters, logo, watermark, frame, shadow on background, UI, extra objects. Raster icon intended for automatic vector tracing after generation, so simple flat color areas and very clear silhouette.",
+    "kind": "icon",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-0380e160-cf37-4e87-896c-ea414ca39122.png",
+    "file": "assets/generated/sources/stagesGrid.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "bb140af0df04dfa31d8434204c766937f98c25fea311f7a8a16e761dbdc39d45",
+    "svg": "assets/generated/icons/stagesGrid.svg",
+    "ink_svg": "assets/generated/icons/stagesGrid_ink.svg",
+    "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+    "conversion_version": 5,
+    "svg_sha256": "e4875d3aff049cc08961ed258ce5ce17f6db91f6728233d626da38220ebe948b",
+    "ink_sha256": "e04aa1c24a9e100e7f3c4e64a449f905f726caa6a57f9cbaad36aec4b534816f",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      512,
+      512
+    ],
+    "paths": 14,
+    "source_sha256": "bb140af0df04dfa31d8434204c766937f98c25fea311f7a8a16e761dbdc39d45"
+  }
+]

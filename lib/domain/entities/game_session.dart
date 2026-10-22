@@ -16,7 +16,7 @@ enum GameMode {
 
 /// Whether a session is the once-a-day challenge, a stage replay, or a one-off
 /// film a friend sent over (D10).
-enum SessionKind { daily, stage, challenge }
+enum SessionKind { daily, stage, challenge, archive, training }
 
 /// A single play-through, identified by explicit columns.
 ///
@@ -130,10 +130,10 @@ class GameSession {
 
   /// Hints already paid for, ignoring any name no longer in the enum.
   Set<ExtraHint> get purchasedHints => {
-        for (final name in extraHints)
-          if (ExtraHint.values.any((h) => h.name == name))
-            ExtraHint.values.firstWhere((h) => h.name == name),
-      };
+    for (final name in extraHints)
+      if (ExtraHint.values.any((h) => h.name == name))
+        ExtraHint.values.firstWhere((h) => h.name == name),
+  };
 
   bool hasHint(ExtraHint hint) => extraHints.contains(hint.name);
 
@@ -166,33 +166,33 @@ class GameSession {
   }
 
   Map<String, dynamic> toMap() => {
-        if (id != null) 'id': id,
-        'mode': mode.name,
-        'kind': kind.name,
-        'date': date,
-        'stage_id': stageId,
-        'movie_id': movieId,
-        'revealed_clues': revealedClues,
-        'guesses': jsonEncode(guesses),
-        'status': status.name,
-        'score': score,
-        'extra_hints': jsonEncode(extraHints),
-      };
+    if (id != null) 'id': id,
+    'mode': mode.name,
+    'kind': kind.name,
+    'date': date,
+    'stage_id': stageId,
+    'movie_id': movieId,
+    'revealed_clues': revealedClues,
+    'guesses': jsonEncode(guesses),
+    'status': status.name,
+    'score': score,
+    'extra_hints': jsonEncode(extraHints),
+  };
 
   factory GameSession.fromMap(Map<String, dynamic> map) => GameSession(
-        id: map['id'] as int?,
-        mode: GameMode.values.byName(map['mode'] as String),
-        kind: SessionKind.values.byName(map['kind'] as String),
-        date: map['date'] as String? ?? '',
-        stageId: map['stage_id'] as int? ?? 0,
-        movieId: map['movie_id'] as int,
-        revealedClues: map['revealed_clues'] as int,
-        guesses: (jsonDecode(map['guesses'] as String) as List).cast<String>(),
-        status: GameStatus.values.byName(map['status'] as String),
-        score: map['score'] as int,
-        // Column added later; installs that predate it read as null.
-        extraHints: map['extra_hints'] == null
-            ? const []
-            : (jsonDecode(map['extra_hints'] as String) as List).cast<String>(),
-      );
+    id: map['id'] as int?,
+    mode: GameMode.values.byName(map['mode'] as String),
+    kind: SessionKind.values.byName(map['kind'] as String),
+    date: map['date'] as String? ?? '',
+    stageId: map['stage_id'] as int? ?? 0,
+    movieId: map['movie_id'] as int,
+    revealedClues: map['revealed_clues'] as int,
+    guesses: (jsonDecode(map['guesses'] as String) as List).cast<String>(),
+    status: GameStatus.values.byName(map['status'] as String),
+    score: map['score'] as int,
+    // Column added later; installs that predate it read as null.
+    extraHints: map['extra_hints'] == null
+        ? const []
+        : (jsonDecode(map['extra_hints'] as String) as List).cast<String>(),
+  );
 }

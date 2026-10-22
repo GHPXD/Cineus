@@ -21,7 +21,8 @@ class SearchState {
   });
 
   bool get isQueryValid => query.trim().length >= 2;
-  bool get isEmptyResult => isQueryValid && !isSearching && !hasError && results.isEmpty;
+  bool get isEmptyResult =>
+      isQueryValid && !isSearching && !hasError && results.isEmpty;
 }
 
 class SearchNotifier extends StateNotifier<SearchState> {
@@ -77,5 +78,5 @@ class SearchNotifier extends StateNotifier<SearchState> {
 
 final searchNotifierProvider =
     StateNotifierProvider.autoDispose<SearchNotifier, SearchState>((ref) {
-  return SearchNotifier(ref.read(movieRepositoryProvider));
-});
+      return SearchNotifier(ref.read(movieRepositoryProvider));
+    });

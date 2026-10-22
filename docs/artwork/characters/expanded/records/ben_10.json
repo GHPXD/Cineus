@@ -1,0 +1,34 @@
+{
+  "id": "ben_10",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/ben_10.png",
+  "source_sha256": "4c03f3df220f15e78c9df382904240d0b314a578159f4b39c5dccc2a90811ccd",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    409,
+    640
+  ],
+  "region_pixels": [
+    160
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/ben_10_base.svg",
+      "sha256": "07945ab53546dd3b0f8af6e35bcde1789f8ddcc67101343b5a7b00ff5827cdca"
+    },
+    {
+      "file": "assets/colors/art/ben_10_p0.svg",
+      "sha256": "b7e1e8d29e2d5034cca0f2741c7f49183935ffbc5741367497f69b3c21daffd5"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-d3227dbc-d222-472f-9fac-5fc1d0989260.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Ben Tennyson, brown-haired boy in classic white t-shirt with black vertical stripe, green cargo trousers, black and white shoes, large visible green watch face facing viewer. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the omnitrix core in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

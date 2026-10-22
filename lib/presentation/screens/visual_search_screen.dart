@@ -20,47 +20,59 @@ class VisualSearchScreen extends ConsumerWidget {
     final prefix = session == null
         ? ''
         : switch (session.kind) {
-            SessionKind.daily =>
-              context.l10n.searchChallenge('${gameState.challengeNumber}'),
+            SessionKind.daily => context.l10n.searchChallenge(
+              '${gameState.challengeNumber}',
+            ),
             SessionKind.stage => context.l10n.searchStage(session.stageId),
             SessionKind.challenge => context.l10n.searchFriendChallenge,
+            SessionKind.archive => context.l10n.archiveMode,
+            SessionKind.training => context.l10n.practiceMode,
           };
 
     return GenericSearchScreen(
       onBack: onBack,
       onSubmitGuess: (movie) async {
-        await ref.read(posterGameProvider.notifier).submitGuess(movie.title);
+        final outcome = await ref
+            .read(posterGameProvider.notifier)
+            .submitGuess(
+              movie.title,
+              selectedMovieId: movie.id,
+              selectedMovieYear: movie.year,
+            );
+        if (outcome == GuessOutcome.invalid) {
+          throw StateError('Game session unavailable');
+        }
       },
       contextWidget: Text.rich(
-        TextSpan(children: [
-          if (prefix.isNotEmpty)
+        TextSpan(
+          children: [
+            if (prefix.isNotEmpty)
+              TextSpan(
+                text: prefix,
+                style: AppTypography.bodySmall.copyWith(
+                  color: AppColors.textSecondary,
+                ),
+              ),
+            TextSpan(text: context.l10n.blurLabel),
             TextSpan(
-              text: prefix,
+              text: gameState.blurLabel,
               style: AppTypography.bodySmall.copyWith(
-                color: AppColors.textSecondary,
+                color: AppColors.gold300,
+                fontWeight: FontWeight.w600,
               ),
             ),
-          TextSpan(text: context.l10n.blurLabel),
-          TextSpan(
-            text: gameState.blurLabel,
-            style: AppTypography.bodySmall.copyWith(
-              color: AppColors.gold300,
-              fontWeight: FontWeight.w700,
+            const TextSpan(text: ' · '),
+            TextSpan(
+              text: context.l10n.searchPoints(gameState.currentScore),
+              style: AppTypography.bodySmall.copyWith(
+                color: AppColors.scoreColor(gameState.currentScore),
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-          const TextSpan(text: ' · '),
-          TextSpan(
-            text: context.l10n.searchPoints(gameState.currentScore),
-            style: AppTypography.bodySmall.copyWith(
-              color: AppColors.scoreColor(gameState.currentScore),
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          TextSpan(text: context.l10n.searchAvailableSuffix),
-        ]),
-        style: AppTypography.bodySmall.copyWith(
-          color: AppColors.textSecondary,
+            TextSpan(text: context.l10n.searchAvailableSuffix),
+          ],
         ),
+        style: AppTypography.bodySmall.copyWith(color: AppColors.textSecondary),
       ),
       guesses: gameState.session?.guesses ?? const [],
     );

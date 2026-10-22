@@ -1,0 +1,39 @@
+{
+  "id": "luigi",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/luigi.png",
+  "source_sha256": "3fbc7f64a78ad372cfb1c15b11020204ca9a2958e04b906af6db7d11ec3f01c6",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+  "conversion_version": 5,
+  "source_size": [
+    305,
+    757
+  ],
+  "trace_size": [
+    387,
+    960
+  ],
+  "region_pixels": [
+    43160
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/luigi_base.svg",
+      "sha256": "b01c3909dbcec9c1e45ca292ca03b9bdecd08f742512acf0760b3cab5bf3c0e1"
+    },
+    {
+      "file": "assets/colors/art/luigi_p0.svg",
+      "sha256": "9762a56360896a83a4c14ff1b7819e6c5b4b63dac72c697ba115c4d7138ed367"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Luigi, tall cheerful mustached plumber with green cap without letters, green shirt, blue overalls with gold buttons, white gloves and brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 44e63db7-e242-4c45-ac82-9b3daab090b7.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://mario.nintendo.com/static/73f9272aebf9a014261584b35597878f/d9801/luigi.png",
+  "source_page": "https://mario.nintendo.com/characters/",
+  "external_file": "docs/artwork/characters/expanded/references/luigi-official.png",
+  "external_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6"
+}

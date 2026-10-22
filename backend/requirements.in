@@ -1,0 +1,8 @@
+# Resolved versions are pinned in requirements.txt after integration tests.
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+httpx>=0.27,<1
+requests>=2.32,<3
+cryptography>=44
+google-auth>=2.38,<3
+app-store-server-library

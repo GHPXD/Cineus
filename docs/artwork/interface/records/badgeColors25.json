@@ -1,0 +1,27 @@
+{
+  "id": "badgeColors25",
+  "kind": "icon",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-b3ec7c67-86cf-4f65-a608-ed444b21ff6d.png",
+  "prompt": "Use case: logo-brand. Create one standalone achievement badge for Cineus mobile cinema game. Subject: three stacked blue and ivory artist palettes with a gold ribbon medal, no numbers. Unified illustrated game icon family: bold clear silhouette, charming polished shapes, moderately dimensional but vector-friendly flat color regions, gold #EFC026, bright blue #5790FF, ivory #F4F3E8 and deeper blue #2D54AA. Transparent background, centered full object, large safe margin, no enclosing square tile, no text, no letters, no numbers, no emoji, no watermark, no gradients fading to a background, readable at 48px.",
+  "subject": "three stacked blue and ivory artist palettes with a gold ribbon medal, no numbers",
+  "generator": "built-in image_gen / GPT Image",
+  "source": "assets/generated/sources/badgeColors25.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/badgeColors25.svg",
+  "source_sha256": "286310b2b6dbb80e3783a0e8e1f90175adf2fc0338c62a107b16fb450876ff4f",
+  "svg_sha256": "bb44d8429122d55248c6f701f7d228a9226c9abf9f9a1049ec0fda363d9cea01",
+  "paths": 32,
+  "source_size": [
+    1312,
+    1199
+  ],
+  "trace_size": [
+    512,
+    468
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/badgeColors25_ink.svg",
+  "ink_sha256": "e5f457ccb67b5e7f41e0a902e1393e4dd018a6b2ae68aac658aed489054cf3a3"
+}

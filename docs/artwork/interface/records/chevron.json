@@ -1,0 +1,27 @@
+{
+  "id": "chevron",
+  "kind": "icon",
+  "subject": "a bold balanced right-pointing chevron with gently softened tips, a single flat gold form",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a bold balanced right-pointing chevron with gently softened tips, a single flat gold form.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-edf7a68c-fd58-46d2-8dcb-5925c85fdd6c.png",
+  "source": "assets/generated/sources/chevron.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/chevron.svg",
+  "source_sha256": "79bfa41a01c49ec84d6abc1862cdd318763dcda9d9bf182da8b3b45e257a3ecf",
+  "svg_sha256": "8a05ecc642b43e85ae1d3f95b8b787395644e540b05157b45188b3c6f4e1c903",
+  "paths": 1,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/chevron_ink.svg",
+  "ink_sha256": "aa95e4979eb7320fef069a428ed6dd86304b57d6b524f72cd338d79a459dfff9"
+}

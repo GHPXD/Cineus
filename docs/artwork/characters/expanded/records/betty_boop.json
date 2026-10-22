@@ -1,0 +1,34 @@
+{
+  "id": "betty_boop",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/betty_boop.png",
+  "source_sha256": "97c49f7b5b5cd2bb1e9d4105b3dc0ac6c43f592a5503e87f228002f8c5bf643e",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    409,
+    640
+  ],
+  "region_pixels": [
+    19367
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/betty_boop_base.svg",
+      "sha256": "0044d2660798a6cd18e93bd980d39a667db10f2a5422d95221093e62bfce5456"
+    },
+    {
+      "file": "assets/colors/art/betty_boop_p0.svg",
+      "sha256": "a8ec07e8b0c495eaa6c827696631786dd6299fa25922ed96ece977b34eb17e11"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-c855b0ec-de46-4748-9ce5-ae527afc297a.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Betty Boop, adult classic cartoon woman with short black curly bob, large expressive eyes, modest red knee-length sleeveless dress, red shoes, hands at sides. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

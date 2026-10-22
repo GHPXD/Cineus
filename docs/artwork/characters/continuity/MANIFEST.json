@@ -1,0 +1,562 @@
+[
+  {
+    "id": "mario_overalls_v1",
+    "character_id": "mario",
+    "source": "assets/colors/sources/mario.png",
+    "source_sha256": "619d32c7f6d078845e833ba29c6a549b8dc1438bfd9a694f38057ac9a178d4c2",
+    "file": "assets/colors/art/mario_p1.svg",
+    "file_sha256": "921272347ec512b208b01ebc779614c9f91880053aeb0b38dd61b1f399734f6e",
+    "region_pixels": 90399,
+    "trace_size": [
+      445,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/mario-official.png",
+    "reference_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34",
+    "target_hex": "#162987",
+    "sample_xy": [
+      148,
+      495
+    ],
+    "part": {
+      "pt": "Jardineira",
+      "en": "Overalls",
+      "es": "Peto"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "luigi_overalls_v1",
+    "character_id": "luigi",
+    "source": "assets/colors/sources/luigi.png",
+    "source_sha256": "3fbc7f64a78ad372cfb1c15b11020204ca9a2958e04b906af6db7d11ec3f01c6",
+    "file": "assets/colors/art/luigi_p1.svg",
+    "file_sha256": "c8ab6bce6a122b7e63681eacb0e5a20ce47f890627520b8b1e392bc362c35b91",
+    "region_pixels": 80549,
+    "trace_size": [
+      387,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/luigi-official.png",
+    "reference_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6",
+    "target_hex": "#364777",
+    "sample_xy": [
+      68,
+      315
+    ],
+    "part": {
+      "pt": "Jardineira",
+      "en": "Overalls",
+      "es": "Peto"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "peach_hair_v1",
+    "character_id": "peach",
+    "source": "assets/colors/sources/peach.png",
+    "source_sha256": "2484116faa649bc1834de9e44e889e5e2abbf8d2ad62488214aba5432fb06eae",
+    "file": "assets/colors/art/peach_p1.svg",
+    "file_sha256": "d5ae704234a4a8a089f87070076a2fb13216a265db86ec0153ec2a0b65d08d4a",
+    "region_pixels": 41997,
+    "trace_size": [
+      625,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/peach-official.png",
+    "reference_sha256": "b83318f3b53b0051b313b0703227e90bc59c5a7c3f7f183a5c590343b6b85bde",
+    "target_hex": "#FFED2F",
+    "sample_xy": [
+      295,
+      40
+    ],
+    "part": {
+      "pt": "Cabelo",
+      "en": "Hair",
+      "es": "Cabello"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "yoshi_shoes_v1",
+    "character_id": "yoshi",
+    "source": "assets/colors/sources/yoshi.png",
+    "source_sha256": "c72fb901e8f799ce64389ef0f03be789f7e7451b17a8b70e1303f4d53a1a88fa",
+    "file": "assets/colors/art/yoshi_p1.svg",
+    "file_sha256": "8668df9d65f65addbc52f6c6fc71148e617e39237b27048a97dd04c9ffdbcf05",
+    "region_pixels": 36702,
+    "trace_size": [
+      637,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/yoshi-official.png",
+    "reference_sha256": "e038914c3916a3bdae1a651b234c991455ed0176d6a65e48d252b094428a88be",
+    "target_hex": "#FD6920",
+    "sample_xy": [
+      98,
+      455
+    ],
+    "part": {
+      "pt": "Calçados",
+      "en": "Shoes",
+      "es": "Zapatos"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "bowser_skin_v1",
+    "character_id": "bowser",
+    "source": "assets/colors/sources/bowser.png",
+    "source_sha256": "de24b9b3bcae572e3ab0c21a232b98b09728d1c3dfb5805ea33bca3a2d14b4f9",
+    "file": "assets/colors/art/bowser_p1.svg",
+    "file_sha256": "e901338438e31ef28936a5e0a1cc9524025ddf72310ed7442607e7bbdf7572ba",
+    "region_pixels": 308136,
+    "trace_size": [
+      748,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/bowser-official.png",
+    "reference_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023",
+    "target_hex": "#C78A25",
+    "sample_xy": [
+      60,
+      496
+    ],
+    "part": {
+      "pt": "Pele",
+      "en": "Skin",
+      "es": "Piel"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "toad_vest_v1",
+    "character_id": "toad",
+    "source": "assets/colors/sources/toad.png",
+    "source_sha256": "b7d0002bd6859d5a138a525fb71e2a2be7f0a9f6653f0dcc8a0dad9a10d30b69",
+    "file": "assets/colors/art/toad_p1.svg",
+    "file_sha256": "9219d9bad368ba08a00d1bdfde5f5a25fa2a38048a8316c0e82e554045eedddd",
+    "region_pixels": 6333,
+    "trace_size": [
+      553,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/toad-official.png",
+    "reference_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8",
+    "target_hex": "#1B19FB",
+    "sample_xy": [
+      118,
+      341
+    ],
+    "part": {
+      "pt": "Colete",
+      "en": "Vest",
+      "es": "Chaleco"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "donkey_kong_tie_v1",
+    "character_id": "donkey_kong",
+    "source": "assets/colors/sources/donkey_kong.png",
+    "source_sha256": "f6804d2ffc46b5cb5ca6b423b767fc5f484f683925ec44432b5b29ac041988ee",
+    "file": "assets/colors/art/donkey_kong_p1.svg",
+    "file_sha256": "8551c31c2a42a47831ff5945aadaca101c1b1283798b9aca7ad2ba19237026f1",
+    "region_pixels": 11518,
+    "trace_size": [
+      621,
+      640
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/donkey_kong-official.png",
+    "reference_sha256": "a6c4d60fbafc70a423c7bae638d8c8accdae71bc8c013f253f6fa3bd49c9ddac",
+    "target_hex": "#F91B0A",
+    "sample_xy": [
+      306,
+      249
+    ],
+    "part": {
+      "pt": "Gravata",
+      "en": "Tie",
+      "es": "Corbata"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "wario_overalls_v1",
+    "character_id": "wario",
+    "source": "assets/colors/sources/wario.png",
+    "source_sha256": "df8e2105f505b85c9c3bea98462fe49dd362366f7183acaaed4b6724a7922f74",
+    "file": "assets/colors/art/wario_p1.svg",
+    "file_sha256": "514aada54937051b2201c22525dc9fd0c40c6e1296688ebf4bd12711d8da724f",
+    "region_pixels": 118478,
+    "trace_size": [
+      853,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/wario-official.png",
+    "reference_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743",
+    "target_hex": "#7C2773",
+    "sample_xy": [
+      118,
+      298
+    ],
+    "part": {
+      "pt": "Jardineira",
+      "en": "Overalls",
+      "es": "Peto"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "waluigi_overalls_v1",
+    "character_id": "waluigi",
+    "source": "assets/colors/sources/waluigi.png",
+    "source_sha256": "fdbe73881ae273dad51b7e2f0ef32c28c19261a8e4b0579342b51dbe88fcf2bb",
+    "file": "assets/colors/art/waluigi_p1.svg",
+    "file_sha256": "3c61a564c21a54c1beecf9ef5fb4f7551f227cac8a13afda707dfb394e706cd0",
+    "region_pixels": 74191,
+    "trace_size": [
+      529,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/waluigi-official.png",
+    "reference_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78",
+    "target_hex": "#242A4C",
+    "sample_xy": [
+      121,
+      266
+    ],
+    "part": {
+      "pt": "Jardineira",
+      "en": "Overalls",
+      "es": "Peto"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "daisy_hair_v1",
+    "character_id": "daisy",
+    "source": "assets/colors/sources/daisy.png",
+    "source_sha256": "342bfba11b73838d1f6211e298d066e5c57a8d7a65c648c613d150bb93da2af3",
+    "file": "assets/colors/art/daisy_p1.svg",
+    "file_sha256": "fabd2fbf586e02158ca976a890ab768571358a21408336c1d21da4749a919317",
+    "region_pixels": 16723,
+    "trace_size": [
+      500,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/daisy-official.png",
+    "reference_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0",
+    "target_hex": "#B56036",
+    "sample_xy": [
+      174,
+      27
+    ],
+    "part": {
+      "pt": "Cabelo",
+      "en": "Hair",
+      "es": "Cabello"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "rosalina_hair_v1",
+    "character_id": "rosalina",
+    "source": "assets/colors/sources/rosalina.png",
+    "source_sha256": "af4150bf159a12b2d1d680809cef419cd26d3e8ba4bc831848738178e086a947",
+    "file": "assets/colors/art/rosalina_p1.svg",
+    "file_sha256": "9f5bdda24034e797e563a90403b83652259db834cb07d38759534e84a030ba5d",
+    "region_pixels": 27229,
+    "trace_size": [
+      558,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/rosalina-official.png",
+    "reference_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c",
+    "target_hex": "#F8D194",
+    "sample_xy": [
+      283,
+      41
+    ],
+    "part": {
+      "pt": "Cabelo",
+      "en": "Hair",
+      "es": "Cabello"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "sonic_shoes_v1",
+    "character_id": "sonic",
+    "source": "assets/colors/sources/sonic.png",
+    "source_sha256": "536dfde898247077306c848935d20a514a75f45f3021d059bcb79a8cf74f3e72",
+    "file": "assets/colors/art/sonic_p1.svg",
+    "file_sha256": "6d759775a360eddfbc4997d80479ffc7e7b3428e023429d3dc47415e9de61f8c",
+    "region_pixels": 12480,
+    "trace_size": [
+      527,
+      640
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/sonic-official.png",
+    "reference_sha256": "0691cc6325691fe09d46d0196022ca2328c3223773277ee124ed83901100e2db",
+    "target_hex": "#CB0404",
+    "sample_xy": [
+      623,
+      689
+    ],
+    "part": {
+      "pt": "Calçados",
+      "en": "Shoes",
+      "es": "Zapatos"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "tails_shoes_v1",
+    "character_id": "tails",
+    "source": "assets/colors/sources/tails.png",
+    "source_sha256": "785bd01c5e7db604cc7bd198da328da6527f0f3efcb9388017be16ccdd093faf",
+    "file": "assets/colors/art/tails_p1.svg",
+    "file_sha256": "2246a1b8415194d12bf45eea649e9857365a25c9276a346da177a3b11ff0528d",
+    "region_pixels": 4755,
+    "trace_size": [
+      575,
+      640
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/tails-official.png",
+    "reference_sha256": "4092b3f4371f31eefb023c0feaa6360002eedec51ac5df44a2c24fc4b284f855",
+    "target_hex": "#DA0004",
+    "sample_xy": [
+      371,
+      550
+    ],
+    "part": {
+      "pt": "Calçados",
+      "en": "Shoes",
+      "es": "Zapatos"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "knuckles_gloves_v1",
+    "character_id": "knuckles",
+    "source": "assets/colors/sources/knuckles.png",
+    "source_sha256": "c93bec688a0dee6b45fa18b2b54cf84df01bfcfd1fb6e756dadd6e75f7041e5a",
+    "file": "assets/colors/art/knuckles_p1.svg",
+    "file_sha256": "df24a66a80a7f0ff536b47d3ee8cbae47d488ec5836e5842e19a0ace3a53c80f",
+    "region_pixels": 25047,
+    "trace_size": [
+      484,
+      640
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/knuckles-official.png",
+    "reference_sha256": "4fbaabfc6a1e04062f2a3b9571015f6a3f0cdb59c3df76f2905afb36b1a7f85b",
+    "target_hex": "#D9D9D9",
+    "sample_xy": [
+      504,
+      403
+    ],
+    "part": {
+      "pt": "Luvas",
+      "en": "Gloves",
+      "es": "Guantes"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "amy_dress_v1",
+    "character_id": "amy",
+    "source": "assets/colors/sources/amy.png",
+    "source_sha256": "702f85903273f150fb820e13c2f26288e6dc354d5d7dbd14be17159b210a0b47",
+    "file": "assets/colors/art/amy_p1.svg",
+    "file_sha256": "cab2ab564b5f43388d2146a220e293a6243dc31033a9a980597d1549258aaab1",
+    "region_pixels": 7465,
+    "trace_size": [
+      431,
+      640
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/amy-official.png",
+    "reference_sha256": "5b3890d9b626ef5269c48c753418aa5ae34432bb579464ba9cbe3ac07446ef6e",
+    "target_hex": "#AB1817",
+    "sample_xy": [
+      144,
+      309
+    ],
+    "part": {
+      "pt": "Vestido",
+      "en": "Dress",
+      "es": "Vestido"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "homer_simpson_pants_v1",
+    "character_id": "homer_simpson",
+    "source": "assets/colors/sources/homer_simpson.png",
+    "source_sha256": "c62413c269da3a3ddb5b1cdfa49a54e2d1ffa0fd6f6a2993a1d197793a5a409a",
+    "file": "assets/colors/art/homer_simpson_p1.svg",
+    "file_sha256": "6ccd92337c838f5fa371570b90f14fe9f140502c417d469b8fa50bbc4a110aff",
+    "region_pixels": 61567,
+    "trace_size": [
+      459,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/homer_simpson-fallback.png",
+    "reference_sha256": "8f5cf6e8415a7f15af07e6e0f5429b736dd49e9ade559795fd7e91930734b4a0",
+    "target_hex": "#70D1FE",
+    "sample_xy": [
+      66,
+      243
+    ],
+    "part": {
+      "pt": "Calça",
+      "en": "Pants",
+      "es": "Pantalón"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "mickey_mouse_shoes_v1",
+    "character_id": "mickey_mouse",
+    "source": "assets/colors/sources/mickey_mouse.png",
+    "source_sha256": "6117376180e5f2ceecde9ebd87f75f6ce33d5370dfcb93909dfd0d9614cb6b0c",
+    "file": "assets/colors/art/mickey_mouse_p1.svg",
+    "file_sha256": "6a0332f4b350213345f45acce94ac7ee407d2c9cc22cb9df6c7c971e423ada6f",
+    "region_pixels": 51157,
+    "trace_size": [
+      813,
+      960
+    ],
+    "reference_file": "assets/colors/sources/mickey_mouse.png",
+    "reference_sha256": "6117376180e5f2ceecde9ebd87f75f6ce33d5370dfcb93909dfd0d9614cb6b0c",
+    "target_hex": "#97501A",
+    "sample_xy": [
+      179,
+      597
+    ],
+    "part": {
+      "pt": "Calçados",
+      "en": "Shoes",
+      "es": "Zapatos"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "donald_duck_bow_tie_v1",
+    "character_id": "donald_duck",
+    "source": "assets/colors/sources/donald_duck.png",
+    "source_sha256": "cc3f96814989ce75d527114219bde1b26380f9a001bdd990ed5858b5fd97a679",
+    "file": "assets/colors/art/donald_duck_p1.svg",
+    "file_sha256": "4d173879ae6db81c160f243189af5bde457a5d697bc21671545b8d054af940ec",
+    "region_pixels": 4228,
+    "trace_size": [
+      734,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/donald_duck-fallback.png",
+    "reference_sha256": "cbea22d423493df215d6174c1d6997464e156be213e5ff426861e6d148bde8eb",
+    "target_hex": "#E40025",
+    "sample_xy": [
+      124,
+      187
+    ],
+    "part": {
+      "pt": "Gravata-borboleta",
+      "en": "Bow tie",
+      "es": "Pajarita"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "goofy_boots_v1",
+    "character_id": "goofy",
+    "source": "assets/colors/sources/goofy.png",
+    "source_sha256": "b838fa5b0239b5dcb33e1c8a0122959b8c249776e5eca417e9e6c9275b11f45b",
+    "file": "assets/colors/art/goofy_p1.svg",
+    "file_sha256": "9c873c0fad463d819fce85df1cd8a9ce1d09ec02d62eb2be47d16400c5a9349a",
+    "region_pixels": 20909,
+    "trace_size": [
+      755,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/goofy-fallback.png",
+    "reference_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca",
+    "target_hex": "#A27241",
+    "sample_xy": [
+      193,
+      288
+    ],
+    "part": {
+      "pt": "Botas",
+      "en": "Boots",
+      "es": "Botas"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  },
+  {
+    "id": "peter_griffin_shirt_v1",
+    "character_id": "peter_griffin",
+    "source": "assets/colors/sources/peter_griffin.png",
+    "source_sha256": "59aa81f07684a391568e54983e0a3eda589755878dab888db708239bf89da21c",
+    "file": "assets/colors/art/peter_griffin_p1.svg",
+    "file_sha256": "a8740c346454bc7619c9bae86f19e498efe7116e6304a8ddd85727058cfdb0fd",
+    "region_pixels": 122073,
+    "trace_size": [
+      607,
+      960
+    ],
+    "reference_file": "docs/artwork/characters/expanded/references/peter_griffin-fallback.png",
+    "reference_sha256": "72ed15811a1283979e7fda405261caeec416a80d20de029078d570f149c49f11",
+    "target_hex": "#FFFFFF",
+    "sample_xy": [
+      182,
+      96
+    ],
+    "part": {
+      "pt": "Camisa",
+      "en": "Shirt",
+      "es": "Camisa"
+    },
+    "conversion": "Semantic colour extraction from immutable existing raster; VTracer paths; no authored geometry",
+    "origin_manifest": "docs/artwork/characters/expanded/MANIFEST.json",
+    "publication_rights": "Existing catalogue rights review remains required before commercial publication"
+  }
+]

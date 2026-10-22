@@ -1,0 +1,8 @@
+{
+  "id": "appearance_noir",
+  "kind": "appearance",
+  "width": 640,
+  "height": 800,
+  "prompt": "Use case: stylized-concept. ONE production collectible CARD BACKGROUND for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. An empty stylized NOIR CINEMA backdrop, deep navy ink flat center, sparse low-contrast teal/gold halftone accents at edges, a few broad film-strip shapes near bottom corners. Elegant quiet center. FUNCTIONAL BACKDROP SPEC: portrait aspect ratio 640:800, fully opaque edge-to-edge rectangular background, no border frame, no transparency. Keep the inner 75 percent of width and 80 percent of height very DARK NAVY, low contrast, with no objects or bright spots, so white game-result text and a character placed later remain readable. Put all theme decoration near the outside corners and edges. No characters, people, faces, animals, text, logos, labels, numbers or watermark. One backdrop only.",
+  "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-83b7ad0d-adb6-44c2-ba26-b4f540c69b5a.png"
+}

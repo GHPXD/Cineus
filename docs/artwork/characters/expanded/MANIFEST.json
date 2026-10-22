@@ -1,0 +1,1457 @@
+[
+  {
+    "id": "mickey_mouse",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/mickey_mouse.png",
+    "source_sha256": "6117376180e5f2ceecde9ebd87f75f6ce33d5370dfcb93909dfd0d9614cb6b0c",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+    "conversion_version": 6,
+    "source_size": [
+      640,
+      718
+    ],
+    "trace_size": [
+      813,
+      960
+    ],
+    "region_pixels": [
+      32562
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/mickey_mouse_base.svg",
+        "sha256": "6817e60ad2ac5dddc0578256154437a614e4d525100032f20171d09bd81f9200"
+      },
+      {
+        "file": "assets/colors/art/mickey_mouse_p0.svg",
+        "sha256": "66ac5f2cd6953a333b99308eef78303f44406e616fecde63f3c89485a8fd57bb"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: a single full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: classic cheerful Mickey Mouse standing, round black mouse ears, white gloves, yellow shoes, red shorts with two ivory buttons. Recognisable faithful character Mickey Mouse; one character only, full body visible, neutral standing pose, no complex action, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon, bold dark outlines, simple solid fills, no gradients, no shading, no ground shadow, no scenery. Technical segmentation requirement: fill ONLY the shorts with perfectly solid magenta #FF00FF, preserving their dark outlines and any buttons or trim. This magenta is a temporary mask marker, automatically replaced with #BF3332 in the app. All other parts retain the original normal character colours; no other magenta or purple areas. Actual transparent background. No text, letters, watermark, logo or colour chart. No objects beyond the character's usual outfit.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID eecb14c5-f911-418e-8916-49f33f06296c.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Mickey_Mouse_%28poster_version%29.svg",
+    "source_page": "https://en.wikipedia.org/wiki/Mickey_Mouse",
+    "external_file": "docs/artwork/characters/expanded/references/mickey_mouse-fallback.svg",
+    "external_sha256": "3b042a98c7c9672f39b59490b8da2f7ae29f73d73b6983d705be6431820c745b"
+  },
+  {
+    "id": "homer_simpson",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/homer_simpson.png",
+    "source_sha256": "c62413c269da3a3ddb5b1cdfa49a54e2d1ffa0fd6f6a2993a1d197793a5a409a",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+    "conversion_version": 6,
+    "source_size": [
+      190,
+      390
+    ],
+    "trace_size": [
+      459,
+      960
+    ],
+    "region_pixels": [
+      60656
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/homer_simpson_base.svg",
+        "sha256": "f65d21930484bd164407e9aff0847963b33df4d6592c830eeba1f6f2c57832f9"
+      },
+      {
+        "file": "assets/colors/art/homer_simpson_p0.svg",
+        "sha256": "5d115e3f260aa93fbbd1dc71fbd7a57a0082117ccff2b39c8c52a60cfceb95f4"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: a single full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: Homer Simpson standing, round adult father with bald head and two hairs, white short-sleeve shirt, blue trousers, brown shoes. Recognisable faithful character Homer Simpson; one character only, full body visible, neutral standing pose, no complex action, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon, bold dark outlines, simple solid fills, no gradients, no shading, no ground shadow, no scenery. Technical segmentation requirement: fill ONLY the all yellow skin with perfectly solid magenta #FF00FF, preserving their dark outlines and any buttons or trim. This magenta is a temporary mask marker, automatically replaced with #FED90F in the app. All other parts retain the original normal character colours; no other magenta or purple areas. Actual transparent background. No text, letters, watermark, logo or colour chart. No objects beyond the character's usual outfit.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID f5a0f3aa-0cb5-44fd-be55-15de460b12ab.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+    "source_page": "https://en.wikipedia.org/wiki/Homer_Simpson",
+    "external_file": "docs/artwork/characters/expanded/references/homer_simpson-fallback.png",
+    "external_sha256": "8f5cf6e8415a7f15af07e6e0f5429b736dd49e9ade559795fd7e91930734b4a0"
+  },
+  {
+    "id": "donald_duck",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/donald_duck.png",
+    "source_sha256": "cc3f96814989ce75d527114219bde1b26380f9a001bdd990ed5858b5fd97a679",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+    "conversion_version": 6,
+    "source_size": [
+      270,
+      351
+    ],
+    "trace_size": [
+      734,
+      960
+    ],
+    "region_pixels": [
+      7900
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/donald_duck_base.svg",
+        "sha256": "22db746dbfca62b70965ccde9f82b79bc4001fd271c105312bc6cdade1034953"
+      },
+      {
+        "file": "assets/colors/art/donald_duck_p0.svg",
+        "sha256": "1bb7ce2017f4a0cf1fcaa656e5025630ce4289ba4b3b7ead522295a02500104b"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: a single full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: classic Donald Duck standing, white feathers, orange beak and feet, blue sailor jacket with gold trim, blue sailor cap, red bow tie. Recognisable faithful character Donald Duck; one character only, full body visible, neutral standing pose, no complex action, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon, bold dark outlines, simple solid fills, no gradients, no shading, no ground shadow, no scenery. Technical segmentation requirement: fill ONLY the sailor jacket with perfectly solid magenta #FF00FF, preserving their dark outlines and any buttons or trim. This magenta is a temporary mask marker, automatically replaced with #0281BF in the app. All other parts retain the original normal character colours; no other magenta or purple areas. Actual transparent background. No text, letters, watermark, logo or colour chart. No objects beyond the character's usual outfit.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 86bb4aa5-3d18-4675-ab24-64048fc6609b.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/a/a5/Donald_Duck_angry_transparent_background.png",
+    "source_page": "https://en.wikipedia.org/wiki/Donald_Duck",
+    "external_file": "docs/artwork/characters/expanded/references/donald_duck-fallback.png",
+    "external_sha256": "cbea22d423493df215d6174c1d6997464e156be213e5ff426861e6d148bde8eb"
+  },
+  {
+    "id": "all_might",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/all_might.png",
+    "source_sha256": "28030298ea332021603a37aec6b82107a3849a0300808ee27f9dcf39c457dec6",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      414,
+      640
+    ],
+    "region_pixels": [
+      28038
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/all_might_base.svg",
+        "sha256": "a6674a5d9f7e9144a5d5934145d048addad9bb28ee67f7766dbe98e4d0ccca79"
+      },
+      {
+        "file": "assets/colors/art/all_might_p0.svg",
+        "sha256": "743ed1d956a2f335417a592e10a4ed99cd6629d1aa904535d22947955a237adb"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-e21dfc89-10a2-4fdc-b86f-cb171498ddcc.png",
+    "prompt": "Use case: illustration-story. Asset type: a single full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: adult muscular All Might in his classic blue superhero suit with red and white panels, gold belt and boots, large blond two-tuft hairstyle, heroic friendly pose. Recognisable faithful character All Might; one character only, full body visible, neutral standing pose, no complex action, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon, bold dark outlines, simple solid fills, no gradients, no shading, no ground shadow, no scenery. Technical segmentation requirement: fill ONLY the all blue areas of the superhero suit with perfectly solid magenta #FF00FF, preserving their dark outlines and any buttons or trim. This magenta is a temporary mask marker, automatically replaced with #212F78 in the app. All other parts retain the original normal character colours; no other magenta or purple areas. Actual transparent background. No text, letters, watermark, logo or colour chart. No objects beyond the character's usual outfit.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "bananaman",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/bananaman.png",
+    "source_sha256": "18d20c8c2d9744d18d64aad62a86c388c0720c206c3272ae5ed3eba50fee1979",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      432,
+      640
+    ],
+    "region_pixels": [
+      23942
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/bananaman_base.svg",
+        "sha256": "95a6f8149d758c1b791a33c9fde1d48d4ba8b4bd3bc3d58e02d5870b10835894"
+      },
+      {
+        "file": "assets/colors/art/bananaman_p0.svg",
+        "sha256": "a631bd53c873c698e27465b699bf84513728ce0014d99ed8f0197a3d00edb0fa"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-afe5336e-9d21-41e3-8872-d110d6a22bd3.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Bananaman, muscular cartoon superhero with blue bodysuit, yellow cape, yellow gloves and boots, blue hood with yellow banana tips. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the cape in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "beavis",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/beavis.png",
+    "source_sha256": "e24cdbf813e55dc7e69459216646d6fd780a9eece2ffa699c8ea47262e8980e8",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      366,
+      640
+    ],
+    "region_pixels": [
+      13025
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/beavis_base.svg",
+        "sha256": "73f45f3b711bf1f946eaa414290397ae4d2df2fb5a1ab4afa5255105386e57f7"
+      },
+      {
+        "file": "assets/colors/art/beavis_p0.svg",
+        "sha256": "4af40511a8daf0007fa5a7d778e5e707c6eaf3be58d973ad732f5926c7a39f8d"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-9dec6466-7d91-4b77-9769-9bea4fccebdf.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Beavis, slim adult cartoon man with tall blond pompadour, blue short-sleeve t-shirt without letters, gray shorts, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the hair in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "ben_10",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/ben_10.png",
+    "source_sha256": "4c03f3df220f15e78c9df382904240d0b314a578159f4b39c5dccc2a90811ccd",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      409,
+      640
+    ],
+    "region_pixels": [
+      160
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/ben_10_base.svg",
+        "sha256": "07945ab53546dd3b0f8af6e35bcde1789f8ddcc67101343b5a7b00ff5827cdca"
+      },
+      {
+        "file": "assets/colors/art/ben_10_p0.svg",
+        "sha256": "b7e1e8d29e2d5034cca0f2741c7f49183935ffbc5741367497f69b3c21daffd5"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-d3227dbc-d222-472f-9fac-5fc1d0989260.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Ben Tennyson, brown-haired boy in classic white t-shirt with black vertical stripe, green cargo trousers, black and white shoes, large visible green watch face facing viewer. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the omnitrix core in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "tom_cat",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/tom_cat.png",
+    "source_sha256": "1074dca72663dc4d9c04dca87ab1624d1b9ba6e4eac7f2840b0da035e8028bb2",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      418,
+      640
+    ],
+    "region_pixels": [
+      51704
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/tom_cat_base.svg",
+        "sha256": "242ddbf8dc730d46166d3ce928a33c05d46f2ee2175c69485d69b43a0a721c11"
+      },
+      {
+        "file": "assets/colors/art/tom_cat_p0.svg",
+        "sha256": "b81fd6743b499542d81df16f7b71ad90c5d16835d8eae00a7bd5598d292cb967"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-096baa52-eadb-45ad-8097-e37f66768fbf.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Tom, classic gray-blue cartoon cat with cream muzzle and belly, green eyes, pink inner ears, white paws. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the grey fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "ord_dragon",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/ord_dragon.png",
+    "source_sha256": "391f7ae325a3cb8278b9afaa12bd401544780d22a44f85fbd90c37ff504c1af5",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      439,
+      640
+    ],
+    "region_pixels": [
+      72983
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/ord_dragon_base.svg",
+        "sha256": "385fee38a6d01ba1a0b4a25738ca87c12783dbca5eb25cad9b5f3434e154f69d"
+      },
+      {
+        "file": "assets/colors/art/ord_dragon_p0.svg",
+        "sha256": "844926c40a9a9051d6b154e863d3be3fcc8de999f87be6a99c18d8237b73b27d"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-71a6df28-ea66-4612-9b89-ad0016ed81fc.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Ord, friendly plump teal-blue dragon with yellow belly and small purple wings and purple head spikes, round snout. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the body in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "kim_possible",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/kim_possible.png",
+    "source_sha256": "12f35e80e969c1615f25562e651afd940d9b3b654277746d2511d654ecb3fd2b",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+    "conversion_version": 6,
+    "source_size": [
+      216,
+      351
+    ],
+    "trace_size": [
+      590,
+      960
+    ],
+    "region_pixels": [
+      119968
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/kim_possible_base.svg",
+        "sha256": "f8fcf30701e8c59ab79a2e3d7ded70a4861633fdc386a66a893a22388fb1fb6e"
+      },
+      {
+        "file": "assets/colors/art/kim_possible_p0.svg",
+        "sha256": "fc1127122306a564a417d6330deec973c928a8531813a730141c8d75624886c6"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Kim Possible, red-haired young adult heroine in black long-sleeve crop top, olive cargo trousers, brown utility belt and gloves, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the cargo trousers in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 908c7e64-d0fb-4079-b0cd-d4665045ee20.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/2/2b/Kim_Possible_%28character_design%29.png",
+    "source_page": "https://en.wikipedia.org/wiki/Kim_Possible_(character)",
+    "external_file": "docs/artwork/characters/expanded/references/kim_possible-fallback.png",
+    "external_sha256": "27595dde2889d72d99e71b22d85a081a567144ede95f7e6d13e965c92ba2efac"
+  },
+  {
+    "id": "winnie_pooh",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/winnie_pooh.png",
+    "source_sha256": "13e53d9f0d4cd04074f73ebfd9637239debf4782706b98a6dfdecb5767f8f087",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+    "conversion_version": 6,
+    "source_size": [
+      266,
+      373
+    ],
+    "trace_size": [
+      692,
+      960
+    ],
+    "region_pixels": [
+      196421
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/winnie_pooh_base.svg",
+        "sha256": "51bd44b260ea8ed1fa0e302d87fa063f230b28fd62a3309411cd4a37aff69b22"
+      },
+      {
+        "file": "assets/colors/art/winnie_pooh_p0.svg",
+        "sha256": "6e15d35646f5b08400a84441e05d50a3ec6c3587ae6f81e585356d7386345cac"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Winnie the Pooh, plump cheerful golden-yellow teddy bear wearing a short red t-shirt, no other clothing. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 39e96a74-eda4-4271-ac21-18d75751fca2.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/1/10/Winniethepooh.png",
+    "source_page": "https://en.wikipedia.org/wiki/Winnie_the_Pooh_(Disney_character)",
+    "external_file": "docs/artwork/characters/expanded/references/winnie_pooh-fallback.png",
+    "external_sha256": "132dcf5fcb981fc4db22aac0651ccd2ad25449a45e59670d20f2437b96d375f6"
+  },
+  {
+    "id": "gumball_watterson",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/gumball_watterson.png",
+    "source_sha256": "e02efd12d5cdaa983db181c3c88beeba5dc593e74e0d50fc31c744e088e80ee1",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1073,
+      1465
+    ],
+    "trace_size": [
+      474,
+      640
+    ],
+    "region_pixels": [
+      62088
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/gumball_watterson_base.svg",
+        "sha256": "6fa0483b2f110286abb840a01381511056e68bb5cc0405a82cc4b8faa8fd7137"
+      },
+      {
+        "file": "assets/colors/art/gumball_watterson_p0.svg",
+        "sha256": "cb16a7dd71d9acdf6f10f258cb446337cf8ebe978e69c1831a8769ed33a42045"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-116b678a-6584-4bbf-8b9c-a1f53f12d179.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Gumball Watterson, round blue cartoon cat with large eyes and short whiskers, beige sweater with brown cuffs and collar, gray trousers, blue feet. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blue fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "lois_griffin",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/lois_griffin.png",
+    "source_sha256": "f3374bf7ceac01e4ddccc3fa24b64581205f0e085ec78aa0595caaafe9feed2e",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+    "conversion_version": 6,
+    "source_size": [
+      204,
+      385
+    ],
+    "trace_size": [
+      284,
+      960
+    ],
+    "region_pixels": [
+      36960
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/lois_griffin_base.svg",
+        "sha256": "4993a3d6383d84a07f5b6c8690f9763084ff755fe7e7d6b4e07557ab295f5db5"
+      },
+      {
+        "file": "assets/colors/art/lois_griffin_p0.svg",
+        "sha256": "bc6703eaec72586c5d48dc751346bc7e12c7d81135a74c5c3aa1302e00d0c620"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Lois Griffin, adult cartoon woman with short orange bob hair, turquoise buttoned blouse, beige trousers, red flat shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blouse in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 231b3e6b-e528-4061-a4af-b7545032c7ea.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/a/a5/Lois_Griffin.png",
+    "source_page": "https://en.wikipedia.org/wiki/Lois_Griffin",
+    "external_file": "docs/artwork/characters/expanded/references/lois_griffin-fallback.png",
+    "external_sha256": "7ff4efc87bff09ae965cbe43663b79b93f084c67cbd10a3d75200de060aebcfa"
+  },
+  {
+    "id": "jake_the_dog",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/jake_the_dog.png",
+    "source_sha256": "b88b0327c72f9f4cd3329df6e76f979840eb94ea6c672fcd61ba63023ec577ed",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1145,
+      1374
+    ],
+    "trace_size": [
+      535,
+      640
+    ],
+    "region_pixels": [
+      129417
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/jake_the_dog_base.svg",
+        "sha256": "5e2e404e1912e400bef91fe34e479ae628223634270a97a9fa7dbf00c9a7067d"
+      },
+      {
+        "file": "assets/colors/art/jake_the_dog_p0.svg",
+        "sha256": "e37bea7014d9bf97bbff8687c65138a10b8eb6049fa59c44d3b54ecdf18d5476"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-fdb11810-e8d0-43ae-ada7-24bf78baf5d1.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Jake the Dog, round golden-yellow cartoon dog with short flexible arms and legs, large white eyes, black nose and loose jowls. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "morty_smith",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/morty_smith.png",
+    "source_sha256": "c4422395263cbb063a779a8ca4413ea5f69c50b163f29e993e2b6f764082e34f",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      421,
+      640
+    ],
+    "region_pixels": [
+      17103
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/morty_smith_base.svg",
+        "sha256": "0e8e9e62af2b1efef8cf152fe012196bda4f521f5dbf28f91c332fcef91422aa"
+      },
+      {
+        "file": "assets/colors/art/morty_smith_p0.svg",
+        "sha256": "d8aa3eb20150765881bdc024bf297f847134c3353cf0e146455bf0371607b881"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-527e2bc6-4538-44b7-bff8-cea62e06b1a9.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Morty Smith, brown-haired cartoon boy with round head, yellow short-sleeve t-shirt, blue jeans, white shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the t-shirt in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "shaggy_rogers",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/shaggy_rogers.png",
+    "source_sha256": "57ea643be40d2a1ab29ee49fc8c25d8725ffa1617e2798f41770e33997d866bf",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+    "conversion_version": 6,
+    "source_size": [
+      212,
+      406
+    ],
+    "trace_size": [
+      299,
+      960
+    ],
+    "region_pixels": [
+      67405
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/shaggy_rogers_base.svg",
+        "sha256": "6ff97a31775e555173628a5cc9a5669252ca26c0a23c741d8e1b95f05d7b876e"
+      },
+      {
+        "file": "assets/colors/art/shaggy_rogers_p0.svg",
+        "sha256": "f49a0b41e6649b36b07f5182a325f25ebf68a085c617be590c5abf311f865186"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Shaggy Rogers, slender adult cartoon man with shaggy brown hair and small goatee, green V-neck short-sleeve t-shirt, brown bell-bottom trousers, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the t-shirt in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 8d7e58d3-352d-4dff-810b-8a4580dd29dc.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/8/87/ShaggyRogers.png",
+    "source_page": "https://en.wikipedia.org/wiki/Shaggy_Rogers",
+    "external_file": "docs/artwork/characters/expanded/references/shaggy_rogers-fallback.png",
+    "external_sha256": "ee8f5117bf6ff57305180ae0bb376888b34491dbe653da37fd212743c036ab9a"
+  },
+  {
+    "id": "bender",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/bender.png",
+    "source_sha256": "11eb35c6769ada6d47d50eadfb4249934e967ff537914be9f5b1b53c40815d76",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      428,
+      640
+    ],
+    "region_pixels": [
+      40622
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/bender_base.svg",
+        "sha256": "6d25c55cd662b95f047e200e839d35ea139f2c55fe07fee28962973672da4193"
+      },
+      {
+        "file": "assets/colors/art/bender_p0.svg",
+        "sha256": "f160c173be467c903e529f7b87b46a33c0ffb7138c65d1a34903cb20cd9aa77c"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-008c32bd-5b51-42f8-ad1b-2359df2fcfc9.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Bender, friendly cylindrical gray-blue robot with antenna, rectangular mouth with white teeth, square yellow eyes, segmented arms and legs, no accessories. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the metal body in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "betty_boop",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/betty_boop.png",
+    "source_sha256": "97c49f7b5b5cd2bb1e9d4105b3dc0ac6c43f592a5503e87f228002f8c5bf643e",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      409,
+      640
+    ],
+    "region_pixels": [
+      19367
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/betty_boop_base.svg",
+        "sha256": "0044d2660798a6cd18e93bd980d39a667db10f2a5422d95221093e62bfce5456"
+      },
+      {
+        "file": "assets/colors/art/betty_boop_p0.svg",
+        "sha256": "a8ec07e8b0c495eaa6c827696631786dd6299fa25922ed96ece977b34eb17e11"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-c855b0ec-de46-4748-9ce5-ae527afc297a.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Betty Boop, adult classic cartoon woman with short black curly bob, large expressive eyes, modest red knee-length sleeveless dress, red shoes, hands at sides. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "charlie_brown",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/charlie_brown.png",
+    "source_sha256": "aef4522fef2378fe9f10e85ea91cde156ab801d5757bfd0f39753538d6e986fe",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      370,
+      640
+    ],
+    "region_pixels": [
+      20065
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/charlie_brown_base.svg",
+        "sha256": "433c813e99a8ac2cef2c648567018fa6ae09ac499ae56a393e7a7f94bc2a9f70"
+      },
+      {
+        "file": "assets/colors/art/charlie_brown_p0.svg",
+        "sha256": "3998aa86dc4e35cbd112655fee189eac9b85e8aef33d5d92d16411c2d7a72cce"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-0196c1ee-9c9a-49c5-951e-18e2aebe989c.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Charlie Brown, round-headed cartoon boy with small curled hair, yellow shirt with bold black zigzag stripe, black shorts, brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "rosalina",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/rosalina.png",
+    "source_sha256": "af4150bf159a12b2d1d680809cef419cd26d3e8ba4bc831848738178e086a947",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      383,
+      659
+    ],
+    "trace_size": [
+      558,
+      960
+    ],
+    "region_pixels": [
+      156063
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/rosalina_base.svg",
+        "sha256": "0074a7fea9aa60433b64135b14494b54200a3de97e730bf5867a159aa09e00db"
+      },
+      {
+        "file": "assets/colors/art/rosalina_p0.svg",
+        "sha256": "b2836b0aa3c4f69f81c57edd3f09faa3c2236e5028ffb8d29db9dc88b6ed3cc4"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Rosalina, adult blonde princess with hair covering one eye, silver crown, turquoise full-length gown with pale blue cuffs and hem, silver star brooch, no wand. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 4a9b7c5f-41c5-449a-95c8-44530946d525.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/9413cb5d146400e7368855759d084c69/d1a6b/rosalina.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/rosalina-official.png",
+    "external_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c"
+  },
+  {
+    "id": "goofy",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/goofy.png",
+    "source_sha256": "b838fa5b0239b5dcb33e1c8a0122959b8c249776e5eca417e9e6c9275b11f45b",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+    "conversion_version": 6,
+    "source_size": [
+      287,
+      365
+    ],
+    "trace_size": [
+      755,
+      960
+    ],
+    "region_pixels": [
+      47775
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/goofy_base.svg",
+        "sha256": "84ee9f47d311092b34edf1f0b223c7240cb081320f9568f80c959ac724ea1efd"
+      },
+      {
+        "file": "assets/colors/art/goofy_p0.svg",
+        "sha256": "b4188f248a2161f57e093201ff0faa75480f7924e7edb58300dfdf108200f590"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Goofy, tall lanky black cartoon dog with long ears, green tall hat, orange sweater, black vest, blue trousers, brown shoes, white gloves. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the hat in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 1392035a-cce4-4f38-8b3e-46e6acc66de3.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/5/50/Goofy_Duckipedia.png",
+    "source_page": "https://en.wikipedia.org/wiki/Goofy",
+    "external_file": "docs/artwork/characters/expanded/references/goofy-fallback.png",
+    "external_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca"
+  },
+  {
+    "id": "johnny_bravo",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/johnny_bravo.png",
+    "source_sha256": "70e02a57ffeaf1a5976dd45a04e6edfe45c7a8ad5e16701b5ad8eaef55f91818",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      412,
+      640
+    ],
+    "region_pixels": [
+      21840
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/johnny_bravo_base.svg",
+        "sha256": "da6de31110eea761a8a040b2e617a55d2cb103976fb8aedec7423353da2318c8"
+      },
+      {
+        "file": "assets/colors/art/johnny_bravo_p0.svg",
+        "sha256": "8679a8cbf6200c7adafe5dd6cdcfd453e23ccc2ef3a8130e47ba62634684150b"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-faa665e3-d454-4422-8186-af3a37ff98c4.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Johnny Bravo, adult muscular cartoon man with tall blond pompadour and black sunglasses, black short-sleeve t-shirt, blue jeans, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the trousers in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "peter_griffin",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/peter_griffin.png",
+    "source_sha256": "59aa81f07684a391568e54983e0a3eda589755878dab888db708239bf89da21c",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+    "conversion_version": 6,
+    "source_size": [
+      247,
+      359
+    ],
+    "trace_size": [
+      607,
+      960
+    ],
+    "region_pixels": [
+      78093
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/peter_griffin_base.svg",
+        "sha256": "05fff42218507c40a318a33753e3261fdf049c8f2b9d2aa21b24a3c2e4e84543"
+      },
+      {
+        "file": "assets/colors/art/peter_griffin_p0.svg",
+        "sha256": "4c61ea5df9d920d138f4ac8e6658ac5c1f4334393f132ed797acc2ac823f3c49"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Peter Griffin, round adult father with brown short hair and small round spectacles, white buttoned shirt, dark green trousers, brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the trousers in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 985f8334-d4ed-4918-a6f4-54dc2ce333b7.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/c/c2/Peter_Griffin.png",
+    "source_page": "https://en.wikipedia.org/wiki/Peter_Griffin",
+    "external_file": "docs/artwork/characters/expanded/references/peter_griffin-fallback.png",
+    "external_sha256": "72ed15811a1283979e7fda405261caeec416a80d20de029078d570f149c49f11"
+  },
+  {
+    "id": "kenny_mccormick",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/kenny_mccormick.png",
+    "source_sha256": "67ceee80d05800a39aebe4372be7e07fdc62e674ed32b2e72736b53702a7fae8",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1199,
+      1312
+    ],
+    "trace_size": [
+      597,
+      640
+    ],
+    "region_pixels": [
+      98352
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/kenny_mccormick_base.svg",
+        "sha256": "6ce6e7efe5a18e46cade1aee98d8c4c8c348f8c05c0f90b9febad6a6b15b24bd"
+      },
+      {
+        "file": "assets/colors/art/kenny_mccormick_p0.svg",
+        "sha256": "9f13a8b3c9dadf81230fc4f88edfa87b7f455dedb1ed421bbe6e8ab1eedfa589"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-40584060-e744-477b-86d9-ee1714807527.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Kenny McCormick, small round cartoon figure with orange hooded parka and brown inner hood trim, orange trousers, brown mittens, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the parka in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "squidward",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/squidward.png",
+    "source_sha256": "40cf91fdc57f4b5ca0f296a3412ee295c5d6f98bb586725a0d51aa42a2e6e55e",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      430,
+      640
+    ],
+    "region_pixels": [
+      43710
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/squidward_base.svg",
+        "sha256": "8af30697c727a41383fe23771ef57a369f13992731c21cd7c3734377c24ec050"
+      },
+      {
+        "file": "assets/colors/art/squidward_p0.svg",
+        "sha256": "20525f540dc5e50a02d490581ed022c5bbed93758512f08fa1789d5a7e605494"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-d8c1525f-8af3-412d-b726-575cf5a3ff44.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Squidward, classic upright pale teal octopus with oversized drooping nose, oval head, six tentacle limbs, brown short-sleeve polo shirt. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the skin in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "luffy",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/luffy.png",
+    "source_sha256": "7fed7df017bad03607b0820e417afb8c537ee879cefd5be424ee33e6103ae978",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      395,
+      640
+    ],
+    "region_pixels": [
+      13672
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/luffy_base.svg",
+        "sha256": "665ae1d9b0147bd1440cef29c3b0278e7d601184ec4da213aac00942110c9e26"
+      },
+      {
+        "file": "assets/colors/art/luffy_p0.svg",
+        "sha256": "d5d090d09091080dbbbc8272388553cd54baeb9e4d3f759ace1b7092bda6cf9d"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-95336009-1100-47d6-9521-26ad12e3a627.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Monkey D. Luffy, young adult slim smiling pirate in straw hat with red band, red open sleeveless vest, blue knee-length shorts with ivory rolled cuffs, simple brown sandals. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shorts in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "mario",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/mario.png",
+    "source_sha256": "619d32c7f6d078845e833ba29c6a549b8dc1438bfd9a694f38057ac9a178d4c2",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      382,
+      853
+    ],
+    "trace_size": [
+      445,
+      960
+    ],
+    "region_pixels": [
+      84814
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/mario_base.svg",
+        "sha256": "96fe46075ec647bd8c6b1b5d0255827f5052a7173c2798b41b18dcd8da25388a"
+      },
+      {
+        "file": "assets/colors/art/mario_p0.svg",
+        "sha256": "1f7510fc6ac21136fa9779e7406931254c74dc16c500adeadc917db31712b440"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Mario, cheerful mustached plumber with red cap without letters, red shirt, blue overalls with gold buttons, white gloves and brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 3fc7e3ce-a2f4-436f-be76-de835e60f68e.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/0f10f738d1f9aa8292fa7d93c35f2a07/02be2/mario.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/mario-official.png",
+    "external_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34"
+  },
+  {
+    "id": "luigi",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/luigi.png",
+    "source_sha256": "3fbc7f64a78ad372cfb1c15b11020204ca9a2958e04b906af6db7d11ec3f01c6",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      305,
+      757
+    ],
+    "trace_size": [
+      387,
+      960
+    ],
+    "region_pixels": [
+      43160
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/luigi_base.svg",
+        "sha256": "b01c3909dbcec9c1e45ca292ca03b9bdecd08f742512acf0760b3cab5bf3c0e1"
+      },
+      {
+        "file": "assets/colors/art/luigi_p0.svg",
+        "sha256": "9762a56360896a83a4c14ff1b7819e6c5b4b63dac72c697ba115c4d7138ed367"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Luigi, tall cheerful mustached plumber with green cap without letters, green shirt, blue overalls with gold buttons, white gloves and brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 44e63db7-e242-4c45-ac82-9b3daab090b7.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/73f9272aebf9a014261584b35597878f/d9801/luigi.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/luigi-official.png",
+    "external_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6"
+  },
+  {
+    "id": "peach",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/peach.png",
+    "source_sha256": "2484116faa649bc1834de9e44e889e5e2abbf8d2ad62488214aba5432fb06eae",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      488,
+      750
+    ],
+    "trace_size": [
+      625,
+      960
+    ],
+    "region_pixels": [
+      239918
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/peach_base.svg",
+        "sha256": "a3eade665969decad942e97c25d9950a1ccc032fbacd254a89e23af0171870e4"
+      },
+      {
+        "file": "assets/colors/art/peach_p0.svg",
+        "sha256": "3948895bfcc7ce87d89e882a90fde803dfded1d5fe1de948b351542b78f1fd41"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Princess Peach, adult blonde princess in classic pink full-length ball gown with darker pink hip panels, gold crown, blue jewel brooch and white gloves. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID fcda515e-8990-49a6-a472-345f0a0593f9.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/43a96c1d5b681d338864aac15cd391b9/f3703/peach.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/peach-official.png",
+    "external_sha256": "b83318f3b53b0051b313b0703227e90bc59c5a7c3f7f183a5c590343b6b85bde"
+  },
+  {
+    "id": "yoshi",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/yoshi.png",
+    "source_sha256": "c72fb901e8f799ce64389ef0f03be789f7e7451b17a8b70e1303f4d53a1a88fa",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      415,
+      624
+    ],
+    "trace_size": [
+      637,
+      960
+    ],
+    "region_pixels": [
+      175219
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/yoshi_base.svg",
+        "sha256": "eec0636d4510827957fa54dec31f13e4979fbb03cb1e4ac82f91c0c492bb0c00"
+      },
+      {
+        "file": "assets/colors/art/yoshi_p0.svg",
+        "sha256": "df011eef6df35065a93f53cedeccd111f10616b11ee5930b0744db05e76d486d"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Yoshi, friendly green dinosaur with large round nose, white cheeks and belly, red saddle shell on back, orange shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the green skin in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 622187c6-076e-4286-8b8c-c08fe9c54df3.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/850b7938ec9df2a77921738a12857e88/c4ba3/yoshi.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/yoshi-official.png",
+    "external_sha256": "e038914c3916a3bdae1a651b234c991455ed0176d6a65e48d252b094428a88be"
+  },
+  {
+    "id": "bowser",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/bowser.png",
+    "source_sha256": "de24b9b3bcae572e3ab0c21a232b98b09728d1c3dfb5805ea33bca3a2d14b4f9",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      486,
+      624
+    ],
+    "trace_size": [
+      748,
+      960
+    ],
+    "region_pixels": [
+      7809
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/bowser_base.svg",
+        "sha256": "06d250a2c6336d452f2351aaf8598a26df79ea828047ae226ff3f0cc1dc36dab"
+      },
+      {
+        "file": "assets/colors/art/bowser_p0.svg",
+        "sha256": "4fc11602cad0041783970be2383dc77068847b52394d3c1292eb87d653bc34ec"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Bowser, large friendly fierce cartoon turtle king with green spiked shell, cream belly, orange skin, red hair and black wrist cuffs, no weapon. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shell in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID fd778486-1a6d-407f-b3eb-72b04d70133c.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/7204f288e3e823a8203c445fb6cc0d7e/b1656/bowser.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/bowser-official.png",
+    "external_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023"
+  },
+  {
+    "id": "toad",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/toad.png",
+    "source_sha256": "b7d0002bd6859d5a138a525fb71e2a2be7f0a9f6653f0dcc8a0dad9a10d30b69",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      322,
+      559
+    ],
+    "trace_size": [
+      553,
+      960
+    ],
+    "region_pixels": [
+      100574
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/toad_base.svg",
+        "sha256": "9e64fb2eafc4e1dbe268eb23d16a01647752cf2c8717e583d4957dc597315434"
+      },
+      {
+        "file": "assets/colors/art/toad_p0.svg",
+        "sha256": "8c8e1ca7852063b58795803641b739b16d9a5c43b27d43eacdb0a3d794de57ee"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Toad, small mushroom person with white mushroom cap and large red spots, beige face, blue vest with gold trim, white trousers and brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the cap spots in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 38ab3d00-b9d3-44ec-9c21-67a23d3aa94c.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/e3ebf11b069067da929b608250baa44e/55d59/toad.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/toad-official.png",
+    "external_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8"
+  },
+  {
+    "id": "donkey_kong",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/donkey_kong.png",
+    "source_sha256": "f6804d2ffc46b5cb5ca6b423b767fc5f484f683925ec44432b5b29ac041988ee",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1222,
+      1287
+    ],
+    "trace_size": [
+      621,
+      640
+    ],
+    "region_pixels": [
+      113116
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/donkey_kong_base.svg",
+        "sha256": "8492e2096542bb1ed0a5eccef0e2448623f2d893df74ab3a4800d9cb25a04203"
+      },
+      {
+        "file": "assets/colors/art/donkey_kong_p0.svg",
+        "sha256": "e2b09a856216586c56c92bac02a10b61d417b8ff97e4db82c0fa9154076ee041"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-da4e18d0-694f-4d40-98ce-2a4aedfe054c.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Donkey Kong, strong friendly brown cartoon gorilla with tan muzzle chest hands and feet, red necktie without letters, no other clothing. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "wario",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/wario.png",
+    "source_sha256": "df8e2105f505b85c9c3bea98462fe49dd362366f7183acaaed4b6724a7922f74",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      479,
+      539
+    ],
+    "trace_size": [
+      853,
+      960
+    ],
+    "region_pixels": [
+      73481
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/wario_base.svg",
+        "sha256": "06aa1a5e55cb2c6abf460225a0a2bb0c314eb90f23aadf7071f6f88c3ae7c5cb"
+      },
+      {
+        "file": "assets/colors/art/wario_p0.svg",
+        "sha256": "b2a2b1654200dc85b55c21877243d1b7516274086bfa62d355cbb2a94f8aa6a5"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Wario, stocky adult mustached character with yellow cap without letters and yellow shirt, purple overalls, white gloves and green shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 468b1b40-9668-4fc9-aa68-870232ef1379.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/2e8e71c5b38a5aedd5eef91c3d54bf13/747d9/wario.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/wario-official.png",
+    "external_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743"
+  },
+  {
+    "id": "waluigi",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/waluigi.png",
+    "source_sha256": "fdbe73881ae273dad51b7e2f0ef32c28c19261a8e4b0579342b51dbe88fcf2bb",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      365,
+      663
+    ],
+    "trace_size": [
+      529,
+      960
+    ],
+    "region_pixels": [
+      50409
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/waluigi_base.svg",
+        "sha256": "57db76a289ec39f3729c4b59cee683032c1924a9cbc72bbe1596c1e48a2d3b14"
+      },
+      {
+        "file": "assets/colors/art/waluigi_p0.svg",
+        "sha256": "6545a7a4fbf6100a3219083944bbd631e439bda2cdcd2013b4e5667d5339f68b"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Waluigi, tall slender adult mustached character with purple cap without letters and purple shirt, dark navy overalls, white gloves and orange shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID c81dd175-7874-439f-9b73-c4c74a5838a0.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/54c0617c992012b38e212c154f4e3944/3eddd/waluigi.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/waluigi-official.png",
+    "external_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78"
+  },
+  {
+    "id": "daisy",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/daisy.png",
+    "source_sha256": "342bfba11b73838d1f6211e298d066e5c57a8d7a65c648c613d150bb93da2af3",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+    "conversion_version": 5,
+    "source_size": [
+      345,
+      663
+    ],
+    "trace_size": [
+      500,
+      960
+    ],
+    "region_pixels": [
+      132485
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/daisy_base.svg",
+        "sha256": "881f189e25656fd1b302131de8a7c550cbb5859bcfb066df4b748824941c45bf"
+      },
+      {
+        "file": "assets/colors/art/daisy_p0.svg",
+        "sha256": "96cf5b042da88e67e00b5ccca2106e97ca33e80c4c2a1c79a6b01c7f82916c0e"
+      }
+    ],
+    "generator": "existing image; user-authorized fallback after ImageGen refusal",
+    "palette_mode": "existing-single",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Princess Daisy, adult brown-haired princess with gold crown, yellow full-length ball gown with orange hip panels, white gloves and turquoise flower brooch. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID e0af0ff2-5d34-4c76-a9c8-f54e0a5b4409.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "authorization": "User approved existing images for refused characters, 2026-10-13",
+    "external_source": "https://mario.nintendo.com/static/b625bdf51061d55b220d82eb9b61442c/9b369/daisy.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/daisy-official.png",
+    "external_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0"
+  },
+  {
+    "id": "sonic",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/sonic.png",
+    "source_sha256": "536dfde898247077306c848935d20a514a75f45f3021d059bcb79a8cf74f3e72",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1145,
+      1374
+    ],
+    "trace_size": [
+      527,
+      640
+    ],
+    "region_pixels": [
+      53461
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/sonic_base.svg",
+        "sha256": "e8f8d16abde54e0040ddda7ae7276d402b14a1dbe930906d3cf17596f7250de9"
+      },
+      {
+        "file": "assets/colors/art/sonic_p0.svg",
+        "sha256": "285ce253190573ef2d7686a9c295df72b9466c0c4ce78719a040bd6e6b77771e"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-65a0f47a-db88-4a02-8920-fc890ab2904c.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Sonic, classic blue cartoon hedgehog with swept-back spikes, tan muzzle and belly, white gloves and red shoes with white straps. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blue fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "tails",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/tails.png",
+    "source_sha256": "785bd01c5e7db604cc7bd198da328da6527f0f3efcb9388017be16ccdd093faf",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1200,
+      1310
+    ],
+    "trace_size": [
+      575,
+      640
+    ],
+    "region_pixels": [
+      59220
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/tails_base.svg",
+        "sha256": "02a1de1cb9ef46cc3689817d7f15307852b655b310611efc3da1ccf1ecab6b44"
+      },
+      {
+        "file": "assets/colors/art/tails_p0.svg",
+        "sha256": "f3d19cbebbc33811067bcf57480e4a8521b242dd0ebf0f82f5818356dce16ecb"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-c7ce5da3-ef3c-4145-a988-45f314d5f1e9.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Tails, friendly golden-orange fox with exactly two large visible tails with white tips, white muzzle chest and gloves, red and white shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the golden fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "knuckles",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/knuckles.png",
+    "source_sha256": "c93bec688a0dee6b45fa18b2b54cf84df01bfcfd1fb6e756dadd6e75f7041e5a",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1145,
+      1374
+    ],
+    "trace_size": [
+      484,
+      640
+    ],
+    "region_pixels": [
+      59882
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/knuckles_base.svg",
+        "sha256": "372c59f97795cd094090cffb4288b368521018f7f918a53b419a729ecc86d514"
+      },
+      {
+        "file": "assets/colors/art/knuckles_p0.svg",
+        "sha256": "148ab6be82954890558a697778efcb7f22c3f1f3fad385ce6b7b1089a168eced"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-1dd329e0-2e04-44bb-8f94-b38be31dd143.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Knuckles, red cartoon echidna with dreadlock-like head spines, tan muzzle, white crescent chest mark, large white gloves with two knuckle spikes, red yellow and green shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the red fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  },
+  {
+    "id": "amy",
+    "kind": "character",
+    "status": "converted",
+    "source": "assets/colors/sources/amy.png",
+    "source_sha256": "702f85903273f150fb820e13c2f26288e6dc354d5d7dbd14be17159b210a0b47",
+    "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+    "conversion_version": 7,
+    "source_size": [
+      1024,
+      1536
+    ],
+    "trace_size": [
+      431,
+      640
+    ],
+    "region_pixels": [
+      34873
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/amy_base.svg",
+        "sha256": "263428210ed9e7b1b62d7813e94e219971f148887bece0cc1925fd612c254e9c"
+      },
+      {
+        "file": "assets/colors/art/amy_p0.svg",
+        "sha256": "a50be42d4689131b134a555f3819259ec907cebf6f27a9d34f19b4a1eb13cf04"
+      }
+    ],
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-2dad67e8-93cb-49d7-8da6-9c660e2be4c4.png",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Amy Rose, pink cartoon hedgehog with short head spines, green eyes, red headband, red sleeveless dress with white hem, white gloves, red boots, no hammer. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the pink fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "palette_mode": "single-marker"
+  }
+]

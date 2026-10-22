@@ -11,6 +11,10 @@ import '../l10n_mappers.dart';
 import '../providers/monetization_notifier.dart';
 import '../providers/reminder_notifier.dart';
 import 'language_picker.dart';
+import 'cineus_icon.dart';
+import '../visuals/cineus_assets.dart';
+import 'ad_privacy_options.dart';
+import 'ticket_details_sheet.dart';
 
 /// Application settings grouped independently from statistics.
 class SettingsSection extends ConsumerWidget {
@@ -18,18 +22,72 @@ class SettingsSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _PassCard(),
+        Text(
+          context.l10n.settingsPreferences,
+          style: AppTypography.sectionTitle,
+        ),
+        const SizedBox(height: 12),
+        const _PassCard(),
+        const AdPrivacyOptions(),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: const CineusIcon(CineusAssetId.privacy, size: 30),
+          title: Text(
+            context.l10n.playerDataTitle,
+            style: AppTypography.titleMedium,
+          ),
+          trailing: const CineusIcon(CineusAssetId.chevron),
+          onTap: () => context.push('/data'),
+        ),
+        ListTile(
+          key: const ValueKey('settings-tickets'),
+          contentPadding: EdgeInsets.zero,
+          leading: const CineusIcon(CineusAssetId.ticket, size: 30),
+          title: Text(
+            context.l10n.earnTickets,
+            style: AppTypography.titleMedium,
+          ),
+          trailing: const CineusIcon(CineusAssetId.chevron),
+          onTap: () => showTicketDetails(context),
+        ),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: const CineusIcon(CineusAssetId.badgeFirstWin, size: 30),
+          title: Text(
+            context.l10n.missionsTitle,
+            style: AppTypography.titleMedium,
+          ),
+          trailing: const CineusIcon(CineusAssetId.chevron),
+          onTap: () => context.push('/journey'),
+        ),
+        ListTile(
+          key: const ValueKey('settings-collection'),
+          contentPadding: EdgeInsets.zero,
+          leading: const CineusIcon(CineusAssetId.premium, size: 30),
+          title: Text(
+            context.l10n.collectionTitle,
+            style: AppTypography.titleMedium,
+          ),
+          trailing: const CineusIcon(CineusAssetId.chevron),
+          onTap: () => context.push('/collection'),
+        ),
         SizedBox(height: 20),
-        _ReminderToggle(),
+        const _ReminderToggle(),
         SizedBox(height: 20),
-        LanguagePicker(),
+        const LanguagePicker(),
         SizedBox(height: 20),
-        _HelpLink(),
+        Text(
+          context.l10n.settingsHelpSection,
+          key: const ValueKey('settings-help'),
+          style: AppTypography.sectionTitle,
+        ),
+        const SizedBox(height: 12),
+        const _HelpLink(),
         SizedBox(height: 20),
-        _LegalLinks(),
+        const _LegalLinks(),
       ],
     );
   }
@@ -53,6 +111,7 @@ class _ChallengeCodeOpenerState extends ConsumerState<ChallengeCodeOpener> {
   final _controller = TextEditingController();
   final _focusNode = FocusNode();
   bool _invalid = false;
+  bool _opening = false;
 
   @override
   void dispose() {
@@ -61,16 +120,39 @@ class _ChallengeCodeOpenerState extends ConsumerState<ChallengeCodeOpener> {
     super.dispose();
   }
 
-  void _open() {
-    final movieId = ChallengeCode.decode(_controller.text);
-    if (movieId == null) {
+  Future<void> _open() async {
+    if (_opening) return;
+    final target = ChallengeCode.parseInput(_controller.text);
+    if (target == null) {
       setState(() => _invalid = true);
       _focusNode.requestFocus();
       return;
     }
-    setState(() => _invalid = false);
-    _controller.clear();
-    context.push('/challenge/$movieId');
+    setState(() {
+      _invalid = false;
+      _opening = true;
+    });
+    _focusNode.unfocus();
+    await context.push(
+      '/challenge/${ChallengeCode.encode(target.movieId, mode: target.mode)}',
+    );
+    if (mounted) setState(() => _opening = false);
+  }
+
+  Future<void> _paste() async {
+    try {
+      final data = await Clipboard.getData(Clipboard.kTextPlain);
+      if (!mounted) return;
+      final text = data?.text ?? '';
+      if (text.isEmpty || text.length > 2048) {
+        setState(() => _invalid = true);
+        return;
+      }
+      _controller.text = text.trim();
+      setState(() => _invalid = false);
+    } catch (_) {
+      if (mounted) setState(() => _invalid = true);
+    }
   }
 
   @override
@@ -92,20 +174,23 @@ class _ChallengeCodeOpenerState extends ConsumerState<ChallengeCodeOpener> {
         ],
         LayoutBuilder(
           builder: (context, constraints) {
-            final compact = constraints.maxWidth < 360;
+            final compact =
+                constraints.maxWidth < 360 ||
+                MediaQuery.textScalerOf(context).scale(15) > 20;
             final field = TextField(
               controller: _controller,
               focusNode: _focusNode,
-              textCapitalization: TextCapitalization.characters,
+              enabled: !_opening,
+              textCapitalization: TextCapitalization.none,
+              minLines: 1,
+              maxLines: 3,
               textInputAction: TextInputAction.go,
               autocorrect: false,
               enableSuggestions: false,
-              inputFormatters: [
-                FilteringTextInputFormatter.allow(RegExp(r'[0-9A-Za-z\-]')),
-                LengthLimitingTextInputFormatter(12),
-              ],
+              inputFormatters: [LengthLimitingTextInputFormatter(2048)],
               style: AppTypography.mono.copyWith(color: Colors.white),
               decoration: InputDecoration(
+                labelText: l10n.challengeInputLabel,
                 hintText: l10n.challengeCodeHint,
                 errorText: _invalid ? l10n.challengeInvalid : null,
               ),
@@ -114,11 +199,11 @@ class _ChallengeCodeOpenerState extends ConsumerState<ChallengeCodeOpener> {
               },
               onSubmitted: (_) => _open(),
             );
-            final button = SizedBox(
-              height: 52,
+            final button = ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: 52),
               child: ElevatedButton.icon(
-                onPressed: _open,
-                icon: const Icon(Icons.login_rounded, size: 18),
+                onPressed: _opening ? null : _open,
+                icon: const CineusIcon(CineusAssetId.enter, size: 18),
                 label: Text(l10n.challengeOpen),
               ),
             );
@@ -139,6 +224,11 @@ class _ChallengeCodeOpenerState extends ConsumerState<ChallengeCodeOpener> {
             );
           },
         ),
+        TextButton.icon(
+          onPressed: _opening ? null : _paste,
+          icon: const CineusIcon(CineusAssetId.paste),
+          label: Text(l10n.pasteChallenge),
+        ),
       ],
     );
   }
@@ -151,51 +241,100 @@ class _ReminderToggle extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     final state = ref.watch(reminderNotifierProvider);
+    final toggle = state.busy
+        ? null
+        : (bool value) =>
+              ref.read(reminderNotifierProvider.notifier).toggle(value);
+    final title = Text(
+      l10n.reminderSettingTitle,
+      style: AppTypography.titleSmall.copyWith(fontSize: 14),
+    );
+    final subtitle = Text(
+      l10n.reminderSettingSubtitle,
+      style: AppTypography.bodySmall.copyWith(
+        color: AppColors.textSecondary,
+        fontSize: 12,
+      ),
+    );
+    final leading = state.busy
+        ? const SizedBox(
+            width: 20,
+            height: 20,
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+              color: AppColors.gold300,
+            ),
+          )
+        : const CineusIcon(CineusAssetId.clock, color: AppColors.gold300);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-          decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.03),
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+        Material(
+          color: AppColors.obsidian800,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18),
+            side: const BorderSide(color: AppColors.obsidian600),
           ),
-          child: SwitchListTile.adaptive(
-            contentPadding: EdgeInsets.zero,
-            value: state.enabled,
-            onChanged: state.busy
-                ? null
-                : (value) =>
-                    ref.read(reminderNotifierProvider.notifier).toggle(value),
-            activeThumbColor: AppColors.gold300,
-            title: Text(
-              l10n.reminderSettingTitle,
-              style: AppTypography.titleSmall.copyWith(fontSize: 14),
+          clipBehavior: Clip.antiAlias,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                if (MediaQuery.textScalerOf(context).scale(14) > 20) {
+                  return Column(
+                    children: [
+                      ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        leading: leading,
+                        title: title,
+                        subtitle: subtitle,
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Semantics(
+                          label: l10n.reminderSettingTitle,
+                          child: Switch.adaptive(
+                            value: state.enabled,
+                            onChanged: toggle,
+                            activeThumbColor: AppColors.gold300,
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                }
+                return SwitchListTile.adaptive(
+                  contentPadding: EdgeInsets.zero,
+                  value: state.enabled,
+                  onChanged: toggle,
+                  activeThumbColor: AppColors.gold300,
+                  title: title,
+                  subtitle: subtitle,
+                  secondary: leading,
+                );
+              },
             ),
-            subtitle: Text(
-              l10n.reminderSettingSubtitle,
-              style: AppTypography.bodySmall.copyWith(
-                color: AppColors.textSecondary,
-                fontSize: 12,
-              ),
-            ),
-            secondary: state.busy
-                ? const SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: AppColors.gold300,
-                    ),
-                  )
-                : const Icon(
-                    Icons.notifications_none_rounded,
-                    color: AppColors.gold300,
-                  ),
           ),
         ),
+        if (state.hasError) ...[
+          const SizedBox(height: 8),
+          Semantics(
+            liveRegion: true,
+            child: Text(
+              l10n.reminderFailed,
+              style: AppTypography.bodySmall.copyWith(color: AppColors.ruby300),
+            ),
+          ),
+          TextButton.icon(
+            key: const ValueKey('reminder-retry'),
+            onPressed: state.busy
+                ? null
+                : () => ref.read(reminderNotifierProvider.notifier).retry(),
+            icon: const CineusIcon(CineusAssetId.retry),
+            label: Text(l10n.retryAction),
+          ),
+        ],
         if (state.permissionDenied) ...[
           const SizedBox(height: 6),
           Text(
@@ -239,19 +378,15 @@ class _PassCard extends ConsumerWidget {
         children: [
           Row(
             children: [
-              Icon(
+              CineusIcon(
                 state.passActive
-                    ? Icons.workspace_premium_rounded
-                    : Icons.local_movies_outlined,
-                color:
-                    state.passActive ? AppColors.gold300 : AppColors.blue300,
+                    ? CineusAssetId.premium
+                    : CineusAssetId.modeClues,
+                color: state.passActive ? AppColors.gold300 : AppColors.blue300,
               ),
               const SizedBox(width: 10),
               Expanded(
-                child: Text(
-                  l10n.passTitle,
-                  style: AppTypography.titleMedium,
-                ),
+                child: Text(l10n.passTitle, style: AppTypography.titleMedium),
               ),
             ],
           ),
@@ -270,24 +405,22 @@ class _PassCard extends ConsumerWidget {
                   onPressed: state.busy
                       ? null
                       : () => ref
-                          .read(monetizationNotifierProvider.notifier)
-                          .purchasePass(),
+                            .read(monetizationNotifierProvider.notifier)
+                            .purchasePass(),
                   child: state.busy
                       ? const SizedBox(
                           width: 18,
                           height: 18,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : Text(
-                          l10n.passGet(state.passDisplayPrice ?? ''),
-                        ),
+                      : Text(l10n.passGet(state.passDisplayPrice ?? '')),
                 );
                 final restore = TextButton(
                   onPressed: state.busy
                       ? null
                       : () => ref
-                          .read(monetizationNotifierProvider.notifier)
-                          .restorePass(),
+                            .read(monetizationNotifierProvider.notifier)
+                            .restorePass(),
                   child: Text(l10n.passRestore),
                 );
 
@@ -321,9 +454,21 @@ class _HelpLink extends StatelessWidget {
     return _SettingsCard(
       children: [
         _SettingsLink(
-          icon: Icons.help_outline_rounded,
+          icon: CineusAssetId.help,
           label: context.l10n.semHelp,
           onTap: () => context.push('/how-to-play'),
+        ),
+        const Divider(height: 1),
+        _SettingsLink(
+          icon: CineusAssetId.modeColors,
+          label: context.l10n.colorGuideTitle,
+          onTap: () => context.push('/how-to-play/colors'),
+        ),
+        const Divider(height: 1),
+        _SettingsLink(
+          icon: CineusAssetId.help,
+          label: context.l10n.supportTitle,
+          onTap: () => context.push('/support'),
         ),
       ],
     );
@@ -351,19 +496,19 @@ class _LegalLinks extends StatelessWidget {
         _SettingsCard(
           children: [
             _SettingsLink(
-              icon: Icons.info_outline_rounded,
+              icon: CineusAssetId.information,
               label: copy.aboutLabel,
               onTap: () => context.push('/about'),
             ),
             const Divider(height: 1),
             _SettingsLink(
-              icon: Icons.privacy_tip_outlined,
+              icon: CineusAssetId.privacy,
               label: copy.privacyLabel,
               onTap: () => context.push('/privacy'),
             ),
             const Divider(height: 1),
             _SettingsLink(
-              icon: Icons.gavel_outlined,
+              icon: CineusAssetId.terms,
               label: copy.termsLabel,
               onTap: () => context.push('/terms'),
             ),
@@ -380,11 +525,11 @@ class _SettingsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.03),
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+    return Material(
+      color: AppColors.obsidian800,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+        side: const BorderSide(color: AppColors.obsidian600),
       ),
       clipBehavior: Clip.antiAlias,
       child: Column(children: children),
@@ -393,7 +538,7 @@ class _SettingsCard extends StatelessWidget {
 }
 
 class _SettingsLink extends StatelessWidget {
-  final IconData icon;
+  final CineusAssetId icon;
   final String label;
   final VoidCallback onTap;
 
@@ -407,10 +552,13 @@ class _SettingsLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       minTileHeight: 52,
-      leading: Icon(icon, color: AppColors.gold300, size: 20),
-      title: Text(label, style: AppTypography.titleSmall.copyWith(fontSize: 13)),
-      trailing: const Icon(
-        Icons.chevron_right_rounded,
+      leading: CineusIcon(icon, color: AppColors.gold300, size: 20),
+      title: Text(
+        label,
+        style: AppTypography.titleSmall.copyWith(fontSize: 13),
+      ),
+      trailing: const CineusIcon(
+        CineusAssetId.chevron,
         color: AppColors.textTertiary,
       ),
       onTap: onTap,

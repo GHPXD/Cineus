@@ -1,0 +1,155 @@
+{
+  "assumptions": {
+    "media_budgets_brl": [
+      100
+    ],
+    "creative_cost_fraction_of_media": 0.0,
+    "target_ltv_to_acquisition_cost": 1.3,
+    "cosmetic_price_brl": 16.9,
+    "cosmetic_purchases_per_payer": 1,
+    "future_subscription_price_brl": 9.9,
+    "future_subscription_paid_months": 3,
+    "refunds": 0.02,
+    "revenue_horizon": "Lifetime cohort expectation, NOT first-month receipts",
+    "payer_definition": "Lifetime converting installs / all installs; not active subscribers / MAU",
+    "excluded": "Taxes, rights/licensing, variable service costs, store accounts, build setup, attribution tools, operations and owner pay; obtain quotes before profitability claims",
+    "incremental_installs": "Assumes measured attributed installs are incremental; verify with holdouts",
+    "creative_scope": "Reuse existing authorized assets, no external creative cash expense; owner work excluded",
+    "pricing": "R$100 initial media cap supplied by user; CPI and split remain hypotheses, no campaign launched"
+  },
+  "media_plans": [
+    {
+      "name": "Android primeiro",
+      "allocation": {
+        "Android": 1.0,
+        "iOS": 0.0
+      }
+    },
+    {
+      "name": "Comparacao 70/30",
+      "allocation": {
+        "Android": 0.7,
+        "iOS": 0.3
+      }
+    }
+  ],
+  "platform_unit_economics": [
+    {
+      "platform": "Android",
+      "audience_share": 0.7,
+      "cpi_brl": 2.0,
+      "store_fee": 0.15,
+      "lifetime_active_days": 20,
+      "lifetime_payer_conversion": 0.01,
+      "ads_ltv": 0.07267499999999999,
+      "cosmetic_purchase_ltv": 0.14077699999999999,
+      "initial_product_ltv": 0.21345199999999998,
+      "future_pass_product_ltv": 0.320076,
+      "initial_max_acquisition_cost_per_install": 0.16419384615384613,
+      "initial_max_media_cpi_with_creative": 0.16419384615384613,
+      "future_max_media_cpi_with_creative": 0.2462123076923077
+    },
+    {
+      "platform": "iOS",
+      "audience_share": 0.3,
+      "cpi_brl": 4.0,
+      "store_fee": 0.15,
+      "lifetime_active_days": 20,
+      "lifetime_payer_conversion": 0.01,
+      "ads_ltv": 0.07267499999999999,
+      "cosmetic_purchase_ltv": 0.14077699999999999,
+      "initial_product_ltv": 0.21345199999999998,
+      "future_pass_product_ltv": 0.320076,
+      "initial_max_acquisition_cost_per_install": 0.16419384615384613,
+      "initial_max_media_cpi_with_creative": 0.16419384615384613,
+      "future_max_media_cpi_with_creative": 0.2462123076923077
+    }
+  ],
+  "budgets": [
+    {
+      "plan": "Android primeiro",
+      "media_budget_brl": 100,
+      "media_spend": 100.0,
+      "creative_cost": 0.0,
+      "acquisition_cost": 100.0,
+      "expected_installs": 50.0,
+      "lifetime_initial_receipts": 10.6726,
+      "lifetime_future_pass_receipts": 16.003800000000002,
+      "lifetime_ads_only_receipts": 3.6337499999999996,
+      "initial_lifetime_balance_before_exclusions": -89.3274,
+      "blended_media_cpi": 2.0,
+      "acquisition_cost_per_install": 2.0,
+      "initial_lifetime_receipts_to_media": 0.10672599999999999,
+      "initial_lifetime_receipts_to_acquisition": 0.10672599999999999
+    },
+    {
+      "plan": "Comparacao 70/30",
+      "media_budget_brl": 100,
+      "media_spend": 100.0,
+      "creative_cost": 0.0,
+      "acquisition_cost": 100.0,
+      "expected_installs": 42.5,
+      "lifetime_initial_receipts": 9.07171,
+      "lifetime_future_pass_receipts": 13.603230000000002,
+      "lifetime_ads_only_receipts": 3.0886874999999994,
+      "initial_lifetime_balance_before_exclusions": -90.92829,
+      "blended_media_cpi": 2.3529411764705883,
+      "acquisition_cost_per_install": 2.3529411764705883,
+      "initial_lifetime_receipts_to_media": 0.0907171,
+      "initial_lifetime_receipts_to_acquisition": 0.0907171
+    }
+  ],
+  "platform_breakdown": [
+    {
+      "plan": "Android primeiro",
+      "media_budget_brl": 100,
+      "platform": "Android",
+      "media_spend": 100.0,
+      "creative_cost": 0.0,
+      "acquisition_cost": 100.0,
+      "expected_installs": 50.0,
+      "media_cpi": 2.0,
+      "acquisition_cost_per_install": 2.0,
+      "lifetime_initial_receipts": 10.6726,
+      "lifetime_future_pass_receipts": 16.003800000000002,
+      "lifetime_ads_only_receipts": 3.6337499999999996,
+      "initial_lifetime_receipts_to_media": 0.10672599999999999,
+      "initial_lifetime_receipts_to_acquisition": 0.10672599999999999,
+      "initial_lifetime_balance_before_exclusions": -89.3274
+    },
+    {
+      "plan": "Comparacao 70/30",
+      "media_budget_brl": 100,
+      "platform": "Android",
+      "media_spend": 70.0,
+      "creative_cost": 0.0,
+      "acquisition_cost": 70.0,
+      "expected_installs": 35.0,
+      "media_cpi": 2.0,
+      "acquisition_cost_per_install": 2.0,
+      "lifetime_initial_receipts": 7.470819999999999,
+      "lifetime_future_pass_receipts": 11.202660000000002,
+      "lifetime_ads_only_receipts": 2.5436249999999996,
+      "initial_lifetime_receipts_to_media": 0.10672599999999999,
+      "initial_lifetime_receipts_to_acquisition": 0.10672599999999999,
+      "initial_lifetime_balance_before_exclusions": -62.529180000000004
+    },
+    {
+      "plan": "Comparacao 70/30",
+      "media_budget_brl": 100,
+      "platform": "iOS",
+      "media_spend": 30.0,
+      "creative_cost": 0.0,
+      "acquisition_cost": 30.0,
+      "expected_installs": 7.5,
+      "media_cpi": 4.0,
+      "acquisition_cost_per_install": 4.0,
+      "lifetime_initial_receipts": 1.6008899999999997,
+      "lifetime_future_pass_receipts": 2.40057,
+      "lifetime_ads_only_receipts": 0.5450624999999999,
+      "initial_lifetime_receipts_to_media": 0.05336299999999999,
+      "initial_lifetime_receipts_to_acquisition": 0.05336299999999999,
+      "initial_lifetime_balance_before_exclusions": -28.39911
+    }
+  ]
+}

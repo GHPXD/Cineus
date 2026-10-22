@@ -1,0 +1,143 @@
+{
+  "scope": "Hypotheses for one month, Android+iOS Brazil combined; no acquisition plan or guaranteed revenue",
+  "observed_revenue": null,
+  "taxes_and_store_membership_costs": "Not measured; must be added, not implicitly zero",
+  "assumptions": {
+    "DAU_MAU": 0.2,
+    "rewarded_attempts_per_DAU_day": 0.15,
+    "interstitial_opportunities_per_DAU_day": 0.05,
+    "ad_fill": 0.6,
+    "rewarded_publisher_ecpm_brl": 20,
+    "interstitial_publisher_ecpm_brl": 8,
+    "collection_order_rate": 0.01,
+    "new_plus_order_rate": 0.005,
+    "paid_club_cycle_rate": 0.005
+  },
+  "scenarios": [
+    {
+      "mau_assumed": 200,
+      "orders_assumed": {
+        "collection": 2,
+        "new_permanent_plus": 1,
+        "paid_club_cycles": 1
+      },
+      "purchase_gross_brl": 59.6,
+      "store_fee_assumed": 0.15,
+      "refund_reserve_assumed": 0.03,
+      "purchase_contribution_before_tax_brl": 49.14,
+      "ads_assumed_brl": 2.45,
+      "cash_cost_assumed_brl": 80,
+      "creative_time_opportunity_cost_brl": 120,
+      "cash_balance_before_tax_brl": -28.41,
+      "economic_balance_before_tax_brl": -148.41
+    },
+    {
+      "mau_assumed": 200,
+      "orders_assumed": {
+        "collection": 2,
+        "new_permanent_plus": 1,
+        "paid_club_cycles": 1
+      },
+      "purchase_gross_brl": 59.6,
+      "store_fee_assumed": 0.3,
+      "refund_reserve_assumed": 0.03,
+      "purchase_contribution_before_tax_brl": 40.47,
+      "ads_assumed_brl": 2.45,
+      "cash_cost_assumed_brl": 80,
+      "creative_time_opportunity_cost_brl": 120,
+      "cash_balance_before_tax_brl": -37.08,
+      "economic_balance_before_tax_brl": -157.08
+    },
+    {
+      "mau_assumed": 1000,
+      "orders_assumed": {
+        "collection": 10,
+        "new_permanent_plus": 5,
+        "paid_club_cycles": 5
+      },
+      "purchase_gross_brl": 298.0,
+      "store_fee_assumed": 0.15,
+      "refund_reserve_assumed": 0.03,
+      "purchase_contribution_before_tax_brl": 245.7,
+      "ads_assumed_brl": 12.24,
+      "cash_cost_assumed_brl": 80,
+      "creative_time_opportunity_cost_brl": 120,
+      "cash_balance_before_tax_brl": 177.94,
+      "economic_balance_before_tax_brl": 57.94
+    },
+    {
+      "mau_assumed": 1000,
+      "orders_assumed": {
+        "collection": 10,
+        "new_permanent_plus": 5,
+        "paid_club_cycles": 5
+      },
+      "purchase_gross_brl": 298.0,
+      "store_fee_assumed": 0.3,
+      "refund_reserve_assumed": 0.03,
+      "purchase_contribution_before_tax_brl": 202.34,
+      "ads_assumed_brl": 12.24,
+      "cash_cost_assumed_brl": 80,
+      "creative_time_opportunity_cost_brl": 120,
+      "cash_balance_before_tax_brl": 134.58,
+      "economic_balance_before_tax_brl": 14.58
+    },
+    {
+      "mau_assumed": 3000,
+      "orders_assumed": {
+        "collection": 30,
+        "new_permanent_plus": 15,
+        "paid_club_cycles": 15
+      },
+      "purchase_gross_brl": 894.0,
+      "store_fee_assumed": 0.15,
+      "refund_reserve_assumed": 0.03,
+      "purchase_contribution_before_tax_brl": 737.1,
+      "ads_assumed_brl": 36.72,
+      "cash_cost_assumed_brl": 80,
+      "creative_time_opportunity_cost_brl": 120,
+      "cash_balance_before_tax_brl": 693.82,
+      "economic_balance_before_tax_brl": 573.82
+    },
+    {
+      "mau_assumed": 3000,
+      "orders_assumed": {
+        "collection": 30,
+        "new_permanent_plus": 15,
+        "paid_club_cycles": 15
+      },
+      "purchase_gross_brl": 894.0,
+      "store_fee_assumed": 0.3,
+      "refund_reserve_assumed": 0.03,
+      "purchase_contribution_before_tax_brl": 607.03,
+      "ads_assumed_brl": 36.72,
+      "cash_cost_assumed_brl": 80,
+      "creative_time_opportunity_cost_brl": 120,
+      "cash_balance_before_tax_brl": 563.75,
+      "economic_balance_before_tax_brl": 443.75
+    }
+  ],
+  "break_even_orders_with_no_ads_before_tax": {
+    "collection_14_90": {
+      "cash_80": 7,
+      "including_time_200": 17
+    },
+    "new_plus_19_90": {
+      "cash_80": 5,
+      "including_time_200": 13
+    },
+    "club_cycle_9_90": {
+      "cash_80": 10,
+      "including_time_200": 25
+    }
+  },
+  "limitations": [
+    "All conversion, ad and cost inputs are hypothetical",
+    "Plus counts NEW eligible buyers only; no repeat monthly billing",
+    "Club counts paid valid cycles, not cumulative lifetime subscribers",
+    "Cosmetics already owned through Club are not a second collection sale",
+    "Ad value is a publisher revenue estimate; do not deduct the store purchase fee from it again",
+    "No sponsor revenue without a contract",
+    "Exclude sandbox/test ad traffic from observed revenue"
+  ]
+}

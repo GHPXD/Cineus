@@ -1,0 +1,8 @@
+{
+  "id": "frame_blue_reel",
+  "kind": "frame",
+  "width": 640,
+  "height": 800,
+  "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Navy and electric TEAL film-reel border with chunky gold sprocket accents and simplified blue reel corners. Clear blue identity, strong cartoon contour. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY.",
+  "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-0f694add-49ff-40e6-b17f-2ba44d68634f.png"
+}

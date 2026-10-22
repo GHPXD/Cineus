@@ -20,32 +20,32 @@ class MovieModel {
   }
 
   static Map<String, dynamic> toMap(Movie movie) => {
-        'id': movie.id,
-        'title': movie.title,
-        'original_title': movie.originalTitle,
-        'year': movie.year,
-        'director': movie.director,
-        'genres': movie.genres.join(','),
-        'poster_path': movie.posterUrl,
-        'overview': movie.overview,
-        'tagline': movie.tagline,
-        'runtime': movie.runtime,
-      };
+    'id': movie.id,
+    'title': movie.title,
+    'original_title': movie.originalTitle,
+    'year': movie.year,
+    'director': movie.director,
+    'genres': movie.genres.join(','),
+    'poster_path': movie.posterUrl,
+    'overview': movie.overview,
+    'tagline': movie.tagline,
+    'runtime': movie.runtime,
+  };
 }
 
 class ClueModel {
   static Clue fromMap(Map<String, dynamic> map) => Clue(
-        id: map['id'] as int,
-        movieId: map['movie_id'] as int,
-        clueNumber: map['clue_number'] as int,
-        category: map['category'] as String,
-        text: map['text'] as String,
-      );
+    id: map['id'] as int,
+    movieId: map['movie_id'] as int,
+    clueNumber: map['clue_number'] as int,
+    category: map['category'] as String,
+    text: map['text'] as String,
+  );
 
   static Map<String, dynamic> toMap(Clue clue) => {
-        'movie_id': clue.movieId,
-        'clue_number': clue.clueNumber,
-        'category': clue.category,
-        'text': clue.text,
-      };
+    'movie_id': clue.movieId,
+    'clue_number': clue.clueNumber,
+    'category': clue.category,
+    'text': clue.text,
+  };
 }

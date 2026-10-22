@@ -26,9 +26,10 @@ class NotificationServiceImpl implements NotificationService {
   NotificationServiceImpl({
     FlutterLocalNotificationsPlugin? plugin,
     DeviceTimeZoneResolver? timeZoneResolver,
-  })  : _plugin = plugin ?? FlutterLocalNotificationsPlugin(),
-        _timeZoneResolver = timeZoneResolver ??
-            const DeviceTimeZoneResolver(MethodChannelDeviceTimeZoneProvider());
+  }) : _plugin = plugin ?? FlutterLocalNotificationsPlugin(),
+       _timeZoneResolver =
+           timeZoneResolver ??
+           const DeviceTimeZoneResolver(MethodChannelDeviceTimeZoneProvider());
 
   static const int _dailyReminderId = 1001;
   static const String _channelId = 'cineus_daily';
@@ -43,7 +44,7 @@ class NotificationServiceImpl implements NotificationService {
 
     await _plugin.initialize(
       settings: const InitializationSettings(
-        android: AndroidInitializationSettings('@mipmap/ic_launcher'),
+        android: AndroidInitializationSettings('cineus_notification'),
         iOS: DarwinInitializationSettings(
           requestAlertPermission: false,
           requestBadgePermission: false,
@@ -60,14 +61,18 @@ class NotificationServiceImpl implements NotificationService {
     if (kIsWeb) return false;
     await init();
 
-    final android = _plugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
+    final android = _plugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >();
     if (android != null) {
       return await android.requestNotificationsPermission() ?? false;
     }
 
-    final darwin = _plugin.resolvePlatformSpecificImplementation<
-        IOSFlutterLocalNotificationsPlugin>();
+    final darwin = _plugin
+        .resolvePlatformSpecificImplementation<
+          IOSFlutterLocalNotificationsPlugin
+        >();
     if (darwin != null) {
       return await darwin.requestPermissions(
             alert: true,
@@ -85,14 +90,18 @@ class NotificationServiceImpl implements NotificationService {
     if (kIsWeb) return false;
     await init();
 
-    final android = _plugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
+    final android = _plugin
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >();
     if (android != null) {
       return await android.areNotificationsEnabled() ?? false;
     }
 
-    final ios = _plugin.resolvePlatformSpecificImplementation<
-        IOSFlutterLocalNotificationsPlugin>();
+    final ios = _plugin
+        .resolvePlatformSpecificImplementation<
+          IOSFlutterLocalNotificationsPlugin
+        >();
     if (ios != null) {
       final permissions = await ios.checkPermissions();
       return permissions?.isEnabled ?? false;

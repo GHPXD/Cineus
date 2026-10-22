@@ -1,0 +1,176 @@
+[
+  {
+    "id": "colors",
+    "kind": "cinematic background",
+    "file": "assets/home/colors.png",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-97f09047-1d9b-47d4-92fe-86a02aa10944.png",
+    "generator": "built-in image_gen / GPT Image",
+    "prompt": "Use case: stylized-concept. Asset type: portrait background artwork for the central Cores carousel card of the Cineus mobile app. Create one premium cinematic image, portrait 2:3. A mysterious adult woman in profile facing left, dark curly hair, fully clothed, rendered as a deep black silhouette against a huge warm golden amber moon or studio halo. Her head occupies the upper-middle and upper-right of the frame. Rich amber dust and subtle film grain, gold rim light outlining hair and shoulder. The upper 60 percent is luminous gold behind the silhouette; the bottom 40 percent naturally fades to nearly black midnight navy to support readable overlay text and a button. Strong graphic silhouette and sophisticated photoreal cinematic atmosphere, like a beautiful film poster photograph. Black, amber gold, dark navy palette. This is background art ONLY. Absolutely NO text, letters, numbers, logos, watermarks, icons, color swatches, card frame, border, UI, tickets or buttons. Do not include a known character or actor. High quality, striking shapes.",
+    "size": [
+      1024,
+      1536
+    ],
+    "sha256": "04d86b5138dbafa3f6129d0e5a59c82abfe8d81fd7db1974ba0df8d8ead94c6c"
+  },
+  {
+    "id": "clues",
+    "kind": "cinematic background",
+    "file": "assets/home/clues.png",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-cdf9492b-4a68-4727-881d-a1c19795980a.png",
+    "generator": "built-in image_gen / GPT Image",
+    "prompt": "Use case: stylized-concept. Asset type: portrait background artwork for the Dicas movie-clues carousel card in the Cineus app, companion to a premium gold/black cinematic interface. One image in portrait 2:3. A close-up black film clapperboard angled diagonally across the middle with muted ivory stripes and gold highlights, in a dark backstage cinema studio. Soft warm amber spotlight from upper-left, defocused film-set lights in deep navy shadows behind, delicate haze and real film grain. Mostly black midnight navy, with a restrained gold amber glow. Detailed cinematic photograph. The lower 45 percent should fade naturally into almost black, supporting live UI text over it. Strong simple silhouette, no clutter. Background illustration ONLY: NO legible writing on the clapperboard, NO text, lettering, logos, watermarks, decorative symbols, icons, frame, border, UI, badges or buttons. Match a rich cinematic carousel.",
+    "size": [
+      1024,
+      1536
+    ],
+    "sha256": "0b8e2b21dd35e808bb123b774c87efeccbfaf9c1ef9a0babb53bdbc63ee17d87"
+  },
+  {
+    "id": "poster",
+    "kind": "cinematic background",
+    "file": "assets/home/poster.png",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-40af0446-8e05-4194-9e1e-c6a4bbf9fc0b.png",
+    "generator": "built-in image_gen / GPT Image",
+    "prompt": "Use case: stylized-concept. Asset type: portrait background artwork for the Poster movie-poster carousel card in the Cineus mobile app, matching a black/navy/gold premium film interface. Create one portrait image 2:3. A moody narrow old-city alley at night after rain, dramatic deep perspective, a distant fully clothed human silhouette walking away, amber lights spilling from tall windows onto wet cobblestones, charcoal architecture and deep ink navy shadows. Cinematic film-noir photograph, small golden highlights, subtle mist, real texture, strong silhouettes. The lower-left 45 percent remains dark and low-detail so live titles and controls can overlay it. Background art only, do NOT depict any existing movie poster, actor or known character. NO text, letters, signs with writing, numbers, logos, watermarks, icons, frame, UI, cards, badges or buttons.",
+    "size": [
+      1024,
+      1536
+    ],
+    "sha256": "9ac7f26f0af8144fc69e0c326f0aebebd6e522d07ca6462d5928c9e9f3f74793"
+  },
+  {
+    "id": "homeGames",
+    "kind": "icon",
+    "subject": "homeGames",
+    "prompt": "Use case: logo-brand. Asset type: new illustrated icon for the Cineus mobile home statistics panel, matching a premium dark navy and gold cinema app. Create ONE image from scratch: a compact elegant gold video game controller, two substantial handles, a bold ivory directional cross and four blue action buttons; the gamepad silhouette itself is gold, readable at 24 pixels. Bold premium editorial 2D illustration, warm gold #EFC026, blue #5790FF and warm ivory #F4F3E8 only, optional deep navy for overlap. Large clear negative spaces, at most four solid colors. Centered, square, transparent background with generous 10% padding. Vector tracing friendly clean solid shapes. No gradients, shadows, photographic textures, thin stock outline, text, numerals, letters, watermark, decorative sparkles or UI.",
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-17e8e363-28de-4221-b0ec-0a22d2e4ce8a.png",
+    "source": "assets/generated/sources/homeGames.png",
+    "style": "illustrated gold blue ivory",
+    "svg": "assets/generated/icons/homeGames.svg",
+    "source_sha256": "9e774960cc05d2a3028679ceff2ed317e0d8bb46d1db745379961f2ff482c97a",
+    "svg_sha256": "d6484dd154dd1ef52344662e435be7f3b3e0f93a2cb138782802445d072a4bbd",
+    "paths": 6,
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      512,
+      512
+    ],
+    "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+    "conversion_version": 5,
+    "status": "converted",
+    "ink_svg": "assets/generated/icons/homeGames_ink.svg",
+    "ink_sha256": "6bd290355e4e33adf75c2d5b4a8b24d12e9ffc456455faa63f6048822b8fc65e"
+  },
+  {
+    "id": "homeTrophy",
+    "kind": "icon",
+    "subject": "homeTrophy",
+    "prompt": "Use case: logo-brand. Asset type: new illustrated icon for the Cineus mobile home statistics panel, matching a premium dark navy and gold cinema app. Create ONE image from scratch: a single substantial golden trophy cup with two large curved handles and a short pedestal, ivory inner negative space, one restrained deep blue overlap for depth; no medallion or ribbon. Bold premium editorial 2D illustration, warm gold #EFC026, blue #5790FF and warm ivory #F4F3E8 only, optional deep navy for overlap. Large clear negative spaces, at most four solid colors. Centered, square, transparent background with generous 10% padding. Vector tracing friendly clean solid shapes. No gradients, shadows, photographic textures, thin stock outline, text, numerals, letters, watermark, decorative sparkles or UI.",
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-136b608a-712f-4c9b-a808-8c3bf5966d01.png",
+    "source": "assets/generated/sources/homeTrophy.png",
+    "style": "illustrated gold blue ivory",
+    "svg": "assets/generated/icons/homeTrophy.svg",
+    "source_sha256": "3a61d8805407b0bbd00d6a54ce3d6f41327b1dae785eee59013ee8406307c1d2",
+    "svg_sha256": "15066a86ac05468f077a5da6436aecf6445a1a71bfb11e862269fc9e2835234d",
+    "paths": 12,
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      512,
+      512
+    ],
+    "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+    "conversion_version": 5,
+    "status": "converted",
+    "ink_svg": "assets/generated/icons/homeTrophy_ink.svg",
+    "ink_sha256": "69de2d0ac7a589b7c8e1874f259db42b0ebf4508afe47899ac0af52a75604535"
+  },
+  {
+    "id": "homeStats",
+    "kind": "icon",
+    "subject": "homeStats",
+    "prompt": "Use case: logo-brand. Asset type: new illustrated icon for the Cineus mobile home statistics panel, matching a premium dark navy and gold cinema app. Create ONE image from scratch: three substantial golden vertical histogram bars sharing a common baseline, left short middle medium right tall, softly rounded corners, one tiny ivory highlight; no arrow and no graph frame. Bold premium editorial 2D illustration, warm gold #EFC026, blue #5790FF and warm ivory #F4F3E8 only, optional deep navy for overlap. Large clear negative spaces, at most four solid colors. Centered, square, transparent background with generous 10% padding. Vector tracing friendly clean solid shapes. No gradients, shadows, photographic textures, thin stock outline, text, numerals, letters, watermark, decorative sparkles or UI.",
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-caa09648-1982-4610-8deb-3956acfd2d56.png",
+    "source": "assets/generated/sources/homeStats.png",
+    "style": "illustrated gold blue ivory",
+    "svg": "assets/generated/icons/homeStats.svg",
+    "source_sha256": "23372749cf4dcae5de595649bbaff74da6bba02f10f517bf638793c7c05b9606",
+    "svg_sha256": "ba4cce7ba23bdb27bfa93f11a524a94e100cde8019c2e93ce291a8db47a3ae8c",
+    "paths": 6,
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      512,
+      512
+    ],
+    "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+    "conversion_version": 5,
+    "status": "converted",
+    "ink_svg": "assets/generated/icons/homeStats_ink.svg",
+    "ink_sha256": "1c7867826cc8278b9309af22ba14ed91ff59fe686f4a1ece5c4fbdc09f001a13"
+  },
+  {
+    "id": "homeForward",
+    "kind": "icon",
+    "subject": "homeForward",
+    "prompt": "Use case: logo-brand. Asset type: dedicated icon for Cineus mobile Home. Create ONE original icon from scratch: one elegant straight right-pointing arrow, long substantial horizontal shaft and a clear sharp arrowhead, perfectly straight with no hook, curve, tail bend or circle. Premium editorial 2D graphic in warm gold #EFC026 and optional dark navy/ivory/blue. Strong simple silhouette and large clear negative spaces, clean solid vector-tracing friendly shapes, readable at 20 pixels, generous padding, square genuinely transparent background. No shadow, texture, gradient, watermark, text, numerals, UI, border or extra elements. Match a black, blue and gold cinematic app.",
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-aca06e30-fa98-4aa3-99b6-b63bffae2bf1.png",
+    "source": "assets/generated/sources/homeForward.png",
+    "style": "illustrated gold blue ivory",
+    "svg": "assets/generated/icons/homeForward.svg",
+    "source_sha256": "6e69d1e2ce3010dfceb979f5f55b01358c34aae890ef0e690c4042082b327dfb",
+    "svg_sha256": "2bad853c66a17eac57486f4bfa8cd23a0b3d230d42cb897fe771dbf7605a8d32",
+    "paths": 1,
+    "source_size": [
+      1536,
+      1024
+    ],
+    "trace_size": [
+      512,
+      341
+    ],
+    "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+    "conversion_version": 5,
+    "status": "converted",
+    "ink_svg": "assets/generated/icons/homeForward_ink.svg",
+    "ink_sha256": "346e7e9268b293df1f10826a6cee4e08b5d1ec1fa85ca6af8b588d80cd59fdb8"
+  },
+  {
+    "id": "homeCalendar",
+    "kind": "icon",
+    "subject": "homeCalendar",
+    "prompt": "Use case: logo-brand. Asset type: dedicated icon for Cineus mobile Home. Create ONE original icon from scratch: one bold elegant golden calendar with two binding tabs, dark navy page and a single large gold check mark in the middle; no numbers, lettering or dates. Premium editorial 2D graphic in warm gold #EFC026 and optional dark navy/ivory/blue. Strong simple silhouette and large clear negative spaces, clean solid vector-tracing friendly shapes, readable at 20 pixels, generous padding, square genuinely transparent background. No shadow, texture, gradient, watermark, text, numerals, UI, border or extra elements. Match a black, blue and gold cinematic app.",
+    "generator": "built-in image_gen / GPT Image",
+    "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-4f0bcd83-a90e-44ad-b095-6923be14398b.png",
+    "source": "assets/generated/sources/homeCalendar.png",
+    "style": "illustrated gold blue ivory",
+    "svg": "assets/generated/icons/homeCalendar.svg",
+    "source_sha256": "6519709415b30a276a1d377f64d3c839d1b8cc5d408b86ee502850514c4a7667",
+    "svg_sha256": "1bc67a707cc10a80928e7ba027277404c6ff01036f32cf0ea54bf8fe891e41fb",
+    "paths": 7,
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      512,
+      512
+    ],
+    "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+    "conversion_version": 5,
+    "status": "converted",
+    "ink_svg": "assets/generated/icons/homeCalendar_ink.svg",
+    "ink_sha256": "8db11290a1fbc6cbbba02f6c778cbdf677b97fa1c87dfd01ab5f85cb47db6b82"
+  }
+]

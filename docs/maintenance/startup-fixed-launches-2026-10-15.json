@@ -1,0 +1,16 @@
+[
+  {
+    "cold_start": 2,
+    "pid": "17646",
+    "active_after_seconds": 6,
+    "errors": "",
+    "launch": "Starting: Intent { cmp=dev.cineus.cineus/.MainActivity }\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: dev.cineus.cineus/.MainActivity\nWaitTime: 3020\nComplete"
+  },
+  {
+    "cold_start": 3,
+    "pid": "17718",
+    "active_after_seconds": 6,
+    "errors": "",
+    "launch": "Starting: Intent { cmp=dev.cineus.cineus/.MainActivity }\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: dev.cineus.cineus/.MainActivity\nWaitTime: 3023\nComplete"
+  }
+]

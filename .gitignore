@@ -32,6 +32,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/android/build/
 
 # Symbolication related
 app.*.symbols
@@ -66,3 +67,16 @@ android/key.properties
 venv/
 __pycache__/
 *.py[cod]
+
+# Reproducible local previews and tooling intermediates
+docs/preview/
+docs/artwork/**/working/
+docs/maintenance/*.log
+
+# Local commercial server state, test scratch data and secret mounts
+backend/.pytest-work/
+backend/.pytest_cache/
+backend/.secrets/
+backend/var/
+backend/content/
+ios/Flutter/Commerce.xcconfig

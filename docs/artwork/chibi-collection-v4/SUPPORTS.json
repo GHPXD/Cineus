@@ -1,0 +1,142 @@
+[
+  {
+    "id": "frame_premiere",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Rounded golden film-strip premiere border; bold brass reel medallions at the TOP corners, tiny dark navy inset edges; simple iconic friendly action-game framing. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "frame_blue_reel",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Navy and electric TEAL film-reel border with chunky gold sprocket accents and simplified blue reel corners. Clear blue identity, strong cartoon contour. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "premiere_frame_marquee",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Golden cinema marquee border with large clean round golden bulbs along the edge, navy outer stroke and two tiny brass star ornaments. No sign panel or text. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "premiere_frame_deco",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Geometric golden ART DECO movie-palace border, broad angular stepped gold corners over navy metal, simplified bold cartoon facets, restrained teal glints. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "premiere_frame_spotlight",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Cinema studio SPOTLIGHT border, one chunky golden spotlight perched at each upper corner, small illustrated gold light shapes confined to edge, navy brass lower corners. No beams across center. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "mission_frame_projector",
+    "kind": "frame",
+    "width": 533,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Chunky old MOVIE PROJECTOR border, brass twin reels at top left and dark navy/gold film sprockets tracing sides, simple stylized projector lens in lower right edge. FUNCTIONAL FRAME SPEC: portrait aspect ratio 533:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "plus_frame_crown",
+    "kind": "frame",
+    "width": 533,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. PREMIUM premiere border with a SMALL original golden three-point crown centered on upper edge, heavy clean gold/navy cartoon contours, subtle ivory star facets, no gems or text. FUNCTIONAL FRAME SPEC: portrait aspect ratio 533:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "night_frame_orbit",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Midnight-space CINEMA ORBIT border, teal and brass orbital arcs confined to corners, two tiny movie reels depicted as planets, dark navy edge and gold cartoon stars. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "night_frame_comet",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Navy and GOLD COMET movie border, a compact angular golden comet at upper right with a curving film-strip tail following the edge, teal spark accents on opposite corners. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "night_frame_observatory",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Brass OBSERVATORY border, thick clean circular cinema-lens rings as corner ornaments, navy mechanical edges and a tiny gold telescope on bottom edge. Stylized clean comic shapes. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "city_frame_skyline",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Urban movie-night SKYLINE border, tiny generic chunky dark navy buildings with sparse golden windows restricted to bottom and outer side edges, gold outline, teal corner accents. No famous buildings. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "city_frame_bridge",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Cinematic city BRIDGE border: gold angular structural beams and navy rivets along outer side edges, simplified suspension-cable corner details, heavy dark outline, tiny teal light. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "city_frame_rain",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Noir city RAIN border, clean teal raindrop shapes and little golden streetlamp ornaments at upper corners, navy-and-brass perimeter, graphic comic-book droplets confined to edge. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "aurora_event_frame",
+    "kind": "frame",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible DECORATIVE CARD FRAME for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. AURORA cinema border, rounded navy outer edge with bold flowing TEAL and VIOLET ribbon accents hugging sides, small golden film-reel spark at top, gold star corners. Original no company logo. FUNCTIONAL FRAME SPEC: portrait aspect ratio 640:800. A complete thin rectangular frame with softly rounded corners, perfectly front-facing, no perspective. Art is confined to outer 6 percent of left/right width and outer 8 percent of top/bottom height. Corner ornaments stay compact inside that outer edge. The ENTIRE large rectangular central opening, at least the inner 76 percent of width and 80 percent of height, must be genuinely EMPTY/TRANSPARENT alpha, not filled with white, black, gray or a checkerboard. Outside the frame is transparent too. No backdrop, inside panel, colored glow across opening, central object, floor shadow, person, character, face, animal, text, digits, letters, logo or watermark. Centered, full outer border visible with 3 percent transparent margin, none cropped. One FRAME ONLY."
+  },
+  {
+    "id": "appearance_noir",
+    "kind": "appearance",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible CARD BACKGROUND for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. An empty stylized NOIR CINEMA backdrop, deep navy ink flat center, sparse low-contrast teal/gold halftone accents at edges, a few broad film-strip shapes near bottom corners. Elegant quiet center. FUNCTIONAL BACKDROP SPEC: portrait aspect ratio 640:800, fully opaque edge-to-edge rectangular background, no border frame, no transparency. Keep the inner 75 percent of width and 80 percent of height very DARK NAVY, low contrast, with no objects or bright spots, so white game-result text and a character placed later remain readable. Put all theme decoration near the outside corners and edges. No characters, people, faces, animals, text, logos, labels, numbers or watermark. One backdrop only."
+  },
+  {
+    "id": "premiere_appearance_velvet",
+    "kind": "appearance",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible CARD BACKGROUND for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Stylized movie-premiere VELVET stage backdrop: navy velvet curtains rendered as simple bold comic folds at extreme sides, subdued dark-gold stage light at lower corners, dark empty navy center. FUNCTIONAL BACKDROP SPEC: portrait aspect ratio 640:800, fully opaque edge-to-edge rectangular background, no border frame, no transparency. Keep the inner 75 percent of width and 80 percent of height very DARK NAVY, low contrast, with no objects or bright spots, so white game-result text and a character placed later remain readable. Put all theme decoration near the outside corners and edges. No characters, people, faces, animals, text, logos, labels, numbers or watermark. One backdrop only."
+  },
+  {
+    "id": "mission_appearance_constellation",
+    "kind": "appearance",
+    "width": 533,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible CARD BACKGROUND for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Cinematic CONSTELLATION backdrop, midnight navy field with sparse original gold/teal constellation lines shaped from film-frame rectangles at upper corners and lower edge, large calm dark center. FUNCTIONAL BACKDROP SPEC: portrait aspect ratio 533:800, fully opaque edge-to-edge rectangular background, no border frame, no transparency. Keep the inner 75 percent of width and 80 percent of height very DARK NAVY, low contrast, with no objects or bright spots, so white game-result text and a character placed later remain readable. Put all theme decoration near the outside corners and edges. No characters, people, faces, animals, text, logos, labels, numbers or watermark. One backdrop only."
+  },
+  {
+    "id": "plus_appearance_premiere",
+    "kind": "appearance",
+    "width": 533,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible CARD BACKGROUND for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Premium movie premiere backdrop in deep midnight navy, subtle large flat graphic gold light pools near bottom edges and tiny ivory gold glints at top corners, clean quiet central field, comic cel shading. FUNCTIONAL BACKDROP SPEC: portrait aspect ratio 533:800, fully opaque edge-to-edge rectangular background, no border frame, no transparency. Keep the inner 75 percent of width and 80 percent of height very DARK NAVY, low contrast, with no objects or bright spots, so white game-result text and a character placed later remain readable. Put all theme decoration near the outside corners and edges. No characters, people, faces, animals, text, logos, labels, numbers or watermark. One backdrop only."
+  },
+  {
+    "id": "night_appearance_sky",
+    "kind": "appearance",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible CARD BACKGROUND for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Movie-night SKY backdrop, deep indigo/navy center and sparse gold/teal stars near edges, stylized broad corner nebula color planes in muted teal, a tiny film-reel crescent tucked into upper left edge. FUNCTIONAL BACKDROP SPEC: portrait aspect ratio 640:800, fully opaque edge-to-edge rectangular background, no border frame, no transparency. Keep the inner 75 percent of width and 80 percent of height very DARK NAVY, low contrast, with no objects or bright spots, so white game-result text and a character placed later remain readable. Put all theme decoration near the outside corners and edges. No characters, people, faces, animals, text, logos, labels, numbers or watermark. One backdrop only."
+  },
+  {
+    "id": "city_appearance_night",
+    "kind": "appearance",
+    "width": 640,
+    "height": 800,
+    "prompt": "Use case: stylized-concept. ONE production collectible CARD BACKGROUND for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Cinematic CITY NIGHT backdrop: generic angular navy city silhouettes at extreme bottom and side edges, sparse subdued golden windows and teal reflections on a narrow ground strip, very dark calm center. No famous landmarks. FUNCTIONAL BACKDROP SPEC: portrait aspect ratio 640:800, fully opaque edge-to-edge rectangular background, no border frame, no transparency. Keep the inner 75 percent of width and 80 percent of height very DARK NAVY, low contrast, with no objects or bright spots, so white game-result text and a character placed later remain readable. Put all theme decoration near the outside corners and edges. No characters, people, faces, animals, text, logos, labels, numbers or watermark. One backdrop only."
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "id": "waluigi",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/waluigi.png",
+  "source_sha256": "fdbe73881ae273dad51b7e2f0ef32c28c19261a8e4b0579342b51dbe88fcf2bb",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+  "conversion_version": 5,
+  "source_size": [
+    365,
+    663
+  ],
+  "trace_size": [
+    529,
+    960
+  ],
+  "region_pixels": [
+    50409
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/waluigi_base.svg",
+      "sha256": "57db76a289ec39f3729c4b59cee683032c1924a9cbc72bbe1596c1e48a2d3b14"
+    },
+    {
+      "file": "assets/colors/art/waluigi_p0.svg",
+      "sha256": "6545a7a4fbf6100a3219083944bbd631e439bda2cdcd2013b4e5667d5339f68b"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Waluigi, tall slender adult mustached character with purple cap without letters and purple shirt, dark navy overalls, white gloves and orange shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID c81dd175-7874-439f-9b73-c4c74a5838a0.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://mario.nintendo.com/static/54c0617c992012b38e212c154f4e3944/3eddd/waluigi.png",
+  "source_page": "https://mario.nintendo.com/characters/",
+  "external_file": "docs/artwork/characters/expanded/references/waluigi-official.png",
+  "external_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78"
+}

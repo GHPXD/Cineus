@@ -1,0 +1,39 @@
+{
+  "id": "bowser",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/bowser.png",
+  "source_sha256": "de24b9b3bcae572e3ab0c21a232b98b09728d1c3dfb5805ea33bca3a2d14b4f9",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+  "conversion_version": 5,
+  "source_size": [
+    486,
+    624
+  ],
+  "trace_size": [
+    748,
+    960
+  ],
+  "region_pixels": [
+    7809
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/bowser_base.svg",
+      "sha256": "06d250a2c6336d452f2351aaf8598a26df79ea828047ae226ff3f0cc1dc36dab"
+    },
+    {
+      "file": "assets/colors/art/bowser_p0.svg",
+      "sha256": "4fc11602cad0041783970be2383dc77068847b52394d3c1292eb87d653bc34ec"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Bowser, large friendly fierce cartoon turtle king with green spiked shell, cream belly, orange skin, red hair and black wrist cuffs, no weapon. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shell in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID fd778486-1a6d-407f-b3eb-72b04d70133c.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://mario.nintendo.com/static/7204f288e3e823a8203c445fb6cc0d7e/b1656/bowser.png",
+  "source_page": "https://mario.nintendo.com/characters/",
+  "external_file": "docs/artwork/characters/expanded/references/bowser-official.png",
+  "external_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023"
+}

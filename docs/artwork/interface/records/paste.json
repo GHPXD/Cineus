@@ -1,0 +1,27 @@
+{
+  "id": "paste",
+  "kind": "icon",
+  "subject": "a compact clipboard with thick rounded top clip and one blank paper sheet",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a compact clipboard with thick rounded top clip and one blank paper sheet.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-e328bae5-11ca-4ef7-8100-746ed69a81bb.png",
+  "source": "assets/generated/sources/paste.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/paste.svg",
+  "source_sha256": "4295a8dc93cf79a8a5b979f2852cc4fa60bb128bd638d2070a5e60fd5275e2ed",
+  "svg_sha256": "8f6b586a1ce42f6cfc78262af57409af3eac28150761b084abf4f4aaedca74e2",
+  "paths": 4,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/paste_ink.svg",
+  "ink_sha256": "9211595d24d07a532a3e40f6ac5241bf75725a00db5aea9fed699cf69de54adc"
+}

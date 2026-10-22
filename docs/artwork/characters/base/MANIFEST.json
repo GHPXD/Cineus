@@ -1,0 +1,568 @@
+[
+  {
+    "id": "aang",
+    "kind": "character",
+    "generator": "built-in image_gen / GPT Image",
+    "prompt": "Use case: illustration-story. Asset type: isolated recolourable character sprite for the Cineus mobile colour-memory game. Create from scratch ONE recognisable full-body character, polished bold flat 2D cartoon illustration, thick clean charcoal outlines, very few generous filled shapes, no gradients, lighting, shading or textures. Entire figure centred in a square with 8% transparent margin, feet and appendages fully visible, genuinely transparent background. No text, letters, logos, watermarks, scenery, props except canonical character accessories, or secondary figures. Important technical palette: the five indicated regions MUST use their assigned uniform flat marker colours, exactly, even when noncanonical. These are segmentation markers for later automatic raster-to-SVG conversion, not the final colours shown to players. Never use these five marker colours anywhere outside their assigned regions. All other details use flat white, black or subdued neutral colours. Make each region clean, solid, separately identifiable; preserve the character's recognisable proportions, eyes, face, outline and clothing seams. The UI will recolour each region after tracing; do not render a UI or swatches.\nSubject and segmentation: Aang from Avatar The Last Airbender, bald head, obvious non-glowing arrow tattoo on forehead, friendly full body standing, monk orange robe draped across torso, broad reddish outer cloth sash over one shoulder, brown trousers, neutral boots, no staff. Five regions: forehead arrow tattoo AND small arm tattoos MAGENTA #FF00FF; skin on head, face, neck, arms and hands CYAN #00FFFF; main robe fabric LIME #00FF00; broad outer sash cloth ORANGE #FFA500; trousers PURPLE #8000FF. Eyes white with charcoal pupils, boots neutral dark grey.",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-9f643936-1e43-4625-8adf-90381cb25b4b.png",
+    "source": "assets/colors/sources/aang.png",
+    "status": "converted",
+    "palette_mode": "markers",
+    "source_sha256": "859b0252730d421655899d93b5f5aaadd19a7ecfe4660134cfd0d3260b20bff8",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      640,
+      640
+    ],
+    "region_pixels": [
+      1917,
+      17064,
+      13450,
+      17382,
+      12511
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/aang_base.svg",
+        "sha256": "54a8c56bca3f01a4aa392e4f5175755fb117fe4a5b9dc3630abcc7cf9c3e4cc1"
+      },
+      {
+        "file": "assets/colors/art/aang_p0.svg",
+        "sha256": "5fc17269f8a8998420bb6ee5595690a92a76180669ab5dadacc89767df2c3865"
+      },
+      {
+        "file": "assets/colors/art/aang_p1.svg",
+        "sha256": "0354d82594b3d0632573b22c320c8424fc1941620ddf90d5d44e4a0d6c0e233f"
+      },
+      {
+        "file": "assets/colors/art/aang_p2.svg",
+        "sha256": "72bf36a5f21f16bf915c3bd9f249559428d1cece7a5377146fefbf5cb84a7653"
+      },
+      {
+        "file": "assets/colors/art/aang_p3.svg",
+        "sha256": "9b9a2e27e4c6ca7201ba0bc945c93f8ca32776ca059a76ced5bdbdd92d585169"
+      },
+      {
+        "file": "assets/colors/art/aang_p4.svg",
+        "sha256": "64f09fc1ba32f6b60ed1604d62fcf0b09e6d4d759305ac0635822c17ada49f11"
+      }
+    ]
+  },
+  {
+    "id": "bugs",
+    "kind": "character",
+    "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+    "prompt": null,
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/1/17/Bugs_Bunny.svg",
+    "source_page": "https://en.wikipedia.org/wiki/File:Bugs_Bunny.svg",
+    "external_file": "docs/artwork/characters/base/external/bugs.svg",
+    "external_sha256": "60dfa6eb25bd8b7779c28f1d8da71731434ab446e1131c40fb7a8025357cdaf2",
+    "source": "assets/colors/sources/bugs.png",
+    "palette_mode": "existing",
+    "status": "converted",
+    "rights": "Origin retained; no claim that character rights or store distribution have been licensed.",
+    "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+    "source_sha256": "a01cc003527bc1536e251b5679911f1f409edd6c7934f15451b5450bce9e1b44",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      563,
+      900
+    ],
+    "trace_size": [
+      400,
+      640
+    ],
+    "region_pixels": [
+      28657,
+      15520,
+      3810,
+      1974,
+      2646
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/bugs_base.svg",
+        "sha256": "feb3d7fb492bbced92e4dad1b2ac8c721fd7e0ab4439e8def1ff93399a7eba53"
+      },
+      {
+        "file": "assets/colors/art/bugs_p0.svg",
+        "sha256": "bd05f7711f0c24fb6656d67804b29db41e58a053d88004e9ce76ad71e2b53199"
+      },
+      {
+        "file": "assets/colors/art/bugs_p1.svg",
+        "sha256": "ecace37c42719cef9c13b91bdfc4da6d00c91b3ac7078871071e6b6deaf1a913"
+      },
+      {
+        "file": "assets/colors/art/bugs_p2.svg",
+        "sha256": "5fd7bc06691a474cd8f8955738b5ec96663df2be506e9f41d5fafec8e40d4d6f"
+      },
+      {
+        "file": "assets/colors/art/bugs_p3.svg",
+        "sha256": "3e20649df7cc2b4d2e793f2cb38fcf12c1124d30fe976b872e008c4532f86031"
+      },
+      {
+        "file": "assets/colors/art/bugs_p4.svg",
+        "sha256": "66e263b772410907ca55988d971367b68b50a3f56c203d5812e52db2c5711f3a"
+      }
+    ]
+  },
+  {
+    "id": "cartman",
+    "kind": "character",
+    "generator": "built-in image_gen / GPT Image",
+    "prompt": "Use case: illustration-story. Asset type: isolated recolourable character sprite for the Cineus mobile colour-memory game. Create from scratch ONE recognisable full-body character, polished bold flat 2D cartoon illustration, thick clean charcoal outlines, very few generous filled shapes, no gradients, lighting, shading or textures. Entire figure centred in a square with 8% transparent margin, feet and appendages fully visible, genuinely transparent background. No text, letters, logos, watermarks, scenery, props except canonical character accessories, or secondary figures. Important technical palette: the five indicated regions MUST use their assigned uniform flat marker colours, exactly, even when noncanonical. These are segmentation markers for later automatic raster-to-SVG conversion, not the final colours shown to players. Never use these five marker colours anywhere outside their assigned regions. All other details use flat white, black or subdued neutral colours. Make each region clean, solid, separately identifiable; preserve the character's recognisable proportions, eyes, face, outline and clothing seams. The UI will recolour each region after tracing; do not render a UI or swatches.\nSubject and segmentation: Eric Cartman from South Park, round squat full-body standing, winter cap with pompom and band, button-front jacket, brown trousers, black shoes, bare hands, rounded face. Five regions: jacket MAGENTA #FF00FF; cap main dome CYAN #00FFFF; cap band AND pompom LIME #00FF00; face and bare hands ORANGE #FFA500; trousers PURPLE #8000FF. White eyes, black pupils, black buttons and shoes.",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-ac4342b2-f6ec-4e11-8c74-3965b32ac543.png",
+    "source": "assets/colors/sources/cartman.png",
+    "status": "converted",
+    "palette_mode": "markers",
+    "source_sha256": "b54360bc69abdc6690c75494bc6a870dc519bec550f379e5131957071e73fdf1",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      640,
+      640
+    ],
+    "region_pixels": [
+      65874,
+      17972,
+      18992,
+      55606,
+      15960
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/cartman_base.svg",
+        "sha256": "10269d696d3e8b895eabd24778afd26287ed6004c1572721fc8ec71dbc841782"
+      },
+      {
+        "file": "assets/colors/art/cartman_p0.svg",
+        "sha256": "24d18f01630432dc0f611c7d2da1e96d5f9db3ace12e6fd73d2852fa7e39351f"
+      },
+      {
+        "file": "assets/colors/art/cartman_p1.svg",
+        "sha256": "817e67490f3a7735311c514dc17ea8ca8ff7994d0907f735ea4d8b607d84278c"
+      },
+      {
+        "file": "assets/colors/art/cartman_p2.svg",
+        "sha256": "371e434d4cd4890e3d394496bab31ca933ca5535805fe9ebf330752beb707034"
+      },
+      {
+        "file": "assets/colors/art/cartman_p3.svg",
+        "sha256": "c9154caa6c45a7e253598d323cb38d82cbff7001897a3183344ceb778ecbc827"
+      },
+      {
+        "file": "assets/colors/art/cartman_p4.svg",
+        "sha256": "de43ba4be7465b471dc1cbd98ca1a86ce45b3c6bf91ec961cdd6320b5525adae"
+      }
+    ]
+  },
+  {
+    "id": "finn",
+    "kind": "character",
+    "generator": "built-in image_gen / GPT Image",
+    "prompt": "Use case: illustration-story. Asset type: isolated recolourable character sprite for the Cineus mobile colour-memory game. Create from scratch ONE recognisable full-body character, polished bold flat 2D cartoon illustration, thick clean charcoal outlines, very few generous filled shapes, no gradients, lighting, shading or textures. Entire figure centred in a square with 8% transparent margin, feet and appendages fully visible, genuinely transparent background. No text, letters, logos, watermarks, scenery, props except canonical character accessories, or secondary figures. Important technical palette: the five indicated regions MUST use their assigned uniform flat marker colours, exactly, even when noncanonical. These are segmentation markers for later automatic raster-to-SVG conversion, not the final colours shown to players. Never use these five marker colours anywhere outside their assigned regions. All other details use flat white, black or subdued neutral colours. Make each region clean, solid, separately identifiable; preserve the character's recognisable proportions, eyes, face, outline and clothing seams. The UI will recolour each region after tracing; do not render a UI or swatches.\nSubject and segmentation: Finn the Human from Adventure Time, full body standing in three-quarter view with his recognisable round two-tone backpack conspicuously visible beside his shoulder and torso, white bear-eared hood, shirt, short pants, black shoes, both bare arms and lower legs visible. Five regions: darker bottom section of backpack MAGENTA #FF00FF; short pants CYAN #00FFFF; white hood LIME #00FF00; face, arms and legs skin ORANGE #FFA500; shoes PURPLE #8000FF. Upper backpack subdued light sage green, shirt muted pale cream, white socks, black eyes.",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-7d96fd1d-1764-42ba-ae70-5a40287f611b.png",
+    "source": "assets/colors/sources/finn.png",
+    "status": "converted",
+    "palette_mode": "markers",
+    "source_sha256": "64bcb7b8cf1383d324aef37509cfe5f4c02c9c79d394e1bdde8d52797b4ebed4",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      640,
+      640
+    ],
+    "region_pixels": [
+      3643,
+      9102,
+      12296,
+      22453,
+      6054
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/finn_base.svg",
+        "sha256": "2042478f19e5fe7972e9a54ab5cfbbb80bc60b5d22b49e9c10f4c90652bf0d9f"
+      },
+      {
+        "file": "assets/colors/art/finn_p0.svg",
+        "sha256": "6e2f1e38b8a2cf3064932d7e348eeb611eae8a922dbe3b980f0ba327b7cd0d76"
+      },
+      {
+        "file": "assets/colors/art/finn_p1.svg",
+        "sha256": "a25634af4cd75eb38068e2380bdef3e0d03db8ebaa685d5438650d81d8a1e014"
+      },
+      {
+        "file": "assets/colors/art/finn_p2.svg",
+        "sha256": "a2a78d55a6b7fbba169e0952a48e1a04bd8ea30830fa89d76ff6c62cad610f16"
+      },
+      {
+        "file": "assets/colors/art/finn_p3.svg",
+        "sha256": "85fdfbcca13733975f296f39f8ae3c7b4da0403eef3477fc89fa5368dd7e97e9"
+      },
+      {
+        "file": "assets/colors/art/finn_p4.svg",
+        "sha256": "98db02c7c547e8272f22a598b2c4638c8e636b0c2e8cbeae1562909209f989e9"
+      }
+    ]
+  },
+  {
+    "id": "goku",
+    "kind": "character",
+    "generator": "built-in image_gen / GPT Image",
+    "prompt": "Edit the provided Goku sprite for the mobile recolouring game. Preserve character, entire pose, proportions, clothing seams, outlines, face, all transparency and framing. Replace ONLY the flat fill colours as follows: outer gi and pants flat magenta #FF00FF; undershirt flat cyan #00FFFF (leave belt, boots and wristbands navy); hair flat lime #00FF00 (keep eyebrows and pupils black); all visible skin flat orange #FFA500; tongue flat purple #8000FF. These are technical segmentation markers, not final display colours. Remove gradients from those regions. All other pixels/features unchanged. No new shapes, text or scenery.",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-caba0588-d001-44f6-925f-882891fbe477.png",
+    "editing_input": "assets/colors/sources/goku.png",
+    "editing_input_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-24909b47-cd4d-412d-9f91-07a644115afb.png",
+    "editing_input_prompt": "A cheerful full-body illustration of adult Goku from Dragon Ball Z, standing in his orange Turtle School martial arts uniform, navy blue undershirt, blue wristbands, belt and boots, large black spiky hair, smiling with visible tongue. Clean flat 2D cartoon artwork for a mobile memory game, bold dark outlines, solid colour fills, no gradients or shading. No text or lettering on the uniform, no scenery, no other characters, no weapon. Entire character visible with 10% margin on a genuinely transparent square background.",
+    "source": "assets/colors/sources/goku-segmented.png",
+    "status": "converted",
+    "palette_mode": "markers",
+    "source_sha256": "4abfba145bf500611fc479d010a9e56f250f54ff2202772334b654d11053c4f6",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      640,
+      640
+    ],
+    "region_pixels": [
+      42604,
+      3554,
+      9762,
+      13852,
+      1595
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/goku_base.svg",
+        "sha256": "691a76904160e35e401aa1b51906efedebd5cd1659f4a74cf71614adeabcd949"
+      },
+      {
+        "file": "assets/colors/art/goku_p0.svg",
+        "sha256": "1f5c3468aeaae789c0f7ba65403192de4dadc20598955c6fd8b2066f14cfb36a"
+      },
+      {
+        "file": "assets/colors/art/goku_p1.svg",
+        "sha256": "cf674cbbb91ce609ca58d00976c1e424f0a3fa8b57d82db245b80c56603da140"
+      },
+      {
+        "file": "assets/colors/art/goku_p2.svg",
+        "sha256": "5134cf47390bd7fa098a60af7030961b813fa62431ffc2fb0d3a0fd4c9c1ca4a"
+      },
+      {
+        "file": "assets/colors/art/goku_p3.svg",
+        "sha256": "480bb173f401296a6c65a89ae098eb4bc5bf7591529d2f651d5fda7e70ad0a8e"
+      },
+      {
+        "file": "assets/colors/art/goku_p4.svg",
+        "sha256": "a8d76d372265a2d57a4b507af6dd11ddbcb8936736db6c2f9fc28d43d6a5e2b6"
+      }
+    ],
+    "editing_input_sha256": "24ac1f7f6acd2c35e98fa57bd39f8170b42760b7635df15c65cccfa63fb485a1"
+  },
+  {
+    "id": "patrick",
+    "kind": "character",
+    "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+    "prompt": null,
+    "external_source": "https://upload.wikimedia.org/wikipedia/commons/2/28/Patrick_Star_character.png",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Patrick_Star_character.png",
+    "external_file": "docs/artwork/characters/base/external/patrick.png",
+    "external_sha256": "28ff2e284f91d3fafc4c63d25bf3526f94ffe9da978efb6925e070ce31032686",
+    "source": "assets/colors/sources/patrick.png",
+    "palette_mode": "existing",
+    "status": "converted",
+    "rights": "Origin retained; no claim that character rights or store distribution have been licensed.",
+    "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+    "source_sha256": "f993fcb13ff1d161992da45ceaeb18607f575c0508d56d9492c34bf2374175ac",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      699,
+      900
+    ],
+    "trace_size": [
+      496,
+      640
+    ],
+    "region_pixels": [
+      23019,
+      99805,
+      6787,
+      6286,
+      5230
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/patrick_base.svg",
+        "sha256": "13312cad464466021b89cf2a6762695c2e6d514ae352d3aac41e7e2c31cc7440"
+      },
+      {
+        "file": "assets/colors/art/patrick_p0.svg",
+        "sha256": "7d35f65f4eb747dd059c9378bdb9aa58fc0250c98426cd6567e1a590ce63bddc"
+      },
+      {
+        "file": "assets/colors/art/patrick_p1.svg",
+        "sha256": "bb61ec153071eb69445d8923d4aea47fe6fe9725f6ad48d0d1a4998ac67c7acd"
+      },
+      {
+        "file": "assets/colors/art/patrick_p2.svg",
+        "sha256": "57b771758c3b2793d227e5a84ea8f8f3737ebb7f7535d67167bba6860f1cd678"
+      },
+      {
+        "file": "assets/colors/art/patrick_p3.svg",
+        "sha256": "3805099a0828d60658f227895b125fb30dc3b1d5a3e46695286a038df23f9e90"
+      },
+      {
+        "file": "assets/colors/art/patrick_p4.svg",
+        "sha256": "ecd5e395d3835a04bf25d5fe98a1cbdba50620351ffa6a5c424275f9d9fe2833"
+      }
+    ]
+  },
+  {
+    "id": "pikachu",
+    "kind": "character",
+    "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+    "external_source": "https://www.tv-tokyo.co.jp/anime/pocketmonster2023/images/chara/chara23.png",
+    "source_page": "https://www.tv-tokyo.co.jp/anime/pocketmonster2023/chara/",
+    "source": "assets/colors/sources/pikachu.png",
+    "palette_mode": "existing",
+    "status": "converted",
+    "rights": "Original broadcaster artwork. Origin retained; no claim that character rights or store distribution have been licensed.",
+    "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+    "source_sha256": "4a1b8deb757ba9ef9bc9f9e2225216168b842506f51703eef2d4af114727a6dc",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      1150,
+      251
+    ],
+    "trace_size": [
+      640,
+      620
+    ],
+    "region_pixels": [
+      118857,
+      2395,
+      4966,
+      2909,
+      19510
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/pikachu_base.svg",
+        "sha256": "5d782440d0792481f82a86ae23e1cd46d42e76ed2c1e20a2863241aa785b43c8"
+      },
+      {
+        "file": "assets/colors/art/pikachu_p0.svg",
+        "sha256": "9e75a3b4e3eb9c375ad3219d7fe761e76bcac1cc481fab63d4c719d19fe41934"
+      },
+      {
+        "file": "assets/colors/art/pikachu_p1.svg",
+        "sha256": "238a9c1a0a67d7d95d50c7d521228c5c407a940a3a73d790b9e561a765711e03"
+      },
+      {
+        "file": "assets/colors/art/pikachu_p2.svg",
+        "sha256": "ed430095c11c930ac38ce5a1ed30de8c539650317ffbea5368e22c06f2f455f7"
+      },
+      {
+        "file": "assets/colors/art/pikachu_p3.svg",
+        "sha256": "a887b52c57951f4f366b6db2f9b21d244196ad203a6cdde6bbf7d3192abf8a1c"
+      },
+      {
+        "file": "assets/colors/art/pikachu_p4.svg",
+        "sha256": "df56411a39eb43ca8f4ab4f911ef0b8718c517efb8834df5e90b4264304615cd"
+      }
+    ]
+  },
+  {
+    "id": "pink_panther",
+    "kind": "character",
+    "generator": "built-in image_gen / GPT Image",
+    "prompt": "Use case: illustration-story. Asset type: isolated recolourable character sprite for the Cineus mobile colour-memory game. Create from scratch ONE recognisable full-body character, polished bold flat 2D cartoon illustration, thick clean charcoal outlines, very few generous filled shapes, no gradients, lighting, shading or textures. Entire figure centred in a square with 8% transparent margin, feet and appendages fully visible, genuinely transparent background. No text, letters, logos, watermarks, scenery, props except canonical character accessories, or secondary figures. Important technical palette: the five indicated regions MUST use their assigned uniform flat marker colours, exactly, even when noncanonical. These are segmentation markers for later automatic raster-to-SVG conversion, not the final colours shown to players. Never use these five marker colours anywhere outside their assigned regions. All other details use flat white, black or subdued neutral colours. Make each region clean, solid, separately identifiable; preserve the character's recognisable proportions, eyes, face, outline and clothing seams. The UI will recolour each region after tracing; do not render a UI or swatches.\nSubject and segmentation: Pink Panther, unmistakable slim lanky full-body pink cartoon feline standing, long curling tail completely visible, oval muzzle, distinct triangular nose, half-lidded eyes and thick black arched eyebrows, confident elegant pose. Five regions: main body fur MAGENTA #FF00FF; pale oval muzzle AND belly CYAN #00FFFF; pale yellow irises around black pupils LIME #00FF00; triangular nose ORANGE #FFA500; both thick arched eyebrows PURPLE #8000FF. Black pupils, black whiskers, white tiny eye highlights.",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-37a7b778-0eab-480b-bb24-13965dc9f006.png",
+    "source": "assets/colors/sources/pink_panther.png",
+    "palette_mode": "markers",
+    "status": "converted",
+    "source_sha256": "45893bceeb2b5cdba3b7867ca9dc4a77f4cdeb13232c7a2908b146f049f9f286",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      1254,
+      1254
+    ],
+    "trace_size": [
+      640,
+      640
+    ],
+    "region_pixels": [
+      46187,
+      11056,
+      566,
+      692,
+      1331
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/pink_panther_base.svg",
+        "sha256": "d57c87766d6e627d73c454505860a153865c6f662d8f2d3486a964b15bd03e3a"
+      },
+      {
+        "file": "assets/colors/art/pink_panther_p0.svg",
+        "sha256": "1ae9cf78d6dc2f738681bca0e89b683f43bb627bcac719434b1f39b46c591f83"
+      },
+      {
+        "file": "assets/colors/art/pink_panther_p1.svg",
+        "sha256": "cd8d4d032336ac959f2821d53210f66da4bcb30b63c8a2771c278a3480afb285"
+      },
+      {
+        "file": "assets/colors/art/pink_panther_p2.svg",
+        "sha256": "dbaaba67ee7b3d8429ea2dbc2c0812a8b1363c04d2486243e2f3d1cf8fbb3288"
+      },
+      {
+        "file": "assets/colors/art/pink_panther_p3.svg",
+        "sha256": "501e386a334c38a56542f32214773d401d849e024bbe2efd2a5f308204ffb169"
+      },
+      {
+        "file": "assets/colors/art/pink_panther_p4.svg",
+        "sha256": "d1bbe15c830dc3e9b141a1b47cdddaf91bfb58986a96664dc95e25556bc64670"
+      }
+    ]
+  },
+  {
+    "id": "spongebob",
+    "kind": "character",
+    "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+    "prompt": null,
+    "external_source": "https://upload.wikimedia.org/wikipedia/commons/a/a2/SpongeBob_character.svg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:SpongeBob_character.svg",
+    "external_file": "docs/artwork/characters/base/external/spongebob.svg",
+    "external_sha256": "970b6ddc43403f4fe13852a9cb1ddf926472ba25cf514f17e58be14c34abaaa5",
+    "source": "assets/colors/sources/spongebob.png",
+    "palette_mode": "existing",
+    "status": "converted",
+    "rights": "Origin retained; no claim that character rights or store distribution have been licensed.",
+    "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+    "source_sha256": "2ff55e6a2d8d587148973f7f1b515234bcc1a8eb8b0fd38971bd5030c6ca677f",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      696,
+      900
+    ],
+    "trace_size": [
+      471,
+      640
+    ],
+    "region_pixels": [
+      83235,
+      9913,
+      1152,
+      20229,
+      5381
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/spongebob_base.svg",
+        "sha256": "76cad33825cdce735a46738e4d1ca6fefa64801d44078f0bdd507350f18e345a"
+      },
+      {
+        "file": "assets/colors/art/spongebob_p0.svg",
+        "sha256": "bb43aec8e5e31c612ae24871367e92e158d8b0d95549623a50d22d9984fb2191"
+      },
+      {
+        "file": "assets/colors/art/spongebob_p1.svg",
+        "sha256": "3ef9930dd4ba66f01b47e8e7a3b8f9947f39366b6842999b909e659279fa1564"
+      },
+      {
+        "file": "assets/colors/art/spongebob_p2.svg",
+        "sha256": "f5b6c8ae373eb8b26dc72c62117f166e7174d6f018cb423dea23abb6a1310662"
+      },
+      {
+        "file": "assets/colors/art/spongebob_p3.svg",
+        "sha256": "01117d549c9c4cedbf09ac955e757cf8d8f9067de1ccee51c7800e78851024db"
+      },
+      {
+        "file": "assets/colors/art/spongebob_p4.svg",
+        "sha256": "c0930ef84c72c4a6142ca0158c2f0bd4be681f1b0deb5f1b606965ba70469440"
+      }
+    ]
+  },
+  {
+    "id": "stitch",
+    "kind": "character",
+    "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+    "prompt": null,
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/d/d2/Stitch_%28Lilo_%26_Stitch%29.svg",
+    "source_page": "https://en.wikipedia.org/wiki/File:Stitch_(Lilo_%26_Stitch).svg",
+    "external_file": "docs/artwork/characters/base/external/stitch.svg",
+    "external_sha256": "02601adff3015c51454a867b6bb19794dbbae08c26a3f96bafbb6de321992b36",
+    "source": "assets/colors/sources/stitch.png",
+    "palette_mode": "existing",
+    "status": "converted",
+    "rights": "Origin retained; no claim that character rights or store distribution have been licensed.",
+    "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+    "source_sha256": "76345980ea5f81ed3ebc60736aa2e17ab44096570797f859e8ba1682ea08cdff",
+    "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+    "conversion_version": 2,
+    "source_size": [
+      651,
+      900
+    ],
+    "trace_size": [
+      465,
+      640
+    ],
+    "region_pixels": [
+      63682,
+      33447,
+      6067,
+      5235,
+      5743
+    ],
+    "files": [
+      {
+        "file": "assets/colors/art/stitch_base.svg",
+        "sha256": "69f4b169680c5c00f99a4ada65da9b682ae58b8a20fea56feb5df65df8c10e3a"
+      },
+      {
+        "file": "assets/colors/art/stitch_p0.svg",
+        "sha256": "f8aff291a48976a8a5f2ab3ac899694185e0969202dc2ce80b64e6802678c0b2"
+      },
+      {
+        "file": "assets/colors/art/stitch_p1.svg",
+        "sha256": "e2f1592080690d35280aa61045a580765ae4541b059c5d5cb323eda2b1d3a50f"
+      },
+      {
+        "file": "assets/colors/art/stitch_p2.svg",
+        "sha256": "57587d46ec92d232d22858e04f614e3215ee067a801b36923c9c067709445378"
+      },
+      {
+        "file": "assets/colors/art/stitch_p3.svg",
+        "sha256": "a19040b2b18acd0b09a1024679af24d04387f69a03ebfb7bd3846a64b9730c57"
+      },
+      {
+        "file": "assets/colors/art/stitch_p4.svg",
+        "sha256": "e8bd73c7443620696ff89b2c8e12d782f7e3125e68f658c7bb65a8be37f5cd7b"
+      }
+    ]
+  }
+]

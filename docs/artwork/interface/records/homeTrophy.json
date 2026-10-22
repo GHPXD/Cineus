@@ -1,0 +1,27 @@
+{
+  "id": "homeTrophy",
+  "kind": "icon",
+  "subject": "homeTrophy",
+  "prompt": "Use case: logo-brand. Asset type: new illustrated icon for the Cineus mobile home statistics panel, matching a premium dark navy and gold cinema app. Create ONE image from scratch: a single substantial golden trophy cup with two large curved handles and a short pedestal, ivory inner negative space, one restrained deep blue overlap for depth; no medallion or ribbon. Bold premium editorial 2D illustration, warm gold #EFC026, blue #5790FF and warm ivory #F4F3E8 only, optional deep navy for overlap. Large clear negative spaces, at most four solid colors. Centered, square, transparent background with generous 10% padding. Vector tracing friendly clean solid shapes. No gradients, shadows, photographic textures, thin stock outline, text, numerals, letters, watermark, decorative sparkles or UI.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-136b608a-712f-4c9b-a808-8c3bf5966d01.png",
+  "source": "assets/generated/sources/homeTrophy.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/homeTrophy.svg",
+  "source_sha256": "3a61d8805407b0bbd00d6a54ce3d6f41327b1dae785eee59013ee8406307c1d2",
+  "svg_sha256": "15066a86ac05468f077a5da6436aecf6445a1a71bfb11e862269fc9e2835234d",
+  "paths": 12,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/homeTrophy_ink.svg",
+  "ink_sha256": "69de2d0ac7a589b7c8e1874f259db42b0ebf4508afe47899ac0af52a75604535"
+}

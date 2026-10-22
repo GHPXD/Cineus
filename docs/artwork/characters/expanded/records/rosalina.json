@@ -1,0 +1,39 @@
+{
+  "id": "rosalina",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/rosalina.png",
+  "source_sha256": "af4150bf159a12b2d1d680809cef419cd26d3e8ba4bc831848738178e086a947",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+  "conversion_version": 5,
+  "source_size": [
+    383,
+    659
+  ],
+  "trace_size": [
+    558,
+    960
+  ],
+  "region_pixels": [
+    156063
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/rosalina_base.svg",
+      "sha256": "0074a7fea9aa60433b64135b14494b54200a3de97e730bf5867a159aa09e00db"
+    },
+    {
+      "file": "assets/colors/art/rosalina_p0.svg",
+      "sha256": "b2836b0aa3c4f69f81c57edd3f09faa3c2236e5028ffb8d29db9dc88b6ed3cc4"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Rosalina, adult blonde princess with hair covering one eye, silver crown, turquoise full-length gown with pale blue cuffs and hem, silver star brooch, no wand. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 4a9b7c5f-41c5-449a-95c8-44530946d525.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://mario.nintendo.com/static/9413cb5d146400e7368855759d084c69/d1a6b/rosalina.png",
+  "source_page": "https://mario.nintendo.com/characters/",
+  "external_file": "docs/artwork/characters/expanded/references/rosalina-official.png",
+  "external_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c"
+}

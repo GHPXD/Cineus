@@ -1,0 +1,27 @@
+{
+  "id": "badgeStages5",
+  "kind": "icon",
+  "subject": "a stages achievement medallion showing three clearly ascending broad podium steps",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a stages achievement medallion showing three clearly ascending broad podium steps.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-2591a6b2-4318-42bc-8ada-c15eea550416.png",
+  "source": "assets/generated/sources/badgeStages5.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/badgeStages5.svg",
+  "source_sha256": "d4961e5955d9b7fb5e0f3b7e02eaeceb90046b4741d4cabe849832f67ad781c9",
+  "svg_sha256": "ccb3c0723e7dc2d210d3ce0d727ad2ff1aee9ff28266aeefeb029b1aa1994613",
+  "paths": 30,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/badgeStages5_ink.svg",
+  "ink_sha256": "f64d1927392a08751a881fb7e49bfa90c3a37faf92778d2ef60e72d17d052785"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "homeStats",
+  "kind": "icon",
+  "subject": "homeStats",
+  "prompt": "Use case: logo-brand. Asset type: new illustrated icon for the Cineus mobile home statistics panel, matching a premium dark navy and gold cinema app. Create ONE image from scratch: three substantial golden vertical histogram bars sharing a common baseline, left short middle medium right tall, softly rounded corners, one tiny ivory highlight; no arrow and no graph frame. Bold premium editorial 2D illustration, warm gold #EFC026, blue #5790FF and warm ivory #F4F3E8 only, optional deep navy for overlap. Large clear negative spaces, at most four solid colors. Centered, square, transparent background with generous 10% padding. Vector tracing friendly clean solid shapes. No gradients, shadows, photographic textures, thin stock outline, text, numerals, letters, watermark, decorative sparkles or UI.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-caa09648-1982-4610-8deb-3956acfd2d56.png",
+  "source": "assets/generated/sources/homeStats.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/homeStats.svg",
+  "source_sha256": "23372749cf4dcae5de595649bbaff74da6bba02f10f517bf638793c7c05b9606",
+  "svg_sha256": "ba4cce7ba23bdb27bfa93f11a524a94e100cde8019c2e93ce291a8db47a3ae8c",
+  "paths": 6,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/homeStats_ink.svg",
+  "ink_sha256": "1c7867826cc8278b9309af22ba14ed91ff59fe686f4a1ece5c4fbdc09f001a13"
+}

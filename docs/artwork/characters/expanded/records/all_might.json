@@ -1,0 +1,34 @@
+{
+  "id": "all_might",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/all_might.png",
+  "source_sha256": "28030298ea332021603a37aec6b82107a3849a0300808ee27f9dcf39c457dec6",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    414,
+    640
+  ],
+  "region_pixels": [
+    28038
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/all_might_base.svg",
+      "sha256": "a6674a5d9f7e9144a5d5934145d048addad9bb28ee67f7766dbe98e4d0ccca79"
+    },
+    {
+      "file": "assets/colors/art/all_might_p0.svg",
+      "sha256": "743ed1d956a2f335417a592e10a4ed99cd6629d1aa904535d22947955a237adb"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-e21dfc89-10a2-4fdc-b86f-cb171498ddcc.png",
+  "prompt": "Use case: illustration-story. Asset type: a single full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: adult muscular All Might in his classic blue superhero suit with red and white panels, gold belt and boots, large blond two-tuft hairstyle, heroic friendly pose. Recognisable faithful character All Might; one character only, full body visible, neutral standing pose, no complex action, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon, bold dark outlines, simple solid fills, no gradients, no shading, no ground shadow, no scenery. Technical segmentation requirement: fill ONLY the all blue areas of the superhero suit with perfectly solid magenta #FF00FF, preserving their dark outlines and any buttons or trim. This magenta is a temporary mask marker, automatically replaced with #212F78 in the app. All other parts retain the original normal character colours; no other magenta or purple areas. Actual transparent background. No text, letters, watermark, logo or colour chart. No objects beyond the character's usual outfit.",
+  "palette_mode": "single-marker"
+}

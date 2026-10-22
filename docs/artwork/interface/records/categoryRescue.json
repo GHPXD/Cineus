@@ -1,0 +1,27 @@
+{
+  "id": "categoryRescue",
+  "kind": "icon",
+  "subject": "a cinematic rescue lifebuoy with four broad coloured sections and large centre hole",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a cinematic rescue lifebuoy with four broad coloured sections and large centre hole.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-906f216c-2060-4c18-9e56-83cbd7f1ec08.png",
+  "source": "assets/generated/sources/categoryRescue.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryRescue.svg",
+  "source_sha256": "4f4c3eb8ab4f46d82f7ab2d7b1b8170a135d9408a2ac1af89799c655b70cc05d",
+  "svg_sha256": "f78ec6a9057d9492c5743752710ee38184db0502b3adde1c076f9f11a6ee5de3",
+  "paths": 16,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryRescue_ink.svg",
+  "ink_sha256": "244680cc3a0c17dedae8e4063ef167f794a67e6b9f0589b1481bd916a48c8bfe"
+}

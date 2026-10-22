@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "version": "colors-stages-1",
+  "stages": [
+    {
+      "id": 1,
+      "questions": [
+        "aang_tattoos",
+        "all_might_primary",
+        "amy_primary",
+        "bananaman_primary",
+        "beavis_primary",
+        "ben_10_primary",
+        "bender_primary",
+        "betty_boop_primary",
+        "bowser_primary",
+        "bugs_fur"
+      ]
+    },
+    {
+      "id": 2,
+      "questions": [
+        "cartman_jacket",
+        "charlie_brown_primary",
+        "daisy_primary",
+        "donald_duck_primary",
+        "donkey_kong_primary",
+        "finn_backpack",
+        "goku_gi",
+        "goofy_primary",
+        "gumball_watterson_primary",
+        "homer_simpson_primary"
+      ]
+    },
+    {
+      "id": 3,
+      "questions": [
+        "jake_the_dog_primary",
+        "johnny_bravo_primary",
+        "kenny_mccormick_primary",
+        "kim_possible_primary",
+        "knuckles_primary",
+        "lois_griffin_primary",
+        "luffy_primary",
+        "luigi_primary",
+        "mario_primary",
+        "mickey_mouse_primary"
+      ]
+    },
+    {
+      "id": 4,
+      "questions": [
+        "morty_smith_primary",
+        "ord_dragon_primary",
+        "patrick_shorts",
+        "peach_primary",
+        "peter_griffin_primary",
+        "pikachu_body",
+        "pink_panther_body",
+        "rosalina_primary",
+        "shaggy_rogers_primary",
+        "sonic_primary"
+      ]
+    },
+    {
+      "id": 5,
+      "questions": [
+        "spongebob_body",
+        "squidward_primary",
+        "stitch_fur",
+        "tails_primary",
+        "toad_primary",
+        "tom_cat_primary",
+        "waluigi_primary",
+        "wario_primary",
+        "winnie_pooh_primary",
+        "yoshi_primary"
+      ]
+    },
+    {
+      "id": 6,
+      "questions": [
+        "aang_skin",
+        "bugs_muzzle",
+        "cartman_hat",
+        "finn_shorts",
+        "goku_undershirt",
+        "patrick_skin",
+        "pikachu_cheeks",
+        "pink_panther_muzzle",
+        "spongebob_shirt",
+        "stitch_inner_ears"
+      ]
+    },
+    {
+      "id": 7,
+      "questions": [
+        "aang_robe",
+        "bugs_inner_ears",
+        "cartman_hat_trim",
+        "finn_hood",
+        "goku_hair",
+        "patrick_flowers",
+        "pikachu_ear_tips",
+        "pink_panther_irises",
+        "spongebob_tie",
+        "stitch_eye_patches"
+      ]
+    },
+    {
+      "id": 8,
+      "questions": [
+        "aang_sash",
+        "bugs_carrot",
+        "cartman_skin",
+        "finn_skin",
+        "goku_skin",
+        "patrick_eye_whites",
+        "pikachu_tail_base",
+        "pink_panther_nose",
+        "spongebob_shorts",
+        "stitch_nose"
+      ]
+    },
+    {
+      "id": 9,
+      "questions": [
+        "aang_pants",
+        "bugs_carrot_leaves",
+        "cartman_pants",
+        "finn_shoes",
+        "goku_tongue",
+        "patrick_mouth",
+        "pikachu_captain_hat",
+        "pink_panther_eyebrows",
+        "spongebob_shoes",
+        "stitch_tongue"
+      ]
+    },
+    {
+      "id": 10,
+      "questions": [
+        "mario_overalls_v1",
+        "luigi_overalls_v1",
+        "peach_hair_v1",
+        "yoshi_shoes_v1",
+        "bowser_skin_v1",
+        "toad_vest_v1",
+        "donkey_kong_tie_v1",
+        "wario_overalls_v1",
+        "waluigi_overalls_v1",
+        "daisy_hair_v1"
+      ]
+    },
+    {
+      "id": 11,
+      "questions": [
+        "rosalina_hair_v1",
+        "sonic_shoes_v1",
+        "tails_shoes_v1",
+        "knuckles_gloves_v1",
+        "amy_dress_v1",
+        "homer_simpson_pants_v1",
+        "mickey_mouse_shoes_v1",
+        "donald_duck_bow_tie_v1",
+        "goofy_boots_v1",
+        "peter_griffin_shirt_v1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "toad",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/toad.png",
+  "source_sha256": "b7d0002bd6859d5a138a525fb71e2a2be7f0a9f6653f0dcc8a0dad9a10d30b69",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+  "conversion_version": 5,
+  "source_size": [
+    322,
+    559
+  ],
+  "trace_size": [
+    553,
+    960
+  ],
+  "region_pixels": [
+    100574
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/toad_base.svg",
+      "sha256": "9e64fb2eafc4e1dbe268eb23d16a01647752cf2c8717e583d4957dc597315434"
+    },
+    {
+      "file": "assets/colors/art/toad_p0.svg",
+      "sha256": "8c8e1ca7852063b58795803641b739b16d9a5c43b27d43eacdb0a3d794de57ee"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Toad, small mushroom person with white mushroom cap and large red spots, beige face, blue vest with gold trim, white trousers and brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the cap spots in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 38ab3d00-b9d3-44ec-9c21-67a23d3aa94c.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://mario.nintendo.com/static/e3ebf11b069067da929b608250baa44e/55d59/toad.png",
+  "source_page": "https://mario.nintendo.com/characters/",
+  "external_file": "docs/artwork/characters/expanded/references/toad-official.png",
+  "external_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8"
+}

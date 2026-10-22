@@ -1,0 +1,34 @@
+{
+  "id": "donkey_kong",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/donkey_kong.png",
+  "source_sha256": "f6804d2ffc46b5cb5ca6b423b767fc5f484f683925ec44432b5b29ac041988ee",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1222,
+    1287
+  ],
+  "trace_size": [
+    621,
+    640
+  ],
+  "region_pixels": [
+    113116
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/donkey_kong_base.svg",
+      "sha256": "8492e2096542bb1ed0a5eccef0e2448623f2d893df74ab3a4800d9cb25a04203"
+    },
+    {
+      "file": "assets/colors/art/donkey_kong_p0.svg",
+      "sha256": "e2b09a856216586c56c92bac02a10b61d417b8ff97e4db82c0fa9154076ee041"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-da4e18d0-694f-4d40-98ce-2a4aedfe054c.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Donkey Kong, strong friendly brown cartoon gorilla with tan muzzle chest hands and feet, red necktie without letters, no other clothing. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

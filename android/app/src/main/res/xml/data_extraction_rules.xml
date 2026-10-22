@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" path="cineus_commerce_secrets.xml"/>
+        <exclude domain="sharedpref" path="FlutterSecureKeyStorage:cineus_commerce_secrets.xml"/>
+        <exclude domain="sharedpref" path="FlutterSecureStorageConfiguration:cineus_commerce_secrets.xml"/>
+        <exclude domain="sharedpref" path="FlutterSecureStorage.xml"/>
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="cineus_commerce_secrets.xml"/>
+        <exclude domain="sharedpref" path="FlutterSecureKeyStorage:cineus_commerce_secrets.xml"/>
+        <exclude domain="sharedpref" path="FlutterSecureStorageConfiguration:cineus_commerce_secrets.xml"/>
+        <exclude domain="sharedpref" path="FlutterSecureStorage.xml"/>
+    </device-transfer>
+</data-extraction-rules>

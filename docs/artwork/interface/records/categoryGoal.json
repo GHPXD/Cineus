@@ -1,0 +1,27 @@
+{
+  "id": "categoryGoal",
+  "kind": "icon",
+  "subject": "a compact circular target with three large rings and one substantial arrow entering the centre",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a compact circular target with three large rings and one substantial arrow entering the centre.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-3c94e71a-aa68-4baa-8b22-43f5014f1fef.png",
+  "source": "assets/generated/sources/categoryGoal.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryGoal.svg",
+  "source_sha256": "85efd7b1f29f0f0e45cd56bcb597de52b191fe66e1a59de8995ebfc41fe522ae",
+  "svg_sha256": "0f25d8bdd49586ba4027095344f4eca0bb834f53e4d9f74e1a710031e97c74b4",
+  "paths": 8,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryGoal_ink.svg",
+  "ink_sha256": "aaeede1f2442005df824434026de07306084cf0b389ffb8aef979cc3a215531d"
+}

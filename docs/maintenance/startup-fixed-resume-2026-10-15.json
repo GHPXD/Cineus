@@ -1,0 +1,8 @@
+{
+  "resume": true,
+  "same_process": true,
+  "fatal_crash": false,
+  "unhandled_dart_exception": false,
+  "renderer_diagnostics": "--------- beginning of main\n10-15 22:08:00.414 17718 17756 E flutter : [ERROR:flutter/impeller/entity/contents/contents.cc(119)] Impeller validation: Contents::SetInheritedOpacity should never be called when Contents::CanAcceptOpacity returns false.",
+  "launch": "Starting: Intent { cmp=dev.cineus.cineus/.MainActivity }\nWarning: Activity not started, its current task has been brought to the front\nStatus: ok\nLaunchState: HOT\nActivity: dev.cineus.cineus/.MainActivity\nTotalTime: 66\nWaitTime: 68\nComplete"
+}

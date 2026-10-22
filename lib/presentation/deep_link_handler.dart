@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
 import '../core/utils/challenge_code.dart';
+import '../core/utils/friend_code.dart';
 import 'routes/app_router.dart';
 
 /// Small seam around app_links so lifecycle/error behaviour can be tested
@@ -35,12 +36,14 @@ class DeepLinkHandler extends StatefulWidget {
   final Widget child;
   final DeepLinkSource? source;
   final void Function(int movieId)? onChallenge;
+  final void Function(ChallengeTarget target)? onChallengeTarget;
 
   const DeepLinkHandler({
     super.key,
     required this.child,
     this.source,
     this.onChallenge,
+    this.onChallengeTarget,
   });
 
   @override
@@ -84,15 +87,26 @@ class _DeepLinkHandlerState extends State<DeepLinkHandler> {
 
   void _navigate(Uri uri) {
     if (_disposed) return;
-    final movieId = ChallengeCode.movieIdFromLink(uri);
-    if (movieId == null) return;
+    final friend = FriendCode.parse(uri.toString());
+    if (friend != null) {
+      AppRouter.router.go('/friends?code=${Uri.encodeComponent(friend)}');
+      return;
+    }
+    final target = ChallengeCode.targetFromLink(uri);
+    if (target == null) return;
+    if (widget.onChallengeTarget != null) {
+      widget.onChallengeTarget!(target);
+      return;
+    }
 
     final callback = widget.onChallenge;
     if (callback != null) {
-      callback(movieId);
+      callback(target.movieId);
       return;
     }
-    AppRouter.router.go('/challenge/$movieId');
+    AppRouter.router.go(
+      '/challenge/${ChallengeCode.encode(target.movieId, mode: target.mode)}',
+    );
   }
 
   @override

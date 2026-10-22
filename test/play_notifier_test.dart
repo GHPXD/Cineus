@@ -136,8 +136,10 @@ void main() {
       await n.revealNext();
       expect(n.state.currentScore, 8);
 
-      final stored =
-          (await db.query('game_sessions', where: "kind = 'daily'")).single;
+      final stored = (await db.query(
+        'game_sessions',
+        where: "kind = 'daily'",
+      )).single;
       expect(stored['revealed_clues'], 3);
     });
 
@@ -195,10 +197,16 @@ void main() {
           final guess = answer == 2 ? 'Vingadores' : 'Rocky';
           final outcome = await n.submitGuess(guess);
 
-          expect(outcome, isNot(GuessOutcome.correct),
-              reason: 'modo $mode, resposta $answer');
-          expect(n.state.session!.status, GameStatus.playing,
-              reason: 'modo $mode, resposta $answer');
+          expect(
+            outcome,
+            isNot(GuessOutcome.correct),
+            reason: 'modo $mode, resposta $answer',
+          );
+          expect(
+            n.state.session!.status,
+            GameStatus.playing,
+            reason: 'modo $mode, resposta $answer',
+          );
         }
       }
     });
@@ -249,18 +257,20 @@ void main() {
       expect(await n.submitGuess('Titanic'), GuessOutcome.invalid);
     });
 
-    test('guessCount sobe a cada tentativa, mesmo repetindo o desfecho',
-        () async {
-      final n = notifierFor(GameMode.clue);
-      await n.loadStageFilm(5, 1, [5]);
+    test(
+      'guessCount sobe a cada tentativa, mesmo repetindo o desfecho',
+      () async {
+        final n = notifierFor(GameMode.clue);
+        await n.loadStageFilm(5, 1, [5]);
 
-      await n.submitGuess('Rocky');
-      final first = n.state.guessCount;
-      await n.submitGuess('Rocky');
+        await n.submitGuess('Rocky');
+        final first = n.state.guessCount;
+        await n.submitGuess('Rocky');
 
-      expect(n.state.lastGuessOutcome, GuessOutcome.franchise);
-      expect(n.state.guessCount, first + 1);
-    });
+        expect(n.state.lastGuessOutcome, GuessOutcome.franchise);
+        expect(n.state.guessCount, first + 1);
+      },
+    );
   });
 
   group('contexto da sessão', () {
@@ -275,8 +285,11 @@ void main() {
       await challenge.loadChallenge(2);
       expect(challenge.state.isChallenge, isTrue);
       expect(challenge.state.isDaily, isFalse);
-      expect(challenge.state.challengeNumber, 0,
-          reason: '0 é sentinel interno e nunca deve ser exibido pela UI');
+      expect(
+        challenge.state.challengeNumber,
+        0,
+        reason: '0 é sentinel interno e nunca deve ser exibido pela UI',
+      );
     });
   });
 

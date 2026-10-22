@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import pathlib
+import plistlib
+import xml.etree.ElementTree as ET
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -72,6 +74,16 @@ require("coreGameplayAlwaysFree = true" in monetization,
         "monetization policy must keep core gameplay free")
 require("DisabledMonetizationService" in monetization_provider,
         "unconfigured monetization must fail closed")
+manifest = ET.parse(ROOT / 'android/app/src/main/AndroidManifest.xml')
+android_ns = '{http://schemas.android.com/apk/res/android}'
+delivery = [e.get(android_ns+'value') for e in manifest.findall('.//activity/meta-data') if e.get(android_ns+'name') == 'flutter_deeplinking_enabled']
+require(delivery == ['false'], 'app_links must own Android URL delivery')
+with (ROOT / 'ios/Runner/Info.plist').open('rb') as file:
+    require(plistlib.load(file).get('FlutterDeepLinkingEnabled') is False,
+            'app_links must own iOS URL delivery')
+for name in ['Fredoka-OFL.txt','Nunito-OFL.txt']:
+    require((ROOT/'assets/licenses'/name).is_file(), f'missing bundled font license: {name}')
+require("'/font-licenses'" in router, 'font licenses must be readable in the app')
 require("11 de setembro de 2026" in privacy and "September 11, 2026" in privacy,
         "privacy policy effective date/locales missing")
 require("11 de setembro de 2026" in terms and "September 11, 2026" in terms,

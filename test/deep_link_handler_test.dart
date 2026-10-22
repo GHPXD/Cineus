@@ -49,7 +49,9 @@ void main() {
     expect(find.text('CINEUS_READY'), findsOneWidget);
   });
 
-  testWidgets('falha no cold-start do plugin não derruba o app', (tester) async {
+  testWidgets('falha no cold-start do plugin não derruba o app', (
+    tester,
+  ) async {
     final source = _FakeDeepLinkSource(
       initial: () async => throw StateError('platform unavailable'),
     );
@@ -64,23 +66,27 @@ void main() {
     expect(find.text('CINEUS_READY'), findsOneWidget);
   });
 
-  testWidgets('link recebido com o app aberto é roteado e inválido é ignorado',
-      (tester) async {
-    final source = _FakeDeepLinkSource(initial: () async => null);
-    addTearDown(source.close);
-    final opened = <int>[];
+  testWidgets(
+    'link recebido com o app aberto é roteado e inválido é ignorado',
+    (tester) async {
+      final source = _FakeDeepLinkSource(initial: () async => null);
+      addTearDown(source.close);
+      final opened = <int>[];
 
-    await tester.pumpWidget(_app(source: source, onChallenge: opened.add));
-    await tester.pump();
+      await tester.pumpWidget(_app(source: source, onChallenge: opened.add));
+      await tester.pump();
 
-    source.controller.add(Uri.parse('https://example.com/not-cineus'));
-    source.controller.add(ChallengeCode.linkFor(77));
-    await tester.pump();
+      source.controller.add(Uri.parse('https://example.com/not-cineus'));
+      source.controller.add(ChallengeCode.linkFor(77));
+      await tester.pump();
 
-    expect(opened, [77]);
-  });
+      expect(opened, [77]);
+    },
+  );
 
-  testWidgets('cold-start resolvido depois do dispose não navega', (tester) async {
+  testWidgets('cold-start resolvido depois do dispose não navega', (
+    tester,
+  ) async {
     final initial = Completer<Uri?>();
     final source = _FakeDeepLinkSource(initial: () => initial.future);
     addTearDown(source.close);
@@ -97,7 +103,9 @@ void main() {
     expect(find.text('OTHER_SCREEN'), findsOneWidget);
   });
 
-  testWidgets('eventos do stream depois do dispose não navegam', (tester) async {
+  testWidgets('eventos do stream depois do dispose não navegam', (
+    tester,
+  ) async {
     final source = _FakeDeepLinkSource(initial: () async => null);
     addTearDown(source.close);
     final opened = <int>[];

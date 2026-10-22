@@ -1,0 +1,50 @@
+{
+  "kept": "dist/Cineus.apk",
+  "sha256": "23401EE2F582FD44448EC7B5B19C0D643B76440221A80E15D049DBE5A1A895EF",
+  "removed": [
+    {
+      "Name": "Cineus-1.0.0-cores-cinematica.apk",
+      "Length": 130993559
+    },
+    {
+      "Name": "Cineus-1.0.0-cores-estagios.apk",
+      "Length": 138704915
+    },
+    {
+      "Name": "Cineus-1.0.0-cores-sprint-05.apk",
+      "Length": 105836410
+    },
+    {
+      "Name": "Cineus-1.0.0-filmes-cinematica.apk",
+      "Length": 119886610
+    },
+    {
+      "Name": "Cineus-1.0.0-harmonia-50.apk",
+      "Length": 138458243
+    },
+    {
+      "Name": "Cineus-1.0.0-home-ajustes.apk",
+      "Length": 138458239
+    },
+    {
+      "Name": "Cineus-1.0.0-home-cinematica.apk",
+      "Length": 112092047
+    },
+    {
+      "Name": "Cineus-1.0.0-integracao-geral.apk",
+      "Length": 105983866
+    },
+    {
+      "Name": "Cineus-1.0.0-posters-cinematica.apk",
+      "Length": 127033592
+    },
+    {
+      "Name": "Cineus-1.0.0-sprint-02.apk",
+      "Length": 105229056
+    },
+    {
+      "Name": "Cineus-1.0.0.apk",
+      "Length": 104037477
+    }
+  ]
+}

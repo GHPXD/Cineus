@@ -1,0 +1,27 @@
+{
+  "id": "hintDirector",
+  "kind": "icon",
+  "subject": "a distinctive film director's hinged clapperboard, open striped top, two broad blank horizontal slots; recognisable cinema object",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. A coherent boutique-cinema visual identity: bold, carefully designed illustrated objects, expressive memorable proportions, sophisticated not childish, small-screen readable. Restrained palette of flat warm gold #EFC026, vivid periwinkle blue #5790FF and warm ivory #F4F3E8, at most 4 discrete flat colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with a tiny suggestion of depth through overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji, NOT stock library, NOT glossy 3D, no gradients, no shadows, no texture or distress, no speckles, no sparkles, no text, numerals, letters or watermark. Genuinely transparent background. A single centred icon with about 10% empty padding on each side on a square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a distinctive film director's hinged clapperboard, open striped top, two broad blank horizontal slots; recognisable cinema object.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-b41647f0-2075-4a63-b055-1b7a632d4919.png",
+  "source": "assets/generated/sources/hintDirector.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/hintDirector.svg",
+  "source_sha256": "384b79696cc9af82b0ec2ae267a77081f16c5d59e3313694bcee4cba87cfd9b0",
+  "svg_sha256": "6850cb4023182ff58879708f7b89fc7e9c605d481111c4dbad629b4abe9d6d22",
+  "paths": 18,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "status": "converted",
+  "conversion_version": 5,
+  "ink_svg": "assets/generated/icons/hintDirector_ink.svg",
+  "ink_sha256": "420c6b48592b7e04498ed01a5efcf5373cb2bb27d572919bd07707bb9b8aa31e"
+}

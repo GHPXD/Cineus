@@ -1,0 +1,27 @@
+{
+  "id": "homeCalendar",
+  "kind": "icon",
+  "subject": "homeCalendar",
+  "prompt": "Use case: logo-brand. Asset type: dedicated icon for Cineus mobile Home. Create ONE original icon from scratch: one bold elegant golden calendar with two binding tabs, dark navy page and a single large gold check mark in the middle; no numbers, lettering or dates. Premium editorial 2D graphic in warm gold #EFC026 and optional dark navy/ivory/blue. Strong simple silhouette and large clear negative spaces, clean solid vector-tracing friendly shapes, readable at 20 pixels, generous padding, square genuinely transparent background. No shadow, texture, gradient, watermark, text, numerals, UI, border or extra elements. Match a black, blue and gold cinematic app.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-4f0bcd83-a90e-44ad-b095-6923be14398b.png",
+  "source": "assets/generated/sources/homeCalendar.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/homeCalendar.svg",
+  "source_sha256": "6519709415b30a276a1d377f64d3c839d1b8cc5d408b86ee502850514c4a7667",
+  "svg_sha256": "1bc67a707cc10a80928e7ba027277404c6ff01036f32cf0ea54bf8fe891e41fb",
+  "paths": 7,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/homeCalendar_ink.svg",
+  "ink_sha256": "8db11290a1fbc6cbbba02f6c778cbdf677b97fa1c87dfd01ab5f85cb47db6b82"
+}

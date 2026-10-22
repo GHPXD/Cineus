@@ -1,0 +1,27 @@
+{
+  "id": "challenge",
+  "kind": "icon",
+  "subject": "two crossed tiny cinema flags on a single base, suggesting a friendly film challenge, no writing",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: two crossed tiny cinema flags on a single base, suggesting a friendly film challenge, no writing.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-7b653daa-baae-4258-ad66-8789071a1eb8.png",
+  "source": "assets/generated/sources/challenge.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/challenge.svg",
+  "source_sha256": "f3393d20273b58d5bb868bb8f166174f14511b7faa6306694b2de46ad23617bd",
+  "svg_sha256": "bb91f29554affa4d957220abdb446f77c7a251146d4dd028874dfad734457a8d",
+  "paths": 39,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/challenge_ink.svg",
+  "ink_sha256": "56ed19fb830437f6085218cb258f70b7140c301d9ac7349694ec9c41c66d97e7"
+}

@@ -11,38 +11,50 @@ import '../l10n/app_l10n.dart';
 /// lives here — one place to look when a string reads wrong in some language.
 extension DomainL10n on AppL10n {
   String achievementTitle(String id) => switch (id) {
-        'first_win' => achFirstWin,
-        'perfect' => achPerfect,
-        'streak_7' => achStreak7,
-        'streak_30' => achStreak30,
-        'games_50' => achGames50,
-        'stages_5' => achStages5,
-        'tickets_100' => achTickets100,
-        _ => id,
-      };
+    'poster_first' => achPosterFirst,
+    'poster_perfect' => achPosterPerfect,
+    'colors_first' => achColorsFirst,
+    'colors_25' => achColors25,
+    'colors_excellent' => achColorsExcellent,
+    'colors_stages_3' => achColorsStages3,
+    'first_win' => achFirstWin,
+    'perfect' => achPerfect,
+    'streak_7' => achStreak7,
+    'streak_30' => achStreak30,
+    'games_50' => achGames50,
+    'stages_5' => achStages5,
+    'tickets_100' => achTickets100,
+    _ => id,
+  };
 
   String achievementDescription(String id) => switch (id) {
-        'first_win' => achFirstWinDesc,
-        'perfect' => achPerfectDesc,
-        'streak_7' => achStreak7Desc,
-        'streak_30' => achStreak30Desc,
-        'games_50' => achGames50Desc,
-        'stages_5' => achStages5Desc,
-        'tickets_100' => achTickets100Desc,
-        _ => '',
-      };
+    'poster_first' => achPosterFirstDesc,
+    'poster_perfect' => achPosterPerfectDesc,
+    'colors_first' => achColorsFirstDesc,
+    'colors_25' => achColors25Desc,
+    'colors_excellent' => achColorsExcellentDesc,
+    'colors_stages_3' => achColorsStages3Desc,
+    'first_win' => achFirstWinDesc,
+    'perfect' => achPerfectDesc,
+    'streak_7' => achStreak7Desc,
+    'streak_30' => achStreak30Desc,
+    'games_50' => achGames50Desc,
+    'stages_5' => achStages5Desc,
+    'tickets_100' => achTickets100Desc,
+    _ => '',
+  };
 
   String hintLabel(ExtraHint hint) => switch (hint) {
-        ExtraHint.director => hintDirector,
-        ExtraHint.year => hintYear,
-        ExtraHint.runtime => hintRuntime,
-      };
+    ExtraHint.director => hintDirector,
+    ExtraHint.year => hintYear,
+    ExtraHint.runtime => hintRuntime,
+  };
 
   String rewardReason(TicketReward reward) => switch (reward.kind) {
-        RewardKind.dailyWin => rewardDailyWin,
-        RewardKind.streakMilestone => rewardStreak(reward.value ?? 0),
-        RewardKind.stageComplete => rewardStageComplete(reward.value ?? 0),
-      };
+    RewardKind.dailyWin => rewardDailyWin,
+    RewardKind.streakMilestone => rewardStreak(reward.value ?? 0),
+    RewardKind.stageComplete => rewardStageComplete(reward.value ?? 0),
+  };
 
   String modeName(GameMode mode) =>
       mode == GameMode.clue ? modeClues : modePoster;

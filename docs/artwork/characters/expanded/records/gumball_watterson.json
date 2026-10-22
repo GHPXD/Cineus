@@ -1,0 +1,34 @@
+{
+  "id": "gumball_watterson",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/gumball_watterson.png",
+  "source_sha256": "e02efd12d5cdaa983db181c3c88beeba5dc593e74e0d50fc31c744e088e80ee1",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1073,
+    1465
+  ],
+  "trace_size": [
+    474,
+    640
+  ],
+  "region_pixels": [
+    62088
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/gumball_watterson_base.svg",
+      "sha256": "6fa0483b2f110286abb840a01381511056e68bb5cc0405a82cc4b8faa8fd7137"
+    },
+    {
+      "file": "assets/colors/art/gumball_watterson_p0.svg",
+      "sha256": "cb16a7dd71d9acdf6f10f258cb446337cf8ebe978e69c1831a8769ed33a42045"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-116b678a-6584-4bbf-8b9c-a1f53f12d179.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Gumball Watterson, round blue cartoon cat with large eyes and short whiskers, beige sweater with brown cuffs and collar, gray trousers, blue feet. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blue fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

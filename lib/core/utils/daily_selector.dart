@@ -14,6 +14,8 @@ abstract final class DailySelector {
       throw ArgumentError.value(totalMovies, 'totalMovies', 'must be positive');
     }
     final day = challengeNumber(date);
+    final offset = _balancedOffset(date);
+    if (offset != null) return _balancedIndex(totalMovies, offset);
     final hash = (day * AppConstants.dailyHashConstant) & 0xFFFFFFFF;
     return hash % totalMovies;
   }
@@ -24,6 +26,13 @@ abstract final class DailySelector {
       throw ArgumentError.value(totalMovies, 'totalMovies', 'must be positive');
     }
     final day = challengeNumber(date);
+    final offset = _balancedOffset(date);
+    if (offset != null) {
+      return _balancedIndex(
+        totalMovies,
+        offset + (totalMovies > 1 ? totalMovies ~/ 2 : 0),
+      );
+    }
     final hash = (day * AppConstants.posterHashConstant) & 0xFFFFFFFF;
     var index = hash % totalMovies;
     if (totalMovies > 1 && index == movieIndexForDate(totalMovies, date)) {
@@ -39,6 +48,25 @@ abstract final class DailySelector {
   /// Compatibility helper for callers/tests using a contiguous 1-based catalog.
   static int posterMovieIdForDate(int totalMovies, [DateTime? date]) =>
       posterMovieIndexForDate(totalMovies, date) + 1;
+
+  static int? _balancedOffset(DateTime? date) {
+    final day = dateFromKey(todayKey(date))!;
+    final offset = day.difference(DateTime.utc(2026, 10, 20)).inDays;
+    return offset >= 0 ? offset : null;
+  }
+
+  static final _orders = <int, List<int>>{};
+  static int _balancedIndex(int total, int offset) {
+    final order = _orders.putIfAbsent(
+      total,
+      () => shuffleStage(
+        List.generate(total, (i) => i),
+        20261020,
+        AppConstants.posterStageSeed,
+      ),
+    );
+    return order[offset % total];
+  }
 
   /// Returns today's date string in YYYY-MM-DD format (UTC day).
   static String todayKey([DateTime? date]) {
@@ -63,8 +91,11 @@ abstract final class DailySelector {
   /// Returns time remaining until midnight UTC.
   static Duration timeUntilNextChallenge([DateTime? now]) {
     final utcNow = (now ?? DateTime.now()).toUtc();
-    final nextUtcMidnight = DateTime.utc(utcNow.year, utcNow.month, utcNow.day)
-        .add(const Duration(days: 1));
+    final nextUtcMidnight = DateTime.utc(
+      utcNow.year,
+      utcNow.month,
+      utcNow.day,
+    ).add(const Duration(days: 1));
     return nextUtcMidnight.difference(utcNow);
   }
 

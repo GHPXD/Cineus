@@ -1,0 +1,27 @@
+{
+  "id": "ticket",
+  "kind": "icon",
+  "subject": "a boutique cinema admission ticket, slightly tilted, semicircular side notches and broad perforated tear strip, no writing",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. A coherent boutique-cinema visual identity: bold, carefully designed illustrated objects, expressive memorable proportions, sophisticated not childish, small-screen readable. Restrained palette of flat warm gold #EFC026, vivid periwinkle blue #5790FF and warm ivory #F4F3E8, at most 4 discrete flat colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with a tiny suggestion of depth through overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji, NOT stock library, NOT glossy 3D, no gradients, no shadows, no texture or distress, no speckles, no sparkles, no text, numerals, letters or watermark. Genuinely transparent background. A single centred icon with about 10% empty padding on each side on a square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a boutique cinema admission ticket, slightly tilted, semicircular side notches and broad perforated tear strip, no writing.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-4e544c19-efd2-47f0-892e-4828d4e6f4a2.png",
+  "source": "assets/generated/sources/ticket.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/ticket.svg",
+  "source_sha256": "74c8ac9d84bc8fe9a91fc169cd130bb787e4c0693c8499fc07fe73a8c1a1015a",
+  "svg_sha256": "33fa166ba4c26f541013eef2e76763b542138df7925d3c6368ffae4327471b25",
+  "paths": 13,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "status": "converted",
+  "conversion_version": 5,
+  "ink_svg": "assets/generated/icons/ticket_ink.svg",
+  "ink_sha256": "e10a4ae17994defd68a5ff44dda161b5c21a4b93c2e20ccb83f81ad5a7380371"
+}

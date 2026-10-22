@@ -1,0 +1,39 @@
+{
+  "id": "wario",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/wario.png",
+  "source_sha256": "df8e2105f505b85c9c3bea98462fe49dd362366f7183acaaed4b6724a7922f74",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+  "conversion_version": 5,
+  "source_size": [
+    479,
+    539
+  ],
+  "trace_size": [
+    853,
+    960
+  ],
+  "region_pixels": [
+    73481
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/wario_base.svg",
+      "sha256": "06aa1a5e55cb2c6abf460225a0a2bb0c314eb90f23aadf7071f6f88c3ae7c5cb"
+    },
+    {
+      "file": "assets/colors/art/wario_p0.svg",
+      "sha256": "b2a2b1654200dc85b55c21877243d1b7516274086bfa62d355cbb2a94f8aa6a5"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Wario, stocky adult mustached character with yellow cap without letters and yellow shirt, purple overalls, white gloves and green shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 468b1b40-9668-4fc9-aa68-870232ef1379.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://mario.nintendo.com/static/2e8e71c5b38a5aedd5eef91c3d54bf13/747d9/wario.png",
+  "source_page": "https://mario.nintendo.com/characters/",
+  "external_file": "docs/artwork/characters/expanded/references/wario-official.png",
+  "external_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743"
+}

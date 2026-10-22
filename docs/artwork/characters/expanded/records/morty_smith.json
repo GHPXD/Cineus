@@ -1,0 +1,34 @@
+{
+  "id": "morty_smith",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/morty_smith.png",
+  "source_sha256": "c4422395263cbb063a779a8ca4413ea5f69c50b163f29e993e2b6f764082e34f",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    421,
+    640
+  ],
+  "region_pixels": [
+    17103
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/morty_smith_base.svg",
+      "sha256": "0e8e9e62af2b1efef8cf152fe012196bda4f521f5dbf28f91c332fcef91422aa"
+    },
+    {
+      "file": "assets/colors/art/morty_smith_p0.svg",
+      "sha256": "d8aa3eb20150765881bdc024bf297f847134c3353cf0e146455bf0371607b881"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-527e2bc6-4538-44b7-bff8-cea62e06b1a9.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Morty Smith, brown-haired cartoon boy with round head, yellow short-sleeve t-shirt, blue jeans, white shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the t-shirt in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

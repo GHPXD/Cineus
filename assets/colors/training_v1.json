@@ -1,0 +1,4270 @@
+{
+  "schema_version": 1,
+  "pack_version": "training-3",
+  "status": "local-training",
+  "checked_on": "2026-10-15",
+  "reference_policy": "50 distinct characters / 110 source-backed regions. Original 90 questions unchanged. Generated art never determines answers.",
+  "questions": [
+    {
+      "id": "spongebob_body",
+      "target_hex": "#FEEF00",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/spongebob-body/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Corpo",
+          "hint": "Pense em um amarelo vivo, pouco suave."
+        },
+        "en": {
+          "character": "SpongeBob",
+          "work": "SpongeBob SquarePants",
+          "part": "Body",
+          "hint": "Think of a vivid yellow rather than a soft pastel."
+        },
+        "es": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja",
+          "part": "Cuerpo",
+          "hint": "Piensa en un amarillo vivo, no en un pastel suave."
+        }
+      },
+      "character_id": "spongebob",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/spongebob.webp"
+    },
+    {
+      "id": "spongebob_shirt",
+      "target_hex": "#FFFFFF",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/spongebob-body/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Camisa",
+          "hint": "Pense no tecido claro, sem a gravata."
+        },
+        "en": {
+          "character": "SpongeBob",
+          "work": "SpongeBob SquarePants",
+          "part": "Shirt",
+          "hint": "Think of the light fabric, excluding the tie."
+        },
+        "es": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja",
+          "part": "Camisa",
+          "hint": "Piensa en la tela clara, sin la corbata."
+        }
+      },
+      "character_id": "spongebob",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/spongebob.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          181,
+          395
+        ],
+        "image_sha256": "d39bcb3cdf724459a5c07585b64ee3e04e5068a711ac9d2a4dc01cbe524dcf58"
+      }
+    },
+    {
+      "id": "spongebob_tie",
+      "target_hex": "#E54645",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/spongebob-body/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Gravata",
+          "hint": "Lembre o tom quente da gravata."
+        },
+        "en": {
+          "character": "SpongeBob",
+          "work": "SpongeBob SquarePants",
+          "part": "Tie",
+          "hint": "Remember the warm tone of the tie."
+        },
+        "es": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja",
+          "part": "Corbata",
+          "hint": "Recuerda el tono cálido de la corbata."
+        }
+      },
+      "character_id": "spongebob",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/spongebob.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          133,
+          397
+        ],
+        "image_sha256": "d39bcb3cdf724459a5c07585b64ee3e04e5068a711ac9d2a4dc01cbe524dcf58"
+      }
+    },
+    {
+      "id": "spongebob_shorts",
+      "target_hex": "#C1714A",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/spongebob-body/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Calção",
+          "hint": "Pense no tecido, sem o cinto escuro."
+        },
+        "en": {
+          "character": "SpongeBob",
+          "work": "SpongeBob SquarePants",
+          "part": "Square pants",
+          "hint": "Think of the fabric, excluding the dark belt."
+        },
+        "es": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja",
+          "part": "Pantalón",
+          "hint": "Piensa en la tela, sin el cinturón oscuro."
+        }
+      },
+      "character_id": "spongebob",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/spongebob.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          240,
+          456
+        ],
+        "image_sha256": "d39bcb3cdf724459a5c07585b64ee3e04e5068a711ac9d2a4dc01cbe524dcf58"
+      }
+    },
+    {
+      "id": "spongebob_shoes",
+      "target_hex": "#010101",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/spongebob-body/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Sapatos",
+          "hint": "Lembre o tom escuro, sem os brilhos."
+        },
+        "en": {
+          "character": "SpongeBob",
+          "work": "SpongeBob SquarePants",
+          "part": "Shoes",
+          "hint": "Remember the dark tone, excluding highlights."
+        },
+        "es": {
+          "character": "Bob Esponja",
+          "work": "Bob Esponja",
+          "part": "Zapatos",
+          "hint": "Recuerda el tono oscuro, sin los brillos."
+        }
+      },
+      "character_id": "spongebob",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/spongebob.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          337,
+          487
+        ],
+        "image_sha256": "d39bcb3cdf724459a5c07585b64ee3e04e5068a711ac9d2a4dc01cbe524dcf58"
+      }
+    },
+    {
+      "id": "pikachu_body",
+      "target_hex": "#FCD33B",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pikachu-skin/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Capitão Pikachu",
+          "work": "Pokémon",
+          "part": "Corpo",
+          "hint": "Lembre a pelagem, deixando as bochechas de fora."
+        },
+        "en": {
+          "character": "Captain Pikachu",
+          "work": "Pokémon",
+          "part": "Body",
+          "hint": "Remember the fur, leaving out the cheeks."
+        },
+        "es": {
+          "character": "Capitán Pikachu",
+          "work": "Pokémon",
+          "part": "Cuerpo",
+          "hint": "Recuerda el pelaje, sin incluir las mejillas."
+        }
+      },
+      "character_id": "pikachu",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/pikachu.webp"
+    },
+    {
+      "id": "pikachu_cheeks",
+      "target_hex": "#F45633",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pikachu-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Capitão Pikachu",
+          "work": "Pokémon",
+          "part": "Bochechas",
+          "hint": "Lembre o tom quente das duas marcas."
+        },
+        "en": {
+          "character": "Captain Pikachu",
+          "work": "Pokémon",
+          "part": "Cheek circles",
+          "hint": "Remember the warm tone of both marks."
+        },
+        "es": {
+          "character": "Capitán Pikachu",
+          "work": "Pokémon",
+          "part": "Mejillas",
+          "hint": "Recuerda el tono cálido de ambas marcas."
+        }
+      },
+      "character_id": "pikachu",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/pikachu.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          167,
+          287
+        ],
+        "image_sha256": "73fbb3e2e6aa4c477a996feac5127dfe720dc3fdae31b3094ee70a5a647a0de0"
+      }
+    },
+    {
+      "id": "pikachu_ear_tips",
+      "target_hex": "#211F1F",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pikachu-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Capitão Pikachu",
+          "work": "Pokémon",
+          "part": "Pontas das orelhas",
+          "hint": "São as extremidades escuras, não a base."
+        },
+        "en": {
+          "character": "Captain Pikachu",
+          "work": "Pokémon",
+          "part": "Ear tips",
+          "hint": "Think of the dark tips, not the base."
+        },
+        "es": {
+          "character": "Capitán Pikachu",
+          "work": "Pokémon",
+          "part": "Puntas de las orejas",
+          "hint": "Piensa en las puntas oscuras, no la base."
+        }
+      },
+      "character_id": "pikachu",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/pikachu.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          455,
+          110
+        ],
+        "image_sha256": "73fbb3e2e6aa4c477a996feac5127dfe720dc3fdae31b3094ee70a5a647a0de0"
+      }
+    },
+    {
+      "id": "pikachu_tail_base",
+      "target_hex": "#854025",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pikachu-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Capitão Pikachu",
+          "work": "Pokémon",
+          "part": "Base da cauda",
+          "hint": "A base tem um tom terroso."
+        },
+        "en": {
+          "character": "Captain Pikachu",
+          "work": "Pokémon",
+          "part": "Tail base",
+          "hint": "The base has an earthy tone."
+        },
+        "es": {
+          "character": "Capitán Pikachu",
+          "work": "Pokémon",
+          "part": "Base de la cola",
+          "hint": "La base tiene un tono terroso."
+        }
+      },
+      "character_id": "pikachu",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/pikachu.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          140,
+          425
+        ],
+        "image_sha256": "73fbb3e2e6aa4c477a996feac5127dfe720dc3fdae31b3094ee70a5a647a0de0"
+      }
+    },
+    {
+      "id": "pikachu_captain_hat",
+      "target_hex": "#FFFFFF",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pikachu-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Capitão Pikachu",
+          "work": "Pokémon",
+          "part": "Chapéu de capitão (tecido)",
+          "hint": "Lembre o tecido claro, sem a aba e o emblema."
+        },
+        "en": {
+          "character": "Captain Pikachu",
+          "work": "Pokémon",
+          "part": "Captain hat (cloth)",
+          "hint": "Remember the light cloth, excluding visor and emblem."
+        },
+        "es": {
+          "character": "Capitán Pikachu",
+          "work": "Pokémon",
+          "part": "Gorro de capitán (tela)",
+          "hint": "Recuerda la tela clara, sin la visera ni el emblema."
+        }
+      },
+      "character_id": "pikachu",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/pikachu.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          190,
+          86
+        ],
+        "image_sha256": "73fbb3e2e6aa4c477a996feac5127dfe720dc3fdae31b3094ee70a5a647a0de0"
+      }
+    },
+    {
+      "id": "stitch_fur",
+      "target_hex": "#5078A7",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/stitch-body_fur/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Pelagem principal",
+          "hint": "Considere o pelo externo, sem a barriga mais clara."
+        },
+        "en": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Main fur",
+          "hint": "Think of the outer fur, excluding the lighter belly."
+        },
+        "es": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Pelaje principal",
+          "hint": "Piensa en el pelaje exterior, sin el vientre más claro."
+        }
+      },
+      "character_id": "stitch",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/stitch.webp"
+    },
+    {
+      "id": "stitch_inner_ears",
+      "target_hex": "#A1819E",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/stitch-body_fur/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Interior das orelhas",
+          "hint": "Pense no tom suave por dentro."
+        },
+        "en": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Inner ears",
+          "hint": "Think of the soft tone inside."
+        },
+        "es": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Interior de las orejas",
+          "hint": "Piensa en el tono suave del interior."
+        }
+      },
+      "character_id": "stitch",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/stitch.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          227,
+          258
+        ],
+        "image_sha256": "ffbd9f03a5382e2da6afac202c79d14112032220b76d65343ae2c5f789368c98"
+      }
+    },
+    {
+      "id": "stitch_eye_patches",
+      "target_hex": "#57C1E2",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/stitch-body_fur/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Região clara ao redor dos olhos",
+          "hint": "Lembre o tom claro ao redor, não as pupilas."
+        },
+        "en": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Light eye patches",
+          "hint": "Remember the light surrounding patches, not the pupils."
+        },
+        "es": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Zona clara alrededor de los ojos",
+          "hint": "Recuerda la zona clara, no las pupilas."
+        }
+      },
+      "character_id": "stitch",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/stitch.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          306,
+          272
+        ],
+        "image_sha256": "ffbd9f03a5382e2da6afac202c79d14112032220b76d65343ae2c5f789368c98"
+      }
+    },
+    {
+      "id": "stitch_nose",
+      "target_hex": "#00295F",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/stitch-body_fur/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Nariz",
+          "hint": "É um tom frio e bem escuro."
+        },
+        "en": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Nose",
+          "hint": "It is a cool and very dark tone."
+        },
+        "es": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Nariz",
+          "hint": "Es un tono frío y muy oscuro."
+        }
+      },
+      "character_id": "stitch",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/stitch.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          379,
+          289
+        ],
+        "image_sha256": "ffbd9f03a5382e2da6afac202c79d14112032220b76d65343ae2c5f789368c98"
+      }
+    },
+    {
+      "id": "stitch_tongue",
+      "target_hex": "#D46773",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/stitch-body_fur/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Língua",
+          "hint": "Lembre o tom rosado da língua."
+        },
+        "en": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Tongue",
+          "hint": "Remember the rosy tone of the tongue."
+        },
+        "es": {
+          "character": "Stitch",
+          "work": "Lilo & Stitch",
+          "part": "Lengua",
+          "hint": "Recuerda el tono rosado de la lengua."
+        }
+      },
+      "character_id": "stitch",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/stitch.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          326,
+          336
+        ],
+        "image_sha256": "ffbd9f03a5382e2da6afac202c79d14112032220b76d65343ae2c5f789368c98"
+      }
+    },
+    {
+      "id": "goku_gi",
+      "target_hex": "#F06E26",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/goku-turtle_hermit_gi/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Uniforme da Escola Tartaruga",
+          "hint": "Lembre o uniforme externo, não a camiseta de baixo."
+        },
+        "en": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Turtle School gi",
+          "hint": "Remember the outer uniform, not the undershirt."
+        },
+        "es": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Uniforme de la Escuela Tortuga",
+          "hint": "Recuerda el uniforme exterior, no la camiseta interior."
+        }
+      },
+      "character_id": "goku",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/goku.webp"
+    },
+    {
+      "id": "goku_undershirt",
+      "target_hex": "#293E67",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/goku-turtle_hermit_gi/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Camiseta de baixo",
+          "hint": "É mais fria e escura que o uniforme externo."
+        },
+        "en": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Undershirt",
+          "hint": "It is cooler and darker than the outer uniform."
+        },
+        "es": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Camiseta interior",
+          "hint": "Es más fría y oscura que el uniforme exterior."
+        }
+      },
+      "character_id": "goku",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/goku.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          370,
+          218
+        ],
+        "image_sha256": "92982ec910da65036bd78a24186a098d70cbe5f6e8a95a2bbca587750e8bd80a"
+      }
+    },
+    {
+      "id": "goku_hair",
+      "target_hex": "#000201",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/goku-turtle_hermit_gi/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Cabelo (forma normal)",
+          "hint": "Não é a transformação Super Saiyajin."
+        },
+        "en": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Hair (normal form)",
+          "hint": "This is not the Super Saiyan transformation."
+        },
+        "es": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Cabello (forma normal)",
+          "hint": "No es la transformación Super Saiyajin."
+        }
+      },
+      "character_id": "goku",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/goku.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          394,
+          40
+        ],
+        "image_sha256": "92982ec910da65036bd78a24186a098d70cbe5f6e8a95a2bbca587750e8bd80a"
+      }
+    },
+    {
+      "id": "goku_skin",
+      "target_hex": "#E6A69C",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/goku-turtle_hermit_gi/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Pele (tom da face)",
+          "hint": "Lembre um tom quente, sem as sombras."
+        },
+        "en": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Skin (face tone)",
+          "hint": "Remember a warm tone, excluding shadows."
+        },
+        "es": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Piel (tono del rostro)",
+          "hint": "Recuerda un tono cálido, sin las sombras."
+        }
+      },
+      "character_id": "goku",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/goku.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          335,
+          100
+        ],
+        "image_sha256": "92982ec910da65036bd78a24186a098d70cbe5f6e8a95a2bbca587750e8bd80a"
+      }
+    },
+    {
+      "id": "goku_tongue",
+      "target_hex": "#EC787B",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/goku-turtle_hermit_gi/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Língua",
+          "hint": "Pense no tom rosado dentro do sorriso."
+        },
+        "en": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Tongue",
+          "hint": "Think of the rosy tone inside the smile."
+        },
+        "es": {
+          "character": "Goku",
+          "work": "Dragon Ball Z",
+          "part": "Lengua",
+          "hint": "Piensa en el tono rosado dentro de la sonrisa."
+        }
+      },
+      "character_id": "goku",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/goku.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          291,
+          139
+        ],
+        "image_sha256": "92982ec910da65036bd78a24186a098d70cbe5f6e8a95a2bbca587750e8bd80a"
+      }
+    },
+    {
+      "id": "cartman_jacket",
+      "target_hex": "#D71D3F",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/eric_cartman-jacket/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Jaqueta",
+          "hint": "A pergunta é sobre a jaqueta, não a touca."
+        },
+        "en": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Jacket",
+          "hint": "Focus on the jacket, not the hat."
+        },
+        "es": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Chaqueta",
+          "hint": "La pregunta es sobre la chaqueta, no el gorro."
+        }
+      },
+      "character_id": "cartman",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/eric_cartman.webp"
+    },
+    {
+      "id": "cartman_hat",
+      "target_hex": "#45B6BD",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/eric_cartman-jacket/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Touca (parte principal)",
+          "hint": "Lembre um tom entre verde e azul."
+        },
+        "en": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Hat (main dome)",
+          "hint": "Remember a tone between green and blue."
+        },
+        "es": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Gorro (parte principal)",
+          "hint": "Recuerda un tono entre verde y azul."
+        }
+      },
+      "character_id": "cartman",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/eric_cartman.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          187,
+          175
+        ],
+        "image_sha256": "6d6a3681437e7024226fd40de4528bf1994a0eda76845845183f1a51cfce8f20"
+      }
+    },
+    {
+      "id": "cartman_hat_trim",
+      "target_hex": "#F9E000",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/eric_cartman-jacket/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Faixa e pompom da touca",
+          "hint": "A faixa é mais quente e viva que a touca."
+        },
+        "en": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Hat band and pompom",
+          "hint": "The band is warmer and more vivid than the hat."
+        },
+        "es": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Banda y pompón del gorro",
+          "hint": "La banda es más cálida y viva que el gorro."
+        }
+      },
+      "character_id": "cartman",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/eric_cartman.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          246,
+          133
+        ],
+        "image_sha256": "6d6a3681437e7024226fd40de4528bf1994a0eda76845845183f1a51cfce8f20"
+      }
+    },
+    {
+      "id": "cartman_skin",
+      "target_hex": "#FCDCB4",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/eric_cartman-jacket/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Pele (tom da face)",
+          "hint": "Pense num tom claro e quente."
+        },
+        "en": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Skin (face tone)",
+          "hint": "Think of a light, warm tone."
+        },
+        "es": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Piel (tono del rostro)",
+          "hint": "Piensa en un tono claro y cálido."
+        }
+      },
+      "character_id": "cartman",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/eric_cartman.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          252,
+          283
+        ],
+        "image_sha256": "6d6a3681437e7024226fd40de4528bf1994a0eda76845845183f1a51cfce8f20"
+      }
+    },
+    {
+      "id": "cartman_pants",
+      "target_hex": "#6C3D2B",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/eric_cartman-jacket/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Calça",
+          "hint": "Lembre o tom terroso, sem as sombras."
+        },
+        "en": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Trousers",
+          "hint": "Remember the earthy tone, excluding shadows."
+        },
+        "es": {
+          "character": "Eric Cartman",
+          "work": "South Park",
+          "part": "Pantalón",
+          "hint": "Recuerda el tono terroso, sin las sombras."
+        }
+      },
+      "character_id": "cartman",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/eric_cartman.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          310,
+          415
+        ],
+        "image_sha256": "6d6a3681437e7024226fd40de4528bf1994a0eda76845845183f1a51cfce8f20"
+      }
+    },
+    {
+      "id": "patrick_shorts",
+      "target_hex": "#A1E82F",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/patrick_star-shorts/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Patrick Estrela",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Bermuda (tecido, sem estampas)",
+          "hint": "Ignore as flores e pense apenas no tecido de fundo."
+        },
+        "en": {
+          "character": "Patrick Star",
+          "work": "SpongeBob SquarePants",
+          "part": "Shorts (fabric, without patterns)",
+          "hint": "Ignore the flowers and focus on the background fabric."
+        },
+        "es": {
+          "character": "Patricio Estrella",
+          "work": "Bob Esponja",
+          "part": "Pantalón (tela, sin dibujos)",
+          "hint": "Ignora las flores y piensa en el fondo de la tela."
+        }
+      },
+      "character_id": "patrick",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/patrick_star.webp"
+    },
+    {
+      "id": "patrick_skin",
+      "target_hex": "#E17879",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/patrick_star-shorts/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Patrick Estrela",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Pele (tom do corpo)",
+          "hint": "É um tom rosado, mais suave que vermelho puro."
+        },
+        "en": {
+          "character": "Patrick Star",
+          "work": "SpongeBob SquarePants",
+          "part": "Skin (body tone)",
+          "hint": "It is rosy, softer than pure red."
+        },
+        "es": {
+          "character": "Patricio Estrella",
+          "work": "Bob Esponja",
+          "part": "Piel (tono del cuerpo)",
+          "hint": "Es rosado, más suave que el rojo puro."
+        }
+      },
+      "character_id": "patrick",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/patrick_star.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          255,
+          245
+        ],
+        "image_sha256": "18b4554d45dcc8841614f5471bdafe05d60979417e37908fe6845d66e10347de"
+      }
+    },
+    {
+      "id": "patrick_flowers",
+      "target_hex": "#9A5DCA",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/patrick_star-shorts/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Patrick Estrela",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Flores da bermuda",
+          "hint": "Pense nas flores, sem o tecido de fundo."
+        },
+        "en": {
+          "character": "Patrick Star",
+          "work": "SpongeBob SquarePants",
+          "part": "Shorts flowers",
+          "hint": "Think of the flowers, excluding the fabric."
+        },
+        "es": {
+          "character": "Patricio Estrella",
+          "work": "Bob Esponja",
+          "part": "Flores del pantalón",
+          "hint": "Piensa en las flores, sin el fondo de la tela."
+        }
+      },
+      "character_id": "patrick",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/patrick_star.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          269,
+          373
+        ],
+        "image_sha256": "18b4554d45dcc8841614f5471bdafe05d60979417e37908fe6845d66e10347de"
+      }
+    },
+    {
+      "id": "patrick_eye_whites",
+      "target_hex": "#EFF2EF",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/patrick_star-shorts/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Patrick Estrela",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Parte clara dos olhos",
+          "hint": "Ignore as pupilas e lembre a área clara."
+        },
+        "en": {
+          "character": "Patrick Star",
+          "work": "SpongeBob SquarePants",
+          "part": "Eye whites",
+          "hint": "Ignore the pupils and remember the light area."
+        },
+        "es": {
+          "character": "Patricio Estrella",
+          "work": "Bob Esponja",
+          "part": "Parte clara de los ojos",
+          "hint": "Ignora las pupilas y recuerda la zona clara."
+        }
+      },
+      "character_id": "patrick",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/patrick_star.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          278,
+          162
+        ],
+        "image_sha256": "18b4554d45dcc8841614f5471bdafe05d60979417e37908fe6845d66e10347de"
+      }
+    },
+    {
+      "id": "patrick_mouth",
+      "target_hex": "#6E1B17",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/patrick_star-shorts/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Patrick Estrela",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Interior da boca (sem língua)",
+          "hint": "Lembre o tom escuro por dentro, sem língua e dentes."
+        },
+        "en": {
+          "character": "Patrick Star",
+          "work": "SpongeBob SquarePants",
+          "part": "Mouth interior (not tongue)",
+          "hint": "Remember the dark interior, excluding tongue and teeth."
+        },
+        "es": {
+          "character": "Patricio Estrella",
+          "work": "Bob Esponja",
+          "part": "Interior de la boca (sin lengua)",
+          "hint": "Recuerda el interior oscuro, sin lengua ni dientes."
+        }
+      },
+      "character_id": "patrick",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/patrick_star.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          295,
+          216
+        ],
+        "image_sha256": "18b4554d45dcc8841614f5471bdafe05d60979417e37908fe6845d66e10347de"
+      }
+    },
+    {
+      "id": "finn_backpack",
+      "target_hex": "#4FA526",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/finn_human-backpack/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Mochila (parte mais escura)",
+          "hint": "Use a parte mais escura da mochila de duas cores."
+        },
+        "en": {
+          "character": "Finn",
+          "work": "Adventure Time",
+          "part": "Backpack (darker section)",
+          "hint": "Use the darker section of the two-tone backpack."
+        },
+        "es": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Mochila (parte más oscura)",
+          "hint": "Piensa en la parte más oscura de la mochila de dos tonos."
+        }
+      },
+      "character_id": "finn",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/finn_human.webp"
+    },
+    {
+      "id": "finn_shorts",
+      "target_hex": "#0063CD",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/finn_human-backpack/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Bermuda",
+          "hint": "Lembre o tom frio do tecido."
+        },
+        "en": {
+          "character": "Finn",
+          "work": "Adventure Time",
+          "part": "Shorts",
+          "hint": "Remember the cool fabric tone."
+        },
+        "es": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Pantalón corto",
+          "hint": "Recuerda el tono frío de la tela."
+        }
+      },
+      "character_id": "finn",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/finn_human.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          379,
+          242
+        ],
+        "image_sha256": "2d0918a8384512c7a67e5cd974b9833166631e2826199d8b72f101f0640d023c"
+      }
+    },
+    {
+      "id": "finn_hood",
+      "target_hex": "#FEFEFE",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/finn_human-backpack/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Capuz",
+          "hint": "Pense no tecido claro, sem a face."
+        },
+        "en": {
+          "character": "Finn",
+          "work": "Adventure Time",
+          "part": "Hood",
+          "hint": "Think of the light cloth, excluding the face."
+        },
+        "es": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Capucha",
+          "hint": "Piensa en la tela clara, sin el rostro."
+        }
+      },
+      "character_id": "finn",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/finn_human.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          194,
+          296
+        ],
+        "image_sha256": "2d0918a8384512c7a67e5cd974b9833166631e2826199d8b72f101f0640d023c"
+      }
+    },
+    {
+      "id": "finn_skin",
+      "target_hex": "#FDD3BF",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/finn_human-backpack/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Pele (tom da face)",
+          "hint": "Lembre um tom quente e claro."
+        },
+        "en": {
+          "character": "Finn",
+          "work": "Adventure Time",
+          "part": "Skin (face tone)",
+          "hint": "Remember a light, warm tone."
+        },
+        "es": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Piel (tono del rostro)",
+          "hint": "Recuerda un tono claro y cálido."
+        }
+      },
+      "character_id": "finn",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/finn_human.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          169,
+          377
+        ],
+        "image_sha256": "2d0918a8384512c7a67e5cd974b9833166631e2826199d8b72f101f0640d023c"
+      }
+    },
+    {
+      "id": "finn_shoes",
+      "target_hex": "#010101",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/finn_human-backpack/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Sapatos",
+          "hint": "Pense no tom mais escuro do calçado."
+        },
+        "en": {
+          "character": "Finn",
+          "work": "Adventure Time",
+          "part": "Shoes",
+          "hint": "Think of the darkest shoe tone."
+        },
+        "es": {
+          "character": "Finn",
+          "work": "Hora de Aventura",
+          "part": "Zapatos",
+          "hint": "Piensa en el tono más oscuro del calzado."
+        }
+      },
+      "character_id": "finn",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/finn_human.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          417,
+          86
+        ],
+        "image_sha256": "2d0918a8384512c7a67e5cd974b9833166631e2826199d8b72f101f0640d023c"
+      }
+    },
+    {
+      "id": "bugs_fur",
+      "target_hex": "#ABB5B7",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/bugs_bunny-skin/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Pernalonga",
+          "work": "Looney Tunes",
+          "part": "Pelagem externa",
+          "hint": "Ignore o focinho branco e pense na pelagem externa."
+        },
+        "en": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Outer fur",
+          "hint": "Ignore the white muzzle and think of the outer fur."
+        },
+        "es": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Pelaje exterior",
+          "hint": "Ignora el hocico blanco y piensa en el pelaje exterior."
+        }
+      },
+      "character_id": "bugs",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/bugs_bunny.webp"
+    },
+    {
+      "id": "bugs_muzzle",
+      "target_hex": "#FFFFFF",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/bugs_bunny-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Pernalonga",
+          "work": "Looney Tunes",
+          "part": "Focinho e barriga (pelagem clara)",
+          "hint": "São as partes claras, sem a pelagem externa."
+        },
+        "en": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Muzzle and belly (light fur)",
+          "hint": "These are the light areas, excluding outer fur."
+        },
+        "es": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Hocico y vientre (pelaje claro)",
+          "hint": "Son las zonas claras, sin el pelaje exterior."
+        }
+      },
+      "character_id": "bugs",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/bugs_bunny.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          247,
+          185
+        ],
+        "image_sha256": "0921053249731273d4d2572eb6f53ce876e32ea3e406a007d7250aa7a5bb4203"
+      }
+    },
+    {
+      "id": "bugs_inner_ears",
+      "target_hex": "#F8D8BE",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/bugs_bunny-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Pernalonga",
+          "work": "Looney Tunes",
+          "part": "Interior das orelhas",
+          "hint": "Lembre um tom claro e levemente quente."
+        },
+        "en": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Inner ears",
+          "hint": "Remember a light, slightly warm tone."
+        },
+        "es": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Interior de las orejas",
+          "hint": "Recuerda un tono claro y ligeramente cálido."
+        }
+      },
+      "character_id": "bugs",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/bugs_bunny.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          198,
+          100
+        ],
+        "image_sha256": "0921053249731273d4d2572eb6f53ce876e32ea3e406a007d7250aa7a5bb4203"
+      }
+    },
+    {
+      "id": "bugs_carrot",
+      "target_hex": "#F3A631",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/bugs_bunny-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Pernalonga",
+          "work": "Looney Tunes",
+          "part": "Cenoura (raiz)",
+          "hint": "É a raiz, sem as folhas."
+        },
+        "en": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Carrot (root)",
+          "hint": "Think of the root, excluding leaves."
+        },
+        "es": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Zanahoria (raíz)",
+          "hint": "Piensa en la raíz, sin las hojas."
+        }
+      },
+      "character_id": "bugs",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/bugs_bunny.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          312,
+          197
+        ],
+        "image_sha256": "0921053249731273d4d2572eb6f53ce876e32ea3e406a007d7250aa7a5bb4203"
+      }
+    },
+    {
+      "id": "bugs_carrot_leaves",
+      "target_hex": "#5F9E34",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/bugs_bunny-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Pernalonga",
+          "work": "Looney Tunes",
+          "part": "Folhas da cenoura",
+          "hint": "Lembre o tom das folhas, sem a raiz."
+        },
+        "en": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Carrot leaves",
+          "hint": "Remember the leaves, excluding the root."
+        },
+        "es": {
+          "character": "Bugs Bunny",
+          "work": "Looney Tunes",
+          "part": "Hojas de la zanahoria",
+          "hint": "Recuerda las hojas, sin la raíz."
+        }
+      },
+      "character_id": "bugs",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/bugs_bunny.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          367,
+          248
+        ],
+        "image_sha256": "0921053249731273d4d2572eb6f53ce876e32ea3e406a007d7250aa7a5bb4203"
+      }
+    },
+    {
+      "id": "aang_tattoos",
+      "target_hex": "#94C0E5",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/aang-air_nomad_tattoos/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Aang",
+          "work": "Avatar: A Lenda de Aang",
+          "part": "Tatuagem sem brilho",
+          "hint": "Lembre a tatuagem em repouso, fora do Estado Avatar."
+        },
+        "en": {
+          "character": "Aang",
+          "work": "Avatar: The Last Airbender",
+          "part": "Non-glowing tattoo",
+          "hint": "Remember the resting tattoo, outside the Avatar State."
+        },
+        "es": {
+          "character": "Aang",
+          "work": "Avatar: La leyenda de Aang",
+          "part": "Tatuaje sin brillo",
+          "hint": "Recuerda el tatuaje fuera del Estado Avatar."
+        }
+      },
+      "character_id": "aang",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/aang.webp"
+    },
+    {
+      "id": "aang_skin",
+      "target_hex": "#FDDCBA",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/aang-air_nomad_tattoos/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Aang",
+          "work": "Avatar: A Lenda de Aang",
+          "part": "Pele (tom da face)",
+          "hint": "Lembre um tom claro e quente."
+        },
+        "en": {
+          "character": "Aang",
+          "work": "Avatar: The Last Airbender",
+          "part": "Skin (face tone)",
+          "hint": "Remember a light, warm tone."
+        },
+        "es": {
+          "character": "Aang",
+          "work": "Avatar: La leyenda de Aang",
+          "part": "Piel (tono del rostro)",
+          "hint": "Recuerda un tono claro y cálido."
+        }
+      },
+      "character_id": "aang",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/aang.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          221,
+          218
+        ],
+        "image_sha256": "231acf028a32e4b69a5b8720f098f07f76089764469226623a263dc1786c85ab"
+      }
+    },
+    {
+      "id": "aang_robe",
+      "target_hex": "#E4721E",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/aang-air_nomad_tattoos/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Aang",
+          "work": "Avatar: A Lenda de Aang",
+          "part": "Manto principal",
+          "hint": "Pense no tecido quente, fora das sombras."
+        },
+        "en": {
+          "character": "Aang",
+          "work": "Avatar: The Last Airbender",
+          "part": "Main robe",
+          "hint": "Think of the warm cloth, excluding shadows."
+        },
+        "es": {
+          "character": "Aang",
+          "work": "Avatar: La leyenda de Aang",
+          "part": "Túnica principal",
+          "hint": "Piensa en la tela cálida, sin sombras."
+        }
+      },
+      "character_id": "aang",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/aang.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          249,
+          367
+        ],
+        "image_sha256": "231acf028a32e4b69a5b8720f098f07f76089764469226623a263dc1786c85ab"
+      }
+    },
+    {
+      "id": "aang_sash",
+      "target_hex": "#8B260D",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/aang-air_nomad_tattoos/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Aang",
+          "work": "Avatar: A Lenda de Aang",
+          "part": "Faixa externa do manto (parte escura)",
+          "hint": "É mais escura e avermelhada que o manto principal."
+        },
+        "en": {
+          "character": "Aang",
+          "work": "Avatar: The Last Airbender",
+          "part": "Outer robe sash (dark section)",
+          "hint": "It is darker and redder than the main robe."
+        },
+        "es": {
+          "character": "Aang",
+          "work": "Avatar: La leyenda de Aang",
+          "part": "Banda exterior de la túnica (parte oscura)",
+          "hint": "Es más oscura y rojiza que la túnica principal."
+        }
+      },
+      "character_id": "aang",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/aang.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          35,
+          325
+        ],
+        "image_sha256": "231acf028a32e4b69a5b8720f098f07f76089764469226623a263dc1786c85ab"
+      }
+    },
+    {
+      "id": "aang_pants",
+      "target_hex": "#604A36",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/aang-air_nomad_tattoos/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Aang",
+          "work": "Avatar: A Lenda de Aang",
+          "part": "Calça (tecido)",
+          "hint": "Pense num tom terroso e pouco saturado."
+        },
+        "en": {
+          "character": "Aang",
+          "work": "Avatar: The Last Airbender",
+          "part": "Trousers (fabric)",
+          "hint": "Think of an earthy, muted tone."
+        },
+        "es": {
+          "character": "Aang",
+          "work": "Avatar: La leyenda de Aang",
+          "part": "Pantalón (tela)",
+          "hint": "Piensa en un tono terroso y apagado."
+        }
+      },
+      "character_id": "aang",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/aang.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          365,
+          459
+        ],
+        "image_sha256": "231acf028a32e4b69a5b8720f098f07f76089764469226623a263dc1786c85ab"
+      }
+    },
+    {
+      "id": "pink_panther_body",
+      "target_hex": "#FF96B0",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pink_panther-skin/",
+      "validation": "HEX and named part checked in primary character library",
+      "copy": {
+        "pt": {
+          "character": "Pantera Cor-de-Rosa",
+          "work": "A Pantera Cor-de-Rosa",
+          "part": "Pelagem principal",
+          "hint": "Lembre a pelagem principal, sem as partes claras do rosto."
+        },
+        "en": {
+          "character": "Pink Panther",
+          "work": "The Pink Panther",
+          "part": "Main fur",
+          "hint": "Remember the main fur, excluding the lighter face details."
+        },
+        "es": {
+          "character": "Pantera Rosa",
+          "work": "La Pantera Rosa",
+          "part": "Pelaje principal",
+          "hint": "Recuerda el pelaje principal, sin las zonas claras del rostro."
+        }
+      },
+      "character_id": "pink_panther",
+      "art_part": "p0",
+      "reference_image": "https://toontone.app/assets/Characters/pink_panther.webp"
+    },
+    {
+      "id": "pink_panther_muzzle",
+      "target_hex": "#FFFFFF",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pink_panther-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Pantera Cor-de-Rosa",
+          "work": "A Pantera Cor-de-Rosa",
+          "part": "Focinho e barriga (parte clara)",
+          "hint": "Pense nas partes claras, sem o nariz."
+        },
+        "en": {
+          "character": "Pink Panther",
+          "work": "The Pink Panther",
+          "part": "Muzzle and belly (light area)",
+          "hint": "Think of the light areas, excluding the nose."
+        },
+        "es": {
+          "character": "Pantera Rosa",
+          "work": "La Pantera Rosa",
+          "part": "Hocico y vientre (zona clara)",
+          "hint": "Piensa en las zonas claras, sin la nariz."
+        }
+      },
+      "character_id": "pink_panther",
+      "art_part": "p1",
+      "reference_image": "https://toontone.app/assets/Characters/pink_panther.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          210,
+          190
+        ],
+        "image_sha256": "4755b64b80d5b1b5bf1982f142cdfbcf74cf4dfd43d29ee8f0effba40ec04421"
+      }
+    },
+    {
+      "id": "pink_panther_irises",
+      "target_hex": "#FCF67D",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pink_panther-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Pantera Cor-de-Rosa",
+          "work": "A Pantera Cor-de-Rosa",
+          "part": "Íris (parte clara)",
+          "hint": "Ignore a pupila preta; é um tom claro e quente."
+        },
+        "en": {
+          "character": "Pink Panther",
+          "work": "The Pink Panther",
+          "part": "Irises (light area)",
+          "hint": "Ignore the black pupil; it is a light, warm tone."
+        },
+        "es": {
+          "character": "Pantera Rosa",
+          "work": "La Pantera Rosa",
+          "part": "Iris (zona clara)",
+          "hint": "Ignora la pupila negra; es un tono claro y cálido."
+        }
+      },
+      "character_id": "pink_panther",
+      "art_part": "p2",
+      "reference_image": "https://toontone.app/assets/Characters/pink_panther.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          211,
+          111
+        ],
+        "image_sha256": "4755b64b80d5b1b5bf1982f142cdfbcf74cf4dfd43d29ee8f0effba40ec04421"
+      }
+    },
+    {
+      "id": "pink_panther_nose",
+      "target_hex": "#DE5479",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pink_panther-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Pantera Cor-de-Rosa",
+          "work": "A Pantera Cor-de-Rosa",
+          "part": "Nariz",
+          "hint": "É mais intenso que a pelagem principal."
+        },
+        "en": {
+          "character": "Pink Panther",
+          "work": "The Pink Panther",
+          "part": "Nose",
+          "hint": "It is more intense than the main fur."
+        },
+        "es": {
+          "character": "Pantera Rosa",
+          "work": "La Pantera Rosa",
+          "part": "Nariz",
+          "hint": "Es más intenso que el pelaje principal."
+        }
+      },
+      "character_id": "pink_panther",
+      "art_part": "p3",
+      "reference_image": "https://toontone.app/assets/Characters/pink_panther.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          216,
+          142
+        ],
+        "image_sha256": "4755b64b80d5b1b5bf1982f142cdfbcf74cf4dfd43d29ee8f0effba40ec04421"
+      }
+    },
+    {
+      "id": "pink_panther_eyebrows",
+      "target_hex": "#18020B",
+      "reference_edition": "Fixed Toon Tone colour study, checked 2026-10-13; illustrated reinterpretation in Cineus",
+      "source_url": "https://toontone.app/pt/characters/pink_panther-skin/",
+      "validation": "Reviewed named region: fixed unmasked reference pixel, not generated artwork",
+      "copy": {
+        "pt": {
+          "character": "Pantera Cor-de-Rosa",
+          "work": "A Pantera Cor-de-Rosa",
+          "part": "Sobrancelhas",
+          "hint": "Pense no tom bem escuro dos arcos."
+        },
+        "en": {
+          "character": "Pink Panther",
+          "work": "The Pink Panther",
+          "part": "Eyebrows",
+          "hint": "Think of the very dark arches."
+        },
+        "es": {
+          "character": "Pantera Rosa",
+          "work": "La Pantera Rosa",
+          "part": "Cejas",
+          "hint": "Piensa en el tono muy oscuro de los arcos."
+        }
+      },
+      "character_id": "pink_panther",
+      "art_part": "p4",
+      "reference_image": "https://toontone.app/assets/Characters/pink_panther.webp",
+      "sampling": {
+        "method": "single sRGB pixel from fixed primary-study WEBP",
+        "xy": [
+          212,
+          77
+        ],
+        "image_sha256": "4755b64b80d5b1b5bf1982f142cdfbcf74cf4dfd43d29ee8f0effba40ec04421"
+      }
+    },
+    {
+      "id": "mickey_mouse_primary",
+      "character_id": "mickey_mouse",
+      "art_part": "p0",
+      "target_hex": "#BF3332",
+      "copy": {
+        "pt": {
+          "character": "Mickey Mouse",
+          "work": "Mickey Mouse",
+          "part": "Calção",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Mickey Mouse",
+          "work": "Mickey Mouse",
+          "part": "Shorts",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Mickey Mouse",
+          "work": "Mickey Mouse",
+          "part": "Pantalón corto",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/mickey_mouse-shorts/",
+      "reference_image": "https://toontone.app/assets/Characters/mickey_mouse.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "dff252f957f35a1a6aebded3c35927f9c87935c9728b96deebe72e26a6332194"
+    },
+    {
+      "id": "homer_simpson_primary",
+      "character_id": "homer_simpson",
+      "art_part": "p0",
+      "target_hex": "#FED90F",
+      "copy": {
+        "pt": {
+          "character": "Homer Simpson",
+          "work": "Os Simpsons",
+          "part": "Pele",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Homer Simpson",
+          "work": "The Simpsons",
+          "part": "Skin",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Homer Simpson",
+          "work": "Los Simpson",
+          "part": "Piel",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/homer_simpson-skin/",
+      "reference_image": "https://toontone.app/assets/Characters/homer_simpson.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "7174c5209c50d49083a6d4bb1d8ef906f1ae36a6cf5e3662a3310f46962d2f64"
+    },
+    {
+      "id": "donald_duck_primary",
+      "character_id": "donald_duck",
+      "art_part": "p0",
+      "target_hex": "#0076BE",
+      "copy": {
+        "pt": {
+          "character": "Pato Donald",
+          "work": "Mickey Mouse",
+          "part": "Chapéu de marinheiro",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Donald Duck",
+          "work": "Mickey Mouse",
+          "part": "Sailor cap",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Pato Donald",
+          "work": "Mickey Mouse",
+          "part": "Gorro de marinero",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://en.wikipedia.org/wiki/Donald_Duck",
+      "reference_image": "https://upload.wikimedia.org/wikipedia/en/a/a5/Donald_Duck_angry_transparent_background.png",
+      "reference_edition": "Fixed existing cutout edition; colour and region reviewed against that edition, rather than the different Toon Tone study depiction",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "cbea22d423493df215d6174c1d6997464e156be213e5ff426861e6d148bde8eb",
+      "sampling": {
+        "method": "reviewed fixed existing edition; most frequent pixel in named region; cropped transparent source coordinates",
+        "xy": [
+          59,
+          55
+        ],
+        "image_sha256": "cbea22d423493df215d6174c1d6997464e156be213e5ff426861e6d148bde8eb"
+      }
+    },
+    {
+      "id": "all_might_primary",
+      "character_id": "all_might",
+      "art_part": "p0",
+      "target_hex": "#212F78",
+      "copy": {
+        "pt": {
+          "character": "All Might",
+          "work": "My Hero Academia",
+          "part": "Painéis principais do traje",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "All Might",
+          "work": "My Hero Academia",
+          "part": "Main suit panels",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "All Might",
+          "work": "My Hero Academia",
+          "part": "Paneles principales del traje",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/all_might-suit/",
+      "reference_image": "https://toontone.app/assets/Characters/all_might.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "575b1b34825773ad44b107cbc01fe54a1556b1c9c5a1e4a1666442a1cb3b10a4"
+    },
+    {
+      "id": "bananaman_primary",
+      "character_id": "bananaman",
+      "art_part": "p0",
+      "target_hex": "#FEF200",
+      "copy": {
+        "pt": {
+          "character": "Bananaman",
+          "work": "Bananaman",
+          "part": "Capa",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Bananaman",
+          "work": "Bananaman",
+          "part": "Cape",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Bananaman",
+          "work": "Bananaman",
+          "part": "Capa",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/bananaman-cape/",
+      "reference_image": "https://toontone.app/assets/Characters/bananaman.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "a16381c54cea3153b087ebd48587b6d7fb70fc9d0253d0037953a49292ba0f7c"
+    },
+    {
+      "id": "beavis_primary",
+      "character_id": "beavis",
+      "art_part": "p0",
+      "target_hex": "#DFA833",
+      "copy": {
+        "pt": {
+          "character": "Beavis",
+          "work": "Beavis and Butt-Head",
+          "part": "Cabelo",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Beavis",
+          "work": "Beavis and Butt-Head",
+          "part": "Hair",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Beavis",
+          "work": "Beavis and Butt-Head",
+          "part": "Cabello",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/beavis-hair/",
+      "reference_image": "https://toontone.app/assets/Characters/beavis.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "8c3747d97dc07bb5c03198c50e72012996f824f9aeb51fde79460af52f42eef9"
+    },
+    {
+      "id": "ben_10_primary",
+      "character_id": "ben_10",
+      "art_part": "p0",
+      "target_hex": "#91FF16",
+      "copy": {
+        "pt": {
+          "character": "Ben Tennyson",
+          "work": "Ben 10",
+          "part": "Núcleo do Omnitrix",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Ben Tennyson",
+          "work": "Ben 10",
+          "part": "Omnitrix core",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Ben Tennyson",
+          "work": "Ben 10",
+          "part": "Núcleo del Omnitrix",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/ben_10-omnitrix_core/",
+      "reference_image": "https://toontone.app/assets/Characters/ben_10.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "8d7dca610949ef58e0c110c2656453c518c3d0ae09907428b9601592f403f199"
+    },
+    {
+      "id": "tom_cat_primary",
+      "character_id": "tom_cat",
+      "art_part": "p0",
+      "target_hex": "#7D8286",
+      "copy": {
+        "pt": {
+          "character": "Tom",
+          "work": "Tom and Jerry",
+          "part": "Pelagem",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Tom",
+          "work": "Tom and Jerry",
+          "part": "Fur",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Tom",
+          "work": "Tom and Jerry",
+          "part": "Pelaje",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/tom_cat-body_fur/",
+      "reference_image": "https://toontone.app/assets/Characters/tom_cat.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "32778207bbcfa8c9b30163175bcaf2f2c50865e5e6a9790a16765fcc59b554e8"
+    },
+    {
+      "id": "ord_dragon_primary",
+      "character_id": "ord_dragon",
+      "art_part": "p0",
+      "target_hex": "#369FA5",
+      "copy": {
+        "pt": {
+          "character": "Ord",
+          "work": "Histórias de Dragões",
+          "part": "Corpo",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Ord",
+          "work": "Dragon Tales",
+          "part": "Body",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Ord",
+          "work": "Dragon Tales",
+          "part": "Cuerpo",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/ord_dragon-body_skin/",
+      "reference_image": "https://toontone.app/assets/Characters/ord_dragon.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "beaaeb3bfc8b5ad128ae0d57f2fcc5e01f7e7e8eb2e0e9c9e806cbc7295db59b"
+    },
+    {
+      "id": "kim_possible_primary",
+      "character_id": "kim_possible",
+      "art_part": "p0",
+      "target_hex": "#9FA276",
+      "copy": {
+        "pt": {
+          "character": "Kim Possible",
+          "work": "Kim Possible",
+          "part": "Calça cargo",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Kim Possible",
+          "work": "Kim Possible",
+          "part": "Cargo trousers",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Kim Possible",
+          "work": "Kim Possible",
+          "part": "Pantalón cargo",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/kim_possible-cargo_pants/",
+      "reference_image": "https://toontone.app/assets/Characters/kim_possible.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "f981294c9827b3ad7571d330f9b2696c774dd128afa769ccd48f2e970e9bf748"
+    },
+    {
+      "id": "winnie_pooh_primary",
+      "character_id": "winnie_pooh",
+      "art_part": "p0",
+      "target_hex": "#F5B142",
+      "copy": {
+        "pt": {
+          "character": "Ursinho Pooh",
+          "work": "Ursinho Pooh",
+          "part": "Pelagem",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Winnie the Pooh",
+          "work": "Winnie the Pooh",
+          "part": "Fur",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Winnie the Pooh",
+          "work": "Winnie the Pooh",
+          "part": "Pelaje",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/winnie_pooh-body_fur/",
+      "reference_image": "https://toontone.app/assets/Characters/winnie_pooh.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "fc1bc0df032eba8e9d6bb78c1b880af82cd9920dc829d7111daa6398a591fb7f"
+    },
+    {
+      "id": "gumball_watterson_primary",
+      "character_id": "gumball_watterson",
+      "art_part": "p0",
+      "target_hex": "#44C0E4",
+      "copy": {
+        "pt": {
+          "character": "Gumball Watterson",
+          "work": "O Incrível Mundo de Gumball",
+          "part": "Pelagem",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Gumball Watterson",
+          "work": "The Amazing World of Gumball",
+          "part": "Fur",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Gumball Watterson",
+          "work": "El increíble mundo de Gumball",
+          "part": "Pelaje",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/gumball_watterson-fur/",
+      "reference_image": "https://toontone.app/assets/Characters/gumball_watterson.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "0e2e7a4b9a0836fe9de2e1a492b023a86d7c06b66f40f3bc1d1755bd6aed8ac8"
+    },
+    {
+      "id": "lois_griffin_primary",
+      "character_id": "lois_griffin",
+      "art_part": "p0",
+      "target_hex": "#22E3B9",
+      "copy": {
+        "pt": {
+          "character": "Lois Griffin",
+          "work": "Uma Família da Pesada",
+          "part": "Blusa",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Lois Griffin",
+          "work": "Family Guy",
+          "part": "Blouse",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Lois Griffin",
+          "work": "Padre de familia",
+          "part": "Blusa",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/lois_griffin-shirt/",
+      "reference_image": "https://toontone.app/assets/Characters/lois_griffin.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "846037c5bda5c7678bc9ab8a30f34e339827c06ff1e9e5dc4753dcbc9ae1151f"
+    },
+    {
+      "id": "jake_the_dog_primary",
+      "character_id": "jake_the_dog",
+      "art_part": "p0",
+      "target_hex": "#FDC801",
+      "copy": {
+        "pt": {
+          "character": "Jake",
+          "work": "Hora de Aventura",
+          "part": "Pelagem",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Jake the Dog",
+          "work": "Adventure Time",
+          "part": "Fur",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Jake",
+          "work": "Hora de aventuras",
+          "part": "Pelaje",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/jake_the_dog-body_fur/",
+      "reference_image": "https://toontone.app/assets/Characters/jake_the_dog.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "9a2daefe8c6201d1a9ec60ea3b37996c85077c79530ea11ab6cff428ab1a18bd"
+    },
+    {
+      "id": "morty_smith_primary",
+      "character_id": "morty_smith",
+      "art_part": "p0",
+      "target_hex": "#FFF86D",
+      "copy": {
+        "pt": {
+          "character": "Morty Smith",
+          "work": "Rick and Morty",
+          "part": "Camiseta",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Morty Smith",
+          "work": "Rick and Morty",
+          "part": "T-shirt",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Morty Smith",
+          "work": "Rick and Morty",
+          "part": "Camiseta",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/morty_smith-t_shirt/",
+      "reference_image": "https://toontone.app/assets/Characters/morty_smith.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "43e9d3606cbd9b04dec0113db2cb5ce08a2f5623233781f2854c44e685681aef"
+    },
+    {
+      "id": "shaggy_rogers_primary",
+      "character_id": "shaggy_rogers",
+      "art_part": "p0",
+      "target_hex": "#85A711",
+      "copy": {
+        "pt": {
+          "character": "Salsicha",
+          "work": "Scooby-Doo",
+          "part": "Camiseta",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Shaggy Rogers",
+          "work": "Scooby-Doo",
+          "part": "T-shirt",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Shaggy Rogers",
+          "work": "Scooby-Doo",
+          "part": "Camiseta",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/shaggy_rogers-t_shirt/",
+      "reference_image": "https://toontone.app/assets/Characters/shaggy_rogers.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "dc2de0df3c23bdf8cd1ca85a0de213dd82cfef0ee30bd9ec52cab2f042af764f"
+    },
+    {
+      "id": "bender_primary",
+      "character_id": "bender",
+      "art_part": "p0",
+      "target_hex": "#89A7A9",
+      "copy": {
+        "pt": {
+          "character": "Bender",
+          "work": "Futurama",
+          "part": "Cabeça e tronco metálicos",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Bender",
+          "work": "Futurama",
+          "part": "Metal head and torso",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Bender",
+          "work": "Futurama",
+          "part": "Cabeza y torso metálicos",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/bender-metal/",
+      "reference_image": "https://toontone.app/assets/Characters/bender.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "d8c94af7c54d3675a79de6b4caabbcb94dd4d5e6f25ae0eaa207708495bccf0e"
+    },
+    {
+      "id": "betty_boop_primary",
+      "character_id": "betty_boop",
+      "art_part": "p0",
+      "target_hex": "#DC2E3A",
+      "copy": {
+        "pt": {
+          "character": "Betty Boop",
+          "work": "Betty Boop",
+          "part": "Vestido",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Betty Boop",
+          "work": "Betty Boop",
+          "part": "Dress",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Betty Boop",
+          "work": "Betty Boop",
+          "part": "Vestido",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/betty_boop-dress/",
+      "reference_image": "https://toontone.app/assets/Characters/betty_boop.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "8545c9da0dac8f77608006d29b3fb58e49aca2c6730829e14e103b680a99dfa0"
+    },
+    {
+      "id": "charlie_brown_primary",
+      "character_id": "charlie_brown",
+      "art_part": "p0",
+      "target_hex": "#FFDA06",
+      "copy": {
+        "pt": {
+          "character": "Charlie Brown",
+          "work": "Peanuts",
+          "part": "Camisa",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Charlie Brown",
+          "work": "Peanuts",
+          "part": "Shirt",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Charlie Brown",
+          "work": "Peanuts",
+          "part": "Camisa",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/charlie_brown-shirt/",
+      "reference_image": "https://toontone.app/assets/Characters/charlie_brown.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "570cbf925767af583b9e12554f15788a7dd11c981d064868b7d3bbd2906f27ca"
+    },
+    {
+      "id": "rosalina_primary",
+      "character_id": "rosalina",
+      "art_part": "p0",
+      "target_hex": "#74C3B8",
+      "copy": {
+        "pt": {
+          "character": "Rosalina",
+          "work": "Super Mario",
+          "part": "Vestido",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Rosalina",
+          "work": "Super Mario",
+          "part": "Dress",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Rosalina",
+          "work": "Super Mario",
+          "part": "Vestido",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/9413cb5d146400e7368855759d084c69/d1a6b/rosalina.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          284,
+          199
+        ],
+        "image_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c",
+        "hsv_band": [
+          165,
+          205,
+          0.25,
+          0.5,
+          1
+        ]
+      }
+    },
+    {
+      "id": "goofy_primary",
+      "character_id": "goofy",
+      "art_part": "p0",
+      "target_hex": "#0076BC",
+      "copy": {
+        "pt": {
+          "character": "Pateta",
+          "work": "Mickey Mouse",
+          "part": "Calça",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Goofy",
+          "work": "Mickey Mouse",
+          "part": "Trousers",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Goofy",
+          "work": "Mickey Mouse",
+          "part": "Pantalón",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://en.wikipedia.org/wiki/Goofy",
+      "reference_image": "https://upload.wikimedia.org/wikipedia/en/5/50/Goofy_Duckipedia.png",
+      "reference_edition": "Fixed existing cutout edition; colour and region reviewed against that edition, rather than the different Toon Tone study depiction",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca",
+      "sampling": {
+        "method": "reviewed fixed existing edition; most frequent pixel in named region; cropped transparent source coordinates",
+        "xy": [
+          52,
+          236
+        ],
+        "image_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca"
+      }
+    },
+    {
+      "id": "johnny_bravo_primary",
+      "character_id": "johnny_bravo",
+      "art_part": "p0",
+      "target_hex": "#618FE1",
+      "copy": {
+        "pt": {
+          "character": "Johnny Bravo",
+          "work": "Johnny Bravo",
+          "part": "Calça",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Johnny Bravo",
+          "work": "Johnny Bravo",
+          "part": "Trousers",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Johnny Bravo",
+          "work": "Johnny Bravo",
+          "part": "Pantalón",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/johnny_bravo-pants/",
+      "reference_image": "https://toontone.app/assets/Characters/johnny_bravo.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "a3cda3257fcc796fe05241600bd4ef5e0350cbfd466d9654098852c2a4900559"
+    },
+    {
+      "id": "peter_griffin_primary",
+      "character_id": "peter_griffin",
+      "art_part": "p0",
+      "target_hex": "#206603",
+      "copy": {
+        "pt": {
+          "character": "Peter Griffin",
+          "work": "Uma Família da Pesada",
+          "part": "Calça",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Peter Griffin",
+          "work": "Family Guy",
+          "part": "Trousers",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Peter Griffin",
+          "work": "Padre de familia",
+          "part": "Pantalón",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/peter_griffin-trousers/",
+      "reference_image": "https://toontone.app/assets/Characters/peter_griffin.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "87e981e692c1264c4671f4ea52b145aef82429c9fe530b3eb3894cb37f204a25"
+    },
+    {
+      "id": "kenny_mccormick_primary",
+      "character_id": "kenny_mccormick",
+      "art_part": "p0",
+      "target_hex": "#ED7100",
+      "copy": {
+        "pt": {
+          "character": "Kenny McCormick",
+          "work": "South Park",
+          "part": "Parca",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Kenny McCormick",
+          "work": "South Park",
+          "part": "Parka",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Kenny McCormick",
+          "work": "South Park",
+          "part": "Parka",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/kenny_mccormick-parka_coat/",
+      "reference_image": "https://toontone.app/assets/Characters/kenny_mccormick.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "9fc91cef77506761abf19beb7c361fa57304b7c5acdbfaa86a1e1349071f8a49"
+    },
+    {
+      "id": "squidward_primary",
+      "character_id": "squidward",
+      "art_part": "p0",
+      "target_hex": "#B4D8CA",
+      "copy": {
+        "pt": {
+          "character": "Lula Molusco",
+          "work": "Bob Esponja Calça Quadrada",
+          "part": "Pele",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Squidward",
+          "work": "SpongeBob SquarePants",
+          "part": "Skin",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Calamardo",
+          "work": "Bob Esponja",
+          "part": "Piel",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/squidward-skin/",
+      "reference_image": "https://toontone.app/assets/Characters/squidward.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "c7eb5a9e1ca24ff21535645fde97e8c1fc4862e935f611de751d25039e9588f7"
+    },
+    {
+      "id": "luffy_primary",
+      "character_id": "luffy",
+      "art_part": "p0",
+      "target_hex": "#4E6AB3",
+      "copy": {
+        "pt": {
+          "character": "Monkey D. Luffy",
+          "work": "One Piece",
+          "part": "Bermuda",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Monkey D. Luffy",
+          "work": "One Piece",
+          "part": "Shorts",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Monkey D. Luffy",
+          "work": "One Piece",
+          "part": "Pantalón corto",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/luffy-shorts/",
+      "reference_image": "https://toontone.app/assets/Characters/luffy.webp",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "8cb72b34c142d9da7d0fd1ee2ba6ccbd4c138263d6f62a3930d4f638e7c9bfa1"
+    },
+    {
+      "id": "mario_primary",
+      "character_id": "mario",
+      "art_part": "p0",
+      "target_hex": "#E81316",
+      "copy": {
+        "pt": {
+          "character": "Mario",
+          "work": "Super Mario",
+          "part": "Camisa e boné",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Mario",
+          "work": "Super Mario",
+          "part": "Shirt and cap",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Mario",
+          "work": "Super Mario",
+          "part": "Camisa y gorra",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/0f10f738d1f9aa8292fa7d93c35f2a07/02be2/mario.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          284,
+          183
+        ],
+        "image_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34",
+        "hsv_band": [
+          345,
+          20,
+          0.45,
+          0.3,
+          1
+        ]
+      }
+    },
+    {
+      "id": "luigi_primary",
+      "character_id": "luigi",
+      "art_part": "p0",
+      "target_hex": "#0DAA17",
+      "copy": {
+        "pt": {
+          "character": "Luigi",
+          "work": "Super Mario",
+          "part": "Camisa e boné",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Luigi",
+          "work": "Super Mario",
+          "part": "Shirt and cap",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Luigi",
+          "work": "Super Mario",
+          "part": "Camisa y gorra",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/73f9272aebf9a014261584b35597878f/d9801/luigi.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          27,
+          152
+        ],
+        "image_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6",
+        "hsv_band": [
+          70,
+          165,
+          0.4,
+          0.3,
+          1
+        ]
+      }
+    },
+    {
+      "id": "peach_primary",
+      "character_id": "peach",
+      "art_part": "p0",
+      "target_hex": "#FFA8D5",
+      "copy": {
+        "pt": {
+          "character": "Princesa Peach",
+          "work": "Super Mario",
+          "part": "Vestido",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Princess Peach",
+          "work": "Super Mario",
+          "part": "Dress",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Princesa Peach",
+          "work": "Super Mario",
+          "part": "Vestido",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/43a96c1d5b681d338864aac15cd391b9/f3703/peach.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "b83318f3b53b0051b313b0703227e90bc59c5a7c3f7f183a5c590343b6b85bde",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          252,
+          189
+        ],
+        "image_sha256": "b83318f3b53b0051b313b0703227e90bc59c5a7c3f7f183a5c590343b6b85bde",
+        "hsv_band": [
+          310,
+          355,
+          0.25,
+          0.55,
+          1
+        ]
+      }
+    },
+    {
+      "id": "yoshi_primary",
+      "character_id": "yoshi",
+      "art_part": "p0",
+      "target_hex": "#67EC57",
+      "copy": {
+        "pt": {
+          "character": "Yoshi",
+          "work": "Super Mario",
+          "part": "Pele",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Yoshi",
+          "work": "Super Mario",
+          "part": "Skin",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Yoshi",
+          "work": "Super Mario",
+          "part": "Piel",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/850b7938ec9df2a77921738a12857e88/c4ba3/yoshi.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "e038914c3916a3bdae1a651b234c991455ed0176d6a65e48d252b094428a88be",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          273,
+          12
+        ],
+        "image_sha256": "e038914c3916a3bdae1a651b234c991455ed0176d6a65e48d252b094428a88be",
+        "hsv_band": [
+          70,
+          165,
+          0.4,
+          0.3,
+          1
+        ]
+      }
+    },
+    {
+      "id": "bowser_primary",
+      "character_id": "bowser",
+      "art_part": "p0",
+      "target_hex": "#385734",
+      "copy": {
+        "pt": {
+          "character": "Bowser",
+          "work": "Super Mario",
+          "part": "Casco",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Bowser",
+          "work": "Super Mario",
+          "part": "Shell",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Bowser",
+          "work": "Super Mario",
+          "part": "Caparazón",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/7204f288e3e823a8203c445fb6cc0d7e/b1656/bowser.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          392,
+          234
+        ],
+        "image_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023",
+        "hsv_band": [
+          75,
+          155,
+          0.35,
+          0.3,
+          0.85
+        ]
+      }
+    },
+    {
+      "id": "toad_primary",
+      "character_id": "toad",
+      "art_part": "p0",
+      "target_hex": "#FF3434",
+      "copy": {
+        "pt": {
+          "character": "Toad",
+          "work": "Super Mario",
+          "part": "Manchas do chapéu",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Toad",
+          "work": "Super Mario",
+          "part": "Cap spots",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Toad",
+          "work": "Super Mario",
+          "part": "Manchas del sombrero",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/e3ebf11b069067da929b608250baa44e/55d59/toad.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          152,
+          8
+        ],
+        "image_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8",
+        "hsv_band": [
+          345,
+          20,
+          0.5,
+          0.35,
+          1
+        ]
+      }
+    },
+    {
+      "id": "donkey_kong_primary",
+      "character_id": "donkey_kong",
+      "art_part": "p0",
+      "target_hex": "#A45A3F",
+      "copy": {
+        "pt": {
+          "character": "Donkey Kong",
+          "work": "Donkey Kong",
+          "part": "Pelagem",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Donkey Kong",
+          "work": "Donkey Kong",
+          "part": "Fur",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Donkey Kong",
+          "work": "Donkey Kong",
+          "part": "Pelaje",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/b444206395480738954c3cbbd86716cc/c2c43/donkey-kong.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "a6c4d60fbafc70a423c7bae638d8c8accdae71bc8c013f253f6fa3bd49c9ddac",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          208,
+          43
+        ],
+        "image_sha256": "a6c4d60fbafc70a423c7bae638d8c8accdae71bc8c013f253f6fa3bd49c9ddac",
+        "hsv_band": [
+          15,
+          45,
+          0.35,
+          0.2,
+          0.7
+        ]
+      }
+    },
+    {
+      "id": "wario_primary",
+      "character_id": "wario",
+      "art_part": "p0",
+      "target_hex": "#FFF600",
+      "copy": {
+        "pt": {
+          "character": "Wario",
+          "work": "Super Mario",
+          "part": "Camisa e boné",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Wario",
+          "work": "Super Mario",
+          "part": "Shirt and cap",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Wario",
+          "work": "Super Mario",
+          "part": "Camisa y gorra",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/2e8e71c5b38a5aedd5eef91c3d54bf13/747d9/wario.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          167,
+          18
+        ],
+        "image_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743",
+        "hsv_band": [
+          42,
+          70,
+          0.5,
+          0.6,
+          1
+        ]
+      }
+    },
+    {
+      "id": "waluigi_primary",
+      "character_id": "waluigi",
+      "art_part": "p0",
+      "target_hex": "#6F27B1",
+      "copy": {
+        "pt": {
+          "character": "Waluigi",
+          "work": "Super Mario",
+          "part": "Camisa e boné",
+          "hint": "Pense na mistura de azul e vermelho e na intensidade da parte indicada."
+        },
+        "en": {
+          "character": "Waluigi",
+          "work": "Super Mario",
+          "part": "Shirt and cap",
+          "hint": "Think of the blue and red mixture and the intensity of the indicated part."
+        },
+        "es": {
+          "character": "Waluigi",
+          "work": "Super Mario",
+          "part": "Camisa y gorra",
+          "hint": "Piensa en la mezcla de azul y rojo y en la intensidad de la zona indicada."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/54c0617c992012b38e212c154f4e3944/3eddd/waluigi.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          170,
+          5
+        ],
+        "image_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78",
+        "hsv_band": [
+          250,
+          305,
+          0.35,
+          0.5,
+          1
+        ]
+      }
+    },
+    {
+      "id": "daisy_primary",
+      "character_id": "daisy",
+      "art_part": "p0",
+      "target_hex": "#FFCA34",
+      "copy": {
+        "pt": {
+          "character": "Princesa Daisy",
+          "work": "Super Mario",
+          "part": "Vestido",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Princess Daisy",
+          "work": "Super Mario",
+          "part": "Dress",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Princesa Daisy",
+          "work": "Super Mario",
+          "part": "Vestido",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/b625bdf51061d55b220d82eb9b61442c/9b369/daisy.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          205,
+          171
+        ],
+        "image_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0",
+        "hsv_band": [
+          40,
+          70,
+          0.5,
+          0.6,
+          1
+        ]
+      }
+    },
+    {
+      "id": "sonic_primary",
+      "character_id": "sonic",
+      "art_part": "p0",
+      "target_hex": "#0075EC",
+      "copy": {
+        "pt": {
+          "character": "Sonic",
+          "work": "Sonic the Hedgehog",
+          "part": "Pelagem",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Sonic",
+          "work": "Sonic the Hedgehog",
+          "part": "Fur",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Sonic",
+          "work": "Sonic the Hedgehog",
+          "part": "Pelaje",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+      "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara01-img.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "0691cc6325691fe09d46d0196022ca2328c3223773277ee124ed83901100e2db",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          766,
+          61
+        ],
+        "image_sha256": "0691cc6325691fe09d46d0196022ca2328c3223773277ee124ed83901100e2db",
+        "hsv_band": [
+          200,
+          245,
+          0.5,
+          0.25,
+          1
+        ]
+      }
+    },
+    {
+      "id": "tails_primary",
+      "character_id": "tails",
+      "art_part": "p0",
+      "target_hex": "#FFA500",
+      "copy": {
+        "pt": {
+          "character": "Tails",
+          "work": "Sonic the Hedgehog",
+          "part": "Pelagem",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Tails",
+          "work": "Sonic the Hedgehog",
+          "part": "Fur",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Tails",
+          "work": "Sonic the Hedgehog",
+          "part": "Pelaje",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+      "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara02-img.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "4092b3f4371f31eefb023c0feaa6360002eedec51ac5df44a2c24fc4b284f855",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          587,
+          213
+        ],
+        "image_sha256": "4092b3f4371f31eefb023c0feaa6360002eedec51ac5df44a2c24fc4b284f855",
+        "hsv_band": [
+          25,
+          65,
+          0.5,
+          0.4,
+          1
+        ]
+      }
+    },
+    {
+      "id": "knuckles_primary",
+      "character_id": "knuckles",
+      "art_part": "p0",
+      "target_hex": "#FF4653",
+      "copy": {
+        "pt": {
+          "character": "Knuckles",
+          "work": "Sonic the Hedgehog",
+          "part": "Pelagem",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Knuckles",
+          "work": "Sonic the Hedgehog",
+          "part": "Fur",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Knuckles",
+          "work": "Sonic the Hedgehog",
+          "part": "Pelaje",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+      "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara04-img.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "4fbaabfc6a1e04062f2a3b9571015f6a3f0cdb59c3df76f2905afb36b1a7f85b",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          622,
+          114
+        ],
+        "image_sha256": "4fbaabfc6a1e04062f2a3b9571015f6a3f0cdb59c3df76f2905afb36b1a7f85b",
+        "hsv_band": [
+          345,
+          20,
+          0.5,
+          0.6,
+          1
+        ]
+      }
+    },
+    {
+      "id": "amy_primary",
+      "character_id": "amy",
+      "art_part": "p0",
+      "target_hex": "#FF76A6",
+      "copy": {
+        "pt": {
+          "character": "Amy Rose",
+          "work": "Sonic the Hedgehog",
+          "part": "Pelagem",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Amy Rose",
+          "work": "Sonic the Hedgehog",
+          "part": "Fur",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Amy Rose",
+          "work": "Sonic the Hedgehog",
+          "part": "Pelaje",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+      "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara03-img.png",
+      "reference_edition": "Fixed published study or official reference image, reviewed 2026-10-13; Cineus illustration is presentation only",
+      "validation": "Reviewed fixed reference colour; never derived from generated artwork",
+      "reference_sha256": "5b3890d9b626ef5269c48c753418aa5ae34432bb579464ba9cbe3ac07446ef6e",
+      "sampling": {
+        "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+        "xy": [
+          488,
+          6
+        ],
+        "image_sha256": "5b3890d9b626ef5269c48c753418aa5ae34432bb579464ba9cbe3ac07446ef6e",
+        "hsv_band": [
+          315,
+          350,
+          0.25,
+          0.45,
+          1
+        ]
+      }
+    },
+    {
+      "id": "mario_overalls_v1",
+      "character_id": "mario",
+      "art_part": "p1",
+      "target_hex": "#162987",
+      "copy": {
+        "pt": {
+          "character": "Mario",
+          "work": "Super Mario",
+          "part": "Jardineira",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Mario",
+          "work": "Super Mario",
+          "part": "Overalls",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Mario",
+          "work": "Super Mario",
+          "part": "Peto",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/0f10f738d1f9aa8292fa7d93c35f2a07/02be2/mario.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34",
+      "sampling": {
+        "xy": [
+          148,
+          495
+        ],
+        "image_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34",
+        "file": "docs/artwork/characters/expanded/references/mario-official.png",
+        "band": [
+          190,
+          255,
+          0.3,
+          0.15,
+          1,
+          0.35,
+          1
+        ]
+      }
+    },
+    {
+      "id": "luigi_overalls_v1",
+      "character_id": "luigi",
+      "art_part": "p1",
+      "target_hex": "#364777",
+      "copy": {
+        "pt": {
+          "character": "Luigi",
+          "work": "Super Mario",
+          "part": "Jardineira",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Luigi",
+          "work": "Super Mario",
+          "part": "Overalls",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Luigi",
+          "work": "Super Mario",
+          "part": "Peto",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/73f9272aebf9a014261584b35597878f/d9801/luigi.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6",
+      "sampling": {
+        "xy": [
+          68,
+          315
+        ],
+        "image_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6",
+        "file": "docs/artwork/characters/expanded/references/luigi-official.png",
+        "band": [
+          190,
+          255,
+          0.3,
+          0.15,
+          1,
+          0.35,
+          1
+        ]
+      }
+    },
+    {
+      "id": "peach_hair_v1",
+      "character_id": "peach",
+      "art_part": "p1",
+      "target_hex": "#FFED2F",
+      "copy": {
+        "pt": {
+          "character": "Princesa Peach",
+          "work": "Super Mario",
+          "part": "Cabelo",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Princess Peach",
+          "work": "Super Mario",
+          "part": "Hair",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Princesa Peach",
+          "work": "Super Mario",
+          "part": "Cabello",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/43a96c1d5b681d338864aac15cd391b9/f3703/peach.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "b83318f3b53b0051b313b0703227e90bc59c5a7c3f7f183a5c590343b6b85bde",
+      "sampling": {
+        "xy": [
+          295,
+          40
+        ],
+        "image_sha256": "b83318f3b53b0051b313b0703227e90bc59c5a7c3f7f183a5c590343b6b85bde",
+        "file": "docs/artwork/characters/expanded/references/peach-official.png",
+        "band": [
+          35,
+          65,
+          0.35,
+          0.9,
+          1,
+          0.05,
+          0.2
+        ]
+      }
+    },
+    {
+      "id": "yoshi_shoes_v1",
+      "character_id": "yoshi",
+      "art_part": "p1",
+      "target_hex": "#FD6920",
+      "copy": {
+        "pt": {
+          "character": "Yoshi",
+          "work": "Super Mario",
+          "part": "Calçados",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Yoshi",
+          "work": "Super Mario",
+          "part": "Shoes",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Yoshi",
+          "work": "Super Mario",
+          "part": "Zapatos",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/850b7938ec9df2a77921738a12857e88/c4ba3/yoshi.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "e038914c3916a3bdae1a651b234c991455ed0176d6a65e48d252b094428a88be",
+      "sampling": {
+        "xy": [
+          98,
+          455
+        ],
+        "image_sha256": "e038914c3916a3bdae1a651b234c991455ed0176d6a65e48d252b094428a88be",
+        "file": "docs/artwork/characters/expanded/references/yoshi-official.png",
+        "band": [
+          10,
+          45,
+          0.5,
+          0.4,
+          1,
+          0.72,
+          1
+        ]
+      }
+    },
+    {
+      "id": "bowser_skin_v1",
+      "character_id": "bowser",
+      "art_part": "p1",
+      "target_hex": "#C78A25",
+      "copy": {
+        "pt": {
+          "character": "Bowser",
+          "work": "Super Mario",
+          "part": "Pele",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Bowser",
+          "work": "Super Mario",
+          "part": "Skin",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Bowser",
+          "work": "Super Mario",
+          "part": "Piel",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/7204f288e3e823a8203c445fb6cc0d7e/b1656/bowser.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023",
+      "sampling": {
+        "xy": [
+          60,
+          496
+        ],
+        "image_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023",
+        "file": "docs/artwork/characters/expanded/references/bowser-official.png",
+        "band": [
+          20,
+          65,
+          0.4,
+          0.4,
+          1,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "toad_vest_v1",
+      "character_id": "toad",
+      "art_part": "p1",
+      "target_hex": "#1B19FB",
+      "copy": {
+        "pt": {
+          "character": "Toad",
+          "work": "Super Mario",
+          "part": "Colete",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Toad",
+          "work": "Super Mario",
+          "part": "Vest",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Toad",
+          "work": "Super Mario",
+          "part": "Chaleco",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/e3ebf11b069067da929b608250baa44e/55d59/toad.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8",
+      "sampling": {
+        "xy": [
+          118,
+          341
+        ],
+        "image_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8",
+        "file": "docs/artwork/characters/expanded/references/toad-official.png",
+        "band": [
+          185,
+          255,
+          0.35,
+          0.2,
+          1,
+          0.2,
+          0.85
+        ]
+      }
+    },
+    {
+      "id": "donkey_kong_tie_v1",
+      "character_id": "donkey_kong",
+      "art_part": "p1",
+      "target_hex": "#F91B0A",
+      "copy": {
+        "pt": {
+          "character": "Donkey Kong",
+          "work": "Donkey Kong",
+          "part": "Gravata",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Donkey Kong",
+          "work": "Donkey Kong",
+          "part": "Tie",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Donkey Kong",
+          "work": "Donkey Kong",
+          "part": "Corbata",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/b444206395480738954c3cbbd86716cc/c2c43/donkey-kong.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "a6c4d60fbafc70a423c7bae638d8c8accdae71bc8c013f253f6fa3bd49c9ddac",
+      "sampling": {
+        "xy": [
+          306,
+          249
+        ],
+        "image_sha256": "a6c4d60fbafc70a423c7bae638d8c8accdae71bc8c013f253f6fa3bd49c9ddac",
+        "file": "docs/artwork/characters/expanded/references/donkey_kong-official.png",
+        "band": [
+          350,
+          8,
+          0.7,
+          0.3,
+          1,
+          0.15,
+          0.85
+        ]
+      }
+    },
+    {
+      "id": "wario_overalls_v1",
+      "character_id": "wario",
+      "art_part": "p1",
+      "target_hex": "#7C2773",
+      "copy": {
+        "pt": {
+          "character": "Wario",
+          "work": "Super Mario",
+          "part": "Jardineira",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Wario",
+          "work": "Super Mario",
+          "part": "Overalls",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Wario",
+          "work": "Super Mario",
+          "part": "Peto",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/2e8e71c5b38a5aedd5eef91c3d54bf13/747d9/wario.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743",
+      "sampling": {
+        "xy": [
+          118,
+          298
+        ],
+        "image_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743",
+        "file": "docs/artwork/characters/expanded/references/wario-official.png",
+        "band": [
+          260,
+          320,
+          0.35,
+          0.25,
+          1,
+          0.3,
+          1
+        ]
+      }
+    },
+    {
+      "id": "waluigi_overalls_v1",
+      "character_id": "waluigi",
+      "art_part": "p1",
+      "target_hex": "#242A4C",
+      "copy": {
+        "pt": {
+          "character": "Waluigi",
+          "work": "Super Mario",
+          "part": "Jardineira",
+          "hint": "Pense na mistura de azul e vermelho e na intensidade da parte indicada."
+        },
+        "en": {
+          "character": "Waluigi",
+          "work": "Super Mario",
+          "part": "Overalls",
+          "hint": "Think of the blue and red mixture and the intensity of the indicated part."
+        },
+        "es": {
+          "character": "Waluigi",
+          "work": "Super Mario",
+          "part": "Peto",
+          "hint": "Piensa en la mezcla de azul y rojo y en la intensidad de la zona indicada."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/54c0617c992012b38e212c154f4e3944/3eddd/waluigi.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78",
+      "sampling": {
+        "xy": [
+          121,
+          266
+        ],
+        "image_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78",
+        "file": "docs/artwork/characters/expanded/references/waluigi-official.png",
+        "band": [
+          195,
+          265,
+          0.25,
+          0.08,
+          0.6,
+          0.4,
+          1
+        ]
+      }
+    },
+    {
+      "id": "daisy_hair_v1",
+      "character_id": "daisy",
+      "art_part": "p1",
+      "target_hex": "#B56036",
+      "copy": {
+        "pt": {
+          "character": "Princesa Daisy",
+          "work": "Super Mario",
+          "part": "Cabelo",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Princess Daisy",
+          "work": "Super Mario",
+          "part": "Hair",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Princesa Daisy",
+          "work": "Super Mario",
+          "part": "Cabello",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/b625bdf51061d55b220d82eb9b61442c/9b369/daisy.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0",
+      "sampling": {
+        "xy": [
+          174,
+          27
+        ],
+        "image_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0",
+        "file": "docs/artwork/characters/expanded/references/daisy-official.png",
+        "band": [
+          5,
+          45,
+          0.35,
+          0.5,
+          0.9,
+          0.04,
+          0.29
+        ]
+      }
+    },
+    {
+      "id": "rosalina_hair_v1",
+      "character_id": "rosalina",
+      "art_part": "p1",
+      "target_hex": "#F8D194",
+      "copy": {
+        "pt": {
+          "character": "Rosalina",
+          "work": "Super Mario",
+          "part": "Cabelo",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Rosalina",
+          "work": "Super Mario",
+          "part": "Hair",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Rosalina",
+          "work": "Super Mario",
+          "part": "Cabello",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://mario.nintendo.com/characters/",
+      "reference_image": "https://mario.nintendo.com/static/9413cb5d146400e7368855759d084c69/d1a6b/rosalina.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c",
+      "sampling": {
+        "xy": [
+          283,
+          41
+        ],
+        "image_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c",
+        "file": "docs/artwork/characters/expanded/references/rosalina-official.png",
+        "band": [
+          25,
+          65,
+          0.15,
+          0.85,
+          1,
+          0.05,
+          0.28
+        ]
+      }
+    },
+    {
+      "id": "sonic_shoes_v1",
+      "character_id": "sonic",
+      "art_part": "p1",
+      "target_hex": "#CB0404",
+      "copy": {
+        "pt": {
+          "character": "Sonic",
+          "work": "Sonic the Hedgehog",
+          "part": "Calçados",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Sonic",
+          "work": "Sonic the Hedgehog",
+          "part": "Shoes",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Sonic",
+          "work": "Sonic the Hedgehog",
+          "part": "Zapatos",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+      "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara01-img.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "0691cc6325691fe09d46d0196022ca2328c3223773277ee124ed83901100e2db",
+      "sampling": {
+        "xy": [
+          623,
+          689
+        ],
+        "image_sha256": "0691cc6325691fe09d46d0196022ca2328c3223773277ee124ed83901100e2db",
+        "file": "docs/artwork/characters/expanded/references/sonic-official.png",
+        "band": [
+          345,
+          20,
+          0.5,
+          0.4,
+          1,
+          0.5,
+          1
+        ]
+      }
+    },
+    {
+      "id": "tails_shoes_v1",
+      "character_id": "tails",
+      "art_part": "p1",
+      "target_hex": "#DA0004",
+      "copy": {
+        "pt": {
+          "character": "Tails",
+          "work": "Sonic the Hedgehog",
+          "part": "Calçados",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Tails",
+          "work": "Sonic the Hedgehog",
+          "part": "Shoes",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Tails",
+          "work": "Sonic the Hedgehog",
+          "part": "Zapatos",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+      "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara02-img.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "4092b3f4371f31eefb023c0feaa6360002eedec51ac5df44a2c24fc4b284f855",
+      "sampling": {
+        "xy": [
+          371,
+          550
+        ],
+        "image_sha256": "4092b3f4371f31eefb023c0feaa6360002eedec51ac5df44a2c24fc4b284f855",
+        "file": "docs/artwork/characters/expanded/references/tails-official.png",
+        "band": [
+          345,
+          20,
+          0.5,
+          0.4,
+          1,
+          0.5,
+          1
+        ]
+      }
+    },
+    {
+      "id": "knuckles_gloves_v1",
+      "character_id": "knuckles",
+      "art_part": "p1",
+      "target_hex": "#D9D9D9",
+      "copy": {
+        "pt": {
+          "character": "Knuckles",
+          "work": "Sonic the Hedgehog",
+          "part": "Luvas",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Knuckles",
+          "work": "Sonic the Hedgehog",
+          "part": "Gloves",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Knuckles",
+          "work": "Sonic the Hedgehog",
+          "part": "Guantes",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+      "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara04-img.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "4fbaabfc6a1e04062f2a3b9571015f6a3f0cdb59c3df76f2905afb36b1a7f85b",
+      "sampling": {
+        "xy": [
+          504,
+          403
+        ],
+        "image_sha256": "4fbaabfc6a1e04062f2a3b9571015f6a3f0cdb59c3df76f2905afb36b1a7f85b",
+        "file": "docs/artwork/characters/expanded/references/knuckles-official.png",
+        "band": [
+          0,
+          360,
+          0,
+          0.83,
+          1,
+          0.35,
+          0.78
+        ]
+      }
+    },
+    {
+      "id": "amy_dress_v1",
+      "character_id": "amy",
+      "art_part": "p1",
+      "target_hex": "#AB1817",
+      "copy": {
+        "pt": {
+          "character": "Amy Rose",
+          "work": "Sonic the Hedgehog",
+          "part": "Vestido",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Amy Rose",
+          "work": "Sonic the Hedgehog",
+          "part": "Dress",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Amy Rose",
+          "work": "Sonic the Hedgehog",
+          "part": "Vestido",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+      "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara03-img.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "5b3890d9b626ef5269c48c753418aa5ae34432bb579464ba9cbe3ac07446ef6e",
+      "sampling": {
+        "xy": [
+          144,
+          309
+        ],
+        "image_sha256": "5b3890d9b626ef5269c48c753418aa5ae34432bb579464ba9cbe3ac07446ef6e",
+        "file": "docs/artwork/characters/expanded/references/amy-official.png",
+        "band": [
+          350,
+          12,
+          0.65,
+          0.35,
+          1,
+          0.25,
+          0.63
+        ]
+      }
+    },
+    {
+      "id": "homer_simpson_pants_v1",
+      "character_id": "homer_simpson",
+      "art_part": "p1",
+      "target_hex": "#70D1FE",
+      "copy": {
+        "pt": {
+          "character": "Homer Simpson",
+          "work": "Os Simpsons",
+          "part": "Calça",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Homer Simpson",
+          "work": "The Simpsons",
+          "part": "Pants",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Homer Simpson",
+          "work": "Los Simpson",
+          "part": "Pantalón",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/homer_simpson-skin/",
+      "reference_image": "https://toontone.app/assets/Characters/homer_simpson.webp",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "8f5cf6e8415a7f15af07e6e0f5429b736dd49e9ade559795fd7e91930734b4a0",
+      "sampling": {
+        "xy": [
+          66,
+          243
+        ],
+        "image_sha256": "8f5cf6e8415a7f15af07e6e0f5429b736dd49e9ade559795fd7e91930734b4a0",
+        "file": "docs/artwork/characters/expanded/references/homer_simpson-fallback.png",
+        "band": [
+          185,
+          260,
+          0.3,
+          0.2,
+          1,
+          0.45,
+          1
+        ]
+      }
+    },
+    {
+      "id": "mickey_mouse_shoes_v1",
+      "character_id": "mickey_mouse",
+      "art_part": "p1",
+      "target_hex": "#97501A",
+      "copy": {
+        "pt": {
+          "character": "Mickey Mouse",
+          "work": "Mickey Mouse",
+          "part": "Calçados",
+          "hint": "Lembre um tom quente; observe a intensidade sem incluir contornos ou sombras."
+        },
+        "en": {
+          "character": "Mickey Mouse",
+          "work": "Mickey Mouse",
+          "part": "Shoes",
+          "hint": "Recall a warm tone; consider its intensity without outlines or shadows."
+        },
+        "es": {
+          "character": "Mickey Mouse",
+          "work": "Mickey Mouse",
+          "part": "Zapatos",
+          "hint": "Recuerda un tono cálido; piensa en su intensidad sin contornos ni sombras."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/mickey_mouse-shorts/",
+      "reference_image": "https://toontone.app/assets/Characters/mickey_mouse.webp",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "6117376180e5f2ceecde9ebd87f75f6ce33d5370dfcb93909dfd0d9614cb6b0c",
+      "sampling": {
+        "xy": [
+          179,
+          597
+        ],
+        "image_sha256": "6117376180e5f2ceecde9ebd87f75f6ce33d5370dfcb93909dfd0d9614cb6b0c",
+        "file": "assets/colors/sources/mickey_mouse.png",
+        "band": [
+          15,
+          40,
+          0.4,
+          0.2,
+          0.8,
+          0.75,
+          1
+        ]
+      }
+    },
+    {
+      "id": "donald_duck_bow_tie_v1",
+      "character_id": "donald_duck",
+      "art_part": "p1",
+      "target_hex": "#E40025",
+      "copy": {
+        "pt": {
+          "character": "Pato Donald",
+          "work": "Mickey Mouse",
+          "part": "Gravata-borboleta",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Donald Duck",
+          "work": "Mickey Mouse",
+          "part": "Bow tie",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Pato Donald",
+          "work": "Mickey Mouse",
+          "part": "Pajarita",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://en.wikipedia.org/wiki/Donald_Duck",
+      "reference_image": "https://upload.wikimedia.org/wikipedia/en/a/a5/Donald_Duck_angry_transparent_background.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "cbea22d423493df215d6174c1d6997464e156be213e5ff426861e6d148bde8eb",
+      "sampling": {
+        "xy": [
+          124,
+          187
+        ],
+        "image_sha256": "cbea22d423493df215d6174c1d6997464e156be213e5ff426861e6d148bde8eb",
+        "file": "docs/artwork/characters/expanded/references/donald_duck-fallback.png",
+        "band": [
+          345,
+          20,
+          0.45,
+          0.35,
+          1,
+          0.15,
+          0.65
+        ]
+      }
+    },
+    {
+      "id": "goofy_boots_v1",
+      "character_id": "goofy",
+      "art_part": "p1",
+      "target_hex": "#A27241",
+      "copy": {
+        "pt": {
+          "character": "Pateta",
+          "work": "Mickey Mouse",
+          "part": "Botas",
+          "hint": "Lembre um tom frio e ajuste o equilíbrio entre azul e verde."
+        },
+        "en": {
+          "character": "Goofy",
+          "work": "Mickey Mouse",
+          "part": "Boots",
+          "hint": "Recall a cool tone and balance its blue and green."
+        },
+        "es": {
+          "character": "Goofy",
+          "work": "Mickey Mouse",
+          "part": "Botas",
+          "hint": "Recuerda un tono frío y equilibra el azul y el verde."
+        }
+      },
+      "source_url": "https://en.wikipedia.org/wiki/Goofy",
+      "reference_image": "https://upload.wikimedia.org/wikipedia/en/5/50/Goofy_Duckipedia.png",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca",
+      "sampling": {
+        "xy": [
+          193,
+          288
+        ],
+        "image_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca",
+        "file": "docs/artwork/characters/expanded/references/goofy-fallback.png",
+        "band": [
+          15,
+          45,
+          0.2,
+          0.2,
+          0.85,
+          0.72,
+          1
+        ]
+      }
+    },
+    {
+      "id": "peter_griffin_shirt_v1",
+      "character_id": "peter_griffin",
+      "art_part": "p1",
+      "target_hex": "#FFFFFF",
+      "copy": {
+        "pt": {
+          "character": "Peter Griffin",
+          "work": "Uma Família da Pesada",
+          "part": "Camisa",
+          "hint": "Pense na família dos verdes e no quanto esse tom é vivo."
+        },
+        "en": {
+          "character": "Peter Griffin",
+          "work": "Family Guy",
+          "part": "Shirt",
+          "hint": "Think of the green family and how vivid the tone is."
+        },
+        "es": {
+          "character": "Peter Griffin",
+          "work": "Padre de familia",
+          "part": "Camisa",
+          "hint": "Piensa en la familia de verdes y en lo vivo que es el tono."
+        }
+      },
+      "source_url": "https://toontone.app/pt/characters/peter_griffin-trousers/",
+      "reference_image": "https://toontone.app/assets/Characters/peter_griffin.webp",
+      "reference_edition": "Pinned official/existing reference, secondary region reviewed 2026-10-15",
+      "validation": "Exact independent reference pixel; existing image-derived mask; no generated answer",
+      "reference_sha256": "72ed15811a1283979e7fda405261caeec416a80d20de029078d570f149c49f11",
+      "sampling": {
+        "xy": [
+          182,
+          96
+        ],
+        "image_sha256": "72ed15811a1283979e7fda405261caeec416a80d20de029078d570f149c49f11",
+        "file": "docs/artwork/characters/expanded/references/peter_griffin-fallback.png",
+        "band": [
+          0,
+          360,
+          0,
+          0.86,
+          1,
+          0.2,
+          0.7
+        ]
+      }
+    }
+  ]
+}

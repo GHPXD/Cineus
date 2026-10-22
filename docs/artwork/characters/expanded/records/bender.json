@@ -1,0 +1,34 @@
+{
+  "id": "bender",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/bender.png",
+  "source_sha256": "11eb35c6769ada6d47d50eadfb4249934e967ff537914be9f5b1b53c40815d76",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    428,
+    640
+  ],
+  "region_pixels": [
+    40622
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/bender_base.svg",
+      "sha256": "6d25c55cd662b95f047e200e839d35ea139f2c55fe07fee28962973672da4193"
+    },
+    {
+      "file": "assets/colors/art/bender_p0.svg",
+      "sha256": "f160c173be467c903e529f7b87b46a33c0ffb7138c65d1a34903cb20cd9aa77c"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-008c32bd-5b51-42f8-ad1b-2359df2fcfc9.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Bender, friendly cylindrical gray-blue robot with antenna, rectangular mouth with white teeth, square yellow eyes, segmented arms and legs, no accessories. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the metal body in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

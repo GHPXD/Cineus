@@ -1,0 +1,27 @@
+{
+  "id": "badgeColorsExcellent",
+  "kind": "icon",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-13694c2f-be86-4f83-9c72-e36ee2dd8bb1.png",
+  "prompt": "Use case: logo-brand. Create one standalone achievement badge for Cineus mobile cinema game. Subject: a polished gold faceted prism jewel surrounded by a blue curved spectrum ribbon and one ivory sparkle. Unified illustrated game icon family: bold clear silhouette, charming polished shapes, moderately dimensional but vector-friendly flat color regions, gold #EFC026, bright blue #5790FF, ivory #F4F3E8 and deeper blue #2D54AA. Transparent background, centered full object, large safe margin, no enclosing square tile, no text, no letters, no numbers, no emoji, no watermark, no gradients fading to a background, readable at 48px.",
+  "subject": "a polished gold faceted prism jewel surrounded by a blue curved spectrum ribbon and one ivory sparkle",
+  "generator": "built-in image_gen / GPT Image",
+  "source": "assets/generated/sources/badgeColorsExcellent.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/badgeColorsExcellent.svg",
+  "source_sha256": "9eb45b4b461a0f934a80a36d2a8b88be0bc93d5735e37eb662b8e96e9fd6d93c",
+  "svg_sha256": "2b54ff18ef6de344749dd594173e7c0c9aa22679cb7eeccec98271fcdf996120",
+  "paths": 22,
+  "source_size": [
+    1312,
+    1199
+  ],
+  "trace_size": [
+    512,
+    468
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/badgeColorsExcellent_ink.svg",
+  "ink_sha256": "c8defbde545ed3bca68c13b8ba48fe0acf60780658f7f2e03625ba57d0df0eb9"
+}

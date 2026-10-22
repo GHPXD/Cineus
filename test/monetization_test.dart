@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:cineus/domain/entities/monetization.dart';
@@ -40,10 +41,10 @@ class _Service implements MonetizationService {
 
   @override
   Future<PassEntitlement> loadPassEntitlement() async => PassEntitlement(
-        storeAvailable: true,
-        active: passActive,
-        displayPrice: r'R$ 9,90',
-      );
+    storeAvailable: true,
+    active: passActive,
+    displayPrice: r'R$ 9,90',
+  );
 
   @override
   Future<void> purchasePass() async {
@@ -58,12 +59,14 @@ class _Service implements MonetizationService {
 
 class _Telemetry implements ProductTelemetry {
   final events = <String>[];
+  bool fail = false;
 
   @override
   Future<void> track(
     String event, {
     Map<String, Object?> properties = const {},
   }) async {
+    if (fail) throw StateError('Analytics offline');
     events.add(event);
   }
 }
@@ -74,7 +77,96 @@ Future<void> _settle(MonetizationNotifier notifier) async {
   }
 }
 
+class _VerifiedService extends _Service implements ServerCreditedRewards {
+  int used = 0;
+  @override
+  bool get creditsRewards => true;
+  @override
+  int get confirmedUsedToday => used;
+  @override
+  Future<bool> showRewarded() async {
+    used++;
+    return true;
+  }
+}
+
+class _AvailabilityRaceService extends _Service {
+  final first = Completer<bool>();
+  int reads = 0;
+  @override
+  Future<bool> isRewardedAvailable() async {
+    reads++;
+    return reads == 1 ? first.future : true;
+  }
+}
+
 void main() {
+  test(
+    'availability update during load is queued instead of dropped or overwritten',
+    () async {
+      final service = _AvailabilityRaceService();
+      final notifier = MonetizationNotifier(
+        service: service,
+        meta: _Meta(),
+        creditTickets: (_) async {},
+        telemetry: _Telemetry(),
+      );
+      addTearDown(notifier.dispose);
+      await Future<void>.delayed(Duration.zero);
+      expect(service.reads, 1);
+      final pending = notifier.load();
+      service.first.complete(false);
+      await pending;
+      expect(service.reads, 2);
+      expect(notifier.state.rewardedAvailable, isTrue);
+      expect(notifier.state.canWatchRewarded, isTrue);
+    },
+  );
+  test(
+    'signed server reward is never credited a second time by the legacy notifier',
+    () async {
+      var localCredits = 0;
+      final service = _VerifiedService();
+      final notifier = MonetizationNotifier(
+        service: service,
+        meta: _Meta(),
+        creditTickets: (_) async {
+          localCredits++;
+        },
+        telemetry: _Telemetry(),
+      );
+      addTearDown(notifier.dispose);
+      await _settle(notifier);
+      expect(await notifier.watchRewardedForTickets(), isTrue);
+      expect(localCredits, 0);
+      expect(notifier.state.rewardedUsedToday, 1);
+      service.used = 3;
+      await notifier.load();
+      expect(notifier.state.canWatchRewarded, isFalse);
+    },
+  );
+  test(
+    'analytics failure cannot invalidate a reward or prevent a purchase',
+    () async {
+      var credited = 0;
+      final notifier = MonetizationNotifier(
+        service: _Service(),
+        meta: _Meta(),
+        creditTickets: (amount) async => credited += amount,
+        telemetry: _Telemetry()..fail = true,
+      );
+      addTearDown(notifier.dispose);
+      await _settle(notifier);
+      expect(await notifier.watchRewardedForTickets(), isTrue);
+      expect(credited, 2);
+      expect(notifier.state.rewardedUsedToday, 1);
+      expect(notifier.state.hasError, isFalse);
+      await notifier.purchasePass();
+      expect(notifier.state.passActive, isTrue);
+      expect(notifier.state.hasError, isFalse);
+    },
+  );
+
   test('core gameplay is explicitly free and rewarded ads are optional', () {
     expect(MonetizationPolicy.coreGameplayAlwaysFree, isTrue);
     expect(MonetizationPolicy.rewardedAdsAreOptional, isTrue);

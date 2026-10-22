@@ -1,6 +1,7 @@
+import 'growth_provider.dart';
+import 'commercial_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/utils/daily_selector.dart';
 import '../../data/datasources/database_helper.dart';
 import '../../data/datasources/database_provider.dart';
 import '../../data/repositories/app_meta_repository_impl.dart';
@@ -18,6 +19,8 @@ import '../../domain/repositories/reward_repository.dart';
 import '../../domain/repositories/stage_repository.dart';
 import 'stage_notifier.dart';
 import 'ticket_notifier.dart';
+import 'app_clock.dart';
+import 'telemetry_provider.dart';
 
 /// Database seam. Overriding this in a test swaps in an in-memory SQLite.
 final databaseProvider = Provider<DatabaseProvider>((_) {
@@ -30,7 +33,10 @@ final movieRepositoryProvider = Provider<MovieRepository>((ref) {
 });
 
 final gameRepositoryProvider = Provider<GameRepository>((ref) {
-  return GameRepositoryImpl(ref.read(databaseProvider));
+  return GameRepositoryImpl(
+    ref.read(databaseProvider),
+    now: ref.read(appClockProvider),
+  );
 });
 
 final stageRepositoryProvider = Provider<StageRepository>((ref) {
@@ -54,29 +60,41 @@ final onboardingSeenProvider = FutureProvider<bool>((ref) async {
 });
 
 /// Ticket provider
+final ticketBalanceStatusProvider = StateProvider<AsyncValue<void>>(
+  (_) => const AsyncValue.loading(),
+);
+
 final ticketNotifierProvider =
     StateNotifierProvider<TicketNotifier, PlayerTickets>((ref) {
-  return TicketNotifier(ref.read(databaseProvider));
-});
+      return TicketNotifier(
+        ref.read(databaseProvider),
+        now: ref.read(appClockProvider),
+        onLoadStateChanged: (state) =>
+            ref.read(ticketBalanceStatusProvider.notifier).state = state,
+        telemetry: ref.read(productTelemetryProvider),
+        paidWallet: () => ref.read(paidTicketWalletProvider),
+        canReset: () =>
+            !ref.read(commerceBackendConfigurationProvider).enabled ||
+            ref.read(trustedTimeProvider).fresh,
+      );
+    });
 
 /// Stage list provider (clue mode)
 final stageNotifierProvider =
     StateNotifierProvider<StageNotifier, AsyncValue<List<Stage>>>((ref) {
-  return StageNotifier(ref.read(stageRepositoryProvider), mode: 'clue');
-});
+      return StageNotifier(ref.read(stageRepositoryProvider), mode: 'clue');
+    });
 
 /// Stage list provider (poster mode — separate progress tracking)
 final posterStageNotifierProvider =
     StateNotifierProvider<StageNotifier, AsyncValue<List<Stage>>>((ref) {
-  return StageNotifier(ref.read(stageRepositoryProvider), mode: 'poster');
-});
+      return StageNotifier(ref.read(stageRepositoryProvider), mode: 'poster');
+    });
 
 /// Today's daily session per mode, read straight from the database so the home
 /// screen does not depend on whichever game is currently loaded in a notifier.
-final dailySessionProvider =
-    FutureProvider.autoDispose.family<GameSession?, GameMode>(
-  (ref, mode) async {
-    final gameRepo = ref.read(gameRepositoryProvider);
-    return gameRepo.getDailySession(mode, DailySelector.todayKey());
-  },
-);
+final dailySessionProvider = FutureProvider.autoDispose
+    .family<GameSession?, GameMode>((ref, mode) async {
+      final gameRepo = ref.read(gameRepositoryProvider);
+      return gameRepo.getDailySession(mode, ref.watch(dailyDateProvider));
+    });

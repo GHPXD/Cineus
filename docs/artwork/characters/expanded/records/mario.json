@@ -1,0 +1,39 @@
+{
+  "id": "mario",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/mario.png",
+  "source_sha256": "619d32c7f6d078845e833ba29c6a549b8dc1438bfd9a694f38057ac9a178d4c2",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+  "conversion_version": 5,
+  "source_size": [
+    382,
+    853
+  ],
+  "trace_size": [
+    445,
+    960
+  ],
+  "region_pixels": [
+    84814
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/mario_base.svg",
+      "sha256": "96fe46075ec647bd8c6b1b5d0255827f5052a7173c2798b41b18dcd8da25388a"
+    },
+    {
+      "file": "assets/colors/art/mario_p0.svg",
+      "sha256": "1f7510fc6ac21136fa9779e7406931254c74dc16c500adeadc917db31712b440"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Mario, cheerful mustached plumber with red cap without letters, red shirt, blue overalls with gold buttons, white gloves and brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 3fc7e3ce-a2f4-436f-be76-de835e60f68e.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://mario.nintendo.com/static/0f10f738d1f9aa8292fa7d93c35f2a07/02be2/mario.png",
+  "source_page": "https://mario.nintendo.com/characters/",
+  "external_file": "docs/artwork/characters/expanded/references/mario-official.png",
+  "external_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34"
+}

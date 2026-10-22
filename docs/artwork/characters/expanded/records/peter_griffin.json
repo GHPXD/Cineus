@@ -1,0 +1,39 @@
+{
+  "id": "peter_griffin",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/peter_griffin.png",
+  "source_sha256": "59aa81f07684a391568e54983e0a3eda589755878dab888db708239bf89da21c",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+  "conversion_version": 6,
+  "source_size": [
+    247,
+    359
+  ],
+  "trace_size": [
+    607,
+    960
+  ],
+  "region_pixels": [
+    78093
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/peter_griffin_base.svg",
+      "sha256": "05fff42218507c40a318a33753e3261fdf049c8f2b9d2aa21b24a3c2e4e84543"
+    },
+    {
+      "file": "assets/colors/art/peter_griffin_p0.svg",
+      "sha256": "4c61ea5df9d920d138f4ac8e6658ac5c1f4334393f132ed797acc2ac823f3c49"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Peter Griffin, round adult father with brown short hair and small round spectacles, white buttoned shirt, dark green trousers, brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the trousers in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 985f8334-d4ed-4918-a6f4-54dc2ce333b7.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://upload.wikimedia.org/wikipedia/en/c/c2/Peter_Griffin.png",
+  "source_page": "https://en.wikipedia.org/wiki/Peter_Griffin",
+  "external_file": "docs/artwork/characters/expanded/references/peter_griffin-fallback.png",
+  "external_sha256": "72ed15811a1283979e7fda405261caeec416a80d20de029078d570f149c49f11"
+}

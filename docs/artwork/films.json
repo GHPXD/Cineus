@@ -1,0 +1,50 @@
+[
+  {
+    "id": "projector",
+    "prompt": "Use case: stylized-concept. Asset type: landscape cinematic background artwork for Cineus mobile film stages screen. Create one premium cinematic illustration in landscape 3:2, midnight navy and amber gold with realistic film grain, haze, subtle warm bokeh. A beautiful vintage dark-blue and gold movie projector with large gleaming golden reels sits just RIGHT of center, shooting a golden beam toward a receding filmstrip with three small generic ivory, blue and gold mountain pictures on the far right. The LEFT 45 percent is dark empty navy-black negative space for live title and progress text. Projector and strip sit in the middle vertical 60 percent so the art can be cropped to a wide horizontal hero and a thumbnail. Rich amber rim light, striking polished shapes, high-end movie-poster atmosphere. Background artwork only: absolutely NO text, letters, numbers, logos, watermark, UI, card frame, border, buttons, badges or progress bars. Do not depict a known movie, character or actor. Match a luxurious black-gold-blue cinema interface.",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-538ce927-eaa6-43f9-b0c6-904299d51377.png",
+    "file": "assets/films/projector.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1536,
+      1024
+    ],
+    "sha256": "4864875549d7a68c876f2f995b133fd2096c3f6571899afcacb4d026c354fb03"
+  },
+  {
+    "id": "clapper",
+    "prompt": "Use case: stylized-concept. Asset type: landscape cinematic background for a locked film-stage row in Cineus mobile app. One premium illustration, landscape 3:2. A beautiful navy-black film clapperboard with muted ivory and gold stripes, hinged arm open, on a dark studio table, subject positioned in the RIGHT half and centered vertically. Warm amber rim lighting, very subtle golden studio bokeh and film haze. LEFT half fades to pure midnight navy-black negative space. Sophisticated realistic cinematic render with strong shapes, gold and dark blue palette, companion to a golden vintage projector. Keep whole clapperboard readable as a tiny thumbnail. No writing on clapperboard. Background art only: NO text, letters, numbers, logos, watermark, UI, card border, lock, button or badge. Do not depict a known movie.",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-ef40f357-e7b2-470c-9cfd-5cd135cebe9d.png",
+    "file": "assets/films/clapper.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1536,
+      1024
+    ],
+    "sha256": "5b7835bdbd3403a805aa3b0def7b8005f6368e79732d3fbfe35570f2435fffe8"
+  },
+  {
+    "id": "popcorn",
+    "prompt": "Use case: stylized-concept. Asset type: landscape cinematic background for a locked film-stage row in Cineus mobile app. One premium illustration in landscape 3:2. A classic ivory and amber gold striped cinema popcorn bucket with warm ivory popcorn, next to a dark-blue vintage film reel with gold rim and a short curled filmstrip. Subjects grouped in the RIGHT half, centered vertically, on a dark studio table. Soft warm amber lighting, dark navy shadows, subtle golden bokeh and film grain. LEFT half fades into pure midnight navy-black negative space. Sophisticated cinematic realistic render, bold polished shapes that read as a small thumbnail. Companion art to golden projector and navy-gold clapperboard. Background art only: NO text, letters, numbers, logos, watermark, UI, card border, lock, button or badge.",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-a7b03c5c-31fb-4219-b432-cc57e5e57a23.png",
+    "file": "assets/films/popcorn.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1536,
+      1024
+    ],
+    "sha256": "568839d888c14a1bad16d3876709dc5e0795173d6a87f3e9e298eb2b1226550b"
+  },
+  {
+    "id": "director",
+    "prompt": "Use case: stylized-concept. Asset type: landscape cinematic background for a locked film-stage row in Cineus mobile app. One premium illustration in landscape 3:2. An elegant movie director folding chair made of black midnight navy canvas with amber-gold wooden frame, placed in the RIGHT half and centered vertically on a dark studio floor. Soft amber rim light illuminates arm rests and legs; behind it, a defocused film set with restrained golden bokeh and navy-black haze. LEFT half fades to pure midnight navy-black negative space. Luxurious realistic cinematic render, crisp strong silhouette readable as a tiny thumbnail. Companion to golden movie projector, clapperboard and popcorn art. Background art only: NO text, letters, numbers, logos, watermark, UI, frame, lock, button or badge.",
+    "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-d6f73d4d-c313-4bcd-980a-8402f35638b3.png",
+    "file": "assets/films/director.png",
+    "generator": "built-in image_gen / GPT Image",
+    "size": [
+      1536,
+      1024
+    ],
+    "sha256": "37b0bb06144b759a03cccbc65a4cda3160b3c9ac1d1e6be9756bf2aa24a4f5de"
+  }
+]

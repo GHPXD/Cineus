@@ -1,0 +1,39 @@
+{
+  "id": "shaggy_rogers",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/shaggy_rogers.png",
+  "source_sha256": "57ea643be40d2a1ab29ee49fc8c25d8725ffa1617e2798f41770e33997d866bf",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+  "conversion_version": 6,
+  "source_size": [
+    212,
+    406
+  ],
+  "trace_size": [
+    299,
+    960
+  ],
+  "region_pixels": [
+    67405
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/shaggy_rogers_base.svg",
+      "sha256": "6ff97a31775e555173628a5cc9a5669252ca26c0a23c741d8e1b95f05d7b876e"
+    },
+    {
+      "file": "assets/colors/art/shaggy_rogers_p0.svg",
+      "sha256": "f49a0b41e6649b36b07f5182a325f25ebf68a085c617be590c5abf311f865186"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Shaggy Rogers, slender adult cartoon man with shaggy brown hair and small goatee, green V-neck short-sleeve t-shirt, brown bell-bottom trousers, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the t-shirt in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 8d7e58d3-352d-4dff-810b-8a4580dd29dc.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://upload.wikimedia.org/wikipedia/en/8/87/ShaggyRogers.png",
+  "source_page": "https://en.wikipedia.org/wiki/Shaggy_Rogers",
+  "external_file": "docs/artwork/characters/expanded/references/shaggy_rogers-fallback.png",
+  "external_sha256": "ee8f5117bf6ff57305180ae0bb376888b34491dbe653da37fd212743c036ab9a"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "categoryPlot",
+  "kind": "icon",
+  "subject": "an unrolled screenplay parchment with three broad blank strokes and one rolled corner, no writing",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: an unrolled screenplay parchment with three broad blank strokes and one rolled corner, no writing.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-519dd85f-cf69-4af2-9c81-381fd51ccf01.png",
+  "source": "assets/generated/sources/categoryPlot.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryPlot.svg",
+  "source_sha256": "350935ecdb8ed08baf469ada20c00dad58b535bd8069db5931705c6280136898",
+  "svg_sha256": "87f72391889b549a02527e22fd431753f8558057b4d7d3d822944e75f13718ef",
+  "paths": 9,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryPlot_ink.svg",
+  "ink_sha256": "2c62b6b37ff92f7f2e477a3a5ca167520e51e0236645eae6ae3b8c1db77fa2c0"
+}

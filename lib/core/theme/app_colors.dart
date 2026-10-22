@@ -3,39 +3,36 @@ import 'package:flutter/material.dart';
 /// Cineus Design Tokens — Classic Cinema × Modern Tech
 abstract final class AppColors {
   // ── Obsidian (Dark Noir Base) ──
-  static const obsidian950 = Color(0xFF05050A);
-  static const obsidian900 = Color(0xFF0A0A12);
-  static const obsidian800 = Color(0xFF101019);
-  static const obsidian700 = Color(0xFF16161F);
-  static const obsidian600 = Color(0xFF1E1E2A);
-  static const obsidian500 = Color(0xFF2C2C3A);
+  static const obsidian950 = Color(0xFF030910);
+  static const obsidian900 = Color(0xFF07111C);
+  static const obsidian800 = Color(0xFF0B1724);
+  static const obsidian700 = Color(0xFF12202E);
+  static const obsidian600 = Color(0xFF20374C);
+  static const obsidian500 = Color(0xFF2C4258);
   static const obsidian400 = Color(0xFF424256);
   static const obsidian300 = Color(0xFF64647A);
   static const obsidian200 = Color(0xFF9898B0);
-  static const obsidian100 = Color(0xFFC8C8DC);
-  static const obsidian50  = Color(0xFFEAEAF2);
-  static const obsidian0   = Color(0xFFFFFFFF);
+  static const obsidian100 = Color(0xFFC4D2E8);
+  static const obsidian50 = Color(0xFFEAEAF2);
+  static const obsidian0 = Color(0xFFFFFFFF);
 
   // ── Text tones (contrast-verified) ──
   //
-  // The obsidian ramp was designed for surfaces, and reusing its dim end for
-  // copy failed WCAG: obsidian400 measured 1.84–2.08:1 against the app's
-  // backgrounds and obsidian500 as low as 1.31:1 — below even the 3:1 floor for
-  // large text. obsidian300 reached only 3.12–3.53:1, so it passed for large
-  // text but not for body copy.
+  // Surface shades are for borders and decoration. Supporting copy uses
+  // separate blue-ivory tones verified against the lightest navy surface.
   //
   // These three are for TEXT and meaningful icons. Borders, dividers and
   // decoration keep using the obsidian ramp, where contrast rules do not apply.
   //
   // Worst case is against obsidian700, the lightest surface in use.
 
-  /// Primary secondary-text tone. 5.24:1 worst case — passes AA for body copy.
-  static const textSecondary = Color(0xFF8888A6);
+  /// Supporting text: 8.52:1 against obsidian700.
+  static const textSecondary = Color(0xFFA9BBDD);
 
-  /// Dimmer supporting text. 4.69:1 worst case — still passes AA.
-  static const textTertiary = Color(0xFF80809C);
+  /// Dimmer supporting text: 7.01:1 against obsidian700.
+  static const textTertiary = Color(0xFF99AAC6);
 
-  /// Lowest-emphasis text (captions, disabled). 3.32:1 worst case: AA for large
+  /// Lowest-emphasis text (disabled). 3.05:1 against obsidian700: AA for large
   /// text only, so keep it off small body copy.
   static const textQuaternary = Color(0xFF68687F);
 
@@ -49,7 +46,7 @@ abstract final class AppColors {
   static const gold300 = Color(0xFFE8B429);
   static const gold200 = Color(0xFFF5D06B);
   static const gold100 = Color(0xFFFAE8A8);
-  static const gold50  = Color(0xFFFDF6DC);
+  static const gold50 = Color(0xFFFDF6DC);
 
   // ── Electric Blue (Info & Clues) ──
   static const blue900 = Color(0xFF000820);

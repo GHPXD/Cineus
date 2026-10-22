@@ -1,0 +1,34 @@
+{
+  "id": "bananaman",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/bananaman.png",
+  "source_sha256": "18d20c8c2d9744d18d64aad62a86c388c0720c206c3272ae5ed3eba50fee1979",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    432,
+    640
+  ],
+  "region_pixels": [
+    23942
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/bananaman_base.svg",
+      "sha256": "95a6f8149d758c1b791a33c9fde1d48d4ba8b4bd3bc3d58e02d5870b10835894"
+    },
+    {
+      "file": "assets/colors/art/bananaman_p0.svg",
+      "sha256": "a631bd53c873c698e27465b699bf84513728ce0014d99ed8f0197a3d00edb0fa"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-afe5336e-9d21-41e3-8872-d110d6a22bd3.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Bananaman, muscular cartoon superhero with blue bodysuit, yellow cape, yellow gloves and boots, blue hood with yellow banana tips. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the cape in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

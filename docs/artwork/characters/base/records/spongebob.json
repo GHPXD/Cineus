@@ -1,0 +1,59 @@
+{
+  "id": "spongebob",
+  "kind": "character",
+  "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+  "prompt": null,
+  "external_source": "https://upload.wikimedia.org/wikipedia/commons/a/a2/SpongeBob_character.svg",
+  "source_page": "https://commons.wikimedia.org/wiki/File:SpongeBob_character.svg",
+  "external_file": "docs/artwork/characters/base/external/spongebob.svg",
+  "external_sha256": "970b6ddc43403f4fe13852a9cb1ddf926472ba25cf514f17e58be14c34abaaa5",
+  "source": "assets/colors/sources/spongebob.png",
+  "palette_mode": "existing",
+  "status": "converted",
+  "rights": "Origin retained; no claim that character rights or store distribution have been licensed.",
+  "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+  "source_sha256": "2ff55e6a2d8d587148973f7f1b515234bcc1a8eb8b0fd38971bd5030c6ca677f",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    696,
+    900
+  ],
+  "trace_size": [
+    471,
+    640
+  ],
+  "region_pixels": [
+    83235,
+    9913,
+    1152,
+    20229,
+    5381
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/spongebob_base.svg",
+      "sha256": "76cad33825cdce735a46738e4d1ca6fefa64801d44078f0bdd507350f18e345a"
+    },
+    {
+      "file": "assets/colors/art/spongebob_p0.svg",
+      "sha256": "bb43aec8e5e31c612ae24871367e92e158d8b0d95549623a50d22d9984fb2191"
+    },
+    {
+      "file": "assets/colors/art/spongebob_p1.svg",
+      "sha256": "3ef9930dd4ba66f01b47e8e7a3b8f9947f39366b6842999b909e659279fa1564"
+    },
+    {
+      "file": "assets/colors/art/spongebob_p2.svg",
+      "sha256": "f5b6c8ae373eb8b26dc72c62117f166e7174d6f018cb423dea23abb6a1310662"
+    },
+    {
+      "file": "assets/colors/art/spongebob_p3.svg",
+      "sha256": "01117d549c9c4cedbf09ac955e757cf8d8f9067de1ccee51c7800e78851024db"
+    },
+    {
+      "file": "assets/colors/art/spongebob_p4.svg",
+      "sha256": "c0930ef84c72c4a6142ca0158c2f0bd4be681f1b0deb5f1b606965ba70469440"
+    }
+  ]
+}

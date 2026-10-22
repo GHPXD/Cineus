@@ -4,8 +4,8 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#05050A",
-    "theme_color": "#E8B429",
-    "description": "Adivinhe o filme do dia em até 10 dicas. Quanto menos dicas usar, mais pontos você faz.",
+    "theme_color": "#05050A",
+    "description": "Adivinhe o filme em Dicas ou Poster. Um novo desafio de cinema todo dia.",
     "prefer_related_applications": false,
     "icons": [
         {

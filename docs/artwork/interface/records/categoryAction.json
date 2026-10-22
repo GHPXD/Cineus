@@ -1,0 +1,27 @@
+{
+  "id": "categoryAction",
+  "kind": "icon",
+  "subject": "a confident energetic diagonal bolt with a small broad motion echo",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a confident energetic diagonal bolt with a small broad motion echo.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-66b086d2-6b24-44dd-a651-a8763c7b50f7.png",
+  "source": "assets/generated/sources/categoryAction.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryAction.svg",
+  "source_sha256": "13cf2f4c9a08fa0cc1dbdeae0a46aa3b36489735d85c805145dd2de856c21db7",
+  "svg_sha256": "a30f3ee95cb3e8cb2f2571a56e1bb357f61336ac01237dee584a0b6ee2e372b7",
+  "paths": 5,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryAction_ink.svg",
+  "ink_sha256": "d55dc141bfecd9ba802f73e6857d75f5cc41c7611e1ad821a67a2af4c2892315"
+}

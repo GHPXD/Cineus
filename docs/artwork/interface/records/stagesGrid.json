@@ -1,0 +1,27 @@
+{
+  "id": "stagesGrid",
+  "kind": "icon",
+  "subject": "four-tile stage grid",
+  "prompt": "Use case: logo-brand. Asset type: one transparent-background icon for the all-stages heading of Cineus mobile cinema game. Create a bold elegant 2 by 2 grid of FOUR small rounded solid tiles, closely and evenly spaced, front view. Three tiles in luminous warm amber gold and one tile in light ivory, restrained dark-blue edge accents. Strong clean illustrated shapes with subtle polished highlight, designed to read at 20 pixels, matching illustrated gold/navy/ivory icons. Centered isolated symbol, generous transparent margins. Actual transparent background. No text, letters, logo, watermark, frame, shadow on background, UI, extra objects. Raster icon intended for automatic vector tracing after generation, so simple flat color areas and very clear silhouette.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-0380e160-cf37-4e87-896c-ea414ca39122.png",
+  "source": "assets/generated/sources/stagesGrid.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/stagesGrid.svg",
+  "source_sha256": "bb140af0df04dfa31d8434204c766937f98c25fea311f7a8a16e761dbdc39d45",
+  "svg_sha256": "e4875d3aff049cc08961ed258ce5ce17f6db91f6728233d626da38220ebe948b",
+  "paths": 14,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/stagesGrid_ink.svg",
+  "ink_sha256": "e04aa1c24a9e100e7f3c4e64a449f905f726caa6a57f9cbaad36aec4b534816f"
+}

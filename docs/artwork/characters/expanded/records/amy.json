@@ -1,0 +1,34 @@
+{
+  "id": "amy",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/amy.png",
+  "source_sha256": "702f85903273f150fb820e13c2f26288e6dc354d5d7dbd14be17159b210a0b47",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    431,
+    640
+  ],
+  "region_pixels": [
+    34873
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/amy_base.svg",
+      "sha256": "263428210ed9e7b1b62d7813e94e219971f148887bece0cc1925fd612c254e9c"
+    },
+    {
+      "file": "assets/colors/art/amy_p0.svg",
+      "sha256": "a50be42d4689131b134a555f3819259ec907cebf6f27a9d34f19b4a1eb13cf04"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-2dad67e8-93cb-49d7-8da6-9c660e2be4c4.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Amy Rose, pink cartoon hedgehog with short head spines, green eyes, red headband, red sleeveless dress with white hem, white gloves, red boots, no hammer. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the pink fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

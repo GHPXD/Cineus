@@ -1,0 +1,54 @@
+{
+  "id": "pink_panther",
+  "kind": "character",
+  "generator": "built-in image_gen / GPT Image",
+  "prompt": "Use case: illustration-story. Asset type: isolated recolourable character sprite for the Cineus mobile colour-memory game. Create from scratch ONE recognisable full-body character, polished bold flat 2D cartoon illustration, thick clean charcoal outlines, very few generous filled shapes, no gradients, lighting, shading or textures. Entire figure centred in a square with 8% transparent margin, feet and appendages fully visible, genuinely transparent background. No text, letters, logos, watermarks, scenery, props except canonical character accessories, or secondary figures. Important technical palette: the five indicated regions MUST use their assigned uniform flat marker colours, exactly, even when noncanonical. These are segmentation markers for later automatic raster-to-SVG conversion, not the final colours shown to players. Never use these five marker colours anywhere outside their assigned regions. All other details use flat white, black or subdued neutral colours. Make each region clean, solid, separately identifiable; preserve the character's recognisable proportions, eyes, face, outline and clothing seams. The UI will recolour each region after tracing; do not render a UI or swatches.\nSubject and segmentation: Pink Panther, unmistakable slim lanky full-body pink cartoon feline standing, long curling tail completely visible, oval muzzle, distinct triangular nose, half-lidded eyes and thick black arched eyebrows, confident elegant pose. Five regions: main body fur MAGENTA #FF00FF; pale oval muzzle AND belly CYAN #00FFFF; pale yellow irises around black pupils LIME #00FF00; triangular nose ORANGE #FFA500; both thick arched eyebrows PURPLE #8000FF. Black pupils, black whiskers, white tiny eye highlights.",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-37a7b778-0eab-480b-bb24-13965dc9f006.png",
+  "source": "assets/colors/sources/pink_panther.png",
+  "palette_mode": "markers",
+  "status": "converted",
+  "source_sha256": "45893bceeb2b5cdba3b7867ca9dc4a77f4cdeb13232c7a2908b146f049f9f286",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    640,
+    640
+  ],
+  "region_pixels": [
+    46187,
+    11056,
+    566,
+    692,
+    1331
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/pink_panther_base.svg",
+      "sha256": "d57c87766d6e627d73c454505860a153865c6f662d8f2d3486a964b15bd03e3a"
+    },
+    {
+      "file": "assets/colors/art/pink_panther_p0.svg",
+      "sha256": "1ae9cf78d6dc2f738681bca0e89b683f43bb627bcac719434b1f39b46c591f83"
+    },
+    {
+      "file": "assets/colors/art/pink_panther_p1.svg",
+      "sha256": "cd8d4d032336ac959f2821d53210f66da4bcb30b63c8a2771c278a3480afb285"
+    },
+    {
+      "file": "assets/colors/art/pink_panther_p2.svg",
+      "sha256": "dbaaba67ee7b3d8429ea2dbc2c0812a8b1363c04d2486243e2f3d1cf8fbb3288"
+    },
+    {
+      "file": "assets/colors/art/pink_panther_p3.svg",
+      "sha256": "501e386a334c38a56542f32214773d401d849e024bbe2efd2a5f308204ffb169"
+    },
+    {
+      "file": "assets/colors/art/pink_panther_p4.svg",
+      "sha256": "d1bbe15c830dc3e9b141a1b47cdddaf91bfb58986a96664dc95e25556bc64670"
+    }
+  ]
+}

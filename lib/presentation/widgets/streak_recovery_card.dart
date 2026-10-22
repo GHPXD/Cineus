@@ -8,14 +8,15 @@ import '../l10n_mappers.dart';
 import '../providers/game_actions.dart';
 import '../providers/providers.dart';
 import '../providers/reward_notifier.dart';
+import '../visuals/cineus_assets.dart';
+import 'cineus_icon.dart';
 
 /// Offers to spend tickets to protect a single missed day (D7).
 class StreakRecoveryCard extends ConsumerStatefulWidget {
   const StreakRecoveryCard({super.key});
 
   @override
-  ConsumerState<StreakRecoveryCard> createState() =>
-      _StreakRecoveryCardState();
+  ConsumerState<StreakRecoveryCard> createState() => _StreakRecoveryCardState();
 }
 
 class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
@@ -45,7 +46,7 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
           children: [
             Row(
               children: [
-                const Text('🔥', style: TextStyle(fontSize: 22)),
+                const CineusIcon(CineusAssetId.streakProtection, size: 26),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
@@ -58,13 +59,14 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
             const SizedBox(height: 6),
             Text(
               l10n.streakRecoverBody(_formatDay(recoverable), cost),
-              style: AppTypography.bodySmall
-                  .copyWith(color: AppColors.obsidian200, fontSize: 12),
+              style: AppTypography.bodySmall.copyWith(
+                color: AppColors.obsidian200,
+                fontSize: 12,
+              ),
             ),
             const SizedBox(height: 14),
             SizedBox(
               width: double.infinity,
-              height: 44,
               child: ElevatedButton(
                 onPressed: canAfford && !_working
                     ? () => _recover(recoverable)
@@ -76,16 +78,21 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
                     borderRadius: BorderRadius.circular(999),
                   ),
                   elevation: 0,
+                  minimumSize: const Size(48, 48),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
                 ),
                 child: Text(
                   _working
                       ? l10n.protecting
                       : canAfford
-                          ? l10n.protectStreak(cost)
-                          : l10n.needTickets(cost),
+                      ? l10n.protectStreak(cost)
+                      : l10n.needTickets(cost),
                   style: AppTypography.labelLarge.copyWith(
                     color: AppColors.obsidian900,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -97,15 +104,28 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
   }
 
   Future<void> _recover(String date) async {
+    if (_working) return;
     setState(() => _working = true);
     HapticFeedback.mediumImpact();
 
     final tickets = ref.read(ticketNotifierProvider.notifier);
-    final ok = await ref.read(rewardNotifierProvider.notifier).freezeMissedDay(
-          date: date,
-          charge: (cost) => tickets.debitTickets(count: cost),
-          refund: tickets.refundDebit,
-        );
+    final rewards = ref.read(rewardNotifierProvider.notifier);
+    bool ok;
+    try {
+      ok = await rewards.freezeMissedDay(
+        date: date,
+        charge: (cost) => tickets.debitTickets(count: cost),
+        refund: tickets.refundDebit,
+        complete: tickets.completeDebit,
+      );
+    } catch (_) {
+      if (!mounted) return;
+      setState(() => _working = false);
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(context.l10n.streakProtectFailed)));
+      return;
+    }
 
     if (!mounted) return;
     setState(() => _working = false);
@@ -122,6 +142,10 @@ class _StreakRecoveryCardState extends ConsumerState<StreakRecoveryCard> {
           ),
         ),
       );
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(context.l10n.streakProtectFailed)));
     }
   }
 

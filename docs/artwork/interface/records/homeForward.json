@@ -1,0 +1,27 @@
+{
+  "id": "homeForward",
+  "kind": "icon",
+  "subject": "homeForward",
+  "prompt": "Use case: logo-brand. Asset type: dedicated icon for Cineus mobile Home. Create ONE original icon from scratch: one elegant straight right-pointing arrow, long substantial horizontal shaft and a clear sharp arrowhead, perfectly straight with no hook, curve, tail bend or circle. Premium editorial 2D graphic in warm gold #EFC026 and optional dark navy/ivory/blue. Strong simple silhouette and large clear negative spaces, clean solid vector-tracing friendly shapes, readable at 20 pixels, generous padding, square genuinely transparent background. No shadow, texture, gradient, watermark, text, numerals, UI, border or extra elements. Match a black, blue and gold cinematic app.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-aca06e30-fa98-4aa3-99b6-b63bffae2bf1.png",
+  "source": "assets/generated/sources/homeForward.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/homeForward.svg",
+  "source_sha256": "6e69d1e2ce3010dfceb979f5f55b01358c34aae890ef0e690c4042082b327dfb",
+  "svg_sha256": "2bad853c66a17eac57486f4bfa8cd23a0b3d230d42cb897fe771dbf7605a8d32",
+  "paths": 1,
+  "source_size": [
+    1536,
+    1024
+  ],
+  "trace_size": [
+    512,
+    341
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/homeForward_ink.svg",
+  "ink_sha256": "346e7e9268b293df1f10826a6cee4e08b5d1ec1fa85ca6af8b588d80cd59fdb8"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "daisy",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/daisy.png",
+  "source_sha256": "342bfba11b73838d1f6211e298d066e5c57a8d7a65c648c613d150bb93da2af3",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; no authored shapes",
+  "conversion_version": 5,
+  "source_size": [
+    345,
+    663
+  ],
+  "trace_size": [
+    500,
+    960
+  ],
+  "region_pixels": [
+    132485
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/daisy_base.svg",
+      "sha256": "881f189e25656fd1b302131de8a7c550cbb5859bcfb066df4b748824941c45bf"
+    },
+    {
+      "file": "assets/colors/art/daisy_p0.svg",
+      "sha256": "96cf5b042da88e67e00b5ccca2106e97ca33e80c4c2a1c79a6b01c7f82916c0e"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Princess Daisy, adult brown-haired princess with gold crown, yellow full-length ball gown with orange hip panels, white gloves and turquoise flower brooch. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID e0af0ff2-5d34-4c76-a9c8-f54e0a5b4409.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://mario.nintendo.com/static/b625bdf51061d55b220d82eb9b61442c/9b369/daisy.png",
+  "source_page": "https://mario.nintendo.com/characters/",
+  "external_file": "docs/artwork/characters/expanded/references/daisy-official.png",
+  "external_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0"
+}

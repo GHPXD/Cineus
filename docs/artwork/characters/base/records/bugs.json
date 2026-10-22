@@ -1,0 +1,59 @@
+{
+  "id": "bugs",
+  "kind": "character",
+  "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+  "prompt": null,
+  "external_source": "https://upload.wikimedia.org/wikipedia/en/1/17/Bugs_Bunny.svg",
+  "source_page": "https://en.wikipedia.org/wiki/File:Bugs_Bunny.svg",
+  "external_file": "docs/artwork/characters/base/external/bugs.svg",
+  "external_sha256": "60dfa6eb25bd8b7779c28f1d8da71731434ab446e1131c40fb7a8025357cdaf2",
+  "source": "assets/colors/sources/bugs.png",
+  "palette_mode": "existing",
+  "status": "converted",
+  "rights": "Origin retained; no claim that character rights or store distribution have been licensed.",
+  "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+  "source_sha256": "a01cc003527bc1536e251b5679911f1f409edd6c7934f15451b5450bce9e1b44",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    563,
+    900
+  ],
+  "trace_size": [
+    400,
+    640
+  ],
+  "region_pixels": [
+    28657,
+    15520,
+    3810,
+    1974,
+    2646
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/bugs_base.svg",
+      "sha256": "feb3d7fb492bbced92e4dad1b2ac8c721fd7e0ab4439e8def1ff93399a7eba53"
+    },
+    {
+      "file": "assets/colors/art/bugs_p0.svg",
+      "sha256": "bd05f7711f0c24fb6656d67804b29db41e58a053d88004e9ce76ad71e2b53199"
+    },
+    {
+      "file": "assets/colors/art/bugs_p1.svg",
+      "sha256": "ecace37c42719cef9c13b91bdfc4da6d00c91b3ac7078871071e6b6deaf1a913"
+    },
+    {
+      "file": "assets/colors/art/bugs_p2.svg",
+      "sha256": "5fd7bc06691a474cd8f8955738b5ec96663df2be506e9f41d5fafec8e40d4d6f"
+    },
+    {
+      "file": "assets/colors/art/bugs_p3.svg",
+      "sha256": "3e20649df7cc2b4d2e793f2cb38fcf12c1124d30fe976b872e008c4532f86031"
+    },
+    {
+      "file": "assets/colors/art/bugs_p4.svg",
+      "sha256": "66e263b772410907ca55988d971367b68b50a3f56c203d5812e52db2c5711f3a"
+    }
+  ]
+}

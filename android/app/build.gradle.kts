@@ -1,4 +1,6 @@
 import java.util.Properties
+import java.util.Base64
+import java.net.URI
 
 plugins {
     id("com.android.application")
@@ -16,6 +18,21 @@ val keystoreProperties = Properties().apply {
     }
 }
 val hasReleaseKeystore = keystoreProperties.getProperty("storeFile") != null
+
+// The same public origin drives Dart links and Android verification. A reserved
+// .invalid hostname leaves verification off in an unconfigured developer build.
+val cineusDefines = (project.findProperty("dart-defines") as? String).orEmpty()
+    .split(',').filter { it.isNotEmpty() }.mapNotNull {
+        runCatching { String(Base64.getDecoder().decode(it), Charsets.UTF_8) }.getOrNull()
+    }.mapNotNull { value -> value.indexOf('=').takeIf { it > 0 }?.let { value.substring(0, it) to value.substring(it + 1) } }.toMap()
+val cineusPublicOrigin = cineusDefines["CINEUS_PUBLIC_BASE_URL"].orEmpty()
+val cineusPublicUri: URI? = if (cineusPublicOrigin.isEmpty()) null else
+    runCatching { URI(cineusPublicOrigin) }.getOrElse { throw GradleException("Invalid public link origin") }
+if (cineusPublicUri != null && (cineusPublicUri.scheme != "https" || cineusPublicUri.host.isNullOrEmpty() ||
+    cineusPublicUri.rawUserInfo != null || cineusPublicUri.rawQuery != null || cineusPublicUri.rawFragment != null ||
+    (cineusPublicUri.port != -1 && cineusPublicUri.port != 443) || !setOf("", "/").contains(cineusPublicUri.path))) {
+    throw GradleException("CINEUS_PUBLIC_BASE_URL must be a root HTTPS origin")
+}
 
 // CI still needs to compile a release AAB from a clean clone, but a developer
 // must never accidentally publish a release signed with the debug key. The
@@ -47,6 +64,11 @@ android {
         targetSdk = 36
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        // Public app identifier, supplied only for an explicitly configured ads build.
+        manifestPlaceholders["cineusAdMobAppId"] =
+            System.getenv("CINEUS_ADMOB_ANDROID_APP_ID") ?: ""
+        manifestPlaceholders["cineusPublicHost"] = cineusPublicUri?.host ?: "disabled.cineus.invalid"
+        manifestPlaceholders["cineusVerifyLinks"] = (cineusPublicUri != null).toString()
     }
 
     signingConfigs {
@@ -62,6 +84,7 @@ android {
 
     buildTypes {
         release {
+            proguardFiles("proguard-rules.pro")
             signingConfig = when {
                 hasReleaseKeystore -> signingConfigs.getByName("release")
                 allowDebugSignedRelease -> {
@@ -71,13 +94,31 @@ android {
                     )
                     signingConfigs.getByName("debug")
                 }
-                else -> throw GradleException(
-                    "Release signing credentials are missing. Create android/key.properties " +
-                        "from android/key.properties.example. Debug-signed release artifacts " +
-                        "are blocked outside the explicit CI validation path."
-                )
+                else -> null
             }
         }
+    }
+}
+
+// Debug tasks must work without a production keystore. Enforce signing when a
+// release packaging task actually runs, before an unsigned artifact is emitted.
+val verifyCineusReleaseSigning = tasks.register("verifyCineusReleaseSigning") {
+    group = "verification"
+    doLast {
+        if (!hasReleaseKeystore && !allowDebugSignedRelease) {
+            throw GradleException(
+                "Release signing credentials are missing. Create android/key.properties " +
+                    "from android/key.properties.example. Debug-signed release artifacts " +
+                    "are blocked outside the explicit CI validation path."
+            )
+        }
+    }
+}
+tasks.configureEach {
+    if (name.contains("Release") &&
+        (name.startsWith("validateSigning") || name.startsWith("package") ||
+            name.startsWith("bundle") || name.startsWith("assemble"))) {
+        dependsOn(verifyCineusReleaseSigning)
     }
 }
 

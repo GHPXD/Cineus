@@ -1,0 +1,34 @@
+{
+  "id": "sonic",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/sonic.png",
+  "source_sha256": "536dfde898247077306c848935d20a514a75f45f3021d059bcb79a8cf74f3e72",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1145,
+    1374
+  ],
+  "trace_size": [
+    527,
+    640
+  ],
+  "region_pixels": [
+    53461
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/sonic_base.svg",
+      "sha256": "e8f8d16abde54e0040ddda7ae7276d402b14a1dbe930906d3cf17596f7250de9"
+    },
+    {
+      "file": "assets/colors/art/sonic_p0.svg",
+      "sha256": "285ce253190573ef2d7686a9c295df72b9466c0c4ce78719a040bd6e6b77771e"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-65a0f47a-db88-4a02-8920-fc890ab2904c.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Sonic, classic blue cartoon hedgehog with swept-back spikes, tan muzzle and belly, white gloves and red shoes with white straps. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blue fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

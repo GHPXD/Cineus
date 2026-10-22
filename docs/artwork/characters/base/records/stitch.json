@@ -1,0 +1,59 @@
+{
+  "id": "stitch",
+  "kind": "character",
+  "generator": "existing image; user-authorized fallback after GPT Image moderation_blocked/other",
+  "prompt": null,
+  "external_source": "https://upload.wikimedia.org/wikipedia/en/d/d2/Stitch_%28Lilo_%26_Stitch%29.svg",
+  "source_page": "https://en.wikipedia.org/wiki/File:Stitch_(Lilo_%26_Stitch).svg",
+  "external_file": "docs/artwork/characters/base/external/stitch.svg",
+  "external_sha256": "02601adff3015c51454a867b6bb19794dbbae08c26a3f96bafbb6de321992b36",
+  "source": "assets/colors/sources/stitch.png",
+  "palette_mode": "existing",
+  "status": "converted",
+  "rights": "Origin retained; no claim that character rights or store distribution have been licensed.",
+  "authorization": "User explicitly approved existing images for characters refused by ImageGen, 2026-10-13",
+  "source_sha256": "76345980ea5f81ed3ebc60736aa2e17ab44096570797f859e8ba1682ea08cdff",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    651,
+    900
+  ],
+  "trace_size": [
+    465,
+    640
+  ],
+  "region_pixels": [
+    63682,
+    33447,
+    6067,
+    5235,
+    5743
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/stitch_base.svg",
+      "sha256": "69f4b169680c5c00f99a4ada65da9b682ae58b8a20fea56feb5df65df8c10e3a"
+    },
+    {
+      "file": "assets/colors/art/stitch_p0.svg",
+      "sha256": "f8aff291a48976a8a5f2ab3ac899694185e0969202dc2ce80b64e6802678c0b2"
+    },
+    {
+      "file": "assets/colors/art/stitch_p1.svg",
+      "sha256": "e2f1592080690d35280aa61045a580765ae4541b059c5d5cb323eda2b1d3a50f"
+    },
+    {
+      "file": "assets/colors/art/stitch_p2.svg",
+      "sha256": "57587d46ec92d232d22858e04f614e3215ee067a801b36923c9c067709445378"
+    },
+    {
+      "file": "assets/colors/art/stitch_p3.svg",
+      "sha256": "a19040b2b18acd0b09a1024679af24d04387f69a03ebfb7bd3846a64b9730c57"
+    },
+    {
+      "file": "assets/colors/art/stitch_p4.svg",
+      "sha256": "e8bd73c7443620696ff89b2c8e12d782f7e3125e68f658c7bb65a8be37f5cd7b"
+    }
+  ]
+}

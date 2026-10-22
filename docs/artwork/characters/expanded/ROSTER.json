@@ -1,0 +1,1085 @@
+[
+  {
+    "id": "mickey_mouse",
+    "names": {
+      "pt": "Mickey Mouse",
+      "en": "Mickey Mouse",
+      "es": "Mickey Mouse"
+    },
+    "parts": {
+      "pt": "Calção",
+      "en": "Shorts",
+      "es": "Pantalón corto"
+    },
+    "work": "Mickey Mouse",
+    "description": "classic cheerful black mouse with round ears, white gloves, yellow shoes, red shorts with two ivory buttons",
+    "source_url": "https://toontone.app/pt/characters/mickey_mouse-shorts/",
+    "target_hex": "#BF3332",
+    "reference_file": "docs/artwork/characters/expanded/references/mickey_mouse-shorts.webp",
+    "reference_image": "https://toontone.app/assets/Characters/mickey_mouse.webp",
+    "reference_sha256": "dff252f957f35a1a6aebded3c35927f9c87935c9728b96deebe72e26a6332194",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Mickey Mouse, classic cheerful black mouse with round ears, white gloves, yellow shoes, red shorts with two ivory buttons. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shorts in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "homer_simpson",
+    "names": {
+      "pt": "Homer Simpson",
+      "en": "Homer Simpson",
+      "es": "Homer Simpson"
+    },
+    "parts": {
+      "pt": "Pele",
+      "en": "Skin",
+      "es": "Piel"
+    },
+    "work": "The Simpsons",
+    "description": "round adult father with bald head and two hairs, yellow skin, white short-sleeve shirt, blue trousers, brown shoes",
+    "source_url": "https://toontone.app/pt/characters/homer_simpson-skin/",
+    "target_hex": "#FED90F",
+    "reference_file": "docs/artwork/characters/expanded/references/homer_simpson-skin.webp",
+    "reference_image": "https://toontone.app/assets/Characters/homer_simpson.webp",
+    "reference_sha256": "7174c5209c50d49083a6d4bb1d8ef906f1ae36a6cf5e3662a3310f46962d2f64",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Homer Simpson, round adult father with bald head and two hairs, yellow skin, white short-sleeve shirt, blue trousers, brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the skin in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "donald_duck",
+    "names": {
+      "pt": "Pato Donald",
+      "en": "Donald Duck",
+      "es": "Pato Donald"
+    },
+    "parts": {
+      "pt": "Chapéu de marinheiro",
+      "en": "Sailor cap",
+      "es": "Gorro de marinero"
+    },
+    "work": "Mickey Mouse",
+    "description": "classic white duck with orange beak and feet, blue sailor jacket with gold trim, blue sailor cap, red bow tie",
+    "source_url": "https://en.wikipedia.org/wiki/Donald_Duck",
+    "target_hex": "#0076BE",
+    "reference_file": "docs/artwork/characters/expanded/references/donald_duck-fallback.png",
+    "reference_image": "https://upload.wikimedia.org/wikipedia/en/a/a5/Donald_Duck_angry_transparent_background.png",
+    "reference_sha256": "cbea22d423493df215d6174c1d6997464e156be213e5ff426861e6d148bde8eb",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Donald Duck, classic white duck with orange beak and feet, blue sailor jacket with gold trim, blue sailor cap, red bow tie. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the sailor jacket in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "sampling": {
+      "method": "reviewed fixed existing edition; most frequent pixel in named region; cropped transparent source coordinates",
+      "xy": [
+        59,
+        55
+      ],
+      "image_sha256": "cbea22d423493df215d6174c1d6997464e156be213e5ff426861e6d148bde8eb"
+    },
+    "edition_note": "Fixed existing cutout edition; colour and region reviewed against that edition, rather than the different Toon Tone study depiction"
+  },
+  {
+    "id": "all_might",
+    "names": {
+      "pt": "All Might",
+      "en": "All Might",
+      "es": "All Might"
+    },
+    "parts": {
+      "pt": "Painéis principais do traje",
+      "en": "Main suit panels",
+      "es": "Paneles principales del traje"
+    },
+    "work": "My Hero Academia",
+    "description": "adult muscular blond superhero in classic blue suit with red and white panels, gold belt and boots, two large blond hair tufts",
+    "source_url": "https://toontone.app/pt/characters/all_might-suit/",
+    "target_hex": "#212F78",
+    "reference_file": "docs/artwork/characters/expanded/references/all_might-suit.webp",
+    "reference_image": "https://toontone.app/assets/Characters/all_might.webp",
+    "reference_sha256": "575b1b34825773ad44b107cbc01fe54a1556b1c9c5a1e4a1666442a1cb3b10a4",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable All Might, adult muscular blond superhero in classic blue suit with red and white panels, gold belt and boots, two large blond hair tufts. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blue suit panels in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "bananaman",
+    "names": {
+      "pt": "Bananaman",
+      "en": "Bananaman",
+      "es": "Bananaman"
+    },
+    "parts": {
+      "pt": "Capa",
+      "en": "Cape",
+      "es": "Capa"
+    },
+    "work": "Bananaman",
+    "description": "muscular cartoon superhero with blue bodysuit, yellow cape, yellow gloves and boots, blue hood with yellow banana tips",
+    "source_url": "https://toontone.app/pt/characters/bananaman-cape/",
+    "target_hex": "#FEF200",
+    "reference_file": "docs/artwork/characters/expanded/references/bananaman-cape.webp",
+    "reference_image": "https://toontone.app/assets/Characters/bananaman.webp",
+    "reference_sha256": "a16381c54cea3153b087ebd48587b6d7fb70fc9d0253d0037953a49292ba0f7c",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Bananaman, muscular cartoon superhero with blue bodysuit, yellow cape, yellow gloves and boots, blue hood with yellow banana tips. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the cape in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "beavis",
+    "names": {
+      "pt": "Beavis",
+      "en": "Beavis",
+      "es": "Beavis"
+    },
+    "parts": {
+      "pt": "Cabelo",
+      "en": "Hair",
+      "es": "Cabello"
+    },
+    "work": "Beavis and Butt-Head",
+    "description": "slim adult cartoon man with tall blond pompadour, blue short-sleeve t-shirt without letters, gray shorts, black shoes",
+    "source_url": "https://toontone.app/pt/characters/beavis-hair/",
+    "target_hex": "#DFA833",
+    "reference_file": "docs/artwork/characters/expanded/references/beavis-hair.webp",
+    "reference_image": "https://toontone.app/assets/Characters/beavis.webp",
+    "reference_sha256": "8c3747d97dc07bb5c03198c50e72012996f824f9aeb51fde79460af52f42eef9",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Beavis, slim adult cartoon man with tall blond pompadour, blue short-sleeve t-shirt without letters, gray shorts, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the hair in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "ben_10",
+    "names": {
+      "pt": "Ben Tennyson",
+      "en": "Ben Tennyson",
+      "es": "Ben Tennyson"
+    },
+    "parts": {
+      "pt": "Núcleo do Omnitrix",
+      "en": "Omnitrix core",
+      "es": "Núcleo del Omnitrix"
+    },
+    "work": "Ben 10",
+    "description": "brown-haired boy in classic white t-shirt with black vertical stripe, green cargo trousers, black and white shoes, large visible green watch face facing viewer",
+    "source_url": "https://toontone.app/pt/characters/ben_10-omnitrix_core/",
+    "target_hex": "#91FF16",
+    "reference_file": "docs/artwork/characters/expanded/references/ben_10-omnitrix_core.webp",
+    "reference_image": "https://toontone.app/assets/Characters/ben_10.webp",
+    "reference_sha256": "8d7dca610949ef58e0c110c2656453c518c3d0ae09907428b9601592f403f199",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Ben Tennyson, brown-haired boy in classic white t-shirt with black vertical stripe, green cargo trousers, black and white shoes, large visible green watch face facing viewer. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the omnitrix core in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "tom_cat",
+    "names": {
+      "pt": "Tom",
+      "en": "Tom",
+      "es": "Tom"
+    },
+    "parts": {
+      "pt": "Pelagem",
+      "en": "Fur",
+      "es": "Pelaje"
+    },
+    "work": "Tom and Jerry",
+    "description": "classic gray-blue cartoon cat with cream muzzle and belly, green eyes, pink inner ears, white paws",
+    "source_url": "https://toontone.app/pt/characters/tom_cat-body_fur/",
+    "target_hex": "#7D8286",
+    "reference_file": "docs/artwork/characters/expanded/references/tom_cat-body_fur.webp",
+    "reference_image": "https://toontone.app/assets/Characters/tom_cat.webp",
+    "reference_sha256": "32778207bbcfa8c9b30163175bcaf2f2c50865e5e6a9790a16765fcc59b554e8",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Tom, classic gray-blue cartoon cat with cream muzzle and belly, green eyes, pink inner ears, white paws. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the grey fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "ord_dragon",
+    "names": {
+      "pt": "Ord",
+      "en": "Ord",
+      "es": "Ord"
+    },
+    "parts": {
+      "pt": "Corpo",
+      "en": "Body",
+      "es": "Cuerpo"
+    },
+    "work": "Dragon Tales",
+    "description": "friendly plump teal-blue dragon with yellow belly and small purple wings and purple head spikes, round snout",
+    "source_url": "https://toontone.app/pt/characters/ord_dragon-body_skin/",
+    "target_hex": "#369FA5",
+    "reference_file": "docs/artwork/characters/expanded/references/ord_dragon-body_skin.webp",
+    "reference_image": "https://toontone.app/assets/Characters/ord_dragon.webp",
+    "reference_sha256": "beaaeb3bfc8b5ad128ae0d57f2fcc5e01f7e7e8eb2e0e9c9e806cbc7295db59b",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Ord, friendly plump teal-blue dragon with yellow belly and small purple wings and purple head spikes, round snout. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the body in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "kim_possible",
+    "names": {
+      "pt": "Kim Possible",
+      "en": "Kim Possible",
+      "es": "Kim Possible"
+    },
+    "parts": {
+      "pt": "Calça cargo",
+      "en": "Cargo trousers",
+      "es": "Pantalón cargo"
+    },
+    "work": "Kim Possible",
+    "description": "red-haired young adult heroine in black long-sleeve crop top, olive cargo trousers, brown utility belt and gloves, black shoes",
+    "source_url": "https://toontone.app/pt/characters/kim_possible-cargo_pants/",
+    "target_hex": "#9FA276",
+    "reference_file": "docs/artwork/characters/expanded/references/kim_possible-cargo_pants.webp",
+    "reference_image": "https://toontone.app/assets/Characters/kim_possible.webp",
+    "reference_sha256": "f981294c9827b3ad7571d330f9b2696c774dd128afa769ccd48f2e970e9bf748",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Kim Possible, red-haired young adult heroine in black long-sleeve crop top, olive cargo trousers, brown utility belt and gloves, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the cargo trousers in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "winnie_pooh",
+    "names": {
+      "pt": "Ursinho Pooh",
+      "en": "Winnie the Pooh",
+      "es": "Winnie the Pooh"
+    },
+    "parts": {
+      "pt": "Pelagem",
+      "en": "Fur",
+      "es": "Pelaje"
+    },
+    "work": "Winnie the Pooh",
+    "description": "plump cheerful golden-yellow teddy bear wearing a short red t-shirt, no other clothing",
+    "source_url": "https://toontone.app/pt/characters/winnie_pooh-body_fur/",
+    "target_hex": "#F5B142",
+    "reference_file": "docs/artwork/characters/expanded/references/winnie_pooh-body_fur.webp",
+    "reference_image": "https://toontone.app/assets/Characters/winnie_pooh.webp",
+    "reference_sha256": "fc1bc0df032eba8e9d6bb78c1b880af82cd9920dc829d7111daa6398a591fb7f",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Winnie the Pooh, plump cheerful golden-yellow teddy bear wearing a short red t-shirt, no other clothing. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "gumball_watterson",
+    "names": {
+      "pt": "Gumball Watterson",
+      "en": "Gumball Watterson",
+      "es": "Gumball Watterson"
+    },
+    "parts": {
+      "pt": "Pelagem",
+      "en": "Fur",
+      "es": "Pelaje"
+    },
+    "work": "The Amazing World of Gumball",
+    "description": "round blue cartoon cat with large eyes and short whiskers, beige sweater with brown cuffs and collar, gray trousers, blue feet",
+    "source_url": "https://toontone.app/pt/characters/gumball_watterson-fur/",
+    "target_hex": "#44C0E4",
+    "reference_file": "docs/artwork/characters/expanded/references/gumball_watterson-fur.webp",
+    "reference_image": "https://toontone.app/assets/Characters/gumball_watterson.webp",
+    "reference_sha256": "0e2e7a4b9a0836fe9de2e1a492b023a86d7c06b66f40f3bc1d1755bd6aed8ac8",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Gumball Watterson, round blue cartoon cat with large eyes and short whiskers, beige sweater with brown cuffs and collar, gray trousers, blue feet. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blue fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "lois_griffin",
+    "names": {
+      "pt": "Lois Griffin",
+      "en": "Lois Griffin",
+      "es": "Lois Griffin"
+    },
+    "parts": {
+      "pt": "Blusa",
+      "en": "Blouse",
+      "es": "Blusa"
+    },
+    "work": "Family Guy",
+    "description": "adult cartoon woman with short orange bob hair, turquoise buttoned blouse, beige trousers, red flat shoes",
+    "source_url": "https://toontone.app/pt/characters/lois_griffin-shirt/",
+    "target_hex": "#22E3B9",
+    "reference_file": "docs/artwork/characters/expanded/references/lois_griffin-shirt.webp",
+    "reference_image": "https://toontone.app/assets/Characters/lois_griffin.webp",
+    "reference_sha256": "846037c5bda5c7678bc9ab8a30f34e339827c06ff1e9e5dc4753dcbc9ae1151f",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Lois Griffin, adult cartoon woman with short orange bob hair, turquoise buttoned blouse, beige trousers, red flat shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blouse in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "jake_the_dog",
+    "names": {
+      "pt": "Jake",
+      "en": "Jake the Dog",
+      "es": "Jake"
+    },
+    "parts": {
+      "pt": "Pelagem",
+      "en": "Fur",
+      "es": "Pelaje"
+    },
+    "work": "Adventure Time",
+    "description": "round golden-yellow cartoon dog with short flexible arms and legs, large white eyes, black nose and loose jowls",
+    "source_url": "https://toontone.app/pt/characters/jake_the_dog-body_fur/",
+    "target_hex": "#FDC801",
+    "reference_file": "docs/artwork/characters/expanded/references/jake_the_dog-body_fur.webp",
+    "reference_image": "https://toontone.app/assets/Characters/jake_the_dog.webp",
+    "reference_sha256": "9a2daefe8c6201d1a9ec60ea3b37996c85077c79530ea11ab6cff428ab1a18bd",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Jake the Dog, round golden-yellow cartoon dog with short flexible arms and legs, large white eyes, black nose and loose jowls. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "morty_smith",
+    "names": {
+      "pt": "Morty Smith",
+      "en": "Morty Smith",
+      "es": "Morty Smith"
+    },
+    "parts": {
+      "pt": "Camiseta",
+      "en": "T-shirt",
+      "es": "Camiseta"
+    },
+    "work": "Rick and Morty",
+    "description": "brown-haired cartoon boy with round head, yellow short-sleeve t-shirt, blue jeans, white shoes",
+    "source_url": "https://toontone.app/pt/characters/morty_smith-t_shirt/",
+    "target_hex": "#FFF86D",
+    "reference_file": "docs/artwork/characters/expanded/references/morty_smith-t_shirt.webp",
+    "reference_image": "https://toontone.app/assets/Characters/morty_smith.webp",
+    "reference_sha256": "43e9d3606cbd9b04dec0113db2cb5ce08a2f5623233781f2854c44e685681aef",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Morty Smith, brown-haired cartoon boy with round head, yellow short-sleeve t-shirt, blue jeans, white shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the t-shirt in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "shaggy_rogers",
+    "names": {
+      "pt": "Salsicha",
+      "en": "Shaggy Rogers",
+      "es": "Shaggy Rogers"
+    },
+    "parts": {
+      "pt": "Camiseta",
+      "en": "T-shirt",
+      "es": "Camiseta"
+    },
+    "work": "Scooby-Doo",
+    "description": "slender adult cartoon man with shaggy brown hair and small goatee, green V-neck short-sleeve t-shirt, brown bell-bottom trousers, black shoes",
+    "source_url": "https://toontone.app/pt/characters/shaggy_rogers-t_shirt/",
+    "target_hex": "#85A711",
+    "reference_file": "docs/artwork/characters/expanded/references/shaggy_rogers-t_shirt.webp",
+    "reference_image": "https://toontone.app/assets/Characters/shaggy_rogers.webp",
+    "reference_sha256": "dc2de0df3c23bdf8cd1ca85a0de213dd82cfef0ee30bd9ec52cab2f042af764f",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Shaggy Rogers, slender adult cartoon man with shaggy brown hair and small goatee, green V-neck short-sleeve t-shirt, brown bell-bottom trousers, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the t-shirt in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "bender",
+    "names": {
+      "pt": "Bender",
+      "en": "Bender",
+      "es": "Bender"
+    },
+    "parts": {
+      "pt": "Cabeça e tronco metálicos",
+      "en": "Metal head and torso",
+      "es": "Cabeza y torso metálicos"
+    },
+    "work": "Futurama",
+    "description": "friendly cylindrical gray-blue robot with antenna, rectangular mouth with white teeth, square yellow eyes, segmented arms and legs, no accessories",
+    "source_url": "https://toontone.app/pt/characters/bender-metal/",
+    "target_hex": "#89A7A9",
+    "reference_file": "docs/artwork/characters/expanded/references/bender-metal.webp",
+    "reference_image": "https://toontone.app/assets/Characters/bender.webp",
+    "reference_sha256": "d8c94af7c54d3675a79de6b4caabbcb94dd4d5e6f25ae0eaa207708495bccf0e",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Bender, friendly cylindrical gray-blue robot with antenna, rectangular mouth with white teeth, square yellow eyes, segmented arms and legs, no accessories. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the metal body in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "betty_boop",
+    "names": {
+      "pt": "Betty Boop",
+      "en": "Betty Boop",
+      "es": "Betty Boop"
+    },
+    "parts": {
+      "pt": "Vestido",
+      "en": "Dress",
+      "es": "Vestido"
+    },
+    "work": "Betty Boop",
+    "description": "adult classic cartoon woman with short black curly bob, large expressive eyes, modest red knee-length sleeveless dress, red shoes, hands at sides",
+    "source_url": "https://toontone.app/pt/characters/betty_boop-dress/",
+    "target_hex": "#DC2E3A",
+    "reference_file": "docs/artwork/characters/expanded/references/betty_boop-dress.webp",
+    "reference_image": "https://toontone.app/assets/Characters/betty_boop.webp",
+    "reference_sha256": "8545c9da0dac8f77608006d29b3fb58e49aca2c6730829e14e103b680a99dfa0",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Betty Boop, adult classic cartoon woman with short black curly bob, large expressive eyes, modest red knee-length sleeveless dress, red shoes, hands at sides. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "charlie_brown",
+    "names": {
+      "pt": "Charlie Brown",
+      "en": "Charlie Brown",
+      "es": "Charlie Brown"
+    },
+    "parts": {
+      "pt": "Camisa",
+      "en": "Shirt",
+      "es": "Camisa"
+    },
+    "work": "Peanuts",
+    "description": "round-headed cartoon boy with small curled hair, yellow shirt with bold black zigzag stripe, black shorts, brown shoes",
+    "source_url": "https://toontone.app/pt/characters/charlie_brown-shirt/",
+    "target_hex": "#FFDA06",
+    "reference_file": "docs/artwork/characters/expanded/references/charlie_brown-shirt.webp",
+    "reference_image": "https://toontone.app/assets/Characters/charlie_brown.webp",
+    "reference_sha256": "570cbf925767af583b9e12554f15788a7dd11c981d064868b7d3bbd2906f27ca",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Charlie Brown, round-headed cartoon boy with small curled hair, yellow shirt with bold black zigzag stripe, black shorts, brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "rosalina",
+    "names": {
+      "pt": "Rosalina",
+      "en": "Rosalina",
+      "es": "Rosalina"
+    },
+    "parts": {
+      "pt": "Vestido",
+      "en": "Dress",
+      "es": "Vestido"
+    },
+    "work": "Super Mario",
+    "description": "adult blonde princess with hair covering one eye, silver crown, turquoise full-length gown with pale blue cuffs and hem, silver star brooch, no wand",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Rosalina, adult blonde princess with hair covering one eye, silver crown, turquoise full-length gown with pale blue cuffs and hem, silver star brooch, no wand. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#74C3B8",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/9413cb5d146400e7368855759d084c69/d1a6b/rosalina.png",
+    "reference_file": "docs/artwork/characters/expanded/references/rosalina-official.png",
+    "reference_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        284,
+        199
+      ],
+      "image_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c",
+      "hsv_band": [
+        165,
+        205,
+        0.25,
+        0.5,
+        1
+      ]
+    }
+  },
+  {
+    "id": "goofy",
+    "names": {
+      "pt": "Pateta",
+      "en": "Goofy",
+      "es": "Goofy"
+    },
+    "parts": {
+      "pt": "Calça",
+      "en": "Trousers",
+      "es": "Pantalón"
+    },
+    "work": "Mickey Mouse",
+    "description": "tall lanky black cartoon dog with long ears, green tall hat, orange sweater, black vest, blue trousers, brown shoes, white gloves",
+    "source_url": "https://en.wikipedia.org/wiki/Goofy",
+    "target_hex": "#0076BC",
+    "reference_file": "docs/artwork/characters/expanded/references/goofy-fallback.png",
+    "reference_image": "https://upload.wikimedia.org/wikipedia/en/5/50/Goofy_Duckipedia.png",
+    "reference_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Goofy, tall lanky black cartoon dog with long ears, green tall hat, orange sweater, black vest, blue trousers, brown shoes, white gloves. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the hat in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "sampling": {
+      "method": "reviewed fixed existing edition; most frequent pixel in named region; cropped transparent source coordinates",
+      "xy": [
+        52,
+        236
+      ],
+      "image_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca"
+    },
+    "edition_note": "Fixed existing cutout edition; colour and region reviewed against that edition, rather than the different Toon Tone study depiction"
+  },
+  {
+    "id": "johnny_bravo",
+    "names": {
+      "pt": "Johnny Bravo",
+      "en": "Johnny Bravo",
+      "es": "Johnny Bravo"
+    },
+    "parts": {
+      "pt": "Calça",
+      "en": "Trousers",
+      "es": "Pantalón"
+    },
+    "work": "Johnny Bravo",
+    "description": "adult muscular cartoon man with tall blond pompadour and black sunglasses, black short-sleeve t-shirt, blue jeans, black shoes",
+    "source_url": "https://toontone.app/pt/characters/johnny_bravo-pants/",
+    "target_hex": "#618FE1",
+    "reference_file": "docs/artwork/characters/expanded/references/johnny_bravo-pants.webp",
+    "reference_image": "https://toontone.app/assets/Characters/johnny_bravo.webp",
+    "reference_sha256": "a3cda3257fcc796fe05241600bd4ef5e0350cbfd466d9654098852c2a4900559",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Johnny Bravo, adult muscular cartoon man with tall blond pompadour and black sunglasses, black short-sleeve t-shirt, blue jeans, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the trousers in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "peter_griffin",
+    "names": {
+      "pt": "Peter Griffin",
+      "en": "Peter Griffin",
+      "es": "Peter Griffin"
+    },
+    "parts": {
+      "pt": "Calça",
+      "en": "Trousers",
+      "es": "Pantalón"
+    },
+    "work": "Family Guy",
+    "description": "round adult father with brown short hair and small round spectacles, white buttoned shirt, dark green trousers, brown shoes",
+    "source_url": "https://toontone.app/pt/characters/peter_griffin-trousers/",
+    "target_hex": "#206603",
+    "reference_file": "docs/artwork/characters/expanded/references/peter_griffin-trousers.webp",
+    "reference_image": "https://toontone.app/assets/Characters/peter_griffin.webp",
+    "reference_sha256": "87e981e692c1264c4671f4ea52b145aef82429c9fe530b3eb3894cb37f204a25",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Peter Griffin, round adult father with brown short hair and small round spectacles, white buttoned shirt, dark green trousers, brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the trousers in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "kenny_mccormick",
+    "names": {
+      "pt": "Kenny McCormick",
+      "en": "Kenny McCormick",
+      "es": "Kenny McCormick"
+    },
+    "parts": {
+      "pt": "Parca",
+      "en": "Parka",
+      "es": "Parka"
+    },
+    "work": "South Park",
+    "description": "small round cartoon figure with orange hooded parka and brown inner hood trim, orange trousers, brown mittens, black shoes",
+    "source_url": "https://toontone.app/pt/characters/kenny_mccormick-parka_coat/",
+    "target_hex": "#ED7100",
+    "reference_file": "docs/artwork/characters/expanded/references/kenny_mccormick-parka_coat.webp",
+    "reference_image": "https://toontone.app/assets/Characters/kenny_mccormick.webp",
+    "reference_sha256": "9fc91cef77506761abf19beb7c361fa57304b7c5acdbfaa86a1e1349071f8a49",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Kenny McCormick, small round cartoon figure with orange hooded parka and brown inner hood trim, orange trousers, brown mittens, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the parka in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "squidward",
+    "names": {
+      "pt": "Lula Molusco",
+      "en": "Squidward",
+      "es": "Calamardo"
+    },
+    "parts": {
+      "pt": "Pele",
+      "en": "Skin",
+      "es": "Piel"
+    },
+    "work": "SpongeBob SquarePants",
+    "description": "classic upright pale teal octopus with oversized drooping nose, oval head, six tentacle limbs, brown short-sleeve polo shirt",
+    "source_url": "https://toontone.app/pt/characters/squidward-skin/",
+    "target_hex": "#B4D8CA",
+    "reference_file": "docs/artwork/characters/expanded/references/squidward-skin.webp",
+    "reference_image": "https://toontone.app/assets/Characters/squidward.webp",
+    "reference_sha256": "c7eb5a9e1ca24ff21535645fde97e8c1fc4862e935f611de751d25039e9588f7",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Squidward, classic upright pale teal octopus with oversized drooping nose, oval head, six tentacle limbs, brown short-sleeve polo shirt. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the skin in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "luffy",
+    "names": {
+      "pt": "Monkey D. Luffy",
+      "en": "Monkey D. Luffy",
+      "es": "Monkey D. Luffy"
+    },
+    "parts": {
+      "pt": "Bermuda",
+      "en": "Shorts",
+      "es": "Pantalón corto"
+    },
+    "work": "One Piece",
+    "description": "young adult slim smiling pirate in straw hat with red band, red open sleeveless vest, blue knee-length shorts with ivory rolled cuffs, simple brown sandals",
+    "source_url": "https://toontone.app/pt/characters/luffy-shorts/",
+    "target_hex": "#4E6AB3",
+    "reference_file": "docs/artwork/characters/expanded/references/luffy-shorts.webp",
+    "reference_image": "https://toontone.app/assets/Characters/luffy.webp",
+    "reference_sha256": "8cb72b34c142d9da7d0fd1ee2ba6ccbd4c138263d6f62a3930d4f638e7c9bfa1",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Monkey D. Luffy, young adult slim smiling pirate in straw hat with red band, red open sleeveless vest, blue knee-length shorts with ivory rolled cuffs, simple brown sandals. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shorts in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories."
+  },
+  {
+    "id": "mario",
+    "names": {
+      "pt": "Mario",
+      "en": "Mario",
+      "es": "Mario"
+    },
+    "parts": {
+      "pt": "Camisa e boné",
+      "en": "Shirt and cap",
+      "es": "Camisa y gorra"
+    },
+    "work": "Super Mario",
+    "description": "cheerful mustached plumber with red cap without letters, red shirt, blue overalls with gold buttons, white gloves and brown shoes",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Mario, cheerful mustached plumber with red cap without letters, red shirt, blue overalls with gold buttons, white gloves and brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#E81316",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/0f10f738d1f9aa8292fa7d93c35f2a07/02be2/mario.png",
+    "reference_file": "docs/artwork/characters/expanded/references/mario-official.png",
+    "reference_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        284,
+        183
+      ],
+      "image_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34",
+      "hsv_band": [
+        345,
+        20,
+        0.45,
+        0.3,
+        1
+      ]
+    }
+  },
+  {
+    "id": "luigi",
+    "names": {
+      "pt": "Luigi",
+      "en": "Luigi",
+      "es": "Luigi"
+    },
+    "parts": {
+      "pt": "Camisa e boné",
+      "en": "Shirt and cap",
+      "es": "Camisa y gorra"
+    },
+    "work": "Super Mario",
+    "description": "tall cheerful mustached plumber with green cap without letters, green shirt, blue overalls with gold buttons, white gloves and brown shoes",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Luigi, tall cheerful mustached plumber with green cap without letters, green shirt, blue overalls with gold buttons, white gloves and brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#0DAA17",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/73f9272aebf9a014261584b35597878f/d9801/luigi.png",
+    "reference_file": "docs/artwork/characters/expanded/references/luigi-official.png",
+    "reference_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        27,
+        152
+      ],
+      "image_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6",
+      "hsv_band": [
+        70,
+        165,
+        0.4,
+        0.3,
+        1
+      ]
+    }
+  },
+  {
+    "id": "peach",
+    "names": {
+      "pt": "Princesa Peach",
+      "en": "Princess Peach",
+      "es": "Princesa Peach"
+    },
+    "parts": {
+      "pt": "Vestido",
+      "en": "Dress",
+      "es": "Vestido"
+    },
+    "work": "Super Mario",
+    "description": "adult blonde princess in classic pink full-length ball gown with darker pink hip panels, gold crown, blue jewel brooch and white gloves",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Princess Peach, adult blonde princess in classic pink full-length ball gown with darker pink hip panels, gold crown, blue jewel brooch and white gloves. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#FFA8D5",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/43a96c1d5b681d338864aac15cd391b9/f3703/peach.png",
+    "reference_file": "docs/artwork/characters/expanded/references/peach-official.png",
+    "reference_sha256": "b83318f3b53b0051b313b0703227e90bc59c5a7c3f7f183a5c590343b6b85bde",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        252,
+        189
+      ],
+      "image_sha256": "b83318f3b53b0051b313b0703227e90bc59c5a7c3f7f183a5c590343b6b85bde",
+      "hsv_band": [
+        310,
+        355,
+        0.25,
+        0.55,
+        1
+      ]
+    }
+  },
+  {
+    "id": "yoshi",
+    "names": {
+      "pt": "Yoshi",
+      "en": "Yoshi",
+      "es": "Yoshi"
+    },
+    "parts": {
+      "pt": "Pele",
+      "en": "Skin",
+      "es": "Piel"
+    },
+    "work": "Super Mario",
+    "description": "friendly green dinosaur with large round nose, white cheeks and belly, red saddle shell on back, orange shoes",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Yoshi, friendly green dinosaur with large round nose, white cheeks and belly, red saddle shell on back, orange shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the green skin in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#67EC57",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/850b7938ec9df2a77921738a12857e88/c4ba3/yoshi.png",
+    "reference_file": "docs/artwork/characters/expanded/references/yoshi-official.png",
+    "reference_sha256": "e038914c3916a3bdae1a651b234c991455ed0176d6a65e48d252b094428a88be",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        273,
+        12
+      ],
+      "image_sha256": "e038914c3916a3bdae1a651b234c991455ed0176d6a65e48d252b094428a88be",
+      "hsv_band": [
+        70,
+        165,
+        0.4,
+        0.3,
+        1
+      ]
+    }
+  },
+  {
+    "id": "bowser",
+    "names": {
+      "pt": "Bowser",
+      "en": "Bowser",
+      "es": "Bowser"
+    },
+    "parts": {
+      "pt": "Casco",
+      "en": "Shell",
+      "es": "Caparazón"
+    },
+    "work": "Super Mario",
+    "description": "large friendly fierce cartoon turtle king with green spiked shell, cream belly, orange skin, red hair and black wrist cuffs, no weapon",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Bowser, large friendly fierce cartoon turtle king with green spiked shell, cream belly, orange skin, red hair and black wrist cuffs, no weapon. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shell in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#385734",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/7204f288e3e823a8203c445fb6cc0d7e/b1656/bowser.png",
+    "reference_file": "docs/artwork/characters/expanded/references/bowser-official.png",
+    "reference_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        392,
+        234
+      ],
+      "image_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023",
+      "hsv_band": [
+        75,
+        155,
+        0.35,
+        0.3,
+        0.85
+      ]
+    }
+  },
+  {
+    "id": "toad",
+    "names": {
+      "pt": "Toad",
+      "en": "Toad",
+      "es": "Toad"
+    },
+    "parts": {
+      "pt": "Manchas do chapéu",
+      "en": "Cap spots",
+      "es": "Manchas del sombrero"
+    },
+    "work": "Super Mario",
+    "description": "small mushroom person with white mushroom cap and large red spots, beige face, blue vest with gold trim, white trousers and brown shoes",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Toad, small mushroom person with white mushroom cap and large red spots, beige face, blue vest with gold trim, white trousers and brown shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the cap spots in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#FF3434",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/e3ebf11b069067da929b608250baa44e/55d59/toad.png",
+    "reference_file": "docs/artwork/characters/expanded/references/toad-official.png",
+    "reference_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        152,
+        8
+      ],
+      "image_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8",
+      "hsv_band": [
+        345,
+        20,
+        0.5,
+        0.35,
+        1
+      ]
+    }
+  },
+  {
+    "id": "donkey_kong",
+    "names": {
+      "pt": "Donkey Kong",
+      "en": "Donkey Kong",
+      "es": "Donkey Kong"
+    },
+    "parts": {
+      "pt": "Pelagem",
+      "en": "Fur",
+      "es": "Pelaje"
+    },
+    "work": "Donkey Kong",
+    "description": "strong friendly brown cartoon gorilla with tan muzzle chest hands and feet, red necktie without letters, no other clothing",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Donkey Kong, strong friendly brown cartoon gorilla with tan muzzle chest hands and feet, red necktie without letters, no other clothing. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#A45A3F",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/b444206395480738954c3cbbd86716cc/c2c43/donkey-kong.png",
+    "reference_file": "docs/artwork/characters/expanded/references/donkey_kong-official.png",
+    "reference_sha256": "a6c4d60fbafc70a423c7bae638d8c8accdae71bc8c013f253f6fa3bd49c9ddac",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        208,
+        43
+      ],
+      "image_sha256": "a6c4d60fbafc70a423c7bae638d8c8accdae71bc8c013f253f6fa3bd49c9ddac",
+      "hsv_band": [
+        15,
+        45,
+        0.35,
+        0.2,
+        0.7
+      ]
+    }
+  },
+  {
+    "id": "wario",
+    "names": {
+      "pt": "Wario",
+      "en": "Wario",
+      "es": "Wario"
+    },
+    "parts": {
+      "pt": "Camisa e boné",
+      "en": "Shirt and cap",
+      "es": "Camisa y gorra"
+    },
+    "work": "Super Mario",
+    "description": "stocky adult mustached character with yellow cap without letters and yellow shirt, purple overalls, white gloves and green shoes",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Wario, stocky adult mustached character with yellow cap without letters and yellow shirt, purple overalls, white gloves and green shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#FFF600",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/2e8e71c5b38a5aedd5eef91c3d54bf13/747d9/wario.png",
+    "reference_file": "docs/artwork/characters/expanded/references/wario-official.png",
+    "reference_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        167,
+        18
+      ],
+      "image_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743",
+      "hsv_band": [
+        42,
+        70,
+        0.5,
+        0.6,
+        1
+      ]
+    }
+  },
+  {
+    "id": "waluigi",
+    "names": {
+      "pt": "Waluigi",
+      "en": "Waluigi",
+      "es": "Waluigi"
+    },
+    "parts": {
+      "pt": "Camisa e boné",
+      "en": "Shirt and cap",
+      "es": "Camisa y gorra"
+    },
+    "work": "Super Mario",
+    "description": "tall slender adult mustached character with purple cap without letters and purple shirt, dark navy overalls, white gloves and orange shoes",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Waluigi, tall slender adult mustached character with purple cap without letters and purple shirt, dark navy overalls, white gloves and orange shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shirt and cap in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#6F27B1",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/54c0617c992012b38e212c154f4e3944/3eddd/waluigi.png",
+    "reference_file": "docs/artwork/characters/expanded/references/waluigi-official.png",
+    "reference_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        170,
+        5
+      ],
+      "image_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78",
+      "hsv_band": [
+        250,
+        305,
+        0.35,
+        0.5,
+        1
+      ]
+    }
+  },
+  {
+    "id": "daisy",
+    "names": {
+      "pt": "Princesa Daisy",
+      "en": "Princess Daisy",
+      "es": "Princesa Daisy"
+    },
+    "parts": {
+      "pt": "Vestido",
+      "en": "Dress",
+      "es": "Vestido"
+    },
+    "work": "Super Mario",
+    "description": "adult brown-haired princess with gold crown, yellow full-length ball gown with orange hip panels, white gloves and turquoise flower brooch",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Princess Daisy, adult brown-haired princess with gold crown, yellow full-length ball gown with orange hip panels, white gloves and turquoise flower brooch. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the dress in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#FFCA34",
+    "source_url": "https://mario.nintendo.com/characters/",
+    "reference_image": "https://mario.nintendo.com/static/b625bdf51061d55b220d82eb9b61442c/9b369/daisy.png",
+    "reference_file": "docs/artwork/characters/expanded/references/daisy-official.png",
+    "reference_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        205,
+        171
+      ],
+      "image_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0",
+      "hsv_band": [
+        40,
+        70,
+        0.5,
+        0.6,
+        1
+      ]
+    }
+  },
+  {
+    "id": "sonic",
+    "names": {
+      "pt": "Sonic",
+      "en": "Sonic",
+      "es": "Sonic"
+    },
+    "parts": {
+      "pt": "Pelagem",
+      "en": "Fur",
+      "es": "Pelaje"
+    },
+    "work": "Sonic the Hedgehog",
+    "description": "classic blue cartoon hedgehog with swept-back spikes, tan muzzle and belly, white gloves and red shoes with white straps",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Sonic, classic blue cartoon hedgehog with swept-back spikes, tan muzzle and belly, white gloves and red shoes with white straps. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blue fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#0075EC",
+    "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+    "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara01-img.png",
+    "reference_file": "docs/artwork/characters/expanded/references/sonic-official.png",
+    "reference_sha256": "0691cc6325691fe09d46d0196022ca2328c3223773277ee124ed83901100e2db",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        766,
+        61
+      ],
+      "image_sha256": "0691cc6325691fe09d46d0196022ca2328c3223773277ee124ed83901100e2db",
+      "hsv_band": [
+        200,
+        245,
+        0.5,
+        0.25,
+        1
+      ]
+    }
+  },
+  {
+    "id": "tails",
+    "names": {
+      "pt": "Tails",
+      "en": "Tails",
+      "es": "Tails"
+    },
+    "parts": {
+      "pt": "Pelagem",
+      "en": "Fur",
+      "es": "Pelaje"
+    },
+    "work": "Sonic the Hedgehog",
+    "description": "friendly golden-orange fox with exactly two large visible tails with white tips, white muzzle chest and gloves, red and white shoes",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Tails, friendly golden-orange fox with exactly two large visible tails with white tips, white muzzle chest and gloves, red and white shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the golden fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#FFA500",
+    "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+    "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara02-img.png",
+    "reference_file": "docs/artwork/characters/expanded/references/tails-official.png",
+    "reference_sha256": "4092b3f4371f31eefb023c0feaa6360002eedec51ac5df44a2c24fc4b284f855",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        587,
+        213
+      ],
+      "image_sha256": "4092b3f4371f31eefb023c0feaa6360002eedec51ac5df44a2c24fc4b284f855",
+      "hsv_band": [
+        25,
+        65,
+        0.5,
+        0.4,
+        1
+      ]
+    }
+  },
+  {
+    "id": "knuckles",
+    "names": {
+      "pt": "Knuckles",
+      "en": "Knuckles",
+      "es": "Knuckles"
+    },
+    "parts": {
+      "pt": "Pelagem",
+      "en": "Fur",
+      "es": "Pelaje"
+    },
+    "work": "Sonic the Hedgehog",
+    "description": "red cartoon echidna with dreadlock-like head spines, tan muzzle, white crescent chest mark, large white gloves with two knuckle spikes, red yellow and green shoes",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Knuckles, red cartoon echidna with dreadlock-like head spines, tan muzzle, white crescent chest mark, large white gloves with two knuckle spikes, red yellow and green shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the red fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#FF4653",
+    "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+    "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara04-img.png",
+    "reference_file": "docs/artwork/characters/expanded/references/knuckles-official.png",
+    "reference_sha256": "4fbaabfc6a1e04062f2a3b9571015f6a3f0cdb59c3df76f2905afb36b1a7f85b",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        622,
+        114
+      ],
+      "image_sha256": "4fbaabfc6a1e04062f2a3b9571015f6a3f0cdb59c3df76f2905afb36b1a7f85b",
+      "hsv_band": [
+        345,
+        20,
+        0.5,
+        0.6,
+        1
+      ]
+    }
+  },
+  {
+    "id": "amy",
+    "names": {
+      "pt": "Amy Rose",
+      "en": "Amy Rose",
+      "es": "Amy Rose"
+    },
+    "parts": {
+      "pt": "Pelagem",
+      "en": "Fur",
+      "es": "Pelaje"
+    },
+    "work": "Sonic the Hedgehog",
+    "description": "pink cartoon hedgehog with short head spines, green eyes, red headband, red sleeveless dress with white hem, white gloves, red boots, no hammer",
+    "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Amy Rose, pink cartoon hedgehog with short head spines, green eyes, red headband, red sleeveless dress with white hem, white gloves, red boots, no hammer. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the pink fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+    "target_hex": "#FF76A6",
+    "source_url": "https://asia.sega.com/SonicSuperStars/en/character/",
+    "reference_image": "https://asia.sega.com/SonicSuperStars/assets/images/common/chara/chara03-img.png",
+    "reference_file": "docs/artwork/characters/expanded/references/amy-official.png",
+    "reference_sha256": "5b3890d9b626ef5269c48c753418aa5ae34432bb579464ba9cbe3ac07446ef6e",
+    "sampling": {
+      "method": "reviewed dominant semantic hue bin; exact fixed official sRGB pixel, not generated artwork",
+      "xy": [
+        488,
+        6
+      ],
+      "image_sha256": "5b3890d9b626ef5269c48c753418aa5ae34432bb579464ba9cbe3ac07446ef6e",
+      "hsv_band": [
+        315,
+        350,
+        0.25,
+        0.45,
+        1
+      ]
+    }
+  }
+]

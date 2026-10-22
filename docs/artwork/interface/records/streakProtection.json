@@ -1,0 +1,27 @@
+{
+  "id": "streakProtection",
+  "kind": "icon",
+  "subject": "a sturdy protective shield with a miniature flame-shaped negative space at its centre",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a sturdy protective shield with a miniature flame-shaped negative space at its centre.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-bc57f526-9280-4891-b1db-da3c016ac8ff.png",
+  "source": "assets/generated/sources/streakProtection.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/streakProtection.svg",
+  "source_sha256": "e15343e046c7f46534d0edaa70a1e4ccaf49b6bb44f78cea3be74783ee77ce05",
+  "svg_sha256": "50446ae59b8d282c37ba5a146c92b2896b9ec997a0f04d45f2449768471dafb4",
+  "paths": 3,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/streakProtection_ink.svg",
+  "ink_sha256": "578de6b238518f6172d2570496ccf7e98f162f3b91fc74ce4506f32da7577215"
+}

@@ -14,7 +14,9 @@ class MethodChannelDeviceTimeZoneProvider implements DeviceTimeZoneProvider {
   @override
   Future<String?> currentIdentifier() async {
     try {
-      final identifier = await _channel.invokeMethod<String>('getTimeZoneIdentifier');
+      final identifier = await _channel.invokeMethod<String>(
+        'getTimeZoneIdentifier',
+      );
       final value = identifier?.trim();
       return value == null || value.isEmpty ? null : value;
     } on PlatformException {

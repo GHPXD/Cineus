@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "reviewed_on": "2026-10-21",
+  "groups": [
+    {
+      "id": "movie_metadata_tmdb",
+      "scope": "500 movie entries",
+      "status": "pending",
+      "commercial_use": false,
+      "evidence": null,
+      "reference": "https://developer.themoviedb.org/docs/faq"
+    },
+    {
+      "id": "movie_posters",
+      "scope": "All bundled film poster images and their underlying artwork",
+      "status": "pending",
+      "commercial_use": false,
+      "evidence": null
+    },
+    {
+      "id": "recognizable_characters",
+      "scope": "50 characters, franchise identities and source-backed color references",
+      "status": "pending",
+      "commercial_use": false,
+      "evidence": null
+    },
+    {
+      "id": "cinematic_homages",
+      "scope": "12 chibi cinematic collection avatars; inspirations and original image provenance in docs/artwork/chibi-collection-v4/MANIFEST.json; Cores catalogue unchanged",
+      "status": "pending",
+      "commercial_use": false,
+      "evidence": null,
+      "creative_provenance": "docs/artwork/chibi-collection-v4/MANIFEST.json"
+    },
+    {
+      "id": "original_generated_art",
+      "scope": "Brand, UI, original avatars and cinematic backgrounds; provenance recorded in docs/artwork",
+      "status": "pending",
+      "commercial_use": false,
+      "evidence": null
+    },
+    {
+      "id": "fonts_fredoka_nunito",
+      "scope": "Bundled font files",
+      "status": "verified",
+      "commercial_use": true,
+      "evidence": "assets/licenses/Fredoka-OFL.txt",
+      "additional_evidence": "assets/licenses/Nunito-OFL.txt"
+    }
+  ],
+  "instruction": "Replace pending status only after reviewing and storing the actual permission/license evidence. Image generation, attribution and source URLs alone do not establish third-party commercial rights. This inventory grants no license."
+}

@@ -91,9 +91,11 @@ void main() {
       expect(s.copyWith(revealedClues: 5).isOnLastStep, isTrue);
       // no passo 5 de um jogo de dicas ainda haveria o que revelar
       expect(
-        GameSession.daily(mode: GameMode.clue, date: 'x', movieId: 1)
-            .copyWith(revealedClues: 5)
-            .canRevealMore,
+        GameSession.daily(
+          mode: GameMode.clue,
+          date: 'x',
+          movieId: 1,
+        ).copyWith(revealedClues: 5).canRevealMore,
         isTrue,
       );
     });

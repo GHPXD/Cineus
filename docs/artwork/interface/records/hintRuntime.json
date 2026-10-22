@@ -1,0 +1,27 @@
+{
+  "id": "hintRuntime",
+  "kind": "icon",
+  "subject": "an elegant cinema stopwatch with round dial and two bold hands, short top crown; no numerals",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. A coherent boutique-cinema visual identity: bold, carefully designed illustrated objects, expressive memorable proportions, sophisticated not childish, small-screen readable. Restrained palette of flat warm gold #EFC026, vivid periwinkle blue #5790FF and warm ivory #F4F3E8, at most 4 discrete flat colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with a tiny suggestion of depth through overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji, NOT stock library, NOT glossy 3D, no gradients, no shadows, no texture or distress, no speckles, no sparkles, no text, numerals, letters or watermark. Genuinely transparent background. A single centred icon with about 10% empty padding on each side on a square high-resolution canvas. Vector-tracing friendly solid regions. Subject: an elegant cinema stopwatch with round dial and two bold hands, short top crown; no numerals.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-e584ccfa-d1e6-4f28-8c5a-ce2dd79d0160.png",
+  "source": "assets/generated/sources/hintRuntime.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/hintRuntime.svg",
+  "source_sha256": "7b4cfc4df80f05780883ef69c83d21eb1b35f6b61dfa1549357f530271a2ada1",
+  "svg_sha256": "a2f037689a2d2a0ef333a033fb812b39ad9fa3aef91548dc686ff755a3142b80",
+  "paths": 26,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "status": "converted",
+  "conversion_version": 5,
+  "ink_svg": "assets/generated/icons/hintRuntime_ink.svg",
+  "ink_sha256": "d4cfd6be8a009f886bb2a86fb44b52d252883e662cb27edf1a39e0ae499d35ef"
+}

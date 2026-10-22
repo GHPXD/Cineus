@@ -1,0 +1,27 @@
+{
+  "id": "badgeColorsFirst",
+  "kind": "icon",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-128f1826-94b7-47cf-82a6-39d7777ec5ce.png",
+  "prompt": "Use case: logo-brand. Create one standalone achievement badge for Cineus mobile cinema game. Subject: a gold artist palette with ivory color wells and a small blue paintbrush, a small blue checkmark medallion. Unified illustrated game icon family: bold clear silhouette, charming polished shapes, moderately dimensional but vector-friendly flat color regions, gold #EFC026, bright blue #5790FF, ivory #F4F3E8 and deeper blue #2D54AA. Transparent background, centered full object, large safe margin, no enclosing square tile, no text, no letters, no numbers, no emoji, no watermark, no gradients fading to a background, readable at 48px.",
+  "subject": "a gold artist palette with ivory color wells and a small blue paintbrush, a small blue checkmark medallion",
+  "generator": "built-in image_gen / GPT Image",
+  "source": "assets/generated/sources/badgeColorsFirst.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/badgeColorsFirst.svg",
+  "source_sha256": "522e545fd3c1dc315fb0641e485a6462ceed8a067e6eabcaa1f4fd6b56ed9338",
+  "svg_sha256": "9a3f590f6a654fb86a0ce0bd6b10457e6db8746b50f923bff198dc09b4c8d83f",
+  "paths": 29,
+  "source_size": [
+    1312,
+    1199
+  ],
+  "trace_size": [
+    512,
+    468
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/badgeColorsFirst_ink.svg",
+  "ink_sha256": "deef6cde4fd1d0bcee45126b92b2276f4871594e7fea30cd0663b1198755cac6"
+}

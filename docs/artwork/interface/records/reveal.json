@@ -1,0 +1,27 @@
+{
+  "id": "reveal",
+  "kind": "icon",
+  "subject": "a cinema eye symbol, elegant almond outline with a large lens pupil and generous negative space",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a cinema eye symbol, elegant almond outline with a large lens pupil and generous negative space.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-e63951f6-ee29-4584-9d7a-5087fa2f424c.png",
+  "source": "assets/generated/sources/reveal.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/reveal.svg",
+  "source_sha256": "c013ef2118c80b564a52fa02007e79a78e50d2c952b4376c6658e465b4953f37",
+  "svg_sha256": "66735f7de55c887b0f4b712d3d9575f175551387fa885f998f9261b6284309f2",
+  "paths": 11,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/reveal_ink.svg",
+  "ink_sha256": "2894ec461eeac3b2491af4f4545eafc3bb6e8b5d7a87b556701dffeab61cdfe0"
+}

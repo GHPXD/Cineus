@@ -1,0 +1,8 @@
+{
+  "id": "mission_appearance_constellation",
+  "kind": "appearance",
+  "width": 533,
+  "height": 800,
+  "prompt": "Use case: stylized-concept. ONE production collectible CARD BACKGROUND for the Cineus chibi cinema game. Match polished illustrated arcade/adventure caricature art: thick dark ink contours, angular clean bold shapes, simplified cel shading, readable graphic forms, navy/brass-gold/ivory/teal palette. Avoid photographic realism, tiny filigree or busy decorative noise. Cinematic CONSTELLATION backdrop, midnight navy field with sparse original gold/teal constellation lines shaped from film-frame rectangles at upper corners and lower edge, large calm dark center. FUNCTIONAL BACKDROP SPEC: portrait aspect ratio 533:800, fully opaque edge-to-edge rectangular background, no border frame, no transparency. Keep the inner 75 percent of width and 80 percent of height very DARK NAVY, low contrast, with no objects or bright spots, so white game-result text and a character placed later remain readable. Put all theme decoration near the outside corners and edges. No characters, people, faces, animals, text, logos, labels, numbers or watermark. One backdrop only.",
+  "original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-d7b895cc-db6e-4be3-ae1f-da38e9a803af.png"
+}

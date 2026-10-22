@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-14",
+  "production_dart_files": 150,
+  "registered_assets_and_origins": 1045,
+  "retired_production_files": 6,
+  "obsolete_scripts_removed": 52,
+  "unused_localization_messages_removed": 126,
+  "obsolete_apks_removed": 11,
+  "historical_files_removed": 3399,
+  "cache_files_removed": 12183,
+  "cache_bytes_removed": 7803156387,
+  "removed_old_apk_bytes": 1326714014,
+  "archived_history_bytes": 362251308,
+  "main_tests_passed": 688,
+  "svg_decode_tests_passed": 2,
+  "static_analysis": "No issues found",
+  "asset_validations": "catalogue, origin hashes, source reachability and release checks passed",
+  "kept_existing_apk": "dist/Cineus.apk",
+  "existing_apk_sha256": "23401ee2f582fd44448ec7b5b19c0d643b76440221a80e15d049dbe5a1a895ef",
+  "recovery_archives": [
+    "C:\\Users\\GHPXD\\.codex\\visualizations\\2026\\10\\12\\01a12dd4-c53f-7520-8dfd-8625589130d2\\.backups\\Cineus-sprint-history-20261014.zip",
+    "C:\\Users\\GHPXD\\.codex\\visualizations\\2026\\10\\12\\01a12dd4-c53f-7520-8dfd-8625589130d2\\.backups\\Cineus-cleanup-20261014.zip"
+  ],
+  "catalogue_sha256": {
+    "assets/cineus_v1.db": "d071458e4305f43843363026f8e64b331490706910e9f824c1c9a39c19ffbf92",
+    "assets/cineus_v1_seed.json": "2d0c005fe6dd033c18d116fbbeeb45ee87a767e24e83b296045fcd1df647481f",
+    "assets/colors/training_v1.json": "a04ae71e9111eee993d79ee5ef62e26a8b3318983fb5a2ad98e99437782d3fb7",
+    "assets/colors/stages_v1.json": "4e7db27acf0be3193bba96c558affc5d202e941a2463b68d09106465037f45cc"
+  }
+}

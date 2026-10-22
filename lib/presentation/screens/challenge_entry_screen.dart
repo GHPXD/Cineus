@@ -6,6 +6,8 @@ import '../../core/theme/app_typography.dart';
 import '../l10n_mappers.dart';
 import '../widgets/settings_section.dart';
 import '../widgets/tap_target.dart';
+import '../visuals/cineus_assets.dart';
+import '../widgets/cineus_icon.dart';
 
 class ChallengeEntryScreen extends StatelessWidget {
   const ChallengeEntryScreen({super.key});
@@ -24,8 +26,8 @@ class ChallengeEntryScreen extends StatelessWidget {
                   TapTarget(
                     label: context.l10n.semBack,
                     onTap: () => context.pop(),
-                    child: const Icon(
-                      Icons.arrow_back_ios_rounded,
+                    child: const CineusIcon(
+                      CineusAssetId.back,
                       size: 18,
                       color: Colors.white,
                     ),
@@ -59,20 +61,20 @@ class ChallengeEntryScreen extends StatelessWidget {
                               color: AppColors.gold300.withValues(alpha: 0.3),
                             ),
                           ),
-                          child: const Text(
-                            '🎬',
-                            style: TextStyle(fontSize: 34),
+                          child: const CineusIcon(
+                            CineusAssetId.friendInvite,
+                            size: 48,
                           ),
                         ),
                         const SizedBox(height: 20),
                         Text(
-                          context.l10n.challengeSectionTitle,
+                          context.l10n.challengeBadge,
                           textAlign: TextAlign.center,
                           style: AppTypography.titleLarge,
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          context.l10n.quickActionChallengeSub,
+                          context.l10n.challengeEntryHelp,
                           textAlign: TextAlign.center,
                           style: AppTypography.bodyMedium.copyWith(
                             color: AppColors.textSecondary,

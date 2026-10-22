@@ -1,0 +1,34 @@
+{
+  "id": "jake_the_dog",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/jake_the_dog.png",
+  "source_sha256": "b88b0327c72f9f4cd3329df6e76f979840eb94ea6c672fcd61ba63023ec577ed",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1145,
+    1374
+  ],
+  "trace_size": [
+    535,
+    640
+  ],
+  "region_pixels": [
+    129417
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/jake_the_dog_base.svg",
+      "sha256": "5e2e404e1912e400bef91fe34e479ae628223634270a97a9fa7dbf00c9a7067d"
+    },
+    {
+      "file": "assets/colors/art/jake_the_dog_p0.svg",
+      "sha256": "e37bea7014d9bf97bbff8687c65138a10b8eb6049fa59c44d3b54ecdf18d5476"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-fdb11810-e8d0-43ae-ada7-24bf78baf5d1.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Jake the Dog, round golden-yellow cartoon dog with short flexible arms and legs, large white eyes, black nose and loose jowls. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
 import '../l10n_mappers.dart';
+import '../visuals/cineus_assets.dart';
+import '../widgets/cineus_icon.dart';
 
 class MainScaffold extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -11,9 +13,10 @@ class MainScaffold extends StatelessWidget {
   const MainScaffold({super.key, required this.navigationShell});
 
   static const _tabs = [
-    _Tab(labelKey: _TabLabel.home, icon: Icons.home_rounded),
-    _Tab(labelKey: _TabLabel.films, icon: Icons.movie_filter_rounded),
-    _Tab(labelKey: _TabLabel.posters, icon: Icons.blur_on_rounded),
+    _Tab(labelKey: _TabLabel.home, icon: CineusAssetId.home),
+    _Tab(labelKey: _TabLabel.films, icon: CineusAssetId.modeClues),
+    _Tab(labelKey: _TabLabel.posters, icon: CineusAssetId.modePoster),
+    _Tab(labelKey: _TabLabel.colors, icon: CineusAssetId.modeColors),
   ];
 
   @override
@@ -63,19 +66,20 @@ class MainScaffold extends StatelessWidget {
   }
 }
 
-enum _TabLabel { home, films, posters }
+enum _TabLabel { home, films, posters, colors }
 
 class _Tab {
   final _TabLabel labelKey;
-  final IconData icon;
+  final CineusAssetId icon;
 
   const _Tab({required this.labelKey, required this.icon});
 
   String label(BuildContext context) => switch (labelKey) {
-        _TabLabel.home => context.l10n.navHome,
-        _TabLabel.films => context.l10n.navFilms,
-        _TabLabel.posters => context.l10n.navPosters,
-      };
+    _TabLabel.home => context.l10n.navHome,
+    _TabLabel.films => context.l10n.navFilms,
+    _TabLabel.posters => context.l10n.navPosters,
+    _TabLabel.colors => context.l10n.colorModeTitle,
+  };
 }
 
 class _SideNav extends StatelessWidget {
@@ -126,8 +130,8 @@ class _SideNav extends StatelessWidget {
         destinations: [
           for (final tab in tabs)
             NavigationRailDestination(
-              icon: Icon(tab.icon),
-              selectedIcon: Icon(tab.icon),
+              icon: CineusIcon(tab.icon, color: AppColors.textSecondary),
+              selectedIcon: CineusIcon(tab.icon, color: AppColors.obsidian900),
               label: Text(tab.label(context)),
             ),
         ],
@@ -150,11 +154,30 @@ class _BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scaledLabel = MediaQuery.textScalerOf(context).scale(11);
-    final extraHeight = ((scaledLabel - 11) * 1.4).clamp(0.0, 24.0);
+    final largeLabels = scaledLabel > 15;
+    final height = largeLabels ? 44 + scaledLabel * 2.5 : 76.0;
+    int labelWeight(_Tab tab) {
+      if (!largeLabels) return 1;
+      final painter = TextPainter(
+        text: TextSpan(
+          text: tab.label(context),
+          style: AppTypography.labelSmall.copyWith(
+            fontSize: 11,
+            letterSpacing: 0.2,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        textScaler: MediaQuery.textScalerOf(context),
+        textDirection: Directionality.of(context),
+      )..layout();
+      final weight = (painter.width + 8).clamp(48.0, double.infinity).ceil();
+      painter.dispose();
+      return weight;
+    }
 
     return Container(
       decoration: const BoxDecoration(
-        color: AppColors.obsidian900,
+        color: Color(0xFF050C14),
         border: Border(
           top: BorderSide(color: AppColors.obsidian700, width: 0.5),
         ),
@@ -162,12 +185,13 @@ class _BottomNav extends StatelessWidget {
       child: SafeArea(
         top: false,
         child: SizedBox(
-          height: 64 + extraHeight,
+          height: height,
           child: Row(
             children: List.generate(tabs.length, (i) {
               final tab = tabs[i];
               final selected = i == selectedIndex;
               return Expanded(
+                flex: labelWeight(tab),
                 child: Semantics(
                   button: true,
                   selected: selected,
@@ -175,31 +199,57 @@ class _BottomNav extends StatelessWidget {
                   onTap: () => onTap(i),
                   excludeSemantics: true,
                   child: InkWell(
+                    key: ValueKey('nav-${tab.labelKey.name}'),
                     onTap: () => onTap(i),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
+                        CineusIcon(
                           tab.icon,
-                          size: 23,
+                          size: 28,
                           color: selected
                               ? AppColors.gold300
                               : AppColors.textTertiary,
                         ),
                         const SizedBox(height: 3),
-                        Text(
-                          tab.label(context),
-                          maxLines: 1,
-                          overflow: TextOverflow.fade,
-                          softWrap: false,
-                          style: AppTypography.labelSmall.copyWith(
-                            fontSize: 11,
-                            letterSpacing: 0.2,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: Text(
+                            tab.label(context),
+                            maxLines: largeLabels ? 2 : 1,
+                            textAlign: TextAlign.center,
+                            softWrap: largeLabels,
+                            style: AppTypography.labelSmall.copyWith(
+                              fontSize: 11,
+                              letterSpacing: 0.2,
+                              color: selected
+                                  ? AppColors.gold300
+                                  : AppColors.textTertiary,
+                              fontWeight: selected
+                                  ? FontWeight.w600
+                                  : FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Container(
+                          width: 32,
+                          height: 2,
+                          decoration: BoxDecoration(
                             color: selected
                                 ? AppColors.gold300
-                                : AppColors.textTertiary,
-                            fontWeight:
-                                selected ? FontWeight.w700 : FontWeight.w500,
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(3),
+                            boxShadow: selected
+                                ? [
+                                    BoxShadow(
+                                      color: AppColors.gold300.withValues(
+                                        alpha: .3,
+                                      ),
+                                      blurRadius: 5,
+                                    ),
+                                  ]
+                                : [],
                           ),
                         ),
                       ],

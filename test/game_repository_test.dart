@@ -44,8 +44,7 @@ void main() {
 
     test('salva e recupera por modo e data', () async {
       final saved = await repo.saveSession(
-        GameSession.daily(
-            mode: GameMode.clue, date: '2026-08-10', movieId: 42),
+        GameSession.daily(mode: GameMode.clue, date: '2026-08-10', movieId: 42),
       );
       expect(saved.id, isNotNull);
 
@@ -56,37 +55,55 @@ void main() {
     });
 
     test('os dois modos coexistem no mesmo dia sem se confundir', () async {
-      await repo.saveSession(GameSession.daily(
-          mode: GameMode.clue, date: '2026-08-10', movieId: 10));
-      await repo.saveSession(GameSession.daily(
-          mode: GameMode.poster, date: '2026-08-10', movieId: 99));
+      await repo.saveSession(
+        GameSession.daily(mode: GameMode.clue, date: '2026-08-10', movieId: 10),
+      );
+      await repo.saveSession(
+        GameSession.daily(
+          mode: GameMode.poster,
+          date: '2026-08-10',
+          movieId: 99,
+        ),
+      );
 
-      expect((await repo.getDailySession(GameMode.clue, '2026-08-10'))!.movieId,
-          10);
       expect(
-          (await repo.getDailySession(GameMode.poster, '2026-08-10'))!.movieId,
-          99);
+        (await repo.getDailySession(GameMode.clue, '2026-08-10'))!.movieId,
+        10,
+      );
+      expect(
+        (await repo.getDailySession(GameMode.poster, '2026-08-10'))!.movieId,
+        99,
+      );
     });
 
     test('salvar duas vezes sem id atualiza em vez de duplicar', () async {
-      final first = await repo.saveSession(GameSession.daily(
-          mode: GameMode.clue, date: '2026-08-10', movieId: 10));
+      final first = await repo.saveSession(
+        GameSession.daily(mode: GameMode.clue, date: '2026-08-10', movieId: 10),
+      );
       // Um chamador que perdeu o id não pode criar uma segunda linha.
-      final second = await repo.saveSession(GameSession.daily(
-          mode: GameMode.clue, date: '2026-08-10', movieId: 10)
-          .copyWith(revealedClues: 4));
+      final second = await repo.saveSession(
+        GameSession.daily(
+          mode: GameMode.clue,
+          date: '2026-08-10',
+          movieId: 10,
+        ).copyWith(revealedClues: 4),
+      );
 
       expect(second.id, first.id);
       expect((await db.query('game_sessions')).length, 1);
       expect(
-        (await repo.getDailySession(GameMode.clue, '2026-08-10'))!.revealedClues,
+        (await repo.getDailySession(
+          GameMode.clue,
+          '2026-08-10',
+        ))!.revealedClues,
         4,
       );
     });
 
     test('o índice único impede duas diárias do mesmo modo e data', () async {
-      await repo.saveSession(GameSession.daily(
-          mode: GameMode.clue, date: '2026-08-10', movieId: 10));
+      await repo.saveSession(
+        GameSession.daily(mode: GameMode.clue, date: '2026-08-10', movieId: 10),
+      );
 
       expect(
         () => db.insert('game_sessions', {
@@ -108,7 +125,8 @@ void main() {
   group('sessões de estágio', () {
     test('identificadas por modo, estágio e filme', () async {
       await repo.saveSession(
-          GameSession.stage(mode: GameMode.clue, stageId: 3, movieId: 27));
+        GameSession.stage(mode: GameMode.clue, stageId: 3, movieId: 27),
+      );
 
       expect(await repo.getStageSession(GameMode.clue, 3, 27), isNotNull);
       expect(await repo.getStageSession(GameMode.clue, 3, 28), isNull);
@@ -117,21 +135,26 @@ void main() {
     });
 
     test('o mesmo filme pode ser jogado nos dois modos', () async {
-      await repo.saveSession(GameSession.stage(
-          mode: GameMode.clue, stageId: 1, movieId: 5));
-      await repo.saveSession(GameSession.stage(
-          mode: GameMode.poster, stageId: 1, movieId: 5));
+      await repo.saveSession(
+        GameSession.stage(mode: GameMode.clue, stageId: 1, movieId: 5),
+      );
+      await repo.saveSession(
+        GameSession.stage(mode: GameMode.poster, stageId: 1, movieId: 5),
+      );
 
       expect((await db.query('game_sessions')).length, 2);
     });
 
     test('delete remove só a sessão apontada', () async {
-      await repo.saveSession(GameSession.stage(
-          mode: GameMode.clue, stageId: 1, movieId: 5));
-      await repo.saveSession(GameSession.stage(
-          mode: GameMode.poster, stageId: 1, movieId: 5));
-      await repo.saveSession(GameSession.stage(
-          mode: GameMode.clue, stageId: 1, movieId: 6));
+      await repo.saveSession(
+        GameSession.stage(mode: GameMode.clue, stageId: 1, movieId: 5),
+      );
+      await repo.saveSession(
+        GameSession.stage(mode: GameMode.poster, stageId: 1, movieId: 5),
+      );
+      await repo.saveSession(
+        GameSession.stage(mode: GameMode.clue, stageId: 1, movieId: 6),
+      );
 
       await repo.deleteStageSession(GameMode.clue, 1, 5);
 
@@ -141,8 +164,9 @@ void main() {
     });
 
     test('o índice único impede duplicar a mesma sessão de estágio', () async {
-      await repo.saveSession(GameSession.stage(
-          mode: GameMode.clue, stageId: 2, movieId: 9));
+      await repo.saveSession(
+        GameSession.stage(mode: GameMode.clue, stageId: 2, movieId: 9),
+      );
 
       expect(
         () => db.insert('game_sessions', {
@@ -165,22 +189,46 @@ void main() {
     setUp(() async {
       // Dicas: 2 vitórias em dias consecutivos
       await repo.saveSession(
-          finishedDaily(GameMode.clue, '2026-08-10', won: true, score: 9, clues: 2));
+        finishedDaily(
+          GameMode.clue,
+          '2026-08-10',
+          won: true,
+          score: 9,
+          clues: 2,
+        ),
+      );
       await repo.saveSession(
-          finishedDaily(GameMode.clue, '2026-08-09', won: true, score: 7, clues: 4));
+        finishedDaily(
+          GameMode.clue,
+          '2026-08-09',
+          won: true,
+          score: 7,
+          clues: 4,
+        ),
+      );
       // Poster: escala 1-5, não pode contaminar
       await repo.saveSession(
-          finishedDaily(GameMode.poster, '2026-08-10', won: true, score: 5));
+        finishedDaily(GameMode.poster, '2026-08-10', won: true, score: 5),
+      );
       // Estágios: nunca contam
-      await repo.saveSession(GameSession.stage(
-              mode: GameMode.clue, stageId: 1, movieId: 3)
-          .copyWith(status: GameStatus.won, score: 8));
-      await repo.saveSession(GameSession.stage(
-              mode: GameMode.poster, stageId: 2, movieId: 7)
-          .copyWith(status: GameStatus.won, score: 4));
+      await repo.saveSession(
+        GameSession.stage(
+          mode: GameMode.clue,
+          stageId: 1,
+          movieId: 3,
+        ).copyWith(status: GameStatus.won, score: 8),
+      );
+      await repo.saveSession(
+        GameSession.stage(
+          mode: GameMode.poster,
+          stageId: 2,
+          movieId: 7,
+        ).copyWith(status: GameStatus.won, score: 4),
+      );
       // Em andamento: nunca conta
-      await repo.saveSession(GameSession.daily(
-          mode: GameMode.clue, date: '2026-08-08', movieId: 1));
+      await repo.saveSession(
+        GameSession.daily(mode: GameMode.clue, date: '2026-08-08', movieId: 1),
+      );
     });
 
     test('só diárias encerradas do modo pedido', () async {
@@ -214,19 +262,23 @@ void main() {
 
   group('round-trip completo', () {
     test('guesses, status e placar sobrevivem à ida e volta', () async {
-      final original = GameSession.daily(
-        mode: GameMode.poster,
-        date: '2026-08-10',
-        movieId: 33,
-      ).copyWith(
-        revealedClues: 3,
-        guesses: ['Errado 1', 'Errado 2'],
-        status: GameStatus.won,
-        score: 3,
-      );
+      final original =
+          GameSession.daily(
+            mode: GameMode.poster,
+            date: '2026-08-10',
+            movieId: 33,
+          ).copyWith(
+            revealedClues: 3,
+            guesses: ['Errado 1', 'Errado 2'],
+            status: GameStatus.won,
+            score: 3,
+          );
 
       await repo.saveSession(original);
-      final loaded = (await repo.getDailySession(GameMode.poster, '2026-08-10'))!;
+      final loaded = (await repo.getDailySession(
+        GameMode.poster,
+        '2026-08-10',
+      ))!;
 
       expect(loaded.mode, GameMode.poster);
       expect(loaded.kind, SessionKind.daily);

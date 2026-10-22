@@ -1,0 +1,54 @@
+{
+  "id": "aang",
+  "kind": "character",
+  "generator": "built-in image_gen / GPT Image",
+  "prompt": "Use case: illustration-story. Asset type: isolated recolourable character sprite for the Cineus mobile colour-memory game. Create from scratch ONE recognisable full-body character, polished bold flat 2D cartoon illustration, thick clean charcoal outlines, very few generous filled shapes, no gradients, lighting, shading or textures. Entire figure centred in a square with 8% transparent margin, feet and appendages fully visible, genuinely transparent background. No text, letters, logos, watermarks, scenery, props except canonical character accessories, or secondary figures. Important technical palette: the five indicated regions MUST use their assigned uniform flat marker colours, exactly, even when noncanonical. These are segmentation markers for later automatic raster-to-SVG conversion, not the final colours shown to players. Never use these five marker colours anywhere outside their assigned regions. All other details use flat white, black or subdued neutral colours. Make each region clean, solid, separately identifiable; preserve the character's recognisable proportions, eyes, face, outline and clothing seams. The UI will recolour each region after tracing; do not render a UI or swatches.\nSubject and segmentation: Aang from Avatar The Last Airbender, bald head, obvious non-glowing arrow tattoo on forehead, friendly full body standing, monk orange robe draped across torso, broad reddish outer cloth sash over one shoulder, brown trousers, neutral boots, no staff. Five regions: forehead arrow tattoo AND small arm tattoos MAGENTA #FF00FF; skin on head, face, neck, arms and hands CYAN #00FFFF; main robe fabric LIME #00FF00; broad outer sash cloth ORANGE #FFA500; trousers PURPLE #8000FF. Eyes white with charcoal pupils, boots neutral dark grey.",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-9f643936-1e43-4625-8adf-90381cb25b4b.png",
+  "source": "assets/colors/sources/aang.png",
+  "status": "converted",
+  "palette_mode": "markers",
+  "source_sha256": "859b0252730d421655899d93b5f5aaadd19a7ecfe4660134cfd0d3260b20bff8",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    640,
+    640
+  ],
+  "region_pixels": [
+    1917,
+    17064,
+    13450,
+    17382,
+    12511
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/aang_base.svg",
+      "sha256": "54a8c56bca3f01a4aa392e4f5175755fb117fe4a5b9dc3630abcc7cf9c3e4cc1"
+    },
+    {
+      "file": "assets/colors/art/aang_p0.svg",
+      "sha256": "5fc17269f8a8998420bb6ee5595690a92a76180669ab5dadacc89767df2c3865"
+    },
+    {
+      "file": "assets/colors/art/aang_p1.svg",
+      "sha256": "0354d82594b3d0632573b22c320c8424fc1941620ddf90d5d44e4a0d6c0e233f"
+    },
+    {
+      "file": "assets/colors/art/aang_p2.svg",
+      "sha256": "72bf36a5f21f16bf915c3bd9f249559428d1cece7a5377146fefbf5cb84a7653"
+    },
+    {
+      "file": "assets/colors/art/aang_p3.svg",
+      "sha256": "9b9a2e27e4c6ca7201ba0bc945c93f8ca32776ca059a76ced5bdbdd92d585169"
+    },
+    {
+      "file": "assets/colors/art/aang_p4.svg",
+      "sha256": "64f09fc1ba32f6b60ed1604d62fcf0b09e6d4d759305ac0635822c17ada49f11"
+    }
+  ]
+}

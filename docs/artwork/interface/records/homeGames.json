@@ -1,0 +1,27 @@
+{
+  "id": "homeGames",
+  "kind": "icon",
+  "subject": "homeGames",
+  "prompt": "Use case: logo-brand. Asset type: new illustrated icon for the Cineus mobile home statistics panel, matching a premium dark navy and gold cinema app. Create ONE image from scratch: a compact elegant gold video game controller, two substantial handles, a bold ivory directional cross and four blue action buttons; the gamepad silhouette itself is gold, readable at 24 pixels. Bold premium editorial 2D illustration, warm gold #EFC026, blue #5790FF and warm ivory #F4F3E8 only, optional deep navy for overlap. Large clear negative spaces, at most four solid colors. Centered, square, transparent background with generous 10% padding. Vector tracing friendly clean solid shapes. No gradients, shadows, photographic textures, thin stock outline, text, numerals, letters, watermark, decorative sparkles or UI.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-17e8e363-28de-4221-b0ec-0a22d2e4ce8a.png",
+  "source": "assets/generated/sources/homeGames.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/homeGames.svg",
+  "source_sha256": "9e774960cc05d2a3028679ceff2ed317e0d8bb46d1db745379961f2ff482c97a",
+  "svg_sha256": "d6484dd154dd1ef52344662e435be7f3b3e0f93a2cb138782802445d072a4bbd",
+  "paths": 6,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/homeGames_ink.svg",
+  "ink_sha256": "6bd290355e4e33adf75c2d5b4a8b24d12e9ffc456455faa63f6048822b8fc65e"
+}

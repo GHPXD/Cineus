@@ -1,0 +1,27 @@
+{
+  "id": "state_recovery",
+  "kind": "illustration",
+  "subject": "an elegant cinema reel beside a compact maintenance wrench and a small confident upward arc, reassuring recovery",
+  "prompt": "Use case: illustration-story. Generate ONE original premium editorial cinema illustration from scratch for the Cineus mobile game. Bold confident illustrated shapes and memorable composition, warm gold #EFC026, periwinkle blue #5790FF, ivory #F4F3E8, optional deep blue for overlap, at most four flat colours. Sophisticated graphic 2D illustration with depth only from overlapping solid shapes. Crisp broad silhouettes, clean boundaries, generous negative space, few details. No gradients, texture, distressed marks, shadows, glossy 3D, sparkle, lettering, numerals, emoji or stock clipart. Genuinely transparent background, landscape canvas approximately 2.3:1, whole artwork comfortably framed, 10% breathing space. No movie spoilers, portraits, copyrighted film characters or real movie scenes. Subject: an elegant cinema reel beside a compact maintenance wrench and a small confident upward arc, reassuring recovery.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-36a93f9e-b74b-4aa8-93c4-7cc2be3501c2.png",
+  "source": "assets/generated/sources/state_recovery.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/illustrations/state_recovery.svg",
+  "source_sha256": "4ad518ff267d48bebb785e85fddc41df8315d242ac0ec6fb6b56b12451d3cd2d",
+  "svg_sha256": "f8911699815213908f6cc508356b84a680894a1e773937f57e063f1464d95701",
+  "paths": 33,
+  "source_size": [
+    1902,
+    827
+  ],
+  "trace_size": [
+    896,
+    390
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": null,
+  "ink_sha256": null
+}

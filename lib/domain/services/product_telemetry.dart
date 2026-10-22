@@ -9,3 +9,18 @@ abstract class ProductTelemetry {
     Map<String, Object?> properties = const {},
   });
 }
+
+/// Diagnostics must never change the outcome of a persisted gameplay action,
+/// purchase, or reward. Also protects callers overriding the provider in tests.
+extension BestEffortProductTelemetry on ProductTelemetry {
+  Future<void> record(
+    String event, {
+    Map<String, Object?> properties = const {},
+  }) async {
+    try {
+      await track(event, properties: properties);
+    } catch (_) {
+      // Revenue and rewards are verified through their own durable records.
+    }
+  }
+}

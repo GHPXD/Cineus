@@ -17,6 +17,20 @@ env:
   FLUTTER_VERSION: 3.47.2
 
 jobs:
+  commerce-backend:
+    name: Commerce backend tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: backend/requirements*.txt
+      - run: python -m pip install -r backend/requirements-dev.txt
+      - run: python -m pytest -c backend/pytest.ini backend/tests
+
   quality:
     name: Analyze & test
     runs-on: ubuntu-latest
@@ -35,8 +49,26 @@ jobs:
       - name: Validate catalogue artifacts
         run: python3 scripts/validate_catalog.py
 
+      - name: Validate published daily calendar
+        run: python3 scripts/validate_daily_calendar.py
+
       - name: Validate release compliance
         run: python3 scripts/validate_release_compliance.py
+
+      - name: Validate content rights evidence inventory
+        run: python3 scripts/validate_content_rights.py
+
+      - name: Verify generated artwork origins and coverage
+        run: python3 scripts/validate_gpt_assets.py
+
+      - name: Verify collection artwork origins and transparency
+        run: |
+          python3 -m pip install Pillow==12.3.0
+          python3 scripts/validate_collection_assets.py
+          python3 scripts/validate_color_assets.py
+
+      - name: Verify production source and asset coverage
+        run: python3 scripts/validate_project_usage.py
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -63,11 +95,24 @@ jobs:
           git diff -- pubspec.lock analysis_options.yaml
           git diff --exit-code -- pubspec.lock analysis_options.yaml
 
+      - name: Verify generated localizations are current
+        shell: bash
+        run: |
+          set -euo pipefail
+          flutter gen-l10n
+          git diff --exit-code -- lib/l10n/app_l10n*.dart
+
       - name: Static analysis
         run: flutter analyze --fatal-infos
 
       - name: Test suite
         run: flutter test
+
+      - name: Decode generated SVG artwork with Flutter
+        run: flutter test scripts/gpt_svg_decode_test.dart --no-pub
+
+      - name: Decode all character layers with matching frames
+        run: flutter test scripts/color_art_decode_test.dart --no-pub
 
   web:
     name: Web release build
@@ -138,6 +183,9 @@ jobs:
 
       - name: Build Android App Bundle
         run: flutter build appbundle --release --no-pub
+
+      - name: Verify reflective Android startup constructors
+        run: python3 scripts/verify_android_startup.py build/app/outputs/bundle/release/app-release.aab
 
   ios:
     name: iOS 26 SDK release build

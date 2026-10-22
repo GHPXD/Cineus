@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/theme/app_colors.dart';
-import '../../core/theme/app_fonts.dart';
 import '../../core/theme/app_typography.dart';
 import '../../domain/entities/game_session.dart';
 import '../l10n_mappers.dart';
 import '../providers/game_actions.dart';
 import '../providers/play_notifier.dart';
-import '../providers/providers.dart';
 import '../widgets/franchise_hint_snackbar.dart';
 import '../widgets/clue_list_widget.dart';
 import '../widgets/extra_hints_bar.dart';
 import '../widgets/score_badge_widget.dart';
-import '../widgets/tap_target.dart';
+import '../widgets/gameplay_widgets.dart';
+import '../widgets/cineus_icon.dart';
+import '../visuals/cineus_assets.dart';
 
 class GameScreen extends ConsumerStatefulWidget {
   final SessionKind expectedKind;
@@ -41,6 +41,34 @@ class GameScreen extends ConsumerStatefulWidget {
 }
 
 class _GameScreenState extends ConsumerState<GameScreen> {
+  final _scroll = ScrollController();
+  final _cardKeys = {for (var n = 1; n <= 10; n++) n: GlobalKey()};
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  void _positionClue(int number) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final target = _cardKeys[number]?.currentContext;
+      if (target == null) return;
+      Scrollable.ensureVisible(
+        target,
+        alignment: .05,
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 300),
+      );
+      SemanticsService.sendAnnouncement(
+        View.of(context),
+        context.l10n.clueRevealedAnnouncement(number),
+        Directionality.of(context),
+      );
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -62,7 +90,8 @@ class _GameScreenState extends ConsumerState<GameScreen> {
 
     ref.listen<PlayState>(clueGameProvider, (prev, next) {
       if (prev?.session?.status == GameStatus.playing) {
-        final finished = next.session?.status == GameStatus.won ||
+        final finished =
+            next.session?.status == GameStatus.won ||
             next.session?.status == GameStatus.lost;
         if (finished) {
           refreshAfterGameFinished(
@@ -78,13 +107,17 @@ class _GameScreenState extends ConsumerState<GameScreen> {
           widget.onNavigateToDefeat();
         }
       }
+      if (next.step > (prev?.step ?? next.step) && !next.isFinished) {
+        _positionClue(next.step);
+      }
       if (next.lastGuessOutcome == GuessOutcome.franchise &&
           next.guessCount != prev?.guessCount) {
         showFranchiseHintSnackBar(context);
       }
     });
 
-    final waitingForDaily = widget.expectedKind == SessionKind.daily &&
+    final waitingForDaily =
+        widget.expectedKind == SessionKind.daily &&
         !state.isCurrentDaily &&
         state.error == null;
     if (state.isLoading || waitingForDaily) {
@@ -117,308 +150,61 @@ class _GameScreenState extends ConsumerState<GameScreen> {
       return _buildFinishedState(context, session);
     }
 
-    return Scaffold(
-      backgroundColor: AppColors.obsidian950,
-      body: SafeArea(
+    return GameplayFrame(
+      header: GameplayHeader(
+        state: state,
+        onBack: widget.onNavigateBack,
+        onStats: widget.onNavigateToStats,
+        onHelp: widget.onNavigateToHowToPlay,
+      ),
+      body: SingleChildScrollView(
+        controller: _scroll,
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _buildHeader(context, state),
-            Expanded(
-              child: ListView(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 140),
-                children: [
-                  ScoreBadge(
-                    score: session.potentialScore,
-                    revealedClues: session.revealedClues,
+            ScoreBadge(score: session.potentialScore),
+            const SizedBox(height: 16),
+            GuessFeedback(state: state),
+            Wrap(
+              spacing: 12,
+              runSpacing: 6,
+              alignment: WrapAlignment.spaceBetween,
+              children: [
+                Text(context.l10n.cluesHeader, style: AppTypography.labelSmall),
+                Text(
+                  context.l10n.cluesRevealed(
+                    session.revealedClues,
+                    state.rules.totalSteps,
                   ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      Text(
-                        context.l10n.cluesHeader,
-                        style: AppTypography.labelSmall.copyWith(
-                          color: AppColors.textSecondary,
-                          letterSpacing: 1.5,
-                        ),
-                      ),
-                      const Spacer(),
-                      Text(
-                        context.l10n.cluesRevealed(
-                          session.revealedClues,
-                          state.rules.totalSteps,
-                        ),
-                        style: AppTypography.monoSmall,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  ExtraHintsBar(state: state),
-                  const SizedBox(height: 18),
-                  ClueList(
-                    allClues: movie.clues,
-                    revealedCount: session.revealedClues,
-                  ),
-                ],
-              ),
+                  style: AppTypography.monoSmall,
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            ExtraHintsBar(state: state),
+            const SizedBox(height: 16),
+            ClueList(
+              allClues: movie.clues,
+              revealedCount: session.revealedClues,
+              cardKeys: _cardKeys,
             ),
           ],
         ),
       ),
-      bottomSheet: _buildBottomActions(context, session),
+      actions: GameplayActions(
+        state: state,
+        onSearch: widget.onNavigateToSearch,
+      ),
     );
   }
 
-  String _errorMessage(BuildContext context, PlayLoadError error) => switch (error) {
+  String _errorMessage(BuildContext context, PlayLoadError error) =>
+      switch (error) {
         PlayLoadError.noMovies => context.l10n.noMoviesInDatabase,
         PlayLoadError.movieNotFound => context.l10n.movieNotFound,
         PlayLoadError.loadFailed => context.l10n.gameLoadFailed,
       };
-
-  Widget _buildHeader(BuildContext context, PlayState gameState) {
-    final tickets = ref.watch(ticketNotifierProvider);
-    final session = gameState.session!;
-
-    final contextLabel = switch (session.kind) {
-      SessionKind.daily => '#${gameState.challengeNumber}',
-      SessionKind.stage => context.l10n.stageNumber('${session.stageId}'),
-      SessionKind.challenge => context.l10n.challengeBadge,
-    };
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Row(
-        children: [
-          _HeaderButton(
-            icon: Icons.arrow_back_ios_rounded,
-            label: context.l10n.semBack,
-            onTap: widget.onNavigateBack,
-          ),
-          const SizedBox(width: 8),
-          Flexible(
-            child: Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Cineus',
-                    style: TextStyle(
-                      fontFamily: AppFonts.playfair,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.white,
-                    ),
-                  ),
-                  TextSpan(
-                    text: '  $contextLabel',
-                    style: AppTypography.monoSmall.copyWith(
-                      color: AppColors.textTertiary,
-                    ),
-                  ),
-                ],
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          const SizedBox(width: 6),
-          Semantics(
-            label: context.l10n.semTicketBalance(tickets.total),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: AppColors.gold900.withValues(alpha: 0.5),
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: AppColors.gold300.withValues(alpha: 0.3),
-                ),
-              ),
-              child: Text(
-                '🎫 ${tickets.total}',
-                style: AppTypography.monoSmall.copyWith(
-                  color: AppColors.gold300,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 2),
-          _HeaderButton(
-            icon: Icons.bar_chart_rounded,
-            label: context.l10n.semStats,
-            onTap: widget.onNavigateToStats,
-          ),
-          _HeaderButton(
-            icon: Icons.help_outline_rounded,
-            label: context.l10n.semHelp,
-            onTap: widget.onNavigateToHowToPlay,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildBottomActions(BuildContext context, GameSession session) {
-    final score = session.potentialScore;
-    final isUrgent = score <= 3;
-    final clueNum = session.revealedClues;
-    final isLastClue = clueNum >= 10;
-    final bottomInset = MediaQuery.viewPaddingOf(context).bottom;
-
-    return Container(
-      padding: EdgeInsets.fromLTRB(
-        16,
-        12,
-        16,
-        bottomInset > 0 ? bottomInset + 8 : 24,
-      ),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            AppColors.obsidian950.withValues(alpha: 0),
-            AppColors.obsidian950,
-            AppColors.obsidian950,
-          ],
-          stops: const [0, 0.28, 1],
-        ),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(10, (i) {
-                final revealed = i < clueNum;
-                final current = i == clueNum - 1;
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  width: current ? 20 : 8,
-                  height: 4,
-                  margin: const EdgeInsets.symmetric(horizontal: 2),
-                  decoration: BoxDecoration(
-                    color: revealed
-                        ? (current ? AppColors.gold300 : AppColors.obsidian400)
-                        : AppColors.obsidian700,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                );
-              }),
-            ),
-          ),
-          if (isUrgent && !isLastClue)
-            Container(
-              margin: const EdgeInsets.only(bottom: 8),
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-              decoration: BoxDecoration(
-                color: AppColors.ruby300.withValues(alpha: 0.08),
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(
-                  color: AppColors.ruby300.withValues(alpha: 0.25),
-                ),
-              ),
-              child: Row(
-                children: [
-                  const Text('⚠️', style: TextStyle(fontSize: 14)),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      context.l10n.fewPointsLeft,
-                      style: AppTypography.bodySmall.copyWith(
-                        color: AppColors.ruby300,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          if (isLastClue)
-            Container(
-              margin: const EdgeInsets.only(bottom: 8),
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-              decoration: BoxDecoration(
-                color: AppColors.ruby300.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(
-                  color: AppColors.ruby300.withValues(alpha: 0.3),
-                ),
-              ),
-              child: Row(
-                children: [
-                  const Text('🎯', style: TextStyle(fontSize: 14)),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      context.l10n.lastClueNowOrNever,
-                      style: AppTypography.bodySmall.copyWith(
-                        color: AppColors.ruby300,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          SizedBox(
-            width: double.infinity,
-            height: 56,
-            child: ElevatedButton.icon(
-              onPressed: () {
-                HapticFeedback.mediumImpact();
-                widget.onNavigateToSearch();
-              },
-              icon: const Text('🎬', style: TextStyle(fontSize: 18)),
-              label: Text(
-                isLastClue
-                    ? context.l10n.lastAttempt
-                    : context.l10n.tryAnswerClue(clueNum),
-                style: AppTypography.labelLarge.copyWith(
-                  color: AppColors.obsidian900,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: isUrgent
-                    ? AppColors.ruby300
-                    : AppColors.gold300,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(999),
-                ),
-                elevation: 0,
-              ),
-            ),
-          ),
-          if (!isLastClue) ...[
-            const SizedBox(height: 8),
-            SizedBox(
-              width: double.infinity,
-              height: 48,
-              child: TextButton.icon(
-                onPressed: () {
-                  HapticFeedback.lightImpact();
-                  ref.read(clueGameProvider.notifier).revealNext();
-                },
-                icon: const Icon(
-                  Icons.skip_next_rounded,
-                  size: 18,
-                  color: AppColors.textSecondary,
-                ),
-                label: Text(
-                  context.l10n.skipToClue(clueNum + 1),
-                  style: AppTypography.bodySmall.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ],
-      ),
-    );
-  }
 
   Widget _buildFinishedState(BuildContext context, GameSession session) {
     return Scaffold(
@@ -523,8 +309,8 @@ class _GameErrorView extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(
-                    Icons.movie_filter_outlined,
+                  const CineusIcon(
+                    CineusAssetId.error,
                     color: AppColors.ruby300,
                     size: 48,
                   ),
@@ -540,7 +326,7 @@ class _GameErrorView extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton.icon(
                         onPressed: onRetry,
-                        icon: const Icon(Icons.refresh_rounded),
+                        icon: const CineusIcon(CineusAssetId.retry),
                         label: Text(context.l10n.retryAction),
                       ),
                     ),
@@ -558,37 +344,6 @@ class _GameErrorView extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _HeaderButton extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final VoidCallback onTap;
-
-  const _HeaderButton({
-    required this.icon,
-    required this.label,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TapTarget(
-      label: label,
-      onTap: onTap,
-      child: Container(
-        width: 36,
-        height: 36,
-        decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.05),
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
-        ),
-        alignment: Alignment.center,
-        child: Icon(icon, size: 18, color: AppColors.textSecondary),
       ),
     );
   }

@@ -1,0 +1,27 @@
+{
+  "id": "badgeTickets100",
+  "kind": "icon",
+  "subject": "a cinema rewards medallion containing a compact pair of admission tickets, no numerals",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a cinema rewards medallion containing a compact pair of admission tickets, no numerals.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-c9357fba-7af6-4c76-8df0-d93fda13d5cc.png",
+  "source": "assets/generated/sources/badgeTickets100.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/badgeTickets100.svg",
+  "source_sha256": "c0ae4492ffc5c0b70446c24be2aaaeaba1c02f8d4aaf12572d027a0c8a045ddf",
+  "svg_sha256": "dfbadad07d762b7da39f4e86775488ce96dfb2c63b380ccdea446bda43fe0bc3",
+  "paths": 24,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/badgeTickets100_ink.svg",
+  "ink_sha256": "c4cf27baa141024c417a4192ce73696ee9935798d3400b0c56bbdc18a9120e18"
+}

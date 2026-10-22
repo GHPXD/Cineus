@@ -7,11 +7,7 @@ class FilmStrip extends StatelessWidget {
   final double height;
   final int perforations;
 
-  const FilmStrip({
-    super.key,
-    this.height = 20,
-    this.perforations = 18,
-  });
+  const FilmStrip({super.key, this.height = 20, this.perforations = 18});
 
   @override
   Widget build(BuildContext context) {

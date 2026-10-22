@@ -1,0 +1,27 @@
+{
+  "id": "categoryTeam",
+  "kind": "icon",
+  "subject": "three recognisable character bust silhouettes, one leading figure and two smaller companions",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: three recognisable character bust silhouettes, one leading figure and two smaller companions.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-726c7ce5-783b-46b6-bdb1-b50ea3a1f7ea.png",
+  "source": "assets/generated/sources/categoryTeam.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryTeam.svg",
+  "source_sha256": "ec22f0f63eaa87d93be5bc7c777a821a080f0e97fcf3a4337c70c3e6e1716398",
+  "svg_sha256": "c8ea20dc2392bb7dec6dca13b5fa2f3237efc91eacffaaf74b9c714cf52b049b",
+  "paths": 33,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryTeam_ink.svg",
+  "ink_sha256": "145d76dbe996245d5e0d8c7ad4fd9eef7d4b084725ebfd16f0ea3b600849919c"
+}

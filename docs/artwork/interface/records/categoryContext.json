@@ -1,0 +1,27 @@
+{
+  "id": "categoryContext",
+  "kind": "icon",
+  "subject": "a folded cinema location map with three broad panels and a small circular location pin",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a folded cinema location map with three broad panels and a small circular location pin.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-f1887c4c-9695-4911-8e2b-a5052aeef326.png",
+  "source": "assets/generated/sources/categoryContext.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryContext.svg",
+  "source_sha256": "6a128f1025e317534071daaceb005abcf0f18ce6abdc23376c20a4310723eeee",
+  "svg_sha256": "75498d9b2556259bd6adf94ef023757a9abc24530613ff03266aa8a561c933b6",
+  "paths": 13,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryContext_ink.svg",
+  "ink_sha256": "3a49531194550eb60e9e486ea138f9e874828b2a4c88f8f786e80da0a0a168b2"
+}

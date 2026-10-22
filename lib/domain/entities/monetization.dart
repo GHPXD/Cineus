@@ -6,6 +6,7 @@
 abstract final class MonetizationPolicy {
   static const int rewardedTicketAmount = 2;
   static const int rewardedDailyLimit = 3;
+  static const int helpVideosPerGame = 1;
 
   /// A Pass must never be required to access Daily, Poster, stages, friend
   /// challenges, achievements or the bundled catalogue.
@@ -19,6 +20,8 @@ abstract final class MonetizationPolicy {
   static bool shouldShowNonRewardedAds({required bool passActive}) =>
       !passActive;
 }
+
+enum RewardedVideoResult { rewarded, cancelled, pending, unavailable, failed }
 
 class PassEntitlement {
   final bool storeAvailable;

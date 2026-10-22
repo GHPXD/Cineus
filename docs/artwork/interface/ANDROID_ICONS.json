@@ -1,0 +1,92 @@
+[
+  {
+    "file": "android/app/src/main/res/drawable-mdpi/cineus_monochrome.png",
+    "width": 108,
+    "height": 108,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "542a0d5c3b98d2d1796a9cf11bcdd56fbbf6e8eb6436fd73bd326d533d0784db"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-mdpi/cineus_notification.png",
+    "width": 24,
+    "height": 24,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "261117f67ca954dbb634efe2600ccc3909cb173716d01922bb3d40ce30d948ff"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-hdpi/cineus_monochrome.png",
+    "width": 162,
+    "height": 162,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "ab7ea91e1a7f41ba84f9ed2ff48b5fedc70d4059ccd27bb420c113da2173dec0"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-hdpi/cineus_notification.png",
+    "width": 36,
+    "height": 36,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "f98b84ba09913477e10b912e57dbe2a32de1a1347b138c71e1f5134a12529d19"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-xhdpi/cineus_monochrome.png",
+    "width": 216,
+    "height": 216,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "5b491c37ca8fd7d8fc9d5e96f927b7c5cf028e73df2ef884fa0d77f991f0b4d7"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-xhdpi/cineus_notification.png",
+    "width": 48,
+    "height": 48,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "2a0e23f428f21caf257e7ccd5dcbc1c26d013bdca0a9b0b6750ff9210bf19ebe"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-xxhdpi/cineus_monochrome.png",
+    "width": 324,
+    "height": 324,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "aa42084184817eb99bd3891975827d117a7f549176d096288107687fde062d06"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-xxhdpi/cineus_notification.png",
+    "width": 72,
+    "height": 72,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "e63e2767db3536be5b735f1ea4ba7c9140475b44165756abdd06339eec815d8b"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-xxxhdpi/cineus_monochrome.png",
+    "width": 432,
+    "height": 432,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "b191176591b291183eb824b238f0ffc25a769782d317d022c4dcc4116006d3ac"
+  },
+  {
+    "file": "android/app/src/main/res/drawable-xxxhdpi/cineus_notification.png",
+    "width": 96,
+    "height": 96,
+    "source_svg": "assets/generated/icons/platformMark_ink.svg",
+    "source_png": "assets/generated/sources/platformMark.png",
+    "source_sha256": "883e6d94c3ad07aa50371a59a94857ddc9e322ae18ca818f77e547aba193cccd",
+    "sha256": "b4f080ec821690c77e50bc26f8be1dfde52a23708f099627775719564df0ca94"
+  }
+]

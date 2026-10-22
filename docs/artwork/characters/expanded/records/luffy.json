@@ -1,0 +1,34 @@
+{
+  "id": "luffy",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/luffy.png",
+  "source_sha256": "7fed7df017bad03607b0820e417afb8c537ee879cefd5be424ee33e6103ae978",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    395,
+    640
+  ],
+  "region_pixels": [
+    13672
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/luffy_base.svg",
+      "sha256": "665ae1d9b0147bd1440cef29c3b0278e7d601184ec4da213aac00942110c9e26"
+    },
+    {
+      "file": "assets/colors/art/luffy_p0.svg",
+      "sha256": "d5d090d09091080dbbbc8272388553cd54baeb9e4d3f759ace1b7092bda6cf9d"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-95336009-1100-47d6-9521-26ad12e3a627.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Monkey D. Luffy, young adult slim smiling pirate in straw hat with red band, red open sleeveless vest, blue knee-length shorts with ivory rolled cuffs, simple brown sandals. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the shorts in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "loss",
+  "kind": "icon",
+  "subject": "a broken film strip with one clear diagonal tear down the middle, ruby accent and ivory edges",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a broken film strip with one clear diagonal tear down the middle, gold accent and ivory edges.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-f2243db8-ca7e-4c7d-a580-14d57f3b4c2f.png",
+  "source": "assets/generated/sources/loss.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/loss.svg",
+  "source_sha256": "f54c56e7be8fa594bceda421d647e5e04497949f34c70548483cdcc654a83adc",
+  "svg_sha256": "7f0340860acfa3eb5d5b8f9ba0f25a96a405518c494156404131dbfb7b07b7a7",
+  "paths": 12,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/loss_ink.svg",
+  "ink_sha256": "175aea061f5f4e9aeb916d20e0fd396d41e6df3729f1621a8021426177608cf5"
+}

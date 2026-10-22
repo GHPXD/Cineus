@@ -1,0 +1,39 @@
+{
+  "id": "mickey_mouse",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/mickey_mouse.png",
+  "source_sha256": "6117376180e5f2ceecde9ebd87f75f6ce33d5370dfcb93909dfd0d9614cb6b0c",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+  "conversion_version": 6,
+  "source_size": [
+    640,
+    718
+  ],
+  "trace_size": [
+    813,
+    960
+  ],
+  "region_pixels": [
+    32562
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/mickey_mouse_base.svg",
+      "sha256": "6817e60ad2ac5dddc0578256154437a614e4d525100032f20171d09bd81f9200"
+    },
+    {
+      "file": "assets/colors/art/mickey_mouse_p0.svg",
+      "sha256": "66ac5f2cd6953a333b99308eef78303f44406e616fecde63f3c89485a8fd57bb"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: a single full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: classic cheerful Mickey Mouse standing, round black mouse ears, white gloves, yellow shoes, red shorts with two ivory buttons. Recognisable faithful character Mickey Mouse; one character only, full body visible, neutral standing pose, no complex action, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon, bold dark outlines, simple solid fills, no gradients, no shading, no ground shadow, no scenery. Technical segmentation requirement: fill ONLY the shorts with perfectly solid magenta #FF00FF, preserving their dark outlines and any buttons or trim. This magenta is a temporary mask marker, automatically replaced with #BF3332 in the app. All other parts retain the original normal character colours; no other magenta or purple areas. Actual transparent background. No text, letters, watermark, logo or colour chart. No objects beyond the character's usual outfit.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID eecb14c5-f911-418e-8916-49f33f06296c.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Mickey_Mouse_%28poster_version%29.svg",
+  "source_page": "https://en.wikipedia.org/wiki/Mickey_Mouse",
+  "external_file": "docs/artwork/characters/expanded/references/mickey_mouse-fallback.svg",
+  "external_sha256": "3b042a98c7c9672f39b59490b8da2f7ae29f73d73b6983d705be6431820c745b"
+}

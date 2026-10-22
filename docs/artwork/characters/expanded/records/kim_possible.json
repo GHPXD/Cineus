@@ -1,0 +1,39 @@
+{
+  "id": "kim_possible",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/kim_possible.png",
+  "source_sha256": "12f35e80e969c1615f25562e651afd940d9b3b654277746d2511d654ecb3fd2b",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+  "conversion_version": 6,
+  "source_size": [
+    216,
+    351
+  ],
+  "trace_size": [
+    590,
+    960
+  ],
+  "region_pixels": [
+    119968
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/kim_possible_base.svg",
+      "sha256": "f8fcf30701e8c59ab79a2e3d7ded70a4861633fdc386a66a893a22388fb1fb6e"
+    },
+    {
+      "file": "assets/colors/art/kim_possible_p0.svg",
+      "sha256": "fc1127122306a564a417d6330deec973c928a8531813a730141c8d75624886c6"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Kim Possible, red-haired young adult heroine in black long-sleeve crop top, olive cargo trousers, brown utility belt and gloves, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the cargo trousers in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 908c7e64-d0fb-4079-b0cd-d4665045ee20.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://upload.wikimedia.org/wikipedia/en/2/2b/Kim_Possible_%28character_design%29.png",
+  "source_page": "https://en.wikipedia.org/wiki/Kim_Possible_(character)",
+  "external_file": "docs/artwork/characters/expanded/references/kim_possible-fallback.png",
+  "external_sha256": "27595dde2889d72d99e71b22d85a081a567144ede95f7e6d13e965c92ba2efac"
+}

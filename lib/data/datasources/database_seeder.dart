@@ -5,6 +5,11 @@ import 'package:sqflite/sqflite.dart';
 
 import '../../core/constants/app_constants.dart';
 import 'legacy_session_key.dart';
+import 'color_schema.dart';
+import 'ticket_audit.dart';
+import 'collection_schema.dart';
+import 'commerce_schema.dart';
+import 'journey_schema.dart';
 
 /// Creates/migrates the local schema and applies versioned catalogue snapshots.
 class DatabaseSeeder {
@@ -13,7 +18,7 @@ class DatabaseSeeder {
   /// Logical schema contract shared by Web and mobile. This is intentionally
   /// separate from SQLite `user_version`, because the bundled mobile DB may be
   /// produced outside sqflite and can carry a different physical user_version.
-  static const int schemaVersion = 2;
+  static const int schemaVersion = 7;
 
   static const _movieColumns = <String>{
     'id',
@@ -116,10 +121,29 @@ class DatabaseSeeder {
       CREATE UNIQUE INDEX IF NOT EXISTS idx_sessions_stage
         ON game_sessions(mode, stage_id, movie_id) WHERE kind = 'stage'
     ''');
-    await db.execute('''
-      CREATE UNIQUE INDEX IF NOT EXISTS idx_sessions_challenge
-        ON game_sessions(mode, movie_id) WHERE kind = 'challenge'
-    ''');
+    final challengeIndex =
+        (await db.rawQuery(
+              "SELECT sql FROM sqlite_master WHERE type='index' AND name='idx_sessions_challenge'",
+            )).firstOrNull?['sql']
+            as String?;
+    if (challengeIndex != null && !challengeIndex.contains('movie_id, date')) {
+      await db.execute('DROP INDEX idx_sessions_challenge');
+    }
+    await db.execute(
+      "CREATE UNIQUE INDEX IF NOT EXISTS idx_sessions_challenge ON game_sessions(mode, movie_id, date) WHERE kind='challenge'",
+    );
+    await db.execute(
+      "CREATE UNIQUE INDEX IF NOT EXISTS idx_sessions_archive ON game_sessions(mode,date) WHERE kind='archive'",
+    );
+    await db.execute(
+      "CREATE UNIQUE INDEX IF NOT EXISTS idx_sessions_training ON game_sessions(mode,date,movie_id) WHERE kind='training'",
+    );
+    final columns = await db.rawQuery('PRAGMA table_info(game_sessions)');
+    if (!columns.any((c) => c['name'] == 'updated_at')) {
+      await db.execute(
+        "ALTER TABLE game_sessions ADD COLUMN updated_at TEXT NOT NULL DEFAULT ''",
+      );
+    }
   }
 
   Future<bool> _needsSessionMigration(Database db) async {
@@ -195,11 +219,12 @@ class DatabaseSeeder {
     await db.execute('''
       CREATE TABLE IF NOT EXISTS player_tickets (
         id               INTEGER PRIMARY KEY,
-        daily_tickets    INTEGER NOT NULL DEFAULT 20,
+        daily_tickets    INTEGER NOT NULL DEFAULT 10,
         extra_tickets    INTEGER NOT NULL DEFAULT 0,
         last_reset_date  TEXT    NOT NULL DEFAULT ''
       )
     ''');
+    await TicketAudit.ensure(db);
 
     await db.execute('''
       CREATE TABLE IF NOT EXISTS stages (
@@ -221,7 +246,9 @@ class DatabaseSeeder {
       )
     ''');
 
-    final progressColumns = await db.rawQuery('PRAGMA table_info(stage_progress)');
+    final progressColumns = await db.rawQuery(
+      'PRAGMA table_info(stage_progress)',
+    );
     if (!progressColumns.any((column) => column['name'] == 'mode')) {
       await db.execute(
         "ALTER TABLE stage_progress ADD COLUMN mode TEXT NOT NULL DEFAULT 'clue'",
@@ -264,6 +291,10 @@ class DatabaseSeeder {
     await ensureRewardTables(db);
     await ensureExtraHintsColumn(db);
     await ensureAppMetaTable(db);
+    await ColorSchema.ensure(db);
+    await CollectionSchema.ensure(db);
+    await CommerceSchema.ensure(db);
+    await JourneySchema.ensure(db);
     await writeSchemaVersion(db, schemaVersion);
   }
 
@@ -290,17 +321,12 @@ class DatabaseSeeder {
     return rows.first['value'] as String;
   }
 
-  Future<void> writeMeta(
-    DatabaseExecutor db,
-    String key,
-    String value,
-  ) async {
+  Future<void> writeMeta(DatabaseExecutor db, String key, String value) async {
     await ensureAppMetaTable(db);
-    await db.insert(
-      'app_meta',
-      {'key': key, 'value': value},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    await db.insert('app_meta', {
+      'key': key,
+      'value': value,
+    }, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   Future<int> readSchemaVersion(DatabaseExecutor db) async {
@@ -314,8 +340,9 @@ class DatabaseSeeder {
   // ── Catalogue snapshot ────────────────────────────────────────────────────
 
   Future<Map<String, dynamic>> loadSeedAsset() async {
-    final jsonString =
-        await rootBundle.loadString('assets/cineus_v1_seed.json');
+    final jsonString = await rootBundle.loadString(
+      'assets/cineus_v1_seed.json',
+    );
     final decoded = jsonDecode(jsonString);
     if (decoded is! Map<String, dynamic>) {
       throw const FormatException('Catalogue seed must be a JSON object');
@@ -361,9 +388,7 @@ class DatabaseSeeder {
       if (movieId is! int || !movieIds.contains(movieId)) {
         throw FormatException('Clue references unknown movie: $movieId');
       }
-      if (number is! int ||
-          number < 1 ||
-          number > AppConstants.totalClues) {
+      if (number is! int || number < 1 || number > AppConstants.totalClues) {
         throw FormatException('Invalid clue number $number for movie $movieId');
       }
       if (!clueKeys.add('$movieId:$number')) {
@@ -395,12 +420,16 @@ class DatabaseSeeder {
     if (raw is! List) {
       throw FormatException('Catalogue field "$key" must be a list');
     }
-    return raw.map((row) {
-      if (row is! Map) {
-        throw FormatException('Catalogue field "$key" contains a non-object');
-      }
-      return Map<String, dynamic>.from(row);
-    }).toList(growable: false);
+    return raw
+        .map((row) {
+          if (row is! Map) {
+            throw FormatException(
+              'Catalogue field "$key" contains a non-object',
+            );
+          }
+          return Map<String, dynamic>.from(row);
+        })
+        .toList(growable: false);
   }
 
   /// Reads the bundled JSON and inserts it into an empty/new database.
@@ -424,13 +453,9 @@ class DatabaseSeeder {
     final movies = _mapRows(data, 'movies');
     final clues = _mapRows(data, 'clues');
 
-    final existingRows = await db.query(
-      'movies',
-      columns: ['id', 'tmdb_id'],
-    );
+    final existingRows = await db.query('movies', columns: ['id', 'tmdb_id']);
     final existingTmdbById = <int, int?>{
-      for (final row in existingRows)
-        row['id'] as int: row['tmdb_id'] as int?,
+      for (final row in existingRows) row['id'] as int: row['tmdb_id'] as int?,
     };
     final existingIds = existingTmdbById.keys.toSet();
 
@@ -487,18 +512,12 @@ class DatabaseSeeder {
         };
 
         if (existingIds.contains(id)) {
-          batch.update(
-            'movies',
-            values,
-            where: 'id = ?',
-            whereArgs: [id],
-          );
+          batch.update('movies', values, where: 'id = ?', whereArgs: [id]);
         } else {
-          batch.insert(
-            'movies',
-            {'id': id, ...values},
-            conflictAlgorithm: ConflictAlgorithm.abort,
-          );
+          batch.insert('movies', {
+            'id': id,
+            ...values,
+          }, conflictAlgorithm: ConflictAlgorithm.abort);
         }
       }
       await batch.commit(noResult: true);
@@ -599,7 +618,8 @@ class DatabaseSeeder {
     final stageMovies = <int, List<int>>{};
     for (final row in storedRows) {
       final id = row['id'] as int;
-      final filmIds = (jsonDecode(row['film_ids'] as String) as List).cast<int>();
+      final filmIds = (jsonDecode(row['film_ids'] as String) as List)
+          .cast<int>();
       assigned.addAll(filmIds);
       stageIds.add(id);
       stageMovies[id] = filmIds;
@@ -634,16 +654,12 @@ class DatabaseSeeder {
     while (cursor < unassigned.length) {
       final end = (cursor + stageSize).clamp(0, unassigned.length);
       final chunk = unassigned.sublist(cursor, end);
-      batch.insert(
-        'stages',
-        {
-          'id': nextStageId,
-          'order_index': nextStageId,
-          'name': 'Estágio $nextStageId',
-          'film_ids': jsonEncode(chunk),
-        },
-        conflictAlgorithm: ConflictAlgorithm.abort,
-      );
+      batch.insert('stages', {
+        'id': nextStageId,
+        'order_index': nextStageId,
+        'name': 'Estágio $nextStageId',
+        'film_ids': jsonEncode(chunk),
+      }, conflictAlgorithm: ConflictAlgorithm.abort);
       nextStageId++;
       cursor = end;
     }

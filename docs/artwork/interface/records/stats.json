@@ -1,0 +1,27 @@
+{
+  "id": "stats",
+  "kind": "icon",
+  "subject": "three broad ascending cinema statistics columns with a restrained rounded rising arrow",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: three broad ascending cinema statistics columns with a restrained rounded rising arrow.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-ec166b79-126e-4843-ae73-caa8cb3745d5.png",
+  "source": "assets/generated/sources/stats.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/stats.svg",
+  "source_sha256": "c746ea66ebf9cf3fce75e8d9b8e7d2b11e7ae46b5750215b84baff973cecb59f",
+  "svg_sha256": "a6bfb6239c6563ac8fac868fe34f24cb8b4365718e4cea0605fdee59320d51aa",
+  "paths": 37,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/stats_ink.svg",
+  "ink_sha256": "a51926a47a23544b40d4268014663d5b1fb9097a41fbdd9415f0f002c0e85c44"
+}

@@ -1,3 +1,5 @@
+import 'cineus_icon.dart';
+import '../visuals/cineus_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -30,11 +32,11 @@ class LanguagePicker extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 10),
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.03),
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
+        Material(
+          color: AppColors.obsidian800,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18),
+            side: const BorderSide(color: AppColors.obsidian600),
           ),
           clipBehavior: Clip.antiAlias,
           child: Column(
@@ -45,9 +47,8 @@ class LanguagePicker extends ConsumerWidget {
                       ? l10n.languageSystem
                       : LocaleNotifier.nameOf(option),
                   isSelected: option?.languageCode == selected?.languageCode,
-                  onTap: () => ref
-                      .read(localeNotifierProvider.notifier)
-                      .select(option),
+                  onTap: () =>
+                      ref.read(localeNotifierProvider.notifier).select(option),
                 ),
             ],
           ),
@@ -58,8 +59,8 @@ class LanguagePicker extends ConsumerWidget {
         Text(
           l10n.contentLanguageNote,
           style: AppTypography.bodySmall.copyWith(
-            color: AppColors.textQuaternary,
-            fontSize: 11,
+            color: AppColors.textSecondary,
+            fontSize: 12,
           ),
         ),
       ],
@@ -84,6 +85,8 @@ class _LanguageRow extends StatelessWidget {
       button: true,
       selected: isSelected,
       label: label,
+      onTap: onTap,
+      excludeSemantics: true,
       child: InkWell(
         onTap: onTap,
         child: Padding(
@@ -96,15 +99,14 @@ class _LanguageRow extends StatelessWidget {
                   style: AppTypography.bodyMedium.copyWith(
                     color: isSelected
                         ? AppColors.obsidian0
-                        : AppColors.obsidian200,
-                    fontWeight:
-                        isSelected ? FontWeight.w700 : FontWeight.w400,
+                        : AppColors.textSecondary,
+                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
                   ),
                 ),
               ),
               if (isSelected)
-                const Icon(
-                  Icons.check_rounded,
+                const CineusIcon(
+                  CineusAssetId.completed,
                   color: AppColors.gold300,
                   size: 18,
                 ),

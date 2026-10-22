@@ -1,27 +1,38 @@
 {
+  "colorModeTitle": "Colores",
+  "colorRecallPart": "Recuerda el color: {part}",
+  "colorYourTone": "Tu tono",
+  "colorHue": "Tono",
+  "colorSaturation": "Saturación",
+  "colorBrightness": "Brillo",
+  "colorRulesAction": "Cómo funciona",
+  "colorRulesTitle": "Cinco colores. Una memoria.",
+  "colorCatalogFailed": "No se pudieron cargar las preguntas.",
+  "colorRetry": "Intentar de nuevo",
+  "colorClose": "Entendido",
+  "@colorRecallPart": {
+    "placeholders": {
+      "part": {
+        "type": "String"
+      }
+    }
+  },
   "@@locale": "es",
-
   "appTitle": "Cineus",
-
-  "shareWin": "🎬 Cineus #{challenge}\nAcerté en la pista {clue}/{total} · {score}pts\n\n{grid}\n\ncineus.app",
-  "shareLose": "🎬 Cineus #{challenge} · Derrota\n\n{grid}\n\ncineus.app",
-  "shareStageWin": "🎬 Cineus · Etapa {stage}\nAcerté en la pista {clue}/{total} · {score}pts\n\n{grid}\n\ncineus.app",
-  "shareStageLose": "🎬 Cineus · Etapa {stage} · Derrota\n\n{grid}\n\ncineus.app",
-  "shareFriendWin": "🎬 Cineus · Desafío de un amigo\nAcerté en la pista {clue}/{total} · {score}pts\n\n{grid}\n\ncineus.app",
-  "shareFriendLose": "🎬 Cineus · Desafío de un amigo · Derrota\n\n{grid}\n\ncineus.app",
-
+  "shareWin": "🎬 Cineus #{challenge}\nAcerté en la pista {clue}/{total} · {score}pts\n\n{grid}",
   "semBack": "Volver",
   "semStats": "Ver estadísticas",
   "semHelp": "Cómo jugar",
-  "semGuessThisMovie": "Adivinar {title}",
   "semTicketBalance": "{count} tickets disponibles",
-
   "reminderTitle": "Cineus",
   "reminderBody": "El desafío de hoy ya está disponible. ¿Cuántas pistas necesitarás?",
   "reminderSettingTitle": "Recordatorio diario",
   "reminderSettingSubtitle": "Un aviso a las 9h, tu hora",
   "reminderDenied": "Las notificaciones están bloqueadas. Permítelas en los ajustes del sistema para activarlo.",
-
+  "reminderFailed": "No se pudo actualizar el recordatorio. Inténtalo de nuevo.",
+  "fontLicensesTitle": "Licencias de las fuentes",
+  "fontLicenseFailed": "No se pudo abrir la licencia. Inténtalo de nuevo.",
+  "rewardFailed": "No se pudo añadir la recompensa ahora. Tu resultado está guardado.",
   "challengeSectionTitle": "Desafiar a un amigo",
   "challengeShareButton": "Desafiar a un amigo",
   "challengeShareText": "🎬 Cineus: apuesto a que no aciertas esta película.\nCódigo: {code}\n{link}",
@@ -31,18 +42,14 @@
   "challengeInvalid": "Código no válido. Revisa los caracteres e inténtalo de nuevo.",
   "challengeBadge": "DESAFÍO DE UN AMIGO",
   "challengeFilmNotFound": "Ese desafío apunta a una película que esta versión de la app no tiene.",
-
-  "appTagline": "Adivina la película en hasta 10 pistas.\nCuantas menos uses, más puntos.",
-
+  "appTagline": "Adivina películas por pistas o pósteres.\nRecuerda colores y avanza por etapas.",
   "navHome": "Inicio",
-  "navFilms": "Películas",
+  "navFilms": "Cine",
   "navPosters": "Pósters",
-
   "back": "Volver",
   "backHome": "Volver al inicio",
   "statsTitle": "Estadísticas",
   "settingsTitle": "Ajustes",
-  "errorWithMessage": "Error: {message}",
   "movieNotFound": "Película no encontrada",
   "noMoviesInDatabase": "No hay películas en la base",
   "gameLoadFailed": "No se pudo cargar la partida.",
@@ -51,53 +58,31 @@
   "statsLoadFailed": "No se pudieron cargar tus estadísticas.",
   "stageNotFound": "Esta etapa no existe o ya no está disponible.",
   "backToStages": "Volver a Etapas",
-
   "dailyChallengeLabel": "DESAFÍO DIARIO",
   "modeClues": "Pistas",
   "modePoster": "Póster",
-  "notPlayedToday": "No jugado hoy",
-  "inProgressEllipsis": "En curso...",
-  "scoreWithCheck": "{score} pts ✅",
-  "notThisTimeSkull": "No fue esta vez 💀",
   "dailyDone": "¡Desafío de hoy completado!",
-  "playChallenge": "Jugar desafío",
-  "continueClues": "Seguir con pistas",
-  "continuePoster": "Continuar póster",
-  "playPoster": "Jugar póster",
   "nextChallengeCountdown": "Próximo en {hours}h {minutes}m {seconds}s",
   "statPlayed": "Jugados",
   "statWins": "Victorias",
-  "statStreak": "Racha",
-  "quickActionStages": "Etapas",
-  "quickActionStagesSub": "Películas por nivel",
   "quickActionStatsSub": "Tu historial",
-  "quickActionChallengeSub": "Abrir por código",
-
+  "homeOpenChallenge": "Abrir desafío",
+  "homeOpenChallengeSub": "Por código o enlace",
   "cluesHeader": "PISTAS",
   "cluesRevealed": "{count} / {total} reveladas",
   "clueFallback": "Pista {number}",
   "clueNew": "NUEVA",
-  "tryAnswerClue": "Intentar responder · Pista {clue}",
   "lastAttempt": "¡Último intento!",
   "skipToClue": "Saltar · ver pista {next} (−1 pt)",
-  "fewPointsLeft": "¡Quedan pocos puntos!",
-  "lastClueNowOrNever": "¡Última pista! Ahora o nunca.",
-  "youGotIt": "¡Acertaste! ✅",
+  "youGotIt": "¡Acertaste!",
   "notThisTime": "No fue esta vez.",
   "scoreLine": "Puntuación: {score} pts",
   "tryAgainTomorrow": "Inténtalo de nuevo mañana.",
   "seeResult": "Ver resultado",
   "stageNumber": "Etapa {id}",
   "franchiseHint": "¡Casi! Es de esa saga, pero es otra película.",
-
   "scorePoints": "PUNTOS",
   "scoreAvailable": "disponibles",
-  "scoreHintMax": "Acierta ahora y llévate el máximo",
-  "scoreHintStillWorth": "{revealed} pistas reveladas · aún vale la pena",
-  "scoreHintRunningOut": "Atención — los puntos se están acabando",
-  "scoreHintNextLeaves": "Revelar la pista {next} te deja con solo {points}pt",
-  "scoreHintLastChance": "Última oportunidad — vale solo 1pt",
-
   "whichMovie": "¿Qué película es?",
   "movieNameHint": "Nombre de la película...",
   "attemptsHeader": "INTENTOS",
@@ -105,91 +90,64 @@
   "searchChallenge": "Desafío n.º {number} · ",
   "searchStage": "Etapa {id} · ",
   "searchFriendChallenge": "Desafío de un amigo · ",
-  "searchPoints": "{points} puntos",
-  "searchAvailableSuffix": " disponibles",
+  "searchPoints": " · {points, plural, =1{1 punto} other{{points} puntos}}",
+  "searchAvailableSuffix": " en juego",
   "searchTypeHint": "Escribe al menos 2 letras para buscar.",
   "searchNoResults": "No se encontraron películas.",
   "searchFailed": "No se puede buscar en este momento.",
   "blurLabel": "Desenfoque ",
-
-  "resultWin": "🎉 ¡ACERTASTE!",
-  "resultLose": "💔 NO FUE ESTA VEZ",
-  "theMovieWas": "LA PELÍCULA ERA",
-  "gotItOnClue": "¡Acertaste en la pista {clue}!",
-  "yourResult": "TU RESULTADO",
   "share": "Compartir",
-  "resultShared": "¡Resultado compartido! 🎬",
-  "resultCopied": "¡Resultado copiado! 📋",
-  "playPosterArrow": "Jugar póster →",
-  "nextFilmCost": "Siguiente película · 1 🎫",
-  "noTicketsForNext": "Sin 🎫 para la siguiente",
+  "resultShared": "¡Resultado compartido!",
+  "resultCopied": "¡Resultado copiado!",
+  "noTicketsForNext": "Sin tickets para la siguiente",
   "nextChallengeIn": "PRÓXIMO DESAFÍO EN",
-
-  "stagesSubtitleClues": "Completa las etapas para desbloquear más películas.",
-  "stagesEducationClues": "En las etapas, iniciar o repetir una película cuesta 1 🎫. Continuar una partida en curso no vuelve a cobrar.",
-  "stagesEducationPosters": "En Poster, cada revelado reduce el desenfoque y también la puntuación. En las etapas, iniciar o repetir cuesta 1 🎫.",
-  "stagesSubtitlePosters": "Adivina las películas por el póster desenfocado.",
-  "stageWord": "ETAPA",
+  "stagesSubtitleClues": "Avanza por etapas y desbloquea nuevas películas.",
+  "stagesSubtitlePosters": "Adivina películas por pósters desenfocados.",
   "locked": "Bloqueada",
-  "filmsCount": "{count} películas",
-  "stageSemanticsLocked": "{name}, bloqueada",
-  "stageSemanticsComplete": "{name}, completa",
+  "filmsCount": "{count, plural, =0{0 películas} =1{1 película} other{{count} películas}}",
   "stageSemanticsProgress": "{name}, {done} de {total} completadas",
   "filmsDone": "películas completadas",
   "postersDone": "pósters completados",
   "stageProgressLine": "{done} / {total} {label}",
   "itemFilm": "Película",
   "itemPoster": "Póster",
-  "slotNotStarted": "Sin empezar • 1 🎫",
-  "slotMissedRetry": "No acertaste • 1 🎫 para reintentar",
+  "slotNotStarted": "Sin iniciar",
+  "slotMissedRetry": "No acertaste",
   "slotInProgress": "En curso",
-  "slotPoints": "{score} puntos",
-  "slotCompleted": "Completada",
-  "actionPlay": "Jugar",
+  "slotPoints": "{score, plural, =0{0 puntos} =1{1 punto} other{{score} puntos}}",
   "actionContinue": "Continuar",
-  "actionRetry": "Reintentar",
-  "noTicketsShort": "Sin 🎫",
-
+  "noTicketsShort": "Sin tickets",
   "revealMore": "Revelar más · −1 pt",
-  "tryAnswerPoints": "Intentar responder · {points} pts",
-  "wrongAttemptsHeader": "INTENTOS FALLIDOS",
   "worthPoints": "Vale {points} pts",
-  "gameOver": "Fin del juego",
   "gotItAtLevel": "¡Acertaste en el nivel {level}!",
   "betterLuckTomorrow": "Mejor suerte mañana",
   "blurAndPoints": "Desenfoque {blur} · {points} pts",
   "youRecognized": "¡La reconociste!",
   "didntRecognize": "No la reconociste",
   "itWas": "Era: {title}",
-  "pointsPlain": "{score} puntos",
+  "pointsPlain": "{score, plural, =0{0 puntos} =1{1 punto} other{{score} puntos}}",
   "youDidntGuess": "No la adivinaste",
-  "nextWithTicket": "Siguiente · 1 🎫",
+  "nextWithTicket": "Siguiente · 1 ticket",
   "finish": "Terminar",
-
-  "extraHintsHeader": "PISTAS EXTRA",
-  "extraHintsNoPointCost": "no cuestan puntos",
   "hintDirector": "Director",
   "hintYear": "Año",
   "hintRuntime": "Duración",
   "unknownDirector": "Desconocido",
   "runtimeMinutes": "{minutes} min",
-  "oneTicket": "1 🎫",
-  "noTicketsLower": "sin 🎫",
+  "oneTicket": "1 ticket",
+  "noTicketsLower": "sin tickets",
   "noTicketsForHint": "No tienes tickets para comprar una pista",
   "buyHintSemantics": "Comprar la pista {label} por {cost} ticket",
-
   "ticketsEarned": "{count, plural, =1{+1 ticket!} other{+{count} tickets!}}",
   "rewardDailyWin": "Desafío diario completado",
   "rewardStreak": "Racha de {days} días",
   "rewardStageComplete": "Etapa {id} completada",
-
   "streakAtRisk": "Tu racha está en riesgo",
-  "streakRecoverBody": "No jugaste el {day}. Gasta {cost} 🎫 para proteger ese día y mantener la racha.",
-  "protectStreak": "Proteger racha · {cost} 🎫",
+  "streakRecoverBody": "No jugaste el {day}. Usa {cost} tickets para proteger ese día y mantener tu racha.",
+  "protectStreak": "Proteger racha · {cost} tickets",
   "protecting": "Protegiendo…",
-  "needTickets": "Necesitas {cost} 🎫",
-  "streakProtected": "¡Racha protegida! 🔥",
-
+  "needTickets": "Necesitas {cost} tickets",
+  "streakProtected": "¡Racha protegida!",
   "statGames": "PARTIDAS",
   "statWinsCaps": "VICTORIAS",
   "statRate": "TASA",
@@ -197,7 +155,7 @@
   "statAverageSub": "pistas",
   "statAveragePosterSub": "niveles",
   "currentStreakTitle": "Racha actual",
-  "dayCount": "{count, plural, =1{1 día} other{{count} días}}",
+  "dayCount": "{count, plural, =0{0 días} =1{1 día} other{{count} días}}",
   "bestLabel": "Mejor",
   "playToSeeDistribution": "Juega para ver la distribución",
   "pointsDistribution": "DISTRIBUCIÓN DE PUNTOS",
@@ -208,13 +166,12 @@
   "byDecade": "Por década",
   "recentGamesHeader": "PARTIDAS RECIENTES",
   "unknownMovie": "Película desconocida",
-  "cluesUsedCount": "{count} pistas",
+  "cluesUsedCount": "{count, plural, =0{0 pistas} =1{1 pista} other{{count} pistas}}",
   "defeatShort": "Derrota",
   "bucketSemantics": "{label}: {pct} por ciento de acierto en {played} partidas",
   "bucketValue": "{pct}% · {played}",
   "achievementUnlocked": "Desbloqueado",
   "achievementInProgress": "En progreso {progress}",
-
   "achFirstWin": "Primera victoria",
   "achFirstWinDesc": "Gana tu primer desafío diario.",
   "achPerfect": "Sin titubear",
@@ -229,31 +186,919 @@
   "achStages5Desc": "Completa 5 etapas.",
   "achTickets100": "Taquilla",
   "achTickets100Desc": "Gana 100 tickets jugando.",
-
   "quickGuide": "GUÍA RÁPIDA",
-  "howItWorks": "Cómo funciona\nCineus",
-  "rule1Title": "10 pistas progresivas",
-  "rule1Desc": "Cada desafío tiene 10 pistas, de la más abstracta a la más obvia. Tú eliges cuándo revelar la siguiente.",
-  "rule2Title": "Menos pistas = más puntos",
-  "rule2Desc": "Cada pista revelada cuesta 1 punto. Acierta en la primera y gana 10; en la décima, solo 1.",
-  "rule3Title": "Búsqueda con autocompletado",
-  "rule3Desc": "Escribe el título en el buscador — no hace falta acertar los acentos ni la grafía exacta. Vale el título en portugués o el original.",
-  "rule4Title": "Un desafío por día",
-  "rule4Desc": "Una película nueva cada día a medianoche UTC. Comparte tu resultado sin spoilers y compara con amigos.",
   "gotItLetsPlay": "¡Entendido, a jugar!",
-
   "languageTitle": "Idioma",
   "languageSystem": "Predeterminado del sistema",
   "contentLanguageNote": "Las pistas y los títulos provienen del catálogo en portugués.",
   "rewardedTitle": "Ganar tickets",
   "rewardedBody": "Mira un anuncio opcional y gana {amount} tickets. Quedan {remaining} recompensas hoy.",
-  "rewardedAction": "Ver y ganar +{amount} 🎫",
-  "rewardedDone": "¡Tickets añadidos! 🎫",
+  "rewardedAction": "Ver y ganar +{amount} tickets",
+  "rewardedDone": "¡Tickets añadidos!",
   "passTitle": "Cineus Pass",
   "passBody": "Todo el juego sigue siendo gratuito. El Pass elimina anuncios no opcionales y puede incluir ventajas de comodidad.",
   "passActive": "Pass activo · sin anuncios no opcionales",
   "passGet": "Obtener Pass {price}",
   "passRestore": "Restaurar compra",
-
-  "tickets": "{current}/{max}"
+  "tickets": "{current}/{max}",
+  "homeTitle": "Cine, cada día.",
+  "dailyFree": "GRATIS",
+  "dailyWinPoints": "{score} puntos · Acertaste",
+  "@dailyWinPoints": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyLost": "Finalizado · Esta vez no",
+  "dailyPlaying": "Partida en curso",
+  "ticketBalance": "{count, plural, =0{0 tickets} =1{1 ticket} other{{count} tickets}}",
+  "@ticketBalance": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketDetailsTitle": "Tus tickets",
+  "ticketDaily": "Diarios",
+  "ticketBonus": "Bonos",
+  "ticketDailyDetail": "{count} de {max}",
+  "@ticketDailyDetail": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketResetInfo": "Los tickets diarios se reponen a medianoche UTC. Los bonos se conservan.",
+  "ticketUsageInfo": "Daily y desafíos de amigos son gratis. Iniciar o repetir una película de etapa y cada pista extra cuestan 1 ticket.",
+  "ticketBalanceFailed": "No se pudo cargar tu saldo.",
+  "ticketResetCountdown": "Reposición en {hours}h {minutes}m",
+  "@ticketResetCountdown": {
+    "placeholders": {
+      "hours": {},
+      "minutes": {}
+    }
+  },
+  "confirmGuess": "Confirmar respuesta",
+  "selectedMovieLabel": "Película seleccionada",
+  "selectMovieSemantics": "Seleccionar {title}, {year}",
+  "guessSaveFailed": "No se pudo guardar tu respuesta. Inténtalo de nuevo.",
+  "savingGuess": "Guardando respuesta…",
+  "gameActionFailed": "No se pudo guardar la acción. Inténtalo de nuevo.",
+  "hintSaveFailed": "No se pudo completar la compra de la pista. Revisa tu saldo e inténtalo de nuevo.",
+  "wrongGuessRevealed": "Respuesta incorrecta. Nuevo paso revelado.",
+  "clueRevealedAnnouncement": "Pista {number} revelada.",
+  "posterRevealedAnnouncement": "Nivel {number} revelado.",
+  "lastGuessLabel": "Última respuesta: {title}",
+  "ticketHelpAction": "Entender los tickets",
+  "ticketEmptyHint": "Sin tickets para pistas extra. Puedes continuar esta partida gratis.",
+  "noTicketDailyTip": "El desafío diario es gratis en ambos modos.",
+  "gameAnswer": "Responder",
+  "posterStep": "Nivel {step} de {total}",
+  "searchResultCount": "{count, plural, =1{1 película encontrada} other{{count} películas encontradas}}",
+  "@selectMovieSemantics": {
+    "placeholders": {
+      "title": {},
+      "year": {
+        "type": "int"
+      }
+    }
+  },
+  "@clueRevealedAnnouncement": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@posterRevealedAnnouncement": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@lastGuessLabel": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "@posterStep": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@searchResultCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "challengeInputLabel": "Código o enlace Cineus",
+  "pasteChallenge": "Pegar código o enlace",
+  "challengeLoadFailed": "No se pudo cargar el desafío. Inténtalo de nuevo.",
+  "editChallenge": "Editar código o enlace",
+  "resultUnavailable": "Este resultado no está disponible. Vuelve al juego o al inicio.",
+  "returnToGame": "Volver al juego",
+  "resultProgress": "Pasos: {step}/{total}",
+  "resultScore": "{score, plural, =0{0 puntos} =1{1 punto} other{{score} puntos}}",
+  "shareImage": "Compartir tarjeta",
+  "copyResultText": "Copiar resultado en texto",
+  "shareCardTitle": "Tu tarjeta de resultado",
+  "shareFailed": "No se pudo abrir el menú para compartir. Inténtalo de nuevo.",
+  "copyFailed": "No se pudo copiar. Inténtalo de nuevo.",
+  "challengeInviteHelp": "Envía el código o enlace a un amigo para jugar esta película en el mismo modo.",
+  "shareChallengeCopy": "Copiar invitación",
+  "dailyInviteWarning": "La invitación abre esta misma película. La tarjeta Daily oculta la respuesta.",
+  "sharePreviewAction": "Ver tarjeta",
+  "shareModeClues": "Pistas",
+  "shareModePoster": "Poster",
+  "@resultProgress": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@resultScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "resultVictoryLabel": "¡Acertaste!",
+  "resultDefeatLabel": "No fue esta vez",
+  "challengeEntryHelp": "Pega el código o enlace que te envió un amigo. La invitación incluye el modo de juego.",
+  "stagesCurrent": "Tu próxima etapa",
+  "stageOpen": "Ver partidas",
+  "stageUnlockAfter": "Completa {stage} en este modo para desbloquear.",
+  "@stageUnlockAfter": {
+    "placeholders": {
+      "stage": {}
+    }
+  },
+  "stageCompleteLabel": "Etapa completada",
+  "stageCostHelp": "Empezar o reintentar cuesta 1 ticket. Retomar una partida es gratis.",
+  "stageNoTicketsHelp": "¿Sin tickets para una partida nueva? Retoma partidas activas gratis o juega el Daily. Consulta cuándo se renueva tu saldo.",
+  "stageLoadingAction": "Abriendo partida…",
+  "statsOverview": "Resumen",
+  "statsAchievementsTab": "Logros",
+  "statsDailyOnly": "Historial del Daily · {mode}",
+  "@statsDailyOnly": {
+    "placeholders": {
+      "mode": {}
+    }
+  },
+  "statsEmptyTitle": "Tu historia empieza aquí",
+  "statsEmptyBody": "Completa un desafío diario para registrar tu primer resultado.",
+  "streakEmpty": "Sin racha activa",
+  "streakDailyHelp": "Victorias diarias consecutivas en este modo. Los días protegidos mantienen la racha, pero no suman victorias.",
+  "protectedDays": "{count, plural, =0{0 días protegidos} =1{1 día protegido} other{{count} días protegidos}}",
+  "@protectedDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "protectedDaysHelp": "Protecciones registradas en el historial, válidas para ambos modos.",
+  "achievementScopeDailyClues": "Daily · Pistas",
+  "achievementScopeStagesBoth": "Etapas · Pistas y Póster",
+  "achievementScopeRewardsBoth": "Recompensas · Pistas y Póster",
+  "achievementRulesHelp": "Los logros de victorias, puntos, racha y partidas usan el Daily de Pistas. Las etapas completadas y los tickets ganados suman ambos modos. Las invitaciones no cuentan como Daily.",
+  "achievementLockedLabel": "Aún no desbloqueado",
+  "achievementProgress": "{done} de {total} logros desbloqueados",
+  "@achievementProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "streakProtectFailed": "No se pudo proteger tu racha. Inténtalo de nuevo.",
+  "stageDailyAction": "Ver Daily gratis",
+  "guideTitle": "Prueba los tres modos",
+  "guideCluesTitle": "Pistas: del misterio a la respuesta",
+  "guideCluesBody": "Acierta con hasta 10 pistas. Cada revelación o error reduce la nota en 1 punto.",
+  "guidePosterTitle": "Póster: revela poco a poco",
+  "guidePosterBody": "Acierta con hasta 5 niveles de desenfoque. Revelar más o fallar reduce la nota en 1 punto.",
+  "guideAnswerTitle": "Elige, revisa y confirma",
+  "guideAnswerBody": "Busca por el título en portugués u original. Selecciona la película con el año correcto y confirma.",
+  "guideWrongTitle": "Un error avanza la partida",
+  "guideWrongBody": "Un error revela automáticamente la siguiente pista o nivel. Fallar en el último intento termina la partida con cero puntos.",
+  "guideTicketsTitle": "Tickets: cuándo usarlos",
+  "guideTicketsBody": "Iniciar o repetir una etapa cuesta 1 ticket; reanudar es gratis. En ¿Necesitas ayuda?, usa 1 ticket o un vídeo opcional para desbloquear la ayuda y guardar 1 ticket. Los diarios y las invitaciones de películas son gratis.",
+  "guideTicketsRenewal": "El saldo diario vuelve a 10 a medianoche UTC. Los tickets extra se conservan. Completar el diario de Colores da +2 una vez por fecha; las etapas no dan esa recompensa.",
+  "guideDailyTitle": "Diarios en Inicio",
+  "guideDailyBody": "Pistas, Póster y Colores tienen un diario gratuito en Inicio. Cambian a medianoche UTC. La cuenta atrás muestra el tiempo restante.",
+  "guideStagesTitle": "Avanza a tu ritmo",
+  "guideStagesBody": "En Películas, Pósteres y Colores, completa las partidas para desbloquear la siguiente etapa. Películas y Pósteres tienen 10 partidas por etapa; Colores tiene dos partidas de cinco personajes diferentes. Cada modo tiene su propio progreso.",
+  "guideSaveFailed": "No se pudo guardar que viste la guía. Inténtalo de nuevo.",
+  "settingsPreferences": "Preferencias",
+  "settingsHelpSection": "Ayuda y soporte",
+  "supportTitle": "Soporte",
+  "supportBody": "Encuentra ayuda o informa de un problema en GitHub. Abrir el enlace no envía un mensaje automáticamente. Evita publicar datos personales.",
+  "supportOpen": "Abrir soporte",
+  "supportCopy": "Copiar enlace de soporte",
+  "supportOpenFailed": "No se pudo abrir el navegador. Copia el enlace para acceder al soporte.",
+  "supportCopied": "Enlace de soporte copiado.",
+  "supportCopyFailed": "No se pudo copiar. Puedes seleccionar el enlace de abajo.",
+  "searchEmptyHelp": "Revisa la ortografía o prueba el título original. Selecciona una película con el año correcto antes de confirmar.",
+  "colorTrainingBadge": "PRÁCTICA",
+  "colorRoundProgress": "Ronda {current}/{total}",
+  "colorComplete": "Completado",
+  "colorTrainingRulesBody": "Ajusta el color, confirma y compara con la referencia. Cinco rondas dan un promedio final. La pista resta 1 punto.",
+  "colorConfirm": "Confirmar color",
+  "colorNextRound": "Siguiente ronda",
+  "colorSeeFinal": "Ver media final",
+  "colorPlayAgain": "Jugar otra vez",
+  "colorRestart": "Reiniciar práctica",
+  "colorHintAction": "Usar pista · −1 punto",
+  "colorHintApplied": "Pista usada · −1 punto",
+  "colorRoundResult": "Tu color, lado a lado.",
+  "colorReferenceTone": "Referencia",
+  "colorScoreValue": "{score} / 10",
+  "colorFinalTitle": "Cinco colores. Tu memoria.",
+  "colorAverageLabel": "Tu media",
+  "colorDiscardTitle": "¿Salir de esta práctica?",
+  "colorDiscardBody": "Se perderá el progreso de esta partida. Una nueva práctica empieza en la primera ronda.",
+  "colorKeepPlaying": "Seguir jugando",
+  "colorDiscardAction": "Descartar partida",
+  "@colorRoundProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@colorScoreValue": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "colorDailyBadge": "DIARIO",
+  "colorDailyTitle": "Desafío diario",
+  "colorResume": "Continuar partida",
+  "colorResumeRound": "Continuar · ronda {round}/5",
+  "@colorResumeRound": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "colorPendingDaily": "Diario pendiente",
+  "colorOldDailyPolicy": "Puedes terminar esta partida cuando quieras. Conserva su fecha original y no ocupa el diario de hoy.",
+  "colorHistory": "Historial de Colores",
+  "colorOpenHistory": "Ver mi historial",
+  "colorHistoryEmpty": "Todavía no has completado una partida en esta categoría.",
+  "colorHistoryFive": "Cinco respuestas confirmadas. Abre para revisar cada ronda.",
+  "colorSeeResult": "Revisar resultado",
+  "colorSaving": "Guardando tu partida…",
+  "colorSaveFailed": "No se pudo guardar. Reintenta antes de salir; la partida no ha avanzado.",
+  "colorReloadSaved": "Recargar la versión guardada",
+  "colorBackHub": "Volver a Colores",
+  "colorLoadFailed": "No se pudieron abrir los datos de Colores. Se han conservado. Reintenta; una partida con versión incompatible necesita una actualización de la app.",
+  "colorLoading": "Abriendo tus colores guardados…",
+  "colorReplaceTrainingBody": "Empezar otro entrenamiento sustituye el actual. Los resultados completados siguen en el historial.",
+  "colorSavedRules": "Ajusta el color y confirma para compararlo con la referencia. Cinco rondas dan un promedio final. La pista resta 1 punto. Las etapas están en Colores; el diario en Inicio.",
+  "colorReplaceTrainingTitle": "¿Empezar otro entrenamiento?",
+  "colorReplaceTrainingAction": "Sustituir entrenamiento",
+  "colorGuideTitle": "Cómo jugar Colores",
+  "colorGuideAdjustTitle": "Dale color al personaje",
+  "colorGuideAdjustBody": "Ajusta el color del personaje y ve el resultado en tiempo real.",
+  "colorGuideResultTitle": "Compara tu elección",
+  "colorGuideResultBody": "Los colores cercanos a la referencia reciben hasta 10 puntos. Cada partida tiene cinco rondas; la nota final es su promedio.",
+  "colorGuideHintRule": "Una ayuda por ronda resta 1 punto. La pista rápida es gratis; la orientación de ajustes usa 1 ticket o un vídeo opcional.",
+  "colorGuideDailyRule": "En Colores, cada etapa reúne diez personajes diferentes en dos partidas de cinco. Completa ambas para abrir la siguiente. El desafío diario está en Inicio.",
+  "colorGuideSaveRule": "La partida se guarda en este dispositivo y puede retomarse. Un diario antiguo conserva su fecha. Borrar datos o desinstalar la app elimina el historial local.",
+  "colorGuideSaveFailed": "No se pudo registrar el tutorial. Reintenta; no se ha creado ninguna partida.",
+  "colorGuideDone": "Entendido, vamos a jugar",
+  "colorGuideNext": "Siguiente paso",
+  "colorGuidePrevious": "Paso anterior",
+  "colorRewardSaving": "Registrando tus +2 tickets…",
+  "colorRewardEarned": "+2 tickets recibidos por el diario. La recompensa de esta fecha ya está en tu saldo.",
+  "colorRewardFailed": "Tu resultado está guardado. No se pudieron confirmar los tickets; reintenta para recuperar la recompensa.",
+  "colorStatsTitle": "Estadísticas de Colores",
+  "colorStatsCompleted": "Partidas completadas",
+  "colorStatsMean": "Promedio de partidas",
+  "colorStatsBest": "Mejor promedio",
+  "colorStatsRounds": "Promedio por ronda",
+  "colorStatsRoundsBody": "Cada posición reúne las notas de tus partidas completadas en esta categoría.",
+  "colorStatsRound": "Ronda {round}",
+  "@colorStatsRound": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "colorStatsRecent": "Últimos resultados",
+  "colorStatsScope": "Las notas de Colores son independientes. No cambian victorias ni rachas de Pistas y Póster.",
+  "colorStatsOpen": "Ver mis estadísticas",
+  "colorShareTitle": "Mi memoria tiene color.",
+  "colorSharePrivacy": "Solo las notas: los personajes, preguntas y colores quedan fuera de esta tarjeta.",
+  "colorShareText": "Compartir texto",
+  "colorHomeDescription": "¿Recuerdas el tono? Recolorea cinco personajes y compara tu memoria con la referencia.",
+  "colorExactTitle": "Ajustar {label}",
+  "@colorExactTitle": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "colorExactRange": "Valor de 0 a {max}. Puedes usar decimales.",
+  "@colorExactRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "colorExactInvalid": "Introduce un número entre 0 y {max}.",
+  "@colorExactInvalid": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "colorExactSemantic": "{value} de {max}",
+  "@colorExactSemantic": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "colorExactApply": "Aplicar valor",
+  "colorExactCancel": "Cancelar",
+  "colorDecrease": "Reducir {label}",
+  "@colorDecrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "colorIncrease": "Aumentar {label}",
+  "@colorIncrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "colorCreditsTitle": "Fuentes de Colores",
+  "colorCreditsDescription": "Referencias usadas en el acervo de Colores. Los tonos corresponden a las partes y versiones indicadas; las ilustraciones son interpretaciones visuales.",
+  "colorCreditsGenerated": "Ilustración generada para Cineus",
+  "colorCreditsReference": "Ilustración basada en una imagen de referencia",
+  "colorCreditsStudy": "Referencia del estudio de color",
+  "colorCreditsArt": "Origen de la imagen de referencia",
+  "homeDailyAction": "Jugar el diario",
+  "homeDailyCompleted": "Diario completado",
+  "homeStatsTitle": "Mis estadísticas",
+  "homeCluesDescription": "Pon a prueba tus conocimientos de cine.",
+  "homePosterDescription": "¿Cuál es la película por su póster?",
+  "homeChallengeUnavailable": "No se pudo cargar el desafío.",
+  "filmsToStart": "para empezar",
+  "filmsInStage": "en esta etapa",
+  "filmsAllStages": "Todas las etapas",
+  "filmsUnlockAfter": "Completa {stage}",
+  "filmsEmpty": "No hay etapas disponibles.",
+  "@filmsUnlockAfter": {
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
+  "colorEnlargeCharacter": "Ampliar personaje",
+  "colorZoomHint": "Usa dos dedos para ampliar los detalles.",
+  "colorStagesSubtitle": "Recuerda colores y avanza por etapas.",
+  "colorStageTitle": "Etapa {stage}",
+  "colorStageProgress": "{done} / {total} personajes completados",
+  "colorStageStructure": "10 personajes distintos · 2 partidas de 5",
+  "colorStageReturn": "Volver a la etapa",
+  "colorStageMatch": "Partida {match}",
+  "colorStageStart": "Empezar · 1 ticket",
+  "colorStageResume": "Continuar",
+  "colorStageOpen": "Ver partidas",
+  "colorStageLocked": "Completa la Etapa {stage}",
+  "colorStageDailyHome": "Los desafíos diarios están en Inicio.",
+  "colorStageLegacy": "Retomar práctica anterior",
+  "colorStagesAndTraining": "Etapas y práctica",
+  "splashWelcome": "Cine, memoria y color.",
+  "@colorStageTitle": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "@colorStageProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@colorStageMatch": {
+    "placeholders": {
+      "match": {
+        "type": "int"
+      }
+    }
+  },
+  "@colorStageLocked": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "colorStageGamesTitle": "Partidas de la etapa",
+  "resultNext": "Siguiente",
+  "stagePlay": "Jugar",
+  "stageRetry": "Reintentar",
+  "stageContinue": "Continuar",
+  "guidePracticeNotice": "Ejemplo libre · no usa tickets ni cambia tu progreso.",
+  "guideColorsBody": "Recrea el color de una región del personaje. Ajusta tono, saturación y brillo y confirma para comparar.",
+  "guideTryColors": "Probar Colores",
+  "guideDemoReset": "Probar de nuevo",
+  "guideDemoComplete": "Completar la partida del ejemplo",
+  "guideDemoUnlocked": "Etapa 2 desbloqueada en el ejemplo.",
+  "guideDemoCorrect": "¡Acertaste el ejemplo! El resultado muestra tus puntos y la película.",
+  "guideDemoWrong": "En este ejemplo, fallar revela otra pista: Christopher Nolan dirigió la película. Aún puedes probar Interstellar.",
+  "guideDemoClues": "Un grupo viaja por el espacio buscando un nuevo hogar.|La Tierra enfrenta una crisis alimentaria.|El tiempo pasa de forma distinta en otro planeta.|Un padre promete volver con su hija.|El viaje atraviesa un agujero de gusano.|Un robot llamado TARS acompaña al equipo.|Un planeta está cubierto por agua.|El protagonista se llama Cooper.|Christopher Nolan dirigió la película.|Matthew McConaughey interpreta a Cooper.",
+  "guideSaveTitle": "Partida e historial",
+  "guideSaveBody": "Puedes salir y continuar después. El progreso y las estadísticas quedan en este dispositivo; borrar los datos o desinstalar la app elimina los registros locales.",
+  "guideResultsTitle": "Resultado y tarjeta",
+  "guideResultsBody": "Siguiente abre la próxima partida. Ver tarjeta muestra el póster, la marca y los puntos; compartir está dentro de la tarjeta. La barra es verde para 7–10, amarilla para 4–6 y roja para 0–3 puntos. Desafiar a un amigo crea una invitación de película. Colores muestra cinco notas y su promedio.",
+  "guideColorsEconomy": "Las etapas cuestan 1 ticket; reanudar es gratis. Completar el diario gratuito da +2. La pista rápida y la orientación de ajustes restan 1 punto en la ronda; la orientación usa un ticket o un vídeo opcional.",
+  "guideJourneyTitle": "Diarios y etapas",
+  "guideEssentialsTitle": "Tu progreso y resultados",
+  "colorMysteryCharacters": "Personajes misteriosos",
+  "colorStatsAllScope": "Todas las partidas completadas de Colores",
+  "colorStatsPointScale": "puntos de 0 a 10",
+  "colorStatsRoundsPlayed": "Rondas completadas",
+  "achievementScopeColors": "Colores · todos los modos",
+  "achievementScopeDailyPoster": "Daily · Póster",
+  "achPosterFirst": "Primer encuadre",
+  "achPosterFirstDesc": "Gana un desafío diario de Póster.",
+  "achPosterPerfect": "Ojo clínico",
+  "achPosterPerfectDesc": "Consigue 5 puntos en un diario de Póster, en el primer nivel de desenfoque.",
+  "achColorsFirst": "Primera pincelada",
+  "achColorsFirstDesc": "Completa una partida de Colores con cinco personajes.",
+  "achColors25": "Taller de recuerdos",
+  "achColors25Desc": "Completa 25 partidas de Colores.",
+  "achColorsExcellent": "Memoria cromática",
+  "achColorsExcellentDesc": "Alcanza una media final de al menos 9 puntos en una partida de Colores.",
+  "achColorsStages3": "Galería en expansión",
+  "achColorsStages3Desc": "Completa las dos partidas de tres etapas de Colores.",
+  "collectionTitle": "Mi colección",
+  "collectionProfile": "Mi perfil",
+  "collectionEditProfile": "Editar perfil",
+  "collectionDisplayName": "Nombre visible",
+  "collectionNameHint": "¿Cómo quieres aparecer?",
+  "collectionShowIdentity": "Mostrar nombre y avatar en la tarjeta",
+  "collectionNameInvalid": "Usa hasta 24 caracteres, sin saltos de línea.",
+  "collectionSave": "Guardar",
+  "collectionAvatars": "Avatares",
+  "collectionFrames": "Marcos",
+  "collectionAppearances": "Tarjetas",
+  "collectionApply": "Aplicar",
+  "collectionEquipped": "En uso",
+  "collectionUnavailable": "No disponible",
+  "collectionPreview": "Vista previa",
+  "collectionLoadFailed": "No se pudo abrir tu colección.",
+  "collectionSaveFailed": "No se pudo guardar. Inténtalo otra vez.",
+  "collectionEmpty": "No hay artículos en esta categoría.",
+  "collectionAvatarOwl": "Íris, a Última Técnica",
+  "collectionAvatarFox": "Dante Rebobina",
+  "collectionFrameGold": "Luz dorada",
+  "collectionFrameBlue": "Rollo azul",
+  "collectionAppearanceNoir": "Noche de cine",
+  "collectionPremiere": "Colección Estreno",
+  "collectionTryPremiere": "Probar colección",
+  "collectionPremierePreview": "Vista previa de la Colección Estreno",
+  "collectionFree": "Gratis",
+  "collectionPersonalize": "Personalizar",
+  "collectionAvatarCat": "Otto Corte-Final",
+  "collectionAvatarHare": "Vitor Plano-Mestre",
+  "collectionFrameMarquee": "Luces del estreno",
+  "collectionFrameDeco": "Cine Art Déco",
+  "collectionFrameSpotlight": "Bajo los focos",
+  "collectionAppearanceVelvet": "Terciopelo del estreno",
+  "commerceRestore": "Restaurar compras",
+  "commerceBuy": "Comprar · {price}",
+  "@commerceBuy": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "commercePending": "Compra pendiente de confirmación.",
+  "commerceVerified": "Compra confirmada. Tus artículos están en la colección.",
+  "commerceFailed": "No se pudo confirmar. Intenta restaurar cuando vuelva la conexión.",
+  "commerceCancelled": "Compra cancelada.",
+  "commerceRestoring": "Restauración solicitada. La confirmación puede tardar unos instantes.",
+  "commerceUse": "Usar colección",
+  "commercePermanent": "Compra única · artículos permanentes",
+  "commerceRecovery": "Recuperar acceso",
+  "commerceRecoveryKey": "Clave de recuperación",
+  "commerceRecoveryInfo": "Guarda esta clave en privado antes de reinstalar o cambiar de dispositivo. Recupera el acceso comercial, no el progreso del juego. No la compartas.",
+  "commerceRecoverAction": "Recuperar",
+  "commercePlus": "Cineus Plus",
+  "commerceClub": "Cineus Club",
+  "commercePrivacy": "Privacidad de anuncios",
+  "commerceHideRewarded": "Ocultar ofertas de vídeo",
+  "commerceClubTerms": "Suscripción mensual con renovación automática. Incluye la colección del ciclo y elimina interrupciones durante su vigencia. Cancela en la tienda; los artículos adquiridos permanecen.",
+  "commerceManage": "Gestionar suscripción",
+  "missionsTitle": "Tu aventura",
+  "missionsWeekly": "Misiones semanales",
+  "missionPlay": "Completa 3 partidas",
+  "missionModes": "Juega los 3 modos",
+  "missionDays": "Juega en 3 días",
+  "missionClaim": "Reclamar",
+  "missionClaimed": "Reclamado",
+  "discoveryTitle": "Personajes descubiertos",
+  "discoveryMystery": "Personaje misterioso",
+  "seasonTitle": "Muestras de cine",
+  "seasonArchive": "Colecciones anteriores",
+  "sponsorTitle": "Sesión especial",
+  "sponsorDemo": "Demostración · Estudio Aurora",
+  "sponsorDisclosure": "Patrocinio",
+  "sponsorGoal": "Completa 3 partidas durante el evento",
+  "sponsorReward": "Recompensa visual gratuita",
+  "collectionNight": "Noche estrellada",
+  "collectionCity": "Luces de la ciudad",
+  "itemMissionFirefly": "Enzo Replay",
+  "itemMissionProjector": "Proyección semanal",
+  "itemMissionConstellation": "Constelación",
+  "itemPlusCrown": "Corona del cine",
+  "itemPlusPremiere": "Terciopelo Plus",
+  "itemNightRaccoon": "Nara Estelar",
+  "itemNightOtter": "Ciro Maré-de-Cena",
+  "itemNightOrbit": "Órbita dorada",
+  "itemNightComet": "Estela de cometa",
+  "itemNightObservatory": "Observatorio",
+  "itemNightSky": "Cielo de cine",
+  "itemCityPanda": "Raul Duplo-Corte",
+  "itemCityHummingbird": "Sol Última-Tomada",
+  "itemCitySkyline": "Horizonte de luz",
+  "itemCityBridge": "Puente dorado",
+  "itemCityRain": "Lluvia de estreno",
+  "itemCityNight": "Ciudad nocturna",
+  "itemAuroraFrame": "Primera luz",
+  "seasonRefresh": "Actualizar colecciones",
+  "seasonUpdateFailed": "No se pudo actualizar. Tu colección sigue disponible.",
+  "sponsorJoin": "Participar",
+  "sponsorEnded": "Evento finalizado",
+  "collectionOwned": "Adquirido",
+  "sponsorGoalCount": "Completa {count} partidas durante el evento",
+  "@sponsorGoalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "guideCollectionTitle": "Tu recorrido y tus diseños",
+  "guideCollectionBody": "Las misiones semanales y los eventos gratuitos desbloquean diseños. Revísalos y aplícalos en Mi colección. Las compras opcionales personalizan la tarjeta; no cambian tu puntuación.",
+  "collectionPreviewNotice": "Vista previa · sin cambiar tus elementos en uso.",
+  "commercePlusTerms": "Compra única · sin interrupciones, con marco y tarjeta exclusivos.",
+  "commerceCollectionTerms": "Compra única · 2 avatares, 3 marcos y 1 tarjeta.",
+  "commerceSubscriptionActive": "Suscripción activa",
+  "earnTickets": "Ganar tickets",
+  "earnTicketsSubtitle": "Vídeos opcionales, más partidas",
+  "commerceComingSoon": "Próximamente",
+  "adSpaceLabel": "Publicidad",
+  "adSpaceReserved": "Espacio reservado para anuncios",
+  "rewardedLoading": "Preparando vídeo…",
+  "rewardedUnavailable": "No hay vídeos disponibles ahora.",
+  "rewardedLimitReached": "Ya usaste los vídeos de hoy.",
+  "rewardedPlaceholderBody": "Mira un vídeo y gana tickets extra.",
+  "rewardedRetry": "Cargar vídeo",
+  "rewardedFailed": "No se pudo completar. Inténtalo de nuevo.",
+  "rewardedCancelled": "Recompensa aún sin confirmar.",
+  "rewardedWatching": "Esperando recompensa…",
+  "rewardedPreviewLabel": "Vídeo con recompensa · próximamente",
+  "ticketPacksTitle": "Paquetes de tickets",
+  "ticketPackSmall": "20 tickets",
+  "ticketPackLarge": "60 tickets",
+  "ticketPacksNote": "Más partidas sin esperar la recarga diaria.",
+  "seasonIntro": "Juega, completa misiones y descubre tu próximo personaje.",
+  "seasonCurrent": "Esta temporada",
+  "seasonNext": "Próximamente",
+  "seasonFinished": "Finalizada",
+  "seasonEmpty": "Vienen nuevas temporadas.",
+  "seasonItems": "Seis estilos por descubrir",
+  "seasonTry": "Explorar colección",
+  "seasonPreviewTitle": "Prueba los estilos",
+  "seasonAvailableOn": "Llega el {date}",
+  "@seasonAvailableOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "seasonUntil": "Hasta el {date}",
+  "@seasonUntil": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "seasonOwnedCount": "{count} de {total} en tu colección",
+  "@seasonOwnedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "seasonEventTitle": "Evento gratuito",
+  "seasonEventDemo": "Evento de demostración",
+  "seasonStoreSoon": "Las colecciones estarán disponibles pronto.",
+  "commerceOptionalExtras": "Juega a tu manera",
+  "commerceOptionalBody": "Tickets para seguir jugando y una opción para quitar anuncios comunes. Los videos con recompensa siguen siendo opcionales.",
+  "ticketLearnMore": "Sobre los tickets",
+  "commerceLoading": "Cargando opciones…",
+  "commerceCheckFailed": "No se pudieron verificar tus compras.",
+  "commerceOffersFailed": "No se pudo cargar la tienda.",
+  "commerceNoOffers": "No hay ofertas disponibles ahora.",
+  "commerceRestoreDone": "Compras restauradas.",
+  "commerceRestoreEmpty": "No se confirmaron compras activas.",
+  "commerceBenefitsActive": "Ventajas activas",
+  "commerceAdFreeActive": "Publicidad eliminada. Los vídeos con recompensa siguen siendo opcionales.",
+  "collectionHowToGet": "Cómo conseguirlo",
+  "collectionOnlyOwned": "Mis artículos",
+  "collectionAllItems": "Todos los artículos",
+  "collectionUnlockMission": "Completa misiones semanales para desbloquear este estilo.",
+  "collectionUnlockEvent": "Este estilo es la recompensa de un evento.",
+  "collectionUnlockSeason": "Encuentra esta colección en Temporadas.",
+  "collectionUnlockSoon": "Este estilo estará disponible en la tienda próximamente.",
+  "collectionUnlocked": "Desbloqueado",
+  "helpTitle": "¿Necesitas ayuda?",
+  "helpUseTicket": "Usar 1 ticket",
+  "helpWatch": "Vídeo · ayuda + 1 ticket",
+  "helpVideoSoon": "Vídeo próximamente",
+  "helpVideoUsed": "Vídeo ya usado en esta partida",
+  "helpVideoTerms": "1 por partida · comparte el límite diario de vídeos.",
+  "helpPending": "Confirmando recompensa…",
+  "helpPendingBody": "Puedes seguir jugando. La recompensa se recuperará al confirmarse.",
+  "helpClaim": "Recibir ayuda",
+  "helpStored": "Los 2 tickets quedaron en tu saldo.",
+  "helpDone": "Ayuda desbloqueada. +1 ticket en el saldo.",
+  "helpNoAvailable": "Ya has usado todas las ayudas disponibles.",
+  "helpColorGuidance": "Orientación de color",
+  "helpColorGuidanceBody": "Una sugerencia de tono y ajuste. −1 punto en esta ronda.",
+  "helpColorSimple": "Pista rápida",
+  "helpColorSimpleBody": "Pista del personaje · −1 punto",
+  "helpAdOffer": "Mira un anuncio para desbloquear esta ayuda y guardar 1 ticket.",
+  "helpColorFamily": "Prueba la familia de {family}.",
+  "helpFamilyRed": "rojos",
+  "helpFamilyOrange": "naranjas",
+  "helpFamilyYellow": "amarillos",
+  "helpFamilyGreen": "verdes",
+  "helpFamilyCyan": "cianes",
+  "helpFamilyBlue": "azules",
+  "helpFamilyPurple": "morados",
+  "helpFamilyPink": "rosas",
+  "helpFamilyNeutral": "tonos neutros",
+  "helpBrighter": "Aumenta un poco el brillo.",
+  "helpDarker": "Reduce un poco el brillo.",
+  "helpMoreSaturation": "Aumenta un poco la intensidad.",
+  "helpLessSaturation": "Reduce un poco la intensidad.",
+  "helpAdjustClose": "Los ajustes están cerca; afina el tono.",
+  "@helpColorFamily": {
+    "placeholders": {
+      "family": {
+        "type": "String"
+      }
+    }
+  },
+  "archiveMode": "Archivo",
+  "practiceMode": "Práctica",
+  "activityAll": "Todas las partidas",
+  "activityDaily": "Diarios",
+  "activityStage": "Etapas",
+  "activityInvites": "Invitaciones",
+  "activityContext": "Actividad",
+  "presenceStreak": "Días consecutivos jugando",
+  "nextGoal": "Tu próxima meta",
+  "continueGame": "Continuar partida",
+  "practiceAgain": "Repasar en práctica",
+  "masteryTitle": "Tu dominio",
+  "archiveTitle": "Diarios anteriores",
+  "archiveDescription": "Juega a tu ritmo sin cambiar el resultado de hoy.",
+  "editorialFeedback": "Informar de un problema",
+  "feedbackSent": "¡Gracias! Informe guardado para revisión.",
+  "feedbackClue": "Pista o respuesta",
+  "feedbackArtwork": "Imagen o personaje",
+  "feedbackDifficulty": "Dificultad",
+  "feedbackOther": "Otro problema",
+  "feedbackNote": "Descripción opcional",
+  "sendFeedback": "Enviar informe",
+  "neutralCard": "Ocultar respuesta",
+  "quickStart": "Jugar un ejemplo",
+  "backupTitle": "Tu progreso",
+  "backupSave": "Guardar copia",
+  "backupRestore": "Restaurar copia",
+  "backupCode": "Clave de recuperación",
+  "backupSaved": "Respaldo guardado.",
+  "backupConfirm": "¿Restaurar este progreso? Se combinará con el progreso local.",
+  "metricsConsent": "Compartir datos de uso",
+  "metricsConsentBody": "Ayuda a mejorar el juego. No se envían tus intentos ni nombres.",
+  "metricsDelete": "Borrar datos de uso",
+  "friendGames": "Desafíos entre amigos",
+  "friendJoin": "Abrir invitación",
+  "friendCreate": "Crear desafío",
+  "connectedRequired": "Conéctate para usar esta función.",
+  "missionDuplicate": "Ya adquirido · recompensa alternativa",
+  "itemMissionCapybara": "Breno Efeito-Bruto",
+  "itemMissionAxolotl": "Bento Rolo-Perdido",
+  "itemMissionPenguin": "Glifo Caça-Cenas",
+  "archiveMore": "Ver más días",
+  "masteryEmpty": "Completa partidas para descubrir tus temas.",
+  "playerDataTitle": "Datos y recuperación",
+  "dataActionFailed": "No se pudo completar la acción. Inténtalo de nuevo.",
+  "backupRestored": "Progreso recuperado.",
+  "recoveryKeepPrivate": "Guarda esta clave en un lugar seguro. Permite recuperar datos y compras. No la compartas.",
+  "backupScope": "Guarda partidas, etapas e historial. Los tickets comprados se recuperan del servidor; los diarios y bonos de este dispositivo son locales.",
+  "recoverAnotherDevice": "Recuperar de otro dispositivo",
+  "backupDelete": "Borrar copia de la nube",
+  "backupDeleteConfirm": "¿Borrar la copia guardada? Se conserva el progreso de este dispositivo.",
+  "metricsDeletionQueued": "Datos locales eliminados. La eliminación en línea está pendiente.",
+  "friendActionFailed": "No se pudo abrir la invitación. Revisa el código, la conexión y disponibilidad.",
+  "friendPlayFirst": "Completa una partida de Pistas o Póster para crear un reto.",
+  "friendChooseGame": "Elige una partida terminada",
+  "friendCreated": "Invitación válida por 7 días",
+  "friendPrivateRules": "Un reto privado con la misma partida. Puntuaciones del dispositivo, sin clasificación ni premios.",
+  "friendYou": "Tú",
+  "friendOther": "Amigo",
+  "nextAction": "Siguiente",
+  "purchasedTickets": "Comprados",
+  "ticketPackAmount": "{count} tickets",
+  "ticketPackTerms": "Compra única. No caducan; requieren conexión para usarlos y recuperarlos. No aumentan la puntuación.",
+  "@ticketPackAmount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missionPlayCount": "Completa {count} partidas",
+  "@missionPlayCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missionModesCount": "Juega en {count} modos",
+  "@missionModesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missionDaysCount": "Juega en {count} días",
+  "@missionDaysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "masteryStageTitle": "Guardián de la etapa {count}",
+  "@masteryStageTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "masteryTitles": "Títulos obtenidos",
+  "masteryAnimation": "Animación",
+  "masteryFantasy": "Fantasía",
+  "masteryClassics": "Clásicos hasta 1989",
+  "assistedResult": "Con ayuda",
+  "presenceDays": "{count} días jugados",
+  "@presenceDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "resultScoreScale": "{score}/{total} puntos",
+  "stageBonusOffer": "Al completar: +{count} tickets",
+  "@stageBonusOffer": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stageBonusTitleOffer": "Al completar: +{count} tickets y un título",
+  "@stageBonusTitleOffer": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@resultScoreScale": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "manageProgress": "Gestionar progreso",
+  "progressOnDevice": "Guardado automáticamente en este dispositivo.",
+  "backupCloudUnavailable": "Respaldo en la nube próximamente.",
+  "backupCloudChecking": "Consultando respaldo…",
+  "backupCloudEmpty": "Aún no tienes un respaldo en la nube.",
+  "backupCloudError": "No se pudo consultar el respaldo.",
+  "backupCloudLastSaved": "En la nube · {date}",
+  "backupOptions": "Recuperación y otras opciones",
+  "backupDeleted": "Respaldo de la nube eliminado. Tu progreso local se conservó.",
+  "metricsDeletedLocal": "Datos de uso de este dispositivo eliminados.",
+  "metricsDeleted": "Datos de uso eliminados.",
+  "metricsUnavailable": "El envío de datos está desactivado en esta versión.",
+  "@backupCloudLastSaved": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "journeyMasteryShortcut": "Dominio",
+  "journeyFriendsShortcut": "Amigos",
+  "audienceTitle": "Tu rango de edad",
+  "audienceBody": "Cineus está pensado para personas a partir de 16 años.",
+  "audiencePrivacy": "Solo guardamos tu rango de edad, no tu fecha de nacimiento. Las compras están destinadas a adultos.",
+  "audienceUnder16": "Tengo menos de 16 años",
+  "audienceTeen": "Tengo 16 o 17 años",
+  "audienceAdult": "Tengo 18 años o más",
+  "audienceUnavailable": "Esta versión está destinada a personas a partir de 16 años.",
+  "audiencePurchases": "Compras disponibles para mayores de 18 años",
+  "showcaseAnimation": "Mundos animados",
+  "showcaseFantasy": "Más allá de la imaginación",
+  "showcaseClassics": "Clásicos en cartel",
+  "showcasePlay": "Elegir partidas",
+  "showcasePractice": "Una selección para jugar a tu ritmo. Tu avance se guarda.",
+  "showcaseRewards": "Los estilos rotan entre las recompensas de misiones. Lo que ya tienes sigue siendo tuyo.",
+  "showcaseFilm": "Película {number}",
+  "@showcaseFilm": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  }
 }

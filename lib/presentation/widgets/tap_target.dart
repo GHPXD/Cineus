@@ -45,7 +45,9 @@ class TapTarget extends StatelessWidget {
             minWidth: minSize,
             minHeight: minSize,
           ),
-          child: Center(child: child),
+          // Shrink under loose constraints (e.g. Wrap) instead of claiming the
+          // whole row. Tight constraints still fill the assigned button area.
+          child: Center(widthFactor: 1, heightFactor: 1, child: child),
         ),
       ),
     );

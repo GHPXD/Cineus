@@ -1,0 +1,63 @@
+{
+  "upstream_licenses": [
+    {
+      "family": "Fredoka",
+      "official_license_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/fredoka/OFL.txt",
+      "license_sha256": "5c9e7eee5c6b25f4b05b8d53b2e470ea4962f9ced742d044a98f7d95d1375bab"
+    },
+    {
+      "family": "Nunito",
+      "official_license_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunito/OFL.txt",
+      "license_sha256": "580df76c95a1ec5ab878ceb25bb3d85c6a076804e9c970c8c6972aea775fdf65"
+    }
+  ],
+  "bundled_fonts": [
+    {
+      "file": "assets/fonts/Fredoka-600.ttf",
+      "family": "Fredoka Light",
+      "weight": 600,
+      "sha256": "aa80a336386fedda5c5c9365a1cf4b0fb2b7220a5ce47cf459a79cd717218bad",
+      "copyright": [
+        "Copyright 2016 The Fredoka Project Authors (https://github.com/hafontia/Fredoka-One)"
+      ]
+    },
+    {
+      "file": "assets/fonts/Fredoka-700.ttf",
+      "family": "Fredoka Light",
+      "weight": 700,
+      "sha256": "a9c04726171fa19e41972485dda6e08b99487769cbfb1688d1dbcad8af60b4ef",
+      "copyright": [
+        "Copyright 2016 The Fredoka Project Authors (https://github.com/hafontia/Fredoka-One)"
+      ]
+    },
+    {
+      "file": "assets/fonts/Nunito-400.ttf",
+      "family": "Nunito ExtraLight",
+      "weight": 400,
+      "sha256": "366599839114484dfd234fdbf19dade6bc5d80bed00558da3da66940768d18a8",
+      "copyright": [
+        "Copyright 2014 The Nunito Project Authors (https://github.com/googlefonts/nunito)"
+      ]
+    },
+    {
+      "file": "assets/fonts/Nunito-500.ttf",
+      "family": "Nunito ExtraLight",
+      "weight": 500,
+      "sha256": "4c768134e70b30626ef02636c4ad51809d9c099fb74641da8f04e6f510730e36",
+      "copyright": [
+        "Copyright 2014 The Nunito Project Authors (https://github.com/googlefonts/nunito)"
+      ]
+    },
+    {
+      "file": "assets/fonts/Nunito-600.ttf",
+      "family": "Nunito ExtraLight",
+      "weight": 600,
+      "sha256": "85d93697e763d1c39dd8f8f7668db68b32b496d541aa175fb3b9a351074c460d",
+      "copyright": [
+        "Copyright 2014 The Nunito Project Authors (https://github.com/googlefonts/nunito)"
+      ]
+    }
+  ],
+  "source": "https://github.com/google/fonts",
+  "decision": "Full glyph sets, static weight instances from official variable fonts; no subsetting or custom glyphs."
+}

@@ -1,0 +1,415 @@
+{
+  "archive": "C:\\Users\\GHPXD\\.codex\\visualizations\\2026\\10\\12\\01a12dd4-c53f-7520-8dfd-8625589130d2\\.backups\\Cineus-cleanup-20261014.zip",
+  "files": [
+    {
+      "file": "scripts/add_colors_hub_cinematic_l10n.py",
+      "bytes": 1686,
+      "sha256": "574dde3f501efe1757a87b0696ad3bc682ca74e372d08abd525f193eadfe7716"
+    },
+    {
+      "file": "scripts/add_color_sprint3_l10n.py",
+      "bytes": 8368,
+      "sha256": "81da91b59e61279b1fd955135ba0dd062a4bc2f3f2d1c24e7f2346eb9e77e69b"
+    },
+    {
+      "file": "scripts/add_color_sprint4_l10n.py",
+      "bytes": 9068,
+      "sha256": "6acf3e58988e7a055eb24ac84297100c1a367dcf64aa8d21bac6fed9f49c7b0d"
+    },
+    {
+      "file": "scripts/add_color_sprint5_l10n.py",
+      "bytes": 3422,
+      "sha256": "91a53380ffc81cce95e5f3d5f6c4284d7bb3b5d540e8b06a4157991a02eb48a8"
+    },
+    {
+      "file": "scripts/add_films_cinematic_l10n.py",
+      "bytes": 1156,
+      "sha256": "37b11a69c9d6d67533826ca23a42e0c920be02b89a15004f881c53b67f351f1f"
+    },
+    {
+      "file": "scripts/add_harmony_l10n.py",
+      "bytes": 662,
+      "sha256": "ff48d669421248b2fea1896f0220900ec385c9eb83ea5bb9f20219e39b7e0be1"
+    },
+    {
+      "file": "scripts/add_home_cinematic_l10n.py",
+      "bytes": 1065,
+      "sha256": "a1942bf6c545c3c2082107ba17830f4113b5a05d3439d1522643059fb5770150"
+    },
+    {
+      "file": "scripts/apply_gpt_renderers.py",
+      "bytes": 1501,
+      "sha256": "8a2cb7a5124e00df7ae6d1214d0d16b4201c6912487b317496d945f3e1dc97ec"
+    },
+    {
+      "file": "scripts/apply_harmony_details.py",
+      "bytes": 2316,
+      "sha256": "a311cb8a8dc0bc5e3fa434c0c4b35878e023b872d4c80d76bdca8a77ca2801f4"
+    },
+    {
+      "file": "scripts/app_integration_capture_test.dart",
+      "bytes": 7552,
+      "sha256": "03395edfe7655fa5e106df19459304bdc3264e9c868c74f02d00128bc107a378"
+    },
+    {
+      "file": "scripts/audit_visual_assets.py",
+      "bytes": 12962,
+      "sha256": "4645aacb162878b9709e47545273b0b5086248a616db6712528e0843cdc40559"
+    },
+    {
+      "file": "scripts/benchmark_posters.cjs",
+      "bytes": 4980,
+      "sha256": "02f3119c9e91c652618ddca6b694e56b09d63332f4dd310b8411b977d02ca571"
+    },
+    {
+      "file": "scripts/build_color_training_catalog.py",
+      "bytes": 12545,
+      "sha256": "f706f6e67fefe77080159534b1604c4ebc27abfed8a68c550b66e2118d99c67c"
+    },
+    {
+      "file": "scripts/build_sprint_gallery.py",
+      "bytes": 3911,
+      "sha256": "952473b42159f01c05e3628318c408259f8b6bbb49ddfcc0f1afadd59d526913"
+    },
+    {
+      "file": "scripts/capture_sprint2_before.py",
+      "bytes": 1159,
+      "sha256": "0b236e14c2bcefd0d315708f342674575eb30e8ec6c549eef2ce2e6d1220de6b"
+    },
+    {
+      "file": "scripts/colors_hub_cinematic_capture_test.dart",
+      "bytes": 9106,
+      "sha256": "a4bb6ed5478b62b4e0562aa1f911b1dc17aa8627ca1b57f9f8bf7849feb2337e"
+    },
+    {
+      "file": "scripts/color_final_capture_test.dart",
+      "bytes": 12406,
+      "sha256": "3c66b1184e4a983b6caa8339d4f2ca86b8cbdff94cdea74aa3612e26b8ec3a7f"
+    },
+    {
+      "file": "scripts/color_integration_capture_test.dart",
+      "bytes": 14080,
+      "sha256": "d4775399d51a9f2241f26f8ea886e26d5e9c1c1d37707137d8fcf16cb03729f9"
+    },
+    {
+      "file": "scripts/color_persistence_capture_test.dart",
+      "bytes": 10007,
+      "sha256": "6ddb1b8279c3d87674958f4723caf945addee3259a0a10ba028e747c8a9aea37"
+    },
+    {
+      "file": "scripts/color_preview_capture_test.dart",
+      "bytes": 6526,
+      "sha256": "b4f5b6f56c12b1a92188de434d32004febdeef186c44e5e462735c97f4bd008d"
+    },
+    {
+      "file": "scripts/color_stages_capture_test.dart",
+      "bytes": 8580,
+      "sha256": "b2ba3008e6765f3e4df1802015c1568ab71b003d4098e784bf498bdb6ebb8d33"
+    },
+    {
+      "file": "scripts/color_training_capture_test.dart",
+      "bytes": 8216,
+      "sha256": "2e302ee5f3ec79eb2871bf0d772136c0b8a9fc3070ed53626ad6b5cd9c63718f"
+    },
+    {
+      "file": "scripts/document_app_integration.py",
+      "bytes": 3329,
+      "sha256": "bd77ffce10f47b46e84a4256cf0d47c9c08c295fd071888d97d813b54997db31"
+    },
+    {
+      "file": "scripts/document_colors_hub_cinematic.py",
+      "bytes": 5272,
+      "sha256": "34bd11ef996e2449b81f2b3f62e491a882508e7b91dedebb0a807c04e116d936"
+    },
+    {
+      "file": "scripts/document_films_cinematic.py",
+      "bytes": 3530,
+      "sha256": "102f69c735b04f077181d750ad04a66046fd10dd1cd6b3e27694e86b4f85a66f"
+    },
+    {
+      "file": "scripts/document_harmony_50.py",
+      "bytes": 4931,
+      "sha256": "4eeb2a876452dd5c231abe0c642ef0b8c8c85dc96409c2c031df323144e61d0f"
+    },
+    {
+      "file": "scripts/document_home_cinematic.py",
+      "bytes": 4315,
+      "sha256": "3861f895dd5f85f409d2a6170e8d28e88384b8d78143be8d87941c78d685e852"
+    },
+    {
+      "file": "scripts/document_posters_cinematic.py",
+      "bytes": 4739,
+      "sha256": "4b4952a91d998f534a66893ae076ee1d32391e4b1d1c7e8b9b60d9eb11ff8882"
+    },
+    {
+      "file": "scripts/document_sprint7.py",
+      "bytes": 2862,
+      "sha256": "1bafed5ccf8b2abe44b6312ca69429570bd29983179bfa0087d5273b1330e4e6"
+    },
+    {
+      "file": "scripts/expand_color_sources.py",
+      "bytes": 2306,
+      "sha256": "88c36ebed1cd2e2ddf8448a3675918424e06edd1cf7286f25a601128007c07fe"
+    },
+    {
+      "file": "scripts/export_brand_assets.py",
+      "bytes": 3490,
+      "sha256": "e2eed723534039922870e7c111280577b884e690baf9d9d5a3dc9f6240bf9bf2"
+    },
+    {
+      "file": "scripts/fetch_color_fallback_art.py",
+      "bytes": 1858,
+      "sha256": "150379ba017621f48dbe7f6f36c54beda723b14010e5fdcfb5704ca5b8d5ee8f"
+    },
+    {
+      "file": "scripts/fetch_color_references.py",
+      "bytes": 1652,
+      "sha256": "40b2bc71046ddb9cfb7164133bdb4fb04b98f79131412678322b6c879fd0b83a"
+    },
+    {
+      "file": "scripts/fetch_expanded_fallbacks.py",
+      "bytes": 4933,
+      "sha256": "a570f80d008cd018146f0845d93ef1e81425406c874bb1d0c8e188e3bd8725bc"
+    },
+    {
+      "file": "scripts/fetch_official_character_refs.py",
+      "bytes": 489,
+      "sha256": "01ab4f97b52a2c1d43639824b80a8113a083c9e01fa28913e8942e4c3ca6412a"
+    },
+    {
+      "file": "scripts/films_cinematic_capture_test.dart",
+      "bytes": 7967,
+      "sha256": "6dd60d69936b703721c58ca45c8fb4e78ec2f5a817506edc71d3cf4212d43641"
+    },
+    {
+      "file": "scripts/harmony_capture_test.dart",
+      "bytes": 9969,
+      "sha256": "db6a47073a6d90bf4193d9f7a9e56011d8ceec80ccd63e36841be736db22a075"
+    },
+    {
+      "file": "scripts/home_adjustments_capture_test.dart",
+      "bytes": 7880,
+      "sha256": "8d7cb9813980917e6c4e4e6033134ecc4649c9273bc8803cb136a2596fedc62c"
+    },
+    {
+      "file": "scripts/home_cinematic_capture_test.dart",
+      "bytes": 6289,
+      "sha256": "53f6bab75d81cfab23ccde7868195ce47a66081d9540b1e9e92ea32d7c897c87"
+    },
+    {
+      "file": "scripts/package_store_screenshots.cjs",
+      "bytes": 2439,
+      "sha256": "8d08e1783ebb30f8cd108a9b62fe5c25522c9d3b62b1bf256b1d864d57375ef9"
+    },
+    {
+      "file": "scripts/posters_cinematic_capture_test.dart",
+      "bytes": 8201,
+      "sha256": "6f618adf422353b0560fb231b074c7e955f566fc2fcc0bf944ce357b18302023"
+    },
+    {
+      "file": "scripts/prepare_expanded_characters.py",
+      "bytes": 10738,
+      "sha256": "8a8263baa3a1b82540d322be5f163ffba7dcb1a672900d096ff5c156b8956d0b"
+    },
+    {
+      "file": "scripts/prepare_harmony_capture.py",
+      "bytes": 1272,
+      "sha256": "fcd2745008b14bbf85f4d88af4516f66040f04036ec12677029b102ee30f3938"
+    },
+    {
+      "file": "scripts/prepare_official_refs.py",
+      "bytes": 1294,
+      "sha256": "1dfc3ccf62dc3c3ffee06bdf8b29a42423e4101333475d10e44937f2b042dd67"
+    },
+    {
+      "file": "scripts/preview_color_characters.cjs",
+      "bytes": 3163,
+      "sha256": "bd9b156501f10e1af80854defe053fb850445e147e3894e2c063023d950de833"
+    },
+    {
+      "file": "scripts/preview_expanded_characters.cjs",
+      "bytes": 3996,
+      "sha256": "889bfafc8f1e4eedc294b53904bb18655c6b4c16b9213402ba541363e29c84b0"
+    },
+    {
+      "file": "scripts/preview_gpt_assets.cjs",
+      "bytes": 2602,
+      "sha256": "f5312e7593c1a9489e04f72afef4a4f410dbf81ba1bafc20e9d80b22480c848c"
+    },
+    {
+      "file": "scripts/refactor_home_cinematic.py",
+      "bytes": 6091,
+      "sha256": "e9481144913c205fc588a247865f7947b38a7d52afaa6f014126c5f5977aac8a"
+    },
+    {
+      "file": "scripts/review_fallback_editions.py",
+      "bytes": 2246,
+      "sha256": "0ed7b5fadd675a67bcfea91b490a39199229c87e22efdb3b00411733a2f4537c"
+    },
+    {
+      "file": "scripts/ui_audit_test.dart",
+      "bytes": 83006,
+      "sha256": "52e55ea4237932d03cc97002119b2c1208aaae46147bfc00c805edd727e8962d"
+    },
+    {
+      "file": "scripts/update_poster_stage_copy.py",
+      "bytes": 503,
+      "sha256": "7e8c0effed86aa6ad2a8346bce0bbc655b78e603020e3b2878b0dbe6e0d53984"
+    },
+    {
+      "file": "scripts/validate_sprint8_artifacts.py",
+      "bytes": 4088,
+      "sha256": "92cbf2b6476eaed8aefaa9330f71abe8d64579a202b16f74ce01509fc85a7862"
+    },
+    {
+      "file": "assets/generated/sources/emptyState.png",
+      "bytes": 977372,
+      "sha256": "3a00ee138362a96138a47a47cb2d8ceb3f6b81880743999f40a07db505c84c66"
+    },
+    {
+      "file": "assets/generated/icons/emptyState.svg",
+      "bytes": 19652,
+      "sha256": "d963e8ffe7210a490846e8ca249adc923ca21a908f6f8e88db6ac6634863753a"
+    },
+    {
+      "file": "assets/generated/icons/emptyState_ink.svg",
+      "bytes": 10123,
+      "sha256": "6aeff5285a261dba44fa3f55ebefd83a445cbb7ad050b1178f1c37562184d146"
+    },
+    {
+      "file": "docs/artwork/interface/records/emptyState.json",
+      "bytes": 2120,
+      "sha256": "5bcf7d6e45f9bee3d3dc17224afc655ce08edf5112b8d51869b2bad4fa148bde"
+    },
+    {
+      "file": "assets/generated/sources/learning_clues.png",
+      "bytes": 969514,
+      "sha256": "92de5580a939b31edfc5760b3d1650769eb59b1a0b10b006a4b36b97f42e9a6b"
+    },
+    {
+      "file": "assets/generated/illustrations/learning_clues.svg",
+      "bytes": 46199,
+      "sha256": "d5a15813db34379b0907a2e06bdd5f69abe0c40ae6d8687df3aff7877ef20859"
+    },
+    {
+      "file": "docs/artwork/interface/records/learning_clues.json",
+      "bytes": 2087,
+      "sha256": "1ace30625efb1b681f3aa0975825762f16c2b2f862a1dcdb2d9b02febd49795f"
+    },
+    {
+      "file": "assets/generated/sources/learning_poster.png",
+      "bytes": 920732,
+      "sha256": "e10d75d35ea84e091014de0d595809ea23e73f86098acd562a8b719084449820"
+    },
+    {
+      "file": "assets/generated/illustrations/learning_poster.svg",
+      "bytes": 67193,
+      "sha256": "f1e942859844a0e65cfa3f84687ae4eb7fb4ef2feb6e1e9649f9d7356675f471"
+    },
+    {
+      "file": "docs/artwork/interface/records/learning_poster.json",
+      "bytes": 2128,
+      "sha256": "f56a2c687180cbc33ed436233a1015a5ccb7ef56288f23937bbd416a2b406361"
+    },
+    {
+      "file": "assets/generated/sources/stage_cover_0.png",
+      "bytes": 930741,
+      "sha256": "e225d9c61aa2db7968fab4227cf894a245ec1aee0a6da640272013294635dca0"
+    },
+    {
+      "file": "assets/generated/illustrations/stage_cover_0.svg",
+      "bytes": 34179,
+      "sha256": "266acdcb0181a7d322601b8faccba9808d607385d9740e629ea0f30145c1cdc1"
+    },
+    {
+      "file": "docs/artwork/interface/records/stage_cover_0.json",
+      "bytes": 2006,
+      "sha256": "07984d5822c0e3a56f1f77a908b1bbc4efe84fbe44c9bcd0fa5cd8e1fb76226d"
+    },
+    {
+      "file": "assets/generated/sources/stage_cover_1.png",
+      "bytes": 957194,
+      "sha256": "59e993d6f33b1201ab21951bad836bbda8314385cf6f7f8a8a888154f63f13a6"
+    },
+    {
+      "file": "assets/generated/illustrations/stage_cover_1.svg",
+      "bytes": 77567,
+      "sha256": "3561cbdd9672e243cb621ef93590f35bd2d5b4ebda1b588a06f2cea546ac3cf8"
+    },
+    {
+      "file": "docs/artwork/interface/records/stage_cover_1.json",
+      "bytes": 2030,
+      "sha256": "90d6e21929cf615a32c62cb770f832f8fd0b4e8b0de9e59291eb434e058396cc"
+    },
+    {
+      "file": "assets/generated/sources/stage_cover_2.png",
+      "bytes": 858491,
+      "sha256": "d04287608ec28073104ff61d879c79494d908c617319f33a9e12ab897878fea1"
+    },
+    {
+      "file": "assets/generated/illustrations/stage_cover_2.svg",
+      "bytes": 32343,
+      "sha256": "5645bddacf3ad105fab374db5039d38e29d99af146462012c01d1d1fabc192db"
+    },
+    {
+      "file": "docs/artwork/interface/records/stage_cover_2.json",
+      "bytes": 2018,
+      "sha256": "530c5bbb1e6117ad40285e0fa3f4a327a3bbe63e9cc21361ce023702b388c02f"
+    },
+    {
+      "file": "assets/generated/sources/stage_cover_3.png",
+      "bytes": 963834,
+      "sha256": "a45e61e2b61ae045ddbf8e51b6a40ad13255228c1a29324a6da07c06015d3707"
+    },
+    {
+      "file": "assets/generated/illustrations/stage_cover_3.svg",
+      "bytes": 57778,
+      "sha256": "542caba79e61b54441e532275b8b7d45daa00280e87841a0dd440c378f03968a"
+    },
+    {
+      "file": "docs/artwork/interface/records/stage_cover_3.json",
+      "bytes": 2038,
+      "sha256": "372e71afe269b66831d0dd8eb9bb80948c1aad66785f0b701162ca7546f8d6af"
+    },
+    {
+      "file": "assets/generated/illustrations/platformMark.svg",
+      "bytes": 14357,
+      "sha256": "616f0ba0396adf47faf0abaf8fc29be3df67c6ea3e15078a4502f248156c2f44"
+    },
+    {
+      "file": "assets/colors/sources/goku.png",
+      "bytes": 665387,
+      "sha256": "24ac1f7f6acd2c35e98fa57bd39f8170b42760b7635df15c65cccfa63fb485a1"
+    },
+    {
+      "file": "assets/colors/pilot_v1.json",
+      "bytes": 10086,
+      "sha256": "f0644f00001347bbb6e69c451d8690dc7005e53f473fdaf8182fbd82b166973c"
+    },
+    {
+      "file": "assets/generated/sources/colorRewardGift.png",
+      "bytes": 1327371,
+      "sha256": "5fb2bf6203fa77fc2e2cebafbda6b34d1d9b44144a3f06bbb8b8f6c9e709baa7"
+    },
+    {
+      "file": "assets/generated/icons/colorRewardGift.svg",
+      "bytes": 55170,
+      "sha256": "a305445a40e9182297bac3cf7eaab98d5eac42104319f63a4d1b97ec8e426a94"
+    },
+    {
+      "file": "assets/generated/icons/colorRewardGift_ink.svg",
+      "bytes": 30147,
+      "sha256": "d66b69299f6b07e0d0f25d8d070175930c009286dda24d86d554b4706156e0cb"
+    },
+    {
+      "file": "docs/artwork/interface/records/colorRewardGift.json",
+      "bytes": 1714,
+      "sha256": "112f4e54378c62d9890614c5c3fd47ff3ff74eafd642604fd5a63ea74ace4d3c"
+    },
+    {
+      "file": "assets/color_hub/daily.png",
+      "bytes": 1931243,
+      "sha256": "13846465952bc57d12ad88b4f98a4494ae6e48740dc9bc43dfc1b278dbcc77b9"
+    }
+  ]
+}

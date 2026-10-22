@@ -1,0 +1,27 @@
+{
+  "id": "badgeStreak30",
+  "kind": "icon",
+  "subject": "an advanced cinema flame medallion with a full bold laurel pair and gold ribbon",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: an advanced cinema flame medallion with a full bold laurel pair and gold ribbon.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-4474e6cd-8dfd-4c94-9f17-97bbe03737ec.png",
+  "source": "assets/generated/sources/badgeStreak30.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/badgeStreak30.svg",
+  "source_sha256": "f8ed7efe9e1e9357f408ce59608a2c1e2862619f7bda062a8853abfa5836c050",
+  "svg_sha256": "3e8b1b4a331fb13f28876d4bbf05e85106c2666df9cf604e0892791ee9bc1a4d",
+  "paths": 18,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/badgeStreak30_ink.svg",
+  "ink_sha256": "9c047909808f1130a1d9f5954ac0c5fa95897ae75968928af9d429eb55f5aa0c"
+}

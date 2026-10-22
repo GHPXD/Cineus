@@ -1,0 +1,39 @@
+{
+  "id": "lois_griffin",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/lois_griffin.png",
+  "source_sha256": "f3374bf7ceac01e4ddccc3fa24b64581205f0e085ec78aa0595caaafe9feed2e",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+  "conversion_version": 6,
+  "source_size": [
+    204,
+    385
+  ],
+  "trace_size": [
+    284,
+    960
+  ],
+  "region_pixels": [
+    36960
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/lois_griffin_base.svg",
+      "sha256": "4993a3d6383d84a07f5b6c8690f9763084ff755fe7e7d6b4e07557ab295f5db5"
+    },
+    {
+      "file": "assets/colors/art/lois_griffin_p0.svg",
+      "sha256": "bc6703eaec72586c5d48dc751346bc7e12c7d81135a74c5c3aa1302e00d0c620"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Lois Griffin, adult cartoon woman with short orange bob hair, turquoise buttoned blouse, beige trousers, red flat shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the blouse in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 231b3e6b-e528-4061-a4af-b7545032c7ea.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://upload.wikimedia.org/wikipedia/en/a/a5/Lois_Griffin.png",
+  "source_page": "https://en.wikipedia.org/wiki/Lois_Griffin",
+  "external_file": "docs/artwork/characters/expanded/references/lois_griffin-fallback.png",
+  "external_sha256": "7ff4efc87bff09ae965cbe43663b79b93f084c67cbd10a3d75200de060aebcfa"
+}

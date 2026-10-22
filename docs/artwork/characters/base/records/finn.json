@@ -1,0 +1,54 @@
+{
+  "id": "finn",
+  "kind": "character",
+  "generator": "built-in image_gen / GPT Image",
+  "prompt": "Use case: illustration-story. Asset type: isolated recolourable character sprite for the Cineus mobile colour-memory game. Create from scratch ONE recognisable full-body character, polished bold flat 2D cartoon illustration, thick clean charcoal outlines, very few generous filled shapes, no gradients, lighting, shading or textures. Entire figure centred in a square with 8% transparent margin, feet and appendages fully visible, genuinely transparent background. No text, letters, logos, watermarks, scenery, props except canonical character accessories, or secondary figures. Important technical palette: the five indicated regions MUST use their assigned uniform flat marker colours, exactly, even when noncanonical. These are segmentation markers for later automatic raster-to-SVG conversion, not the final colours shown to players. Never use these five marker colours anywhere outside their assigned regions. All other details use flat white, black or subdued neutral colours. Make each region clean, solid, separately identifiable; preserve the character's recognisable proportions, eyes, face, outline and clothing seams. The UI will recolour each region after tracing; do not render a UI or swatches.\nSubject and segmentation: Finn the Human from Adventure Time, full body standing in three-quarter view with his recognisable round two-tone backpack conspicuously visible beside his shoulder and torso, white bear-eared hood, shirt, short pants, black shoes, both bare arms and lower legs visible. Five regions: darker bottom section of backpack MAGENTA #FF00FF; short pants CYAN #00FFFF; white hood LIME #00FF00; face, arms and legs skin ORANGE #FFA500; shoes PURPLE #8000FF. Upper backpack subdued light sage green, shirt muted pale cream, white socks, black eyes.",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-7d96fd1d-1764-42ba-ae70-5a40287f611b.png",
+  "source": "assets/colors/sources/finn.png",
+  "status": "converted",
+  "palette_mode": "markers",
+  "source_sha256": "64bcb7b8cf1383d324aef37509cfe5f4c02c9c79d394e1bdde8d52797b4ebed4",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    640,
+    640
+  ],
+  "region_pixels": [
+    3643,
+    9102,
+    12296,
+    22453,
+    6054
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/finn_base.svg",
+      "sha256": "2042478f19e5fe7972e9a54ab5cfbbb80bc60b5d22b49e9c10f4c90652bf0d9f"
+    },
+    {
+      "file": "assets/colors/art/finn_p0.svg",
+      "sha256": "6e2f1e38b8a2cf3064932d7e348eeb611eae8a922dbe3b980f0ba327b7cd0d76"
+    },
+    {
+      "file": "assets/colors/art/finn_p1.svg",
+      "sha256": "a25634af4cd75eb38068e2380bdef3e0d03db8ebaa685d5438650d81d8a1e014"
+    },
+    {
+      "file": "assets/colors/art/finn_p2.svg",
+      "sha256": "a2a78d55a6b7fbba169e0952a48e1a04bd8ea30830fa89d76ff6c62cad610f16"
+    },
+    {
+      "file": "assets/colors/art/finn_p3.svg",
+      "sha256": "85fdfbcca13733975f296f39f8ae3c7b4da0403eef3477fc89fa5368dd7e97e9"
+    },
+    {
+      "file": "assets/colors/art/finn_p4.svg",
+      "sha256": "98db02c7c547e8272f22a598b2c4638c8e636b0c2e8cbeae1562909209f989e9"
+    }
+  ]
+}

@@ -25,9 +25,8 @@ const _allowed = {
   'Cineus',
   'Cine',
   'us',
-  'Playfair Display',
-  'Inter',
-  'DM Mono',
+  'Fredoka',
+  'Nunito',
   ' · ',
   '· ',
   ' · Posters',
@@ -36,7 +35,6 @@ const _allowed = {
 /// Files that hold data or matching logic rather than UI copy.
 const _skipFiles = {
   // Genre keywords matched against the catalogue, which is Portuguese data.
-  'poster_card_widget.dart',
   // Clue categories: keys of the emoji map, mirroring database values.
   'app_constants.dart',
   // Accent-folding tables.

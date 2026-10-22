@@ -1,0 +1,27 @@
+{
+  "id": "categoryMystery",
+  "kind": "icon",
+  "subject": "a compact detective magnifier overlapping a tiny folded clue card",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a compact detective magnifier overlapping a tiny folded clue card.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-5ff0d903-70b4-484d-9432-648e632722be.png",
+  "source": "assets/generated/sources/categoryMystery.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryMystery.svg",
+  "source_sha256": "38c0def7d35df842567f8cb6a89d5f4257fa0dc00c0cdecfa92892a0f8dc72ed",
+  "svg_sha256": "297741b16f2f369f92399533f50abaf35340521492512761ecda3a25b07692fc",
+  "paths": 12,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryMystery_ink.svg",
+  "ink_sha256": "8e1f70bdc51141f3897c8ec7c4b52605ccd5eb4c248b6f9b9b3da5ea03fbfb97"
+}

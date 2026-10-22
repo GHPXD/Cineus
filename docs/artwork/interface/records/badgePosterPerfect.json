@@ -1,0 +1,27 @@
+{
+  "id": "badgePosterPerfect",
+  "kind": "icon",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-71e4be09-bfda-458e-af87-e6ce76080fc7.png",
+  "prompt": "Use case: logo-brand. Create one standalone achievement badge for Cineus mobile cinema game. Subject: a gold magnifying glass in front of a blue and ivory framed cinema poster, a small gold star. Unified illustrated game icon family: bold clear silhouette, charming polished shapes, moderately dimensional but vector-friendly flat color regions, gold #EFC026, bright blue #5790FF, ivory #F4F3E8 and deeper blue #2D54AA. Transparent background, centered full object, large safe margin, no enclosing square tile, no text, no letters, no numbers, no emoji, no watermark, no gradients fading to a background, readable at 48px.",
+  "subject": "a gold magnifying glass in front of a blue and ivory framed cinema poster, a small gold star",
+  "generator": "built-in image_gen / GPT Image",
+  "source": "assets/generated/sources/badgePosterPerfect.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/badgePosterPerfect.svg",
+  "source_sha256": "290de0f7b1f2c50f8a2f30d622037623ab1415836173cba890ada5bcf5b1a43b",
+  "svg_sha256": "3377a08d3a4a2015f28b113f6f54dc7051b7322900e20905c10798ce963e90a7",
+  "paths": 41,
+  "source_size": [
+    1312,
+    1199
+  ],
+  "trace_size": [
+    512,
+    468
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/badgePosterPerfect_ink.svg",
+  "ink_sha256": "99e3ac45e61afa0f7acd103f2b7c7c88b48d52892391d547b69b61762de2f727"
+}

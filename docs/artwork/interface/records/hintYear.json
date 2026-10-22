@@ -1,0 +1,27 @@
+{
+  "id": "hintYear",
+  "kind": "icon",
+  "subject": "a compact tear-off cinema calendar with two tabs and a single large empty square, no dates or text",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. A coherent boutique-cinema visual identity: bold, carefully designed illustrated objects, expressive memorable proportions, sophisticated not childish, small-screen readable. Restrained palette of flat warm gold #EFC026, vivid periwinkle blue #5790FF and warm ivory #F4F3E8, at most 4 discrete flat colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with a tiny suggestion of depth through overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji, NOT stock library, NOT glossy 3D, no gradients, no shadows, no texture or distress, no speckles, no sparkles, no text, numerals, letters or watermark. Genuinely transparent background. A single centred icon with about 10% empty padding on each side on a square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a compact tear-off cinema calendar with two tabs and a single large empty square, no dates or text.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-0e414f51-01f9-4645-98e6-719f46fa6cab.png",
+  "source": "assets/generated/sources/hintYear.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/hintYear.svg",
+  "source_sha256": "7f019ba91f74ce1593b1d16e3729345a20fbaabc8729d884aefd9f09d43dc72b",
+  "svg_sha256": "03385c922e4b84f8fb630376874f21fad3ac295b52bd2ba2da8bf215812de1d8",
+  "paths": 10,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "status": "converted",
+  "conversion_version": 5,
+  "ink_svg": "assets/generated/icons/hintYear_ink.svg",
+  "ink_sha256": "a400cedb9a8af386a51e765dfb7af0cae0aaffe24b057a17e2be1ae020a7733a"
+}

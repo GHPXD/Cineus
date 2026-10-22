@@ -4,11 +4,14 @@ import '../../core/utils/daily_selector.dart';
 import '../../domain/entities/game_session.dart';
 import '../../domain/repositories/game_repository.dart';
 import '../datasources/database_provider.dart';
+import '../datasources/journey_schema.dart';
 
 class GameRepositoryImpl implements GameRepository {
   final DatabaseProvider _db;
+  final DateTime Function() _now;
 
-  GameRepositoryImpl(this._db);
+  GameRepositoryImpl(this._db, {DateTime Function()? now})
+    : _now = now ?? DateTime.now;
 
   @override
   Future<GameSession?> getDailySession(GameMode mode, String date) async {
@@ -45,7 +48,7 @@ class GameRepositoryImpl implements GameRepository {
     final db = await _db.database;
     final maps = await db.query(
       'game_sessions',
-      where: "kind = 'challenge' AND mode = ? AND movie_id = ?",
+      where: "kind = 'challenge' AND mode = ? AND movie_id = ? AND date = ''",
       whereArgs: [mode.name, movieId],
       limit: 1,
     );
@@ -53,28 +56,73 @@ class GameRepositoryImpl implements GameRepository {
     return GameSession.fromMap(maps.first);
   }
 
-  Future<GameSession?> _byIdentity(GameSession session) => switch (session.kind) {
-        SessionKind.daily => getDailySession(session.mode, session.date),
-        SessionKind.stage =>
-          getStageSession(session.mode, session.stageId, session.movieId),
-        SessionKind.challenge => getChallengeSession(session.mode, session.movieId),
-      };
+  Future<GameSession?> _byIdentity(GameSession s, DatabaseExecutor db) async {
+    final (where, args) = switch (s.kind) {
+      SessionKind.daily => (
+        "kind='daily' AND mode=? AND date=?",
+        <Object?>[s.mode.name, s.date],
+      ),
+      SessionKind.stage => (
+        "kind='stage' AND mode=? AND stage_id=? AND movie_id=?",
+        <Object?>[s.mode.name, s.stageId, s.movieId],
+      ),
+      SessionKind.challenge => (
+        "kind='challenge' AND mode=? AND movie_id=? AND date=?",
+        <Object?>[s.mode.name, s.movieId, s.date],
+      ),
+      SessionKind.archive => (
+        'kind=? AND mode=? AND date=?',
+        <Object?>[s.kind.name, s.mode.name, s.date],
+      ),
+      SessionKind.training => (
+        'kind=? AND mode=? AND date=? AND movie_id=?',
+        <Object?>[s.kind.name, s.mode.name, s.date, s.movieId],
+      ),
+    };
+    final rows = await db.query(
+      'game_sessions',
+      where: where,
+      whereArgs: args,
+      limit: 1,
+    );
+    return rows.isEmpty ? null : GameSession.fromMap(rows.single);
+  }
+
+  Future<GameSession> _recordFinished(
+    DatabaseExecutor db,
+    GameSession s,
+  ) async {
+    if (s.isFinished) {
+      await JourneySchema.finish(
+        db,
+        key: 'film:${s.id}',
+        mode: s.mode.name,
+        kind: s.kind.name,
+        at: _now(),
+        scoreCents: s.score * 100,
+      );
+    }
+    return s;
+  }
 
   @override
   Future<GameSession> saveSession(GameSession session) async {
-    final db = await _db.database;
+    final database = await _db.database;
+    return database.transaction((db) => _save(db, session));
+  }
 
+  Future<GameSession> _save(DatabaseExecutor db, GameSession session) async {
     if (session.id != null) {
       // A stale notifier must never turn a terminal result back into `playing`
       // (or replace one terminal outcome with another). Only a playing row may
       // transition. If another writer already finished it, return that truth.
       final changed = await db.update(
         'game_sessions',
-        session.toMap(),
+        {...session.toMap(), 'updated_at': _now().toUtc().toIso8601String()},
         where: "id = ? AND status = 'playing'",
         whereArgs: [session.id],
       );
-      if (changed == 1) return session;
+      if (changed == 1) return _recordFinished(db, session);
 
       final rows = await db.query(
         'game_sessions',
@@ -87,33 +135,32 @@ class GameRepositoryImpl implements GameRepository {
     }
 
     // Fast path for normal callers that lost the row id.
-    final existing = await _byIdentity(session);
+    final existing = await _byIdentity(session, db);
     if (existing != null) {
       if (existing.isFinished) return existing;
       final updated = session.copyWith(id: existing.id);
       final changed = await db.update(
         'game_sessions',
-        updated.toMap(),
+        {...updated.toMap(), 'updated_at': _now().toUtc().toIso8601String()},
         where: "id = ? AND status = 'playing'",
         whereArgs: [existing.id],
       );
-      if (changed == 1) return updated;
-      return (await _byIdentity(session)) ?? updated;
+      if (changed == 1) return _recordFinished(db, updated);
+      return (await _byIdentity(session, db)) ?? updated;
     }
 
     // Two simultaneous creators can both observe "no row". Let the unique
     // identity indexes arbitrate with INSERT OR IGNORE, then read back the one
     // canonical row. This turns a constraint crash into an idempotent create.
-    await db.insert(
-      'game_sessions',
-      session.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.ignore,
-    );
-    final stored = await _byIdentity(session);
+    await db.insert('game_sessions', {
+      ...session.toMap(),
+      'updated_at': _now().toUtc().toIso8601String(),
+    }, conflictAlgorithm: ConflictAlgorithm.ignore);
+    final stored = await _byIdentity(session, db);
     if (stored == null) {
       throw StateError('Failed to create ${session.kind.name} session');
     }
-    return stored;
+    return _recordFinished(db, stored);
   }
 
   @override
@@ -151,7 +198,7 @@ class GameRepositoryImpl implements GameRepository {
   }) async {
     return computeStats(
       await getFinishedDailySessions(mode: mode),
-      todayUtc: DailySelector.dateFromKey(DailySelector.todayKey())!,
+      todayUtc: DailySelector.dateFromKey(DailySelector.todayKey(_now()))!,
       streakFreezes: streakFreezes,
     );
   }
@@ -255,9 +302,11 @@ class GameRepositoryImpl implements GameRepository {
     if (last.isBefore(first)) return true;
     if (freezes.isEmpty) return false;
 
-    for (var day = first;
-        !day.isAfter(last);
-        day = day.add(const Duration(days: 1))) {
+    for (
+      var day = first;
+      !day.isAfter(last);
+      day = day.add(const Duration(days: 1))
+    ) {
       if (!freezes.contains(DailySelector.todayKey(day))) return false;
     }
     return true;

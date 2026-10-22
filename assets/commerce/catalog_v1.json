@@ -1,0 +1,259 @@
+{
+  "schema": 1,
+  "revision": 5,
+  "min_catalog": 6,
+  "collections": [
+    {
+      "id": "night_2026_10",
+      "product": "cineus.collection.night.v1",
+      "from": "2026-10-15T00:00:00Z",
+      "until": "2026-11-01T00:00:00Z",
+      "name": {
+        "pt": "Noite de estreia",
+        "en": "Premiere night",
+        "es": "Noche de estreno"
+      },
+      "items": [
+        "night_avatar_raccoon_v1",
+        "night_avatar_otter_v1",
+        "night_frame_orbit_v1",
+        "night_frame_comet_v1",
+        "night_frame_observatory_v1",
+        "night_appearance_sky_v1"
+      ]
+    },
+    {
+      "id": "city_2026_11",
+      "product": "cineus.collection.city.v1",
+      "from": "2026-11-01T00:00:00Z",
+      "until": "2026-12-01T00:00:00Z",
+      "name": {
+        "pt": "Luzes da cidade",
+        "en": "City lights",
+        "es": "Luces de la ciudad"
+      },
+      "items": [
+        "city_avatar_panda_v1",
+        "city_avatar_hummingbird_v1",
+        "city_frame_skyline_v1",
+        "city_frame_bridge_v1",
+        "city_frame_rain_v1",
+        "city_appearance_night_v1"
+      ]
+    }
+  ],
+  "club_cycles": {
+    "2026-10": "cineus.collection.night.v1",
+    "2026-11": "cineus.collection.city.v1"
+  },
+  "events": [
+    {
+      "id": "aurora_demo_v1",
+      "demo": true,
+      "sponsor": {
+        "pt": "Aurora — demonstração Cineus",
+        "en": "Aurora — Cineus demonstration",
+        "es": "Aurora — demostración Cineus"
+      },
+      "from": "2026-10-15T00:00:00Z",
+      "until": "2026-12-01T00:00:00Z",
+      "target": 3,
+      "reward": "aurora_event_frame_v1",
+      "authorized": true
+    }
+  ],
+  "assets": [
+    {
+      "item": "avatar_owl_v1",
+      "sha256": "db38b8e1dc19ed3fe0429e2bce3721a3b1464ea0745a03c53665d00a8a19720d",
+      "bytes": 375255,
+      "format": "png"
+    },
+    {
+      "item": "avatar_fox_v1",
+      "sha256": "054b8d09ab583d81586d062dbf079832d83d0b086c436ecbd0452b01def7bfdc",
+      "bytes": 357551,
+      "format": "png"
+    },
+    {
+      "item": "frame_premiere_v1",
+      "sha256": "bee0b76b072a851a2263e8ccff59493869f493c6bf79bc40f187f88bd3a9b59f",
+      "bytes": 363511,
+      "format": "png"
+    },
+    {
+      "item": "frame_blue_reel_v1",
+      "sha256": "c872c233013f76564d1e280293b1ee9b0ea27947bacf12842bf8c12c43cf7179",
+      "bytes": 320520,
+      "format": "png"
+    },
+    {
+      "item": "appearance_noir_v1",
+      "sha256": "cd0cbe67e6bc86ce68c3bf1b0d42cb40af5d2bac05fdd0386341f5d522bc6eed",
+      "bytes": 570547,
+      "format": "png"
+    },
+    {
+      "item": "premiere_avatar_cat_v1",
+      "sha256": "f531dafedb5ba94f12c3e5950018f27ab5ce5217882d25ead2144c539e5f29e5",
+      "bytes": 343251,
+      "format": "png"
+    },
+    {
+      "item": "premiere_avatar_hare_v1",
+      "sha256": "ab9ea920ddceca3aa059b8c436cb961122aa903f81443388ef43de3d0544d883",
+      "bytes": 370867,
+      "format": "png"
+    },
+    {
+      "item": "premiere_frame_marquee_v1",
+      "sha256": "d5c7e9a9525b99bebc22fb99946790672b10f19fbd640ef9d1f1cf65d9c16818",
+      "bytes": 331143,
+      "format": "png"
+    },
+    {
+      "item": "premiere_frame_deco_v1",
+      "sha256": "0babf0f63a7d8cf3ffa838f38df3fc6a0afecc85d06a41d21903104a67ea7320",
+      "bytes": 262956,
+      "format": "png"
+    },
+    {
+      "item": "premiere_frame_spotlight_v1",
+      "sha256": "6c8306a1f9a2dd3b052b5ba358d7f7e607b2c88bf152a21d8517ecef859e7642",
+      "bytes": 252060,
+      "format": "png"
+    },
+    {
+      "item": "premiere_appearance_velvet_v1",
+      "sha256": "1ddeb3650ee48d1980b42847c57784d45b57dbfea5526e3db061898e406acd39",
+      "bytes": 523474,
+      "format": "png"
+    },
+    {
+      "item": "mission_avatar_firefly_v1",
+      "sha256": "b4dd7ab93322e51cb4ab43405eaeb610a6575a72c17691c11010322a298923b4",
+      "bytes": 370506,
+      "format": "png"
+    },
+    {
+      "item": "plus_frame_crown_v1",
+      "sha256": "36f4baa87d6c3f66863e3b8d00618bb018bf2c2b61f22d5a11d3e3484393236b",
+      "bytes": 245702,
+      "format": "png"
+    },
+    {
+      "item": "mission_frame_projector_v1",
+      "sha256": "9f2058284e46a53af4bc340a4f2569c94270b743ca3209d5c17e45d58862175e",
+      "bytes": 279624,
+      "format": "png"
+    },
+    {
+      "item": "mission_appearance_constellation_v1",
+      "sha256": "65ca2eeccfa47f42ced50fb2df2b5b0cb6946ddba3d3bd44cd95bbc6190b5af0",
+      "bytes": 430167,
+      "format": "png"
+    },
+    {
+      "item": "plus_appearance_premiere_v1",
+      "sha256": "386347774789306f4fecb3e8a2020165909330f289b3256094031e2fb0e025dd",
+      "bytes": 451096,
+      "format": "png"
+    },
+    {
+      "item": "night_avatar_raccoon_v1",
+      "sha256": "0ceb7e49f11c246c90b7602adbbcc3d04e2ff4857b3c5f0c2adbcebc089cdf66",
+      "bytes": 382143,
+      "format": "png"
+    },
+    {
+      "item": "night_avatar_otter_v1",
+      "sha256": "2c29596ae073ad51cf68cd61d97829c1e79612e121dbee76c84c86c427081814",
+      "bytes": 391601,
+      "format": "png"
+    },
+    {
+      "item": "night_frame_orbit_v1",
+      "sha256": "f828fa6ffd03883b610ce0a4858a5ae46213817e9c17721127696e0a7fa51f9a",
+      "bytes": 293524,
+      "format": "png"
+    },
+    {
+      "item": "night_frame_comet_v1",
+      "sha256": "3aba726550877ed910471a3c1f480aefe0485c61deb2dd8492bccbbfd6a42ef9",
+      "bytes": 271707,
+      "format": "png"
+    },
+    {
+      "item": "night_frame_observatory_v1",
+      "sha256": "f41e37a21703aae786ab0829aaab85ed97c4cf6ed22fded4d6ee9178f5963b7b",
+      "bytes": 353075,
+      "format": "png"
+    },
+    {
+      "item": "night_appearance_sky_v1",
+      "sha256": "9fe2c77baa521e8ae56b9325146e08cb1ffb4dbfaf9feff7a546ea43b35d68b9",
+      "bytes": 494042,
+      "format": "png"
+    },
+    {
+      "item": "city_avatar_panda_v1",
+      "sha256": "c5d8249bf45a8769221c257933b5526c81f479df826f617fd72e47d1d6962cde",
+      "bytes": 343235,
+      "format": "png"
+    },
+    {
+      "item": "city_avatar_hummingbird_v1",
+      "sha256": "772819779c6ea1457bdfd12fbaa7a6eb4fc553892e1cc460e5d89724f4f36ef4",
+      "bytes": 283678,
+      "format": "png"
+    },
+    {
+      "item": "city_frame_skyline_v1",
+      "sha256": "00c14a1b45b26e1248c04f901f4af46d9fc8c904e9734df4744a4695f01abaf8",
+      "bytes": 269135,
+      "format": "png"
+    },
+    {
+      "item": "city_frame_bridge_v1",
+      "sha256": "37c948976f8c77e5535915137eaa73d1d4a5062506c111b143b0282c4fb41517",
+      "bytes": 291884,
+      "format": "png"
+    },
+    {
+      "item": "city_frame_rain_v1",
+      "sha256": "9a491dae42492539532295d26a232a1539e0d14188631242d7f34cbc0125f75c",
+      "bytes": 283915,
+      "format": "png"
+    },
+    {
+      "item": "city_appearance_night_v1",
+      "sha256": "ab20f7451934ac6489828567406e5988ac0ba507b3309bddc34795eb16d7a1e0",
+      "bytes": 522279,
+      "format": "png"
+    },
+    {
+      "item": "aurora_event_frame_v1",
+      "sha256": "ab13cb7bf445b24cf0f308a0a2b1b993939ca341f82f4fe86e372e70ed1fd2a1",
+      "bytes": 333945,
+      "format": "png"
+    },
+    {
+      "item": "mission_avatar_capybara_v1",
+      "sha256": "ea677e4845e916061932ae6a20bf6c3369e190a46090a1396365614124250e78",
+      "bytes": 355200,
+      "format": "png"
+    },
+    {
+      "item": "mission_avatar_axolotl_v1",
+      "sha256": "b6df26b9b7b8f5cbe3d5b6a6d6c440d8c93b7c74b269d14fa795d200e2fa333b",
+      "bytes": 352448,
+      "format": "png"
+    },
+    {
+      "item": "mission_avatar_penguin_v1",
+      "sha256": "9431881b8809551fd3231a2298c293c49ba0f5f8cbc4fcb1c9fe133508edd9f9",
+      "bytes": 409462,
+      "format": "png"
+    }
+  ]
+}

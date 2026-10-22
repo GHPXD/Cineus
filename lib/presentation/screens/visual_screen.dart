@@ -1,11 +1,11 @@
 import 'dart:ui';
+import 'package:flutter/semantics.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_colors.dart';
-import '../../core/theme/app_fonts.dart';
 import '../../core/theme/app_typography.dart';
 import '../../domain/entities/game_session.dart';
 import '../l10n_mappers.dart';
@@ -14,15 +14,15 @@ import '../providers/providers.dart';
 import '../providers/play_notifier.dart';
 import '../widgets/franchise_hint_snackbar.dart';
 import '../widgets/extra_hints_bar.dart';
-import '../widgets/tap_target.dart';
+import '../widgets/gameplay_widgets.dart';
+import '../widgets/cineus_icon.dart';
+import '../widgets/cineus_poster.dart';
+import '../visuals/cineus_assets.dart';
 
 class VisualScreen extends ConsumerStatefulWidget {
   final SessionKind expectedKind;
 
-  const VisualScreen({
-    super.key,
-    this.expectedKind = SessionKind.daily,
-  });
+  const VisualScreen({super.key, this.expectedKind = SessionKind.daily});
 
   @override
   ConsumerState<VisualScreen> createState() => _VisualScreenState();
@@ -75,9 +75,17 @@ class _VisualScreenState extends ConsumerState<VisualScreen> {
           next.guessCount != prev?.guessCount) {
         showFranchiseHintSnackBar(context);
       }
+      if (next.step > (prev?.step ?? next.step) && !next.isFinished) {
+        SemanticsService.sendAnnouncement(
+          View.of(context),
+          context.l10n.posterRevealedAnnouncement(next.step),
+          Directionality.of(context),
+        );
+      }
     });
 
-    final waitingForDaily = widget.expectedKind == SessionKind.daily &&
+    final waitingForDaily =
+        widget.expectedKind == SessionKind.daily &&
         !state.isCurrentDaily &&
         state.error == null;
     if (state.isLoading || waitingForDaily) {
@@ -101,7 +109,8 @@ class _VisualScreenState extends ConsumerState<VisualScreen> {
     return _GameView(state: state, onBack: () => _back(state));
   }
 
-  String _errorMessage(BuildContext context, PlayLoadError error) => switch (error) {
+  String _errorMessage(BuildContext context, PlayLoadError error) =>
+      switch (error) {
         PlayLoadError.noMovies => context.l10n.noMoviesInDatabase,
         PlayLoadError.movieNotFound => context.l10n.movieNotFound,
         PlayLoadError.loadFailed => context.l10n.gameLoadFailed,
@@ -114,27 +123,27 @@ class _LoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        backgroundColor: AppColors.obsidian950,
-        body: Center(
-          child: Semantics(
-            liveRegion: true,
-            label: label,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const CircularProgressIndicator(color: AppColors.gold300),
-                const SizedBox(height: 16),
-                Text(
-                  label,
-                  style: AppTypography.bodySmall.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
-                ),
-              ],
+    backgroundColor: AppColors.obsidian950,
+    body: Center(
+      child: Semantics(
+        liveRegion: true,
+        label: label,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const CircularProgressIndicator(color: AppColors.gold300),
+            const SizedBox(height: 16),
+            Text(
+              label,
+              style: AppTypography.bodySmall.copyWith(
+                color: AppColors.textSecondary,
+              ),
             ),
-          ),
+          ],
         ),
-      );
+      ),
+    ),
+  );
 }
 
 class _ErrorView extends StatelessWidget {
@@ -142,61 +151,57 @@ class _ErrorView extends StatelessWidget {
   final VoidCallback? onRetry;
   final VoidCallback onBack;
 
-  const _ErrorView({
-    required this.error,
-    required this.onBack,
-    this.onRetry,
-  });
+  const _ErrorView({required this.error, required this.onBack, this.onRetry});
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        backgroundColor: AppColors.obsidian950,
-        body: SafeArea(
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 440),
-              child: Padding(
-                padding: const EdgeInsets.all(28),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(
-                      Icons.image_search_outlined,
-                      size: 48,
-                      color: AppColors.ruby300,
-                    ),
-                    const SizedBox(height: 16),
-                    Text(
-                      error,
-                      textAlign: TextAlign.center,
-                      style: AppTypography.titleMedium,
-                    ),
-                    const SizedBox(height: 24),
-                    if (onRetry != null) ...[
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton.icon(
-                          onPressed: onRetry,
-                          icon: const Icon(Icons.refresh_rounded),
-                          label: Text(context.l10n.retryAction),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: onBack,
-                        child: Text(context.l10n.back),
-                      ),
-                    ),
-                  ],
+    backgroundColor: AppColors.obsidian950,
+    body: SafeArea(
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 440),
+          child: Padding(
+            padding: const EdgeInsets.all(28),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const CineusIcon(
+                  CineusAssetId.error,
+                  size: 48,
+                  color: AppColors.ruby300,
                 ),
-              ),
+                const SizedBox(height: 16),
+                Text(
+                  error,
+                  textAlign: TextAlign.center,
+                  style: AppTypography.titleMedium,
+                ),
+                const SizedBox(height: 24),
+                if (onRetry != null) ...[
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: onRetry,
+                      icon: const CineusIcon(CineusAssetId.retry),
+                      label: Text(context.l10n.retryAction),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                ],
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: onBack,
+                    child: Text(context.l10n.back),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
-      );
+      ),
+    ),
+  );
 }
 
 class _GameView extends ConsumerWidget {
@@ -207,129 +212,39 @@ class _GameView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      backgroundColor: AppColors.obsidian950,
-      body: SafeArea(
-        child: Column(
+    return GameplayFrame(
+      header: GameplayHeader(state: state, onBack: onBack),
+      body: LayoutBuilder(
+        builder: (context, constraints) => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
           children: [
-            _buildHeader(context, state),
-            Expanded(
-              child: Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 720),
-                  child: ListView(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
-                    children: [
-                      const SizedBox(height: 20),
-                      _PosterArea(state: state),
-                      const SizedBox(height: 24),
-                      _LevelPips(state: state),
-                      const SizedBox(height: 20),
-                      if (!state.isFinished) ...[
-                        ExtraHintsBar(state: state),
-                        const SizedBox(height: 18),
-                        _ActionButtons(state: state),
-                      ],
-                      if (state.isFinished) const _FinishedBanner(),
-                      const SizedBox(height: 12),
-                      _GuessHistory(guesses: state.session?.guesses ?? []),
-                    ],
-                  ),
-                ),
-              ),
+            _PosterArea(
+              state: state,
+              maxHeight: (constraints.maxHeight * .55).clamp(100.0, 320.0),
             ),
+            const SizedBox(height: 16),
+            _LevelPips(state: state),
+            const SizedBox(height: 12),
+            GuessFeedback(state: state),
+            if (!state.isFinished) ExtraHintsBar(state: state),
+            if (state.isFinished) const _FinishedBanner(),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildHeader(BuildContext context, PlayState state) {
-    final session = state.session!;
-    final contextLabel = switch (session.kind) {
-      SessionKind.daily => '#${state.challengeNumber}',
-      SessionKind.stage => context.l10n.stageNumber('${session.stageId}'),
-      SessionKind.challenge => context.l10n.challengeBadge,
-    };
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      child: Row(
-        children: [
-          TapTarget(
-            label: context.l10n.semBack,
-            onTap: onBack,
-            child: Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                color: AppColors.obsidian700,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: AppColors.obsidian600),
-              ),
-              child: const Icon(
-                Icons.arrow_back_ios_rounded,
-                size: 16,
-                color: AppColors.obsidian100,
-              ),
+      actions: state.isFinished
+          ? const SizedBox.shrink()
+          : GameplayActions(
+              state: state,
+              onSearch: () => context.push('/visual/search'),
             ),
-          ),
-          const SizedBox(width: 8),
-          Flexible(
-            child: Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Cineus',
-                    style: TextStyle(
-                      fontFamily: AppFonts.playfair,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.white,
-                    ),
-                  ),
-                  TextSpan(
-                    text: '  ${context.l10n.navPosters} · $contextLabel',
-                    style: AppTypography.monoSmall.copyWith(
-                      color: AppColors.textTertiary,
-                    ),
-                  ),
-                ],
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          const SizedBox(width: 8),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            decoration: BoxDecoration(
-              color: AppColors.obsidian700,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Text(
-              state.isFinished
-                  ? (session.status == GameStatus.won
-                      ? context.l10n.scoreWithCheck(session.score)
-                      : context.l10n.gameOver)
-                  : context.l10n.worthPoints(state.currentScore),
-              style: AppTypography.monoSmall.copyWith(
-                color: state.isFinished
-                    ? AppColors.textSecondary
-                    : AppColors.gold300,
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
 
 class _PosterArea extends StatefulWidget {
   final PlayState state;
-  const _PosterArea({required this.state});
+  final double maxHeight;
+  const _PosterArea({required this.state, required this.maxHeight});
 
   @override
   State<_PosterArea> createState() => _PosterAreaState();
@@ -358,7 +273,8 @@ class _PosterAreaState extends State<_PosterArea>
     super.didUpdateWidget(old);
     final newSigma = widget.state.blurSigma;
     if (newSigma != _prevSigma) {
-      final reduceMotion = MediaQuery.maybeOf(context)?.disableAnimations ?? false;
+      final reduceMotion =
+          MediaQuery.maybeOf(context)?.disableAnimations ?? false;
       if (reduceMotion) {
         _sigmaAnim = AlwaysStoppedAnimation(newSigma);
       } else {
@@ -387,7 +303,7 @@ class _PosterAreaState extends State<_PosterArea>
 
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 280),
+        constraints: BoxConstraints(maxWidth: widget.maxHeight * 2 / 3),
         child: AspectRatio(
           aspectRatio: 2 / 3,
           child: ClipRRect(
@@ -396,28 +312,20 @@ class _PosterAreaState extends State<_PosterArea>
               animation: _sigmaAnim,
               builder: (_, child) {
                 final sigma = _sigmaAnim.value;
-                if (sigma <= 0.5) return child!;
-                return ImageFiltered(
-                  imageFilter: ImageFilter.blur(
-                    sigmaX: sigma,
-                    sigmaY: sigma,
-                    tileMode: TileMode.clamp,
-                  ),
-                  child: child,
+                return CineusPoster(
+                  movieId: widget.state.movie!.id,
+                  frameBuilder: (_, image, frame, synchronous) => sigma <= .5
+                      ? image
+                      : ImageFiltered(
+                          imageFilter: ImageFilter.blur(
+                            sigmaX: sigma,
+                            sigmaY: sigma,
+                            tileMode: TileMode.clamp,
+                          ),
+                          child: image,
+                        ),
                 );
               },
-              child: Image.asset(
-                posterAsset,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => const ColoredBox(
-                  color: AppColors.obsidian700,
-                  child: Icon(
-                    Icons.movie_outlined,
-                    size: 80,
-                    color: AppColors.textQuaternary,
-                  ),
-                ),
-              ),
             ),
           ),
         ),
@@ -435,25 +343,29 @@ class _LevelPips extends StatelessWidget {
     const labels = ['90%', '70%', '45%', '15%', '0%'];
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8,
+          runSpacing: 8,
           children: List.generate(5, (i) {
             final revealed = i < state.step;
             final current = i == state.step - 1;
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
+            return IntrinsicWidth(
               child: AnimatedContainer(
                 duration: (MediaQuery.disableAnimationsOf(context))
                     ? Duration.zero
                     : const Duration(milliseconds: 300),
-                width: current ? 46 : 36,
-                height: current ? 46 : 36,
+                constraints: BoxConstraints(
+                  minWidth: current ? 46 : 36,
+                  minHeight: current ? 46 : 36,
+                ),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
+                  borderRadius: BorderRadius.circular(12),
                   color: revealed
                       ? (current
-                          ? AppColors.gold300
-                          : AppColors.gold300.withValues(alpha: 0.35))
+                            ? AppColors.gold300
+                            : AppColors.gold300.withValues(alpha: 0.35))
                       : AppColors.obsidian700,
                   border: Border.all(
                     color: revealed
@@ -469,7 +381,7 @@ class _LevelPips extends StatelessWidget {
                     color: revealed
                         ? AppColors.obsidian900
                         : AppColors.textTertiary,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -478,66 +390,20 @@ class _LevelPips extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
+          context.l10n.posterStep(state.step, state.rules.totalSteps),
+          style: AppTypography.labelLarge,
+        ),
+        Text(
           state.isFinished
               ? (state.session?.status == GameStatus.won
-                  ? context.l10n.gotItAtLevel(state.step)
-                  : context.l10n.betterLuckTomorrow)
+                    ? context.l10n.gotItAtLevel(state.step)
+                    : context.l10n.betterLuckTomorrow)
               : context.l10n.blurAndPoints(state.blurLabel, state.currentScore),
           textAlign: TextAlign.center,
           style: AppTypography.bodySmall.copyWith(
             color: AppColors.textSecondary,
           ),
         ),
-      ],
-    );
-  }
-}
-
-class _ActionButtons extends ConsumerWidget {
-  final PlayState state;
-  const _ActionButtons({required this.state});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
-      children: [
-        SizedBox(
-          width: double.infinity,
-          height: 54,
-          child: ElevatedButton.icon(
-            onPressed: () => context.push('/visual/search'),
-            icon: const Icon(Icons.search_rounded, size: 20),
-            label: Text(
-              context.l10n.tryAnswerPoints(state.currentScore),
-              style: AppTypography.labelLarge.copyWith(
-                color: AppColors.obsidian900,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-          ),
-        ),
-        if (state.canRevealMore) ...[
-          const SizedBox(height: 10),
-          SizedBox(
-            width: double.infinity,
-            height: 48,
-            child: TextButton.icon(
-              onPressed: () =>
-                  ref.read(posterGameProvider.notifier).revealNext(),
-              icon: const Icon(
-                Icons.visibility_rounded,
-                size: 18,
-                color: AppColors.textSecondary,
-              ),
-              label: Text(
-                context.l10n.revealMore,
-                style: AppTypography.bodySmall.copyWith(
-                  color: AppColors.textSecondary,
-                ),
-              ),
-            ),
-          ),
-        ],
       ],
     );
   }
@@ -580,7 +446,11 @@ class _FinishedBanner extends ConsumerWidget {
       ),
       child: Column(
         children: [
-          Text(won ? '🏆' : '💀', style: const TextStyle(fontSize: 40)),
+          CineusIcon(
+            won ? CineusAssetId.resultVictory : CineusAssetId.resultDefeat,
+            size: 40,
+            color: won ? AppColors.gold300 : AppColors.ruby300,
+          ),
           const SizedBox(height: 8),
           Text(
             state.movie?.title ?? '',
@@ -631,73 +501,17 @@ class _FinishedBanner extends ConsumerWidget {
                 nextMovieId == null
                     ? context.l10n.finish
                     : canAdvance
-                        ? context.l10n.nextWithTicket
-                        : context.l10n.noTicketsShort,
+                    ? context.l10n.nextWithTicket
+                    : context.l10n.noTicketsShort,
                 style: AppTypography.labelLarge.copyWith(
                   color: AppColors.obsidian900,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class _GuessHistory extends StatelessWidget {
-  final List<String> guesses;
-  const _GuessHistory({required this.guesses});
-
-  @override
-  Widget build(BuildContext context) {
-    if (guesses.isEmpty) return const SizedBox.shrink();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          context.l10n.wrongAttemptsHeader,
-          style: AppTypography.labelSmall.copyWith(
-            color: AppColors.textTertiary,
-            letterSpacing: 1.2,
-          ),
-        ),
-        const SizedBox(height: 8),
-        ...guesses.map(
-          (g) => Padding(
-            padding: const EdgeInsets.only(bottom: 6),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-              decoration: BoxDecoration(
-                color: AppColors.ruby300.withValues(alpha: 0.07),
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: AppColors.ruby300.withValues(alpha: 0.2),
-                ),
-              ),
-              child: Row(
-                children: [
-                  const Icon(
-                    Icons.close_rounded,
-                    color: AppColors.ruby300,
-                    size: 16,
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      g,
-                      style: AppTypography.bodySmall.copyWith(
-                        color: AppColors.obsidian200,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
@@ -742,14 +556,20 @@ class _PosterResultScreen extends StatelessWidget {
               shrinkWrap: true,
               padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 28),
               children: [
-                Text(
-                  won ? '🎬🏆' : '💀🎬',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 52),
+                Center(
+                  child: CineusIcon(
+                    won
+                        ? CineusAssetId.resultVictory
+                        : CineusAssetId.resultDefeat,
+                    size: 64,
+                    color: won ? AppColors.gold300 : AppColors.ruby300,
+                  ),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  won ? context.l10n.youRecognized : context.l10n.didntRecognize,
+                  won
+                      ? context.l10n.youRecognized
+                      : context.l10n.didntRecognize,
                   textAlign: TextAlign.center,
                   style: AppTypography.titleLarge,
                 ),
@@ -786,8 +606,9 @@ class _PosterResultScreen extends StatelessWidget {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          won ? AppColors.gold300 : AppColors.ruby300,
+                      backgroundColor: won
+                          ? AppColors.gold300
+                          : AppColors.ruby300,
                     ),
                     child: Text(
                       state.stageId != null

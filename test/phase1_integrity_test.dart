@@ -123,9 +123,7 @@ void main() {
     );
     expect(won.status, GameStatus.won);
 
-    final stale = await repo.saveSession(
-      initial.copyWith(revealedClues: 2),
-    );
+    final stale = await repo.saveSession(initial.copyWith(revealedClues: 2));
     expect(stale.status, GameStatus.won);
     expect(stale.score, 10);
 
@@ -137,8 +135,11 @@ void main() {
   test('carregar vitória repara stage_progress perdido após crash', () async {
     final repo = GameRepositoryImpl(TestDatabaseProvider(db));
     await repo.saveSession(
-      GameSession.stage(mode: GameMode.clue, stageId: 7, movieId: 10)
-          .copyWith(status: GameStatus.won, score: 9),
+      GameSession.stage(
+        mode: GameMode.clue,
+        stageId: 7,
+        movieId: 10,
+      ).copyWith(status: GameStatus.won, score: 9),
     );
     expect(await db.query('stage_progress'), isEmpty);
 
@@ -152,4 +153,26 @@ void main() {
     );
     expect(progress.length, 1);
   });
+
+  test(
+    'filme homônimo escolhido com outro ID não ganha por coincidência de título',
+    () async {
+      final notifier = notifierFor(GameMode.clue);
+      await notifier.loadStageFilm(10, 1, [10, 20]);
+      final wrong = await notifier.submitGuess(
+        'Filme Dez',
+        selectedMovieId: 20,
+        selectedMovieYear: 2020,
+      );
+      expect(wrong, GuessOutcome.wrong);
+      expect(notifier.state.session!.status, GameStatus.playing);
+      expect(notifier.state.step, 2);
+      expect(notifier.state.session!.guesses, ['Filme Dez (2020)']);
+      expect(
+        await notifier.submitGuess('Filme Dez', selectedMovieId: 10),
+        GuessOutcome.correct,
+      );
+      expect(notifier.state.session!.score, 9);
+    },
+  );
 }

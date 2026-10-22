@@ -1,0 +1,27 @@
+{
+  "id": "categoryHorror",
+  "kind": "icon",
+  "subject": "a mysterious angular cinema mask with two large hollow eyes, sophisticated horror, no gore",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: a mysterious angular cinema mask with two large hollow eyes, sophisticated horror, no gore.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-0e3e8b4d-40ce-4783-b067-cce67aee355e.png",
+  "source": "assets/generated/sources/categoryHorror.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryHorror.svg",
+  "source_sha256": "17b8354dfeb902e74ef63634a44ba0d08e866c6a56500f4f2f016499b47245d4",
+  "svg_sha256": "ebf2d5dadb8285a4d72c6f1cca5f4ff88a071e7fb1d194e3deab64c2c552d1eb",
+  "paths": 29,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryHorror_ink.svg",
+  "ink_sha256": "447d5120154f89402d82e2f60c4d65364a96d7213bc13971bd368dc29806d285"
+}

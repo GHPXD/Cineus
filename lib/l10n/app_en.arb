@@ -1,27 +1,38 @@
 {
+  "colorModeTitle": "Colors",
+  "colorRecallPart": "Remember the color: {part}",
+  "colorYourTone": "Your shade",
+  "colorHue": "Hue",
+  "colorSaturation": "Saturation",
+  "colorBrightness": "Brightness",
+  "colorRulesAction": "How it works",
+  "colorRulesTitle": "Five colors. One memory.",
+  "colorCatalogFailed": "Could not load the questions.",
+  "colorRetry": "Try again",
+  "colorClose": "Got it",
+  "@colorRecallPart": {
+    "placeholders": {
+      "part": {
+        "type": "String"
+      }
+    }
+  },
   "@@locale": "en",
-
   "appTitle": "Cineus",
-
-  "shareWin": "🎬 Cineus #{challenge}\nGot it on clue {clue}/{total} · {score}pts\n\n{grid}\n\ncineus.app",
-  "shareLose": "🎬 Cineus #{challenge} · Loss\n\n{grid}\n\ncineus.app",
-  "shareStageWin": "🎬 Cineus · Stage {stage}\nGot it on clue {clue}/{total} · {score}pts\n\n{grid}\n\ncineus.app",
-  "shareStageLose": "🎬 Cineus · Stage {stage} · Loss\n\n{grid}\n\ncineus.app",
-  "shareFriendWin": "🎬 Cineus · Friend challenge\nGot it on clue {clue}/{total} · {score}pts\n\n{grid}\n\ncineus.app",
-  "shareFriendLose": "🎬 Cineus · Friend challenge · Loss\n\n{grid}\n\ncineus.app",
-
+  "shareWin": "🎬 Cineus #{challenge}\nGot it on clue {clue}/{total} · {score}pts\n\n{grid}",
   "semBack": "Back",
   "semStats": "View statistics",
   "semHelp": "How to play",
-  "semGuessThisMovie": "Guess {title}",
   "semTicketBalance": "{count} tickets available",
-
   "reminderTitle": "Cineus",
   "reminderBody": "Today's challenge is live. How many clues will you need?",
   "reminderSettingTitle": "Daily reminder",
   "reminderSettingSubtitle": "One nudge at 9am, your time",
   "reminderDenied": "Notifications are blocked. Allow them in system settings to turn this on.",
-
+  "reminderFailed": "Could not update the reminder. Please try again.",
+  "fontLicensesTitle": "Font licenses",
+  "fontLicenseFailed": "Could not open the license. Please try again.",
+  "rewardFailed": "Could not add the reward right now. Your result is saved.",
   "challengeSectionTitle": "Challenge a friend",
   "challengeShareButton": "Challenge a friend",
   "challengeShareText": "🎬 Cineus: bet you can't get this film.\nCode: {code}\n{link}",
@@ -31,18 +42,14 @@
   "challengeInvalid": "Invalid code. Check the characters and try again.",
   "challengeBadge": "FRIEND'S CHALLENGE",
   "challengeFilmNotFound": "That challenge points at a film this version of the app does not have.",
-
-  "appTagline": "Guess the film in up to 10 clues.\nThe fewer you use, the more points.",
-
+  "appTagline": "Guess movies from clues or posters.\nRecall colors and advance through stages.",
   "navHome": "Home",
   "navFilms": "Films",
   "navPosters": "Posters",
-
   "back": "Back",
   "backHome": "Back to Home",
   "statsTitle": "Statistics",
   "settingsTitle": "Settings",
-  "errorWithMessage": "Error: {message}",
   "movieNotFound": "Film not found",
   "noMoviesInDatabase": "No films in the database",
   "gameLoadFailed": "The game could not be loaded.",
@@ -51,53 +58,31 @@
   "statsLoadFailed": "Your statistics could not be loaded.",
   "stageNotFound": "This stage does not exist or is no longer available.",
   "backToStages": "Back to Stages",
-
   "dailyChallengeLabel": "DAILY CHALLENGE",
   "modeClues": "Clues",
   "modePoster": "Poster",
-  "notPlayedToday": "Not played today",
-  "inProgressEllipsis": "In progress...",
-  "scoreWithCheck": "{score} pts ✅",
-  "notThisTimeSkull": "Not this time 💀",
   "dailyDone": "Today's challenge is done!",
-  "playChallenge": "Play Challenge",
-  "continueClues": "Continue Clues",
-  "continuePoster": "Continue Poster",
-  "playPoster": "Play Poster",
   "nextChallengeCountdown": "Next in {hours}h {minutes}m {seconds}s",
   "statPlayed": "Played",
   "statWins": "Wins",
-  "statStreak": "Streak",
-  "quickActionStages": "Stages",
-  "quickActionStagesSub": "Films by level",
   "quickActionStatsSub": "Your history",
-  "quickActionChallengeSub": "Open by code",
-
+  "homeOpenChallenge": "Open challenge",
+  "homeOpenChallengeSub": "By code or link",
   "cluesHeader": "CLUES",
   "cluesRevealed": "{count} / {total} revealed",
   "clueFallback": "Clue {number}",
   "clueNew": "NEW",
-  "tryAnswerClue": "Take a Guess · Clue {clue}",
   "lastAttempt": "Last attempt!",
   "skipToClue": "Skip · see clue {next} (−1 pt)",
-  "fewPointsLeft": "Few points left!",
-  "lastClueNowOrNever": "Last clue! Now or never.",
-  "youGotIt": "You got it! ✅",
+  "youGotIt": "You got it!",
   "notThisTime": "Not this time.",
   "scoreLine": "Score: {score} pts",
   "tryAgainTomorrow": "Try again tomorrow.",
   "seeResult": "See Result",
   "stageNumber": "Stage {id}",
   "franchiseHint": "Close! Right franchise, wrong film!",
-
   "scorePoints": "POINTS",
   "scoreAvailable": "available",
-  "scoreHintMax": "Guess now and take the maximum",
-  "scoreHintStillWorth": "{revealed} clues revealed · still worth it",
-  "scoreHintRunningOut": "Careful — the points are running out",
-  "scoreHintNextLeaves": "Revealing clue {next} leaves you just {points}pt",
-  "scoreHintLastChance": "Last chance — worth only 1pt",
-
   "whichMovie": "Which film is it?",
   "movieNameHint": "Film title...",
   "attemptsHeader": "ATTEMPTS",
@@ -105,91 +90,64 @@
   "searchChallenge": "Challenge #{number} · ",
   "searchStage": "Stage {id} · ",
   "searchFriendChallenge": "Friend challenge · ",
-  "searchPoints": "{points} points",
+  "searchPoints": " · {points, plural, =1{1 point} other{{points} points}}",
   "searchAvailableSuffix": " available",
   "searchTypeHint": "Type at least 2 letters to search.",
   "searchNoResults": "No films found.",
   "searchFailed": "Search is unavailable right now.",
   "blurLabel": "Blur ",
-
-  "resultWin": "🎉 CORRECT!",
-  "resultLose": "💔 NOT THIS TIME",
-  "theMovieWas": "THE FILM WAS",
-  "gotItOnClue": "Got it on clue {clue}!",
-  "yourResult": "YOUR RESULT",
   "share": "Share",
-  "resultShared": "Result shared! 🎬",
-  "resultCopied": "Result copied! 📋",
-  "playPosterArrow": "Play Poster →",
-  "nextFilmCost": "Next Film · 1 🎫",
-  "noTicketsForNext": "No 🎫 for the next one",
+  "resultShared": "Result shared!",
+  "resultCopied": "Result copied!",
+  "noTicketsForNext": "No tickets for the next one",
   "nextChallengeIn": "NEXT CHALLENGE IN",
-
-  "stagesSubtitleClues": "Complete the stages to unlock more films.",
-  "stagesEducationClues": "In stages, starting or retrying a film costs 1 🎫. Continuing a game already in progress does not charge again.",
-  "stagesEducationPosters": "In Poster mode, each reveal reduces both blur and score. In stages, starting or retrying costs 1 🎫.",
-  "stagesSubtitlePosters": "Guess the films from the blurred poster.",
-  "stageWord": "STAGE",
+  "stagesSubtitleClues": "Advance through stages and unlock new movies.",
+  "stagesSubtitlePosters": "Guess movies from blurred posters.",
   "locked": "Locked",
-  "filmsCount": "{count} films",
-  "stageSemanticsLocked": "{name}, locked",
-  "stageSemanticsComplete": "{name}, complete",
+  "filmsCount": "{count, plural, =0{0 films} =1{1 film} other{{count} films}}",
   "stageSemanticsProgress": "{name}, {done} of {total} done",
   "filmsDone": "films done",
   "postersDone": "posters done",
   "stageProgressLine": "{done} / {total} {label}",
   "itemFilm": "Film",
   "itemPoster": "Poster",
-  "slotNotStarted": "Not started • 1 🎫",
-  "slotMissedRetry": "Missed • 1 🎫 to replay",
+  "slotNotStarted": "Not started",
+  "slotMissedRetry": "Missed",
   "slotInProgress": "In progress",
-  "slotPoints": "{score} points",
-  "slotCompleted": "Done",
-  "actionPlay": "Play",
+  "slotPoints": "{score, plural, =0{0 points} =1{1 point} other{{score} points}}",
   "actionContinue": "Continue",
-  "actionRetry": "Retry",
-  "noTicketsShort": "No 🎫",
-
+  "noTicketsShort": "No tickets",
   "revealMore": "Reveal more · −1 pt",
-  "tryAnswerPoints": "Take a Guess · {points} pts",
-  "wrongAttemptsHeader": "WRONG ATTEMPTS",
   "worthPoints": "Worth {points} pts",
-  "gameOver": "Game Over",
   "gotItAtLevel": "Got it at level {level}!",
   "betterLuckTomorrow": "Better luck tomorrow",
   "blurAndPoints": "Blur {blur} · {points} pts",
   "youRecognized": "You recognised it!",
   "didntRecognize": "Didn't recognise it",
   "itWas": "It was: {title}",
-  "pointsPlain": "{score} points",
+  "pointsPlain": "{score, plural, =0{0 points} =1{1 point} other{{score} points}}",
   "youDidntGuess": "You didn't guess it",
-  "nextWithTicket": "Next · 1 🎫",
+  "nextWithTicket": "Next · 1 ticket",
   "finish": "Finish",
-
-  "extraHintsHeader": "EXTRA HINTS",
-  "extraHintsNoPointCost": "no point cost",
   "hintDirector": "Director",
   "hintYear": "Year",
   "hintRuntime": "Runtime",
   "unknownDirector": "Unknown",
   "runtimeMinutes": "{minutes} min",
-  "oneTicket": "1 🎫",
-  "noTicketsLower": "no 🎫",
+  "oneTicket": "1 ticket",
+  "noTicketsLower": "no tickets",
   "noTicketsForHint": "Not enough tickets to buy a hint",
   "buyHintSemantics": "Buy the {label} hint for {cost} ticket",
-
   "ticketsEarned": "{count, plural, =1{+1 ticket!} other{+{count} tickets!}}",
   "rewardDailyWin": "Daily challenge completed",
   "rewardStreak": "{days}-day streak",
   "rewardStageComplete": "Stage {id} complete",
-
   "streakAtRisk": "Your streak is at risk",
-  "streakRecoverBody": "You didn't play on {day}. Spend {cost} 🎫 to protect that day and keep your streak.",
-  "protectStreak": "Protect streak · {cost} 🎫",
+  "streakRecoverBody": "You missed {day}. Use {cost} tickets to protect that day and keep your streak.",
+  "protectStreak": "Protect streak · {cost} tickets",
   "protecting": "Protecting…",
-  "needTickets": "Needs {cost} 🎫",
-  "streakProtected": "Streak protected! 🔥",
-
+  "needTickets": "You need {cost} tickets",
+  "streakProtected": "Streak protected!",
   "statGames": "GAMES",
   "statWinsCaps": "WINS",
   "statRate": "RATE",
@@ -197,7 +155,7 @@
   "statAverageSub": "clues",
   "statAveragePosterSub": "levels",
   "currentStreakTitle": "Current Streak",
-  "dayCount": "{count, plural, =1{1 day} other{{count} days}}",
+  "dayCount": "{count, plural, =0{0 days} =1{1 day} other{{count} days}}",
   "bestLabel": "Best",
   "playToSeeDistribution": "Play to see the distribution",
   "pointsDistribution": "POINTS DISTRIBUTION",
@@ -208,13 +166,12 @@
   "byDecade": "By decade",
   "recentGamesHeader": "RECENT GAMES",
   "unknownMovie": "Unknown film",
-  "cluesUsedCount": "{count} clues",
+  "cluesUsedCount": "{count, plural, =0{0 clues} =1{1 clue} other{{count} clues}}",
   "defeatShort": "Loss",
   "bucketSemantics": "{label}: {pct} percent win rate over {played} games",
   "bucketValue": "{pct}% · {played}",
   "achievementUnlocked": "Unlocked",
   "achievementInProgress": "In progress {progress}",
-
   "achFirstWin": "First win",
   "achFirstWinDesc": "Win your first daily challenge.",
   "achPerfect": "Never flinched",
@@ -229,31 +186,919 @@
   "achStages5Desc": "Complete 5 stages.",
   "achTickets100": "Box office",
   "achTickets100Desc": "Earn 100 tickets by playing.",
-
   "quickGuide": "QUICK GUIDE",
-  "howItWorks": "How Cineus\nworks",
-  "rule1Title": "10 progressive clues",
-  "rule1Desc": "Each challenge has 10 clues, from the most abstract to the most obvious. You choose when to reveal the next one.",
-  "rule2Title": "Fewer clues = more points",
-  "rule2Desc": "Each revealed clue costs 1 point. Guess on the first and take 10; on the tenth, just 1.",
-  "rule3Title": "Search with autocomplete",
-  "rule3Desc": "Type the title in the search field — accents and exact spelling are not required. The Portuguese or the original title both work.",
-  "rule4Title": "One challenge a day",
-  "rule4Desc": "A new film every day at midnight UTC. Share your result spoiler-free and compare with friends.",
   "gotItLetsPlay": "Got it, let's play!",
-
   "languageTitle": "Language",
   "languageSystem": "System default",
   "contentLanguageNote": "Clues and film titles come from the Portuguese catalogue.",
   "rewardedTitle": "Earn tickets",
   "rewardedBody": "Watch an optional ad and earn {amount} tickets. {remaining} rewards left today.",
-  "rewardedAction": "Watch and earn +{amount} 🎫",
-  "rewardedDone": "Tickets added! 🎫",
+  "rewardedAction": "Watch and earn +{amount} tickets",
+  "rewardedDone": "Tickets added!",
   "passTitle": "Cineus Pass",
   "passBody": "All gameplay stays free. Pass removes non-optional ads and may include convenience benefits.",
   "passActive": "Pass active · no non-optional ads",
   "passGet": "Get Pass {price}",
   "passRestore": "Restore purchase",
-
-  "tickets": "{current}/{max}"
+  "tickets": "{current}/{max}",
+  "homeTitle": "Cinema, every day.",
+  "dailyFree": "FREE",
+  "dailyWinPoints": "{score} points · Correct",
+  "@dailyWinPoints": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyLost": "Finished · Not this time",
+  "dailyPlaying": "Game in progress",
+  "ticketBalance": "{count, plural, =0{0 tickets} =1{1 ticket} other{{count} tickets}}",
+  "@ticketBalance": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketDetailsTitle": "Your tickets",
+  "ticketDaily": "Daily",
+  "ticketBonus": "Bonus",
+  "ticketDailyDetail": "{count} of {max}",
+  "@ticketDailyDetail": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "ticketResetInfo": "Daily tickets refill at midnight UTC. Bonus tickets stay with you.",
+  "ticketUsageInfo": "Daily and friend challenges are free. Starting or replaying a stage movie and each extra hint cost 1 ticket.",
+  "ticketBalanceFailed": "Your balance could not be loaded.",
+  "ticketResetCountdown": "Refill in {hours}h {minutes}m",
+  "@ticketResetCountdown": {
+    "placeholders": {
+      "hours": {},
+      "minutes": {}
+    }
+  },
+  "confirmGuess": "Confirm guess",
+  "selectedMovieLabel": "Selected film",
+  "selectMovieSemantics": "Select {title}, {year}",
+  "guessSaveFailed": "Could not save your guess. Please try again.",
+  "savingGuess": "Saving guess…",
+  "gameActionFailed": "Could not save the action. Please try again.",
+  "hintSaveFailed": "Could not complete the hint purchase. Check your balance and try again.",
+  "wrongGuessRevealed": "Incorrect guess. A new step has been revealed.",
+  "clueRevealedAnnouncement": "Clue {number} revealed.",
+  "posterRevealedAnnouncement": "Level {number} revealed.",
+  "lastGuessLabel": "Last guess: {title}",
+  "ticketHelpAction": "Understand tickets",
+  "ticketEmptyHint": "No tickets for extra hints. You can continue this game for free.",
+  "noTicketDailyTip": "The daily challenge is free in both modes.",
+  "gameAnswer": "Answer",
+  "posterStep": "Level {step} of {total}",
+  "searchResultCount": "{count, plural, =1{1 film found} other{{count} films found}}",
+  "@selectMovieSemantics": {
+    "placeholders": {
+      "title": {},
+      "year": {
+        "type": "int"
+      }
+    }
+  },
+  "@clueRevealedAnnouncement": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@posterRevealedAnnouncement": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@lastGuessLabel": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "@posterStep": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@searchResultCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "challengeInputLabel": "Cineus code or link",
+  "pasteChallenge": "Paste code or link",
+  "challengeLoadFailed": "Could not load the challenge. Please try again.",
+  "editChallenge": "Edit code or link",
+  "resultUnavailable": "This result is unavailable. Return to the game or home screen.",
+  "returnToGame": "Back to game",
+  "resultProgress": "Steps: {step}/{total}",
+  "resultScore": "{score, plural, =0{0 points} =1{1 point} other{{score} points}}",
+  "shareImage": "Share result card",
+  "copyResultText": "Copy result as text",
+  "shareCardTitle": "Your result card",
+  "shareFailed": "Could not open sharing. Try again.",
+  "copyFailed": "Could not copy. Please try again.",
+  "challengeInviteHelp": "Send the code or link to a friend to play this film in the same mode.",
+  "shareChallengeCopy": "Copy invitation",
+  "dailyInviteWarning": "The invitation opens this same film. The Daily card still hides the answer.",
+  "sharePreviewAction": "View card",
+  "shareModeClues": "Clues",
+  "shareModePoster": "Poster",
+  "@resultProgress": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@resultScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "resultVictoryLabel": "Correct!",
+  "resultDefeatLabel": "Not this time",
+  "challengeEntryHelp": "Paste the code or link a friend sent you. The invitation includes the game mode.",
+  "stagesCurrent": "Your next stage",
+  "stageOpen": "View games",
+  "stageUnlockAfter": "Complete {stage} in this mode to unlock.",
+  "@stageUnlockAfter": {
+    "placeholders": {
+      "stage": {}
+    }
+  },
+  "stageCompleteLabel": "Stage completed",
+  "stageCostHelp": "Starting or retrying costs 1 ticket. Resuming a game is free.",
+  "stageNoTicketsHelp": "No tickets for a new game? Resume active games for free or play the Daily. Check when your balance renews.",
+  "stageLoadingAction": "Opening game…",
+  "statsOverview": "Overview",
+  "statsAchievementsTab": "Achievements",
+  "statsDailyOnly": "Daily history · {mode}",
+  "@statsDailyOnly": {
+    "placeholders": {
+      "mode": {}
+    }
+  },
+  "statsEmptyTitle": "Your story starts here",
+  "statsEmptyBody": "Finish a daily challenge to record your first result.",
+  "streakEmpty": "No active streak",
+  "streakDailyHelp": "Consecutive daily wins in this mode. Protected days keep the streak but do not add wins.",
+  "protectedDays": "{count, plural, =0{0 protected days} =1{1 protected day} other{{count} protected days}}",
+  "@protectedDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "protectedDaysHelp": "Protections recorded in history, valid for both modes.",
+  "achievementScopeDailyClues": "Daily · Clues",
+  "achievementScopeStagesBoth": "Stages · Clues and Poster",
+  "achievementScopeRewardsBoth": "Rewards · Clues and Poster",
+  "achievementRulesHelp": "Win, score, streak and game achievements use the Clues Daily. Completed stages and earned tickets combine both modes. Invitations do not count as Daily games.",
+  "achievementLockedLabel": "Not unlocked yet",
+  "achievementProgress": "{done} of {total} achievements unlocked",
+  "@achievementProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "streakProtectFailed": "Your streak could not be protected. Try again.",
+  "stageDailyAction": "View free Daily",
+  "guideTitle": "Try the three modes",
+  "guideCluesTitle": "Clues: from mystery to answer",
+  "guideCluesBody": "Guess with up to 10 clues. Each reveal or wrong guess reduces the score by 1 point.",
+  "guidePosterTitle": "Poster: reveal gradually",
+  "guidePosterBody": "Guess with up to 5 blur levels. Revealing more or guessing wrong reduces the score by 1 point.",
+  "guideAnswerTitle": "Choose, check and confirm",
+  "guideAnswerBody": "Search by the Portuguese or original title. Select the movie with the correct year and confirm.",
+  "guideWrongTitle": "A wrong guess advances the game",
+  "guideWrongBody": "A wrong guess automatically reveals the next clue or level. A wrong final attempt ends the game with zero points.",
+  "guideTicketsTitle": "Tickets: know when to use them",
+  "guideTicketsBody": "Starting or replaying a stage costs 1 ticket; resuming is free. In Need a hint?, use 1 ticket or an optional video to unlock help and keep 1 ticket. Dailies and movie invitations are free.",
+  "guideTicketsRenewal": "Your daily balance resets to 10 at midnight UTC. Extra tickets are kept. Finishing the Colors daily grants +2 once per date; stages do not grant this reward.",
+  "guideDailyTitle": "Dailies on Home",
+  "guideDailyBody": "Clues, Poster and Colors each have a free daily on Home. They change at midnight UTC. The screen countdown shows the time remaining.",
+  "guideStagesTitle": "Progress at your own pace",
+  "guideStagesBody": "In Movies, Posters and Colors, finish the games to unlock the next stage. Movies and Posters have 10 games per stage; Colors has two games of five different characters. Each mode has separate progress.",
+  "guideSaveFailed": "Could not save that you saw the guide. Try again.",
+  "settingsPreferences": "Preferences",
+  "settingsHelpSection": "Help and support",
+  "supportTitle": "Support",
+  "supportBody": "Find help or report a problem on GitHub. Opening the link does not send a message automatically. Avoid posting personal data.",
+  "supportOpen": "Open support",
+  "supportCopy": "Copy support link",
+  "supportOpenFailed": "Could not open the browser. Copy the link to access support.",
+  "supportCopied": "Support link copied.",
+  "supportCopyFailed": "Could not copy. You can select the link below.",
+  "searchEmptyHelp": "Check spelling or try the original title. Select a movie with the correct year before confirming.",
+  "colorTrainingBadge": "TRAINING",
+  "colorRoundProgress": "Round {current}/{total}",
+  "colorComplete": "Complete",
+  "colorTrainingRulesBody": "Adjust the color, confirm and compare with the reference. Five rounds give a final average. A hint deducts 1 point.",
+  "colorConfirm": "Confirm colour",
+  "colorNextRound": "Next round",
+  "colorSeeFinal": "See final average",
+  "colorPlayAgain": "Play again",
+  "colorRestart": "Restart training",
+  "colorHintAction": "Use hint · −1 point",
+  "colorHintApplied": "Hint used · −1 point",
+  "colorRoundResult": "Your colour, side by side.",
+  "colorReferenceTone": "Reference",
+  "colorScoreValue": "{score} / 10",
+  "colorFinalTitle": "Five colours. Your memory.",
+  "colorAverageLabel": "Your average",
+  "colorDiscardTitle": "Leave this training?",
+  "colorDiscardBody": "This game’s progress will be lost. New training starts at round one.",
+  "colorKeepPlaying": "Keep playing",
+  "colorDiscardAction": "Discard game",
+  "@colorRoundProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@colorScoreValue": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "colorDailyBadge": "DAILY",
+  "colorDailyTitle": "Daily challenge",
+  "colorResume": "Continue game",
+  "colorResumeRound": "Continue · round {round}/5",
+  "@colorResumeRound": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "colorPendingDaily": "Unfinished daily",
+  "colorOldDailyPolicy": "Finish this game whenever you like. It keeps its original date and does not take today’s daily slot.",
+  "colorHistory": "Colour history",
+  "colorOpenHistory": "View my history",
+  "colorHistoryEmpty": "You have not completed a game in this category yet.",
+  "colorHistoryFive": "Five confirmed answers. Open to review each round.",
+  "colorSeeResult": "Review result",
+  "colorSaving": "Saving your game…",
+  "colorSaveFailed": "Could not save. Retry before leaving; the game has not advanced.",
+  "colorReloadSaved": "Reload saved version",
+  "colorBackHub": "Back to Colors",
+  "colorLoadFailed": "Could not open colour data. It has been preserved. Retry; a game with an incompatible version needs an app update.",
+  "colorLoading": "Opening your saved colours…",
+  "colorReplaceTrainingBody": "Starting another training game replaces the current training. Completed results stay in your history.",
+  "colorSavedRules": "Adjust the color and confirm to compare it with the reference. Five rounds give a final average. A hint deducts 1 point. Stages are on Colors; dailies are on Home.",
+  "colorReplaceTrainingTitle": "Start another training game?",
+  "colorReplaceTrainingAction": "Replace training",
+  "colorGuideTitle": "How to play Colors",
+  "colorGuideAdjustTitle": "Color the character",
+  "colorGuideAdjustBody": "Adjust the character’s color and see the result in real time.",
+  "colorGuideResultTitle": "Compare your choice",
+  "colorGuideResultBody": "Colors close to the reference earn up to 10 points. Each game has five rounds; the final score is their average.",
+  "colorGuideHintRule": "One hint per round subtracts 1 point. The quick hint is free; adjustment guidance uses 1 ticket or an optional video.",
+  "colorGuideDailyRule": "On Colors, each stage has ten different characters in two games of five. Finish both to unlock the next stage. The daily challenge is on Home.",
+  "colorGuideSaveRule": "The game is saved on this device and can be resumed. An older daily keeps its date. Clearing app data or uninstalling removes local history.",
+  "colorGuideSaveFailed": "Could not save the tutorial step. Retry; no game has been created.",
+  "colorGuideDone": "Got it, let’s play",
+  "colorGuideNext": "Next step",
+  "colorGuidePrevious": "Previous step",
+  "colorRewardSaving": "Recording your +2 tickets…",
+  "colorRewardEarned": "+2 tickets earned from daily. This date’s reward is already in your balance.",
+  "colorRewardFailed": "Your result is saved. Could not confirm the tickets; retry to recover the reward.",
+  "colorStatsTitle": "Colour statistics",
+  "colorStatsCompleted": "Completed games",
+  "colorStatsMean": "Game average",
+  "colorStatsBest": "Best average",
+  "colorStatsRounds": "Average per round",
+  "colorStatsRoundsBody": "Each position combines scores from your completed games in this category.",
+  "colorStatsRound": "Round {round}",
+  "@colorStatsRound": {
+    "placeholders": {
+      "round": {
+        "type": "int"
+      }
+    }
+  },
+  "colorStatsRecent": "Recent results",
+  "colorStatsScope": "Colour scores are independent. They do not change Clues or Poster wins or streaks.",
+  "colorStatsOpen": "View my statistics",
+  "colorShareTitle": "My memory has colour.",
+  "colorSharePrivacy": "Scores only: characters, questions and colours stay out of this card.",
+  "colorShareText": "Share text",
+  "colorHomeDescription": "Remember the shade? Recolour five characters and compare your memory with the reference.",
+  "colorExactTitle": "Adjust {label}",
+  "@colorExactTitle": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "colorExactRange": "Value from 0 to {max}. Decimals are allowed.",
+  "@colorExactRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "colorExactInvalid": "Enter a number between 0 and {max}.",
+  "@colorExactInvalid": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "colorExactSemantic": "{value} out of {max}",
+  "@colorExactSemantic": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "colorExactApply": "Apply value",
+  "colorExactCancel": "Cancel",
+  "colorDecrease": "Decrease {label}",
+  "@colorDecrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "colorIncrease": "Increase {label}",
+  "@colorIncrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "colorCreditsTitle": "Colour sources",
+  "colorCreditsDescription": "References used in the colour collection. Shades correspond to the indicated parts and versions; the artwork is a visual interpretation.",
+  "colorCreditsGenerated": "Illustration generated for Cineus",
+  "colorCreditsReference": "Illustration based on a reference image",
+  "colorCreditsStudy": "Colour-study reference",
+  "colorCreditsArt": "Reference image source",
+  "homeDailyAction": "Play daily",
+  "homeDailyCompleted": "Daily completed",
+  "homeStatsTitle": "My statistics",
+  "homeCluesDescription": "Test your movie knowledge.",
+  "homePosterDescription": "Can you name the movie from its poster?",
+  "homeChallengeUnavailable": "Could not load this challenge.",
+  "filmsToStart": "to start",
+  "filmsInStage": "in this stage",
+  "filmsAllStages": "All stages",
+  "filmsUnlockAfter": "Complete {stage}",
+  "filmsEmpty": "No stages available.",
+  "@filmsUnlockAfter": {
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
+  "colorEnlargeCharacter": "Enlarge character",
+  "colorZoomHint": "Use two fingers to zoom in on the details.",
+  "colorStagesSubtitle": "Recall colors and advance through stages.",
+  "colorStageTitle": "Stage {stage}",
+  "colorStageProgress": "{done} / {total} characters completed",
+  "colorStageStructure": "10 different characters · 2 games of 5",
+  "colorStageReturn": "Back to stage",
+  "colorStageMatch": "Game {match}",
+  "colorStageStart": "Start · 1 ticket",
+  "colorStageResume": "Continue",
+  "colorStageOpen": "View games",
+  "colorStageLocked": "Complete Stage {stage}",
+  "colorStageDailyHome": "Daily challenges are on Home.",
+  "colorStageLegacy": "Resume previous practice",
+  "colorStagesAndTraining": "Stages and practice",
+  "splashWelcome": "Cinema, memory and color.",
+  "@colorStageTitle": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "@colorStageProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@colorStageMatch": {
+    "placeholders": {
+      "match": {
+        "type": "int"
+      }
+    }
+  },
+  "@colorStageLocked": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "colorStageGamesTitle": "Stage games",
+  "resultNext": "Next",
+  "stagePlay": "Play",
+  "stageRetry": "Try again",
+  "stageContinue": "Continue",
+  "guidePracticeNotice": "Free example · no tickets used and no progress changed.",
+  "guideColorsBody": "Recreate the color of one character region. Adjust hue, saturation and brightness, then confirm to compare.",
+  "guideTryColors": "Try Colors",
+  "guideDemoReset": "Try again",
+  "guideDemoComplete": "Finish the example game",
+  "guideDemoUnlocked": "Stage 2 unlocked in the example.",
+  "guideDemoCorrect": "You got the example right! The result shows your points and the movie.",
+  "guideDemoWrong": "In this example, a wrong guess reveals another clue: Christopher Nolan directed the movie. You can still try Interstellar.",
+  "guideDemoClues": "A group travels through space to find a new home.|Earth faces a food crisis.|Time passes differently on another planet.|A father promises to return to his daughter.|The journey goes through a wormhole.|A robot named TARS joins the team.|One planet is covered with water.|The protagonist is named Cooper.|Christopher Nolan directed the movie.|Matthew McConaughey plays Cooper.",
+  "guideSaveTitle": "Game and history",
+  "guideSaveBody": "Leave and resume your game later. Progress and statistics stay on this device; clearing app data or uninstalling removes local records.",
+  "guideResultsTitle": "Result and card",
+  "guideResultsBody": "Next opens the next game. View card shows the poster, brand and points; sharing is inside the card. The bar is green for 7–10, yellow for 4–6 and red for 0–3 points. Challenge a friend creates a movie invitation. Colors shows five scores and their average.",
+  "guideColorsEconomy": "Stages cost 1 ticket; resuming is free. Completing the free daily grants +2. Both the quick hint and adjustment guidance subtract 1 point this round; guidance uses a ticket or an optional video.",
+  "guideJourneyTitle": "Dailies and stages",
+  "guideEssentialsTitle": "Your progress and results",
+  "colorMysteryCharacters": "Mystery characters",
+  "colorStatsAllScope": "All completed Colors games",
+  "colorStatsPointScale": "points from 0 to 10",
+  "colorStatsRoundsPlayed": "Completed rounds",
+  "achievementScopeColors": "Colors · all modes",
+  "achievementScopeDailyPoster": "Daily · Poster",
+  "achPosterFirst": "First frame",
+  "achPosterFirstDesc": "Win a daily Poster challenge.",
+  "achPosterPerfect": "Sharp eye",
+  "achPosterPerfectDesc": "Earn 5 points in a daily Poster at the first blur level.",
+  "achColorsFirst": "First brushstroke",
+  "achColorsFirstDesc": "Finish a Colors game with five characters.",
+  "achColors25": "Memory studio",
+  "achColors25Desc": "Finish 25 Colors games.",
+  "achColorsExcellent": "Color memory",
+  "achColorsExcellentDesc": "Achieve a final average of at least 9 points in a Colors game.",
+  "achColorsStages3": "Growing gallery",
+  "achColorsStages3Desc": "Complete both games in three Colors stages.",
+  "collectionTitle": "My collection",
+  "collectionProfile": "My profile",
+  "collectionEditProfile": "Edit profile",
+  "collectionDisplayName": "Display name",
+  "collectionNameHint": "How should you appear?",
+  "collectionShowIdentity": "Show name and avatar on the card",
+  "collectionNameInvalid": "Use up to 24 characters, without line breaks.",
+  "collectionSave": "Save",
+  "collectionAvatars": "Avatars",
+  "collectionFrames": "Frames",
+  "collectionAppearances": "Cards",
+  "collectionApply": "Apply",
+  "collectionEquipped": "Equipped",
+  "collectionUnavailable": "Unavailable",
+  "collectionPreview": "Preview",
+  "collectionLoadFailed": "Could not open your collection.",
+  "collectionSaveFailed": "Could not save. Try again.",
+  "collectionEmpty": "No items in this category.",
+  "collectionAvatarOwl": "Íris, a Última Técnica",
+  "collectionAvatarFox": "Dante Rebobina",
+  "collectionFrameGold": "Golden light",
+  "collectionFrameBlue": "Blue reel",
+  "collectionAppearanceNoir": "Cinema night",
+  "collectionPremiere": "Premiere Collection",
+  "collectionTryPremiere": "Try the collection",
+  "collectionPremierePreview": "Premiere Collection preview",
+  "collectionFree": "Free",
+  "collectionPersonalize": "Customize",
+  "collectionAvatarCat": "Otto Corte-Final",
+  "collectionAvatarHare": "Vitor Plano-Mestre",
+  "collectionFrameMarquee": "Premiere lights",
+  "collectionFrameDeco": "Art Deco cinema",
+  "collectionFrameSpotlight": "In the spotlight",
+  "collectionAppearanceVelvet": "Premiere velvet",
+  "commerceRestore": "Restore purchases",
+  "commerceBuy": "Buy · {price}",
+  "@commerceBuy": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "commercePending": "Purchase awaiting confirmation.",
+  "commerceVerified": "Purchase verified. Your items are in the collection.",
+  "commerceFailed": "Could not verify. Try restoring when the connection returns.",
+  "commerceCancelled": "Purchase cancelled.",
+  "commerceRestoring": "Restore requested. Verification may take a moment.",
+  "commerceUse": "Use collection",
+  "commercePermanent": "One-time purchase · permanent items",
+  "commerceRecovery": "Recover access",
+  "commerceRecoveryKey": "Recovery key",
+  "commerceRecoveryInfo": "Keep this key privately before reinstalling or changing devices. It recovers commerce access, not game progress. Do not share it.",
+  "commerceRecoverAction": "Recover",
+  "commercePlus": "Cineus Plus",
+  "commerceClub": "Cineus Club",
+  "commercePrivacy": "Ad privacy",
+  "commerceHideRewarded": "Hide video offers",
+  "commerceClubTerms": "Monthly auto-renewing subscription. Includes the cycle collection and removes interruptions while active. Cancel in the store; acquired items remain yours.",
+  "commerceManage": "Manage subscription",
+  "missionsTitle": "Your journey",
+  "missionsWeekly": "Weekly missions",
+  "missionPlay": "Complete 3 games",
+  "missionModes": "Play all 3 modes",
+  "missionDays": "Play on 3 days",
+  "missionClaim": "Claim",
+  "missionClaimed": "Claimed",
+  "discoveryTitle": "Discovered characters",
+  "discoveryMystery": "Mystery character",
+  "seasonTitle": "Cinema showcases",
+  "seasonArchive": "Previous collections",
+  "sponsorTitle": "Special screening",
+  "sponsorDemo": "Demo · Aurora Studio",
+  "sponsorDisclosure": "Sponsorship",
+  "sponsorGoal": "Complete 3 games during the event",
+  "sponsorReward": "Free visual reward",
+  "collectionNight": "Starry Night",
+  "collectionCity": "City Lights",
+  "itemMissionFirefly": "Enzo Replay",
+  "itemMissionProjector": "Weekly projection",
+  "itemMissionConstellation": "Constellation",
+  "itemPlusCrown": "Cinema crown",
+  "itemPlusPremiere": "Plus velvet",
+  "itemNightRaccoon": "Nara Estelar",
+  "itemNightOtter": "Ciro Maré-de-Cena",
+  "itemNightOrbit": "Golden orbit",
+  "itemNightComet": "Comet trail",
+  "itemNightObservatory": "Observatory",
+  "itemNightSky": "Cinema sky",
+  "itemCityPanda": "Raul Duplo-Corte",
+  "itemCityHummingbird": "Sol Última-Tomada",
+  "itemCitySkyline": "Luminous skyline",
+  "itemCityBridge": "Golden bridge",
+  "itemCityRain": "Premiere rain",
+  "itemCityNight": "City at night",
+  "itemAuroraFrame": "First light",
+  "seasonRefresh": "Update collections",
+  "seasonUpdateFailed": "Could not update. Your collection is still available.",
+  "sponsorJoin": "Join",
+  "sponsorEnded": "Event ended",
+  "collectionOwned": "Owned",
+  "sponsorGoalCount": "Complete {count} games during the event",
+  "@sponsorGoalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "guideCollectionTitle": "Your journey and your look",
+  "guideCollectionBody": "Weekly missions and free events unlock cosmetics. Preview and apply them in My collection. Optional purchases personalize cards; they do not change your score.",
+  "collectionPreviewNotice": "Preview · your equipped items stay unchanged.",
+  "commercePlusTerms": "One-time purchase · no interruptions, with an exclusive frame and card.",
+  "commerceCollectionTerms": "One-time purchase · 2 avatars, 3 frames and 1 card.",
+  "commerceSubscriptionActive": "Subscription active",
+  "earnTickets": "Earn tickets",
+  "earnTicketsSubtitle": "Optional videos, more games",
+  "commerceComingSoon": "Coming soon",
+  "adSpaceLabel": "Advertisement",
+  "adSpaceReserved": "Reserved advertising space",
+  "rewardedLoading": "Preparing video…",
+  "rewardedUnavailable": "No video available right now.",
+  "rewardedLimitReached": "You have used today’s videos.",
+  "rewardedPlaceholderBody": "Watch a video to earn extra tickets.",
+  "rewardedRetry": "Load video",
+  "rewardedFailed": "Could not finish. Try again.",
+  "rewardedCancelled": "Reward not confirmed yet.",
+  "rewardedWatching": "Waiting for reward…",
+  "rewardedPreviewLabel": "Rewarded video · coming soon",
+  "ticketPacksTitle": "Ticket packs",
+  "ticketPackSmall": "20 tickets",
+  "ticketPackLarge": "60 tickets",
+  "ticketPacksNote": "More games, without waiting for the daily refill.",
+  "seasonIntro": "Play, complete missions and discover your next character.",
+  "seasonCurrent": "This season",
+  "seasonNext": "Up next",
+  "seasonFinished": "Ended",
+  "seasonEmpty": "New seasons are on the way.",
+  "seasonItems": "Six looks to discover",
+  "seasonTry": "Explore collection",
+  "seasonPreviewTitle": "Try the looks",
+  "seasonAvailableOn": "Arrives {date}",
+  "@seasonAvailableOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "seasonUntil": "Until {date}",
+  "@seasonUntil": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "seasonOwnedCount": "{count} of {total} in your collection",
+  "@seasonOwnedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "seasonEventTitle": "Free event",
+  "seasonEventDemo": "Demonstration event",
+  "seasonStoreSoon": "Collections will be available soon.",
+  "commerceOptionalExtras": "Play your way",
+  "commerceOptionalBody": "Tickets to keep playing and an option to remove regular ads. Rewarded videos remain optional.",
+  "ticketLearnMore": "About tickets",
+  "commerceLoading": "Loading options…",
+  "commerceCheckFailed": "Could not verify your purchases.",
+  "commerceOffersFailed": "Could not load the store.",
+  "commerceNoOffers": "No offers available right now.",
+  "commerceRestoreDone": "Purchases restored.",
+  "commerceRestoreEmpty": "No active purchases confirmed.",
+  "commerceBenefitsActive": "Benefits active",
+  "commerceAdFreeActive": "Advertising removed. Rewarded videos remain optional.",
+  "collectionHowToGet": "How to get it",
+  "collectionOnlyOwned": "My items",
+  "collectionAllItems": "All items",
+  "collectionUnlockMission": "Complete weekly missions to unlock this look.",
+  "collectionUnlockEvent": "This look is an event reward.",
+  "collectionUnlockSeason": "Find this collection in Seasons.",
+  "collectionUnlockSoon": "This look will be available in the store soon.",
+  "collectionUnlocked": "Unlocked",
+  "helpTitle": "Need a hint?",
+  "helpUseTicket": "Use 1 ticket",
+  "helpWatch": "Video · hint + 1 ticket",
+  "helpVideoSoon": "Video coming soon",
+  "helpVideoUsed": "Video already used in this game",
+  "helpVideoTerms": "1 per game · shares the daily video limit.",
+  "helpPending": "Confirming reward…",
+  "helpPendingBody": "You can keep playing. Your reward will be recovered once confirmed.",
+  "helpClaim": "Claim hint",
+  "helpStored": "The 2 tickets stayed in your balance.",
+  "helpDone": "Hint unlocked. +1 ticket in your balance.",
+  "helpNoAvailable": "You have used all available hints.",
+  "helpColorGuidance": "Color guidance",
+  "helpColorGuidanceBody": "A tone and adjustment suggestion. −1 point this round.",
+  "helpColorSimple": "Quick hint",
+  "helpColorSimpleBody": "Character hint · −1 point",
+  "helpAdOffer": "Watch an ad to unlock this hint and keep 1 ticket.",
+  "helpColorFamily": "Try the {family} family.",
+  "helpFamilyRed": "red",
+  "helpFamilyOrange": "orange",
+  "helpFamilyYellow": "yellow",
+  "helpFamilyGreen": "green",
+  "helpFamilyCyan": "cyan",
+  "helpFamilyBlue": "blue",
+  "helpFamilyPurple": "purple",
+  "helpFamilyPink": "pink",
+  "helpFamilyNeutral": "neutral tone",
+  "helpBrighter": "Increase the brightness a little.",
+  "helpDarker": "Decrease the brightness a little.",
+  "helpMoreSaturation": "Increase the intensity a little.",
+  "helpLessSaturation": "Decrease the intensity a little.",
+  "helpAdjustClose": "Your settings are close; refine the hue.",
+  "@helpColorFamily": {
+    "placeholders": {
+      "family": {
+        "type": "String"
+      }
+    }
+  },
+  "archiveMode": "Archive",
+  "practiceMode": "Practice",
+  "activityAll": "All games",
+  "activityDaily": "Daily",
+  "activityStage": "Stages",
+  "activityInvites": "Invitations",
+  "activityContext": "Activity",
+  "presenceStreak": "Consecutive days played",
+  "nextGoal": "Your next goal",
+  "continueGame": "Continue game",
+  "practiceAgain": "Review in practice",
+  "masteryTitle": "Your mastery",
+  "archiveTitle": "Previous daily games",
+  "archiveDescription": "Play at your pace, without changing today’s result.",
+  "editorialFeedback": "Report an issue",
+  "feedbackSent": "Thanks! Report saved for review.",
+  "feedbackClue": "Clue or answer",
+  "feedbackArtwork": "Image or character",
+  "feedbackDifficulty": "Difficulty",
+  "feedbackOther": "Other issue",
+  "feedbackNote": "Optional description",
+  "sendFeedback": "Send report",
+  "neutralCard": "Hide answer",
+  "quickStart": "Play an example",
+  "backupTitle": "Your progress",
+  "backupSave": "Save backup",
+  "backupRestore": "Restore backup",
+  "backupCode": "Recovery key",
+  "backupSaved": "Backup saved.",
+  "backupConfirm": "Restore this progress? Local progress will be merged with the backup.",
+  "metricsConsent": "Share usage data",
+  "metricsConsentBody": "Help improve the game. Your guesses and names are not sent.",
+  "metricsDelete": "Delete usage data",
+  "friendGames": "Friends challenges",
+  "friendJoin": "Open invitation",
+  "friendCreate": "Create challenge",
+  "connectedRequired": "Connect to use this feature.",
+  "missionDuplicate": "Already owned · alternative reward",
+  "itemMissionCapybara": "Breno Efeito-Bruto",
+  "itemMissionAxolotl": "Bento Rolo-Perdido",
+  "itemMissionPenguin": "Glifo Caça-Cenas",
+  "archiveMore": "Load more days",
+  "masteryEmpty": "Finish games to discover your themes.",
+  "playerDataTitle": "Data and recovery",
+  "dataActionFailed": "Could not complete the action. Try again.",
+  "backupRestored": "Progress recovered.",
+  "recoveryKeepPrivate": "Keep this key safe. It recovers your data and purchases. Do not share it.",
+  "backupScope": "Saves games, stages and history. Purchased tickets are recovered from the server; daily tickets and this device’s bonuses remain local.",
+  "recoverAnotherDevice": "Recover from another device",
+  "backupDelete": "Delete cloud backup",
+  "backupDeleteConfirm": "Delete the saved copy? Progress on this device will remain.",
+  "metricsDeletionQueued": "Local data deleted. Online deletion is pending.",
+  "friendActionFailed": "Could not open this invitation. Check the code, connection and availability.",
+  "friendPlayFirst": "Finish a Clues or Poster game to create a challenge.",
+  "friendChooseGame": "Choose a finished game",
+  "friendCreated": "Invitation valid for 7 days",
+  "friendPrivateRules": "A private invitation to the same game. Device-reported scores, with no ranking or prizes.",
+  "friendYou": "You",
+  "friendOther": "Friend",
+  "nextAction": "Next",
+  "purchasedTickets": "Purchased",
+  "ticketPackAmount": "{count} tickets",
+  "ticketPackTerms": "One-time purchase. Tickets do not expire; connection is required to use and recover them. They do not increase your score.",
+  "@ticketPackAmount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missionPlayCount": "Finish {count} games",
+  "@missionPlayCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missionModesCount": "Play {count} modes",
+  "@missionModesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "missionDaysCount": "Play on {count} days",
+  "@missionDaysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "masteryStageTitle": "Stage {count} keeper",
+  "@masteryStageTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "masteryTitles": "Earned titles",
+  "masteryAnimation": "Animation",
+  "masteryFantasy": "Fantasy",
+  "masteryClassics": "Classics through 1989",
+  "assistedResult": "Assisted",
+  "presenceDays": "{count} days played",
+  "@presenceDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "resultScoreScale": "{score}/{total} points",
+  "stageBonusOffer": "Completion: +{count} tickets",
+  "@stageBonusOffer": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stageBonusTitleOffer": "Completion: +{count} tickets and a title",
+  "@stageBonusTitleOffer": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@resultScoreScale": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "manageProgress": "Manage progress",
+  "progressOnDevice": "Automatically saved on this device.",
+  "backupCloudUnavailable": "Cloud backup is coming soon.",
+  "backupCloudChecking": "Checking backup…",
+  "backupCloudEmpty": "You do not have a cloud backup yet.",
+  "backupCloudError": "Could not check your backup.",
+  "backupCloudLastSaved": "In the cloud · {date}",
+  "backupOptions": "Recovery and other options",
+  "backupDeleted": "Cloud backup deleted. Your local progress was kept.",
+  "metricsDeletedLocal": "Usage data on this device deleted.",
+  "metricsDeleted": "Usage data deleted.",
+  "metricsUnavailable": "Usage sharing is turned off in this version.",
+  "@backupCloudLastSaved": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "journeyMasteryShortcut": "Mastery",
+  "journeyFriendsShortcut": "Friends",
+  "audienceTitle": "Your age range",
+  "audienceBody": "Cineus is designed for people aged 16 and over.",
+  "audiencePrivacy": "Only your age range is saved, not your date of birth. In-app purchases are intended for adults.",
+  "audienceUnder16": "I am under 16",
+  "audienceTeen": "I am 16 or 17",
+  "audienceAdult": "I am 18 or older",
+  "audienceUnavailable": "This version is intended for people aged 16 and over.",
+  "audiencePurchases": "Purchases available to adults aged 18+",
+  "showcaseAnimation": "Animated worlds",
+  "showcaseFantasy": "Beyond imagination",
+  "showcaseClassics": "Classics on screen",
+  "showcasePlay": "Choose games",
+  "showcasePractice": "A selection to play at your own pace. Your progress is saved.",
+  "showcaseRewards": "Looks rotate through mission rewards. Everything you already own stays yours.",
+  "showcaseFilm": "Film {number}",
+  "@showcaseFilm": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  }
 }

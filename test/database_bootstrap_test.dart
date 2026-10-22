@@ -6,8 +6,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:cineus/presentation/database_bootstrap.dart';
 
 void main() {
-  testWidgets('falha de bootstrap mostra recuperação e retry pode concluir',
-      (tester) async {
+  testWidgets('falha de bootstrap mostra recuperação e retry pode concluir', (
+    tester,
+  ) async {
     var attempts = 0;
 
     await tester.pumpWidget(

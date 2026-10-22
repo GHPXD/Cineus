@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
 import '../../domain/entities/clue.dart';
 import '../../l10n/app_l10n.dart';
+import '../visuals/cineus_assets.dart';
+import 'cineus_icon.dart';
 
 enum ClueCardState { revealed, locked, next }
 
@@ -34,7 +35,7 @@ class ClueCard extends StatelessWidget {
   }
 
   Widget _buildRevealed(BuildContext context) {
-    final emoji = AppConstants.emojiForCategory(category);
+    final asset = CineusAssets.forCategory(category);
 
     return Container(
       padding: const EdgeInsets.all(14),
@@ -62,17 +63,28 @@ class ClueCard extends StatelessWidget {
                     : AppColors.gold300.withValues(alpha: 0.12),
               ),
               const SizedBox(width: 10),
-              Text(
-                category.toUpperCase(),
-                style: AppTypography.overline.copyWith(
-                  color: isLatest ? AppColors.blue300 : AppColors.obsidian300,
+              Expanded(
+                child: Text(
+                  category.toUpperCase(),
+                  style: AppTypography.overline.copyWith(
+                    color: isLatest
+                        ? AppColors.blue300
+                        : AppColors.textSecondary,
+                  ),
                 ),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
+              CineusIcon(
+                asset,
+                color: isLatest ? AppColors.blue300 : AppColors.gold300,
+                size: 24,
+              ),
               if (isLatest)
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 2,
+                  ),
                   decoration: BoxDecoration(
                     color: AppColors.blue300.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(999),
@@ -88,9 +100,7 @@ class ClueCard extends StatelessWidget {
                       letterSpacing: 1,
                     ),
                   ),
-                )
-              else
-                Text(emoji, style: const TextStyle(fontSize: 16)),
+                ),
             ],
           ),
           const SizedBox(height: 10),
@@ -107,38 +117,37 @@ class ClueCard extends StatelessWidget {
   }
 
   Widget _buildLocked(BuildContext context) {
-    return Opacity(
-      opacity: 0.5,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-        decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.025),
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.white.withValues(alpha: 0.05)),
-        ),
-        child: Row(
-          children: [
-            _ClueNumberBadge(
-              number: clueNumber,
-              color: AppColors.textTertiary,
-              bgColor: Colors.white.withValues(alpha: 0.04),
-            ),
-            const SizedBox(width: 10),
-            Text(
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.025),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.05)),
+      ),
+      child: Row(
+        children: [
+          _ClueNumberBadge(
+            number: clueNumber,
+            color: AppColors.textTertiary,
+            bgColor: Colors.white.withValues(alpha: 0.04),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
               category.toUpperCase(),
               style: AppTypography.overline.copyWith(
-                color: AppColors.textQuaternary,
+                color: AppColors.textTertiary,
                 fontSize: 10,
               ),
             ),
-            const Spacer(),
-            Icon(
-              Icons.lock_rounded,
-              size: 14,
-              color: AppColors.textQuaternary.withValues(alpha: 0.6),
-            ),
-          ],
-        ),
+          ),
+          const SizedBox(width: 8),
+          const CineusIcon(
+            CineusAssetId.lock,
+            size: 14,
+            color: AppColors.textTertiary,
+          ),
+        ],
       ),
     );
   }
@@ -163,18 +172,20 @@ class ClueCard extends StatelessWidget {
             bgColor: AppColors.blue300.withValues(alpha: 0.15),
           ),
           const SizedBox(width: 10),
-          Text(
-            category.toUpperCase(),
-            style: AppTypography.overline.copyWith(
-              color: AppColors.blue300,
+          Expanded(
+            child: Text(
+              category.toUpperCase(),
+              style: AppTypography.overline.copyWith(color: AppColors.blue300),
             ),
           ),
-          const Spacer(),
-          Text(
-            '• • • • • •',
-            style: AppTypography.monoSmall.copyWith(
-              color: AppColors.blue300.withValues(alpha: 0.4),
-              letterSpacing: 3,
+          const SizedBox(width: 8),
+          ExcludeSemantics(
+            child: Text(
+              '• • •',
+              style: AppTypography.monoSmall.copyWith(
+                color: AppColors.blue300.withValues(alpha: 0.4),
+                letterSpacing: 3,
+              ),
             ),
           ),
         ],
@@ -197,8 +208,8 @@ class _ClueNumberBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 28,
-      height: 28,
+      constraints: const BoxConstraints(minWidth: 28, minHeight: 28),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(6),

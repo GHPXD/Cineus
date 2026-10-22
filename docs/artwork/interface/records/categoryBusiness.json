@@ -1,0 +1,27 @@
+{
+  "id": "categoryBusiness",
+  "kind": "icon",
+  "subject": "an elegant compact briefcase with substantial top handle, central clasp and two broad faces",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: an elegant compact briefcase with substantial top handle, central clasp and two broad faces.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-8aca63b0-abc7-4898-82aa-4525456bc460.png",
+  "source": "assets/generated/sources/categoryBusiness.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/categoryBusiness.svg",
+  "source_sha256": "a1a7d8a7caa3334f0c8b4b46fc3b3c58ab936a3e895ab133fbe2806acb71d14a",
+  "svg_sha256": "226b8ea81fdd403e0814f8222c3282de764f81d63a7b222e02b91c375a92fb32",
+  "paths": 8,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/categoryBusiness_ink.svg",
+  "ink_sha256": "44daedfe2bd787ef3d447f40db91fdea24735e5f990557a6ee97c73917c3ce3f"
+}

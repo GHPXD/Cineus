@@ -1,0 +1,135 @@
+[
+  {
+    "id": "donald_duck",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/a/a5/Donald_Duck_angry_transparent_background.png",
+    "source_page": "https://en.wikipedia.org/wiki/Donald_Duck",
+    "external_file": "docs/artwork/characters/expanded/references/donald_duck-fallback.png",
+    "external_sha256": "cbea22d423493df215d6174c1d6997464e156be213e5ff426861e6d148bde8eb"
+  },
+  {
+    "id": "mickey_mouse",
+    "external_source": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Mickey_Mouse_%28poster_version%29.svg",
+    "source_page": "https://en.wikipedia.org/wiki/Mickey_Mouse",
+    "external_file": "docs/artwork/characters/expanded/references/mickey_mouse-fallback.svg",
+    "external_sha256": "3b042a98c7c9672f39b59490b8da2f7ae29f73d73b6983d705be6431820c745b"
+  },
+  {
+    "id": "homer_simpson",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+    "source_page": "https://en.wikipedia.org/wiki/Homer_Simpson",
+    "external_file": "docs/artwork/characters/expanded/references/homer_simpson-fallback.png",
+    "external_sha256": "8f5cf6e8415a7f15af07e6e0f5429b736dd49e9ade559795fd7e91930734b4a0"
+  },
+  {
+    "id": "kim_possible",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/2/2b/Kim_Possible_%28character_design%29.png",
+    "source_page": "https://en.wikipedia.org/wiki/Kim_Possible_(character)",
+    "external_file": "docs/artwork/characters/expanded/references/kim_possible-fallback.png",
+    "external_sha256": "27595dde2889d72d99e71b22d85a081a567144ede95f7e6d13e965c92ba2efac"
+  },
+  {
+    "id": "lois_griffin",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/a/a5/Lois_Griffin.png",
+    "source_page": "https://en.wikipedia.org/wiki/Lois_Griffin",
+    "external_file": "docs/artwork/characters/expanded/references/lois_griffin-fallback.png",
+    "external_sha256": "7ff4efc87bff09ae965cbe43663b79b93f084c67cbd10a3d75200de060aebcfa"
+  },
+  {
+    "id": "shaggy_rogers",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/8/87/ShaggyRogers.png",
+    "source_page": "https://en.wikipedia.org/wiki/Shaggy_Rogers",
+    "external_file": "docs/artwork/characters/expanded/references/shaggy_rogers-fallback.png",
+    "external_sha256": "ee8f5117bf6ff57305180ae0bb376888b34491dbe653da37fd212743c036ab9a"
+  },
+  {
+    "id": "winnie_pooh",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/1/10/Winniethepooh.png",
+    "source_page": "https://en.wikipedia.org/wiki/Winnie_the_Pooh_(Disney_character)",
+    "external_file": "docs/artwork/characters/expanded/references/winnie_pooh-fallback.png",
+    "external_sha256": "132dcf5fcb981fc4db22aac0651ccd2ad25449a45e59670d20f2437b96d375f6"
+  },
+  {
+    "id": "luigi",
+    "external_source": "https://mario.nintendo.com/static/73f9272aebf9a014261584b35597878f/d9801/luigi.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/luigi-official.png",
+    "external_sha256": "c0701e9efc44ec5f14608e02131b622977ce14d6eb0e353dda4ff04b23b8a9b6"
+  },
+  {
+    "id": "mario",
+    "external_source": "https://mario.nintendo.com/static/0f10f738d1f9aa8292fa7d93c35f2a07/02be2/mario.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/mario-official.png",
+    "external_sha256": "6654b9e75de860a516bdd1af2fa0112417ba1bd2b0d0dd3b1f0d3258542bbc34"
+  },
+  {
+    "id": "rosalina",
+    "external_source": "https://mario.nintendo.com/static/9413cb5d146400e7368855759d084c69/d1a6b/rosalina.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/rosalina-official.png",
+    "external_sha256": "a636af73e0a746f2dc63842be8a8a2d04a19a15de3732536c2014cc6b914d62c"
+  },
+  {
+    "id": "goofy",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/5/50/Goofy_Duckipedia.png",
+    "source_page": "https://en.wikipedia.org/wiki/Goofy",
+    "external_file": "docs/artwork/characters/expanded/references/goofy-fallback.png",
+    "external_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca"
+  },
+  {
+    "id": "peter_griffin",
+    "external_source": "https://upload.wikimedia.org/wikipedia/en/c/c2/Peter_Griffin.png",
+    "source_page": "https://en.wikipedia.org/wiki/Peter_Griffin",
+    "external_file": "docs/artwork/characters/expanded/references/peter_griffin-fallback.png",
+    "external_sha256": "72ed15811a1283979e7fda405261caeec416a80d20de029078d570f149c49f11"
+  },
+  {
+    "id": "peach",
+    "external_source": "https://mario.nintendo.com/static/43a96c1d5b681d338864aac15cd391b9/f3703/peach.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/peach-official.png",
+    "external_sha256": "b83318f3b53b0051b313b0703227e90bc59c5a7c3f7f183a5c590343b6b85bde"
+  },
+  {
+    "id": "yoshi",
+    "external_source": "https://mario.nintendo.com/static/850b7938ec9df2a77921738a12857e88/c4ba3/yoshi.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/yoshi-official.png",
+    "external_sha256": "e038914c3916a3bdae1a651b234c991455ed0176d6a65e48d252b094428a88be"
+  },
+  {
+    "id": "toad",
+    "external_source": "https://mario.nintendo.com/static/e3ebf11b069067da929b608250baa44e/55d59/toad.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/toad-official.png",
+    "external_sha256": "39f211a44de09521a9b2410eeb959decf902835baf3d1a2e76bb36aaffc73fb8"
+  },
+  {
+    "id": "bowser",
+    "external_source": "https://mario.nintendo.com/static/7204f288e3e823a8203c445fb6cc0d7e/b1656/bowser.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/bowser-official.png",
+    "external_sha256": "63cf9de320b1c3a3c76d8bc156c7c7b1c22d691faace8dea84da21658bcb7023"
+  },
+  {
+    "id": "wario",
+    "external_source": "https://mario.nintendo.com/static/2e8e71c5b38a5aedd5eef91c3d54bf13/747d9/wario.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/wario-official.png",
+    "external_sha256": "481832ef66e8319d71fdbe014d67c7a43d0d405ddd8872bdffbb283262d20743"
+  },
+  {
+    "id": "waluigi",
+    "external_source": "https://mario.nintendo.com/static/54c0617c992012b38e212c154f4e3944/3eddd/waluigi.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/waluigi-official.png",
+    "external_sha256": "b21c50335ee3686396af3cfa07ca27364a907c0e339f904e75e6ed45a492da78"
+  },
+  {
+    "id": "daisy",
+    "external_source": "https://mario.nintendo.com/static/b625bdf51061d55b220d82eb9b61442c/9b369/daisy.png",
+    "source_page": "https://mario.nintendo.com/characters/",
+    "external_file": "docs/artwork/characters/expanded/references/daisy-official.png",
+    "external_sha256": "fea87a639f94a3a9aecf00e1042a1ac3d426a3352fb57b2133b73222917dada0"
+  }
+]

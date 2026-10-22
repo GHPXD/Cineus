@@ -1,0 +1,27 @@
+{
+  "id": "badgePosterFirst",
+  "kind": "icon",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-9f261d79-cf24-4a8d-b5d5-f8011006d28c.png",
+  "prompt": "Use case: logo-brand. Create one standalone achievement badge for Cineus mobile cinema game. Subject: a single gold cinema poster frame with ivory center and a small blue checkmark medallion. Unified illustrated game icon family: bold clear silhouette, charming polished shapes, moderately dimensional but vector-friendly flat color regions, gold #EFC026, bright blue #5790FF, ivory #F4F3E8 and deeper blue #2D54AA. Transparent background, centered full object, large safe margin, no enclosing square tile, no text, no letters, no numbers, no emoji, no watermark, no gradients fading to a background, readable at 48px.",
+  "subject": "a single gold cinema poster frame with ivory center and a small blue checkmark medallion",
+  "generator": "built-in image_gen / GPT Image",
+  "source": "assets/generated/sources/badgePosterFirst.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/badgePosterFirst.svg",
+  "source_sha256": "f2b8201d589397c5baee67405fcd1f716526360c44d50637fea55036b176b147",
+  "svg_sha256": "539dc96023383a2702651cd4f527b152509765e569cd2ff81b3213229dbfa6ca",
+  "paths": 33,
+  "source_size": [
+    1247,
+    1261
+  ],
+  "trace_size": [
+    506,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/badgePosterFirst_ink.svg",
+  "ink_sha256": "005a65cc9770a06234cffffdb0d1b1f9925bdb62c570c9e8221b523981b11376"
+}

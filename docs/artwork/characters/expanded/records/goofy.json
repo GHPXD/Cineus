@@ -1,0 +1,39 @@
+{
+  "id": "goofy",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/goofy.png",
+  "source_sha256": "b838fa5b0239b5dcb33e1c8a0122959b8c249776e5eca417e9e6c9275b11f45b",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; flat cutout ink traced separately to preserve pupils and contours; no authored shapes",
+  "conversion_version": 6,
+  "source_size": [
+    287,
+    365
+  ],
+  "trace_size": [
+    755,
+    960
+  ],
+  "region_pixels": [
+    47775
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/goofy_base.svg",
+      "sha256": "84ee9f47d311092b34edf1f0b223c7240cb081320f9568f80c959ac724ea1efd"
+    },
+    {
+      "file": "assets/colors/art/goofy_p0.svg",
+      "sha256": "b4188f248a2161f57e093201ff0faa75480f7924e7edb58300dfdf108200f590"
+    }
+  ],
+  "generator": "existing image; user-authorized fallback after ImageGen refusal",
+  "palette_mode": "existing-single",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Goofy, tall lanky black cartoon dog with long ears, green tall hat, orange sweater, black vest, blue trousers, brown shoes, white gloves. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the hat in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "generation_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 1392035a-cce4-4f38-8b3e-46e6acc66de3.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "authorization": "User approved existing images for refused characters, 2026-10-13",
+  "external_source": "https://upload.wikimedia.org/wikipedia/en/5/50/Goofy_Duckipedia.png",
+  "source_page": "https://en.wikipedia.org/wiki/Goofy",
+  "external_file": "docs/artwork/characters/expanded/references/goofy-fallback.png",
+  "external_sha256": "8c8aa522be55d9b90f23db718e29dd22974ddab00cc4491d8aae3eb131c244ca"
+}

@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
 import '../../l10n/release_legal_l10n.dart';
+import '../l10n_mappers.dart';
+import '../widgets/cineus_icon.dart';
+import '../visuals/cineus_assets.dart';
 
 enum LegalDocument { privacy, terms }
 
@@ -30,60 +33,71 @@ class LegalScreen extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
+                    tooltip: context.l10n.semBack,
                     onPressed: () =>
                         context.canPop() ? context.pop() : context.go('/home'),
-                    icon: const Icon(Icons.arrow_back_ios_rounded, size: 18),
+                    icon: const CineusIcon(CineusAssetId.back, size: 18),
                     color: Colors.white,
                   ),
                   Expanded(
-                    child: Text(copy.title, style: AppTypography.headlineMedium),
+                    child: Text(
+                      copy.title,
+                      style: AppTypography.headlineMedium,
+                    ),
                   ),
                 ],
               ),
             ),
             Expanded(
-              child: ListView(
-                padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
-                children: [
-                  Text(
-                    copy.effectiveDate,
-                    style: AppTypography.monoSmall.copyWith(
-                      color: AppColors.textTertiary,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  ...copy.sections.map(
-                    (section) => Padding(
-                      padding: const EdgeInsets.only(bottom: 18),
-                      child: Container(
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.03),
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(
-                            color: Colors.white.withValues(alpha: 0.07),
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              section.$1,
-                              style: AppTypography.titleSmall.copyWith(
-                                color: AppColors.gold300,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            SelectableText(
-                              section.$2,
-                              style: AppTypography.bodySmall.copyWith(height: 1.55),
-                            ),
-                          ],
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 720),
+                  child: ListView(
+                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
+                    children: [
+                      Text(
+                        copy.effectiveDate,
+                        style: AppTypography.monoSmall.copyWith(
+                          color: AppColors.textSecondary,
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 16),
+                      ...copy.sections.map(
+                        (section) => Padding(
+                          padding: const EdgeInsets.only(bottom: 18),
+                          child: Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.03),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                color: Colors.white.withValues(alpha: 0.07),
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  section.$1,
+                                  style: AppTypography.titleSmall.copyWith(
+                                    color: AppColors.gold300,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                SelectableText(
+                                  section.$2,
+                                  style: AppTypography.bodySmall.copyWith(
+                                    height: 1.55,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ],

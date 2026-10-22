@@ -1,0 +1,34 @@
+{
+  "id": "beavis",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/beavis.png",
+  "source_sha256": "e24cdbf813e55dc7e69459216646d6fd780a9eece2ffa699c8ea47262e8980e8",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    366,
+    640
+  ],
+  "region_pixels": [
+    13025
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/beavis_base.svg",
+      "sha256": "73f45f3b711bf1f946eaa414290397ae4d2df2fb5a1ab4afa5255105386e57f7"
+    },
+    {
+      "file": "assets/colors/art/beavis_p0.svg",
+      "sha256": "4af40511a8daf0007fa5a7d778e5e707c6eaf3be58d973ad732f5926c7a39f8d"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-9dec6466-7d91-4b77-9769-9bea4fccebdf.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Beavis, slim adult cartoon man with tall blond pompadour, blue short-sleeve t-shirt without letters, gray shorts, black shoes. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the hair in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

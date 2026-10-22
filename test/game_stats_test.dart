@@ -5,7 +5,12 @@ import 'package:cineus/data/repositories/game_repository_impl.dart';
 import 'package:cineus/domain/entities/game_session.dart';
 
 /// Builds a finished session for a daily key.
-GameSession daily(String date, {required bool won, int score = 0, int clues = 1}) {
+GameSession daily(
+  String date, {
+  required bool won,
+  int score = 0,
+  int clues = 1,
+}) {
   return GameSession.daily(
     mode: GameMode.clue,
     date: date,
@@ -53,24 +58,28 @@ void main() {
       expect(s.scoreDistribution, isEmpty);
     });
 
-    test('winRate e médias contam todas as partidas, distribuição só vitórias', () {
-      final s = GameRepositoryImpl.computeStats([
-        daily('2026-08-10', won: true, score: 9, clues: 2),
-        daily('2026-08-09', won: false, clues: 10),
-        daily('2026-08-08', won: true, score: 7, clues: 4),
-      ], todayUtc: today);
+    test(
+      'winRate e médias contam todas as partidas, distribuição só vitórias',
+      () {
+        final s = GameRepositoryImpl.computeStats([
+          daily('2026-08-10', won: true, score: 9, clues: 2),
+          daily('2026-08-09', won: false, clues: 10),
+          daily('2026-08-08', won: true, score: 7, clues: 4),
+        ], todayUtc: today);
 
-      expect(s.totalGames, 3);
-      expect(s.totalWins, 2);
-      expect(s.winRate, closeTo(2 / 3, 1e-9));
-      // média só das vitórias: (2 + 4) / 2
-      expect(s.averageCluesUsed, closeTo(3.0, 1e-9));
-      expect(
-        s.scoreDistribution,
-        {9: 1, 7: 1},
-        reason: 'derrotas já aparecem no win rate e não são uma faixa de pontos',
-      );
-    });
+        expect(s.totalGames, 3);
+        expect(s.totalWins, 2);
+        expect(s.winRate, closeTo(2 / 3, 1e-9));
+        // média só das vitórias: (2 + 4) / 2
+        expect(s.averageCluesUsed, closeTo(3.0, 1e-9));
+        expect(
+          s.scoreDistribution,
+          {9: 1, 7: 1},
+          reason:
+              'derrotas já aparecem no win rate e não são uma faixa de pontos',
+        );
+      },
+    );
 
     test('só derrotas deixam distribuição vazia sem apagar total de jogos', () {
       final s = GameRepositoryImpl.computeStats([
@@ -103,16 +112,18 @@ void main() {
       expect(s.currentStreak, 1);
     });
 
-    test('quebra num dia não jogado (o bug antigo somava por cima do buraco)',
-        () {
-      final s = GameRepositoryImpl.computeStats([
-        daily('2026-08-10', won: true, score: 8),
-        // 09 e 08 não foram jogados
-        daily('2026-08-07', won: true, score: 7),
-        daily('2026-08-06', won: true, score: 6),
-      ], todayUtc: today);
-      expect(s.currentStreak, 1);
-    });
+    test(
+      'quebra num dia não jogado (o bug antigo somava por cima do buraco)',
+      () {
+        final s = GameRepositoryImpl.computeStats([
+          daily('2026-08-10', won: true, score: 8),
+          // 09 e 08 não foram jogados
+          daily('2026-08-07', won: true, score: 7),
+          daily('2026-08-06', won: true, score: 6),
+        ], todayUtc: today);
+        expect(s.currentStreak, 1);
+      },
+    );
 
     test('sobrevive quando a última partida foi ontem', () {
       final s = GameRepositoryImpl.computeStats([

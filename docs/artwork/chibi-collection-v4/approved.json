@@ -1,0 +1,22 @@
+[
+  {
+    "id": "archaeologist",
+    "name": "Bento Rolo-Perdido",
+    "inspiration": "Indiana Jones",
+    "original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-2952b4ca-b301-419c-adcb-0c142e5c5c6b.png",
+    "prompt": "Approved original preview generated in this conversation: original chibi explorer of lost films, treasured reel and trailing film around a boot; matching source output preserved.",
+    "approved": true,
+    "reused_approved_preview": true,
+    "prompt_kind": "approved_preview_summary"
+  },
+  {
+    "id": "pilot",
+    "name": "Breno Efeito-Bruto",
+    "inspiration": "Rambo",
+    "original": "C:/Users/GHPXD/.codex/generated_images/01a12dd4-c53f-7520-8dfd-8625589130d2/exec-f1cf8af1-0ae2-4677-8c6f-9fcb74ad3618.png",
+    "prompt": "Approved original preview generated in this conversation: movie-effects commando, headband, giant studio wind fan and brass film canisters, giant chibi hands and boots; original caricature face.",
+    "approved": true,
+    "reused_approved_preview": true,
+    "prompt_kind": "approved_preview_summary"
+  }
+]

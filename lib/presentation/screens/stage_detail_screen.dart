@@ -11,6 +11,7 @@ class StageDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenericStageDetailScreen(
+      key: ValueKey('clue-stage-$stageId'),
       stageId: stageId,
       config: const StageDetailConfig(
         mode: GameMode.clue,

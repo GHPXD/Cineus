@@ -9,11 +9,13 @@ import 'clue_card_widget.dart';
 class ClueList extends StatelessWidget {
   final List<Clue> allClues;
   final int revealedCount;
+  final Map<int, GlobalKey>? cardKeys;
 
   const ClueList({
     super.key,
     required this.allClues,
     required this.revealedCount,
+    this.cardKeys,
   });
 
   @override
@@ -28,17 +30,20 @@ class ClueList extends StatelessWidget {
         final isLatest = clueNumber == revealedCount && revealedCount > 1;
         final isNext = clueNumber == revealedCount + 1;
 
-        final clue = allClues.where((c) => c.clueNumber == clueNumber).firstOrNull;
+        final clue = allClues
+            .where((c) => c.clueNumber == clueNumber)
+            .firstOrNull;
         final category =
             clue?.category ?? AppL10n.of(context).clueFallback(clueNumber);
 
         final cardState = isRevealed
             ? ClueCardState.revealed
             : isNext
-                ? ClueCardState.next
-                : ClueCardState.locked;
+            ? ClueCardState.next
+            : ClueCardState.locked;
 
         final card = Padding(
+          key: cardKeys?[clueNumber],
           padding: const EdgeInsets.only(bottom: 6),
           child: ClueCard(
             clue: clue,
@@ -102,10 +107,7 @@ class _RevealAnimationState extends State<_RevealAnimation>
   Widget build(BuildContext context) {
     return FadeTransition(
       opacity: _fadeAnim,
-      child: SlideTransition(
-        position: _slideAnim,
-        child: widget.child,
-      ),
+      child: SlideTransition(position: _slideAnim, child: widget.child),
     );
   }
 }

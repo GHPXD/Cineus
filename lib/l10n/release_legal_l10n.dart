@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'commerce_legal_copy.dart';
+import 'audience_legal_copy.dart';
 
 class LegalDocumentCopy {
   final String title;
@@ -53,11 +55,46 @@ class ReleaseLegalL10n {
   static ReleaseLegalL10n of(BuildContext context) =>
       forLanguage(Localizations.localeOf(context).languageCode);
 
-  static ReleaseLegalL10n forLanguage(String language) => switch (language) {
+  static ReleaseLegalL10n forLanguage(String language) =>
+      _withCommerce(switch (language) {
         'pt' => _pt,
         'es' => _es,
         _ => _en,
-      };
+      }, language);
+
+  static ReleaseLegalL10n _withCommerce(
+    ReleaseLegalL10n base,
+    String language,
+  ) => ReleaseLegalL10n(
+    settingsSection: base.settingsSection,
+    aboutLabel: base.aboutLabel,
+    privacyLabel: base.privacyLabel,
+    termsLabel: base.termsLabel,
+    aboutTitle: base.aboutTitle,
+    appSummary: base.appSummary,
+    dataCreditsTitle: base.dataCreditsTitle,
+    tmdbExplanation: base.tmdbExplanation,
+    legalTitle: base.legalTitle,
+    contact: base.contact,
+    privacy: LegalDocumentCopy(
+      title: base.privacy.title,
+      effectiveDate: base.privacy.effectiveDate,
+      sections: [
+        AudienceLegalCopy.privacy(language),
+        ...base.privacy.sections,
+        ...CommerceLegalCopy.privacy(language),
+      ],
+    ),
+    terms: LegalDocumentCopy(
+      title: base.terms.title,
+      effectiveDate: base.terms.effectiveDate,
+      sections: [
+        AudienceLegalCopy.terms(language),
+        ...base.terms.sections,
+        ...CommerceLegalCopy.terms(language),
+      ],
+    ),
+  );
 
   static const _pt = ReleaseLegalL10n(
     settingsSection: 'Informações',
@@ -66,7 +103,7 @@ class ReleaseLegalL10n {
     termsLabel: 'Termos de Uso',
     aboutTitle: 'Sobre e créditos',
     appSummary:
-        'Jogo de adivinhação de filmes, offline-first, com modos Dicas e Poster.',
+        'Jogo de memória com Dicas, Poster e Cores, estágios e desafios diários.',
     dataCreditsTitle: 'Dados e créditos',
     tmdbExplanation:
         'Parte dos metadados e imagens de filmes usados para preparar o catálogo do Cineus tem origem no The Movie Database (TMDB).',
@@ -74,15 +111,20 @@ class ReleaseLegalL10n {
     contact: 'Suporte e contato: github.com/GHPXD/Cineus/issues',
     privacy: LegalDocumentCopy(
       title: 'Política de Privacidade',
-      effectiveDate: 'Vigente desde 11 de setembro de 2026',
+      effectiveDate:
+          'Vigente desde 11 de setembro de 2026. Atualizada em 15 de outubro de 2026',
       sections: [
         (
           'Resumo',
-          'O Cineus não exige conta e não possui backend próprio para sincronizar seu jogo. O progresso é mantido localmente no dispositivo.',
+          'O Cineus não exige cadastro para jogar. O progresso fica no dispositivo. Versões com serviço comercial configurado usam um identificador técnico para verificar compras e recompensas; isso não sincroniza partidas entre aparelhos.',
         ),
         (
           'Dados locais',
-          'Partidas, tickets, conquistas, preferências, idioma, lembretes e demais estados do jogo são armazenados localmente. O reparo do banco pode criar uma cópia de recuperação dentro do sandbox do aplicativo.',
+          'Partidas, tickets, conquistas, preferências, idioma, lembretes e demais estados do jogo são armazenados localmente, incluindo um histórico recente de movimentações de tickets. O nome opcional de exibição, a preferência de visibilidade e os itens da coleção também ficam no dispositivo, sem criar uma conta ou sincronização. Versões com diagnóstico local habilitado também registram eventos limitados de uso, sem envio automático ou registro de palpites, nomes de jogadores e comprovantes de compra. O reparo do banco pode criar uma cópia de recuperação dentro do sandbox do aplicativo.',
+        ),
+        (
+          'Compras e recompensas',
+          'Quando habilitado, o serviço comercial recebe identificadores técnicos, comprovantes de compra e confirmações de recompensa. Ele consulta as lojas, mantém registros de concessão e revogação e guarda comprovantes criptografados para reconciliação. Credenciais de recuperação ficam no armazenamento protegido do sistema. No fluxo comercial normal, nome de exibição e palpites não são enviados; o backup opcional descrito abaixo inclui o histórico de jogo. Sem configuração desse serviço, o aplicativo não faz essas conexões. O servidor processa o endereço de rede para limitar abusos, sem incluí-lo em seus registros de auditoria. Desinstalar não apaga registros comerciais no servidor; solicite suporte para tratar esses dados e não publique credenciais ou comprovantes em chamados públicos.',
         ),
         (
           'Notificações',
@@ -90,7 +132,7 @@ class ReleaseLegalL10n {
         ),
         (
           'Compartilhamento e links',
-          'Ao compartilhar um desafio, o Cineus entrega o texto/código à folha de compartilhamento do sistema. O serviço que você escolher para enviar esse conteúdo possui sua própria política de privacidade.',
+          'Ao compartilhar um desafio, o Cineus entrega o texto/código à folha de compartilhamento do sistema. Cartões de resultado podem incluir o pôster, o nome opcional e o avatar quando sua visibilidade estiver ativada; você confere a imagem antes de enviá-la. O serviço que você escolher para enviar esse conteúdo possui sua própria política de privacidade.',
         ),
         (
           'Dados de filmes',
@@ -137,7 +179,7 @@ class ReleaseLegalL10n {
     termsLabel: 'Terms of Use',
     aboutTitle: 'About & credits',
     appSummary:
-        'An offline-first movie guessing game with Clues and Poster modes.',
+        'A memory game with Clues, Poster and Colors modes, stages and daily challenges.',
     dataCreditsTitle: 'Data & credits',
     tmdbExplanation:
         'Some movie metadata and images used to prepare the Cineus catalogue originate from The Movie Database (TMDB).',
@@ -145,15 +187,19 @@ class ReleaseLegalL10n {
     contact: 'Support and contact: github.com/GHPXD/Cineus/issues',
     privacy: LegalDocumentCopy(
       title: 'Privacy Policy',
-      effectiveDate: 'Effective September 11, 2026',
+      effectiveDate: 'Effective September 11, 2026. Updated October 15, 2026',
       sections: [
         (
           'Summary',
-          'Cineus does not require an account and does not operate its own backend to synchronize your game. Progress is kept locally on the device.',
+          'Cineus does not require registration to play. Progress stays on the device. Builds with a configured commerce service use a technical identifier to verify purchases and rewards; this does not synchronize games across devices.',
         ),
         (
           'Local data',
-          'Games, tickets, achievements, preferences, language, reminder settings and other game state are stored locally. Database repair may create a recovery copy inside the app sandbox.',
+          'Games, tickets, achievements, preferences, language, reminder settings and other game state are stored locally, including recent ticket movements. The optional display name, visibility preference and collection items also stay on the device, without creating an account or synchronization. Builds with local diagnostics enabled also record limited usage events, without automatic transmission or recording guesses, player names or purchase receipts. Database repair may create a recovery copy inside the app sandbox.',
+        ),
+        (
+          'Purchases and rewards',
+          'When enabled, the commerce service receives technical identifiers, purchase proofs and reward confirmations. It queries the stores, keeps grant and revocation records and stores encrypted proofs for reconciliation. Recovery credentials stay in protected system storage. Normal commerce operations do not send display names or guesses; the optional backup described below includes gameplay history. Without service configuration, the app makes none of these connections. The server processes the network address to limit abuse without including it in audit records. Uninstalling does not erase server commerce records; contact support about those records and do not post credentials or purchase proofs in public issues.',
         ),
         (
           'Notifications',
@@ -161,7 +207,7 @@ class ReleaseLegalL10n {
         ),
         (
           'Sharing and links',
-          'When you share a challenge, Cineus hands the text/code to the operating system share sheet. The service you choose to send it through has its own privacy policy.',
+          'When you share a challenge, Cineus hands the text/code to the operating system share sheet. Result cards may include the poster, optional name and avatar when visibility is enabled; you can review the image before sending it. The service you choose to send it through has its own privacy policy.',
         ),
         (
           'Movie data',
@@ -208,7 +254,7 @@ class ReleaseLegalL10n {
     termsLabel: 'Términos de Uso',
     aboutTitle: 'Acerca de y créditos',
     appSummary:
-        'Juego de adivinanzas de películas, offline-first, con modos Pistas y Póster.',
+        'Juego de memoria con Pistas, Póster y Colores, etapas y desafíos diarios.',
     dataCreditsTitle: 'Datos y créditos',
     tmdbExplanation:
         'Parte de los metadatos e imágenes utilizados para preparar el catálogo de Cineus provienen de The Movie Database (TMDB).',
@@ -216,15 +262,20 @@ class ReleaseLegalL10n {
     contact: 'Soporte y contacto: github.com/GHPXD/Cineus/issues',
     privacy: LegalDocumentCopy(
       title: 'Política de Privacidad',
-      effectiveDate: 'Vigente desde el 11 de septiembre de 2026',
+      effectiveDate:
+          'Vigente desde el 11 de septiembre de 2026. Actualizada el 15 de octubre de 2026',
       sections: [
         (
           'Resumen',
-          'Cineus no requiere una cuenta y no opera un backend propio para sincronizar tu juego. El progreso se mantiene localmente en el dispositivo.',
+          'Cineus no requiere registro para jugar. El progreso permanece en el dispositivo. Las versiones con servicio comercial configurado usan un identificador técnico para verificar compras y recompensas; esto no sincroniza partidas entre dispositivos.',
         ),
         (
           'Datos locales',
-          'Partidas, tickets, logros, preferencias, idioma, recordatorios y otros estados del juego se almacenan localmente. La reparación de la base puede crear una copia de recuperación dentro del sandbox de la aplicación.',
+          'Partidas, tickets, logros, preferencias, idioma, recordatorios y otros estados del juego se almacenan localmente, incluido un historial reciente de movimientos de tickets. El nombre opcional, la preferencia de visibilidad y los elementos de la colección también permanecen en el dispositivo, sin crear una cuenta ni sincronización. Las versiones con diagnóstico local habilitado también registran eventos limitados de uso, sin envío automático ni registro de intentos, nombres de jugadores o comprobantes de compra. La reparación de la base puede crear una copia de recuperación dentro del sandbox de la aplicación.',
+        ),
+        (
+          'Compras y recompensas',
+          'Cuando está habilitado, el servicio comercial recibe identificadores técnicos, comprobantes de compra y confirmaciones de recompensa. Consulta las tiendas, conserva registros de concesión y revocación y guarda comprobantes cifrados para conciliación. Las credenciales de recuperación permanecen en el almacenamiento protegido del sistema. No se envían nombres ni intentos. Sin configurar este servicio, la aplicación no realiza estas conexiones. El servidor procesa la dirección de red para limitar abusos sin incluirla en sus registros de auditoría. Desinstalar no elimina los registros comerciales del servidor; solicita soporte para tratarlos y no publiques credenciales ni comprobantes en consultas públicas.',
         ),
         (
           'Notificaciones',
@@ -232,7 +283,7 @@ class ReleaseLegalL10n {
         ),
         (
           'Compartir y enlaces',
-          'Al compartir un desafío, Cineus entrega el texto/código al panel de compartir del sistema. El servicio elegido para enviarlo tiene su propia política de privacidad.',
+          'Al compartir un desafío, Cineus entrega el texto/código al panel de compartir del sistema. Las tarjetas pueden incluir el póster, el nombre opcional y el avatar si su visibilidad está activada; puedes revisar la imagen antes de enviarla. El servicio elegido para enviarlo tiene su propia política de privacidad.',
         ),
         (
           'Datos de películas',

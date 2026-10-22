@@ -1,0 +1,27 @@
+{
+  "id": "warning",
+  "kind": "icon",
+  "subject": "an elegant rounded warning triangle with a strong central exclamation cutout",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: an elegant rounded warning triangle with a strong central exclamation cutout.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-618e8089-dbfd-4f98-af69-85cb9be629d4.png",
+  "source": "assets/generated/sources/warning.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/warning.svg",
+  "source_sha256": "735dd3647e271fcffcdb4ab551356eaa0ef5ce1d4d5cb5a90b60d7da835d70b2",
+  "svg_sha256": "2fbe0c4493f27c33e898a7aa61230f66d17f503da8bb9b068d00f103acc66a4f",
+  "paths": 3,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/warning_ink.svg",
+  "ink_sha256": "27c33ef2b90223dcb9843dd76d807dd9309d2c88b1f5d67ff5bbab9b1708b72a"
+}

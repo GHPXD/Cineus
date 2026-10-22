@@ -37,7 +37,8 @@ class PlayInsights {
   bool get isEmpty => byGenre.isEmpty && byDecade.isEmpty;
 
   /// Genre with the best win rate among those played at least [minPlayed] times.
-  InsightBucket? bestGenre({int minPlayed = 3}) => _extreme(minPlayed, best: true);
+  InsightBucket? bestGenre({int minPlayed = 3}) =>
+      _extreme(minPlayed, best: true);
 
   /// Genre with the worst win rate among those played at least [minPlayed] times.
   InsightBucket? worstGenre({int minPlayed = 3}) =>
@@ -46,9 +47,11 @@ class PlayInsights {
   InsightBucket? _extreme(int minPlayed, {required bool best}) {
     final eligible = byGenre.where((b) => b.played >= minPlayed).toList();
     if (eligible.isEmpty) return null;
-    eligible.sort((a, b) => best
-        ? b.winRate.compareTo(a.winRate)
-        : a.winRate.compareTo(b.winRate));
+    eligible.sort(
+      (a, b) => best
+          ? b.winRate.compareTo(a.winRate)
+          : a.winRate.compareTo(b.winRate),
+    );
     return eligible.first;
   }
 
@@ -81,18 +84,16 @@ class PlayInsights {
       }
     }
 
-    final genres = genreStats.entries
-        .map((e) => e.value.toBucket(e.key))
-        .toList()
-      ..sort((a, b) {
-        final byPlayed = b.played.compareTo(a.played);
-        return byPlayed != 0 ? byPlayed : a.label.compareTo(b.label);
-      });
+    final genres =
+        genreStats.entries.map((e) => e.value.toBucket(e.key)).toList()
+          ..sort((a, b) {
+            final byPlayed = b.played.compareTo(a.played);
+            return byPlayed != 0 ? byPlayed : a.label.compareTo(b.label);
+          });
 
-    final decades = decadeStats.entries
-        .map((e) => e.value.toBucket('${e.key}s'))
-        .toList()
-      ..sort((a, b) => b.label.compareTo(a.label));
+    final decades =
+        decadeStats.entries.map((e) => e.value.toBucket('${e.key}s')).toList()
+          ..sort((a, b) => b.label.compareTo(a.label));
 
     return PlayInsights(byGenre: genres, byDecade: decades);
   }
@@ -112,9 +113,9 @@ class _Tally {
   }
 
   InsightBucket toBucket(String label) => InsightBucket(
-        label: label,
-        played: played,
-        won: won,
-        averageScore: won == 0 ? 0 : scoreSum / won,
-      );
+    label: label,
+    played: played,
+    won: won,
+    averageScore: won == 0 ? 0 : scoreSum / won,
+  );
 }

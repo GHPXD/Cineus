@@ -11,6 +11,7 @@ class PosterStageDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenericStageDetailScreen(
+      key: ValueKey('poster-stage-$stageId'),
       stageId: stageId,
       config: const StageDetailConfig(
         mode: GameMode.poster,

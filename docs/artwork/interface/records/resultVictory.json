@@ -1,0 +1,27 @@
+{
+  "id": "resultVictory",
+  "kind": "icon",
+  "subject": "an elegant celebratory cinema award cup with a gold laurel pair and deep blue pedestal, strong big silhouette",
+  "prompt": "Use case: logo-brand. Create ONE original illustrated icon from scratch for the Cineus mobile cinema game. Coherent boutique-cinema identity: bold carefully designed objects, expressive memorable proportions, sophisticated not childish, readable at 20 pixels. Restrained flat warm gold #EFC026, periwinkle blue #5790FF, warm ivory #F4F3E8, optional deep blue for an overlap, at most 4 discrete colours. Strong generous silhouette, clean edges, large negative spaces, very few meaningful interior details. Premium editorial graphic illustration, flat 2D with depth from overlapping flat shapes only. NOT a generic thin outline icon, NOT emoji or stock library, no glossy 3D, gradients, shadows, texture, distress, speckles, sparkles, text, numerals, letters or watermark. Genuinely transparent background. One centred icon, 10% empty padding on each side, square high-resolution canvas. Vector-tracing friendly solid regions. Subject: an elegant celebratory cinema award cup with a gold laurel pair and deep blue pedestal, strong big silhouette.",
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-fe848440-d08a-4cc6-93f0-23dc350e3407.png",
+  "source": "assets/generated/sources/resultVictory.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/resultVictory.svg",
+  "source_sha256": "30ff374d70c98b89565a017f3afd91ee5f902f0fec856eb2d57e07936ac80d8d",
+  "svg_sha256": "0956c8bb13a42201055894df73b910b4c99fa7cda2a147f4e7fca68129a50664",
+  "paths": 38,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    512,
+    512
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/resultVictory_ink.svg",
+  "ink_sha256": "f2bcc07c25d53d490dd341efc591d910b421bbc81d17cfbc3560091bc20be8c1"
+}

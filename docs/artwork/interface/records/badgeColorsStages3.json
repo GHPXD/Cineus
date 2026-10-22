@@ -1,0 +1,27 @@
+{
+  "id": "badgeColorsStages3",
+  "kind": "icon",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-153a1784-b0a3-4048-9631-db00d16628a7.png",
+  "prompt": "Use case: logo-brand. Create one standalone achievement badge for Cineus mobile cinema game. Subject: three small ascending blue stage platforms topped by a gold artist palette trophy. Unified illustrated game icon family: bold clear silhouette, charming polished shapes, moderately dimensional but vector-friendly flat color regions, gold #EFC026, bright blue #5790FF, ivory #F4F3E8 and deeper blue #2D54AA. Transparent background, centered full object, large safe margin, no enclosing square tile, no text, no letters, no numbers, no emoji, no watermark, no gradients fading to a background, readable at 48px.",
+  "subject": "three small ascending blue stage platforms topped by a gold artist palette trophy",
+  "generator": "built-in image_gen / GPT Image",
+  "source": "assets/generated/sources/badgeColorsStages3.png",
+  "style": "illustrated gold blue ivory",
+  "svg": "assets/generated/icons/badgeColorsStages3.svg",
+  "source_sha256": "afffaa27d2df80302753963739c77948f625a622acce23533cf6eaff807a7071",
+  "svg_sha256": "fbd5f430d325ff174cc0f776784f747b113f1ed1c284c380cbe63186d8026626",
+  "paths": 33,
+  "source_size": [
+    1262,
+    1246
+  ],
+  "trace_size": [
+    512,
+    506
+  ],
+  "converter": "vtracer 0.6.15; selected gold/blue/ivory palette plus blue overlap; alpha threshold 128",
+  "conversion_version": 5,
+  "status": "converted",
+  "ink_svg": "assets/generated/icons/badgeColorsStages3_ink.svg",
+  "ink_sha256": "1dd0bb9ba2df6cec4808aee0608706384f53e94fab4d583c8b590df252419e52"
+}

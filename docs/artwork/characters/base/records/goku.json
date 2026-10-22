@@ -1,0 +1,58 @@
+{
+  "id": "goku",
+  "kind": "character",
+  "generator": "built-in image_gen / GPT Image",
+  "prompt": "Edit the provided Goku sprite for the mobile recolouring game. Preserve character, entire pose, proportions, clothing seams, outlines, face, all transparency and framing. Replace ONLY the flat fill colours as follows: outer gi and pants flat magenta #FF00FF; undershirt flat cyan #00FFFF (leave belt, boots and wristbands navy); hair flat lime #00FF00 (keep eyebrows and pupils black); all visible skin flat orange #FFA500; tongue flat purple #8000FF. These are technical segmentation markers, not final display colours. Remove gradients from those regions. All other pixels/features unchanged. No new shapes, text or scenery.",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-caba0588-d001-44f6-925f-882891fbe477.png",
+  "editing_input": "assets/colors/sources/goku.png",
+  "editing_input_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-24909b47-cd4d-412d-9f91-07a644115afb.png",
+  "editing_input_prompt": "A cheerful full-body illustration of adult Goku from Dragon Ball Z, standing in his orange Turtle School martial arts uniform, navy blue undershirt, blue wristbands, belt and boots, large black spiky hair, smiling with visible tongue. Clean flat 2D cartoon artwork for a mobile memory game, bold dark outlines, solid colour fills, no gradients or shading. No text or lettering on the uniform, no scenery, no other characters, no weapon. Entire character visible with 10% margin on a genuinely transparent square background.",
+  "source": "assets/colors/sources/goku-segmented.png",
+  "status": "converted",
+  "palette_mode": "markers",
+  "source_sha256": "4abfba145bf500611fc479d010a9e56f250f54ff2202772334b654d11053c4f6",
+  "converter": "VTracer 0.6.15; generated-marker or source-pixel semantic colour extraction; 640px; no authored shapes",
+  "conversion_version": 2,
+  "source_size": [
+    1254,
+    1254
+  ],
+  "trace_size": [
+    640,
+    640
+  ],
+  "region_pixels": [
+    42604,
+    3554,
+    9762,
+    13852,
+    1595
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/goku_base.svg",
+      "sha256": "691a76904160e35e401aa1b51906efedebd5cd1659f4a74cf71614adeabcd949"
+    },
+    {
+      "file": "assets/colors/art/goku_p0.svg",
+      "sha256": "1f5c3468aeaae789c0f7ba65403192de4dadc20598955c6fd8b2066f14cfb36a"
+    },
+    {
+      "file": "assets/colors/art/goku_p1.svg",
+      "sha256": "cf674cbbb91ce609ca58d00976c1e424f0a3fa8b57d82db245b80c56603da140"
+    },
+    {
+      "file": "assets/colors/art/goku_p2.svg",
+      "sha256": "5134cf47390bd7fa098a60af7030961b813fa62431ffc2fb0d3a0fd4c9c1ca4a"
+    },
+    {
+      "file": "assets/colors/art/goku_p3.svg",
+      "sha256": "480bb173f401296a6c65a89ae098eb4bc5bf7591529d2f651d5fda7e70ad0a8e"
+    },
+    {
+      "file": "assets/colors/art/goku_p4.svg",
+      "sha256": "a8d76d372265a2d57a4b507af6dd11ddbcb8936736db6c2f9fc28d43d6a5e2b6"
+    }
+  ],
+  "editing_input_sha256": "24ac1f7f6acd2c35e98fa57bd39f8170b42760b7635df15c65cccfa63fb485a1"
+}

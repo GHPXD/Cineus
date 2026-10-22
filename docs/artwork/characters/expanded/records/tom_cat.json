@@ -1,0 +1,34 @@
+{
+  "id": "tom_cat",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/tom_cat.png",
+  "source_sha256": "1074dca72663dc4d9c04dca87ab1624d1b9ba6e4eac7f2840b0da035e8028bb2",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    418,
+    640
+  ],
+  "region_pixels": [
+    51704
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/tom_cat_base.svg",
+      "sha256": "242ddbf8dc730d46166d3ce928a33c05d46f2ee2175c69485d69b43a0a721c11"
+    },
+    {
+      "file": "assets/colors/art/tom_cat_p0.svg",
+      "sha256": "b81fd6743b499542d81df16f7b71ad90c5d16835d8eae00a7bd5598d292cb967"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-096baa52-eadb-45ad-8097-e37f66768fbf.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Tom, classic gray-blue cartoon cat with cream muzzle and belly, green eyes, pink inner ears, white paws. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the grey fur in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

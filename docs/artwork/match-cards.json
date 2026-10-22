@@ -1,0 +1,24 @@
+[
+  {
+    "id": "clue_match",
+    "kind": "background",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-2ceb6a8d-37e0-443f-8c4f-1672cbc14252.png",
+    "prompt": "Use case: stylized-concept. Create a square mobile cinema-game card background for Cineus. Subject: an elegant cinematic still life of a deep navy director clapperboard, a short curled strip of film and golden projector light, lower right, no letters or labels. Palette: near-black navy, rich dark blue, warm golden highlights and a little ivory. Polished painterly cinematic illustration, quiet mystery, subtle texture. Most of the upper-left and center must remain very dark and empty for foreground text/buttons; objects occupy lower-right 40 percent, no bright central spotlight. Full-bleed opaque image. No text, no logos, no UI, no characters.",
+    "subject": "an elegant cinematic still life of a deep navy director clapperboard, a short curled strip of film and golden projector light, lower right, no letters or labels",
+    "generator": "built-in image_gen / GPT Image",
+    "source": "assets/match_cards/clue_match.png",
+    "style": "illustrated gold blue ivory",
+    "source_sha256": "81a40bc6b74b4d63e93c9aff9849ddb39c42c42fc19e3820aa41d5c812fea58b"
+  },
+  {
+    "id": "poster_match",
+    "kind": "background",
+    "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-c05065da-f1d9-4a1d-b8dc-ab785c623e60.png",
+    "prompt": "Use case: stylized-concept. Create a square mobile cinema-game card background for Cineus. Subject: three anonymous blank cinema poster frames with abstract blue and gold blurred light, layered on a dark velvet studio floor, lower right; no characters, movie art, lettering or identifiable franchise. Palette: near-black navy, rich dark blue, warm golden highlights and a little ivory. Polished painterly cinematic illustration, quiet mystery, subtle texture. Most of the upper-left and center must remain very dark and empty for foreground text/buttons; objects occupy lower-right 40 percent, no bright central spotlight. Full-bleed opaque image. No text, no logos, no UI, no characters.",
+    "subject": "three anonymous blank cinema poster frames with abstract blue and gold blurred light, layered on a dark velvet studio floor, lower right; no characters, movie art, lettering or identifiable franchise",
+    "generator": "built-in image_gen / GPT Image",
+    "source": "assets/match_cards/poster_match.png",
+    "style": "illustrated gold blue ivory",
+    "source_sha256": "a0a03a136ba5fb04271c2d3cd69c8391a3d0e287f4cabd3b60fed76ac3fa2f52"
+  }
+]

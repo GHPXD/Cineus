@@ -1,0 +1,34 @@
+{
+  "id": "ord_dragon",
+  "kind": "character",
+  "status": "converted",
+  "source": "assets/colors/sources/ord_dragon.png",
+  "source_sha256": "391f7ae325a3cb8278b9afaa12bd401544780d22a44f85fbd90c37ff504c1af5",
+  "converter": "VTracer 0.6.15; generated marker at 640px or detailed existing colour pixels at 960px; original flat ink traced separately to preserve pupils, mouths and contours; no authored shapes",
+  "conversion_version": 7,
+  "source_size": [
+    1024,
+    1536
+  ],
+  "trace_size": [
+    439,
+    640
+  ],
+  "region_pixels": [
+    72983
+  ],
+  "files": [
+    {
+      "file": "assets/colors/art/ord_dragon_base.svg",
+      "sha256": "385fee38a6d01ba1a0b4a25738ca87c12783dbca5eb25cad9b5f3434e154f69d"
+    },
+    {
+      "file": "assets/colors/art/ord_dragon_p0.svg",
+      "sha256": "844926c40a9a9051d6b154e863d3be3fcc8de999f87be6a99c18d8237b73b27d"
+    }
+  ],
+  "generator": "built-in image_gen / GPT Image",
+  "generated_original": "C:\\Users\\GHPXD\\.codex\\generated_images\\01a12dd4-c53f-7520-8dfd-8625589130d2\\exec-71a6df28-ea66-4612-9b89-ad0016ed81fc.png",
+  "prompt": "Use case: illustration-story. Asset type: one full-body transparent cartoon sprite for the Cineus recolouring memory game. Subject: recognisable Ord, friendly plump teal-blue dragon with yellow belly and small purple wings and purple head spikes, round snout. One character only, full body visible, neutral standing pose, generous 10 percent transparent padding. Style: clean polished flat 2D cartoon with bold dark outlines and simple solid fills, no gradients, shading, scenery or ground shadow. Technical segmentation: fill ONLY the body in perfectly solid magenta #FF00FF; preserve dark outlines and any stripes, buttons, cuffs or trim. This is a temporary machine-readable mask marker automatically replaced by the app. All other parts retain normal character colours; no other magenta or purple. Actual transparent background. No text, letters, watermark, logo, colour chart, UI or extra accessories.",
+  "palette_mode": "single-marker"
+}

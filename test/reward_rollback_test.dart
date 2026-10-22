@@ -20,22 +20,28 @@ void main() {
 
   tearDown(() async => db.close());
 
-  test('revoke desfaz claim sem crédito e mantém recompensa recuperável', () async {
-    const reward = TicketReward(
-      key: 'rollback_reward',
-      amount: 2,
-      kind: RewardKind.dailyWin,
-    );
+  test(
+    'revoke desfaz claim sem crédito e mantém recompensa recuperável',
+    () async {
+      const reward = TicketReward(
+        key: 'rollback_reward',
+        amount: 2,
+        kind: RewardKind.dailyWin,
+      );
 
-    expect(await rewards.claim(reward), isTrue);
-    expect(await rewards.totalEarned(), 2);
-    expect(await rewards.claimedKeys(), contains(reward.key));
+      expect(await rewards.claim(reward), isTrue);
+      expect(await rewards.totalEarned(), 2);
+      expect(await rewards.claimedKeys(), contains(reward.key));
 
-    await rewards.revoke(reward.key);
+      await rewards.revoke(reward.key);
 
-    expect(await rewards.totalEarned(), 0);
-    expect(await rewards.claimedKeys(), isNot(contains(reward.key)));
-    expect(await rewards.claim(reward), isTrue,
-        reason: 'o bônus precisa poder ser tentado novamente após rollback');
-  });
+      expect(await rewards.totalEarned(), 0);
+      expect(await rewards.claimedKeys(), isNot(contains(reward.key)));
+      expect(
+        await rewards.claim(reward),
+        isTrue,
+        reason: 'o bônus precisa poder ser tentado novamente após rollback',
+      );
+    },
+  );
 }
